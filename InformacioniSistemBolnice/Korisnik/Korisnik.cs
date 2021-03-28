@@ -37,4 +37,5 @@ public class Korisnik
         this.adresaStanovanja = adresaStanovanja;
         this.isDeleted = isDeleted;
     }
+
 }

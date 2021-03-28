@@ -65,11 +65,17 @@
     <Compile Include="Pacijent\PacijentWindow.xaml.cs">
       <DependentUpon>PacijentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sekretar_ns\DodavanjePacijenta.xaml.cs">
+      <DependentUpon>DodavanjePacijenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\IzmenaPacijenta.xaml.cs">
+      <DependentUpon>IzmenaPacijenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Upravnik\Prostorija.cs" />
     <Compile Include="FileStorage\ProstorijaFileStorage.cs" />
-    <Compile Include="Sekretar\Sekretar.cs" />
+    <Compile Include="Sekretar_ns\Sekretar.cs" />
     <Compile Include="FileStorage\SekretarFileStorage.cs" />
-    <Compile Include="Sekretar\SekretarWindow.xaml.cs">
+    <Compile Include="Sekretar_ns\SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Termin\StatusTermina.cs" />
@@ -110,7 +116,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar\SekretarWindow.xaml">
+    <Page Include="Sekretar_ns\DodavanjePacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\IzmenaPacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\SekretarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

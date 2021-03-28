@@ -31,7 +31,7 @@ public class SekretarFileStorage
         return sekretari;
     }
    
-   public Sekretar GetOne(string korisnickoIme)
+   public static Sekretar GetOne(string korisnickoIme)
    {
         List<Sekretar> sekretari = GetAll();
         foreach (Sekretar s in sekretari)
@@ -42,7 +42,7 @@ public class SekretarFileStorage
         return null;
     }
    
-   public Boolean RemoveSekretar(string korisnickoIme)
+   public static Boolean RemoveSekretar(string korisnickoIme)
    {
         List<Sekretar> sekretari = GetAll();
         foreach (Sekretar s in sekretari)
@@ -57,7 +57,7 @@ public class SekretarFileStorage
         return false;
     }
    
-   public Boolean AddSekretar(Sekretar noviSekretar)
+   public static Boolean AddSekretar(Sekretar noviSekretar)
    {
         List<Sekretar> sekretari = GetAll();
         sekretari.Add(noviSekretar);
@@ -65,7 +65,7 @@ public class SekretarFileStorage
         return true;
     }
    
-   public Boolean UpdateSekretar(string korisnickoIme, Sekretar noviSekretar)
+   public static Boolean UpdateSekretar(string korisnickoIme, Sekretar noviSekretar)
    {
         List<Sekretar> sekretari = GetAll();
         foreach (Sekretar s in sekretari)

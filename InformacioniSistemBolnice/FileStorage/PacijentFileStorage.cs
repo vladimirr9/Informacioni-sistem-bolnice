@@ -38,7 +38,7 @@ public class PacijentFileStorage
         foreach (Pacijent p in pacijenti)
         {
             if (p.korisnickoIme.Equals(korisnickoIme))
-                return p;
+                return pacijenti[pacijenti.IndexOf(p)];
         }
         return null;
     }

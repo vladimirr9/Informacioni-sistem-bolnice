@@ -7,8 +7,8 @@ using System;
 
 public class MestoStanovanja
 {
-    private String naziv;
-    private String postanskiBroj;
+    public String naziv { get; set; }
+    public String postanskiBroj { get; set; }
 
     public DrzavaStanovanja drzavaStanovanja;
 
@@ -17,5 +17,10 @@ public class MestoStanovanja
         this.naziv = naziv;
         this.postanskiBroj = postanskiBroj;
         this.drzavaStanovanja = drzavaStanovanja;
+    }
+
+    public override string ToString()
+    {
+        return naziv + ", " + drzavaStanovanja.ToString();
     }
 }

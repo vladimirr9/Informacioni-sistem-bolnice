@@ -74,9 +74,10 @@ public class Pacijent : Korisnik
             tmpTermin.Clear();
         }
     }
+
+    
+
     public ZdravstveniKarton zdravstveniKarton;
-
-
 
 
     public Pacijent(
@@ -97,4 +98,5 @@ public class Pacijent : Korisnik
         Termin = termin;
         this.zdravstveniKarton = zdravstveniKarton;
     }
+
 }

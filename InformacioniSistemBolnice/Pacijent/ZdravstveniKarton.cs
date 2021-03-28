@@ -16,4 +16,8 @@ public class ZdravstveniKarton
         this.brojZdravstvenogKartona = brojZdravstvenogKartona;
         this.pacijent = pacijent;
     }
+    public ZdravstveniKarton()
+    {
+
+    }
 }

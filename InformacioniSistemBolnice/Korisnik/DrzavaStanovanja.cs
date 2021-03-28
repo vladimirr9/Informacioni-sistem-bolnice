@@ -7,10 +7,15 @@ using System;
 
 public class DrzavaStanovanja
 {
-    private String naziv;
+    public String naziv { get; set; }
 
     public DrzavaStanovanja(string naziv)
     {
         this.naziv = naziv;
+    }
+
+    public override string ToString()
+    {
+        return naziv;
     }
 }

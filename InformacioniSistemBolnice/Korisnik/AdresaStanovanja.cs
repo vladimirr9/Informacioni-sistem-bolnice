@@ -7,13 +7,18 @@ using System;
 
 public class AdresaStanovanja
 {
-    private String ulicaIBroj;
+    public String ulicaIBroj { get; set; }
 
-    public MestoStanovanja mestoStanovanja;
+    public MestoStanovanja mestoStanovanja { get; set; }
 
     public AdresaStanovanja(string ulicaIBroj, MestoStanovanja mestoStanovanja)
     {
         this.ulicaIBroj = ulicaIBroj;
         this.mestoStanovanja = mestoStanovanja;
+    }
+
+    public override string ToString()
+    {
+        return ulicaIBroj + ", " + mestoStanovanja.ToString();
     }
 }
