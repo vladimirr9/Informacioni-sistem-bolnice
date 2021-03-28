@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -49,6 +50,18 @@ namespace InformacioniSistemBolnice
                     SekretarWindow sw = new SekretarWindow();
                     Application.Current.MainWindow = sw;
                     sw.Show();
+                    this.Close();
+                    return;
+                }
+            }
+            List<global::Lekar> lekari = LekarFileStorage.GetAll();
+            foreach (global::Lekar l in lekari)
+            {
+                if (ime.Text.Equals(l.korisnickoIme) && lozinka.Password.Equals(l.lozinka))
+                {
+                    LekarWindow lw = new LekarWindow();
+                    Application.Current.MainWindow = lw;
+                    lw.Show();
                     this.Close();
                     return;
                 }

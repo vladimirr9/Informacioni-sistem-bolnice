@@ -23,35 +23,48 @@ namespace InformacioniSistemBolnice
         public LekarWindow()
         {
             InitializeComponent();
-            List<Termin> termini = new List<Termin>();
-            foreach (var termin in termini)
-            {
-
-                PrikazPregleda.Items.Add(termin);
-            }
+            updateTable();
         }
 
+        //dodavanje
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LekarDodajTerminWindow dodajWin = new LekarDodajTerminWindow();
+            LekarDodajTerminWindow dodajWin = new LekarDodajTerminWindow(this);
             Application.Current.MainWindow = dodajWin;
             dodajWin.Show();
         }
 
+        //izmena
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            LekarIzmeniTerminWindow izmeniWin = new LekarIzmeniTerminWindow();    //poslati selektovani termin
-            Application.Current.MainWindow = izmeniWin;
-            izmeniWin.Show();
+            if(PrikazPregleda.SelectedItem != null)
+            {
+                Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
+                LekarIzmeniTerminWindow izmeniWin = new LekarIzmeniTerminWindow(termin, this);
+                Application.Current.MainWindow = izmeniWin;
+                izmeniWin.Show();
+            }  
         }
 
+        //brisanje
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             if (PrikazPregleda.SelectedItem != null)
             {
-                //TerminFileStorage.RemoveTermin(PrikazPregleda.SelectedItem.iDTermina);
-                //PrikazPregleda.Items.Remove(PrikazPregleda.SelectedItem);
+                TerminFileStorage.RemoveTermin(((Termin)PrikazPregleda.SelectedItem).iDTermina);
+                updateTable();
             }
+        }
+
+        public void updateTable()
+        {
+            PrikazPregleda.Items.Clear();
+            List<Termin> termini = TerminFileStorage.GetAll();
+                foreach (Termin termin in termini)
+                {
+                    if(termin.status == StatusTermina.zakazan)
+                        PrikazPregleda.Items.Add(termin);
+                }
         }
     }
 }

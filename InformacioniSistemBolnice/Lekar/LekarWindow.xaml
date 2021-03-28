@@ -5,22 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="LekarWindow" Height="450" Width="800">
+        Title="Lekar" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="PrikazPregleda"  HorizontalAlignment="Left" Height="207" Margin="95,75,0,0" VerticalAlignment="Top" Width="612">
-        <DataGrid.Resources>
-            <Style TargetType="{x:Type DataGridColumnHeader}"/>
-        </DataGrid.Resources>
+        <DataGrid x:Name="PrikazPregleda"  HorizontalAlignment="Left" Height="207" Margin="40,75,0,0" VerticalAlignment="Top" Width="718">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}"/>
+            </DataGrid.Resources>
 
-        <DataGrid.Columns>
-            <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="50"/>
-            <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="110"/>
-            <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="70"/>
-            <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="90"/>
-            <DataGridTextColumn Header="Status pregleda" Binding="{Binding Status}" Width="100"/>
-            <DataGridTextColumn Header="Pacijent" Binding="{Binding pacijent}" Width="80"/>
-            <DataGridTextColumn Header="Lekar" Binding="{Binding lekar}" Width="*"/>
-        </DataGrid.Columns>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="50"/>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="120"/>
+                <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="60"/>
+                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="140"/>
+                <DataGridTextColumn Header="Status pregleda" Binding="{Binding status}" Width="95"/>
+                <DataGridTextColumn Header="Pacijent" Width="120">
+                    <DataGridTextColumn.Binding>
+                    <MultiBinding StringFormat="{}{0} {1}">
+                        <Binding Path="Pacijent.ime"/>
+                        <Binding Path="Pacijent.prezime"/>
+                    </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Lekar" Width="*">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} {1}">
+                            <Binding Path="Lekar.ime"/>
+                            <Binding Path="Lekar.prezime"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
 
         </DataGrid>
         <Button Content="Dodaj termin" HorizontalAlignment="Left" Height="35" Margin="149,333,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click"/>
