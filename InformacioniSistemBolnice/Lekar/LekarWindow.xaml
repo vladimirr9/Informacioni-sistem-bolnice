@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="LekarWindow" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid x:Name="PrikazPregleda"  HorizontalAlignment="Left" Height="207" Margin="95,75,0,0" VerticalAlignment="Top" Width="612">
+        <DataGrid.Resources>
+            <Style TargetType="{x:Type DataGridColumnHeader}"/>
+        </DataGrid.Resources>
+
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="50"/>
+            <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="110"/>
+            <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="70"/>
+            <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="90"/>
+            <DataGridTextColumn Header="Status pregleda" Binding="{Binding Status}" Width="100"/>
+            <DataGridTextColumn Header="Pacijent" Binding="{Binding pacijent}" Width="80"/>
+            <DataGridTextColumn Header="Lekar" Binding="{Binding lekar}" Width="*"/>
+        </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Dodaj termin" HorizontalAlignment="Left" Height="35" Margin="149,333,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click"/>
+        <Button Content="Izmeni termin" HorizontalAlignment="Left" Height="35" Margin="340,333,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1"/>
+        <Button Content="Ukloni termin" HorizontalAlignment="Left" Height="35" Margin="535,333,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_2"/>
+
     </Grid>
 </Window>
