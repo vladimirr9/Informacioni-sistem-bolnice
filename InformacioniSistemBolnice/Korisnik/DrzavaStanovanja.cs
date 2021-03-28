@@ -7,6 +7,10 @@ using System;
 
 public class DrzavaStanovanja
 {
-   private String naziv;
+    private String naziv;
 
+    public DrzavaStanovanja(string naziv)
+    {
+        this.naziv = naziv;
+    }
 }

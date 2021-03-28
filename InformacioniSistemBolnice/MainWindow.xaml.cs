@@ -29,15 +29,26 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            String procitano = File.ReadAllText(@"pacijenti.json");
-            List<Pacijent> pacijenti = JsonConvert.DeserializeObject<List<Pacijent>>(procitano);
+            List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
             foreach (var pacijent in pacijenti)
             {
-                if (ime.Text == pacijent.korisnickoIme & lozinka.Password == pacijent.lozinka)
+                if (ime.Text.Equals(pacijent.korisnickoIme)  && lozinka.Password.Equals(pacijent.lozinka))
                 {
                     PacijentWindow p = new PacijentWindow();
                     Application.Current.MainWindow = p;
                     p.Show();
+                    this.Close();
+                    return;
+                }
+            }
+            List<Sekretar> sekretari = SekretarFileStorage.GetAll();
+            foreach (Sekretar s in sekretari)
+            {
+                if (ime.Text.Equals(s.korisnickoIme) && lozinka.Password.Equals(s.lozinka))
+                {
+                    SekretarWindow sw = new SekretarWindow();
+                    Application.Current.MainWindow = sw;
+                    sw.Show();
                     this.Close();
                     return;
                 }

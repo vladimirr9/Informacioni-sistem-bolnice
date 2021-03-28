@@ -7,8 +7,13 @@ using System;
 
 public class AdresaStanovanja
 {
-   private String ulicaIBroj;
-   
-   public MestoStanovanja mestoStanovanja;
+    private String ulicaIBroj;
 
+    public MestoStanovanja mestoStanovanja;
+
+    public AdresaStanovanja(string ulicaIBroj, MestoStanovanja mestoStanovanja)
+    {
+        this.ulicaIBroj = ulicaIBroj;
+        this.mestoStanovanja = mestoStanovanja;
+    }
 }

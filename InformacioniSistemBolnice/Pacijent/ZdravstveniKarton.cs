@@ -11,4 +11,9 @@ public class ZdravstveniKarton
    
    public Pacijent pacijent;
 
+    public ZdravstveniKarton(string brojZdravstvenogKartona, Pacijent pacijent)
+    {
+        this.brojZdravstvenogKartona = brojZdravstvenogKartona;
+        this.pacijent = pacijent;
+    }
 }

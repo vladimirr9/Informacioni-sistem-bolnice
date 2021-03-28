@@ -7,9 +7,15 @@ using System;
 
 public class MestoStanovanja
 {
-   private String naziv;
-   private String postanskiBroj;
-   
-   public DrzavaStanovanja drzavaStanovanja;
+    private String naziv;
+    private String postanskiBroj;
 
+    public DrzavaStanovanja drzavaStanovanja;
+
+    public MestoStanovanja(string naziv, string postanskiBroj, DrzavaStanovanja drzavaStanovanja)
+    {
+        this.naziv = naziv;
+        this.postanskiBroj = postanskiBroj;
+        this.drzavaStanovanja = drzavaStanovanja;
+    }
 }
