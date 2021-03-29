@@ -32,6 +32,7 @@ namespace InformacioniSistemBolnice
         private void Button_Click(object sender, RoutedEventArgs e) //potvrdi
         {
             global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            Pacijent p = parent.pacijent;
             
             if (time.SelectedIndex != -1)
             {  
@@ -41,7 +42,7 @@ namespace InformacioniSistemBolnice
                 DateTime dt = DateTime.Parse(d + " " + t);
                 TipTermina tipt = TipTermina.pregledKodLekaraOpstePrakse;
                 int id = TerminFileStorage.GetAll().Count + 1;
-                Termin termin = new Termin(id, dt, 15, tipt, StatusTermina.zakazan,null,l);
+                Termin termin = new Termin(id, dt, 15, tipt, StatusTermina.zakazan, p, l);
                 TerminFileStorage.AddTermin(termin);
                 parent.updateTable();
                 this.Close();

@@ -42,7 +42,7 @@ namespace InformacioniSistemBolnice
 
                     String ime = pacijent.korisnickoIme;
                             
-                            PacijentWindow p = new PacijentWindow();
+                            PacijentWindow p = new PacijentWindow(pacijent);
                             Application.Current.MainWindow = p;
                             p.Show();
                             this.Close();

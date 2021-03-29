@@ -1,0 +1,22 @@
+[
+  {
+    "ime": "Petar",
+    "prezime": "Petrovic",
+    "jmbg": "1234567890123",
+    "pol": "m",
+    "brojTelefona": "060/555-555",
+    "email": "petar@gmail.com",
+    "datumRodenja": "1985-09-05T00:00:00",
+    "korisnickoIme": "pera1",
+    "lozinka": "perica123",
+    "AdresaStanovanja": {
+      "ulicaIBroj": "Novosadska 2",
+      "mestoStanovanja": {
+        "naziv": "Novi Sad",
+        "postanskiBroj": "21000",
+        "drzavaStanovanja": { "naziv": "Srbija" }
+      }
+    },
+    "isDeleted": false
+  }
+]

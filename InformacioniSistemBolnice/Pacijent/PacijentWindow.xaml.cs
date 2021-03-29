@@ -19,8 +19,10 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class PacijentWindow : Window
     {
-        public PacijentWindow()
+        public Pacijent pacijent { get; set; }
+        public PacijentWindow(Pacijent pacijent)
         {
+            this.pacijent = pacijent;
             InitializeComponent();
             this.DataContext = this;
             

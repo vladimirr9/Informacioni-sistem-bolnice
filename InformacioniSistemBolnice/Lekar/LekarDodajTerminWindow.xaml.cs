@@ -29,8 +29,8 @@ namespace InformacioniSistemBolnice.Lekar
             lekar.ItemsSource = lekari;
             List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
             pacijent.ItemsSource = pacijenti;
-            //List<Prostorija> prostorije = ProstorijaFileStorage.GetAll();
-            //prostorija.ItemsSource = prostorije;
+            List<Prostorija> prostorije = ProstorijaFileStorage.GetAll();
+            prostorija.ItemsSource = prostorije;
         }
 
         //odustani

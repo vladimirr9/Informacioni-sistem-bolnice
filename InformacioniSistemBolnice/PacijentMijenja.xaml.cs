@@ -30,6 +30,8 @@ namespace InformacioniSistemBolnice
 
             List<global::Lekar> lekari = LekarFileStorage.GetAll();
             lekar.ItemsSource = lekari;
+            List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
+            pacijent.ItemsSource = pacijenti;
 
             foreach (global::Lekar l in lekari)
             {
@@ -37,15 +39,23 @@ namespace InformacioniSistemBolnice
                     lekar.SelectedItem = l;
             }
 
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.jmbg != null || p.jmbg == selektovan.pacijent.jmbg)
+                    pacijent.SelectedItem = p;
+            }
+
             date.SelectedDate = selektovan.datumZakazivanja;
             time.SelectedValue = selektovan.datumZakazivanja.ToString("HH:mm");
-            tip.SelectedIndex = (int)selektovan.tipTermina;
+            //tip.SelectedIndex = (int)selektovan.tipTermina;
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)//potvrda
         {
             global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            Pacijent p = parent.pacijent;
+
             if (time.SelectedIndex != -1)
             {
                 ComboBoxItem item = time.SelectedItem as ComboBoxItem;
@@ -53,7 +63,7 @@ namespace InformacioniSistemBolnice
                 String d = date.Text;
                 DateTime dt = DateTime.Parse(d + " " + t);
                 TipTermina tt = TipTermina.pregledKodLekaraOpstePrakse;
-                Termin termin = new Termin(selektovan.iDTermina, dt, 15, tt, StatusTermina.zakazan, null, l);
+                Termin termin = new Termin(selektovan.iDTermina, dt, 15, tt, StatusTermina.zakazan, p, l);
                 TerminFileStorage.UpdateTermin(selektovan.iDTermina, termin);
                 parent.updateTable();
                 this.Close();

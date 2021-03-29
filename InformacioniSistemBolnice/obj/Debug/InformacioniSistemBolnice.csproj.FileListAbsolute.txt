@@ -145,3 +145,7 @@ C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\De
 C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.g.cs
 C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentMijenja.baml
 C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentMijenja.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentMijenja.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.baml

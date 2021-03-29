@@ -23,8 +23,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Height="32" Margin="162,223,0,0" TextWrapping="Wrap" Text="Tip termina" VerticalAlignment="Top" Width="118" FontSize="22"/>
-       
+
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,138,0,0" TextWrapping="Wrap" Text="Datum" VerticalAlignment="Top" Width="118" FontSize="22"/>
         <DatePicker Name="date" HorizontalAlignment="Left" Height="32" Margin="333,138,0,0" VerticalAlignment="Top" Width="163"/>
         <ComboBox Name="time" SelectedValuePath="Content" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="517,138,0,0" Height="32">
