@@ -36,8 +36,19 @@ namespace InformacioniSistemBolnice.Lekar
 
             date.SelectedDate = selektovan.datumZakazivanja;
             time.SelectedValue = selektovan.datumZakazivanja.ToString("HH:mm");
-            lekar.SelectedValue = selektovan.Lekar;                                    //ne radi
-            pacijent.SelectedValue = selektovan.Pacijent;
+
+            foreach(global::Lekar l in lekari)
+            {
+                if (l.jmbg == selektovan.Lekar.jmbg)
+                    lekar.SelectedItem = l;
+            }
+
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.jmbg != null || p.jmbg == selektovan.pacijent.jmbg)
+                    pacijent.SelectedItem = p;
+            }
+
             tip.SelectedIndex = (int)selektovan.tipTermina;
         }
         //odustani

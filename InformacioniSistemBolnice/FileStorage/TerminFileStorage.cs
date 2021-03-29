@@ -59,7 +59,11 @@ public class TerminFileStorage
 
     private static void Save(List<Termin> termini)
     {
-        string upis = JsonConvert.SerializeObject(termini);
+        string upis = JsonConvert.SerializeObject(termini, Formatting.None,
+                        new JsonSerializerSettings()
+                        {
+                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                        });
         File.WriteAllText(putanja, upis);
     }
 
