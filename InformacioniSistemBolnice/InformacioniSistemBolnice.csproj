@@ -58,6 +58,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Lekar\LekarDodajTerminWindow.xaml.cs">
+      <DependentUpon>LekarDodajTerminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lekar\LekarIzmeniTerminWindow.xaml.cs">
+      <DependentUpon>LekarIzmeniTerminWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lekar\LekarWindow.xaml.cs">
       <DependentUpon>LekarWindow.xaml</DependentUpon>
     </Compile>
@@ -97,6 +103,14 @@
     </Compile>
     <Compile Include="FileStorage\ZdravstevniKartonFileStorage.cs" />
     <Compile Include="Pacijent\ZdravstveniKarton.cs" />
+    <Page Include="Lekar\LekarDodajTerminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lekar\LekarIzmeniTerminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lekar\LekarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

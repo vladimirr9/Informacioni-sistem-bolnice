@@ -7,7 +7,11 @@ using System;
 
 public class Lekar : Korisnik
 {
-   private TipLekara tipLekara;
-   private int iDLekara;
+    public TipLekara tipLekara { get; set; }
+    //private int iDLekara;
 
+    public Lekar(string ime, string prezime, string jmbg, char pol, string brojTelefona, string email, DateTime datumRodenja, string korisnickoIme, string lozinka, AdresaStanovanja adresaStanovanja, TipLekara tipLekara, bool isDeleted = false) : base(ime, prezime, jmbg, pol, brojTelefona, email, datumRodenja, korisnickoIme, lozinka, adresaStanovanja, isDeleted)
+    {
+        this.tipLekara = tipLekara;
+    }
 }

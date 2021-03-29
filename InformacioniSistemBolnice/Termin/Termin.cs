@@ -4,53 +4,72 @@
 // Purpose: Definition of Class Termin
 
 using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 public class Termin
 {
-   private int iDTermina;
-   private DateTime datumZakazivanja;
-   private int trajanjeUMinutima;
-   private TipTermina tipTermina;
-   private StatusTermina status = StatusTermina.zakazan;
-   
-   public Pacijent pacijent;
-   
-   public Pacijent Pacijent
-   {
-      get
-      {
-         return pacijent;
-      }
-      set
-      {
-         if (this.pacijent == null || !this.pacijent.Equals(value))
-         {
-            if (this.pacijent != null)
+    public int iDTermina { get; set; }
+    public DateTime datumZakazivanja { get; set; }
+    public int trajanjeUMinutima { get; set; }
+    public TipTermina tipTermina { get; set; }
+    [JsonConverter(typeof(StringEnumConverter))]
+    public StatusTermina status { get; set; }
+
+    public Pacijent pacijent;
+
+    public Pacijent Pacijent
+    {
+        get
+        {
+            return pacijent;
+        }
+        set
+        {
+            if (this.pacijent == null || !this.pacijent.Equals(value))
             {
-               Pacijent oldPacijent = this.pacijent;
-               this.pacijent = null;
-               oldPacijent.RemoveTermin(this);
+                if (this.pacijent != null)
+                {
+                    Pacijent oldPacijent = this.pacijent;
+                    this.pacijent = null;
+                    oldPacijent.RemoveTermin(this);
+                }
+                if (value != null)
+                {
+                    this.pacijent = value;
+                    this.pacijent.AddTermin(this);
+                }
             }
-            if (value != null)
-            {
-               this.pacijent = value;
-               this.pacijent.AddTermin(this);
-            }
-         }
-      }
-   }
-   public Lekar lekar;
-   
-   public Lekar Lekar
-   {
-      get
-      {
-         return lekar;
-      }
-      set
-      {
-         this.lekar = value;
-      }
-   }
+        }
+    }
+    public Lekar lekar;
+
+    public Termin()
+    {
+    }
+
+    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Lekar lekar)
+    {
+        this.iDTermina = iDTermina;
+        this.datumZakazivanja = datumZakazivanja;
+        this.trajanjeUMinutima = trajanjeUMinutima;
+        this.tipTermina = tipTermina;
+        this.status = status;
+        Pacijent = pacijent;
+        Lekar = lekar;
+    }
+
+    public Lekar Lekar
+    {
+        get
+        {
+            return lekar;
+        }
+        set
+        {
+            this.lekar = value;
+        }
+    }
+
 
 }
