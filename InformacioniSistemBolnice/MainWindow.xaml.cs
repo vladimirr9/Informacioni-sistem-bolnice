@@ -56,6 +56,19 @@ namespace InformacioniSistemBolnice
                 }
             }
 
+            List<global::Upravnik> upravnikLista = UpravnikFileStorage.GetAll();
+            foreach (global::Upravnik u in upravnikLista)
+            {
+                if (ime.Text.Equals(u.korisnickoIme) && lozinka.Password.Equals(u.lozinka))
+                {
+                    UpravnikWindow uw = new UpravnikWindow();
+                    Application.Current.MainWindow = uw;
+                    uw.Show();
+                    this.Close();
+                    return;
+                }
+            }
+
             MessageBox.Show("Neuspjesno logovanje!");
         }
     }

@@ -71,6 +71,12 @@
     <Compile Include="Sekretar_ns\IzmenaPacijenta.xaml.cs">
       <DependentUpon>IzmenaPacijenta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Upravnik\DodavanjeProstorije.xaml.cs">
+      <DependentUpon>DodavanjeProstorije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\IzmenaProstorije.xaml.cs">
+      <DependentUpon>IzmenaProstorije.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Upravnik\Prostorija.cs" />
     <Compile Include="FileStorage\ProstorijaFileStorage.cs" />
     <Compile Include="Sekretar_ns\Sekretar.cs" />
@@ -125,6 +131,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sekretar_ns\SekretarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\DodavanjeProstorije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\IzmenaProstorije.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

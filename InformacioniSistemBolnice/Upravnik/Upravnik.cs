@@ -7,6 +7,9 @@ using System;
 
 public class Upravnik : Korisnik
 {
-   private int iDUpravnika;
+   public Upravnik(string ime, string prezime, string jmbg, char pol, string brojTelefona, string email, DateTime datumRodenja, string korisnickoIme, string lozinka, AdresaStanovanja adresaStanovanja, bool isDeleted = false) : base(ime, prezime, jmbg, pol, brojTelefona, email, datumRodenja, korisnickoIme, lozinka, adresaStanovanja, isDeleted)
+    {
+
+    }
 
 }
