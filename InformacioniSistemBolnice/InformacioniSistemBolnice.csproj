@@ -68,6 +68,12 @@
       <DependentUpon>LekarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileStorage\PacijentFileStorage.cs" />
+    <Compile Include="PacijentMijenja.xaml.cs">
+      <DependentUpon>PacijentMijenja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PacijentZakazuje.xaml.cs">
+      <DependentUpon>PacijentZakazuje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pacijent\PacijentWindow.xaml.cs">
       <DependentUpon>PacijentWindow.xaml</DependentUpon>
     </Compile>
@@ -132,6 +138,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PacijentMijenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PacijentZakazuje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pacijent\PacijentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

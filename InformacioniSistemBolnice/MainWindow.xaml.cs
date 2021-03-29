@@ -34,15 +34,21 @@ namespace InformacioniSistemBolnice
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
+            List<Termin> termini = TerminFileStorage.GetAll();
             foreach (var pacijent in pacijenti)
             {
                 if (ime.Text.Equals(pacijent.korisnickoIme)  && lozinka.Password.Equals(pacijent.lozinka))
                 {
-                    PacijentWindow p = new PacijentWindow();
-                    Application.Current.MainWindow = p;
-                    p.Show();
-                    this.Close();
-                    return;
+
+                    String ime = pacijent.korisnickoIme;
+                            
+                            PacijentWindow p = new PacijentWindow();
+                            Application.Current.MainWindow = p;
+                            p.Show();
+                            this.Close();
+                            return;
+                        
+                    
                 }
             }
             List<Sekretar> sekretari = SekretarFileStorage.GetAll();

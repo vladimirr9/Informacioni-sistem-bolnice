@@ -6,7 +6,26 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
         Title="PacijentWindow" Height="450" Width="800">
-    <Grid>
+   
+        <Grid>
+        <DataGrid x:Name="PrikazPregleda"  HorizontalAlignment="Left" Height="207" Margin="40,75,0,0" VerticalAlignment="Top" Width="510" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}"/>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="50"/>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="120"/>
+                <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="60"/>
+                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="140"/>
+                <DataGridTextColumn Header="Status pregleda" Binding="{Binding status}" Width="95"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Height="35" Margin="80,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click" />
+            <Button Content="Izmeni" HorizontalAlignment="Left" Height="35" Margin="240,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1" />
+            <Button Content="Ukloni" HorizontalAlignment="Left" Height="35" Margin="410,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_2" />
         
+
     </Grid>
 </Window>

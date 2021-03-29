@@ -103,3 +103,45 @@ D:\SIMS vezbe\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj
 D:\SIMS vezbe\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarIzmeniTerminWindow.g.cs
 D:\SIMS vezbe\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarDodajTerminWindow.baml
 D:\SIMS vezbe\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarIzmeniTerminWindow.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe.config
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.pdb
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csprojAssemblyReference.cache
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarDodajTerminWindow.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarIzmeniTerminWindow.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarWindow.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarWindow.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaProstorije.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\UpravnikWindow.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\App.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.cache
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.lref
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarDodajTerminWindow.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarIzmeniTerminWindow.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarWindow.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarWindow.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaProstorije.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\UpravnikWindow.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.g.resources
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.Properties.Resources.resources
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.GenerateResource.cache
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CoreCompileInputs.cache
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentMijenja.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.g.cs
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentMijenja.baml
+C:\Users\mx\Desktop\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.baml
