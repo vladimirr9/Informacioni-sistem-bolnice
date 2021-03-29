@@ -25,6 +25,7 @@ namespace InformacioniSistemBolnice
     {
         public MainWindow()
         {
+            //LekarFileStorage.AddLekar(new global::Lekar("Petar", "Petrovic", "1507970600034", 'm', "+381661238407", "ppetrovic@gmail.com", new DateTime(1970,4,12), "PPetrovic", "petrovic123", null, TipLekara.specijalista, false));
             //SekretarFileStorage.AddSekretar(new Sekretar("Vladimir", "Rokvic", "0405993705030", 'M', "+32432343232", "neko@nesto.com", new DateTime(), "vladimir", "rokvic", new AdresaStanovanja("Kralja Petra 1", new MestoStanovanja("Novi Sad", "23223", new DrzavaStanovanja("Republika Srbija"))), false));
             //PacijentFileStorage.AddPacijent(new Pacijent("Pera","Peric", "09320434533",'M',"+3245344323","Pera@peric.com",new DateTime(),"pera","peric",new AdresaStanovanja("Kralja Petra 12", new MestoStanovanja("Novi Sad", "23232", new DrzavaStanovanja("Republika Srbija"))),false,"2323224343",new List<Termin>(),new ZdravstveniKarton("232", null),false));
             InitializeComponent();

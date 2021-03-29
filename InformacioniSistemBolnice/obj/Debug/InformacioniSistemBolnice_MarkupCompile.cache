@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\SIMS vezbe\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\
 InformacioniSistemBolnice
 none
 false
 DEBUG;TRACE
-D:\SIMS vezbe\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\App.xaml
-9675034470
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\App.xaml
+11-1717359101
 
-351537411705
-141615927283
-Lekar\LekarWindow.xaml;MainWindow.xaml;Pacijent\PacijentWindow.xaml;Sekretar_ns\DodavanjePacijenta.xaml;Sekretar_ns\IzmenaPacijenta.xaml;Sekretar_ns\SekretarWindow.xaml;Upravnik\DodavanjeProstorije.xaml;Upravnik\IzmenaProstorije.xaml;Upravnik\UpravnikWindow.xaml;
+372058008748
+14327727585
+Lekar\LekarDodajTerminWindow.xaml;Lekar\LekarIzmeniTerminWindow.xaml;Lekar\LekarWindow.xaml;MainWindow.xaml;Pacijent\PacijentWindow.xaml;Sekretar_ns\DodavanjePacijenta.xaml;Sekretar_ns\IzmenaPacijenta.xaml;Sekretar_ns\SekretarWindow.xaml;Upravnik\DodavanjeProstorije.xaml;Upravnik\IzmenaProstorije.xaml;Upravnik\UpravnikWindow.xaml;
 
 False
 
