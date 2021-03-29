@@ -59,7 +59,7 @@ namespace InformacioniSistemBolnice
 
         private void IzmeniProstoriju(object sender, RoutedEventArgs e)
         {
-            if (datagridProstorije != null)
+            if (datagridProstorije.SelectedItem != null)
             {
                 Prostorija p = (Prostorija)datagridProstorije.SelectedItem;
                 //Prostorija prostorijaZaIzmenu = ProstorijaFileStorage.GetOne((Prostorija)datagridProstorije.SelectedItem)).iDprostorije).ToString();
