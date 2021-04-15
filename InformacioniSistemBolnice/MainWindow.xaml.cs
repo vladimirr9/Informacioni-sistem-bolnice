@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using InformacioniSistemBolnice.Lekar;
+using InformacioniSistemBolnice.Sekretar_ns;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -56,8 +58,9 @@ namespace InformacioniSistemBolnice
             {
                 if (ime.Text.Equals(s.korisnickoIme) && lozinka.Password.Equals(s.lozinka))
                 {
-                    SekretarWindow sw = new SekretarWindow();
+                    SekretarMain sw = new SekretarMain();
                     Application.Current.MainWindow = sw;
+                    sw.Main.Content = PocetnaPage.GetPage();
                     sw.Show();
                     this.Close();
                     return;

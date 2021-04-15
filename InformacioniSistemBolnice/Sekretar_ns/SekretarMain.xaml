@@ -1,0 +1,17 @@
+﻿<Window x:Class="InformacioniSistemBolnice.Sekretar_ns.SekretarMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns"
+        mc:Ignorable="d"
+        Title="SekretarMain" Height="720" Width="1240">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left">
+            <Button x:Name="PocetnaButton" Content="Pocetna" Width="100" Height="40" Margin="20,50,10,10" FontSize="20" Click="PocetnaButton_Click"></Button>
+            <Button x:Name="PacijentiButton" Content="Pacijenti" Width="100" Height="40" Margin="20,10,10,10" FontSize="20" Click="PacijentiButton_Click"></Button>
+            <Button x:Name="TerminiButton" Content="Termini" Width="100" Height="40" Margin="20,10,10,10" FontSize="20" Click="TerminiButton_Click"></Button>
+        </StackPanel>
+        <Frame x:Name="Main" Margin="150,90,20,20" NavigationUIVisibility="Hidden"></Frame>
+    </Grid>
+</Window>

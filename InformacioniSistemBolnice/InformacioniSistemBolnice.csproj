@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FileStorage\AlergenFileStorage.cs" />
+    <Compile Include="FileStorage\ObavestenjeFileStorage.cs" />
+    <Compile Include="Korisnik\Obavestenje.cs" />
+    <Compile Include="Pacijent\Alergen.cs" />
     <Compile Include="Lekar\LekarDodajTerminWindow.xaml.cs">
       <DependentUpon>LekarDodajTerminWindow.xaml</DependentUpon>
     </Compile>
@@ -77,11 +81,35 @@
     <Compile Include="Pacijent\PacijentWindow.xaml.cs">
       <DependentUpon>PacijentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sekretar_ns\AlergenDodavanje.xaml.cs">
+      <DependentUpon>AlergenDodavanje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\DetaljnijeWindow.xaml.cs">
+      <DependentUpon>DetaljnijeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sekretar_ns\DodavanjePacijenta.xaml.cs">
       <DependentUpon>DodavanjePacijenta.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sekretar_ns\IzmenaPacijenta.xaml.cs">
       <DependentUpon>IzmenaPacijenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\IzmeniTerminWindow.xaml.cs">
+      <DependentUpon>IzmeniTerminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\NoviTerminWindow.xaml.cs">
+      <DependentUpon>NoviTerminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\PacijentiPage.xaml.cs">
+      <DependentUpon>PacijentiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\PocetnaPage.xaml.cs">
+      <DependentUpon>PocetnaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\SekretarMain.xaml.cs">
+      <DependentUpon>SekretarMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\TerminiPage.xaml.cs">
+      <DependentUpon>TerminiPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Upravnik\DodavanjeProstorije.xaml.cs">
       <DependentUpon>DodavanjeProstorije.xaml</DependentUpon>
@@ -150,6 +178,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Sekretar_ns\AlergenDodavanje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\DetaljnijeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Sekretar_ns\DodavanjePacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,7 +194,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Sekretar_ns\IzmeniTerminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\NoviTerminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\PacijentiPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\PocetnaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\SekretarMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Sekretar_ns\SekretarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\TerminiPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,33 +1,3 @@
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe.config
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.pdb
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.dll
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.xml
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csprojAssemblyReference.cache
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarWindow.g.cs
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.g.cs
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.g.cs
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\UpravnikWindow.g.cs
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\App.g.cs
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.cache
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.lref
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarWindow.baml
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.baml
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.baml
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\UpravnikWindow.baml
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.g.resources
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.Properties.Resources.resources
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.GenerateResource.cache
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CoreCompileInputs.cache
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.g.cs
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarWindow.g.cs
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.baml
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarWindow.baml
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.g.cs
-C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.baml
 D:\SIMS vezbe\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe.config
 D:\SIMS vezbe\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe
 D:\SIMS vezbe\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.pdb
