@@ -36,7 +36,8 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            
+            NoviTerminWindow w = new NoviTerminWindow(this);
+            w.Show();
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)

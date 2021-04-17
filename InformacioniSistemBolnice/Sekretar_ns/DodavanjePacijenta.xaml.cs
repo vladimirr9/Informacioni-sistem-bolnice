@@ -28,6 +28,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
+
             string ime = Ime.Text;
             string prezime = Prezime.Text;
             string jmbg = JMBG.Text;
@@ -46,13 +47,14 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             string korisnickoIme = KorisnickoIme.Text;
             string lozinka = Lozinka.Text;
             AdresaStanovanja adresaStanovanja = new AdresaStanovanja(UlicaIBroj.Text, new MestoStanovanja(Mesto.Text, PostanskiBroj.Text, new DrzavaStanovanja(Drzava.Text)));
-            bool isGuest =(bool) Guest.IsChecked;
+            bool isGuest = (bool)Guest.IsChecked;
             string brojZdravstveneKartice = BrojZdravstveneKartice.Text;
             Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new List<Termin>(), new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
             p.zdravstveniKarton.pacijent = p;
             PacijentFileStorage.AddPacijent(p);
             parent.updateTable();
             this.Close();
+
             
         }
 

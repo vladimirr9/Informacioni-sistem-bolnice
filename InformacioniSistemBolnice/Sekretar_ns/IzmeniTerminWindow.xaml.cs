@@ -23,5 +23,15 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         {
             InitializeComponent();
         }
+
+        private void PotvrdiB_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OdustaniB_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
