@@ -18,6 +18,8 @@ public class Korisnik
     public String lozinka { get; set; }
     public Boolean isDeleted { get; set; }
 
+
+
     public AdresaStanovanja adresaStanovanja { get; set; }
 
     public Korisnik()

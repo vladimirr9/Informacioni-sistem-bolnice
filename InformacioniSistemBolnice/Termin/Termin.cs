@@ -18,6 +18,19 @@ public class Termin
 
     public Pacijent pacijent;
 
+    public Prostorija prostorija;
+
+    public Prostorija Prostorija
+    {
+        get
+        {
+            return prostorija;
+        }
+        set
+        {
+            this.prostorija = value;
+        }
+    }
     public Pacijent Pacijent
     {
         get
@@ -48,13 +61,14 @@ public class Termin
     {
     }
 
-    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Lekar lekar)
+    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Lekar lekar, Prostorija prostorija = null)
     {
         this.iDTermina = iDTermina;
         this.datumZakazivanja = datumZakazivanja;
         this.trajanjeUMinutima = trajanjeUMinutima;
         this.tipTermina = tipTermina;
         this.status = status;
+        this.prostorija = prostorija;
         Pacijent = pacijent;
         Lekar = lekar;
     }

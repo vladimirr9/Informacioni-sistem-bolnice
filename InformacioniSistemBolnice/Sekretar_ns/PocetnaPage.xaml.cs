@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Korisnik;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,17 +21,51 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     /// </summary>
     public partial class PocetnaPage : Page
     {
+        public List<Obavestenje> obavestenja { get; set; }
+        private Sekretar tekSekretar;
         private static PocetnaPage instance;
-        private PocetnaPage()
+        private PocetnaPage(Sekretar tekSekretar)
         {
+            this.tekSekretar = tekSekretar;
+            
             InitializeComponent();
+            updateTable();
         }
 
-        public static PocetnaPage GetPage()
+        public static PocetnaPage GetPage(Sekretar tekSekretar)
         {
             if (instance == null)
-                instance = new PocetnaPage();
+                instance = new PocetnaPage(tekSekretar);
             return instance;
+        }
+
+        public void updateTable()
+        {
+            PrikazObavestenja.Items.Clear();
+            obavestenja = new List<Obavestenje>();
+            foreach (Obavestenje o in ObavestenjeFileStorage.GetAll())
+            {
+                if (o.korisnickoIme == null || o.korisnickoIme.Equals(tekSekretar.korisnickoIme))
+                {
+                    obavestenja.Add(o);
+                }
+            }
+            PrikazObavestenja.ItemsSource = obavestenja;
+        }
+
+        private void Novo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Izmeni_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Obrisi_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

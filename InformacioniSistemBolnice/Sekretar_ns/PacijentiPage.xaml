@@ -30,9 +30,9 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Dodaj"  Content="Dodaj" HorizontalAlignment="Left" Margin="128,33,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Grid.Row="3" Click="Dodaj_Click" FontSize="20" FontFamily="Arial"/>
-        <Button x:Name="Izmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="328,33,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Grid.Row="3" Click="Izmeni_Click" FontSize="20" FontFamily="Arial"/>
-        <Button x:Name="Obrisi" Content="Obriši" HorizontalAlignment="Left" Margin="520,33,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Grid.Row="3" Click="Obrisi_Click" FontSize="20" FontFamily="Arial"/>
-        <Button x:Name="Detaljnije" Content="Detaljnije" HorizontalAlignment="Left" Margin="698,33,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Grid.Row="3"  FontSize="20" FontFamily="Arial" Click="Detaljnije_Click"/>
+        <Button x:Name="Dodaj"  Content="Dodaj" HorizontalAlignment="Left" Margin="128,33,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Grid.Row="3" Click="Dodaj_Click" FontSize="20" FontFamily="Verdana"/>
+        <Button x:Name="Izmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="328,33,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Grid.Row="3" Click="Izmeni_Click" FontSize="20" FontFamily="Verdana"/>
+        <Button x:Name="Obrisi" Content="Obriši" HorizontalAlignment="Left" Margin="520,33,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Grid.Row="3" Click="Obrisi_Click" FontSize="20" FontFamily="Verdana"/>
+        <Button x:Name="Detaljnije" Content="Detaljnije" HorizontalAlignment="Left" Margin="698,33,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Grid.Row="3"  FontSize="20" FontFamily="Verdana" Click="Detaljnije_Click"/>
     </Grid>
 </Page>

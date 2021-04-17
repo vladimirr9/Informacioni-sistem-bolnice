@@ -36,15 +36,17 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            NoviTerminWindow w = new NoviTerminWindow(this);
-            w.Show();
+            NoviTerminWindow window = new NoviTerminWindow(this);
+            window.Show();
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
             if (PrikazPregleda.SelectedItem != null)
             {
-                
+                Termin inicijalniTermin = TerminFileStorage.GetOne(((Termin)(PrikazPregleda.SelectedItem)).iDTermina);
+                IzmeniTerminWindow window = new IzmeniTerminWindow(this, inicijalniTermin);
+                window.Show();
             }
         }
 
@@ -52,8 +54,12 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         {
             if (PrikazPregleda.SelectedItem != null)
             {
-                TerminFileStorage.RemoveTermin(((Termin)PrikazPregleda.SelectedItem).iDTermina);
-                updateTable();
+                MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da obrišete ovaj termin?", "Potvrda brisanja", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    TerminFileStorage.RemoveTermin(((Termin)PrikazPregleda.SelectedItem).iDTermina);
+                    updateTable();
+                }
             }
         }
         public void updateTable()

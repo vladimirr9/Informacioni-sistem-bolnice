@@ -15,10 +15,12 @@ namespace InformacioniSistemBolnice.Korisnik
         public DateTime datumNastanka { get; set; }
         public Boolean procitano { get; set; }
         public Boolean isDeleted { get; set; }
+        public String korisnickoIme { get; set; }
 
-        public Obavestenje(string naslov, string tekst, DateTime datumNastanka, bool procitano = false, bool isDeleted = false)
+        public Obavestenje(int idObavestenja, string naslov, string tekst, DateTime datumNastanka, bool procitano = false, bool isDeleted = false, String korisnickoIme = null)
         {
-            idObavestenja = ObavestenjeFileStorage.GetAll().Count();
+            this.idObavestenja = idObavestenja;
+            this.korisnickoIme = korisnickoIme;
             this.naslov = naslov;
             this.tekst = tekst;
             this.datumNastanka = datumNastanka;

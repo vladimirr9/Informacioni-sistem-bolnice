@@ -36,6 +36,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         {
             Pacijent p = (Pacijent) pacijent.SelectedItem;
             global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            Prostorija pros = (Prostorija)prostorija.SelectedItem;
             if (time.SelectedIndex != -1)
             {
                 ComboBoxItem vremeItem = time.SelectedItem as ComboBoxItem;
@@ -45,7 +46,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                 TipTermina tipTermina = (TipTermina)tip.SelectedIndex;
                 int id = TerminFileStorage.GetAll().Count + 1;
                 int trajanje = Int32.Parse(Trajanje.Text);
-                Termin termin = new Termin(id, dt, trajanje, tipTermina, StatusTermina.zakazan, p, l);
+                Termin termin = new Termin(id, dt, trajanje, tipTermina, StatusTermina.zakazan, p, l, pros);
                 TerminFileStorage.AddTermin(termin);
                 parent.updateTable();
                 this.Close();

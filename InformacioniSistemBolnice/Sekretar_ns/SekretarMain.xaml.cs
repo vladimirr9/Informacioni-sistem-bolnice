@@ -19,8 +19,10 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     /// </summary>
     public partial class SekretarMain : Window
     {
-        public SekretarMain()
+        private Sekretar tekSekretar;
+        public SekretarMain(Sekretar tekSekretar)
         {
+            this.tekSekretar = tekSekretar;
             InitializeComponent();
         }
 
@@ -31,7 +33,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void PocetnaButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = PocetnaPage.GetPage();
+            Main.Content = PocetnaPage.GetPage(tekSekretar);
         }
 
         private void TerminiButton_Click(object sender, RoutedEventArgs e)

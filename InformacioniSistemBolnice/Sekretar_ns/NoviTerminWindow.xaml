@@ -40,6 +40,7 @@
 
         <TextBlock HorizontalAlignment="Left" Height="39" Margin="40,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" FontSize="18" TextAlignment="Right" FontFamily="Verdana"><Run Text="Datum"/><Run Text=" i vreme"/><Run Text=":"/></TextBlock>
         <DatePicker Name="date" HorizontalAlignment="Left" Height="32" Margin="213,125,0,0" VerticalAlignment="Top" Width="163"/>
+
         <ComboBox Name="time" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="397,125,0,0" Height="32">
             <ComboBoxItem>08:00</ComboBoxItem>
             <ComboBoxItem>08:30</ComboBoxItem>

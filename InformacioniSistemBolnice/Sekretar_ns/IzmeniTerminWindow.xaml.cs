@@ -19,19 +19,74 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     /// </summary>
     public partial class IzmeniTerminWindow : Window
     {
-        public IzmeniTerminWindow()
+        private TerminiPage parent;
+        private Termin selektovan;
+        public IzmeniTerminWindow(TerminiPage parent, Termin selektovan)
         {
+            this.selektovan = selektovan;
+            this.parent = parent;
             InitializeComponent();
+
+            List<global::Lekar> lekari = LekarFileStorage.GetAll();
+            lekar.ItemsSource = lekari;
+            List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
+            pacijent.ItemsSource = pacijenti;
+            List<Prostorija> prostorije = ProstorijaFileStorage.GetAll();
+            prostorija.ItemsSource = prostorije;
+
+            date.SelectedDate = selektovan.datumZakazivanja;
+            time.SelectedValue = selektovan.datumZakazivanja.ToString("HH:mm");
+
+           
+
+            foreach (global::Lekar l in lekari)
+            {
+                if (l.korisnickoIme.Equals(selektovan.lekar.korisnickoIme))
+                    lekar.SelectedItem = l;
+            }
+
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.korisnickoIme.Equals(selektovan.pacijent.korisnickoIme))
+                    pacijent.SelectedItem = p;
+            }
+            foreach (Prostorija pros in prostorije)
+            {
+                if (pros.IDprostorije == selektovan.prostorija.IDprostorije)
+                {
+                    prostorija.SelectedItem = pros;
+                }
+            }
+            Trajanje.Text = selektovan.trajanjeUMinutima.ToString();
+
+            tip.SelectedIndex = (int)selektovan.tipTermina;
+
         }
 
         private void PotvrdiB_Click(object sender, RoutedEventArgs e)
         {
-
+            Pacijent p = (Pacijent)pacijent.SelectedItem;
+            global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            Prostorija pros = (Prostorija)prostorija.SelectedItem;
+            if (time.SelectedIndex != -1)
+            {
+                ComboBoxItem item = time.SelectedItem as ComboBoxItem;
+                String t = item.Content.ToString();
+                String d = date.Text;
+                DateTime dt = DateTime.Parse(d + " " + t);
+                TipTermina tt = (TipTermina)tip.SelectedIndex;
+                Termin termin = new Termin(selektovan.iDTermina, dt, 15, tt, StatusTermina.zakazan, p, l, pros);
+                TerminFileStorage.UpdateTermin(selektovan.iDTermina, termin);
+                parent.updateTable();
+                this.Close();
+            }
         }
 
         private void OdustaniB_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+ 
     }
 }

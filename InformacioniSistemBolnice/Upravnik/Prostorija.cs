@@ -7,7 +7,7 @@ using System;
 
 public class Prostorija
 {
-   private String naziv;
+   public String naziv { get; set; }
    private int iDprostorije;
    private TipProstorije tipProstorije;
    private Boolean isDeleted = false;

@@ -58,9 +58,9 @@ namespace InformacioniSistemBolnice
             {
                 if (ime.Text.Equals(s.korisnickoIme) && lozinka.Password.Equals(s.lozinka))
                 {
-                    SekretarMain sw = new SekretarMain();
+                    SekretarMain sw = new SekretarMain(s);
                     Application.Current.MainWindow = sw;
-                    sw.Main.Content = PocetnaPage.GetPage();
+                    sw.Main.Content = PocetnaPage.GetPage(s);
                     sw.Show();
                     this.Close();
                     return;
