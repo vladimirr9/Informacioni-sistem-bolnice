@@ -93,11 +93,17 @@
     <Compile Include="Sekretar_ns\IzmenaPacijenta.xaml.cs">
       <DependentUpon>IzmenaPacijenta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sekretar_ns\IzmeniObavestenjeWindow.xaml.cs">
+      <DependentUpon>IzmeniObavestenjeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sekretar_ns\IzmeniTerminWindow.xaml.cs">
       <DependentUpon>IzmeniTerminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sekretar_ns\NoviTerminWindow.xaml.cs">
       <DependentUpon>NoviTerminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\NovoObavestenjeWindow.xaml.cs">
+      <DependentUpon>NovoObavestenjeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sekretar_ns\PacijentiPage.xaml.cs">
       <DependentUpon>PacijentiPage.xaml</DependentUpon>
@@ -194,11 +200,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Sekretar_ns\IzmeniObavestenjeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Sekretar_ns\IzmeniTerminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sekretar_ns\NoviTerminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\NovoObavestenjeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

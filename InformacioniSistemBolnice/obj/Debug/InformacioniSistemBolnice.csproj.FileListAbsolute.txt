@@ -177,3 +177,7 @@ C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Informac
 C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
 C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
 C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
+C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NovoObavestenjeWindow.g.cs
+C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NovoObavestenjeWindow.baml
+C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmeniObavestenjeWindow.g.cs
+C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmeniObavestenjeWindow.baml

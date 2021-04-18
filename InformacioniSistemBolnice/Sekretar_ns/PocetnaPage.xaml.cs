@@ -39,33 +39,65 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             return instance;
         }
 
+        
+
+        private void Novo_Click(object sender, RoutedEventArgs e)
+        {
+            NovoObavestenjeWindow window = new NovoObavestenjeWindow(this);
+            window.Show();
+        }
+
+        private void Izmeni_Click(object sender, RoutedEventArgs e)
+        {
+            if (PrikazObavestenja.SelectedItem != null)
+            {
+                Obavestenje inicijalnoObavestenje = ObavestenjeFileStorage.GetOne(((Obavestenje)(PrikazObavestenja.SelectedItem)).idObavestenja);
+                IzmeniObavestenjeWindow window = new IzmeniObavestenjeWindow(this, inicijalnoObavestenje);
+                window.Show();
+            }
+        }
+
+        private void Obrisi_Click(object sender, RoutedEventArgs e)
+        {
+            if (PrikazObavestenja.SelectedItem != null)
+            {
+                MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da obrišete ovo obavestenje?", "Potvrda brisanja", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    ObavestenjeFileStorage.RemoveObavestenje(((Obavestenje)PrikazObavestenja.SelectedItem).idObavestenja);
+                    updateTable();
+                }
+            }
+        }
+
         public void updateTable()
         {
-            PrikazObavestenja.Items.Clear();
             obavestenja = new List<Obavestenje>();
             foreach (Obavestenje o in ObavestenjeFileStorage.GetAll())
             {
                 if (o.korisnickoIme == null || o.korisnickoIme.Equals(tekSekretar.korisnickoIme))
                 {
-                    obavestenja.Add(o);
+                    if (!o.isDeleted)
+                        obavestenja.Add(o);
                 }
             }
             PrikazObavestenja.ItemsSource = obavestenja;
         }
 
-        private void Novo_Click(object sender, RoutedEventArgs e)
+
+        public class CustomMultiValueConvertor : IMultiValueConverter
+
         {
+            public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+            {
+                return String.Concat(values[0], " ", values[1]);
+            }
 
+            public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
+            {
+                return (value as string).Split(' ');
+            }
         }
-
-        private void Izmeni_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Obrisi_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -4,13 +4,15 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns"
+      xmlns:converters="clr-namespace:InformacioniSistemBolnice.Sekretar_ns;assembly=InformacioniSistemBolnice"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PocetnaPage">
 
+
     <Grid>
         <Label/>
-        <ListView x:Name="PrikazObavestenja" ItemsSource="{Binding Path=Obavestenje}" Margin="78,93,50,108">
+        <ListView x:Name="PrikazObavestenja" ItemsSource="{Binding Path=Obavestenje}" Margin="78,93,50,152" FontSize="18">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Expander Header="{Binding naslov}">
@@ -19,8 +21,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="Obrisi"  Content="Obriši" HorizontalAlignment="Left" Margin="577,373,0,0" VerticalAlignment="Top" Width="148" Height="40" RenderTransformOrigin="0.443,-0.492"  FontSize="20" FontFamily="Verdana" Click="Obrisi_Click"/>
-        <Button x:Name="Izmeni"  Content="Izmeni" HorizontalAlignment="Left" Margin="372,373,0,0" VerticalAlignment="Top" Width="148" Height="40" RenderTransformOrigin="0.443,-0.492"  FontSize="20" FontFamily="Verdana" Click="Izmeni_Click"/>
-        <Button x:Name="Novo"  Content="Novo obaveštenje" HorizontalAlignment="Left" Margin="122,373,0,0" VerticalAlignment="Top" Width="200" Height="40" RenderTransformOrigin="0.443,-0.492" Click="Novo_Click" FontSize="20" FontFamily="Verdana"/>
+        <Button x:Name="Obrisi"  Content="Obriši" HorizontalAlignment="Left" Margin="565,479,0,-69" VerticalAlignment="Top" Width="148" Height="40" RenderTransformOrigin="0.443,-0.492"  FontSize="20" FontFamily="Verdana" Click="Obrisi_Click"/>
+        <Button x:Name="Izmeni"  Content="Izmeni" HorizontalAlignment="Left" Margin="360,479,0,-69" VerticalAlignment="Top" Width="148" Height="40" RenderTransformOrigin="0.443,-0.492"  FontSize="20" FontFamily="Verdana" Click="Izmeni_Click"/>
+        <Button x:Name="Novo"  Content="Novo obaveštenje" HorizontalAlignment="Left" Margin="110,479,0,-69" VerticalAlignment="Top" Width="200" Height="40" RenderTransformOrigin="0.443,-0.492" Click="Novo_Click" FontSize="20" FontFamily="Verdana"/>
     </Grid>
 </Page>

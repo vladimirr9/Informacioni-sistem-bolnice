@@ -1,11 +1,1 @@
-[
-  {
-    "idObavestenja": -1,
-    "naslov": "asd",
-    "tekst": "asd",
-    "datumNastanka": "0001-01-01T00:00:00",
-    "procitano": false,
-    "isDeleted": false,
-    "korisnickoIme": null
-  }
-]
+[{"idObavestenja":0,"naslov":"Dostava Opreme","tekst":"Oprema stiže 20.12.2020. u 14:00 kroz glavni ulaz.","datumNastanka":"2021-04-18T22:17:13.0736243+02:00","procitano":false,"isDeleted":false,"korisnickoIme":null},{"idObavestenja":1,"naslov":"nesto 23121","tekst":"213123213","datumNastanka":"2021-04-18T22:17:18.8859312+02:00","procitano":false,"isDeleted":true,"korisnickoIme":null}]
