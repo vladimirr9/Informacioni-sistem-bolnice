@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             AdresaStanovanja adresaStanovanja = new AdresaStanovanja(UlicaIBroj.Text, new MestoStanovanja(Mesto.Text, PostanskiBroj.Text, new DrzavaStanovanja(Drzava.Text)));
             bool isGuest = (bool)Guest.IsChecked;
             string brojZdravstveneKartice = BrojZdravstveneKartice.Text;
-            Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new List<Termin>(), new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
+            Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
             p.zdravstveniKarton.pacijent = p;
             PacijentFileStorage.AddPacijent(p);
             parent.updateTable();
