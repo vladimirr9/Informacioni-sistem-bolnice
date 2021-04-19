@@ -4,6 +4,7 @@
 // Purpose: Definition of Class Prostorija
 
 using System;
+using System.Collections.Generic;
 
 public class Prostorija
 {
@@ -15,6 +16,7 @@ public class Prostorija
    private Double kvadratura;
    private int brSprata;
    private int brSobe;
+   private List<Oprema> opremaLista;
 
     #region Properties
     public String Naziv
@@ -57,11 +59,29 @@ public class Prostorija
         get { return brSobe; }
         set { brSobe = value; }
     }
+
+    public List<Oprema> OpremaLista
+    {
+        get { return opremaLista; }
+        set { opremaLista = value; }
+    }
     #endregion
+
+    public Oprema GetOne(string SifraOpreme)
+    {
+        foreach (Oprema o in opremaLista)
+        {
+            if (o.Sifra.Equals(SifraOpreme))
+            {
+                return opremaLista[opremaLista.IndexOf(o)];
+            }
+        }
+        return null;
+    }
 
     public Prostorija() { }
 
-    public Prostorija(String naziv, int iDprostorije, TipProstorije tipProstorije, Boolean isDeleted, Boolean isActive, Double kvadratura, int brSprata, int brSobe)
+    public Prostorija(String naziv, int iDprostorije, TipProstorije tipProstorije, Boolean isDeleted, Boolean isActive, Double kvadratura, int brSprata, int brSobe, List<Oprema> opremaLista)
     {
         Naziv = naziv;
         IDprostorije = iDprostorije;
@@ -71,5 +91,18 @@ public class Prostorija
         Kvadratura = kvadratura;
         BrSprata = brSprata;
         BrSobe = brSobe;
+        OpremaLista = opremaLista;
     }
+
+    /*public Prostorija(String naziv, int iDprostorije, TipProstorije tipProstorije, Boolean isDeleted, Boolean isActive, Double kvadratura, int brSprata, int brSobe)
+    {
+        Naziv = naziv;
+        IDprostorije = iDprostorije;
+        TipProstorije = tipProstorije;
+        this.isDeleted = false;
+        IsActive = isActive;
+        Kvadratura = kvadratura;
+        BrSprata = brSprata;
+        BrSobe = brSobe;
+    }*/
 }

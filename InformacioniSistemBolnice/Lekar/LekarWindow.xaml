@@ -5,28 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="Lekar" Height="450" Width="800">
+        Title="Lekar" Height="718" Width="1280">
     <Grid>
-        <DataGrid x:Name="PrikazPregleda"  HorizontalAlignment="Left" Height="207" Margin="40,75,0,0" VerticalAlignment="Top" Width="718" IsReadOnly="True">
+        <Frame x:Name="Main" Margin="140,0,0,0"/>
+        <DataGrid x:Name="PrikazPregleda" Margin="149,75,34,137" IsReadOnly="True">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.Resources>
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="50"/>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="120"/>
-                <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="60"/>
-                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="140"/>
-                <DataGridTextColumn Header="Status pregleda" Binding="{Binding status}" Width="95"/>
-                <DataGridTextColumn Header="Pacijent" Width="120">
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="140"/>
+                <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="100"/>
+                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="150"/>
+                <DataGridTextColumn Header="Status pregleda" Binding="{Binding status}" Width="120"/>
+                <DataGridTextColumn Header="Pacijent" Width="150">
                     <DataGridTextColumn.Binding>
-                    <MultiBinding StringFormat="{}{0} {1}">
-                        <Binding Path="Pacijent.ime"/>
-                        <Binding Path="Pacijent.prezime"/>
-                    </MultiBinding>
+                        <MultiBinding StringFormat="{}{0} {1}">
+                            <Binding Path="Pacijent.ime"/>
+                            <Binding Path="Pacijent.prezime"/>
+                        </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Lekar" Width="*">
+                <DataGridTextColumn Header="Lekar" Width="150">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
                             <Binding Path="Lekar.ime"/>
@@ -34,12 +35,19 @@
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
+                <DataGridTextColumn Header="Prostorija" Width="*">
+                    <DataGridTextColumn.Binding>
+                        <Binding Path="Prostorija.Naziv"/>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Dodaj termin" HorizontalAlignment="Left" Height="35" Margin="149,333,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click"/>
-        <Button Content="Izmeni termin" HorizontalAlignment="Left" Height="35" Margin="340,333,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1"/>
-        <Button Content="Ukloni termin" HorizontalAlignment="Left" Height="35" Margin="535,333,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_2"/>
+        <Button Content="Dodaj termin" Margin="432,0,0,63" Click="Button_Click" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="116"/>
+        <Button Content="Izmeni termin" Margin="623,0,0,63" Click="Button_Click_1" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="116"/>
+        <Button Content="Ukloni termin" Margin="818,0,0,63" Click="Button_Click_2" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="116"/>
+        <Button Content="Karton" HorizontalAlignment="Left" Height="35" Margin="10,75,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_3"/>
+        <Button Content="Pregledi" HorizontalAlignment="Left" Height="35" Margin="10,21,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_4"/>
 
     </Grid>
 </Window>

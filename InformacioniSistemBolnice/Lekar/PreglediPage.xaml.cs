@@ -10,24 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace InformacioniSistemBolnice.Upravnik
+namespace InformacioniSistemBolnice.Lekar
 {
     /// <summary>
-    /// Interaction logic for UpravnikWindow.xaml
+    /// Interaction logic for PreglediPage.xaml
     /// </summary>
-    public partial class UpravnikWindow : Window
+    public partial class PreglediPage : Page
     {
-        public UpravnikWindow()
+        public PreglediPage()
         {
             InitializeComponent();
-        }
-
-        private void WindowProstorije(object sender, RoutedEventArgs e)
-        {
-            WindowProstorije wp = new WindowProstorije(this);
-            wp.Show();
         }
     }
 }

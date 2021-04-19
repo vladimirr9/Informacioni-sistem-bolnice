@@ -10,7 +10,7 @@ using System.IO;
 
 public class ProstorijaFileStorage
 {
-    private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "prostorije.json";
+    private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "prostorije4.json";
 
     public static List<Prostorija> GetAll()
    {
