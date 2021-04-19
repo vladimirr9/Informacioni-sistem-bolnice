@@ -1,6 +1,7 @@
 ﻿using InformacioniSistemBolnice.Korisnik;
 using InformacioniSistemBolnice.Lekar;
 using InformacioniSistemBolnice.Sekretar_ns;
+using InformacioniSistemBolnice.Upravnik;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
