@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice
         private List<string> lista;
         private List<Termin> termini;
         private List<global::Lekar> lekari;
+        private List<Prostorija> prostorije;
         public PacijentMijenja(Termin selektovan, PacijentWindow prozor)
         {
 
@@ -56,7 +57,7 @@ namespace InformacioniSistemBolnice
             lista.Add("18:30");
             lista.Add("19:00");
             time.ItemsSource = lista;
-
+            prostorije = ProstorijaFileStorage.GetAll();
             lekari = LekarFileStorage.GetAll();
             lekar.ItemsSource = lekari;
             List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
@@ -96,7 +97,7 @@ namespace InformacioniSistemBolnice
                 String d = date.Text;
                 DateTime dt = DateTime.Parse(d + " " + t);
                 TipTermina tt = TipTermina.pregledKodLekaraOpstePrakse;
-                Termin termin = new Termin(selektovan.iDTermina, dt, 15, tt, StatusTermina.zakazan, p, l, null);
+                Termin termin = new Termin(selektovan.iDTermina, dt, 15, tt, StatusTermina.zakazan, p, l, prostorije.ElementAt(1));
                 TerminFileStorage.UpdateTermin(selektovan.iDTermina, termin);
                 parent.updateTable();
                 this.Close();
