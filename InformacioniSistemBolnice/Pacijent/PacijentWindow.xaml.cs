@@ -64,7 +64,7 @@ namespace InformacioniSistemBolnice
             List<Termin> termini = TerminFileStorage.GetAll();
             foreach (Termin termin in termini)
             {
-                if (termin.status == StatusTermina.zakazan)
+                if ((termin.status == StatusTermina.zakazan) && (pacijent.korisnickoIme == termin.pacijent.korisnickoIme))
                     PrikazPregleda.Items.Add(termin);
             }
         }
