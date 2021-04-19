@@ -25,7 +25,7 @@
         <TextBox x:Name="Ime" Margin="56,209,288,368" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="133,219,0,352" Grid.Column="1" Height="32" Width="52">Prezime</TextBlock>
         <TextBox x:Name="Prezime" Margin="198,209,9,368" Grid.Column="1"/>
-        <CheckBox x:Name="Guest" Content="Guest" Grid.Column="1" HorizontalAlignment="Left" Margin="312,168,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <CheckBox x:Name="Guest" Content="Guest" Grid.Column="1" HorizontalAlignment="Left" Margin="312,168,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,274,0,313" Text="Broj Telefona"/>
         <TextBox x:Name="BrojTelefona" Margin="26,270,110,307" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="302,264,0,312" Text="Pol" Grid.Column="1" Height="28" Width="23" RenderTransformOrigin="0.58,-0.429"/>
