@@ -20,8 +20,8 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class IzmenaProstorije : Window
     {
         private Prostorija prostorijaZaIzmenu;
-        private UpravnikWindow parent;
-        public IzmenaProstorije(Prostorija p, UpravnikWindow parent)
+        private WindowProstorije parent;
+        public IzmenaProstorije(Prostorija p, WindowProstorije parent)
         {
             prostorijaZaIzmenu = p;
             InitializeComponent();
@@ -70,8 +70,9 @@ namespace InformacioniSistemBolnice.Upravnik
             Double kvadratura = Convert.ToDouble(Kvadratura.Text);
             int brSprata = Convert.ToInt32(BrSprata.Text);
             int brSobe = Convert.ToInt32(BrSobe.Text);
+            List<Oprema> opremaLista = prostorijaZaIzmenu.OpremaLista;
 
-            Prostorija p = new Prostorija(naziv, iDprostorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe);
+            Prostorija p = new Prostorija(naziv, iDprostorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista);
             ProstorijaFileStorage.UpdateProstorija(prostorijaZaIzmenu.IDprostorije, p);
             parent.updateTable();
             Close();
