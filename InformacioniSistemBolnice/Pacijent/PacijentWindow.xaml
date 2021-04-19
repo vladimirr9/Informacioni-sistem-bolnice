@@ -8,7 +8,7 @@
         Title="PacijentWindow" Height="450" Width="800">
    
         <Grid>
-        <DataGrid x:Name="PrikazPregleda"  HorizontalAlignment="Left" Height="207" Margin="40,75,0,0" VerticalAlignment="Top" Width="510" IsReadOnly="True">
+        <DataGrid x:Name="PrikazPregleda"  HorizontalAlignment="Left" Height="207" Margin="140,98,0,0" VerticalAlignment="Top" Width="510" IsReadOnly="True">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.Resources>
@@ -18,14 +18,15 @@
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="120"/>
                 <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="60"/>
                 <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="140"/>
-                <DataGridTextColumn Header="Status pregleda" Binding="{Binding status}" Width="95"/>
+                <DataGridTextColumn Header="Status pregleda" Binding="{Binding status}" Width="*"/>
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Dodaj" HorizontalAlignment="Left" Height="35" Margin="80,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click" />
-            <Button Content="Izmeni" HorizontalAlignment="Left" Height="35" Margin="240,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1" />
-            <Button Content="Ukloni" HorizontalAlignment="Left" Height="35" Margin="410,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_2" />
-        
+        <Button Content="Dodaj" HorizontalAlignment="Left" Height="35" Margin="140,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click" />
+            <Button Content="Izmeni" HorizontalAlignment="Left" Height="35" Margin="339,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1" />
+            <Button Content="Ukloni" HorizontalAlignment="Left" Height="35" Margin="534,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_2" />
+        <Button x:Name="button" Content="Odjava" HorizontalAlignment="Left" Margin="695,20,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_3"/>
+        <TextBlock x:Name="imePacijenta" HorizontalAlignment="Left" Margin="22,23,0,0" TextWrapping="Wrap" Text="" FontSize="20" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -25,7 +25,8 @@ namespace InformacioniSistemBolnice
             this.pacijent = pacijent;
             InitializeComponent();
             this.DataContext = this;
-            
+            imePacijenta.Text = pacijent.ime + " " + pacijent.prezime;
+
             updateTable();
         }
 
@@ -67,6 +68,18 @@ namespace InformacioniSistemBolnice
                 if ((termin.status == StatusTermina.zakazan) && (pacijent.korisnickoIme == termin.pacijent.korisnickoIme))
                     PrikazPregleda.Items.Add(termin);
             }
+        }
+
+        private void button_Click_3(object sender, RoutedEventArgs e) //odjava
+
+        {
+
+            MainWindow m = new MainWindow();
+            Application.Current.MainWindow = m;
+            m.Show();
+            this.Close();
+            return;
+
         }
     }
 }
