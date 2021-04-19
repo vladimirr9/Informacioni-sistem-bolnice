@@ -81,5 +81,14 @@ namespace InformacioniSistemBolnice
             return;
 
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e) //nazad
+        {
+            PocetnaPacijent m = new PocetnaPacijent(this.pacijent);
+            Application.Current.MainWindow = m;
+            m.Show();
+            this.Close();
+            return;
+        }
     }
 }

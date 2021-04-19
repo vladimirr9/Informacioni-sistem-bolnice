@@ -243,3 +243,5 @@ C:\Users\mx\Desktop\projekar\Informacioni-sistem-bolnice\InformacioniSistemBolni
 C:\Users\mx\Desktop\projekar\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
 C:\Users\mx\Desktop\projekar\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
 C:\Users\mx\Desktop\projekar\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
+C:\Users\mx\Desktop\projekar\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.g.cs
+C:\Users\mx\Desktop\projekar\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.baml

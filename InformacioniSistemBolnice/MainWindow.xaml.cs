@@ -45,9 +45,9 @@ namespace InformacioniSistemBolnice
 
                     String ime = pacijent.korisnickoIme;
                             
-                            PacijentWindow p = new PacijentWindow(pacijent);
-                            Application.Current.MainWindow = p;
-                            p.Show();
+                            PocetnaPacijent pp = new PocetnaPacijent(pacijent);
+                            Application.Current.MainWindow = pp;
+                            pp.Show();
                             this.Close();
                             return;
                         

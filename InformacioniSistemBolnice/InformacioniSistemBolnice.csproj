@@ -81,6 +81,9 @@
     <Compile Include="Pacijent\PacijentWindow.xaml.cs">
       <DependentUpon>PacijentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PocetnaPacijent.xaml.cs">
+      <DependentUpon>PocetnaPacijent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sekretar_ns\AlergenDodavanje.xaml.cs">
       <DependentUpon>AlergenDodavanje.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pacijent\PacijentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PocetnaPacijent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
