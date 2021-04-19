@@ -72,7 +72,7 @@ namespace InformacioniSistemBolnice
             {
                 if (ime.Text.Equals(l.korisnickoIme) && lozinka.Password.Equals(l.lozinka))
                 {
-                    LekarWindow lw = new LekarWindow();
+                    LekarWindow lw = new LekarWindow(l);
                     Application.Current.MainWindow = lw;
                     lw.Show();
                     this.Close();

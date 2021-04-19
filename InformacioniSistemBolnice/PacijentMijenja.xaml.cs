@@ -96,7 +96,7 @@ namespace InformacioniSistemBolnice
                 String d = date.Text;
                 DateTime dt = DateTime.Parse(d + " " + t);
                 TipTermina tt = TipTermina.pregledKodLekaraOpstePrakse;
-                Termin termin = new Termin(selektovan.iDTermina, dt, 15, tt, StatusTermina.zakazan, p, l);
+                Termin termin = new Termin(selektovan.iDTermina, dt, 15, tt, StatusTermina.zakazan, p, l, null);
                 TerminFileStorage.UpdateTermin(selektovan.iDTermina, termin);
                 parent.updateTable();
                 this.Close();
