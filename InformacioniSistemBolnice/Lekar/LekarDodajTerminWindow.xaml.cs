@@ -44,6 +44,7 @@ namespace InformacioniSistemBolnice.Lekar
         {
             Pacijent p = (Pacijent)pacijent.SelectedItem;
             global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            Prostorija pr = (Prostorija)prostorija.SelectedItem;
             if (time.SelectedIndex != -1)
             {
                 ComboBoxItem item = time.SelectedItem as ComboBoxItem;
@@ -52,9 +53,9 @@ namespace InformacioniSistemBolnice.Lekar
                 DateTime dt = DateTime.Parse(d + " " + t);
                 TipTermina tt = (TipTermina)tip.SelectedIndex;
                 int id = TerminFileStorage.GetAll().Count + 1;
-                Termin termin = new Termin(id, dt, 15, tt, StatusTermina.zakazan, p, l);
+                Termin termin = new Termin(id, dt, 15, tt, StatusTermina.zakazan, p, l, pr);
                 TerminFileStorage.AddTermin(termin);
-                parent.updateTable();
+                parent.UpdateTable();
                 this.Close();
             }
         }

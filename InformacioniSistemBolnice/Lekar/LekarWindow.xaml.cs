@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,10 +21,12 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class LekarWindow : Window
     {
-        public LekarWindow()
+        public global::Lekar lekar;
+        public LekarWindow(global::Lekar lekar)
         {
+            this.lekar = lekar;
             InitializeComponent();
-            updateTable();
+            UpdateTable();
         }
 
         //dodavanje
@@ -37,13 +40,13 @@ namespace InformacioniSistemBolnice
         //izmena
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if(PrikazPregleda.SelectedItem != null)
+            if (PrikazPregleda.SelectedItem != null)
             {
                 Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
                 LekarIzmeniTerminWindow izmeniWin = new LekarIzmeniTerminWindow(termin, this);
                 Application.Current.MainWindow = izmeniWin;
                 izmeniWin.Show();
-            }  
+            }
         }
 
         //brisanje
@@ -52,19 +55,38 @@ namespace InformacioniSistemBolnice
             if (PrikazPregleda.SelectedItem != null)
             {
                 TerminFileStorage.RemoveTermin(((Termin)PrikazPregleda.SelectedItem).iDTermina);
-                updateTable();
+                UpdateTable();
             }
         }
 
-        public void updateTable()
+        //pacijenti
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (PrikazPregleda.SelectedItem != null)
+            {
+                Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
+                PrikazKartona win = new PrikazKartona(termin, this);
+                Application.Current.MainWindow = win;
+                win.Show();
+            }
+        }
+
+        //pregledi
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void UpdateTable()
         {
             PrikazPregleda.Items.Clear();
             List<Termin> termini = TerminFileStorage.GetAll();
-                foreach (Termin termin in termini)
-                {
-                    if(termin.status == StatusTermina.zakazan)
-                        PrikazPregleda.Items.Add(termin);
-                }
+            foreach (Termin termin in termini)
+            {
+                if (termin.status == StatusTermina.zakazan)
+                    PrikazPregleda.Items.Add(termin);
+            }
         }
+
     }
 }

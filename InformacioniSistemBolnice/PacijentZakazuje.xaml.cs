@@ -42,7 +42,7 @@ namespace InformacioniSistemBolnice
                 DateTime dt = DateTime.Parse(d + " " + t);
                 TipTermina tipt = TipTermina.pregledKodLekaraOpstePrakse;
                 int id = TerminFileStorage.GetAll().Count + 1;
-                Termin termin = new Termin(id, dt, 15, tipt, StatusTermina.zakazan, p, l);
+                Termin termin = new Termin(id, dt, 15, tipt, StatusTermina.zakazan, p, l, null);
                 TerminFileStorage.AddTermin(termin);
                 parent.updateTable();
                 this.Close();

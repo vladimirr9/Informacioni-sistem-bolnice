@@ -76,7 +76,7 @@
         </ComboBox>
 
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,242,0,0" TextWrapping="Wrap" Text="Prostorija" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox x:Name="prostorija" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,242,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <ComboBox x:Name="prostorija" ItemsSource="{Binding Path=Prostorija}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,242,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>

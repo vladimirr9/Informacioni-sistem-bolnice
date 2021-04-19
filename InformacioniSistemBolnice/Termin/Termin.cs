@@ -17,6 +17,9 @@ public class Termin
     public StatusTermina status { get; set; }
 
     public Pacijent pacijent;
+    public Prostorija prostorija;
+    
+    public String anamneza { get; set; }
 
     public Pacijent Pacijent
     {
@@ -48,7 +51,7 @@ public class Termin
     {
     }
 
-    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Lekar lekar)
+    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Lekar lekar, Prostorija prostorija)
     {
         this.iDTermina = iDTermina;
         this.datumZakazivanja = datumZakazivanja;
@@ -57,6 +60,7 @@ public class Termin
         this.status = status;
         Pacijent = pacijent;
         Lekar = lekar;
+        Prostorija = prostorija;
     }
 
     public Lekar Lekar
@@ -68,6 +72,18 @@ public class Termin
         set
         {
             this.lekar = value;
+        }
+    }
+
+    public Prostorija Prostorija
+    {
+        get
+        {
+            return prostorija;
+        }
+        set
+        {
+            this.prostorija = value;
         }
     }
 
