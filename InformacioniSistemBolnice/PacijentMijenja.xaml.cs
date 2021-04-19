@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
             InitializeComponent();
             lista = new List<string>();
             termini = TerminFileStorage.GetAll();
-            lista.Add("");
+            //lista.Add("");
             lista.Add("08:00");
             lista.Add("08:30");
             lista.Add("09:00");
@@ -153,7 +153,7 @@ namespace InformacioniSistemBolnice
 
                 }
 
-                time.SelectedIndex = 0;
+                time.SelectedIndex=-1;
             }
 
 

@@ -22,9 +22,9 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Dodaj" HorizontalAlignment="Left" Height="35" Margin="140,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click" />
+        <Button Content="Zakaži" HorizontalAlignment="Left" Height="35" Margin="140,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click" />
             <Button Content="Izmeni" HorizontalAlignment="Left" Height="35" Margin="339,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1" />
-            <Button Content="Ukloni" HorizontalAlignment="Left" Height="35" Margin="534,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_2" />
+            <Button Content="Otkaži" HorizontalAlignment="Left" Height="35" Margin="534,330,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_2" />
         <Button x:Name="button" Content="Odjava" HorizontalAlignment="Left" Margin="695,20,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_3"/>
         <TextBlock x:Name="imePacijenta" HorizontalAlignment="Left" Margin="22,23,0,0" TextWrapping="Wrap" Text="" FontSize="20" VerticalAlignment="Top"/>
         <Button x:Name="button1" Content="Nazad" HorizontalAlignment="Left" Margin="10,389,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>

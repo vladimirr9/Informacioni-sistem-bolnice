@@ -1,6 +1,6 @@
 [
   {
-    /*"termin": null,
+    "termin": null,
     "zdravstveniKarton": {
       "Alergen": [
         {
@@ -49,7 +49,7 @@
           "isDeleted": false
         }
       ]
-    },*/
+    },
     "isGuest": false,
     "brojZdravstveneKartice": "4232",
     "Termin": [],

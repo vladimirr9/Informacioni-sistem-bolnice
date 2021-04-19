@@ -222,17 +222,7 @@ namespace InformacioniSistemBolnice
 
         private void time_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (prioritetCombo.SelectedIndex == 0)
-            {
-                lekar.IsEnabled = true;
-                lekar.ItemsSource = lekari;
-            }
-            else
-            {
-                time.IsEnabled = true;
-                date.IsEnabled = false;
-                time.ItemsSource = lista;
-            }
+            date.IsEnabled = true;
         }
     }
 }
