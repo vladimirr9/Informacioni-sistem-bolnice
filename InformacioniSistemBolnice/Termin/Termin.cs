@@ -35,12 +35,10 @@ public class Termin
                 {
                     Pacijent oldPacijent = this.pacijent;
                     this.pacijent = null;
-                    oldPacijent.RemoveTermin(this);
                 }
                 if (value != null)
                 {
                     this.pacijent = value;
-                    this.pacijent.AddTermin(this);
                 }
             }
         }
