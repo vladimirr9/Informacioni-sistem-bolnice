@@ -15,7 +15,7 @@
                         <ColumnDefinition Width="673*"/>
                     </Grid.ColumnDefinitions>
                     <TextBox x:Name="Ime" Margin="170,70,210,269" Grid.Column="1" IsEnabled="False"/>
-                    <ComboBox x:Name="Pol" Margin="420,148,210,191" Grid.Column="1" IsReadOnly="True">
+                    <ComboBox x:Name="Pol" Margin="420,148,210,191" Grid.Column="1" IsEnabled="False">
                         <ComboBoxItem Content="M"/>
                         <ComboBoxItem Content="Ž"/>
                     </ComboBox>

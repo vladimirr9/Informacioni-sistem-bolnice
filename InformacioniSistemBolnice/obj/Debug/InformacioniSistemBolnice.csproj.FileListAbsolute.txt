@@ -66,3 +66,13 @@ D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaOpreme.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\OpremaWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeOpreme.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\WindowProstorije.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaOpreme.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\OpremaWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeOpreme.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\WindowProstorije.baml
