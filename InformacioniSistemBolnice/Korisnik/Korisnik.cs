@@ -40,4 +40,9 @@ public class Korisnik
         this.isDeleted = isDeleted;
     }
 
+    public override bool Equals(object obj)
+    {
+        return obj is Korisnik korisnik &&
+               korisnickoIme == korisnik.korisnickoIme;
+    }
 }

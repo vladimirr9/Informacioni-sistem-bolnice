@@ -45,6 +45,13 @@ public class Termin
     }
     public Lekar lekar;
 
+    public DateTime KrajTermina { 
+    get
+        {
+            return datumZakazivanja.AddMinutes(trajanjeUMinutima);
+        } 
+    }
+
     public Termin()
     {
     }
