@@ -21,13 +21,13 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     {
         private DetaljnijeWindow parent;
         private Pacijent pacijent;
-        private List<Alergen> alergeni;
+        private List<Sastojak> alergeni;
         public AlergenDodavanje(Pacijent pacijent, DetaljnijeWindow parent)
         {
             this.parent = parent;
             this.pacijent = pacijent;
-            alergeni = new List<Alergen>();
-            foreach (Alergen a in AlergenFileStorage.GetAll())
+            alergeni = new List<Sastojak>();
+            foreach (Sastojak a in SastojakFileStorage.GetAll())
             {
                 if (!pacijent.zdravstveniKarton.Alergen.Contains(a))
                     alergeni.Add(a);
@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            pacijent.zdravstveniKarton.AddAlergen((Alergen)AlergeniList.SelectedItem);
+            pacijent.zdravstveniKarton.AddSastojak((Sastojak)AlergeniList.SelectedItem);
             PacijentFileStorage.UpdatePacijent(pacijent.korisnickoIme, pacijent);
             parent.updateTable();
             Close();

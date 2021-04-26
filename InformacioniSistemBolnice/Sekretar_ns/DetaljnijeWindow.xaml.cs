@@ -22,7 +22,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         private PacijentiPage parent;
         private String korisnickoIme;
         private Pacijent pacijent;
-        private List<Alergen> alergeni;
+        private List<Sastojak> alergeni;
         public DetaljnijeWindow(PacijentiPage parent, String korisnickoIme)
         {
             this.parent = parent;
@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                 MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da obrišete ovaj alergen?", "Potvrda brisanja", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    pacijent.zdravstveniKarton.RemoveAlergen((Alergen)AlergeniList.SelectedItem);
+                    pacijent.zdravstveniKarton.RemoveAlergen((Sastojak)AlergeniList.SelectedItem);
                     PacijentFileStorage.UpdatePacijent(pacijent.korisnickoIme, pacijent);
                     updateTable();
                 }
@@ -62,7 +62,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         public void updateTable()
         {
             AlergeniList.Items.Clear();
-            foreach (Alergen a in pacijent.zdravstveniKarton.Alergen)
+            foreach (Sastojak a in pacijent.zdravstveniKarton.Alergen)
             {
                 AlergeniList.Items.Add(a);
             }

@@ -11,14 +11,14 @@ public class ZdravstveniKarton
     private String brojZdravstvenogKartona { get; set; }
    [Newtonsoft.Json.JsonIgnore]
     public Pacijent pacijent { get; set; }
-    private System.Collections.Generic.List<Alergen> alergen;
+    private System.Collections.Generic.List<Sastojak> alergen;
 
-    public System.Collections.Generic.List<Alergen> Alergen
+    public System.Collections.Generic.List<Sastojak> Alergen
     {
         get
         {
             if (alergen == null)
-                alergen = new System.Collections.Generic.List<Alergen>();
+                alergen = new System.Collections.Generic.List<Sastojak>();
             return alergen;
         }
         set
@@ -26,25 +26,25 @@ public class ZdravstveniKarton
             RemoveAllAlergen();
             if (value != null)
             {
-                foreach (Alergen oAlergen in value)
-                    AddAlergen(oAlergen);
+                foreach (Sastojak oAlergen in value)
+                    AddSastojak(oAlergen);
             }
         }
     }
 
 
-    public void AddAlergen(Alergen newAlergen)
+    public void AddSastojak(Sastojak newAlergen)
     {
         if (newAlergen == null)
             return;
         if (this.alergen == null)
-            this.alergen = new System.Collections.Generic.List<Alergen>();
+            this.alergen = new System.Collections.Generic.List<Sastojak>();
         if (!this.alergen.Contains(newAlergen))
             this.alergen.Add(newAlergen);
     }
 
 
-    public void RemoveAlergen(Alergen oldAlergen)
+    public void RemoveAlergen(Sastojak oldAlergen)
     {
         if (oldAlergen == null)
             return;

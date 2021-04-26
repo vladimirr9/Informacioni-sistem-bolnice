@@ -73,10 +73,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="FileStorage\AlergenFileStorage.cs" />
+    <Compile Include="FileStorage\SastojakFileStorage.cs" />
     <Compile Include="FileStorage\ObavestenjeFileStorage.cs" />
     <Compile Include="Korisnik\Obavestenje.cs" />
-    <Compile Include="Pacijent\Alergen.cs" />
+    <Compile Include="Pacijent\Sastojak.cs" />
     <Compile Include="Lekar\LekarDodajTerminWindow.xaml.cs">
       <DependentUpon>LekarDodajTerminWindow.xaml</DependentUpon>
     </Compile>

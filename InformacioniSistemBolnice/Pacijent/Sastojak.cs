@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace InformacioniSistemBolnice
 {
-    public class Alergen
+    public class Sastojak
     {
+        public int id { get; set; }
         public String naziv { get; set; }
         public Boolean isDeleted { get; set; }
 
-        public Alergen(String naziv, Boolean isDeleted = false)
+        public Sastojak(int id, String naziv, Boolean isDeleted = false)
         {
+            this.id = id;
             this.naziv = naziv;
             this.isDeleted = isDeleted;
         }
@@ -24,8 +26,8 @@ namespace InformacioniSistemBolnice
 
         public override bool Equals(object obj)
         {
-            return obj is Alergen alergen &&
-                   naziv == alergen.naziv;
+            return obj is Sastojak sastojak &&
+                   id == sastojak.id;
         }
     }
 }
