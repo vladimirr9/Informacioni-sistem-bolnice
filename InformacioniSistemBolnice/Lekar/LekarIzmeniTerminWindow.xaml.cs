@@ -45,7 +45,7 @@ namespace InformacioniSistemBolnice.Lekar
 
             foreach (Pacijent p in pacijenti)
             {
-                if (p.jmbg != null && p.jmbg == selektovan.pacijent.jmbg)
+                if (p.jmbg != null && p.jmbg == selektovan.Pacijent.jmbg)
                     pacijent.SelectedItem = p;
             }
 
@@ -53,7 +53,7 @@ namespace InformacioniSistemBolnice.Lekar
 
             foreach (Prostorija pr in prostorije)
             {
-                if (pr.IDprostorije == selektovan.prostorija.IDprostorije)
+                if (pr.IDprostorije == selektovan.Prostorija.IDprostorije)
                     prostorija.SelectedItem = pr;
             }
         }

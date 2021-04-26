@@ -1,4 +1,5 @@
-﻿using InformacioniSistemBolnice.Korisnik;
+﻿using GalaSoft.MvvmLight.Command;
+using InformacioniSistemBolnice.Korisnik;
 using InformacioniSistemBolnice.Lekar;
 using InformacioniSistemBolnice.Sekretar_ns;
 using InformacioniSistemBolnice.Upravnik;
@@ -100,5 +101,6 @@ namespace InformacioniSistemBolnice
 
             MessageBox.Show("Neuspjesno logovanje!");
         }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +21,80 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     public partial class NoviTerminWindow : Window
     {
         private TerminiPage parent;
+        private List<global::Lekar> lekari;
+        private List<Pacijent> pacijenti;
+        private List<Prostorija> prostorije;
+        private List<String> vremena;
         public NoviTerminWindow(TerminiPage parent)
         {
             this.parent = parent;
-            /*
-            List<global::Lekar> lekari = LekarFileStorage.GetAll();
-            lekar.ItemsSource = lekari;
-            List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
-            pacijent.ItemsSource = pacijenti;
-            List<Prostorija> prostorije = ProstorijaFileStorage.GetAll();
-            prostorija.ItemsSource = prostorije;*/
+
+
             InitializeComponent();
+            vremena = new List<String>();
+            time.ItemsSource = vremena;
+
+            pacijenti = new List<Pacijent>();
+            foreach (Pacijent tmpPacijent in PacijentFileStorage.GetAll())
+                if (!tmpPacijent.isDeleted)
+                    pacijenti.Add(tmpPacijent);
+            pacijent.ItemsSource = pacijenti;
+            lekari = LekarFileStorage.GetAll();
+            lekar.ItemsSource = lekari;
+            
+            prostorije = ProstorijaFileStorage.GetAll();
+            prostorija.ItemsSource = prostorije;
             UpdateComponents();
+        }
+
+        private void SetAvailableTimes()
+        {
+            DateTime datum;
+            if (date.SelectedDate != null)
+                datum = DateTime.Parse(date.Text);
+            else
+                datum = DateTime.Now;
+
+            vremena = new List<String>();
+            List<Termin> termini = new List<Termin>();
+            if (pacijent.SelectedItem != null && lekar.SelectedItem != null)
+            {
+                foreach (Termin termin in TerminFileStorage.GetAll())
+                {
+                    if (termin.status == StatusTermina.zakazan && (termin.Pacijent.Equals((Pacijent)pacijent.SelectedItem) || termin.Lekar.Equals((global::Lekar)lekar.SelectedItem)) && termin.datumZakazivanja.Date.Equals(datum.Date))
+                    {
+                        termini.Add(termin);
+                    }
+                }
+            }
+            else if (pacijent.SelectedItem != null)
+            {
+                foreach (Termin termin in TerminFileStorage.GetAll())
+                {
+                    if (termin.status == StatusTermina.zakazan && termin.Pacijent.Equals((Pacijent)pacijent.SelectedItem) && termin.datumZakazivanja.Date.Equals(datum.Date))
+                    {
+                        termini.Add(termin);
+                    }
+                }
+            }
+
+            DateTime k = DateTime.Parse("01-Jan-1970" + " " + "19:30");
+            for (DateTime i = DateTime.Parse("01-Jan-1970" + " " + "08:00"); i <= k; i = i.AddMinutes(15))
+            {
+                bool slobodno = true;
+                foreach  (Termin termin in termini)
+                {
+                    DateTime pocetak = DateTime.Parse("01-Jan-1970" + " " + termin.datumZakazivanja.ToString("HH:mm"));
+                    DateTime kraj = DateTime.Parse("01-Jan-1970" + " " + termin.datumZakazivanja.AddMinutes(termin.trajanjeUMinutima).ToString("HH:mm"));
+                    if (i >= pocetak && i <= kraj)
+                    {
+                        slobodno = false;
+                    }
+                }
+                if (slobodno)
+                    vremena.Add(i.ToString("HH:mm"));
+            }
+            time.ItemsSource = vremena;
         }
 
         private void PotvrdiB_Click(object sender, RoutedEventArgs e)
@@ -39,20 +102,22 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             Pacijent p = (Pacijent) pacijent.SelectedItem;
             global::Lekar l = (global::Lekar)lekar.SelectedItem;
             Prostorija pros = (Prostorija)prostorija.SelectedItem;
-            if (time.SelectedIndex != -1)
+            String timeS = time.SelectedItem.ToString();
+            String dateS = date.Text;
+            DateTime dt = DateTime.Parse(dateS + " " + timeS);
+            TipTermina tipTermina = (TipTermina)tip.SelectedIndex;
+            int id = TerminFileStorage.GetAll().Count + 1;
+            int trajanje = Int32.Parse(Trajanje.Text);
+
+            if (p.IsAvailable(dt, dt.AddMinutes(trajanje)))
             {
-                ComboBoxItem vremeItem = time.SelectedItem as ComboBoxItem;
-                String timeS = vremeItem.Content.ToString();
-                String dateS = date.Text;
-                DateTime dt = DateTime.Parse(dateS + " " + timeS);
-                TipTermina tipTermina = (TipTermina)tip.SelectedIndex;
-                int id = TerminFileStorage.GetAll().Count + 1;
-                int trajanje = Int32.Parse(Trajanje.Text);
                 Termin termin = new Termin(id, dt, trajanje, tipTermina, StatusTermina.zakazan, p, l, pros);
                 TerminFileStorage.AddTermin(termin);
                 parent.updateTable();
                 this.Close();
             }
+            else
+                MessageBox.Show("Pacijentu ne odgovara ovako dugo trajanje, preklapa se sa drugim obavezama", "Pacijent zauzet", MessageBoxButton.OK);
         }
 
         private void OdustaniB_Click(object sender, RoutedEventArgs e)
@@ -61,14 +126,51 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         }
 
         
-        private void UpdateComponents() { }/*
+        private void UpdateComponents()
         {
             DateTime pocetak;
             DateTime kraj;
+            CalculatePocetakAndKraj(out pocetak, out kraj);
+
+            SetComponentIsEnabled();
+
+            SetAvailableTimes();
+            if (pacijent.SelectedItem != null)
+            {
+                if (!((Pacijent)(pacijent.SelectedItem)).IsAvailable(pocetak, kraj))
+                {
+                    Trajanje.Background = Brushes.Red;
+                }
+                else
+                    Trajanje.Background = Brushes.White;
+                lekari = new List<global::Lekar>();
+                foreach (global::Lekar tmpLekar in LekarFileStorage.GetAll())
+                {
+                    if (tmpLekar.IsAvailable(pocetak, kraj) && !tmpLekar.isDeleted)
+                    {
+                        lekari.Add(tmpLekar);
+                    }
+                }
+                prostorije = new List<Prostorija>();
+                foreach (Prostorija tmpProstorija in ProstorijaFileStorage.GetAll())
+                {
+                    if (tmpProstorija.IsAvailable(pocetak, kraj) && !tmpProstorija.IsDeleted)
+                    {
+                        prostorije.Add(tmpProstorija);
+                    }
+                }
+            }
+
+            lekar.ItemsSource = lekari;
+            prostorija.ItemsSource = prostorije;
+
+
+        }
+        private void CalculatePocetakAndKraj(out DateTime pocetak, out DateTime kraj)
+        {
             if (time.SelectedItem != null && date.SelectedDate != null && Trajanje.Text != "")
             {
-                ComboBoxItem vremeItem = time.SelectedItem as ComboBoxItem;
-                String timeS = vremeItem.Content.ToString();
+                String timeS = time.SelectedItem.ToString();
                 String dateS = date.Text;
                 int trajanje = Int32.Parse(Trajanje.Text);
 
@@ -80,66 +182,42 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                 pocetak = DateTime.Now;
                 kraj = DateTime.Now;
             }
-            List<global::Lekar> lekari = new List<global::Lekar>();
-            List<Pacijent> pacijenti = new List<Pacijent>();
-            List<Prostorija> prostorije = new List<Prostorija>();
-            
-            foreach (global::Lekar tmpLekar in LekarFileStorage.GetAll())
+        }
+
+        private void SetComponentIsEnabled()
+        {
+            if (pacijent.SelectedItem != null & lekar.SelectedItem != null & time.SelectedItem != null && date.SelectedDate != null && Trajanje.Text != "")
             {
-                if (tmpLekar.IsAvailable(pocetak, kraj) && !tmpLekar.isDeleted)
-                {
-                    lekari.Add(tmpLekar);
-
-
-                }
+                lekar.IsEnabled = true;
+                date.IsEnabled = true;
+                time.IsEnabled = true;
+                Trajanje.IsEnabled = true;
+                tip.IsEnabled = true;
+                prostorija.IsEnabled = true;
             }
-            foreach (Pacijent tmpPacijent in PacijentFileStorage.GetAll())
+            else if (pacijent.SelectedItem != null)
             {
-                if (tmpPacijent.IsAvailable(pocetak, kraj) && !tmpPacijent.isDeleted)
-                {
-                    pacijenti.Add(tmpPacijent);
-                }
+                lekar.IsEnabled = true;
+                date.IsEnabled = true;
+                time.IsEnabled = true;
+                Trajanje.IsEnabled = true;
+                tip.IsEnabled = false;
+                prostorija.IsEnabled = false;
             }
-            foreach (Prostorija tmpProstorija in ProstorijaFileStorage.GetAll())
+            else
             {
-                if (tmpProstorija.IsAvailable(pocetak, kraj) && !tmpProstorija.IsDeleted)
-                {
-                    prostorije.Add(tmpProstorija);
-                }
+                lekar.IsEnabled = false;
+                date.IsEnabled = false;
+                time.IsEnabled = false;
+                Trajanje.IsEnabled = false;
+                tip.IsEnabled = false;
+                prostorija.IsEnabled = false;
             }
-
-            lekar.ItemsSource = lekari;
-            pacijent.ItemsSource = pacijenti;
-            prostorija.ItemsSource = prostorije;
-
-            Pacijent selektovanPacijent = (Pacijent)pacijent.SelectedItem;
-            global::Lekar selektovanLekar = (global::Lekar)lekar.SelectedItem;
-            Prostorija selektovanaProstorija = (Prostorija)prostorija.SelectedItem;
-
-            if (selektovanPacijent != null && pacijenti.Contains(selektovanPacijent))
-            {
-                pacijent.SelectedItem = selektovanPacijent;
-            }
-            else pacijent.SelectedItem = null;
-            if (selektovanLekar != null && lekari.Contains(selektovanLekar))
-            {
-                lekar.SelectedItem = selektovanLekar;
-            }
-            else lekar.SelectedItem = null;
-            if (selektovanaProstorija != null && prostorije.Contains(selektovanaProstorija))
-            {
-                prostorija.SelectedItem = selektovanaProstorija;
-            }
-            else prostorija.SelectedItem = null;
-            
-
-
-
-
-
-
-    */
-
+            if (pacijent.SelectedItem != null & lekar.SelectedItem != null & time.SelectedItem != null && date.SelectedDate != null && Trajanje.Text != "" && tip.SelectedItem != null && prostorija.SelectedItem != null)
+                PotvrdiB.IsEnabled = true;
+            else
+                PotvrdiB.IsEnabled = false;
+        }
 
         private void lekar_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -154,6 +232,13 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         private void pacijent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateComponents();
+            lekar.SelectedIndex = -1;
+            date.SelectedDate = null;
+            time.SelectedIndex = -1;
+            Trajanje.Clear();
+            tip.SelectedItem = null;
+            prostorija.SelectedIndex = -1;
+
         }
 
         private void time_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -176,4 +261,5 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         }
         
     }
+    
 }

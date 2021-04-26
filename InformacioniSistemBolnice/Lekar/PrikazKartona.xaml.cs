@@ -24,7 +24,7 @@ namespace InformacioniSistemBolnice.Lekar
         private Termin termin;
         public PrikazKartona(Termin termin, LekarWindow parent)
         {
-            this.selektovan = termin.pacijent;
+            this.selektovan = termin.Pacijent;
             this.parent = parent;
             this.termin = termin;
             InitializeComponent();

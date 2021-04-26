@@ -16,16 +16,24 @@ public class Termin
     [JsonConverter(typeof(StringEnumConverter))]
     public StatusTermina status { get; set; }
 
-    public Pacijent pacijent;
-    public Prostorija prostorija;
+    [JsonIgnore]
+    private Pacijent pacijent;
+    [JsonIgnore]
+    private Prostorija prostorija;
 
     public String anamneza { get; set; }
 
+
+    public int IdProstorije;
+    public string KorisnickoImeLekara;
+    public string KorisnickoImePacijenta;
+
+    [JsonIgnore]
     public Pacijent Pacijent
     {
         get
         {
-            return pacijent;
+            return PacijentFileStorage.GetOne(KorisnickoImePacijenta);
         }
         set
         {
@@ -39,11 +47,13 @@ public class Termin
                 if (value != null)
                 {
                     this.pacijent = value;
+                    KorisnickoImePacijenta = this.pacijent.korisnickoIme;
                 }
             }
         }
     }
-    public Lekar lekar;
+    [JsonIgnore]
+    private Lekar lekar;
 
     public DateTime KrajTermina { 
     get
@@ -52,9 +62,6 @@ public class Termin
         } 
     }
 
-    public Termin()
-    {
-    }
 
     public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Lekar lekar, Prostorija prostorija)
     {
@@ -66,29 +73,72 @@ public class Termin
         Pacijent = pacijent;
         Lekar = lekar;
         Prostorija = prostorija;
+        IdProstorije = prostorija.IDprostorije;
+        KorisnickoImeLekara = lekar.korisnickoIme;
+        KorisnickoImePacijenta = pacijent.korisnickoIme;
     }
 
+    [JsonConstructor]
+    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status,  int IdProstorije, string KorisnickoImeLekara, string KorisnickoImePacijenta)
+    {
+        this.iDTermina = iDTermina;
+        this.datumZakazivanja = datumZakazivanja;
+        this.trajanjeUMinutima = trajanjeUMinutima;
+        this.tipTermina = tipTermina;
+        this.status = status;
+        this.IdProstorije = IdProstorije;
+        this.KorisnickoImeLekara = KorisnickoImeLekara;
+        this.KorisnickoImePacijenta = KorisnickoImePacijenta;
+    }
+
+
+
+    [JsonIgnore]
     public Lekar Lekar
     {
         get
         {
-            return lekar;
+            return LekarFileStorage.GetOne(KorisnickoImeLekara);
         }
         set
         {
-            this.lekar = value;
+            if (this.lekar == null || !this.lekar.Equals(value))
+            {
+                if (this.lekar != null)
+                {
+                    Lekar oldLekar = this.lekar;
+                    this.lekar = null;
+                }
+                if (value != null)
+                {
+                    this.lekar = value;
+                    KorisnickoImeLekara = this.lekar.korisnickoIme;
+                }
+            }
         }
     }
-
+    [JsonIgnore]
     public Prostorija Prostorija
     {
         get
         {
-            return prostorija;
+            return ProstorijaFileStorage.GetOne(IdProstorije);
         }
         set
         {
-            this.prostorija = value;
+            if (this.prostorija == null || !this.prostorija.Equals(value))
+            {
+                if (this.prostorija != null)
+                {
+                    Prostorija oldProstorija = this.prostorija;
+                    this.prostorija = null;
+                }
+                if (value != null)
+                {
+                    this.prostorija = value;
+                    IdProstorije = this.prostorija.IDprostorije;
+                }
+            }
         }
     }
 
