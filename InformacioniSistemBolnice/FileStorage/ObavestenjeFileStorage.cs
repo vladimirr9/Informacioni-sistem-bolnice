@@ -33,7 +33,7 @@ public class ObavestenjeFileStorage
         List<Obavestenje> obavestenja = GetAll();
         foreach (Obavestenje o in obavestenja)
         {
-            if (o.idObavestenja.Equals(idObavestenja))
+            if (o.idObavestenja == idObavestenja)
                 return obavestenja[obavestenja.IndexOf(o)];
         }
         return null;
@@ -44,7 +44,7 @@ public class ObavestenjeFileStorage
         List<Obavestenje> obavestenja = GetAll();
         foreach (Obavestenje o in obavestenja)
         {
-            if (o.idObavestenja.Equals(idObavestenja))
+            if (o.idObavestenja == idObavestenja)
             {
                 obavestenja[obavestenja.IndexOf(o)].isDeleted = true;
                 Save(obavestenja);
@@ -67,7 +67,7 @@ public class ObavestenjeFileStorage
         List<Obavestenje> obavestenja = GetAll();
         foreach (Obavestenje o in obavestenja)
         {
-            if (o.idObavestenja.Equals(idObavestenja))
+            if (o.idObavestenja == idObavestenja)
             {
                 obavestenja[obavestenja.IndexOf(o)] = noviObavestenje;
                 Save(obavestenja);

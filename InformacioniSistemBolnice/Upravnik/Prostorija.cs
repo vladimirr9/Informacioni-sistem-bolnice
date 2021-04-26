@@ -12,7 +12,7 @@ public class Prostorija
    private int iDprostorije;
    private TipProstorije tipProstorije;
    private Boolean isDeleted = false;
-   private Boolean isActive;
+   public Boolean isActive { get; set; }
    private Double kvadratura;
    private int brSprata;
    private int brSobe;
@@ -105,4 +105,39 @@ public class Prostorija
         BrSprata = brSprata;
         BrSobe = brSobe;
     }*/
+
+
+    public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je prostorija slobodna izmedju neka dva trenutka u vremenu
+    {
+        bool retVal = true;
+        List<Termin> termini = TerminFileStorage.GetAll();
+        foreach (Termin termin in termini)
+        {
+            if (termin.Prostorija.Equals(this) && termin.status == StatusTermina.zakazan)
+            {
+                if (pocetak >= termin.datumZakazivanja && pocetak <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (kraj >= termin.datumZakazivanja && kraj <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (pocetak <= termin.datumZakazivanja && kraj >= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+            }
+        }
+        return retVal;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return obj is Prostorija prostorija &&
+               IDprostorije == prostorija.IDprostorije;
+    }
 }

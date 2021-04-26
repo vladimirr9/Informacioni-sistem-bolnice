@@ -232,3 +232,14 @@ C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.GenerateResource.cache
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CoreCompileInputs.cache
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\CommonServiceLocator.dll
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.dll
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\System.Windows.Interactivity.dll
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.xml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.Platform.xml

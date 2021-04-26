@@ -27,5 +27,13 @@ namespace InformacioniSistemBolnice.Korisnik
             this.procitano = procitano;
             this.isDeleted = isDeleted;
         }
+
+        public String Header
+        {
+            get
+            {
+                return datumNastanka.ToString("dd/MM/yyyy HH:mm  - ") + naslov;
+            }
+        }
     }
 }

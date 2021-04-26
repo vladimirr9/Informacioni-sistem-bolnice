@@ -195,11 +195,11 @@ namespace InformacioniSistemBolnice
 
                 }
 
-                if (t.Lekar.jmbg.Equals(selektovan.lekar.jmbg))
+                if (t.Lekar.jmbg.Equals(selektovan.Lekar.jmbg))
                 {
                     if ((t.datumZakazivanja.Date == date.SelectedDate) && (t.status == StatusTermina.zakazan) && (time.SelectedItem.Equals(izbaci)))
                     {
-                        lekari.Remove(selektovan.lekar);
+                        lekari.Remove(selektovan.Lekar);
                         lekar.ItemsSource = lekari;
                         lekar.SelectedIndex = lekari.Count() - 1;
 

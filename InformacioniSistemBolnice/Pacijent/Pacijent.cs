@@ -34,4 +34,38 @@ public class Pacijent : Korisnik
         this.zdravstveniKarton = zdravstveniKarton;
     }
 
+
+    public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je pacijent slobodan izmedju neka dva trenutka u vremenu
+    {
+        bool retVal = true;
+        List<Termin> termini = TerminFileStorage.GetAll();
+        foreach (Termin termin in termini)
+        {
+            if (termin.Pacijent.Equals(this) && termin.status == StatusTermina.zakazan)
+            {
+                if (pocetak >= termin.datumZakazivanja && pocetak <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (kraj >= termin.datumZakazivanja && kraj <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (pocetak <= termin.datumZakazivanja && kraj >= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+            }
+        }
+        return retVal;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return obj is Pacijent pacijent &&
+               base.Equals(obj);
+    }
 }

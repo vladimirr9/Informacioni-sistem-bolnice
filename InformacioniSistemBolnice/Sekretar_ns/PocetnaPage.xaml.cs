@@ -64,7 +64,8 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                 MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da obrišete ovo obavestenje?", "Potvrda brisanja", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    ObavestenjeFileStorage.RemoveObavestenje(((Obavestenje)PrikazObavestenja.SelectedItem).idObavestenja);
+                    int id = ((Obavestenje)PrikazObavestenja.SelectedItem).idObavestenja;
+                    ObavestenjeFileStorage.RemoveObavestenje(id);
                     updateTable();
                 }
             }

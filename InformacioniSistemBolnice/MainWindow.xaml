@@ -6,6 +6,10 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+
+
+
     <Grid>
         <TextBlock HorizontalAlignment="Left" FontSize="20"  Margin="240,128,0,0" Text="Username" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.449,-0.716"/>
         <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="240,195,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.539,-0.065"/>

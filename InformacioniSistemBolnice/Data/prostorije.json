@@ -1,1 +1,82 @@
-[{"Naziv":"Ordinacija1","IDprostorije":304,"TipProstorije":2,"IsDeleted":true,"IsActive":true,"Kvadratura":20.0,"BrSprata":1,"BrSobe":101},{"Naziv":"BolnickaSoba1","IDprostorije":200,"TipProstorije":1,"IsDeleted":false,"IsActive":true,"Kvadratura":50.0,"BrSprata":3,"BrSobe":202},{"Naziv":"OperacionaSala1","IDprostorije":103,"TipProstorije":0,"IsDeleted":false,"IsActive":false,"Kvadratura":30.0,"BrSprata":3,"BrSobe":302},{"Naziv":"BolnickaSoba3","IDprostorije":201,"TipProstorije":1,"IsDeleted":true,"IsActive":false,"Kvadratura":30.0,"BrSprata":2,"BrSobe":202},{"Naziv":"gfdg","IDprostorije":1234,"TipProstorije":1,"IsDeleted":true,"IsActive":false,"Kvadratura":32.0,"BrSprata":2,"BrSobe":204},{"Naziv":"sdadsf","IDprostorije":133,"TipProstorije":2,"IsDeleted":true,"IsActive":false,"Kvadratura":33.0,"BrSprata":2,"BrSobe":203},{"Naziv":"Ordinacija1","IDprostorije":300,"TipProstorije":2,"IsDeleted":false,"IsActive":true,"Kvadratura":20.0,"BrSprata":1,"BrSobe":102},{"Naziv":"OperacionaSala2","IDprostorije":105,"TipProstorije":0,"IsDeleted":false,"IsActive":true,"Kvadratura":25.0,"BrSprata":3,"BrSobe":305}]
+[
+  {
+    "Naziv": "Ordinacija1",
+    "IDprostorije": 304,
+    "TipProstorije": 2,
+    "IsDeleted": true,
+    "IsActive": true,
+    "Kvadratura": 20.0,
+    "BrSprata": 1,
+    "BrSobe": 101
+  },
+  {
+    "Naziv": "BolnickaSoba1",
+    "IDprostorije": 200,
+    "TipProstorije": 1,
+    "IsDeleted": false,
+    "IsActive": true,
+    "Kvadratura": 50.0,
+    "BrSprata": 3,
+    "BrSobe": 202
+  },
+  {
+    "Naziv": "OperacionaSala1",
+    "IDprostorije": 103,
+    "TipProstorije": 0,
+    "IsDeleted": false,
+    "IsActive": false,
+    "Kvadratura": 30.0,
+    "BrSprata": 3,
+    "BrSobe": 302
+  },
+  {
+    "Naziv": "BolnickaSoba3",
+    "IDprostorije": 201,
+    "TipProstorije": 1,
+    "IsDeleted": true,
+    "IsActive": false,
+    "Kvadratura": 30.0,
+    "BrSprata": 2,
+    "BrSobe": 202
+  },
+  {
+    "Naziv": "gfdg",
+    "IDprostorije": 1234,
+    "TipProstorije": 1,
+    "IsDeleted": true,
+    "IsActive": false,
+    "Kvadratura": 32.0,
+    "BrSprata": 2,
+    "BrSobe": 204
+  },
+  {
+    "Naziv": "sdadsf",
+    "IDprostorije": 133,
+    "TipProstorije": 2,
+    "IsDeleted": true,
+    "IsActive": false,
+    "Kvadratura": 33.0,
+    "BrSprata": 2,
+    "BrSobe": 203
+  },
+  {
+    "Naziv": "Ordinacija1",
+    "IDprostorije": 300,
+    "TipProstorije": 2,
+    "IsDeleted": false,
+    "IsActive": true,
+    "Kvadratura": 20.0,
+    "BrSprata": 1,
+    "BrSobe": 102
+  },
+  {
+    "Naziv": "OperacionaSala2",
+    "IDprostorije": 105,
+    "TipProstorije": 0,
+    "IsDeleted": false,
+    "IsActive": true,
+    "Kvadratura": 25.0,
+    "BrSprata": 3,
+    "BrSobe": 305
+  }
+]

@@ -15,7 +15,7 @@
         <ListView x:Name="PrikazObavestenja" ItemsSource="{Binding Path=Obavestenje}" Margin="78,93,50,152" FontSize="18">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Expander Header="{Binding naslov}">
+                    <Expander Header="{Binding Header}">
                         <TextBlock TextWrapping="Wrap" Text="{Binding tekst}" />
                     </Expander>
                 </DataTemplate>

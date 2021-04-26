@@ -37,7 +37,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
             NoviTerminWindow window = new NoviTerminWindow(this);
-            window.Show();
+            window.ShowDialog();
         }
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
@@ -45,8 +45,9 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             if (PrikazPregleda.SelectedItem != null)
             {
                 Termin inicijalniTermin = TerminFileStorage.GetOne(((Termin)(PrikazPregleda.SelectedItem)).iDTermina);
+                TerminFileStorage.RemoveTermin(inicijalniTermin.iDTermina);
                 IzmeniTerminWindow window = new IzmeniTerminWindow(this, inicijalniTermin);
-                window.Show();
+                window.ShowDialog();
             }
         }
 
