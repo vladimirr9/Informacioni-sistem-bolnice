@@ -31,6 +31,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
 
             InitializeComponent();
+
             vremena = new List<String>();
             time.ItemsSource = vremena;
 
@@ -44,6 +45,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             
             prostorije = ProstorijaFileStorage.GetAll();
             prostorija.ItemsSource = prostorije;
+
             UpdateComponents();
         }
 
@@ -130,35 +132,18 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         {
             DateTime pocetak;
             DateTime kraj;
+
             CalculatePocetakAndKraj(out pocetak, out kraj);
 
             SetComponentIsEnabled();
 
             SetAvailableTimes();
+
             if (pacijent.SelectedItem != null)
             {
-                if (!((Pacijent)(pacijent.SelectedItem)).IsAvailable(pocetak, kraj))
-                {
-                    Trajanje.Background = Brushes.Red;
-                }
-                else
-                    Trajanje.Background = Brushes.White;
-                lekari = new List<global::Lekar>();
-                foreach (global::Lekar tmpLekar in LekarFileStorage.GetAll())
-                {
-                    if (tmpLekar.IsAvailable(pocetak, kraj) && !tmpLekar.isDeleted)
-                    {
-                        lekari.Add(tmpLekar);
-                    }
-                }
-                prostorije = new List<Prostorija>();
-                foreach (Prostorija tmpProstorija in ProstorijaFileStorage.GetAll())
-                {
-                    if (tmpProstorija.IsAvailable(pocetak, kraj) && !tmpProstorija.IsDeleted)
-                    {
-                        prostorije.Add(tmpProstorija);
-                    }
-                }
+                ColorDurationField(pocetak, kraj);
+                UpdateAvailableLekarList(pocetak, kraj);
+                UpdateAvailableRoomList(pocetak, kraj);
             }
 
             lekar.ItemsSource = lekari;
@@ -166,6 +151,41 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
 
         }
+
+        private void UpdateAvailableRoomList(DateTime pocetak, DateTime kraj)
+        {
+            prostorije = new List<Prostorija>();
+            foreach (Prostorija tmpProstorija in ProstorijaFileStorage.GetAll())
+            {
+                if (tmpProstorija.IsAvailable(pocetak, kraj) && !tmpProstorija.IsDeleted)
+                {
+                    prostorije.Add(tmpProstorija);
+                }
+            }
+        }
+
+        private void UpdateAvailableLekarList(DateTime pocetak, DateTime kraj)
+        {
+            lekari = new List<global::Lekar>();
+            foreach (global::Lekar tmpLekar in LekarFileStorage.GetAll())
+            {
+                if (tmpLekar.IsAvailable(pocetak, kraj) && !tmpLekar.isDeleted)
+                {
+                    lekari.Add(tmpLekar);
+                }
+            }
+        }
+
+        private void ColorDurationField(DateTime pocetak, DateTime kraj)
+        {
+            if (!((Pacijent)(pacijent.SelectedItem)).IsAvailable(pocetak, kraj))
+            {
+                Trajanje.Background = Brushes.Red;
+            }
+            else
+                Trajanje.Background = Brushes.White;
+        }
+
         private void CalculatePocetakAndKraj(out DateTime pocetak, out DateTime kraj)
         {
             if (time.SelectedItem != null && date.SelectedDate != null && Trajanje.Text != "")

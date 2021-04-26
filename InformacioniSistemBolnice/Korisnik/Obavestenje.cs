@@ -17,7 +17,7 @@ namespace InformacioniSistemBolnice.Korisnik
         public Boolean isDeleted { get; set; }
         public String korisnickoIme { get; set; }
 
-        public Obavestenje(int idObavestenja, string naslov, string tekst, DateTime datumNastanka, bool procitano = false, bool isDeleted = false, String korisnickoIme = null)
+        public Obavestenje(int idObavestenja, string naslov, string tekst, DateTime datumNastanka, String korisnickoIme = null, bool procitano = false, bool isDeleted = false)
         {
             this.idObavestenja = idObavestenja;
             this.korisnickoIme = korisnickoIme;
@@ -32,8 +32,11 @@ namespace InformacioniSistemBolnice.Korisnik
         {
             get
             {
-                return datumNastanka.ToString("dd/MM/yyyy HH:mm  - ") + naslov;
-            }
+                if (korisnickoIme == null)
+                    return datumNastanka.ToString("dd/MM/yyyy HH:mm  - ") + naslov + " GLOBAL";
+                else
+                    return datumNastanka.ToString("dd/MM/yyyy HH:mm  - ") + naslov;
+            }   
         }
     }
 }

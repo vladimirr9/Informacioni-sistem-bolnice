@@ -22,16 +22,20 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     {
         private PocetnaPage parent;
         private Obavestenje staroObavestenje;
+        private List<String> primaoci;
         public IzmeniObavestenjeWindow(PocetnaPage parent, Obavestenje staroObavestenje)
         {
             this.parent = parent;
             this.staroObavestenje = staroObavestenje;
             InitializeComponent();
+            InitializePrimalac();
 
             Naslov.Text = staroObavestenje.naslov;
             Sadrzaj.Text = staroObavestenje.tekst;
 
         }
+
+
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
@@ -47,6 +51,20 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             Close();
         }
 
+        private void InitializePrimalac()
+        {
+            primaoci = new List<String>();
+            primaoci.Add("Svi korisnici");
+            primaoci.Add("Zaposleni");
+            primaoci.Add("Svi pacijenti");
+            foreach (Pacijent pacijent in PacijentFileStorage.GetAll())
+            {
+                if (!pacijent.isDeleted)
+                    primaoci.Add(pacijent.ime + " " + pacijent.prezime + " - " + pacijent.korisnickoIme);
+            }
+            Primalac.ItemsSource = primaoci;
+            Primalac.SelectedIndex = 0;
+        }
         private void Otkazi_Click(object sender, RoutedEventArgs e)
         {
             Close();

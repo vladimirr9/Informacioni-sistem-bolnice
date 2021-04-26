@@ -1,1 +1,110 @@
-[{"IdProstorije":201,"KorisnickoImeLekara":"PPetrovic","KorisnickoImePacijenta":"jovan","iDTermina":1,"datumZakazivanja":"2021-04-09T10:00:00","trajanjeUMinutima":15,"tipTermina":1,"status":"otkazan","anamneza":null,"KrajTermina":"2021-04-09T10:15:00"},{"IdProstorije":300,"KorisnickoImeLekara":"mmarko","KorisnickoImePacijenta":"jovan","iDTermina":2,"datumZakazivanja":"2021-04-15T16:15:00","trajanjeUMinutima":45,"tipTermina":0,"status":"zakazan","anamneza":null,"KrajTermina":"2021-04-15T17:00:00"},{"IdProstorije":300,"KorisnickoImeLekara":"mmarko","KorisnickoImePacijenta":"jovan","iDTermina":3,"datumZakazivanja":"2021-04-15T17:30:00","trajanjeUMinutima":14,"tipTermina":0,"status":"otkazan","anamneza":null,"KrajTermina":"2021-04-15T17:44:00"},{"IdProstorije":200,"KorisnickoImeLekara":"PPetrovic","KorisnickoImePacijenta":"jovan","iDTermina":4,"datumZakazivanja":"2021-04-15T10:45:00","trajanjeUMinutima":45,"tipTermina":0,"status":"zakazan","anamneza":null,"KrajTermina":"2021-04-15T11:30:00"},{"IdProstorije":1000,"KorisnickoImeLekara":"mmarko","KorisnickoImePacijenta":"jovan","iDTermina":5,"datumZakazivanja":"2021-04-15T08:15:00","trajanjeUMinutima":45,"tipTermina":0,"status":"zakazan","anamneza":null,"KrajTermina":"2021-04-15T09:00:00"},{"IdProstorije":301,"KorisnickoImeLekara":"PPetrovic","KorisnickoImePacijenta":"jovan","iDTermina":6,"datumZakazivanja":"2021-04-15T18:00:00","trajanjeUMinutima":15,"tipTermina":0,"status":"otkazan","anamneza":null,"KrajTermina":"2021-04-15T18:15:00"},{"IdProstorije":100,"KorisnickoImeLekara":"mmarko","KorisnickoImePacijenta":"marko","iDTermina":7,"datumZakazivanja":"2021-04-15T12:30:00","trajanjeUMinutima":56,"tipTermina":1,"status":"zakazan","anamneza":null,"KrajTermina":"2021-04-15T13:26:00"},{"IdProstorije":200,"KorisnickoImeLekara":"PPetrovic","KorisnickoImePacijenta":"jovan","iDTermina":8,"datumZakazivanja":"2021-04-25T08:30:00","trajanjeUMinutima":45,"tipTermina":0,"status":"zakazan","anamneza":null,"KrajTermina":"2021-04-25T09:15:00"},{"IdProstorije":301,"KorisnickoImeLekara":"mmarko","KorisnickoImePacijenta":"jovan","iDTermina":9,"datumZakazivanja":"2021-04-04T10:45:00","trajanjeUMinutima":32,"tipTermina":0,"status":"zakazan","anamneza":null,"KrajTermina":"2021-04-04T11:17:00"}]
+[
+  {
+    "IdProstorije": 201,
+    "KorisnickoImeLekara": "PPetrovic",
+    "KorisnickoImePacijenta": "jovan",
+    "iDTermina": 1,
+    "datumZakazivanja": "2021-04-09T10:00:00",
+    "trajanjeUMinutima": 15,
+    "tipTermina": 1,
+    "status": "otkazan",
+    "anamneza": null,
+    "KrajTermina": "2021-04-09T10:15:00"
+  },
+  {
+    "IdProstorije": 300,
+    "KorisnickoImeLekara": "mmarko",
+    "KorisnickoImePacijenta": "jovan",
+    "iDTermina": 2,
+    "datumZakazivanja": "2021-04-15T16:15:00",
+    "trajanjeUMinutima": 45,
+    "tipTermina": 0,
+    "status": "zakazan",
+    "anamneza": null,
+    "KrajTermina": "2021-04-15T17:00:00"
+  },
+  {
+    "IdProstorije": 300,
+    "KorisnickoImeLekara": "mmarko",
+    "KorisnickoImePacijenta": "jovan",
+    "iDTermina": 3,
+    "datumZakazivanja": "2021-04-15T17:30:00",
+    "trajanjeUMinutima": 14,
+    "tipTermina": 0,
+    "status": "otkazan",
+    "anamneza": null,
+    "KrajTermina": "2021-04-15T17:44:00"
+  },
+  {
+    "IdProstorije": 200,
+    "KorisnickoImeLekara": "PPetrovic",
+    "KorisnickoImePacijenta": "jovan",
+    "iDTermina": 4,
+    "datumZakazivanja": "2021-04-15T10:45:00",
+    "trajanjeUMinutima": 45,
+    "tipTermina": 0,
+    "status": "zakazan",
+    "anamneza": null,
+    "KrajTermina": "2021-04-15T11:30:00"
+  },
+  {
+    "IdProstorije": 1000,
+    "KorisnickoImeLekara": "mmarko",
+    "KorisnickoImePacijenta": "jovan",
+    "iDTermina": 5,
+    "datumZakazivanja": "2021-04-15T08:15:00",
+    "trajanjeUMinutima": 45,
+    "tipTermina": 0,
+    "status": "zakazan",
+    "anamneza": null,
+    "KrajTermina": "2021-04-15T09:00:00"
+  },
+  {
+    "IdProstorije": 301,
+    "KorisnickoImeLekara": "PPetrovic",
+    "KorisnickoImePacijenta": "jovan",
+    "iDTermina": 6,
+    "datumZakazivanja": "2021-04-15T18:00:00",
+    "trajanjeUMinutima": 15,
+    "tipTermina": 0,
+    "status": "otkazan",
+    "anamneza": null,
+    "KrajTermina": "2021-04-15T18:15:00"
+  },
+  {
+    "IdProstorije": 100,
+    "KorisnickoImeLekara": "mmarko",
+    "KorisnickoImePacijenta": "marko",
+    "iDTermina": 7,
+    "datumZakazivanja": "2021-04-15T12:30:00",
+    "trajanjeUMinutima": 56,
+    "tipTermina": 1,
+    "status": "zakazan",
+    "anamneza": null,
+    "KrajTermina": "2021-04-15T13:26:00"
+  },
+  {
+    "IdProstorije": 200,
+    "KorisnickoImeLekara": "PPetrovic",
+    "KorisnickoImePacijenta": "jovan",
+    "iDTermina": 8,
+    "datumZakazivanja": "2021-04-25T08:30:00",
+    "trajanjeUMinutima": 45,
+    "tipTermina": 0,
+    "status": "zakazan",
+    "anamneza": null,
+    "KrajTermina": "2021-04-25T09:15:00"
+  },
+  {
+    "IdProstorije": 301,
+    "KorisnickoImeLekara": "mmarko",
+    "KorisnickoImePacijenta": "jovan",
+    "iDTermina": 9,
+    "datumZakazivanja": "2021-04-04T10:45:00",
+    "trajanjeUMinutima": 32,
+    "tipTermina": 0,
+    "status": "zakazan",
+    "anamneza": null,
+    "KrajTermina": "2021-04-04T11:17:00"
+  }
+]

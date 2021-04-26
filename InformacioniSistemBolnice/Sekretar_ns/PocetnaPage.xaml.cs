@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            if (PrikazObavestenja.SelectedItem != null)
+            if (PrikazObavestenja.SelectedItem != null && ((Obavestenje)PrikazObavestenja.SelectedItem).korisnickoIme == null)
             {
                 Obavestenje inicijalnoObavestenje = ObavestenjeFileStorage.GetOne(((Obavestenje)(PrikazObavestenja.SelectedItem)).idObavestenja);
                 IzmeniObavestenjeWindow window = new IzmeniObavestenjeWindow(this, inicijalnoObavestenje);
