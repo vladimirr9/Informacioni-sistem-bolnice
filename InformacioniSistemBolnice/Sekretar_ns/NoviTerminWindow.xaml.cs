@@ -49,71 +49,21 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             UpdateComponents();
         }
 
-        private void SetAvailableTimes()
-        {
-            DateTime datum;
-            if (date.SelectedDate != null)
-                datum = DateTime.Parse(date.Text);
-            else
-                datum = DateTime.Now;
-
-            vremena = new List<String>();
-            List<Termin> termini = new List<Termin>();
-            if (pacijent.SelectedItem != null && lekar.SelectedItem != null)
-            {
-                foreach (Termin termin in TerminFileStorage.GetAll())
-                {
-                    if (termin.status == StatusTermina.zakazan && (termin.Pacijent.Equals((Pacijent)pacijent.SelectedItem) || termin.Lekar.Equals((global::Lekar)lekar.SelectedItem)) && termin.datumZakazivanja.Date.Equals(datum.Date))
-                    {
-                        termini.Add(termin);
-                    }
-                }
-            }
-            else if (pacijent.SelectedItem != null)
-            {
-                foreach (Termin termin in TerminFileStorage.GetAll())
-                {
-                    if (termin.status == StatusTermina.zakazan && termin.Pacijent.Equals((Pacijent)pacijent.SelectedItem) && termin.datumZakazivanja.Date.Equals(datum.Date))
-                    {
-                        termini.Add(termin);
-                    }
-                }
-            }
-
-            DateTime k = DateTime.Parse("01-Jan-1970" + " " + "19:30");
-            for (DateTime i = DateTime.Parse("01-Jan-1970" + " " + "08:00"); i <= k; i = i.AddMinutes(15))
-            {
-                bool slobodno = true;
-                foreach  (Termin termin in termini)
-                {
-                    DateTime pocetak = DateTime.Parse("01-Jan-1970" + " " + termin.datumZakazivanja.ToString("HH:mm"));
-                    DateTime kraj = DateTime.Parse("01-Jan-1970" + " " + termin.datumZakazivanja.AddMinutes(termin.trajanjeUMinutima).ToString("HH:mm"));
-                    if (i >= pocetak && i <= kraj)
-                    {
-                        slobodno = false;
-                    }
-                }
-                if (slobodno)
-                    vremena.Add(i.ToString("HH:mm"));
-            }
-            time.ItemsSource = vremena;
-        }
-
         private void PotvrdiB_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent p = (Pacijent) pacijent.SelectedItem;
-            global::Lekar l = (global::Lekar)lekar.SelectedItem;
-            Prostorija pros = (Prostorija)prostorija.SelectedItem;
+            Pacijent selectedPatient = (Pacijent) pacijent.SelectedItem;
+            global::Lekar selectedDoctor = (global::Lekar)lekar.SelectedItem;
+            Prostorija selectedRoom = (Prostorija)prostorija.SelectedItem;
             String timeS = time.SelectedItem.ToString();
             String dateS = date.Text;
-            DateTime dt = DateTime.Parse(dateS + " " + timeS);
+            DateTime selectedDateTime = DateTime.Parse(dateS + " " + timeS);
             TipTermina tipTermina = (TipTermina)tip.SelectedIndex;
             int id = TerminFileStorage.GetAll().Count + 1;
-            int trajanje = Int32.Parse(Trajanje.Text);
+            int duration = Int32.Parse(Trajanje.Text);
 
-            if (p.IsAvailable(dt, dt.AddMinutes(trajanje)))
+            if (selectedPatient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))
             {
-                Termin termin = new Termin(id, dt, trajanje, tipTermina, StatusTermina.zakazan, p, l, pros);
+                Termin termin = new Termin(id, selectedDateTime, duration, tipTermina, StatusTermina.zakazan, selectedPatient, selectedDoctor, selectedRoom);
                 TerminFileStorage.AddTermin(termin);
                 parent.updateTable();
                 this.Close();
@@ -130,26 +80,27 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         
         private void UpdateComponents()
         {
-            DateTime pocetak;
-            DateTime kraj;
-
-            CalculatePocetakAndKraj(out pocetak, out kraj);
-
             SetComponentIsEnabled();
-
-            SetAvailableTimes();
 
             if (pacijent.SelectedItem != null)
             {
+                DateTime pocetak;
+                DateTime kraj;
+
+                CalculatePocetakAndKraj(out pocetak, out kraj);
+
+
+
+                SetAvailableTimes();
+
                 ColorDurationField(pocetak, kraj);
                 UpdateAvailableLekarList(pocetak, kraj);
                 UpdateAvailableRoomList(pocetak, kraj);
+
+                lekar.ItemsSource = lekari;
+                prostorija.ItemsSource = prostorije;
+
             }
-
-            lekar.ItemsSource = lekari;
-            prostorija.ItemsSource = prostorije;
-
-
         }
 
         private void UpdateAvailableRoomList(DateTime pocetak, DateTime kraj)
@@ -237,6 +188,55 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                 PotvrdiB.IsEnabled = true;
             else
                 PotvrdiB.IsEnabled = false;
+        }
+        private void SetAvailableTimes()
+        {
+            DateTime datum;
+            if (date.SelectedDate != null)
+                datum = DateTime.Parse(date.Text);
+            else
+                datum = DateTime.Now;
+
+            vremena = new List<String>();
+            List<Termin> termini = new List<Termin>();
+            if (pacijent.SelectedItem != null && lekar.SelectedItem != null)
+            {
+                foreach (Termin termin in TerminFileStorage.GetAll())
+                {
+                    if (termin.status == StatusTermina.zakazan && (termin.Pacijent.Equals((Pacijent)pacijent.SelectedItem) || termin.Lekar.Equals((global::Lekar)lekar.SelectedItem)) && termin.datumZakazivanja.Date.Equals(datum.Date))
+                    {
+                        termini.Add(termin);
+                    }
+                }
+            }
+            else if (pacijent.SelectedItem != null)
+            {
+                foreach (Termin termin in TerminFileStorage.GetAll())
+                {
+                    if (termin.status == StatusTermina.zakazan && termin.Pacijent.Equals((Pacijent)pacijent.SelectedItem) && termin.datumZakazivanja.Date.Equals(datum.Date))
+                    {
+                        termini.Add(termin);
+                    }
+                }
+            }
+
+            DateTime k = DateTime.Parse("01-Jan-1970" + " " + "19:30");
+            for (DateTime i = DateTime.Parse("01-Jan-1970" + " " + "08:00"); i <= k; i = i.AddMinutes(15))
+            {
+                bool slobodno = true;
+                foreach (Termin termin in termini)
+                {
+                    DateTime pocetak = DateTime.Parse("01-Jan-1970" + " " + termin.datumZakazivanja.ToString("HH:mm"));
+                    DateTime kraj = DateTime.Parse("01-Jan-1970" + " " + termin.datumZakazivanja.AddMinutes(termin.trajanjeUMinutima).ToString("HH:mm"));
+                    if (i >= pocetak && i <= kraj)
+                    {
+                        slobodno = false;
+                    }
+                }
+                if (slobodno)
+                    vremena.Add(i.ToString("HH:mm"));
+            }
+            time.ItemsSource = vremena;
         }
 
         private void lekar_SelectionChanged(object sender, SelectionChangedEventArgs e)
