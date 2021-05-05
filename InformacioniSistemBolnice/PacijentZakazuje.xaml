@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="PacijentZakazuje" Height="450" Width="800">
+        Title="Zakazivanje" Height="600" Width="600" WindowStartupLocation="CenterScreen" >
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Height="32" Margin="165,123,0,0" TextWrapping="Wrap" Text="Lekar" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox x:Name="lekar" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="335,123,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <TextBlock HorizontalAlignment="Left" Height="32" Margin="110,140,0,0" TextWrapping="Wrap" Text="Lekar:" VerticalAlignment="Top" Width="118" FontSize="22"/>
+        <ComboBox x:Name="lekar" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Margin="290,140,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="lekar_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -24,28 +24,18 @@
         </ComboBox>
        
 
-        <TextBlock HorizontalAlignment="Left" Height="32" Margin="165,188,0,0" TextWrapping="Wrap" Text="Datum" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <DatePicker Name="date" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" Height="32" Margin="335,188,0,0" VerticalAlignment="Top" Width="163"/>
-        <ComboBox Name="time" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="335,245,0,0" Height="32" SelectionChanged="time_SelectionChanged">
-            
+        <TextBlock HorizontalAlignment="Left" Height="32" Margin="110,200,0,0" TextWrapping="Wrap" Text="Datum:" VerticalAlignment="Top" Width="118" FontSize="22"/>
+        <DatePicker Name="date" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" Height="32" Margin="290,200,0,0" VerticalAlignment="Top" Width="163"/>
+        <ComboBox Name="time" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="290,266,0,0" Height="32" SelectionChanged="time_SelectionChanged" RenderTransformOrigin="0.449,-0.469" >
+
         </ComboBox>
 
-        
-
-        
-
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="166,331,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click" />
-        <Button Content="Odustani" HorizontalAlignment="Left" Height="37" Margin="500,331,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click_1" />
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="166,69,0,0" TextWrapping="Wrap" Text="Prioritet" VerticalAlignment="Top" Height="32" FontSize="22"/>
-        <TextBlock x:Name="vrijeme" HorizontalAlignment="Left" Margin="166,248,0,0" TextWrapping="Wrap" Text="Vreme" VerticalAlignment="Top" FontSize="22"/>
-        <ComboBox x:Name="prioritetCombo" HorizontalAlignment="Left" Margin="333,69,0,0" VerticalAlignment="Top" Width="120" Height="32" SelectionChanged="prioritetCombo_SelectionChanged">
-            <ComboBoxItem>
-                Lekar
-            </ComboBoxItem>
-            <ComboBoxItem>
-                Vreme
-            </ComboBoxItem>
-        </ComboBox>
+        <Button x:Name="dugmePotvrdi" Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="130,363,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click" />
+        <Button Content="Odustani" HorizontalAlignment="Left" Height="37" Margin="345,363,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click_1" />
+        <TextBlock x:Name="vrijeme" HorizontalAlignment="Left" Margin="110,266,0,0" TextWrapping="Wrap" Text="Vreme:" VerticalAlignment="Top" FontSize="22"/>
+        <Label x:Name="label" Content="Zakazivanje pregleda" HorizontalAlignment="Left" Margin="165,42,0,0" VerticalAlignment="Top" FontSize="25"  />
+        <Label x:Name="label1" Content="Pretraga na osnovu prioriteta" HorizontalAlignment="Left" Margin="100,457,0,0" VerticalAlignment="Top" FontSize="20" />
+        <Button x:Name="button" Content="Traži" HorizontalAlignment="Left" Margin="396,457,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="button_Click_2" />
     </Grid>
 
     
