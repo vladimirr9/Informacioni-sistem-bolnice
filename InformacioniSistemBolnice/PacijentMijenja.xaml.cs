@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,69 +20,194 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class PacijentMijenja : Window
     {
+        private const int trajanjePregleda = 15;
         private PacijentWindow parent;
         private Termin selektovan;
-        private List<string> lista;
+        private List<string> availableTimes;
         private List<Termin> termini;
         private List<global::Lekar> lekari;
         private List<Prostorija> prostorije;
+        private Pacijent pacijent;
+        private int brojac;
         public PacijentMijenja(Termin selektovan, PacijentWindow prozor)
         {
 
             this.selektovan = selektovan;
             this.parent = prozor;
-
+            this.pacijent = prozor.pacijent;
+            brojac = 0;
             InitializeComponent();
-            lista = new List<string>();
+            availableTimes = new List<string>();
             termini = TerminFileStorage.GetAll();
-            //lista.Add("");
-            lista.Add("08:00");
-            lista.Add("08:30");
-            lista.Add("09:00");
-            lista.Add("09:30");
-            lista.Add("10:00");
-            lista.Add("10:30");
-            lista.Add("11:00");
-            lista.Add("11:30");
-            lista.Add("12:00");
-            lista.Add("12:30");
-            lista.Add("13:00");
-            lista.Add("13:30");
-            lista.Add("14:00");
-            lista.Add("15:30");
-            lista.Add("16:00");
-            lista.Add("16:30");
-            lista.Add("17:00");
-            lista.Add("17:30");
-            lista.Add("18:00");
-            lista.Add("18:30");
-            lista.Add("19:00");
-            time.ItemsSource = lista;
+            time.ItemsSource = availableTimes;
             prostorije = ProstorijaFileStorage.GetAll();
+            LoadTimes();
+            BlackOutDates();
+            date.SelectedDate = selektovan.datumZakazivanja;
+            time.SelectedItem = selektovan.datumZakazivanja.ToString("HH:mm");
             lekari = LekarFileStorage.GetAll();
+            /* lekari = new List<global::Lekar>();
+            foreach(global::Lekar l in LekarFileStorage.GetAll()) {
+                if (l.tipLekara.Equals(TipLekara.opstePrakse)) {
+                    lekari.Add(l);
+                }
+            } -- ovaj zakomentarisani dio u combo box postavlja samo ljekare opste prakse*/
             lekar.ItemsSource = lekari;
-            List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
-            //pacijent.ItemsSource = pacijenti;
-
             foreach (global::Lekar l in lekari)
             {
                 if (l.jmbg == selektovan.Lekar.jmbg)
                     lekar.SelectedItem = l;
             }
 
-            /*foreach (Pacijent p in pacijenti)
-            {
-                if (p.jmbg != null || p.jmbg == selektovan.pacijent.jmbg)
-                    pacijent.SelectedItem = p;
-            }*/
+        }
+        private void LoadTimes()
+        {
 
+            DateTime datum;
+            global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            if (date.SelectedDate != null)
+            {
+                datum = DateTime.Parse(date.Text);
+            }
+            else
+            {
+                datum = DateTime.Now;
+            }
+
+            availableTimes = new List<string>();
+            List<Termin> termini = new List<Termin>();
+            DateTime danas = DateTime.Today;
+
+            for (DateTime tm = danas.AddHours(8); tm < danas.AddHours(20); tm = tm.AddMinutes(15))
+            {
+                bool slobodno = true;
+                foreach (Termin termin in termini)
+                {
+                    DateTime start = DateTime.Parse(termin.datumZakazivanja.ToString("HH:mm"));
+                    DateTime end = DateTime.Parse(termin.datumZakazivanja.AddMinutes(termin.trajanjeUMinutima).ToString("HH:mm"));
+                    if (tm >= start && tm < end)
+                    {
+                        slobodno = false;
+                    }
+                }
+                if (slobodno)
+                    availableTimes.Add(tm.ToString("HH:mm"));
+
+                if (date.SelectedDate == danas)
+                {
+                    if (tm < DateTime.Now.AddMinutes(30))
+                    {
+                        availableTimes.Remove(tm.ToString("HH:mm"));
+                    }
+                }
+
+            }
+
+            time.ItemsSource = availableTimes;
+        }
+
+        private void CheckAvailableTimes()
+        {
+
+            DateTime datum;
+            global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            if (date.SelectedDate != null)
+            {
+                datum = DateTime.Parse(date.Text);
+            }
+            else
+            {
+                datum = DateTime.Now;
+            }
+
+            availableTimes = new List<string>();
+            List<Termin> termini = new List<Termin>();
+            if (lekar.SelectedItem != null && date.SelectedDate != null)
+            {
+                foreach (Termin termin in TerminFileStorage.GetAll())
+                {
+                    if (l.jmbg == termin.Lekar.jmbg)
+                    {
+                        if (termin.status == StatusTermina.zakazan && termin.datumZakazivanja.Date.Equals(date.SelectedDate))
+                        {
+                            termini.Add(termin);
+                        }
+                    }
+
+                    if (pacijent.korisnickoIme == termin.Pacijent.korisnickoIme)
+                    {
+                        if (termin.status == StatusTermina.zakazan && termin.datumZakazivanja.Date.Equals(date.SelectedDate))
+                        {
+                            termini.Add(termin);
+                        }
+                    }
+
+
+                }
+            }
+
+            DateTime danas = DateTime.Today;
+
+            for (DateTime tm = danas.AddHours(8); tm < danas.AddHours(20); tm = tm.AddMinutes(15))
+            {
+                bool slobodno = true;
+                foreach (Termin termin in termini)
+                {
+                    DateTime start = DateTime.Parse(termin.datumZakazivanja.ToString("HH:mm"));
+                    DateTime end = DateTime.Parse(termin.datumZakazivanja.AddMinutes(termin.trajanjeUMinutima).ToString("HH:mm"));
+                    if (tm >= start && tm < end)
+                    {
+                        slobodno = false;
+                    }
+
+                }
+                if (slobodno)
+                    availableTimes.Add(tm.ToString("HH:mm"));
+
+                /*if (date.SelectedDate == danas)
+                {
+                    if (tm < DateTime.Now.AddMinutes(30))
+                    {
+                        availableTimes.Remove(tm.ToString("HH:mm"));
+                    }
+                }*/
+
+            }
+
+            time.ItemsSource = availableTimes;
+            if (availableTimes.Contains(selektovan.datumZakazivanja.ToString("HH:mm"))) {
+                time.SelectedItem = selektovan.datumZakazivanja.ToString("HH:mm");
+            }
+
+            
+        }
+
+
+
+        private void BlackOutDates() {
             date.SelectedDate = selektovan.datumZakazivanja.Date;
+            CalendarDateRange kal = new CalendarDateRange(DateTime.Today, DateTime.Today);
             CalendarDateRange kalendar = new CalendarDateRange(DateTime.MinValue, selektovan.datumZakazivanja.AddDays(-3));
             CalendarDateRange kalendar1 = new CalendarDateRange(selektovan.datumZakazivanja.AddDays(3), DateTime.MaxValue);
             date.BlackoutDates.Add(kalendar);
             date.BlackoutDates.Add(kalendar1);
+            date.BlackoutDates.Add(kal);
 
-            time.SelectedItem = selektovan.datumZakazivanja.ToString("HH:mm");
+
+        }
+
+        private Prostorija GetAvailableRoom(DateTime pocetak, DateTime kraj)
+        {
+            prostorije = new List<Prostorija>();
+            foreach (Prostorija prostorija in ProstorijaFileStorage.GetAll())
+            {
+                if (prostorija.IsAvailable(pocetak, kraj) && !prostorija.IsDeleted)
+                {
+                    prostorije.Add(prostorija);
+                }
+            }
+
+            return prostorije.ElementAt(0);
 
         }
 
@@ -97,7 +223,14 @@ namespace InformacioniSistemBolnice
                 String d = date.Text;
                 DateTime dt = DateTime.Parse(d + " " + t);
                 TipTermina tt = TipTermina.pregledKodLekaraOpstePrakse;
-                Termin termin = new Termin(selektovan.iDTermina, dt, 15, tt, StatusTermina.zakazan, p, l, prostorije.ElementAt(1));
+
+                DateTime start;
+                DateTime end;
+                CalculateStartAndEnd(out start, out end);
+
+                Prostorija prvaDostupnaProstorija = GetAvailableRoom(start, end);
+
+                Termin termin = new Termin(selektovan.iDTermina, dt, trajanjePregleda, tt, StatusTermina.zakazan, p, l, prvaDostupnaProstorija);
                 TerminFileStorage.UpdateTermin(selektovan.iDTermina, termin);
                 parent.updateTable();
                 this.Close();
@@ -110,106 +243,83 @@ namespace InformacioniSistemBolnice
             this.Close();
         }
 
-        private void button_Click_2(object sender, RoutedEventArgs e) //unesen je datum
+        private void setEnabledButtonSubmit()
         {
-            foreach (Termin t in termini)
+            if (lekar.SelectedItem != null && date.SelectedDate != null && time.SelectedItem != null)
             {
-                if ((t.datumZakazivanja.Date == date.SelectedDate) && (t.status == StatusTermina.zakazan))
-                {
-                    string sat = t.datumZakazivanja.Hour.ToString();
-                    string minute = t.datumZakazivanja.Minute.ToString();
-                    string izbaci = "";
-                    int brojac1 = 0;
-                    int brojac2 = 0;
-                    foreach (char s in sat)
-                    {
-                        ++brojac1;
-
-                    }
-                    foreach (char s in minute)
-                    {
-                        ++brojac2;
-                    }
-                    if (brojac1 == 1)
-                    {
-                        izbaci = "0" + sat + ":" + minute;
-                    }
-                    else
-                    {
-
-                        izbaci = sat + ":" + minute;
-                    }
-
-                    if (brojac2 == 1)
-                    {
-                        izbaci = izbaci + "0";
-
-                    }
-
-                    /*lista.Remove(izbaci);*/
-
-                    time.ItemsSource = lista;
-
-
-
-                }
-
-                time.SelectedIndex=-1;
+                submitButton.IsEnabled = true;
             }
+            else
+            {
+                submitButton.IsEnabled = false;
+            }
+        }
+
+        private void time_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateComponents();
+        }
+
+        private void UpdateComponents()
+        {
+            DateTime start;
+            DateTime end;
+
+            CalculateStartAndEnd(out start, out end);
+
+            setEnabledButtonSubmit();
+            Debug.WriteLine(brojac);
+            if (brojac > 4)
+            {
+                CheckAvailableTimes();
+            }
+            else
+            {
+                LoadTimes();
+            }
+            
+
+            lekari = new List<global::Lekar>();
+            foreach (global::Lekar l in LekarFileStorage.GetAll())
+            {
+                if (l.IsAvailable(start, end) && !l.isDeleted)
+                {
+                    lekari.Add(l);
+                }
+            }
+            
 
 
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void CalculateStartAndEnd(out DateTime start, out DateTime end)
         {
-            foreach (Termin t in termini)
+            if (time.SelectedItem != null && date.SelectedDate != null)
             {
+                String timeSelected = time.SelectedItem.ToString();
+                String dateSelected = date.Text;
 
-                string sat = t.datumZakazivanja.Hour.ToString();
-                string minute = t.datumZakazivanja.Minute.ToString();
-                string izbaci = "";
-                int brojac1 = 0;
-                int brojac2 = 0;
-                foreach (char s in sat)
-                {
-                    ++brojac1;
-
-                }
-                foreach (char s in minute)
-                {
-                    ++brojac2;
-                }
-                if (brojac1 == 1)
-                {
-                    izbaci = "0" + sat + ":" + minute;
-                }
-                else
-                {
-
-                    izbaci = sat + ":" + minute;
-                }
-
-                if (brojac2 == 1)
-                {
-                    izbaci = izbaci + "0";
-
-                }
-
-                if (t.Lekar.jmbg.Equals(selektovan.Lekar.jmbg))
-                {
-                    if ((t.datumZakazivanja.Date == date.SelectedDate) && (t.status == StatusTermina.zakazan) && (time.SelectedItem.Equals(izbaci)))
-                    {
-                        lekari.Remove(selektovan.Lekar);
-                        lekar.ItemsSource = lekari;
-                        lekar.SelectedIndex = lekari.Count() - 1;
-
-
-                    }
-                }
+                start = DateTime.Parse(dateSelected + " " + timeSelected);
+                end = start.AddMinutes(trajanjePregleda);
             }
+            else
+            {
+                start = DateTime.Now;
+                end = DateTime.Now;
+            }
+        }
+
+        private void date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ++brojac;
+            UpdateComponents();
+        }
+
+        private void lekar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateComponents();
         }
     }
-
 
 
 }

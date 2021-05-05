@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="PacijentMijenja" Height="450" Width="800">
+        Title="Pomeranje termina" Height="450" Width="600" WindowStartupLocation="CenterScreen" >
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,218,0,0" TextWrapping="Wrap" Text="Lekar" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox x:Name="lekar" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="314,218,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <TextBlock HorizontalAlignment="Left" Height="32" Margin="120,250,0,0" TextWrapping="Wrap" Text="Lekar:" VerticalAlignment="Top" Width="118" FontSize="22"/>
+        <ComboBox x:Name="lekar" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="238,250,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="lekar_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -24,23 +24,16 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,52,0,0" TextWrapping="Wrap" Text="Datum" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <DatePicker Name="date"  HorizontalAlignment="Left" Height="32" Margin="314,52,0,0" VerticalAlignment="Top" Width="163"/>
-        <ComboBox Name="time" SelectedValuePath="Content" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="314,108,0,0" Height="32" >
+        <TextBlock HorizontalAlignment="Left" Height="32" Margin="120,116,0,0" TextWrapping="Wrap" Text="Datum:" VerticalAlignment="Top" Width="118" FontSize="22"/>
+        <DatePicker Name="date"  HorizontalAlignment="Left" Height="32" Margin="238,116,0,0" VerticalAlignment="Top" Width="163" SelectedDateChanged="date_SelectedDateChanged" />
+        <ComboBox Name="time" SelectedValuePath="Content" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="238,178,0,0" Height="32" SelectionChanged="time_SelectionChanged" >
 
         </ComboBox>
-
-
-
-
-
-
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="166,331,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click_1"/>
-        <Button Content="Odustani" HorizontalAlignment="Left" Height="37" Margin="500,331,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click"/>
-        <TextBlock x:Name="vreme" HorizontalAlignment="Left" Height="32" Margin="166,108,0,0" Text="Vreme" TextWrapping="Wrap"  VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <Button x:Name="button" Content="Unesen je datum" HorizontalAlignment="Left" Margin="500,54,0,0" VerticalAlignment="Top" Width="113" Click="button_Click_2" />
-        <Button x:Name="button1" Content="Proveri dostupne lekare" HorizontalAlignment="Left" Margin="274,166,0,0" VerticalAlignment="Top" Width="150" Click="button1_Click" />
-
+        <Button x:Name="submitButton"  Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="120,348,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click_1"/>
+        <Button x:Name="cancelButton" Content="Odustani" HorizontalAlignment="Left" Height="37" Margin="351,348,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click"/>
+        <TextBlock x:Name="vreme" HorizontalAlignment="Left" Height="32" Margin="120,178,0,0" Text="Vreme:" TextWrapping="Wrap"  VerticalAlignment="Top" Width="118" FontSize="22"/>
+        <Label x:Name="label" Content="Pomeranje pregleda" HorizontalAlignment="Left" Margin="193,35,0,0" VerticalAlignment="Top" FontSize="20" />
+        
     </Grid>
     
 </Window>

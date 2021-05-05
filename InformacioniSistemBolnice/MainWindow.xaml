@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen" >
 
 
 
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" FontSize="20"  Margin="240,128,0,0" Text="Username" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.449,-0.716"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="240,195,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.539,-0.065"/>
-        <TextBox Name="ime" HorizontalAlignment="Left" FontSize="17" Margin="388,128,0,0" Text="{Binding Value}" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Height="27"/>
-        <PasswordBox Name="lozinka" HorizontalAlignment="Left" FontSize="17" Margin="388,195,0,0" VerticalAlignment="Top" Width="142" Height="27" />
-        <Button Content="Login" HorizontalAlignment="Left" Margin="353,272,0,0" VerticalAlignment="Top" Width="100" Height="27" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="20"  Margin="215,186,0,0" Text="Username" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.449,-0.716"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="221,263,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.539,-0.065"/>
+        <TextBox Name="ime" HorizontalAlignment="Left" FontSize="17" Margin="390,186,0,0" Text="{Binding Value}" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Height="27"/>
+        <PasswordBox Name="lozinka" HorizontalAlignment="Left" FontSize="17" Margin="390,263,0,0" VerticalAlignment="Top" Width="142" Height="27" />
+        <Button Content="Login" HorizontalAlignment="Left" Margin="310,355,0,0" VerticalAlignment="Top" Width="100" Height="27" Click="Button_Click"/>
 
     </Grid>
 </Window>
