@@ -45,5 +45,7 @@ namespace InformacioniSistemBolnice
             this.Close();
             return;
         }
+
+       
     }
 }
