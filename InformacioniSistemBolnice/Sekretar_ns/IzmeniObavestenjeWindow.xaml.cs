@@ -39,14 +39,9 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            String naslov = Naslov.Text;
-            String sadrzaj = Sadrzaj.Text;
-            DateTime datumIVreme = new DateTime();
-            datumIVreme = DateTime.Now;
-
-            staroObavestenje.naslov = naslov;
-            staroObavestenje.tekst = sadrzaj;
-            staroObavestenje.datumNastanka = datumIVreme;
+            staroObavestenje.naslov = Naslov.Text;
+            staroObavestenje.tekst = Sadrzaj.Text;
+            staroObavestenje.datumNastanka = DateTime.Now;
 
             ObavestenjeFileStorage.UpdateObavestenje(staroObavestenje.idObavestenja, staroObavestenje);
             parent.updateTable();

@@ -111,7 +111,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
             CalculatePocetakAndKraj(out pocetak, out kraj);
 
-            SetAvailableTimes();
+            UpdateAvailableTimes();
 
             ColorDurationField(pocetak, kraj);
             UpdateAvailableLekarList(pocetak, kraj);
@@ -178,7 +178,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             prostorija.IsEnabled = (pacijent.SelectedItem != null && lekar.SelectedItem != null && time.SelectedItem != null && date.SelectedDate != null && Trajanje.Text != "");
             PotvrdiB.IsEnabled = (pacijent.SelectedItem != null && lekar.SelectedItem != null && time.SelectedItem != null && date.SelectedDate != null && Trajanje.Text != "" && tip.SelectedItem != null && prostorija.SelectedItem != null);
         }
-        private void SetAvailableTimes()
+        private void UpdateAvailableTimes()
         {
             DateTime datum;
             if (date.SelectedDate != null)
