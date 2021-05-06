@@ -47,71 +47,29 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
+            if (Primalac.SelectedItems.Count == 0)
+                return;
             String naslov = Naslov.Text;
             String sadrzaj = Sadrzaj.Text;
             DateTime datumIVreme = new DateTime();
             datumIVreme = DateTime.Now;
-            if (Primalac.SelectedItem.ToString().Equals("Svi korisnici"))
+            int id = ObavestenjeFileStorage.GetAll().Count;
+            Obavestenje newNotification = new Obavestenje(id, naslov, sadrzaj, datumIVreme);
+            foreach (var item in Primalac.SelectedItems)
             {
-                int id = ObavestenjeFileStorage.GetAll().Count;
-                Obavestenje novoObavestenje = new Obavestenje(id, naslov, sadrzaj, datumIVreme);
-                ObavestenjeFileStorage.AddObavestenje(novoObavestenje);
-            }
-            else if (Primalac.SelectedItem.ToString().Equals("Zaposleni"))
-            {
-                foreach (Sekretar sekretar in SekretarFileStorage.GetAll())
+                if (item.ToString().Equals("Svi korisnici"))
+                    newNotification.Recipients.Add("ALL_USERS");
+                else if (item.ToString().Equals("Zaposleni"))
+                    newNotification.Recipients.Add("EMPLOYED_USERS");
+                else if (item.ToString().Equals("Svi pacijenti"))
+                    newNotification.Recipients.Add("PATIENT_USERS");
+                else
                 {
-                    int id = ObavestenjeFileStorage.GetAll().Count;
-                    if (!sekretar.isDeleted)
-                    {
-                        Obavestenje novoObavestenje = new Obavestenje(id, naslov, sadrzaj, datumIVreme, sekretar.korisnickoIme);
-                        ObavestenjeFileStorage.AddObavestenje(novoObavestenje);
-                    }
-                    
-                }
-                foreach (global::Lekar lekar in LekarFileStorage.GetAll())
-                {
-                    int id = ObavestenjeFileStorage.GetAll().Count;
-                    if (!lekar.isDeleted)
-                    {
-                        Obavestenje novoObavestenje = new Obavestenje(id, naslov, sadrzaj, datumIVreme, lekar.korisnickoIme);
-                        ObavestenjeFileStorage.AddObavestenje(novoObavestenje);
-                    }
-                }
-                foreach (global::Upravnik upravnik in UpravnikFileStorage.GetAll())
-                {
-                    int id = ObavestenjeFileStorage.GetAll().Count;
-                    if (!upravnik.isDeleted)
-                    {
-                        Obavestenje novoObavestenje = new Obavestenje(id, naslov, sadrzaj, datumIVreme, upravnik.korisnickoIme);
-                        ObavestenjeFileStorage.AddObavestenje(novoObavestenje);
-                    }
+                    String username = item.ToString().Split('-')[1].Trim();
+                    newNotification.Recipients.Add(username);
                 }
             }
-            else if (Primalac.SelectedItem.ToString().Equals("Svi pacijenti"))
-            {
-                foreach (Pacijent pacijent in PacijentFileStorage.GetAll())
-                {
-                    int id = ObavestenjeFileStorage.GetAll().Count;
-                    if (!pacijent.isDeleted)
-                    {
-                        Obavestenje novoObavestenje = new Obavestenje(id, naslov, sadrzaj, datumIVreme, pacijent.korisnickoIme);
-                        ObavestenjeFileStorage.AddObavestenje(novoObavestenje);
-                    }
-                }
-            }
-            else if (Primalac.SelectedItem != null)
-            {
-                int id = ObavestenjeFileStorage.GetAll().Count;
-                String korisnickoIme = Primalac.SelectedItem.ToString().Split('-')[1].Trim();
-                Pacijent pacijent = PacijentFileStorage.GetOne(korisnickoIme);
-                if (!pacijent.isDeleted)
-                {
-                    Obavestenje novoObavestenje = new Obavestenje(id, naslov, sadrzaj, datumIVreme, pacijent.korisnickoIme);
-                    ObavestenjeFileStorage.AddObavestenje(novoObavestenje);
-                }
-            }
-
+            ObavestenjeFileStorage.AddObavestenje(newNotification);
             parent.updateTable();
             Close();
         }
