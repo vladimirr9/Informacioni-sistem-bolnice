@@ -7,14 +7,18 @@
         mc:Ignorable="d"
         Title="IzmeniObavestenjeWindow" Height="430" Width="560">
     <Grid>
-        <TextBlock  HorizontalAlignment="Left" Margin="74,101,0,0" TextWrapping="Wrap" Text="Naslov:" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"/>
-        <TextBox x:Name="Naslov" HorizontalAlignment="Left" Height="23" Margin="173,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="16" FontFamily="Verdana"/>
-        <TextBlock HorizontalAlignment="Left" Margin="65,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Sadržaj:"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="Sadrzaj" HorizontalAlignment="Left" Height="109" Margin="173,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="14" FontFamily="Verdana"/>
-        <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="129,326,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Potvrdi_Click"/>
-        <Button x:Name="Otkazi" Content="Otkaži" HorizontalAlignment="Left" Margin="327,326,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Otkazi_Click"/>
-        <TextBlock  HorizontalAlignment="Left" Margin="55,45,0,0" TextWrapping="Wrap" Text="Primalac:" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"/>
-        <ComboBox x:Name="Primalac" HorizontalAlignment="Left" Margin="173,46,0,0" VerticalAlignment="Top" Width="301" FontFamily="Verdana" FontSize="14" IsEnabled="False"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="363*"/>
+        </Grid.RowDefinitions>
+        <TextBlock  HorizontalAlignment="Left" Margin="74,96,0,0" TextWrapping="Wrap" Text="Naslov:" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right" Grid.Row="1"/>
+        <TextBox x:Name="Naslov" HorizontalAlignment="Left" Height="23" Margin="173,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="16" FontFamily="Verdana" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="65,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right" Grid.Row="1"><Run Text="Sadržaj:"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="Sadrzaj" HorizontalAlignment="Left" Height="109" Margin="173,145,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="14" FontFamily="Verdana" Grid.Row="1"/>
+        <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="129,280.041,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Potvrdi_Click" Grid.Row="1"/>
+        <Button x:Name="Otkazi" Content="Otkaži" HorizontalAlignment="Left" Margin="327,280.041,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Otkazi_Click" Grid.Row="1"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="55,33,0,0" TextWrapping="Wrap" Text="Primalac:" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right" Grid.RowSpan="2"/>
+        <ListBox x:Name="Primalac" HorizontalAlignment="Left" Height="104" Margin="173,23,0,0" VerticalAlignment="Top" Width="301" FontFamily="Verdana" FontSize="14" SelectionMode="Extended" Grid.RowSpan="2" SelectedIndex="0" IsEnabled="False"/>
 
     </Grid>
 </Window>

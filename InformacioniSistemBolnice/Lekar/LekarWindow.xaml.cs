@@ -32,9 +32,9 @@ namespace InformacioniSistemBolnice
         //dodavanje
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            LekarDodajTerminWindow dodajWin = new LekarDodajTerminWindow(this);
-            Application.Current.MainWindow = dodajWin;
-            dodajWin.Show();
+            LekarDodajTerminWindow dodajWindow = new LekarDodajTerminWindow(this);
+            Application.Current.MainWindow = dodajWindow;
+            dodajWindow.Show();
         }
 
         //izmena
@@ -43,9 +43,9 @@ namespace InformacioniSistemBolnice
             if (PrikazPregleda.SelectedItem != null)
             {
                 Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
-                LekarIzmeniTerminWindow izmeniWin = new LekarIzmeniTerminWindow(termin, this);
-                Application.Current.MainWindow = izmeniWin;
-                izmeniWin.Show();
+                LekarIzmeniTerminWindow izmeniWindow = new LekarIzmeniTerminWindow(termin, this);
+                Application.Current.MainWindow = izmeniWindow;
+                izmeniWindow.Show();
             }
         }
 
@@ -65,9 +65,9 @@ namespace InformacioniSistemBolnice
             if (PrikazPregleda.SelectedItem != null)
             {
                 Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
-                PrikazKartona win = new PrikazKartona(termin, this);
-                Application.Current.MainWindow = win;
-                win.Show();
+                PrikazKartona kartoWindow = new PrikazKartona(termin, this);
+                Application.Current.MainWindow = kartoWindow;
+                kartoWindow.Show();
             }
         }
 

@@ -39,14 +39,11 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            int id = staroObavestenje.idObavestenja;
-            String naslov = Naslov.Text;
-            String sadrzaj = Sadrzaj.Text;
-            DateTime datumIVreme = new DateTime();
-            datumIVreme = DateTime.Now;
+            staroObavestenje.naslov = Naslov.Text;
+            staroObavestenje.tekst = Sadrzaj.Text;
+            staroObavestenje.datumNastanka = DateTime.Now;
 
-            Obavestenje novoObavestenje = new Obavestenje(id, naslov, sadrzaj, datumIVreme);
-            ObavestenjeFileStorage.UpdateObavestenje(staroObavestenje.idObavestenja, novoObavestenje);
+            ObavestenjeFileStorage.UpdateObavestenje(staroObavestenje.idObavestenja, staroObavestenje);
             parent.updateTable();
             Close();
         }

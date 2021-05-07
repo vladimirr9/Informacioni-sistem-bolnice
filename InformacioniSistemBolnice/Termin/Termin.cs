@@ -142,5 +142,18 @@ public class Termin
         }
     }
 
+    public bool OccursOn(DateTime date)
+    {
+        return datumZakazivanja.Date.Equals(date.Date);
+    }
+    public bool InvolvesEither(Pacijent patient, Lekar doctor)
+    {
+        if (patient == null && doctor == null)
+            return false;
+        else if (patient == null)
+            return (Lekar.Equals(doctor));
+        else return (Pacijent.Equals(patient));
+    }
+
 
 }

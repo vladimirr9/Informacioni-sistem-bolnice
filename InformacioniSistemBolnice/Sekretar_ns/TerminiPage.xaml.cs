@@ -63,6 +63,12 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                 }
             }
         }
+
+        private void HitnoZakazivanje_Click(object sender, RoutedEventArgs e)
+        {
+            NoviHitanTermin window = new NoviHitanTermin(this);
+            window.ShowDialog();
+        }
         public void updateTable()
         {
             PrikazPregleda.Items.Clear();
@@ -73,5 +79,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                     PrikazPregleda.Items.Add(termin);
             }
         }
+
+        
     }
 }

@@ -127,9 +127,6 @@
     <Compile Include="PrioritetVrijeme.xaml.cs">
       <DependentUpon>PrioritetVrijeme.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\AlergenDodavanje.xaml.cs">
-      <DependentUpon>AlergenDodavanje.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Sekretar_ns\DetaljnijeWindow.xaml.cs">
       <DependentUpon>DetaljnijeWindow.xaml</DependentUpon>
     </Compile>
@@ -144,6 +141,12 @@
     </Compile>
     <Compile Include="Sekretar_ns\IzmeniTerminWindow.xaml.cs">
       <DependentUpon>IzmeniTerminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\NewGuestPatientWindow.xaml.cs">
+      <DependentUpon>NewGuestPatientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\NoviHitanTermin.xaml.cs">
+      <DependentUpon>NoviHitanTermin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sekretar_ns\NoviTerminWindow.xaml.cs">
       <DependentUpon>NoviTerminWindow.xaml</DependentUpon>
@@ -183,9 +186,6 @@
     <Compile Include="FileStorage\ProstorijaFileStorage.cs" />
     <Compile Include="Sekretar_ns\Sekretar.cs" />
     <Compile Include="FileStorage\SekretarFileStorage.cs" />
-    <Compile Include="Sekretar_ns\SekretarWindow.xaml.cs">
-      <DependentUpon>SekretarWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Termin\StatusTermina.cs" />
     <Compile Include="Termin\Termin.cs" />
     <Compile Include="FileStorage\TerminFileStorage.cs" />
@@ -283,10 +283,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\AlergenDodavanje.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Sekretar_ns\DetaljnijeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -307,6 +303,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Sekretar_ns\NewGuestPatientWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sekretar_ns\NoviHitanTermin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Sekretar_ns\NoviTerminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -324,10 +328,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sekretar_ns\SekretarMain.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sekretar_ns\SekretarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

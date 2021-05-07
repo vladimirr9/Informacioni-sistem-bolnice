@@ -7,13 +7,15 @@
         mc:Ignorable="d"
         Title="DetaljnijeWindow" Height="600" Width="1000">
     <Grid>
-        <ListView x:Name="AlergeniList" HorizontalAlignment="Left" Height="302" Margin="575,131,0,0" VerticalAlignment="Top" Width="323">
+        <ListView x:Name="AlergeniList" HorizontalAlignment="Left" Height="302" Margin="573,78,0,0" VerticalAlignment="Top" Width="323" FontSize="20" FontFamily="Verdana">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Naziv alergena" DisplayMemberBinding="{Binding Path=naziv}"/>
+                    <GridViewColumn Header="Naziv alergena" Width="323" DisplayMemberBinding="{Binding Path=naziv}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <ComboBox x:Name="AllergensCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258" Height="30"    
+        DisplayMemberPath="naziv" Margin="618,410,0,0" />
         <Button x:Name="Zatvori" Content="Zatvori" HorizontalAlignment="Left" Margin="163,487,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="Zatvori_Click"/>
         <Button x:Name="Dodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="635,487,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="Dodaj_Click"/>
         <Button x:Name="Obrisi" Content="Obriši" HorizontalAlignment="Left" Margin="783,487,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="Obrisi_Click"/>

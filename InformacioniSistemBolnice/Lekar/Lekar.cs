@@ -48,5 +48,31 @@ public class Lekar : Korisnik
             }
         }
         return retVal;
+
     }
+    public static List<string> GetLekarTypes()
+    {
+        List<string> types = new List<string>();
+        types.Add("Opšte Prakse");
+        types.Add("Kardiolog");
+        types.Add("Hirurg");
+        types.Add("Pedijatar");
+        types.Add("Neurolog");
+        return types;
+    }
+    public static TipLekara LekarTypeFromString(string type)
+    {
+        if (type.Equals("Opšte Prakse"))
+            return TipLekara.opstePrakse;
+        else if (type.Equals("Kardiolog"))
+            return TipLekara.kardiolog;
+        else if (type.Equals("Hirurg"))
+            return TipLekara.hirurg;
+        else if (type.Equals("Pedijatar"))
+            return TipLekara.pedijatar;
+        else if (type.Equals("Opšte Prakse"))
+            return TipLekara.neurolog;
+        else return 0;
+    }
+
 }

@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Izmeni_Click(object sender, RoutedEventArgs e)
         {
-            if (PrikazObavestenja.SelectedItem != null && ((Obavestenje)PrikazObavestenja.SelectedItem).korisnickoIme == null)
+            if (PrikazObavestenja.SelectedItem != null && ((Obavestenje)PrikazObavestenja.SelectedItem).Recipients.Contains("ALL_USERS"))
             {
                 Obavestenje inicijalnoObavestenje = ObavestenjeFileStorage.GetOne(((Obavestenje)(PrikazObavestenja.SelectedItem)).idObavestenja);
                 IzmeniObavestenjeWindow window = new IzmeniObavestenjeWindow(this, inicijalnoObavestenje);
@@ -74,12 +74,12 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         public void updateTable()
         {
             obavestenja = new List<Obavestenje>();
-            foreach (Obavestenje o in ObavestenjeFileStorage.GetAll())
+            foreach (Obavestenje notification in ObavestenjeFileStorage.GetAll())
             {
-                if (o.korisnickoIme == null || o.korisnickoIme.Equals(tekSekretar.korisnickoIme))
+                if (notification.IsDirectedTo(tekSekretar.korisnickoIme))
                 {
-                    if (!o.isDeleted)
-                        obavestenja.Add(o);
+                    if (!notification.isDeleted)
+                        obavestenja.Add(notification);
                 }
             }
             PrikazObavestenja.ItemsSource = obavestenja;
