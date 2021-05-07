@@ -8,5 +8,8 @@ using System;
 public enum TipLekara
 {
    opstePrakse,
-   specijalista
+   kardiolog,
+   hirurg,
+   pedijatar,
+   neurolog
 }
