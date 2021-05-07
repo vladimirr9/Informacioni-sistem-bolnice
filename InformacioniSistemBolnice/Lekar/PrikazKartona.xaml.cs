@@ -28,10 +28,16 @@ namespace InformacioniSistemBolnice.Lekar
             this.parent = parent;
             this.termin = termin;
             InitializeComponent();
+            FillKarton();
+        }
+
+        private void FillKarton()
+        {
             Ime.Text = selektovan.ime + " " + selektovan.prezime;
             Datum.Text = selektovan.datumRodenja.ToString("dd/MM/yyyy");
             JMBG.Text = selektovan.jmbg;
             Zdravstvena.Text = selektovan.brojZdravstveneKartice;
+
             if (selektovan.pol == 'M')
             {
                 Pol.SelectedIndex = 0;
@@ -40,10 +46,9 @@ namespace InformacioniSistemBolnice.Lekar
             {
                 Pol.SelectedItem = 1;
             }
-            Console.WriteLine(termin.anamneza);
+
             Anamneza.Document.Blocks.Clear();
             Anamneza.Document.Blocks.Add(new Paragraph(new Run(termin.anamneza)));
-
         }
 
         //izadvanje recepta i terapije
@@ -72,6 +77,14 @@ namespace InformacioniSistemBolnice.Lekar
                 termin.anamneza = anamneza;
                 TerminFileStorage.UpdateTermin(termin.iDTermina, termin);
             }
+        }
+
+        //Izdavanje uputa
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            LekarDodajTerminWindow dodajWindow = new LekarDodajTerminWindow(parent);
+            Application.Current.MainWindow = dodajWindow;
+            dodajWindow.Show();
         }
     }
 }

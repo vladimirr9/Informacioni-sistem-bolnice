@@ -68,15 +68,15 @@ namespace InformacioniSistemBolnice.Lekar
         {
             Pacijent p = (Pacijent)pacijent.SelectedItem;
             global::Lekar l = (global::Lekar)lekar.SelectedItem;
-            Prostorija pr = (Prostorija)prostorija.SelectedItem;
+            Prostorija prostor = (Prostorija)prostorija.SelectedItem;
             if (time.SelectedIndex != -1)
             {
                 ComboBoxItem item = time.SelectedItem as ComboBoxItem;
-                String t = item.Content.ToString();
-                String d = date.Text;
-                DateTime dt = DateTime.Parse(d + " " + t);
-                TipTermina tt = (TipTermina)tip.SelectedIndex;
-                Termin termin = new Termin(selektovan.iDTermina, dt, 15, tt, StatusTermina.zakazan, p, l, pr);
+                String vreme = item.Content.ToString();
+                String datum = date.Text;
+                DateTime dateTime = DateTime.Parse(datum + " " + vreme);
+                TipTermina tipTermina = (TipTermina)tip.SelectedIndex;
+                Termin termin = new Termin(selektovan.iDTermina, dateTime, 15, tipTermina, StatusTermina.zakazan, p, l, prostor);
                 TerminFileStorage.UpdateTermin(selektovan.iDTermina, termin);
                 parent.UpdateTable();
                 this.Close();

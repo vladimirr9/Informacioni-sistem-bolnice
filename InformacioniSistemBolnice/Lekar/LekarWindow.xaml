@@ -48,6 +48,7 @@
         <Button Content="Ukloni termin" Margin="818,0,0,63" Click="Button_Click_2" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="116"/>
         <Button Content="Karton" HorizontalAlignment="Left" Height="35" Margin="10,75,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_3"/>
         <Button Content="Pregledi" HorizontalAlignment="Left" Height="35" Margin="10,21,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_4"/>
+        <Button Content="Lekovi" HorizontalAlignment="Left" Height="35" Margin="10,129,0,0" VerticalAlignment="Top" Width="116" />
 
     </Grid>
 </Window>
