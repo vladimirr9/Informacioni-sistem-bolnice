@@ -21,6 +21,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     {
         private TerminiPage parent;
         private List<string> Patients;
+        private List<string> DoctorTypes;
         public NoviHitanTermin(TerminiPage parent)
         {
             this.parent = parent;
@@ -38,6 +39,10 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                     Patients.Add(patient.ime + " " + patient.prezime + " - " + patient.jmbg);
             }
             PatientsList.ItemsSource = Patients;
+        }
+        public void InitializeDoctorTypes()
+        {
+            DoctorTypes = new List<string>();
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
