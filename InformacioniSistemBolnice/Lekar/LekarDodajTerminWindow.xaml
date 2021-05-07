@@ -69,7 +69,7 @@
         </ComboBox>
 
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,191,0,0" TextWrapping="Wrap" Text="Tip termina" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox Name="tip" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,191,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <ComboBox Name="tip" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Margin="333,191,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
             <ComboBoxItem>Opsta praksa</ComboBoxItem>
             <ComboBoxItem>Specijalista</ComboBoxItem>
             <ComboBoxItem>Operacija</ComboBoxItem>
@@ -90,6 +90,7 @@
 
         <Button Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="166,331,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click_1"/>
         <Button Content="Odustani" HorizontalAlignment="Left" Height="37" Margin="500,331,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click"/>
-        
+        <CheckBox Content="Hitno" HorizontalAlignment="Left"  Margin="517,192,0,0"  VerticalAlignment="Top" FontSize="22" Width="78"/>
+
     </Grid>
 </Window>
