@@ -26,32 +26,31 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             InitializeComponent();
         }
 
-        private void Potvrdi_Click(object sender, RoutedEventArgs e)
+        private void Confirm_Click(object sender, RoutedEventArgs e)
         {
 
-            string ime = Ime.Text;
-            string prezime = Prezime.Text;
-            string jmbg = JMBG.Text;
+            string ime = NameText.Text;
+            string prezime = SurnameText.Text;
+            string jmbg = JMBGText.Text;
             char pol;
-            if (Pol.SelectedIndex == 0)
+            if (GenderCombo.SelectedIndex == 0)
                 pol = 'M';
             else
                 pol = 'Ž';
-            string brojTelefona = BrojTelefona.Text;
-            string email = Email.Text;
+            string brojTelefona = PhoneText.Text;
+            string email = EmailText.Text;
             DateTime datumRodjenja;
-            if (DatePicker.SelectedDate.Value != null)
-                datumRodjenja = DatePicker.SelectedDate.Value;
+            if (BirthDate.SelectedDate.Value != null)
+                datumRodjenja = BirthDate.SelectedDate.Value;
             else
                 datumRodjenja = new DateTime();
-            string korisnickoIme = KorisnickoIme.Text;
-            string lozinka = Lozinka.Text;
-            AdresaStanovanja adresaStanovanja = new AdresaStanovanja(UlicaIBroj.Text, new MestoStanovanja(Mesto.Text, PostanskiBroj.Text, new DrzavaStanovanja(Drzava.Text)));
-            bool isGuest = (bool)Guest.IsChecked;
-            string brojZdravstveneKartice = BrojZdravstveneKartice.Text;
+            string korisnickoIme = UsernameText.Text;
+            string lozinka = PasswordText.Text;
+            AdresaStanovanja adresaStanovanja = new AdresaStanovanja(AddressText.Text, new MestoStanovanja(CityText.Text, PostalCodeText.Text, new DrzavaStanovanja(CountryText.Text)));
+            string brojZdravstveneKartice = SocialSecurityText.Text;
             if (IsUnique(korisnickoIme))
             {
-                Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
+                Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, false, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
                 p.zdravstveniKarton.pacijent = p;
                 PacijentFileStorage.AddPacijent(p);
                 parent.updateTable();
@@ -62,7 +61,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             
         }
 
-        private void Otkazi_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
@@ -74,8 +73,6 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             else return false;
         }
 
-     
-
-    
+       
     }
 }

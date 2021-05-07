@@ -7,9 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="950"
       Title="TerminiPage">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#FF085394"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+    </Page.Resources>
 
     <Grid>
-        <DataGrid x:Name="PrikazPregleda" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="310" Margin="22,35,0,0" VerticalAlignment="Top" Width="875" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True">
+        <DataGrid x:Name="PrikazPregleda" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="310" Margin="55,35,0,0" VerticalAlignment="Top" Width="864" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.Resources>
@@ -49,8 +59,8 @@
         </DataGrid>
         <Button x:Name="Dodaj"  Content="Dodaj" HorizontalAlignment="Left" Margin="125,370,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Click="Dodaj_Click" FontSize="20" FontFamily="Verdana"/>
         <Button x:Name="Izmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="325,370,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Click="Izmeni_Click" FontSize="20" FontFamily="Verdana"/>
-        <Button x:Name="Obrisi" Content="Obriši" HorizontalAlignment="Left" Margin="517,370,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Click="Obrisi_Click" FontSize="20" FontFamily="Verdana"/>
-        <Button x:Name="HitnoZakazivanje"  Content="Hitno zakazivanje" HorizontalAlignment="Left" Margin="704,370,0,0" VerticalAlignment="Top" Width="193" Height="40" RenderTransformOrigin="0.443,-0.492"  FontSize="20" FontFamily="Verdana" Click="HitnoZakazivanje_Click"/>
+        <Button x:Name="Obrisi" Content="Obriši" HorizontalAlignment="Left" Margin="517,370,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.443,-0.492" Click="Obrisi_Click" FontSize="20" FontFamily="Verdana" Background="#FFCF2A28"/>
+        <Button x:Name="HitnoZakazivanje"  Content="Hitno zakazivanje" HorizontalAlignment="Left" Margin="704,370,0,0" VerticalAlignment="Top" Width="200" Height="40" RenderTransformOrigin="0.443,-0.492"  FontSize="20" FontFamily="Verdana" Click="HitnoZakazivanje_Click"/>
 
     </Grid>
 </Page>

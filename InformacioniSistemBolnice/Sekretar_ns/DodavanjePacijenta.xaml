@@ -5,53 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns"
         mc:Ignorable="d"  ResizeMode="NoResize" FontSize="14"
-        Title="DodavanjePacijenta" Height="700" Width="500">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="*" />
-
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition  Height="auto"/>
-
-        </Grid.RowDefinitions>
-
-        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="13,47,0,499" > Korisničko ime</TextBlock>
-        <TextBox x:Name="KorisnickoIme" Margin="28,60,108,525" Grid.Row="0" Grid.Column="1" MaxWidth="270" />
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="13,107,0,475"><Run Text="Lozinka"/></TextBlock>
-        <TextBox x:Name="Lozinka" Margin="28,101,108,483" Grid.Column="1" MaxWidth="270"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,217,0,367" Text="Ime"/>
-        <TextBox x:Name="Ime" Margin="56,209,288,368" Grid.ColumnSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="133,219,0,352" Grid.Column="1" Height="32" Width="52">Prezime</TextBlock>
-        <TextBox x:Name="Prezime" Margin="198,209,9,368" Grid.Column="1"/>
-        <CheckBox x:Name="Guest" Content="Guest" Grid.Column="1" HorizontalAlignment="Left" Margin="312,168,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,274,0,313" Text="Broj Telefona"/>
-        <TextBox x:Name="BrojTelefona" Margin="26,270,110,307" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="302,264,0,312" Text="Pol" Grid.Column="1" Height="28" Width="23" RenderTransformOrigin="0.58,-0.429"/>
-        <ComboBox x:Name="Pol" HorizontalAlignment="Left" VerticalAlignment="Top" Width="43" Grid.Column="1" Margin="337,265,0,0" Height="28">
-            <ComboBoxItem>M</ComboBoxItem>
-            <ComboBoxItem>Ž</ComboBoxItem>
-        </ComboBox>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="9,318,0,270" Text="E-mail adresa" Width="93" />
-        <TextBox x:Name="Email" Margin="38,314,10,255" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="13,376,0,213" Text="Ulica i broj"/>
-        <TextBox x:Name="UlicaIBroj" Margin="13,369,0,207" Grid.Column="1" HorizontalAlignment="Left" Width="357"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="11,452,0,104" Text="Mesto" Width="47"/>
-        <TextBox x:Name="Mesto" Margin="0,473,241,122" HorizontalAlignment="Right" Width="178" Grid.ColumnSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="176,452,0,90" Grid.Column="1" Height="32" Width="49">Država</TextBlock>
-        <TextBox x:Name="Drzava" Margin="0,473,21,122" Grid.Column="1" HorizontalAlignment="Right" Width="127"/>
-        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="46,506,0,0" VerticalAlignment="Top" Grid.Column="1" Width="316"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,494,0,49"><Run Text="Datu"/><Run Text="m rođenja"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Grid.ColumnSpan="2" VerticalAlignment="Center" Margin="11,542,0,1" Text="Broj zdravstvene kartice"/>
-        <TextBox x:Name="BrojZdravstveneKartice" Margin="71,558,21,10" Grid.Column="1"/>
-        <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="0,623,0,-25" VerticalAlignment="Top" Width="100" Click="Potvrdi_Click" Grid.Column="1"/>
-        <Button x:Name="Otkazi" Content="Otkaži" Grid.Column="1" HorizontalAlignment="Left" Margin="176,623,0,-26" VerticalAlignment="Top" Width="100" Click="Otkazi_Click"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="13,160,0,423" Text="JMBG"/>
-        <TextBox x:Name="JMBG" Margin="28,151,97,431" Grid.Column="1" MaxWidth="270"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="11,417,0,174" Text="Postanski broj"/>
-        <TextBox x:Name="PostanskiBroj" Margin="0,418,182,169" HorizontalAlignment="Right" Width="181" Grid.Column="1"/>
-
-
+        Title="Dodavanje Pacijenta" Height="750" Width="540" 
+        >
+    <Grid Margin="25,30,10,10">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Korisničko ime:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="UsernameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Lozinka:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="PasswordText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="JMBG:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="JMBGText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Ime:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="NameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                <Label  Content="Pol:" Margin="10,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="45" HorizontalContentAlignment="Right"/>
+                <ComboBox x:Name="GenderCombo" Width="45" Margin="5,0,0,0" FontFamily="Verdana" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16">
+                    <ComboBoxItem>M</ComboBoxItem>
+                    <ComboBoxItem>Ž</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Prezime:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="SurnameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Broj Telefona:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="PhoneText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="E-mail adresa:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="EmailText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Ulica i broj:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="AddressText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Poštanski broj:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="PostalCodeText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Mesto:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="CityText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Država:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="CountryText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Datum rođenja:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <DatePicker x:Name="BirthDate" Margin="10,0,0,0" Width="200"></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label  Content="Broj zdravstvene &#xD;&#xA;kartice:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Height="53" Width="170" HorizontalContentAlignment="Right"/>
+                <TextBox x:Name="SocialSecurityText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center"  Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,35,0,0" HorizontalAlignment="Center">
+                <Button Margin="0,0,20,0" x:Name="ConfirmButton" Content="Potvrdi" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Confirm_Click" Background="#FF085394" Foreground="White"/>
+                <Button Margin="20,0,0,0" x:Name="CancelButton" Content="Otkaži" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Cancel_Click" Background="#FFCF2A28" Foreground="White"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

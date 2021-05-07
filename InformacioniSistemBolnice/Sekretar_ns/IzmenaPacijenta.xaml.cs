@@ -26,45 +26,44 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             inicijalniPacijent = p;
             InitializeComponent();
 
-            Ime.Text = inicijalniPacijent.ime;
-            Prezime.Text = inicijalniPacijent.prezime;
-            JMBG.Text = inicijalniPacijent.jmbg;
+            NameText.Text = inicijalniPacijent.ime;
+            SurnameText.Text = inicijalniPacijent.prezime;
+            JMBGText.Text = inicijalniPacijent.jmbg;
             if (inicijalniPacijent.pol == 'M')
-                Pol.SelectedIndex = 0;
+                GenderCombo.SelectedIndex = 0;
             else
-                Pol.SelectedIndex = 1;
-            BrojTelefona.Text = inicijalniPacijent.brojTelefona;
-            Email.Text = inicijalniPacijent.email;
-            DatePicker.SelectedDate = inicijalniPacijent.datumRodenja;
-            KorisnickoIme.Text = inicijalniPacijent.korisnickoIme;
-            Lozinka.Text = inicijalniPacijent.lozinka;
-            Drzava.Text = inicijalniPacijent.adresaStanovanja.mestoStanovanja.drzavaStanovanja.naziv;
-            PostanskiBroj.Text = inicijalniPacijent.adresaStanovanja.mestoStanovanja.postanskiBroj;
-            Mesto.Text = inicijalniPacijent.adresaStanovanja.mestoStanovanja.naziv;
-            UlicaIBroj.Text = inicijalniPacijent.adresaStanovanja.ulicaIBroj;
-            Guest.IsChecked = inicijalniPacijent.isGuest;
-            BrojZdravstveneKartice.Text = inicijalniPacijent.brojZdravstveneKartice;
+                GenderCombo.SelectedIndex = 1;
+            PhoneText.Text = inicijalniPacijent.brojTelefona;
+            EmailText.Text = inicijalniPacijent.email;
+            BirthDate.SelectedDate = inicijalniPacijent.datumRodenja;
+            UsernameText.Text = inicijalniPacijent.korisnickoIme;
+            PasswordText.Text = inicijalniPacijent.lozinka;
+            CountryText.Text = inicijalniPacijent.adresaStanovanja.mestoStanovanja.drzavaStanovanja.naziv;
+            PostalCodeText.Text = inicijalniPacijent.adresaStanovanja.mestoStanovanja.postanskiBroj;
+            CityText.Text = inicijalniPacijent.adresaStanovanja.mestoStanovanja.naziv;
+            AddressText.Text = inicijalniPacijent.adresaStanovanja.ulicaIBroj;
+            SocialSecurityText.Text = inicijalniPacijent.brojZdravstveneKartice;
             this.parent = parent;
         }
 
-        private void Potvrdi_Click(object sender, RoutedEventArgs e)
+        private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            string ime = Ime.Text;
-            string prezime = Prezime.Text;
-            string jmbg = JMBG.Text;
+            string ime = NameText.Text;
+            string prezime = SurnameText.Text;
+            string jmbg = JMBGText.Text;
             char pol;
-            if (Pol.SelectedIndex == 0)
+            if (GenderCombo.SelectedIndex == 0)
                 pol = 'M';
             else
                 pol = 'Ž';
-            string brojTelefona = BrojTelefona.Text;
-            string email = Email.Text;
-            DateTime datumRodjenja = DatePicker.SelectedDate.Value;
-            string korisnickoIme = KorisnickoIme.Text;
-            string lozinka = Lozinka.Text;
-            AdresaStanovanja adresaStanovanja = new AdresaStanovanja(UlicaIBroj.Text, new MestoStanovanja(Mesto.Text, PostanskiBroj.Text, new DrzavaStanovanja(Drzava.Text)));
-            bool isGuest = (bool)Guest.IsChecked;
-            string brojZdravstveneKartice = BrojZdravstveneKartice.Text;
+            string brojTelefona = PhoneText.Text;
+            string email = EmailText.Text;
+            DateTime datumRodjenja = BirthDate.SelectedDate.Value;
+            string korisnickoIme = UsernameText.Text;
+            string lozinka = PasswordText.Text;
+            AdresaStanovanja adresaStanovanja = new AdresaStanovanja(AddressText.Text, new MestoStanovanja(CityText.Text, PostalCodeText.Text, new DrzavaStanovanja(CountryText.Text)));
+            bool isGuest = inicijalniPacijent.isGuest;
+            string brojZdravstveneKartice = SocialSecurityText.Text;
             if (IsUnique(korisnickoIme) || korisnickoIme.Equals(inicijalniPacijent.korisnickoIme))
             {
                 Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
@@ -76,7 +75,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             
         }
 
-        private void Otkazi_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }

@@ -116,9 +116,6 @@
     <Compile Include="PrioritetVrijeme.xaml.cs">
       <DependentUpon>PrioritetVrijeme.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\AlergenDodavanje.xaml.cs">
-      <DependentUpon>AlergenDodavanje.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Sekretar_ns\DetaljnijeWindow.xaml.cs">
       <DependentUpon>DetaljnijeWindow.xaml</DependentUpon>
     </Compile>
@@ -260,10 +257,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PrioritetVrijeme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sekretar_ns\AlergenDodavanje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

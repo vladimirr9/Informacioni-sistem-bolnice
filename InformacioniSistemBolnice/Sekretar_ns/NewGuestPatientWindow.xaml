@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="NewGuestPatientWindow" Height="350" Width="510">
     <Grid>
         <Button x:Name="ConfirmButton" Content="Potvrdi" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Top" Width="110" FontSize="20" FontFamily="Verdana" Margin="115,234,267,0" Click="Confirm_Click"/>

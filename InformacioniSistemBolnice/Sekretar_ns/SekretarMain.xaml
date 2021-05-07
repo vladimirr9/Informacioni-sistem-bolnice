@@ -6,12 +6,26 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns"
         mc:Ignorable="d"
         Title="SekretarMain" Height="720" Width="1240">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#FF085394"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <StackPanel HorizontalAlignment="Left">
-            <Button x:Name="PocetnaButton" Content="Pocetna" Width="100" Height="40" Margin="20,50,10,10" FontSize="20" Click="PocetnaButton_Click"></Button>
-            <Button x:Name="PacijentiButton" Content="Pacijenti" Width="100" Height="40" Margin="20,10,10,10" FontSize="20" Click="PacijentiButton_Click"></Button>
-            <Button x:Name="TerminiButton" Content="Termini" Width="100" Height="40" Margin="20,10,10,10" FontSize="20" Click="TerminiButton_Click"></Button>
+        <Rectangle Fill="#CCCCCB" HorizontalAlignment="Left" Height="689" Stroke="Black" VerticalAlignment="Top" Width="160"/>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Left">
+                <Button x:Name="PocetnaButton" Content="Pocetna" Width="100" Height="40" Margin="30,50,10,10"  Click="PocetnaButton_Click"/>
+                <Button x:Name="PacijentiButton" Content="Pacijenti" Width="100" Height="40" Margin="30,10,10,10"  Click="PacijentiButton_Click"/>
+                <Button x:Name="TerminiButton" Content="Termini" Width="100" Height="40" Margin="30,10,10,10"  Click="TerminiButton_Click"/>
+            </StackPanel>
+            <Frame x:Name="Main" HorizontalAlignment="Center" Margin="20,90,20,20" NavigationUIVisibility="Hidden"/>
         </StackPanel>
-        <Frame x:Name="Main" Margin="150,90,20,20" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

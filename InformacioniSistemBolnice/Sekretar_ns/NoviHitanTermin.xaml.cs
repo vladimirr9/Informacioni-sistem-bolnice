@@ -27,6 +27,30 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             this.parent = parent;
             InitializeComponent();
             InitializePatients();
+            InitializeDoctorTypes();
+        }
+
+
+        
+
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            TipLekara doctorType = global::Lekar.LekarTypeFromString(DoctorTypeCombo.SelectedItem.ToString());
+            int duration = Int32.Parse(DurationInMinutes.Text);
+            string jmbg = PatientsList.SelectedItem.ToString().Split('-')[1].Trim();
+            Pacijent patient = PacijentFileStorage.GetOneByJMBG(jmbg);
+            
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void NewGuestClick(object sender, RoutedEventArgs e)
+        {
+            NewGuestPatientWindow window = new NewGuestPatientWindow(this);
+            window.ShowDialog();
         }
 
 
@@ -42,30 +66,9 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         }
         public void InitializeDoctorTypes()
         {
-            DoctorTypes = new List<string>();
+            DoctorTypes = global::Lekar.GetLekarTypes();
+            DoctorTypeCombo.ItemsSource = DoctorTypes;
         }
-
-        private void Confirm_Click(object sender, RoutedEventArgs e)
-        {
-            TipLekara doctorType;
-            int duration = Int32.Parse(DurationInMinutes.Text);
-            string jmbg = PatientsList.SelectedItem.ToString().Split('-')[1].Trim();
-            Pacijent patient = PacijentFileStorage.GetOneByJMBG(jmbg);
-            
-
-        }
-
-        private void Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void NewGuestClick(object sender, RoutedEventArgs e)
-        {
-            NewGuestPatientWindow window = new NewGuestPatientWindow(this);
-            window.ShowDialog();
-        }
-
 
     }
 }

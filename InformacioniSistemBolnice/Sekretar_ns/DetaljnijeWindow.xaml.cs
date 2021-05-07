@@ -31,7 +31,9 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             alergeni = pacijent.zdravstveniKarton.Alergen;
             InitializeComponent();
             updateTable();
+
             
+
         }
 
         private void Zatvori_Click(object sender, RoutedEventArgs e)
@@ -41,8 +43,9 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            AlergenDodavanje ad = new AlergenDodavanje(pacijent, this);
-            ad.ShowDialog();
+            pacijent.zdravstveniKarton.AddSastojak((Sastojak)AllergensCombo.SelectedItem);
+            PacijentFileStorage.UpdatePacijent(pacijent.korisnickoIme, pacijent);
+            updateTable();
         }
 
         private void Obrisi_Click(object sender, RoutedEventArgs e)
@@ -62,10 +65,15 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         public void updateTable()
         {
             AlergeniList.Items.Clear();
-            foreach (Sastojak a in pacijent.zdravstveniKarton.Alergen)
+            List<Sastojak> AllergensComboList = new List<Sastojak>();
+            foreach (Sastojak ingredient in SastojakFileStorage.GetAll())
             {
-                AlergeniList.Items.Add(a);
+                if (pacijent.zdravstveniKarton.Alergen.Contains(ingredient))
+                    AlergeniList.Items.Add(ingredient);
+                else
+                    AllergensComboList.Add(ingredient);
             }
+            AllergensCombo.ItemsSource = AllergensComboList;
         }
     }
 }
