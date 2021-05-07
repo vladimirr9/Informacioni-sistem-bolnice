@@ -66,7 +66,8 @@ namespace InformacioniSistemBolnice.Sekretar_ns
 
         private void HitnoZakazivanje_Click(object sender, RoutedEventArgs e)
         {
-
+            NoviHitanTermin window = new NoviHitanTermin(this);
+            window.ShowDialog();
         }
         public void updateTable()
         {

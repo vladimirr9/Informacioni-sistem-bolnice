@@ -19,15 +19,17 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     /// </summary>
     public partial class NoviHitanTermin : Window
     {
+        private TerminiPage parent;
         private List<string> Patients;
-        public NoviHitanTermin()
+        public NoviHitanTermin(TerminiPage parent)
         {
+            this.parent = parent;
             InitializeComponent();
             InitializePatients();
         }
 
 
-        private void InitializePatients()
+        public void InitializePatients()
         {
             Patients = new List<String>();
             foreach (Pacijent patient in PacijentFileStorage.GetAll())
@@ -36,16 +38,15 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                     Patients.Add(patient.ime + " " + patient.prezime + " - " + patient.jmbg);
             }
             PatientsList.ItemsSource = Patients;
-            PatientsList.SelectedIndex = 0;
-        }
-
-        private void NewGuest(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            TipLekara doctorType;
+            int duration = Int32.Parse(DurationInMinutes.Text);
+            string jmbg = PatientsList.SelectedItem.ToString().Split('-')[1].Trim();
+            Pacijent patient = PacijentFileStorage.GetOneByJMBG(jmbg);
+            
 
         }
 
@@ -53,5 +54,13 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         {
             Close();
         }
+
+        private void NewGuestClick(object sender, RoutedEventArgs e)
+        {
+            NewGuestPatientWindow window = new NewGuestPatientWindow(this);
+            window.ShowDialog();
+        }
+
+
     }
 }

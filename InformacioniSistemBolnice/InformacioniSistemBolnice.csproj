@@ -134,6 +134,12 @@
     <Compile Include="Sekretar_ns\IzmeniTerminWindow.xaml.cs">
       <DependentUpon>IzmeniTerminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sekretar_ns\NewGuestPatientWindow.xaml.cs">
+      <DependentUpon>NewGuestPatientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sekretar_ns\NoviHitanTermin.xaml.cs">
+      <DependentUpon>NoviHitanTermin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sekretar_ns\NoviTerminWindow.xaml.cs">
       <DependentUpon>NoviTerminWindow.xaml</DependentUpon>
     </Compile>
@@ -280,6 +286,14 @@
     <Page Include="Sekretar_ns\IzmeniTerminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\NewGuestPatientWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sekretar_ns\NoviHitanTermin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Sekretar_ns\NoviTerminWindow.xaml">
       <SubType>Designer</SubType>

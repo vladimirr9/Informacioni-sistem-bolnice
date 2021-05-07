@@ -43,6 +43,17 @@ public class PacijentFileStorage
         return null;
     }
 
+    public static Pacijent GetOneByJMBG(string jmbg)
+    {
+        List<Pacijent> pacijenti = GetAll();
+        foreach (Pacijent p in pacijenti)
+        {
+            if (p.jmbg.Equals(jmbg))
+                return pacijenti[pacijenti.IndexOf(p)];
+        }
+        return null;
+    }
+
     public static Boolean RemovePacijent(string korisnickoIme)
     {
         List<Pacijent> pacijenti = GetAll();

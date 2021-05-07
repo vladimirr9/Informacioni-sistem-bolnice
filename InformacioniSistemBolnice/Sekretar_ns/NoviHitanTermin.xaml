@@ -7,13 +7,15 @@
         mc:Ignorable="d"
         Title="NoviHitanTermin" Height="600" Width="550">
     <Grid>
-        <TextBlock  HorizontalAlignment="Left" Margin="67,293,0,0" TextWrapping="Wrap" Text="Naslov:" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"/>
-        <TextBox x:Name="Naslov" HorizontalAlignment="Left" Height="23" Margin="166,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="16" FontFamily="Verdana"/>
-        <TextBlock HorizontalAlignment="Left" Margin="58,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Sadržaj:"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="Sadrzaj" HorizontalAlignment="Left" Height="26" Margin="166,342,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="14" FontFamily="Verdana"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="23,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Tip Lekara:"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="46,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Trajanje:"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="Sadrzaj" HorizontalAlignment="Left" Height="26" Margin="166,410,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana"/>
         <TextBlock  HorizontalAlignment="Left" Margin="48,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Pacijent:"/><LineBreak/><Run/></TextBlock>
-        <ListBox x:Name="Patients" HorizontalAlignment="Left" Height="169" Margin="166,35,0,0" VerticalAlignment="Top" Width="301" FontFamily="Verdana" FontSize="14" SelectionMode="Single" />
-        <Button x:Name="Potvrdi" Content="Potvrdi" HorizontalAlignment="Left" Margin="258,225,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Potvrdi_Click"/>
+        <ListBox x:Name="PatientsList" HorizontalAlignment="Left" Height="226" Margin="166,35,0,0" VerticalAlignment="Top" Width="301" FontFamily="Verdana" FontSize="14" SelectionMode="Single" />
+        <Button x:Name="NewGuestButton" Content="Novi Gostujući" HorizontalAlignment="Left" Margin="231,289,0,0" VerticalAlignment="Top" Width="176" FontSize="20" FontFamily="Verdana" Height="42" Click="NewGuestClick"/>
+        <ComboBox HorizontalAlignment="Left" Margin="166,356,0,0" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana"/>
+        <Button x:Name="ConfirmButton" Content="Potvrdi" HorizontalAlignment="Left" Margin="121,482,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Confirm_Click"/>
+        <Button x:Name="CancelButton" Content="Otkaži" HorizontalAlignment="Left" Margin="319,482,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Cancel_Click"/>
 
     </Grid>
 </Window>
