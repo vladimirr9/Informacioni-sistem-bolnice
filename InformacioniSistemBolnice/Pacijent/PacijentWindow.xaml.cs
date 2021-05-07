@@ -73,6 +73,8 @@ namespace InformacioniSistemBolnice
                 }
             }
 
+            
+
         }
         public void updateTable()
         {

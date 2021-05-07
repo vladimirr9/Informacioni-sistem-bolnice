@@ -73,9 +73,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Anketa.cs" />
+    <Compile Include="FileStorage\AnketaFileStorage.cs" />
     <Compile Include="FileStorage\SastojakFileStorage.cs" />
     <Compile Include="FileStorage\ObavestenjeFileStorage.cs" />
     <Compile Include="Korisnik\Obavestenje.cs" />
+    <Compile Include="ObavjestenjaPacijent.xaml.cs">
+      <DependentUpon>ObavjestenjaPacijent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ocjenjivanje.xaml.cs">
+      <DependentUpon>Ocjenjivanje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PacijentZakazujePoPrioritetu.xaml.cs">
       <DependentUpon>PacijentZakazujePoPrioritetu.xaml</DependentUpon>
     </Compile>
@@ -109,6 +117,9 @@
     </Compile>
     <Compile Include="PocetnaPacijent.xaml.cs">
       <DependentUpon>PocetnaPacijent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopunjavanjeAnkete.xaml.cs">
+      <DependentUpon>PopunjavanjeAnkete.xaml</DependentUpon>
     </Compile>
     <Compile Include="PrioritetLjekar.xaml.cs">
       <DependentUpon>PrioritetLjekar.xaml</DependentUpon>
@@ -232,6 +243,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ObavjestenjaPacijent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ocjenjivanje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PacijentMijenja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -249,6 +268,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PocetnaPacijent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopunjavanjeAnkete.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

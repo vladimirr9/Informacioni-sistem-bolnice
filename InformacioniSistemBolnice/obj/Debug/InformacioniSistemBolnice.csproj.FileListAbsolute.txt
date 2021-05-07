@@ -338,3 +338,9 @@ C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolni
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekar.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijeme.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijeme.baml
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPacijent.g.cs
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPacijent.baml
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.g.cs
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.baml
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.g.cs
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.baml

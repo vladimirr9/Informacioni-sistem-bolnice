@@ -7,9 +7,20 @@ using System;
 
 public class Terapija
 {
-   private String opis;
-   private DateTime pocetakTerapije;
-   private DateTime krajTerapije;
-   private int dan;
+   public String Opis { get; set; }
+   public DateTime PocetakTerapije { get; set; }
+   public DateTime KrajTerapije { get; set; }
+   public int Dan { get; set; }
 
+    public Terapija()
+    {
+    }
+
+    public Terapija(string opis, DateTime pocetakTerapije, DateTime krajTerapije, int dan)
+    {
+        Opis = opis;
+        PocetakTerapije = pocetakTerapije;
+        KrajTerapije = krajTerapije;
+        Dan = dan;
+    }
 }

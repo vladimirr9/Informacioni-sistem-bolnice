@@ -115,7 +115,7 @@ namespace InformacioniSistemBolnice
             DateTime pocetniDatum = DateTime.Parse(datum + " " + pocetak);
             DateTime krajnjiDatum = DateTime.Parse(datum + " " + kraj);
 
-            List<global::Lekar> ljekari = LekarFileStorage.GetAll();
+            List<global::Lekar> ljekari = LekarFileStorage.GetAll(); //ovdje cemo poslije profiltrirati samo ljekare opste prakse
             foreach (global::Lekar lekar in ljekari)
             {
                 for (DateTime tm = pocetniDatum; tm < krajnjiDatum; tm = tm.AddMinutes(15))

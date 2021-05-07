@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,12 +21,14 @@ namespace InformacioniSistemBolnice
     public partial class PocetnaPacijent : Window
     {
 
-        public Pacijent pacijent { get; set; }
+        public Pacijent Pacijent { get; set; }
         public PocetnaPacijent(Pacijent pacijent)
         {
-            this.pacijent = pacijent;
+            this.Pacijent = pacijent;
             InitializeComponent();
             imePacijenta.Text = pacijent.ime + " " + pacijent.prezime;
+            
+            
         }
 
         private void odjava_Click(object sender, RoutedEventArgs e)
@@ -39,13 +42,29 @@ namespace InformacioniSistemBolnice
 
         private void pregledTermina_Click(object sender, RoutedEventArgs e)
         {
-            PacijentWindow pw = new PacijentWindow(this.pacijent);
+            PacijentWindow pw = new PacijentWindow(this.Pacijent);
             Application.Current.MainWindow = pw;
             pw.Show();
             this.Close();
             return;
         }
 
-       
+        private void obavjestenja_Click(object sender, RoutedEventArgs e)
+        {
+            ObavjestenjaPacijent op = new ObavjestenjaPacijent(this.Pacijent);
+            Application.Current.MainWindow = op;
+            op.Show();
+            this.Close();
+            return;
+        }
+
+        private void ocjenjivanje_Click(object sender, RoutedEventArgs e)
+        {
+            Ocjenjivanje o = new Ocjenjivanje(this);
+            Application.Current.MainWindow = o;
+            o.Show();
+            this.Close();
+            return;
+        }
     }
 }

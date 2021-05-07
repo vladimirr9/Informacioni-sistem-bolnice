@@ -48,7 +48,7 @@ namespace InformacioniSistemBolnice
             } -- ovaj zakomentarisani dio u combo box postavlja samo ljekare opste prakse*/
             lekar.ItemsSource = lekari;
             pacijent = parent.pacijent;
-
+           
             
             
            

@@ -4,6 +4,7 @@
 // Purpose: Definition of Class ZdravstveniKarton
 
 using InformacioniSistemBolnice;
+using Newtonsoft.Json;
 using System;
 
 public class ZdravstveniKarton
@@ -64,7 +65,9 @@ public class ZdravstveniKarton
     public ZdravstveniKarton(string brojZdravstvenogKartona)
     {
         this.brojZdravstvenogKartona = brojZdravstvenogKartona;
+        
     }
+    [JsonIgnore]
     public System.Collections.Generic.List<Terapija> terapija;
 
     public System.Collections.Generic.List<Terapija> Terapija

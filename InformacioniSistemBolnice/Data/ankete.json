@@ -1,0 +1,33 @@
+[
+  {
+    
+    "IdAnkete": 1,
+    "Komentar": "Pregled je bio vrlo profesionalan ,nemam nikakvu zamerku.",
+    "Ocena": 5,
+    "KorisnickoImeLekara": "PPetrovic",
+    "KorisnickoImePacijenta": "jovan",
+    "IdTermina": 11,
+    "IsDeleted": false,
+    "NastanakAnkete": "2021-05-07T13:30:46.7764258+02:00"
+  },
+  {
+    "IdAnkete": 2,
+    "Komentar": "Lekar bi mogao biti mrvicu ljubazniji.",
+    "Ocena": 4,
+    "KorisnickoImeLekara": "PPetrovic",
+    "KorisnickoImePacijenta": "jovan",
+    "IdTermina": 20,
+    "IsDeleted": false,
+    "NastanakAnkete": "2021-05-07T13:40:57.1218816+02:00"
+  },
+  {
+    "IdAnkete": 3,
+    "Komentar": "Nemam zamerke.",
+    "Ocena": 5,
+    "KorisnickoImeLekara": null,
+    "KorisnickoImePacijenta": "jovan",
+    "IdTermina": 0,
+    "IsDeleted": false,
+    "NastanakAnkete": "2021-05-07T15:57:26.3453911+02:00"
+  }
+]
