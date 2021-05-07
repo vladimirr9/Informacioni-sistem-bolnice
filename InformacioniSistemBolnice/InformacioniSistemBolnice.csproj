@@ -172,9 +172,6 @@
     <Compile Include="FileStorage\ProstorijaFileStorage.cs" />
     <Compile Include="Sekretar_ns\Sekretar.cs" />
     <Compile Include="FileStorage\SekretarFileStorage.cs" />
-    <Compile Include="Sekretar_ns\SekretarWindow.xaml.cs">
-      <DependentUpon>SekretarWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Termin\StatusTermina.cs" />
     <Compile Include="Termin\Termin.cs" />
     <Compile Include="FileStorage\TerminFileStorage.cs" />
@@ -301,10 +298,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sekretar_ns\SekretarMain.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Sekretar_ns\SekretarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
