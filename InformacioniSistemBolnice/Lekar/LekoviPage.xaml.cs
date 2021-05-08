@@ -35,5 +35,12 @@ namespace InformacioniSistemBolnice.Lekar
                 instance = new LekoviPage(parent);
             return instance;
         }
+
+        private void LekoviZaPotvrduClick(object sender, RoutedEventArgs e)
+        {
+            LekoviZaPotvrduWindow lekoviWindow = new LekoviZaPotvrduWindow();
+            Application.Current.MainWindow = lekoviWindow;
+            lekoviWindow.Show();
+        }
     }
 }

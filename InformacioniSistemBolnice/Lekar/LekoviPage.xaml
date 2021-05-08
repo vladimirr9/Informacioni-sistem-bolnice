@@ -8,7 +8,14 @@
       d:DesignHeight="718" d:DesignWidth="1140"
       Title="LekoviPage">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Button Content="Lekovi za potvrdu" Margin="281,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="LekoviZaPotvrduClick"/>
+        <ListBox HorizontalAlignment="Left" Height="454" VerticalAlignment="Top" Width="225" Margin="184,72,0,0"/>
+        <Label Content="Lekovi:" HorizontalAlignment="Left" Margin="71,72,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Opis:" HorizontalAlignment="Left" Margin="564,72,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Sastav:" HorizontalAlignment="Left" Margin="564,328,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ListBox HorizontalAlignment="Left" Height="198" Margin="679,328,0,0" VerticalAlignment="Top" Width="250"/>
+        <TextBlock HorizontalAlignment="Left" Margin="679,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="218" Width="250"/>
+
     </Grid>
 </Page>

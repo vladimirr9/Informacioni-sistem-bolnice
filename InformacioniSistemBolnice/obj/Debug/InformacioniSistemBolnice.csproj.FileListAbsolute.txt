@@ -371,3 +371,5 @@ D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilPage.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekoviPage.g.cs
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekoviPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekoviZaPotvrduWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekoviZaPotvrduWindow.baml

@@ -81,6 +81,9 @@
     <Compile Include="Lekar\LekoviPage.xaml.cs">
       <DependentUpon>LekoviPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lekar\LekoviZaPotvrduWindow.xaml.cs">
+      <DependentUpon>LekoviZaPotvrduWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Lekar\ProfilPage.xaml.cs">
       <DependentUpon>ProfilPage.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lekar\LekoviPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lekar\LekoviZaPotvrduWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
