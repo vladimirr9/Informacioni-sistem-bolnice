@@ -5,20 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns"
         mc:Ignorable="d"
-        Title="DetaljnijeWindow" Height="600" Width="1000">
+        ResizeMode="NoResize"
+        Title="Informacije o pacijentu" Height="600" Width="950">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="45" />
+            <Setter Property="Width" Value="110" />
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#FF085394"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="CustomListViewItemStyle" TargetType="{x:Type ListViewItem}">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#FFFFFF"></Setter>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#DDDDDD"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <ListView x:Name="AlergeniList" HorizontalAlignment="Left" Height="302" Margin="573,78,0,0" VerticalAlignment="Top" Width="323" FontSize="20" FontFamily="Verdana">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Naziv alergena" Width="323" DisplayMemberBinding="{Binding Path=naziv}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ComboBox x:Name="AllergensCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="258" Height="30"    
-        DisplayMemberPath="naziv" Margin="618,410,0,0" />
-        <Button x:Name="Zatvori" Content="Zatvori" HorizontalAlignment="Left" Margin="163,487,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="Zatvori_Click"/>
-        <Button x:Name="Dodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="635,487,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="Dodaj_Click"/>
-        <Button x:Name="Obrisi" Content="Obriši" HorizontalAlignment="Left" Margin="783,487,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="Obrisi_Click"/>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Margin="30,30,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label  Content="Ime:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right"/>
+                    <Label  Content="{Binding ime}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="180" HorizontalContentAlignment="Left" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label  Content="Prezime:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right"/>
+                    <Label  Content="{Binding prezime}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="180" HorizontalContentAlignment="Left" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label  Content="JMBG:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right"/>
+                    <Label  Content="{Binding jmbg}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="180" HorizontalContentAlignment="Left" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label  Content="Pol:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right"/>
+                    <Label  Content="{Binding pol}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="180" HorizontalContentAlignment="Left" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label  Content="Datum rođenja:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right"/>
+                    <Label  Content="{Binding datumRodenja}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="180" HorizontalContentAlignment="Left" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label  Content="Mesto stanovanja:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right"/>
+                    <Label  Content="{Binding adresaStanovanja.mestoStanovanja}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="180" HorizontalContentAlignment="Left" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label  Content="Ulica i broj:" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right"/>
+                    <Label  Content="{Binding adresaStanovanja.ulicaIBroj}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="180" HorizontalContentAlignment="Left" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label  Content="Broj zdravstevnog &#xA;:kartona" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right" Height="51" FlowDirection="RightToLeft"/>
+                    <Label  Content="{Binding zdravstveniKarton.brojZdravstvenogKartona}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="180" HorizontalContentAlignment="Left" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <Label  Content=" Broj zdravstevne  &#xA;:kartice" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right" Height="51" FlowDirection="RightToLeft"/>
+                    <Label  Content="{Binding brojZdravstveneKartice}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="180" HorizontalContentAlignment="Left" />
+                </StackPanel>
+                <Button x:Name="Zatvori" Content="Zatvori" HorizontalAlignment="Center" Margin="0,46,0,0"   VerticalAlignment="Center" Click="Zatvori_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="100,0,0,0">
+                <ListView x:Name="AlergeniList" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="340" FontSize="20" FontFamily="Verdana" Margin="0,50,0,0" Foreground="Black" ItemContainerStyle="{DynamicResource CustomListViewItemStyle}"
+          AlternationCount="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled"> 
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Naziv alergena" Width="340" DisplayMemberBinding="{Binding Path=naziv}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <ComboBox x:Name="AllergensCombo" HorizontalAlignment="Center" VerticalAlignment="Top" Width="260" Margin="0,30,0,0"  FontFamily="Verdana" FontSize="20"   
+        DisplayMemberPath="naziv" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,70">
+                    <Button x:Name="Dodaj" Content="Dodaj" HorizontalAlignment="Center" Margin="0,0,30,0"  VerticalAlignment="Top"  Click="Dodaj_Click"/>
+                    <Button x:Name="Obrisi" Content="Obriši" HorizontalAlignment="Center" Margin="30,0,0,0" VerticalAlignment="Top" Background="#FFCF2A28" Click="Obrisi_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+        
+        
+        
 
     </Grid>
 </Window>

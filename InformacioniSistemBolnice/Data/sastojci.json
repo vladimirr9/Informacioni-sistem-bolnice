@@ -1,6 +1,6 @@
 [
   {
-    "id" :  0,
+    "id": 0,
     "naziv": "Laktoza",
     "isDeleted": false
   },
@@ -12,6 +12,16 @@
   {
     "id": 2,
     "naziv": "Paracetamol",
+    "isDeleted": false
+  },
+  {
+    "id": 3,
+    "naziv": "Soja",
+    "isDeleted": false
+  },
+  {
+    "id": 4,
+    "naziv": "Kokosovo ulje",
     "isDeleted": false
   }
 ]

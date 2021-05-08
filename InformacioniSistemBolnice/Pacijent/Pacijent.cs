@@ -13,7 +13,7 @@ public class Pacijent : Korisnik
 
     
 
-    public ZdravstveniKarton zdravstveniKarton;
+    public ZdravstveniKarton zdravstveniKarton { get; set; }
 
 
     public Pacijent(

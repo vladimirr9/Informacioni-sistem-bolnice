@@ -165,7 +165,6 @@ C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.g.cs
-C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\AlergenDodavanje.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DetaljnijeWindow.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.g.cs
@@ -176,7 +175,6 @@ C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PacijentiPage.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PocetnaPage.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarMain.g.cs
-C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarWindow.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\TerminiPage.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.g.cs
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.g.cs
@@ -204,7 +202,6 @@ C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.baml
-C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\AlergenDodavanje.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DetaljnijeWindow.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.baml
@@ -215,7 +212,6 @@ C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PacijentiPage.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PocetnaPage.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarMain.baml
-C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarWindow.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\TerminiPage.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaProstorije.baml
@@ -344,3 +340,19 @@ C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolni
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPacijent.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetu.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekar.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijeme.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NewGuestPatientWindow.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NoviHitanTermin.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetu.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekar.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijeme.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NewGuestPatientWindow.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NoviHitanTermin.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPacijent.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.baml

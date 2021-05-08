@@ -30,6 +30,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             pacijent = PacijentFileStorage.GetOne(korisnickoIme);
             alergeni = pacijent.zdravstveniKarton.Alergen;
             InitializeComponent();
+            this.DataContext = pacijent;
             updateTable();
 
             

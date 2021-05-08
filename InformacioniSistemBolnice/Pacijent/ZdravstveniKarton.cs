@@ -9,7 +9,7 @@ using System;
 
 public class ZdravstveniKarton
 {
-    private String brojZdravstvenogKartona { get; set; }
+    public String brojZdravstvenogKartona { get; set; }
    [Newtonsoft.Json.JsonIgnore]
     public Pacijent pacijent { get; set; }
     private System.Collections.Generic.List<Sastojak> alergen;
