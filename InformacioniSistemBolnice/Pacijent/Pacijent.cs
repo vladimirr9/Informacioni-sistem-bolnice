@@ -11,7 +11,9 @@ public class Pacijent : Korisnik
     public Boolean isGuest { get; set; }
     public String brojZdravstveneKartice { get; set; }
 
-    
+    public Boolean Banovan { get; set; } = false;
+
+    public DateTime TrenutakBanovanja { get; set; }
 
     public ZdravstveniKarton zdravstveniKarton;
 
