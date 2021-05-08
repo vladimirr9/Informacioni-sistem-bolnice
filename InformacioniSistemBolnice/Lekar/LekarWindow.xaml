@@ -52,7 +52,7 @@
         <Button Content="Pregledi" HorizontalAlignment="Left" Height="35" Margin="10,21,0,0" VerticalAlignment="Top" Width="116" Click="PreglediClick" Background="#FF085394" Foreground="White"/>
         <Button Content="Lekovi" HorizontalAlignment="Left" Height="35" Margin="10,129,0,0" VerticalAlignment="Top" Width="116" Background="#FF085394" Foreground="White" Click="LekoviClick"/>
         <Button Content="Odjava" HorizontalAlignment="Left" Margin="10,0,0,25" Width="116" Background="#B45F06" Foreground="White" Height="35" VerticalAlignment="Bottom" Click="OdjavaClick"/>
-        <Button Content="Profil" HorizontalAlignment="Left" Margin="10,0,0,80" Width="116" Background="#FF085394" Foreground="White" Click="ProfilClick" Height="35" VerticalAlignment="Bottom"/>
+        <Button Content="Profil" HorizontalAlignment="Left" Margin="10,0,0,78" Width="116" Background="#FF085394" Foreground="White" Click="ProfilClick" Height="35" VerticalAlignment="Bottom"/>
 
 
     </Grid>
