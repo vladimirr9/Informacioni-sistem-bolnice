@@ -75,11 +75,8 @@
     </ApplicationDefinition>
     <Compile Include="Anketa.cs" />
     <Compile Include="FileStorage\AnketaFileStorage.cs" />
-    <Compile Include="FileStorage\DatumiProvjereStatusaFileStorage.cs" />
-    <Compile Include="FileStorage\InformacijeFileStorage.cs" />
     <Compile Include="FileStorage\SastojakFileStorage.cs" />
     <Compile Include="FileStorage\ObavestenjeFileStorage.cs" />
-    <Compile Include="InformacijeOKoriscenjuFunkcionalnosti.cs" />
     <Compile Include="Korisnik\Obavestenje.cs" />
     <Compile Include="ObavjestenjaPacijent.xaml.cs">
       <DependentUpon>ObavjestenjaPacijent.xaml</DependentUpon>
@@ -209,7 +206,6 @@
     <Compile Include="Upravnik\WindowProstorije.xaml.cs">
       <DependentUpon>WindowProstorije.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VrstaFunkcionalnosti.cs" />
     <Page Include="Lekar\LekarDodajTerminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

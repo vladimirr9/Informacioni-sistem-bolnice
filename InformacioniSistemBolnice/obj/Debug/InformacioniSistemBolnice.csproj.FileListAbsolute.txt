@@ -270,6 +270,7 @@ C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolni
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.g.cs
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\AlergenDodavanje.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DetaljnijeWindow.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.g.cs
@@ -280,6 +281,7 @@ C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolni
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PacijentiPage.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PocetnaPage.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarMain.g.cs
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarWindow.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\TerminiPage.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.g.cs
@@ -302,6 +304,7 @@ C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolni
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.baml
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\AlergenDodavanje.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DetaljnijeWindow.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.baml
@@ -312,6 +315,7 @@ C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolni
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PacijentiPage.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PocetnaPage.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarMain.baml
+C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarWindow.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\TerminiPage.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.baml
@@ -340,7 +344,3 @@ C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolni
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.baml
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.g.cs
 C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.baml
-C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NewGuestPatientWindow.g.cs
-C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NoviHitanTermin.g.cs
-C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NewGuestPatientWindow.baml
-C:\Users\mx\Desktop\ispravka\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NoviHitanTermin.baml

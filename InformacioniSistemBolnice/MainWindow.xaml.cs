@@ -1,5 +1,4 @@
 ﻿using GalaSoft.MvvmLight.Command;
-using InformacioniSistemBolnice.FileStorage;
 using InformacioniSistemBolnice.Korisnik;
 using InformacioniSistemBolnice.Lekar;
 using InformacioniSistemBolnice.Sekretar_ns;
@@ -7,7 +6,6 @@ using InformacioniSistemBolnice.Upravnik;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -22,7 +20,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace InformacioniSistemBolnice
 {
@@ -31,7 +28,6 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Pacijent pacijent { get; set; }
         public MainWindow()
         {
             //LekarFileStorage.AddLekar(new global::Lekar("Petar", "Petrovic", "1507970600034", 'm', "+381661238407", "ppetrovic@gmail.com", new DateTime(1970,4,12), "PPetrovic", "petrovic123", null, TipLekara.specijalista, false));
@@ -42,15 +38,7 @@ namespace InformacioniSistemBolnice
             global::Lekar l = LekarFileStorage.GetOne("PPetrovic");
             Console.WriteLine(l.IsAvailable(DateTime.Parse("15-Apr-21"), DateTime.Parse("16-Apr-21" + " " + "10:05")));
             Console.WriteLine(DateTime.Parse("16-Apr-21"));
-
-           
-
-
         }
-
-        
-
-        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

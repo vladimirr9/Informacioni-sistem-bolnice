@@ -1,5 +1,4 @@
-﻿using InformacioniSistemBolnice.FileStorage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -34,82 +33,43 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e) //dodaj
         {
-            PacijentFileStorage.OdblokirajPacijenta(pacijent);
-            if (pacijent.Banovan == true)
-            {
-                MessageBox.Show("Zakazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
-            }
-            else
-            {
-                PacijentZakazuje zakazivanje = new PacijentZakazuje(this);
-                Application.Current.MainWindow = zakazivanje;
-                zakazivanje.Show();
-            }
+            PacijentZakazuje zakazivanje = new PacijentZakazuje(this);
+            Application.Current.MainWindow = zakazivanje;
+            zakazivanje.Show();
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) //pomjeri
         {
-            PacijentFileStorage.OdblokirajPacijenta(pacijent);
-            if (pacijent.Banovan == true)
-            {
-                MessageBox.Show("Pomeranje termina Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
+            
+            Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
+            if (termin.datumZakazivanja.Date <= DateTime.Now.AddHours(24).Date)  {
+                MessageBox.Show("Nije moguće menjati termin koji je zakazan u naredna 24 sata!", "Greška");
             }
-            else
-            {
-                if (PrikazPregleda.SelectedIndex != -1)
-                {
-                    Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
-                    if (termin.datumZakazivanja.Date <= DateTime.Now.AddHours(24).Date)
-                    {
-                        MessageBox.Show("Nije moguće menjati termin koji je zakazan u naredna 24 sata!", "Greška");
-                    }
-                    else
-                    {
-                        PacijentMijenja m = new PacijentMijenja(termin, this);
-                        Application.Current.MainWindow = m;
-                        m.Show();
-                    }
-                }
-                else
-                    {
-                        MessageBox.Show("Prvo morate odabrati termin koji želite pomeriti!", "Greška");
-
-                    }
-                }
+            else { 
+                PacijentMijenja m = new PacijentMijenja(termin, this);
+                Application.Current.MainWindow = m;
+                m.Show();
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e) //otkazi
         {
-            PacijentFileStorage.OdblokirajPacijenta(pacijent);
-            if (pacijent.Banovan == true) {
-                MessageBox.Show("Otkazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
-            }
-            else {
-
-                if (PrikazPregleda.SelectedItem != null)
+            if (PrikazPregleda.SelectedItem != null)
+            {
+                Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
+                if (termin.datumZakazivanja.Date <= DateTime.Now.AddHours(24).Date)
                 {
-                    Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
-                    if (termin.datumZakazivanja.Date <= DateTime.Now.AddHours(24).Date)
-                    {
-                        MessageBox.Show("Nije moguće otkazati termin koji je zakazan u naredna 24 sata!", "Greška");
-                    }
-                    else
-                    {
-                        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da otkažete ovaj termin?", "Potvrda brisanja", MessageBoxButton.YesNo);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            TerminFileStorage.RemoveTermin(((Termin)(PrikazPregleda.SelectedItem)).iDTermina);
-                            updateTable();
-                            InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, pacijent.korisnickoIme,VrstaFunkcionalnosti.otkazivanje);
-                            InformacijeFileStorage.AddInformacije(informacija);
-                        }
-                    }
+                    MessageBox.Show("Nije moguće otkazati termin koji je zakazan u naredna 24 sata!", "Greška");
                 }
                 else
                 {
-                    MessageBox.Show("Prvo morate odabrati termin koji želite otkazati!", "Greška");
-
+                    MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da otkažete ovaj termin?", "Potvrda brisanja", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        TerminFileStorage.RemoveTermin(((Termin)(PrikazPregleda.SelectedItem)).iDTermina);
+                        updateTable();
+                    }
                 }
             }
 

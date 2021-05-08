@@ -1,5 +1,4 @@
-﻿using InformacioniSistemBolnice.FileStorage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -46,12 +45,13 @@ namespace InformacioniSistemBolnice
             BlackOutDates();
             date.SelectedDate = selektovan.datumZakazivanja;
             time.SelectedItem = selektovan.datumZakazivanja.ToString("HH:mm");
-            lekari = new List<global::Lekar>();
+            lekari = LekarFileStorage.GetAll();
+            /* lekari = new List<global::Lekar>();
             foreach(global::Lekar l in LekarFileStorage.GetAll()) {
                 if (l.tipLekara.Equals(TipLekara.opstePrakse)) {
                     lekari.Add(l);
                 }
-            } 
+            } -- ovaj zakomentarisani dio u combo box postavlja samo ljekare opste prakse*/
             lekar.ItemsSource = lekari;
             foreach (global::Lekar l in lekari)
             {
@@ -215,7 +215,7 @@ namespace InformacioniSistemBolnice
         {
             global::Lekar l = (global::Lekar)lekar.SelectedItem;
             Pacijent p = parent.pacijent;
-        
+
             if (time.SelectedIndex != -1)
             {
                 var item = time.SelectedItem;
@@ -234,9 +234,6 @@ namespace InformacioniSistemBolnice
                 TerminFileStorage.UpdateTermin(selektovan.iDTermina, termin);
                 parent.updateTable();
                 this.Close();
-
-                InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, pacijent.korisnickoIme,VrstaFunkcionalnosti.pomjeranje);
-                InformacijeFileStorage.AddInformacije(informacija);
             }
 
         }
