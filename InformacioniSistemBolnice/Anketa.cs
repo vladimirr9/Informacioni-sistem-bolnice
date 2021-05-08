@@ -19,11 +19,9 @@ namespace InformacioniSistemBolnice
         public bool IsDeleted { get; set; }
 
         public DateTime NastanakAnkete { get; set; }
-
+        
         [JsonIgnore]
-        public global::Lekar Lekar { get; set; }
-        [JsonIgnore]
-        public Pacijent Pacijent { get; set; }
+        public Termin Termin { get; set; }
 
         public Anketa()
         {
