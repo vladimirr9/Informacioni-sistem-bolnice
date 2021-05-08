@@ -78,6 +78,12 @@
     <Compile Include="FileStorage\SastojakFileStorage.cs" />
     <Compile Include="FileStorage\ObavestenjeFileStorage.cs" />
     <Compile Include="Korisnik\Obavestenje.cs" />
+    <Compile Include="Lekar\LekoviPage.xaml.cs">
+      <DependentUpon>LekoviPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lekar\ProfilPage.xaml.cs">
+      <DependentUpon>ProfilPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ObavjestenjaPacijent.xaml.cs">
       <DependentUpon>ObavjestenjaPacijent.xaml</DependentUpon>
     </Compile>
@@ -218,11 +224,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Lekar\LekoviPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Lekar\PreglediPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lekar\PrikazKartona.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Lekar\ProfilPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

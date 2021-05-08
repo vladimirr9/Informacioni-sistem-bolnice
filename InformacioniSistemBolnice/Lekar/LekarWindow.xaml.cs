@@ -27,18 +27,18 @@ namespace InformacioniSistemBolnice
             this.lekar = lekar;
             InitializeComponent();
             UpdateTable();
+            this.Title = lekar.ime + " " + lekar.prezime;
+            Main.Content = ProfilPage.GetPage(this);
         }
 
-        //dodavanje
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DodajClick(object sender, RoutedEventArgs e)
         {
             LekarDodajTerminWindow dodajWindow = new LekarDodajTerminWindow(this);
             Application.Current.MainWindow = dodajWindow;
             dodajWindow.Show();
         }
 
-        //izmena
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void IzmeniClick(object sender, RoutedEventArgs e)
         {
             if (PrikazPregleda.SelectedItem != null)
             {
@@ -49,8 +49,7 @@ namespace InformacioniSistemBolnice
             }
         }
 
-        //brisanje
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void ObrisiClick(object sender, RoutedEventArgs e)
         {
             if (PrikazPregleda.SelectedItem != null)
             {
@@ -59,22 +58,39 @@ namespace InformacioniSistemBolnice
             }
         }
 
-        //pacijenti
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void KartonClick(object sender, RoutedEventArgs e)
         {
-            if (PrikazPregleda.SelectedItem != null)
+            if (PreglediPage.GetSelected() != null)
             {
-                Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
+                //Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
+                Termin termin = PreglediPage.GetSelected();
                 PrikazKartona kartoWindow = new PrikazKartona(termin, this);
                 Application.Current.MainWindow = kartoWindow;
                 kartoWindow.Show();
             }
         }
 
-        //pregledi
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void PreglediClick(object sender, RoutedEventArgs e)
         {
+            Main.Content = PreglediPage.GetPage(this);
+        }
 
+        private void LekoviClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = LekoviPage.GetPage(this);
+        }
+
+        private void ProfilClick(object sender, RoutedEventArgs e)
+        {
+            Main.Content = ProfilPage.GetPage(this);
+        }
+
+        private void OdjavaClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            Application.Current.MainWindow = mainWindow;
+            mainWindow.Show();
+            this.Close();
         }
 
         public void UpdateTable()
