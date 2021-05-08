@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.FileStorage;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -115,15 +116,18 @@ namespace InformacioniSistemBolnice
             DateTime pocetniDatum = DateTime.Parse(datum + " " + pocetak);
             DateTime krajnjiDatum = DateTime.Parse(datum + " " + kraj);
 
-            List<global::Lekar> ljekari = LekarFileStorage.GetAll(); //ovdje cemo poslije profiltrirati samo ljekare opste prakse
+            List<global::Lekar> ljekari = LekarFileStorage.GetAll(); 
             foreach (global::Lekar lekar in ljekari)
             {
                 for (DateTime tm = pocetniDatum; tm < krajnjiDatum; tm = tm.AddMinutes(15))
                 {
                     DateTime end = tm.AddMinutes(15);
-                    if (lekar.IsAvailable(tm, end.AddMinutes(-1)) && this.pacijent.IsAvailable(tm, end.AddMinutes(-1)))
+                    if (lekar.tipLekara.Equals(TipLekara.opstePrakse))
                     {
-                        PrikazSlobodnihTermina.Items.Add(new SlobodniTermini(lekar, tm.ToString("HH:mm")));
+                        if (lekar.IsAvailable(tm, end.AddMinutes(-1)) && this.pacijent.IsAvailable(tm, end.AddMinutes(-1)))
+                        {
+                            PrikazSlobodnihTermina.Items.Add(new SlobodniTermini(lekar, tm.ToString("HH:mm")));
+                        }
                     }
 
                 }
@@ -167,6 +171,8 @@ namespace InformacioniSistemBolnice
         {
 
             ZakaziTermin();
+            InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, pacijent.korisnickoIme,VrstaFunkcionalnosti.zakazivanje);
+            InformacijeFileStorage.AddInformacije(informacija);
         }
 
 
@@ -177,7 +183,19 @@ namespace InformacioniSistemBolnice
             String d = date.Text;
             String t = selektovanTermin.AvailableTimes;
             DateTime start = DateTime.Parse(d + " " + t);
-            TipTermina tipt = TipTermina.pregledKodLekaraOpstePrakse;
+            TipTermina tipt;
+            if (selektovanTermin.Ljekar.tipLekara.Equals(TipLekara.opstePrakse))
+            {
+                tipt = TipTermina.pregledKodLekaraOpstePrakse;
+            }
+            else if (selektovanTermin.Ljekar.tipLekara.Equals(TipLekara.hirurg))
+            {
+                tipt = TipTermina.operacija;
+            }
+            else
+            {
+                tipt = TipTermina.pregledKodLekaraSpecijaliste;
+            }
             int id = TerminFileStorage.GetAll().Count + 1;
             DateTime end = start.AddMinutes(trajanjePregleda);
 
