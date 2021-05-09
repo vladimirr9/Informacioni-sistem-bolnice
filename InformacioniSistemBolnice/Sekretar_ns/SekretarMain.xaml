@@ -13,7 +13,7 @@
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Background" Value="#FF085394"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="BorderBrush" Value="Black"/>
         </Style>
     </Window.Resources>

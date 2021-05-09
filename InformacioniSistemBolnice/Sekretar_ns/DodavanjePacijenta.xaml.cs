@@ -46,11 +46,12 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                 datumRodjenja = new DateTime();
             string korisnickoIme = UsernameText.Text;
             string lozinka = PasswordText.Text;
+            bool IsGuest = (bool)GuestCheckbox.IsChecked;
             AdresaStanovanja adresaStanovanja = new AdresaStanovanja(AddressText.Text, new MestoStanovanja(CityText.Text, PostalCodeText.Text, new DrzavaStanovanja(CountryText.Text)));
             string brojZdravstveneKartice = SocialSecurityText.Text;
             if (IsUnique(korisnickoIme))
             {
-                Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, false, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
+                Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, IsGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
                 p.zdravstveniKarton.pacijent = p;
                 PacijentFileStorage.AddPacijent(p);
                 parent.updateTable();

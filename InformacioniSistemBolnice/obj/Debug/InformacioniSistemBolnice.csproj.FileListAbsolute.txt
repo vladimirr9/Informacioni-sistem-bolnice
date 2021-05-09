@@ -356,3 +356,5 @@ C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPacijent.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PostponeAppointmentWIndow.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PostponeAppointmentWIndow.baml

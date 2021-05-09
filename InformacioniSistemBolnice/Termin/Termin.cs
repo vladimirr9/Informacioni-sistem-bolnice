@@ -4,6 +4,8 @@
 // Purpose: Definition of Class Termin
 
 using System;
+using System.Collections.Generic;
+using InformacioniSistemBolnice.Sekretar_ns;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -141,6 +143,10 @@ public class Termin
             }
         }
     }
+    [JsonIgnore]
+    public int PostponementDuration { get; set; }
+    
+    
 
     public bool OccursOn(DateTime date)
     {
@@ -152,8 +158,80 @@ public class Termin
             return false;
         else if (patient == null)
             return (Lekar.Equals(doctor));
-        else return (Pacijent.Equals(patient));
+        else if (doctor == null)
+            return (Pacijent.Equals(patient));
+        else
+            return (Lekar.Equals(doctor)) || (Pacijent.Equals(patient));
     }
+    public bool AreAllEntitiesAvailable(List<Termin> appointmentsToCheck = null)
+    {
 
-
+        bool retVal = true;
+        List<Termin> termini;
+        if (appointmentsToCheck == null)
+            termini = TerminFileStorage.GetAll();
+        else
+            termini = appointmentsToCheck;
+        foreach (Termin termin in termini)
+        {
+            if (termin.status != StatusTermina.zakazan)
+                continue;
+            if (termin.Pacijent.Equals(this.Pacijent))
+            {
+                if (this.datumZakazivanja >= termin.datumZakazivanja && this.datumZakazivanja <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (this.KrajTermina >= termin.datumZakazivanja && this.KrajTermina <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (this.datumZakazivanja <= termin.datumZakazivanja && this.KrajTermina >= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+            }
+            if (termin.Lekar.Equals(this.Lekar))
+            {
+                if (this.datumZakazivanja >= termin.datumZakazivanja && this.datumZakazivanja <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (this.KrajTermina >= termin.datumZakazivanja && this.KrajTermina <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (this.datumZakazivanja <= termin.datumZakazivanja && this.KrajTermina >= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+            }
+            if (termin.Prostorija.Equals(this.Prostorija))
+            {
+                if (this.datumZakazivanja >= termin.datumZakazivanja && this.datumZakazivanja <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (this.KrajTermina >= termin.datumZakazivanja && this.KrajTermina <= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (this.datumZakazivanja <= termin.datumZakazivanja && this.KrajTermina >= termin.KrajTermina)
+                {
+                    retVal = false;
+                    break;
+                }
+            }
+            
+        }
+        return retVal;
+    }
 }

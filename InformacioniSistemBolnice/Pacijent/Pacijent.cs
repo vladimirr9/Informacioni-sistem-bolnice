@@ -37,6 +37,8 @@ public class Pacijent : Korisnik
 
     public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je pacijent slobodan izmedju neka dva trenutka u vremenu
     {
+        if (pocetak.Equals(kraj))
+            return true;
         bool retVal = true;
         List<Termin> termini = TerminFileStorage.GetAll();
         foreach (Termin termin in termini)

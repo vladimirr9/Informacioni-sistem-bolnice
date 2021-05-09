@@ -160,6 +160,9 @@
     <Compile Include="Sekretar_ns\PocetnaPage.xaml.cs">
       <DependentUpon>PocetnaPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sekretar_ns\PostponeAppointmentWIndow.xaml.cs">
+      <DependentUpon>PostponeAppointmentWIndow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sekretar_ns\SekretarMain.xaml.cs">
       <DependentUpon>SekretarMain.xaml</DependentUpon>
     </Compile>
@@ -324,6 +327,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sekretar_ns\PocetnaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sekretar_ns\PostponeAppointmentWIndow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

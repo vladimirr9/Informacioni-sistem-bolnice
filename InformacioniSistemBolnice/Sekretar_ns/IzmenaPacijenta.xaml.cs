@@ -43,6 +43,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             CityText.Text = inicijalniPacijent.adresaStanovanja.mestoStanovanja.naziv;
             AddressText.Text = inicijalniPacijent.adresaStanovanja.ulicaIBroj;
             SocialSecurityText.Text = inicijalniPacijent.brojZdravstveneKartice;
+            GuestCheckbox.IsChecked = p.isGuest;
             this.parent = parent;
         }
 
@@ -62,7 +63,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             string korisnickoIme = UsernameText.Text;
             string lozinka = PasswordText.Text;
             AdresaStanovanja adresaStanovanja = new AdresaStanovanja(AddressText.Text, new MestoStanovanja(CityText.Text, PostalCodeText.Text, new DrzavaStanovanja(CountryText.Text)));
-            bool isGuest = inicijalniPacijent.isGuest;
+            bool isGuest = (bool)GuestCheckbox.IsChecked;
             string brojZdravstveneKartice = SocialSecurityText.Text;
             if (IsUnique(korisnickoIme) || korisnickoIme.Equals(inicijalniPacijent.korisnickoIme))
             {
