@@ -100,9 +100,16 @@ namespace InformacioniSistemBolnice.Upravnik
             {
                 Oprema o = (Oprema)dataGridOprema.SelectedItem;
                 Oprema opremaZaPremestanje = selektovana.GetOne(o.Sifra);
-                RasporedjivanjeOpreme prozor = new RasporedjivanjeOpreme(selektovana, opremaZaPremestanje, this);
-                //updateTable();
-                prozor.Show();
+                if (o.TipOpreme == TipOpreme.dinamicka)
+                {
+                    RasporedjivanjeOpreme prozor = new RasporedjivanjeOpreme(selektovana, opremaZaPremestanje, this);
+                    prozor.Show();
+                }
+                else
+                {
+                    RasporedjivanjeStatickeWindow prozor = new RasporedjivanjeStatickeWindow(selektovana, opremaZaPremestanje, this);
+                    prozor.Show();
+                }
             }
         }
 

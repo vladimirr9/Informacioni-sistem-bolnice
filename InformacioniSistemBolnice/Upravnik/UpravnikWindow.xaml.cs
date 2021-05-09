@@ -29,5 +29,11 @@ namespace InformacioniSistemBolnice.Upravnik
             WindowProstorije wp = new WindowProstorije(this);
             wp.Show();
         }
+
+        private void LekoviWindow(object sender, RoutedEventArgs e)
+        {
+            LekoviWindow lw = new LekoviWindow(this);
+            lw.Show();
+        }
     }
 }

@@ -1,0 +1,35 @@
+﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.IzmenaLekaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
+        mc:Ignorable="d"
+        Title="IzmenaLekaWindow" Height="700" Width="500">
+    <Grid>
+        <Label x:Name="label" Content="Izmena leka" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" Foreground="DarkBlue" FontStyle="Italic"/>
+        <Label x:Name="label1" Content="Šifra:" HorizontalAlignment="Left" Margin="114,115,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
+        <Label x:Name="label2" Content="Naziv:" HorizontalAlignment="Left" Margin="106,185,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
+        <Label x:Name="label4" Content="Sastojci:" HorizontalAlignment="Left" Margin="91,245,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
+        <Label x:Name="label5" Content="Lekar koji vrši validaciju:" HorizontalAlignment="Left" Margin="10,385,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
+        <ComboBox x:Name="Lekar" HorizontalAlignment="Left" Margin="241,389,0,0" VerticalAlignment="Top" Width="200" FontSize="17">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="ime"/>
+                                <Binding Path="prezime"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBox x:Name="Sifra" HorizontalAlignment="Left" Height="23" Margin="241,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="Naziv" HorizontalAlignment="Left" Height="23" Margin="241,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="Sastojci" HorizontalAlignment="Left" Height="105" Margin="241,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" Margin="121,605,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Background="CornflowerBlue" Click="IzmeniLek"/>
+        <Button x:Name="button1" Content="Otkaži" HorizontalAlignment="Left" Margin="323,605,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Background="IndianRed" Click="Otkazi"/>
+    </Grid>
+</Window>

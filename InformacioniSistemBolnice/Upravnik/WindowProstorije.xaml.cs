@@ -86,5 +86,16 @@ namespace InformacioniSistemBolnice.Upravnik
                     datagridProstorije.Items.Add(p);
             }
         }
+
+        private void ZakaziRenoviranje(object sender, RoutedEventArgs e)
+        {
+            if (datagridProstorije.SelectedItem != null)
+            {
+                Prostorija selektovana = (Prostorija)datagridProstorije.SelectedItem;
+                Prostorija p = ProstorijaFileStorage.GetOne(selektovana.IDprostorije);
+                ZakazivanjeRenoviranjaWindow prozor = new ZakazivanjeRenoviranjaWindow(p, this);
+                prozor.Show();
+            }
+        }
     }
 }

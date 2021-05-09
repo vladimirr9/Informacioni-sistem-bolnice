@@ -77,6 +77,7 @@
     <Compile Include="FileStorage\AnketaFileStorage.cs" />
     <Compile Include="FileStorage\DatumiProvjereStatusaFileStorage.cs" />
     <Compile Include="FileStorage\InformacijeFileStorage.cs" />
+    <Compile Include="FileStorage\LekFileStorage.cs" />
     <Compile Include="FileStorage\SastojakFileStorage.cs" />
     <Compile Include="FileStorage\ObavestenjeFileStorage.cs" />
     <Compile Include="InformacijeOKoriscenjuFunkcionalnosti.cs" />
@@ -181,17 +182,27 @@
     <Compile Include="Sekretar_ns\TerminiPage.xaml.cs">
       <DependentUpon>TerminiPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Upravnik\DodavanjeLekaWindow.xaml.cs">
+      <DependentUpon>DodavanjeLekaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Upravnik\DodavanjeOpreme.xaml.cs">
       <DependentUpon>DodavanjeOpreme.xaml</DependentUpon>
     </Compile>
     <Compile Include="Upravnik\DodavanjeProstorije.xaml.cs">
       <DependentUpon>DodavanjeProstorije.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Upravnik\IzmenaLekaWindow.xaml.cs">
+      <DependentUpon>IzmenaLekaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Upravnik\IzmenaOpreme.xaml.cs">
       <DependentUpon>IzmenaOpreme.xaml</DependentUpon>
     </Compile>
     <Compile Include="Upravnik\IzmenaProstorije.xaml.cs">
       <DependentUpon>IzmenaProstorije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\Lek.cs" />
+    <Compile Include="Upravnik\LekoviWindow.xaml.cs">
+      <DependentUpon>LekoviWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Upravnik\Oprema.cs" />
     <Compile Include="Upravnik\OpremaWindow.xaml.cs">
@@ -208,6 +219,10 @@
     <Compile Include="Upravnik\RasporedjivanjeOpreme.xaml.cs">
       <DependentUpon>RasporedjivanjeOpreme.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Upravnik\RasporedjivanjeStatickeWindow.xaml.cs">
+      <DependentUpon>RasporedjivanjeStatickeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\StatusLeka.cs" />
     <Compile Include="Upravnik\TipOpreme.cs" />
     <Compile Include="Upravnik\TipProstorije.cs" />
     <Compile Include="Termin\TipTermina.cs" />
@@ -220,6 +235,9 @@
     <Compile Include="Pacijent\ZdravstveniKarton.cs" />
     <Compile Include="Upravnik\WindowProstorije.xaml.cs">
       <DependentUpon>WindowProstorije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upravnik\ZakazivanjeRenoviranjaWindow.xaml.cs">
+      <DependentUpon>ZakazivanjeRenoviranjaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="VrstaFunkcionalnosti.cs" />
     <Page Include="Lekar\LekarDodajTerminWindow.xaml">
@@ -367,11 +385,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Upravnik\DodavanjeLekaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Upravnik\DodavanjeOpreme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Upravnik\DodavanjeProstorije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\IzmenaLekaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -383,6 +409,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Upravnik\LekoviWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Upravnik\OpremaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -391,11 +421,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Upravnik\RasporedjivanjeStatickeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Upravnik\UpravnikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Upravnik\WindowProstorije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\ZakazivanjeRenoviranjaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

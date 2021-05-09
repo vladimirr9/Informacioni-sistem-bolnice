@@ -47,6 +47,6 @@
         <Button Background="CornflowerBlue" x:Name="button3" Content="Oprema" FontSize="20" HorizontalAlignment="Left" Margin="774,589,0,0" VerticalAlignment="Top" Width="100" Click="OpremaProstorije" Grid.Row="3"/>
         <Button Background="IndianRed" x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="911,675,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="Zatvori" FontSize="17"/>
         <Label x:Name="label" Content="Prostorije" HorizontalAlignment="Left" Margin="24,36,0,0" Grid.Row="3" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
-
+        <Button Background="CornflowerBlue" x:Name="button5" Content="Zakaži renoviranje" FontSize="20" HorizontalAlignment="Left" Margin="279,589,0,0" VerticalAlignment="Top" Width="175" Click="ZakaziRenoviranje" Grid.Row="3"/>
     </Grid>
 </Window>
