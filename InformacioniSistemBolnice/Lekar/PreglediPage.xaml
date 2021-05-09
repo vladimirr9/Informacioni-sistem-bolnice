@@ -5,10 +5,48 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Lekar"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="718" d:DesignWidth="1140"
       Title="PreglediPage">
 
     <Grid>
-        
+        <DataGrid x:Name="PrikazPregleda" Margin="35,75,34,137" IsReadOnly="True">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}"/>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="50"/>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="140"/>
+                <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="100"/>
+                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="170"/>
+                <DataGridTextColumn Header="Status pregleda" Binding="{Binding status}" Width="120"/>
+                <DataGridTextColumn Header="Pacijent" Width="150">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} {1}">
+                            <Binding Path="Pacijent.ime"/>
+                            <Binding Path="Pacijent.prezime"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Lekar" Width="150">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} {1}">
+                            <Binding Path="Lekar.ime"/>
+                            <Binding Path="Lekar.prezime"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Prostorija" Width="*">
+                    <DataGridTextColumn.Binding>
+                        <Binding Path="Prostorija.Naziv"/>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Dodaj termin" Margin="287,0,0,63" Click="Button_Click" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+        <Button Content="Izmeni termin" Margin="498,0,0,63" Click="Button_Click_1" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+        <Button Content="Ukloni termin" Margin="714,0,0,63" Click="Button_Click_2" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+
     </Grid>
 </Page>

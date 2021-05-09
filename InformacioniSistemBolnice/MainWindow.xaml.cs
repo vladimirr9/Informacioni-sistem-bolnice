@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using InformacioniSistemBolnice.FileStorage;
 using InformacioniSistemBolnice.Korisnik;
 using InformacioniSistemBolnice.Lekar;
 using InformacioniSistemBolnice.Sekretar_ns;
@@ -6,6 +7,7 @@ using InformacioniSistemBolnice.Upravnik;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -20,6 +22,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace InformacioniSistemBolnice
 {
@@ -28,14 +31,30 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Pacijent pacijent { get; set; }
         public MainWindow()
         {
             //LekarFileStorage.AddLekar(new global::Lekar("Petar", "Petrovic", "1507970600034", 'm', "+381661238407", "ppetrovic@gmail.com", new DateTime(1970,4,12), "PPetrovic", "petrovic123", null, TipLekara.specijalista, false));
             //SekretarFileStorage.AddSekretar(new Sekretar("Vladimir", "Rokvic", "0405993705030", 'M', "+32432343232", "neko@nesto.com", new DateTime(), "vladimir", "rokvic", new AdresaStanovanja("Kralja Petra 1", new MestoStanovanja("Novi Sad", "23223", new DrzavaStanovanja("Republika Srbija"))), false));
             //PacijentFileStorage.AddPacijent(new Pacijent("Pera","Peric", "09320434533",'M',"+3245344323","Pera@peric.com",new DateTime(),"pera","peric",new AdresaStanovanja("Kralja Petra 12", new MestoStanovanja("Novi Sad", "23232", new DrzavaStanovanja("Republika Srbija"))),false,"2323224343",new List<Termin>(),new ZdravstveniKarton("232", null),false));
             InitializeComponent();
+<<<<<<< HEAD
             //LekarFileStorage.AddLekar(new global::Lekar("Rada", "Radić", "143234230034", 'ž', "+38341664548407", "radaradic@gmail.com", new DateTime(1972, 5, 14), "Rada", "rdic", new AdresaStanovanja("Kralja Petra 11", new MestoStanovanja("Novi Sad", "23232", new DrzavaStanovanja("Republika Srbija"))), TipLekara.opstePrakse, false));
+=======
+
+            global::Lekar l = LekarFileStorage.GetOne("PPetrovic");
+            Console.WriteLine(l.IsAvailable(DateTime.Parse("15-Apr-21"), DateTime.Parse("16-Apr-21" + " " + "10:05")));
+            Console.WriteLine(DateTime.Parse("16-Apr-21"));
+
+           
+
+
+>>>>>>> development
         }
+
+        
+
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -96,7 +115,7 @@ namespace InformacioniSistemBolnice
                 }
             }
 
-            MessageBox.Show("Neuspjesno logovanje!");
+            MessageBox.Show("Neuspesno logovanje!");
         }
 
        

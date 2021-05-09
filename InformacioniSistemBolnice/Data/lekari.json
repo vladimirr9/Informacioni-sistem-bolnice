@@ -1,1 +1,32 @@
-[{"tipLekara":0,"ime":"Petar","prezime":"Petrovic","jmbg":"1507970600034","pol":"m","brojTelefona":"+381661238407","email":"ppetrovic@gmail.com","datumRodenja":"1970-04-12T00:00:00","korisnickoIme":"PPetrovic","lozinka":"petrovic123","isDeleted":false,"adresaStanovanja":null},{"tipLekara":1,"ime":"Marko","prezime":"Markovic","jmbg":"1204324123432","pol":"m","brojTelefona":"+381643546575","email":"marko@gmail.com","datumRodenja":"1980-04-12T00:00:00","korisnickoIme":"mmarko","lozinka":"markovic123","isDeleted":false,"adresaStanovanja":null},{"tipLekara":0,"ime":"Rada","prezime":"Radić","jmbg":"143234230034","pol":"ž","brojTelefona":"+38341664548407","email":"radaradic@gmail.com","datumRodenja":"1972-05-14T00:00:00","korisnickoIme":"Rada","lozinka":"rdic","isDeleted":false,"adresaStanovanja":{"ulicaIBroj":"Kralja Petra 11","mestoStanovanja":{"drzavaStanovanja":{"naziv":"Republika Srbija"},"naziv":"Novi Sad","postanskiBroj":"23232"}}}]
+[
+  {
+    "tipLekara": 1,
+
+    "ime": "Petar",
+    "prezime": "Petrovic",
+    "jmbg": "1507970600034",
+    "pol": "m",
+    "brojTelefona": "+381661238407",
+    "email": "ppetrovic@gmail.com",
+    "datumRodenja": "1970-04-12T00:00:00",
+    "korisnickoIme": "PPetrovic",
+    "lozinka": "petrovic123",
+    "isDeleted": false,
+    "adresaStanovanja": null
+  },
+  {
+    "tipLekara": 0,
+
+    "ime": "Marko",
+    "prezime": "Markovic",
+    "jmbg": "1204324123432",
+    "pol": "m",
+    "brojTelefona": "+381643546575",
+    "email": "marko@gmail.com",
+    "datumRodenja": "1980-04-12T00:00:00",
+    "korisnickoIme": "mmarko",
+    "lozinka": "markovic123",
+    "isDeleted": false,
+    "adresaStanovanja": null
+  }
+]

@@ -22,11 +22,27 @@
                     <TextBox x:Name="Datum" Margin="170,148,346,191" MaxWidth="270" Grid.Column="1" IsEnabled="False"/>
                     <TextBox x:Name="JMBG" Margin="170,219,210,120" Grid.Column="1" IsEnabled="False"/>
                     <TextBox x:Name="Zdravstvena" Margin="170,288,210,51" Grid.Column="1" IsEnabled="False"/>
-                    <Label Content="Ime i prezime:" HorizontalAlignment="Left" Margin="58,70,0,0" VerticalAlignment="Top" Grid.Column="1" Width="92" Height="32"/>
+                    <Label Content="Ime i prezime:" HorizontalAlignment="Left" Margin="58,70,0,0" VerticalAlignment="Top" Grid.Column="1" Width="92" Height="32" />
                     <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="58,148,0,0" VerticalAlignment="Top" Grid.Column="1" Width="92" Height="32"/>
                     <Label Content="Pol:" HorizontalAlignment="Left" Margin="370,148,0,0" VerticalAlignment="Top" Grid.Column="1" Width="35" Height="32"/>
                     <Label Content="JMBG:" HorizontalAlignment="Left" Margin="58,219,0,0" VerticalAlignment="Top" Grid.Column="1" Width="92" Height="32"/>
                     <Label Content="Zdravstvena kartica:" HorizontalAlignment="Left" Margin="33,288,0,0" VerticalAlignment="Top" Grid.Column="1" Width="117" Height="32"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Alergije">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Alergije:" HorizontalAlignment="Left" Margin="150,53,0,0" VerticalAlignment="Top" FontSize="20"/>
+                    <Label Content="Dodaj alergiju:" HorizontalAlignment="Left" Margin="93,277,0,0" VerticalAlignment="Top" FontSize="20"/>
+                    <ListView x:Name="AlergeniList" HorizontalAlignment="Left" Height="189" Margin="264,53,0,0" VerticalAlignment="Top" Width="200">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Naziv alergena" Width="200" DisplayMemberBinding="{Binding naziv}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="499,279,0,0" VerticalAlignment="Top" Width="106" Height="35" Background="#FF2B78E4" Foreground="White"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="264,279,0,0" VerticalAlignment="Top" Width="200" Height="35"/>
+
                 </Grid>
             </TabItem>
             <TabItem Header="Pregledi">
@@ -38,9 +54,9 @@
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
-                    <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="105,61,0,0" VerticalAlignment="Top" Width="78"/>
-                    <Button Content="Sacuvaj" HorizontalAlignment="Left" Margin="207,261,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Button_Click_1"/>
-                    <Button Content="Uput" HorizontalAlignment="Left" Margin="459,261,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Button_Click_2" />
+                    <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="69,61,0,0" VerticalAlignment="Top" Width="108" FontSize="20"/>
+                    <Button Content="Sacuvaj" HorizontalAlignment="Left" Margin="207,261,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Button_Click_1" Background="#FF2B78E4" Foreground="White"/>
+                    <Button Content="Uput" HorizontalAlignment="Left" Margin="459,261,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Button_Click_2" Background="#FF2B78E4" Foreground="White"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Terapija">
@@ -62,7 +78,7 @@
                     <TextBox x:Name="Ucestalost" HorizontalAlignment="Left" Height="23" Margin="341,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47"/>
                     <Label Content="Na svaka" HorizontalAlignment="Left" Margin="277,304,0,0" VerticalAlignment="Top"/>
                     <Label Content="dana." HorizontalAlignment="Left" Margin="394,304,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.586"/>
-                    <Button Content="Izdaj terapiju" HorizontalAlignment="Left" Margin="550,47,0,0" VerticalAlignment="Top" Width="81" Height="26" Click="Button_Click"/>
+                    <Button Content="Izdaj terapiju" HorizontalAlignment="Left" Margin="550,47,0,0" VerticalAlignment="Top" Width="81" Height="26" Click="Button_Click" Background="#FF2B78E4" Foreground="White"/>
                     <TextBox x:Name="Lek" HorizontalAlignment="Left" Height="26" Margin="277,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
                 </Grid>
             </TabItem>

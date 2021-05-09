@@ -98,4 +98,23 @@ public class PacijentFileStorage
         File.WriteAllText(startupPath, upis);
     }
 
+    public static void OdblokirajPacijenta(Pacijent pacijent)
+    {
+        foreach (Pacijent pac in GetAll())
+        {
+            if (pac.korisnickoIme.Equals(pacijent.korisnickoIme))
+            {
+                if (pacijent.Banovan == true && pacijent.TrenutakBanovanja.AddMinutes(1) < DateTime.Now)
+                {
+                    pacijent.Banovan = false;
+                    pacijent.TrenutakBanovanja = DateTime.Parse("1970-01-01T00:00:00");
+                    UpdatePacijent(pacijent.korisnickoIme, pacijent);
+                    //InformacijeFileStorage.RemoveInformacijePacijenta(p.korisnickoIme);
+
+                }
+            }
+        }
+
+    }
+
 }

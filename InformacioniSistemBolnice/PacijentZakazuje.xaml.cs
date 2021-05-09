@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.FileStorage;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -39,13 +40,12 @@ namespace InformacioniSistemBolnice
             dugmePotvrdi.IsEnabled = false;
             prostorije = ProstorijaFileStorage.GetAll();
             blackOutDates();
-            lekari = LekarFileStorage.GetAll();
-           /* lekari = new List<global::Lekar>();
+           lekari = new List<global::Lekar>();
             foreach(global::Lekar l in LekarFileStorage.GetAll()) {
                 if (l.tipLekara.Equals(TipLekara.opstePrakse)) {
                     lekari.Add(l);
                 }
-            } -- ovaj zakomentarisani dio u combo box postavlja samo ljekare opste prakse*/
+            } 
             lekar.ItemsSource = lekari;
             pacijent = parent.pacijent;
            
@@ -72,7 +72,18 @@ namespace InformacioniSistemBolnice
                 String t = item.ToString();
                 String d = date.Text;
                 DateTime dt = DateTime.Parse(d + " " + t);
-                TipTermina tipt = TipTermina.pregledKodLekaraOpstePrakse;
+                TipTermina tipt;
+                if (l.tipLekara.Equals(TipLekara.opstePrakse))
+                {
+                    tipt = TipTermina.pregledKodLekaraOpstePrakse;
+                }
+                else if (l.tipLekara.Equals(TipLekara.hirurg))
+                {
+                    tipt = TipTermina.operacija;
+                }
+                else {
+                    tipt = TipTermina.pregledKodLekaraSpecijaliste;
+                }
                 int id = TerminFileStorage.GetAll().Count + 1;
 
                 DateTime start;
@@ -235,7 +246,12 @@ namespace InformacioniSistemBolnice
             Application.Current.MainWindow = pzpp;
             pzpp.Show();
             this.Close();
+            InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now,pacijent.korisnickoIme,VrstaFunkcionalnosti.zakazivanje);
+            InformacijeFileStorage.AddInformacije(informacija);
+           
         }
+
+       
 
        
     }
