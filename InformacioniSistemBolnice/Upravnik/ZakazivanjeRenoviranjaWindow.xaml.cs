@@ -53,25 +53,29 @@ namespace InformacioniSistemBolnice.Upravnik
 
             if (datumOd < datumDo)
             {
-                foreach (DateTime day in PeriodRenoviranja(datumOd, datumDo))
+                //foreach (DateTime day in PeriodRenoviranja(datumOd, datumDo))
+                //{
+                    //foreach (Termin t in listaTermina)
+                    //{
+                        //if (t.datumZakazivanja.Date != day)
+                if(selektovana.IsAvailable(datumOd, datumDo))
                 {
-                    foreach (Termin t in listaTermina)
+                    if (DateTime.Today.Date == datumOd.Date)
                     {
-                        if (t.datumZakazivanja.Date != day)
-                        {
-                            if (day == DateTime.Today)
-                            {
-                                isActive = false;
-                            }
-                            isActive = true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ima zakazanih termina u tom periodu!", "Upozorenje", MessageBoxButton.OK);
-                            this.Close();
-                        }
+                        isActive = false;
+                    }
+                    else
+                    {
+                        isActive = true;
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Ima zakazanih termina u tom periodu!", "Upozorenje", MessageBoxButton.OK);
+                    this.Close();
+                }
+                    //}
+               // }
             }
             else
             {
@@ -87,13 +91,13 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void Otkazi(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
-        public IEnumerable<DateTime> PeriodRenoviranja(DateTime from, DateTime to)
+        /*public IEnumerable<DateTime> PeriodRenoviranja(DateTime from, DateTime to)
         {
             for (var dan = from.Date; dan.Date <= to.Date; dan = dan.AddDays(1))
                 yield return dan;
-        }
+        }*/
     }
 }

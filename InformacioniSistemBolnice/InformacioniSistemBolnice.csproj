@@ -191,6 +191,9 @@
     <Compile Include="Upravnik\DodavanjeProstorije.xaml.cs">
       <DependentUpon>DodavanjeProstorije.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Upravnik\FiltriranaOprema.xaml.cs">
+      <DependentUpon>FiltriranaOprema.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Upravnik\IzmenaLekaWindow.xaml.cs">
       <DependentUpon>IzmenaLekaWindow.xaml</DependentUpon>
     </Compile>
@@ -394,6 +397,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Upravnik\DodavanjeProstorije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Upravnik\FiltriranaOprema.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

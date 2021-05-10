@@ -124,5 +124,14 @@ namespace InformacioniSistemBolnice.Upravnik
                     dataGridOprema.Items.Add(o);
             }
         }
+
+        private void Pretraga_TextChanged(object sender, KeyEventArgs e)
+        {
+            dataGridOprema.Items.Clear();
+            List<Oprema> opremaLista = selektovana.OpremaLista;
+            var filtered = opremaLista.Where(oprema => oprema.Naziv.StartsWith(Pretraga.Text) || oprema.Naziv.Contains(Pretraga.Text));
+
+            dataGridOprema.ItemsSource = filtered;
+        }
     }
 }
