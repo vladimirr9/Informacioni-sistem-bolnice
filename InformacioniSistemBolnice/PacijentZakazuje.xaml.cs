@@ -95,6 +95,8 @@ namespace InformacioniSistemBolnice
                 TerminFileStorage.AddTermin(termin);
                 parent.updateTable();
                 this.Close();
+                InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, pacijent.korisnickoIme, VrstaFunkcionalnosti.zakazivanje);
+                InformacijeFileStorage.AddInformacije(informacija);
             }
         }
 
@@ -246,8 +248,7 @@ namespace InformacioniSistemBolnice
             Application.Current.MainWindow = pzpp;
             pzpp.Show();
             this.Close();
-            InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now,pacijent.korisnickoIme,VrstaFunkcionalnosti.zakazivanje);
-            InformacijeFileStorage.AddInformacije(informacija);
+            
            
         }
 
