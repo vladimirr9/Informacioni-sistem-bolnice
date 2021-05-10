@@ -27,6 +27,8 @@ namespace InformacioniSistemBolnice.Upravnik
             List<global::Lekar> lekari = LekarFileStorage.GetAll();
 
             Lekar.ItemsSource = lekari;
+            List<Sastojak> sastojci = SastojakFileStorage.GetAll();
+            Sastojci.ItemsSource = sastojci;
         }
 
         private void DodajLek(object sender, RoutedEventArgs e)
@@ -39,7 +41,7 @@ namespace InformacioniSistemBolnice.Upravnik
             List<Sastojak> sastojciSvi = SastojakFileStorage.GetAll();
             List<Sastojak> sastojciLeka = new List<Sastojak>();
             String[] naziviSastojaka1 = Sastojci.Text.Split(',');
-            foreach (Sastojak s in sastojciSvi)
+            /*foreach (Sastojak s in sastojciSvi)
             {
                 Sastojak noviSastojak = new Sastojak(0, "", false);
 
@@ -54,7 +56,7 @@ namespace InformacioniSistemBolnice.Upravnik
                 }
 
                 sastojciLeka.Add(noviSastojak);
-            }
+            }*/
 
             Lek l = new Lek(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
             LekFileStorage.AddLek(l);

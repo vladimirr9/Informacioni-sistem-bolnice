@@ -36,7 +36,7 @@
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <Binding Path="Naziv"/>
+                            <Binding Path="naziv"/>
                         </TextBlock.Text>
                     </TextBlock>
                 </DataTemplate>
