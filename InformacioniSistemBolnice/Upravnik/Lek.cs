@@ -10,7 +10,7 @@ public class Lek
     private String naziv;
     private bool isDeleted = false;
     private StatusLeka statusLeka;
-    private static List<Sastojak> listaSastojaka;
+    private List<Sastojak> listaSastojaka;
 
     #region Properties
     public String Sifra

@@ -62,7 +62,6 @@ namespace InformacioniSistemBolnice
         {
             if (PreglediPage.GetSelected() != null)
             {
-                //Termin termin = TerminFileStorage.GetOne(((Termin)PrikazPregleda.SelectedItem).iDTermina);
                 Termin termin = PreglediPage.GetSelected();
                 PrikazKartona kartonWindow = new PrikazKartona(termin, this);
                 Application.Current.MainWindow = kartonWindow;

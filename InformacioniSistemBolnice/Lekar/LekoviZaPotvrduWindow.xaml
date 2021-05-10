@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="Lekovi za potvrdu" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Validiraj" Margin="549,236,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="ValidirajClick"/>
+        <Button Content="Vrati" Margin="549,339,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="VratiClick"/>
+        <TextBox x:Name="Izmena" HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" Margin="214,336,0,0" FontSize="20"/>
+        <Label Content="Izmena:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,334,0,0" Width="85" FontSize="20"/>
+        <ListBox x:Name="LekoviList" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="225" Margin="113,25,0,0" SelectionChanged="SelectionChange" FontSize="20"/>
+        <ListBox x:Name="SastavList" HorizontalAlignment="Left" Height="186" Margin="452,25,0,0" VerticalAlignment="Top" Width="225" FontSize="20"/>
+        <Label Content="Sastav:" HorizontalAlignment="Left" Margin="377,25,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content="Lekovi:" HorizontalAlignment="Left" Margin="38,25,0,0" VerticalAlignment="Top" FontSize="20"/>
+
     </Grid>
 </Window>

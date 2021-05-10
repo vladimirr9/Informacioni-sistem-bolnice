@@ -22,6 +22,60 @@ namespace InformacioniSistemBolnice.Lekar
         public LekoviZaPotvrduWindow()
         {
             InitializeComponent();
+            UpdateList();
+            SastavList.Items.Clear();
+        }
+
+        private void ValidirajClick(object sender, RoutedEventArgs e)
+        {
+            if (LekoviList.SelectedItem != null)
+            {
+                String naziv = LekoviList.SelectedItem.ToString();
+                List<Lek> lekovi = LekFileStorage.GetAll();
+                foreach (Lek l in lekovi)
+                {
+                    if (l.Naziv == naziv)
+                    {
+                        l.StatusLeka = StatusLeka.validiran;
+                    }
+                }
+                UpdateList();
+            }
+        }
+
+        private void VratiClick(object sender, RoutedEventArgs e)
+        {
+            Izmena.Clear();
+            UpdateList();
+        }
+
+        private void UpdateList()
+        {
+            LekoviList.Items.Clear();
+            List<Lek> lekovi = LekFileStorage.GetAll();
+            foreach (Lek l in lekovi)
+            {
+                if (!l.IsDeleted && l.StatusLeka.Equals(StatusLeka.cekaNaValidaciju))
+                    LekoviList.Items.Add(l.Naziv);
+            }
+        }
+
+        public void SelectionChange(object sender, SelectionChangedEventArgs e)
+        {
+            SastavList.Items.Clear();
+            String naziv = LekoviList.SelectedItem.ToString();
+            List<Lek> lekovi = LekFileStorage.GetAll();
+            foreach (Lek l in lekovi)
+            {
+                if (l.Naziv == naziv)
+                {
+                    Console.WriteLine(naziv);
+                    foreach (Sastojak s in l.ListaSastojaka)
+                    {
+                        SastavList.Items.Add(s.naziv);
+                    }
+                }
+            }
         }
     }
 }
