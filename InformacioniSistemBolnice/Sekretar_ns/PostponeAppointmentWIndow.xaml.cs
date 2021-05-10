@@ -88,7 +88,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             appointment.status = StatusTermina.otkazan;
             TerminFileStorage.UpdateTermin(appointment.iDTermina, appointment);
             DateTime originalStart = appointment.datumZakazivanja;
-            appointment.datumZakazivanja = appointment.datumZakazivanja.AddMinutes(AppointmentDuration);
+            appointment.datumZakazivanja = appointment.datumZakazivanja.AddMinutes(AppointmentDuration + 1);
             appointment.datumZakazivanja = GetNextEarliestAppointmentTime(appointment.datumZakazivanja);
             while (!(GetPossibleAppointmentTimes().Contains(appointment.datumZakazivanja.ToString("HH:mm")) && appointment.AreAllEntitiesAvailable(AppointmentsInTheUpcomingWeek)))
             {
