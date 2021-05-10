@@ -29,6 +29,11 @@ namespace InformacioniSistemBolnice.Upravnik
 
             String naziviSastojaka = lekZaIzmenu.ListaSastojaka.Select(x => x.naziv).ToArray().ToString();
 
+            List<global::Lekar> lekari = LekarFileStorage.GetAll();
+            Lekar.ItemsSource = lekari;
+            List<Sastojak> sastojci = SastojakFileStorage.GetAll();
+            Sastojci.ItemsSource = sastojci;
+
             Sifra.Text = lekZaIzmenu.Sifra;
             Naziv.Text = lekZaIzmenu.Naziv;
             SastojciList.ItemsSource = lekZaIzmenu.ListaSastojaka;
@@ -78,7 +83,7 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void Sastojci_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Sastojci.SelectedIndex != -1)
+            /*if (Sastojci.SelectedIndex != -1)
             {
                 List<Lek> lekovi = LekFileStorage.GetAll();
                 foreach (Lek l in lekovi)
@@ -91,7 +96,7 @@ namespace InformacioniSistemBolnice.Upravnik
                     }
 
                 }
-            }
+            }*/
         }
     }
 }
