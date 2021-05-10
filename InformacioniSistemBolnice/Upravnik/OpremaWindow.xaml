@@ -35,5 +35,6 @@
         <Button x:Name="button2" Content="Obriši" HorizontalAlignment="Left" Margin="529,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="ObrisiOpremu"/>
         <Button x:Name="button3" Content="Rasporedi" HorizontalAlignment="Left" Margin="424,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="RasporediOpremu"/>
         <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="908,684,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Zatvori" />
+        <TextBox x:Name="Pretraga" HorizontalAlignment="Left" Height="33" Margin="39,602,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20" Foreground="Gray" KeyUp="Pretraga_TextChanged"/>
     </Grid>
 </Window>
