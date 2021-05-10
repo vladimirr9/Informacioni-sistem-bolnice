@@ -41,8 +41,9 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             EarliestAppointmentTime = earliestAppointmentTime;
             AppointmentsForPostponing = new List<Termin>();
             InitializeComponent();
-            InitializeAppointments();
             AppointmentsInTheUpcomingWeek = GetAppointmentsForUpcomingWeek();
+            InitializeAppointments(AppointmentsInTheUpcomingWeek);
+            
         }
 
         private void PostponeButton_Click(object sender, RoutedEventArgs e)
@@ -120,11 +121,11 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             return datetime;
         }
 
-        private void InitializeAppointments()
+        private void InitializeAppointments(List<Termin> appointmentsInTheUpcomingWeek)
         {
             AppointmentData.Items.Clear();
             Appointments = new List<Termin>();
-            foreach (Termin appointment in TerminFileStorage.GetAll())
+            foreach (Termin appointment in appointmentsInTheUpcomingWeek)
             {
                 if (appointment.status == StatusTermina.zakazan && appointment.datumZakazivanja.Date.Equals(EarliestAppointmentTime.Date) && appointment.datumZakazivanja.TimeOfDay >= EarliestAppointmentTime.TimeOfDay && appointment.Prostorija.TipProstorije == RoomType && appointment.Lekar.tipLekara == DoctorType)
                 {
