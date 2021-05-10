@@ -11,8 +11,8 @@
         <Label x:Name="label1" Content="Šifra:" HorizontalAlignment="Left" Margin="114,115,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
         <Label x:Name="label2" Content="Naziv:" HorizontalAlignment="Left" Margin="106,185,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
         <Label x:Name="label4" Content="Sastojci:" HorizontalAlignment="Left" Margin="91,245,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
-        <Label x:Name="label5" Content="Lekar koji vrši validaciju:" HorizontalAlignment="Left" Margin="10,385,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
-        <ComboBox x:Name="Lekar" HorizontalAlignment="Left" Margin="241,389,0,0" VerticalAlignment="Top" Width="200" FontSize="17">
+        <Label x:Name="label5" Content="Lekar koji vrši validaciju:" HorizontalAlignment="Left" Margin="10,544,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
+        <ComboBox x:Name="Lekar" HorizontalAlignment="Left" Margin="241,544,0,0" VerticalAlignment="Top" Width="200" FontSize="17">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -28,8 +28,20 @@
         </ComboBox>
         <TextBox x:Name="Sifra" HorizontalAlignment="Left" Height="23" Margin="241,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
         <TextBox x:Name="Naziv" HorizontalAlignment="Left" Height="23" Margin="241,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
-        <TextBox x:Name="Sastojci" HorizontalAlignment="Left" Height="105" Margin="241,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
         <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" Margin="121,605,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Background="CornflowerBlue" Click="DodajLek"/>
         <Button x:Name="button1" Content="Otkaži" HorizontalAlignment="Left" Margin="323,605,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Background="IndianRed" Click="Otkazi"/>
+        <ListBox x:Name="SastojciList" HorizontalAlignment="Left" Height="196" Margin="241,245,0,0" VerticalAlignment="Top" Width="200" FontSize="20"/>
+        <ComboBox x:Name="Sastojci" HorizontalAlignment="Left" Margin="241,482,0,0" VerticalAlignment="Top" Width="200" FontSize="17">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <Binding Path="naziv"/>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label x:Name="label6" Content="Dodaj sastojak:" HorizontalAlignment="Left" Margin="65,478,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue"/>
     </Grid>
 </Window>

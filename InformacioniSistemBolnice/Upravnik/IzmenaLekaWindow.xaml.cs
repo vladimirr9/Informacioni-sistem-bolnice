@@ -29,9 +29,14 @@ namespace InformacioniSistemBolnice.Upravnik
 
             String naziviSastojaka = lekZaIzmenu.ListaSastojaka.Select(x => x.naziv).ToArray().ToString();
 
+            List<global::Lekar> lekari = LekarFileStorage.GetAll();
+            Lekar.ItemsSource = lekari;
+            List<Sastojak> sastojci = SastojakFileStorage.GetAll();
+            Sastojci.ItemsSource = sastojci;
+
             Sifra.Text = lekZaIzmenu.Sifra;
             Naziv.Text = lekZaIzmenu.Naziv;
-            Sastojci.Text = naziviSastojaka;
+            SastojciList.ItemsSource = lekZaIzmenu.ListaSastojaka;
             StatusLeka statusLeka = lekZaIzmenu.StatusLeka;
             bool isDeleted = lekZaIzmenu.IsDeleted;
         }
@@ -43,7 +48,7 @@ namespace InformacioniSistemBolnice.Upravnik
             StatusLeka statusLeka = StatusLeka.cekaNaValidaciju;
             bool isDeleted = false;
             global::Lekar lekar = (global::Lekar)Lekar.SelectedItem;
-            List<Sastojak> sastojciSvi = SastojakFileStorage.GetAll();
+            /*List<Sastojak> sastojciSvi = SastojakFileStorage.GetAll();
             List<Sastojak> sastojciLeka = new List<Sastojak>();
             String[] naziviSastojaka1 = Sastojci.Text.Split(',');
             foreach (Sastojak s in sastojciSvi)
@@ -61,8 +66,8 @@ namespace InformacioniSistemBolnice.Upravnik
                 }
 
                 sastojciLeka.Add(noviSastojak);
-            }
-
+            }*/
+            List<Sastojak> sastojciLeka = (List<Sastojak>)SastojciList.ItemsSource;
             Lek l = new Lek(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
             LekFileStorage.UpdateLek(lekZaIzmenu.Sifra, l);
 
@@ -76,35 +81,22 @@ namespace InformacioniSistemBolnice.Upravnik
             this.Close();
         }
 
-        private void IspisiSastojke(Lek lek)
-        {
-            SastojciList.Items.Clear();
-            List<Sastojak> sastojci = new List<Sastojak>();
-            foreach (Sastojak sastojak in SastojakFileStorage.GetAll())
-            {
-                if (lek.ListaSastojaka.Contains(sastojak))
-                {
-                    SastojciList.Items.Add(sastojak.naziv);
-                }
-                else
-                {
-                    sastojci.Add(sastojak);
-                }
-
-            }
-            Sastojci.ItemsSource = sastojci;
-        }
-
         private void Sastojci_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SastojciList.Items.Clear();
-            foreach (Lek lek in LekFileStorage.GetAll())
+            /*if (Sastojci.SelectedIndex != -1)
             {
-                if (lek.Naziv == lekZaIzmenu.Naziv)
+                List<Lek> lekovi = LekFileStorage.GetAll();
+                foreach (Lek l in lekovi)
                 {
-                    IspisiSastojke(lek);
+                    l.ListaSastojaka.Add((Sastojak)Sastojci.SelectedItem);
+                    //dodati u storage
+                    foreach (Sastojak s in l.ListaSastojaka)
+                    {
+                        SastojciList.Items.Add(s.naziv);
+                    }
+
                 }
-            }
+            }*/
         }
     }
 }
