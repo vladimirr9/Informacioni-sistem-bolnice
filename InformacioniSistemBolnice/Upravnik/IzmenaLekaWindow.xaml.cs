@@ -75,5 +75,36 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             this.Close();
         }
+
+        private void IspisiSastojke(Lek lek)
+        {
+            SastojciList.Items.Clear();
+            List<Sastojak> sastojci = new List<Sastojak>();
+            foreach (Sastojak sastojak in SastojakFileStorage.GetAll())
+            {
+                if (lek.ListaSastojaka.Contains(sastojak))
+                {
+                    SastojciList.Items.Add(sastojak.naziv);
+                }
+                else
+                {
+                    sastojci.Add(sastojak);
+                }
+
+            }
+            Sastojci.ItemsSource = sastojci;
+        }
+
+        private void Sastojci_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SastojciList.Items.Clear();
+            foreach (Lek lek in LekFileStorage.GetAll())
+            {
+                if (lek.Naziv == lekZaIzmenu.Naziv)
+                {
+                    IspisiSastojke(lek);
+                }
+            }
+        }
     }
 }

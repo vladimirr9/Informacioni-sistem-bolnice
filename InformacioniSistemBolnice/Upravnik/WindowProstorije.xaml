@@ -48,5 +48,7 @@
         <Button Background="IndianRed" x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="911,675,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="Zatvori" FontSize="17"/>
         <Label x:Name="label" Content="Prostorije" HorizontalAlignment="Left" Margin="24,36,0,0" Grid.Row="3" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
         <Button Background="CornflowerBlue" x:Name="button5" Content="Zakaži renoviranje" FontSize="20" HorizontalAlignment="Left" Margin="279,589,0,0" VerticalAlignment="Top" Width="175" Click="ZakaziRenoviranje" Grid.Row="3"/>
+        <TextBox x:Name="Pretraga" HorizontalAlignment="Left" Height="35" Margin="620,94,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Pretraga opreme..." VerticalAlignment="Top" Width="200" FontSize="20" Foreground="LightGray"/>
+        <Button x:Name="button6" Content="?" HorizontalAlignment="Left" Margin="836,94,0,0" Grid.Row="3" VerticalAlignment="Top" Width="40" Height="35" Background="LightSteelBlue" Click="PretragaOpreme"/>
     </Grid>
 </Window>

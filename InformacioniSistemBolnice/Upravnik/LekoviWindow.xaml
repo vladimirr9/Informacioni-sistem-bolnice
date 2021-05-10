@@ -7,9 +7,13 @@
         mc:Ignorable="d"
         Title="LekoviWindow" Height="768" Width="1024">
     <Grid>
-        <Label x:Name="label" Content="Lekovi" HorizontalAlignment="Left" Margin="39,23,0,0" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
-        <DataGrid x:Name="dataGridLekovi" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="800"
-                  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4">
+        <Label x:Name="label" HorizontalAlignment="Left" Margin="39,23,0,0" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold">
+            <Label x:Name="label1">
+                <Label x:Name="label1_Copy1" Content="Label"/>
+            </Label>
+        </Label>
+        <DataGrid x:Name="dataGridLekovi" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="500"
+                  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4" SelectionChanged="dataGridLekovi_SelectionChanged">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="LightGray"/>
@@ -23,13 +27,14 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Šifra" Binding="{Binding Path=Sifra}" Width="150"/>
                 <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}" Width="200"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Path=StatusLeka}" Width="200"/>
-                <DataGridTextColumn Header="Sastojci" Binding="{Binding Path=ListaSastojaka}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=StatusLeka}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="button" Content="Dodaj" HorizontalAlignment="Left" Margin="739,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="DodajNoviLek"/>
         <Button x:Name="button1" Content="Izmeni" HorizontalAlignment="Left" Margin="634,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="IzmeniLek"/>
         <Button x:Name="button2" Content="Obriši" HorizontalAlignment="Left" Margin="529,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="ObrisiLek"/>
         <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="908,684,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Zatvori" />
+        <ListBox x:Name="SastojciLeka" HorizontalAlignment="Left" Height="363" Margin="606,181,0,0" VerticalAlignment="Top" Width="356"/>
+        <Label x:Name="label2" Content="Sastojci" HorizontalAlignment="Left" Margin="606,132,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
     </Grid>
 </Window>

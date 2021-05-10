@@ -97,5 +97,15 @@ namespace InformacioniSistemBolnice.Upravnik
                 prozor.Show();
             }
         }
+
+        private void PretragaOpreme(object sender, RoutedEventArgs e)
+        {
+            String search = Pretraga.Text;
+            if (search != null)
+            {
+                FiltriranaOprema prozor = new FiltriranaOprema(this, search);
+                prozor.Show();
+            }
+        }
     }
 }
