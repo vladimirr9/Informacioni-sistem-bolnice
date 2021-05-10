@@ -347,3 +347,15 @@ D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\ob
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeLekaWindow.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\FiltriranaOprema.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaLekaWindow.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\LekoviWindow.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeStatickeWindow.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\ZakazivanjeRenoviranjaWindow.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeLekaWindow.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaLekaWindow.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\LekoviWindow.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeStatickeWindow.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\ZakazivanjeRenoviranjaWindow.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\FiltriranaOprema.baml

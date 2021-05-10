@@ -145,8 +145,12 @@ public class Termin
     }
     [JsonIgnore]
     public int PostponementDuration { get; set; }
-    
-    
+    public static int SortByPostponementDurationAscending(Termin x, Termin y)
+    {
+
+        return x.PostponementDuration.CompareTo(y.PostponementDuration);
+    }
+
 
     public bool OccursOn(DateTime date)
     {

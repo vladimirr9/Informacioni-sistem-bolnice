@@ -130,10 +130,15 @@ namespace InformacioniSistemBolnice.Sekretar_ns
                 if (appointment.status == StatusTermina.zakazan && appointment.datumZakazivanja.Date.Equals(EarliestAppointmentTime.Date) && appointment.datumZakazivanja.TimeOfDay >= EarliestAppointmentTime.TimeOfDay && appointment.Prostorija.TipProstorije == RoomType && appointment.Lekar.tipLekara == DoctorType)
                 {
                     appointment.PostponementDuration = GetPostponementDuration(appointment);
-                    AppointmentData.Items.Add(appointment);
+                    Appointments.Add(appointment);
                 }
             }
-            
+            Appointments.Sort(Termin.SortByPostponementDurationAscending);
+            foreach (Termin appointment in Appointments)
+            {
+                 AppointmentData.Items.Add(appointment);
+            }
+
         }
 
 
