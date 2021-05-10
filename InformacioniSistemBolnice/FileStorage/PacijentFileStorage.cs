@@ -3,6 +3,7 @@
 // Created: Saturday, March 27, 2021 1:58:44 PM
 // Purpose: Definition of Class PacijentFileStorage
 
+using InformacioniSistemBolnice.FileStorage;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -117,4 +118,20 @@ public class PacijentFileStorage
 
     }
 
+    public static void BanujPacijenta(Pacijent p)
+    {
+        foreach (Pacijent pac in GetAll())
+        {
+            if (pac.korisnickoIme.Equals(p.korisnickoIme))
+            {
+
+                p.Banovan = true;
+                p.TrenutakBanovanja = DateTime.Now;
+                UpdatePacijent(p.korisnickoIme, p);
+                InformacijeFileStorage.RemoveInformacijePacijenta(p.korisnickoIme);
+
+
+            }
+        }
+    }
 }

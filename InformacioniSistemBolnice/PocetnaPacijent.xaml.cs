@@ -54,10 +54,7 @@ namespace InformacioniSistemBolnice
 
                 if (brojZakazivanja > 2 || brojOtkazivanja > 1 || brojPomjeranja > 1)
                 {
-                    Pacijent.Banovan = true;
-                    Pacijent.TrenutakBanovanja = DateTime.Now;
-                    PacijentFileStorage.UpdatePacijent(Pacijent.korisnickoIme, Pacijent);
-                    InformacijeFileStorage.RemoveInformacijePacijenta(Pacijent.korisnickoIme);
+                    PacijentFileStorage.BanujPacijenta(Pacijent);
                 }
                 else {
                     Pacijent.Banovan = false;
