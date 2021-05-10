@@ -26,7 +26,7 @@ namespace InformacioniSistemBolnice.Upravnik
             this.parent = parent;
             updateTable();
 
-            //this.DataContext = this;
+            this.DataContext = this;
             SastojciLeka.Items.Clear();
         }
 
@@ -87,34 +87,39 @@ namespace InformacioniSistemBolnice.Upravnik
             }
         }
 
-        private void IspisiSastojke(Lek lek)
+        /*private void IspisiSastojke(Lek lek)
         {
-            dataGridLekovi.Items.Clear();
-            List<Sastojak> sastojci = new List<Sastojak>();
+            SastojciLeka.Items.Clear();
+            //List<Sastojak> sastojci = new List<Sastojak>();
             foreach (Sastojak sastojak in SastojakFileStorage.GetAll())
             {
                 if (lek.ListaSastojaka.Contains(sastojak))
                 {
-                    SastojciLeka.Items.Add(sastojak.naziv);
+                    SastojciLeka.Items.Add(sastojak);
                 }
-                else
+                /*else
                 {
                     sastojci.Add(sastojak);
                 }
 
             }
-            SastojciLeka.ItemsSource = sastojci;
-        }
+            //SastojciLeka.ItemsSource = sastojci;
+        }*/
 
         private void dataGridLekovi_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SastojciLeka.Items.Clear();
-            foreach (Lek lek in LekFileStorage.GetAll())
+            Lek selektovani = (Lek)dataGridLekovi.SelectedItem;
+            /*foreach (Lek lek in LekFileStorage.GetAll())
             {
-                if (lek.Naziv == dataGridLekovi.SelectedItem.ToString())
+                if (selektovani == lek)
                 {
-                    IspisiSastojke(lek);
+                    SastojciLeka.Items.Add(lek.;
                 }
+            }*/
+            foreach(Sastojak s in selektovani.ListaSastojaka)
+            {
+                SastojciLeka.Items.Add(s.naziv);
             }
         }
     }
