@@ -12,32 +12,33 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for PacijentMijenja.xaml
+    /// Interaction logic for PomjeranjeTerminaPage.xaml
     /// </summary>
-    public partial class PacijentMijenja : Window
+    public partial class PomjeranjeTerminaPage : Page
     {
+
         private const int trajanjePregleda = 15;
-        private PacijentWindow parent;
+        private PocetnaPacijent parent;
         private Termin selektovan;
         private List<string> availableTimes;
         private List<Termin> termini;
         private List<global::Lekar> lekari;
         private List<Prostorija> prostorije;
-        private Pacijent pacijent;
         private int brojac;
-        public PacijentMijenja(Termin selektovan, PacijentWindow prozor)
+        public PomjeranjeTerminaPage(Termin selektovan, PocetnaPacijent prozor)
         {
-
             this.selektovan = selektovan;
             this.parent = prozor;
-            this.pacijent = prozor.pacijent;
             brojac = 0;
             InitializeComponent();
+            parent.titleLabel.Content = "Pomeranje termina";
+            parent.titleLabel.Visibility = Visibility.Visible;
             availableTimes = new List<string>();
             termini = TerminFileStorage.GetAll();
             time.ItemsSource = availableTimes;
@@ -47,11 +48,13 @@ namespace InformacioniSistemBolnice
             date.SelectedDate = selektovan.datumZakazivanja;
             time.SelectedItem = selektovan.datumZakazivanja.ToString("HH:mm");
             lekari = new List<global::Lekar>();
-            foreach(global::Lekar l in LekarFileStorage.GetAll()) {
-                if (l.tipLekara.Equals(TipLekara.opstePrakse)) {
+            foreach (global::Lekar l in LekarFileStorage.GetAll())
+            {
+                if (l.tipLekara.Equals(TipLekara.opstePrakse))
+                {
                     lekari.Add(l);
                 }
-            } 
+            }
             lekar.ItemsSource = lekari;
             foreach (global::Lekar l in lekari)
             {
@@ -60,6 +63,7 @@ namespace InformacioniSistemBolnice
             }
 
         }
+
         private void LoadTimes()
         {
 
@@ -106,6 +110,62 @@ namespace InformacioniSistemBolnice
             time.ItemsSource = availableTimes;
         }
 
+        private void BlackOutDates()
+        {
+            date.SelectedDate = selektovan.datumZakazivanja.Date;
+            CalendarDateRange kal = new CalendarDateRange(DateTime.Today, DateTime.Today);
+            CalendarDateRange kalendar = new CalendarDateRange(DateTime.MinValue, selektovan.datumZakazivanja.AddDays(-3));
+            CalendarDateRange kalendar1 = new CalendarDateRange(selektovan.datumZakazivanja.AddDays(3), DateTime.MaxValue);
+            date.BlackoutDates.Add(kalendar);
+            date.BlackoutDates.Add(kalendar1);
+            date.BlackoutDates.Add(kal);
+
+
+        }
+        private void UpdateComponents()
+        {
+            DateTime start;
+            DateTime end;
+
+            CalculateStartAndEnd(out start, out end);
+
+            setEnabledButtonSubmit();
+            Debug.WriteLine(brojac);
+            if (brojac > 4)
+            {
+                CheckAvailableTimes();
+            }
+            else
+            {
+                LoadTimes();
+            }
+
+
+            lekari = new List<global::Lekar>();
+            foreach (global::Lekar l in LekarFileStorage.GetAll())
+            {
+                if (l.IsAvailable(start, end) && !l.isDeleted)
+                {
+                    lekari.Add(l);
+                }
+            }
+
+
+
+        }
+
+        private void setEnabledButtonSubmit()
+        {
+            if (lekar.SelectedItem != null && date.SelectedDate != null && time.SelectedItem != null)
+            {
+                submitButton.IsEnabled = true;
+            }
+            else
+            {
+                submitButton.IsEnabled = false;
+            }
+        }
+
         private void CheckAvailableTimes()
         {
 
@@ -134,7 +194,7 @@ namespace InformacioniSistemBolnice
                         }
                     }
 
-                    if (pacijent.korisnickoIme == termin.Pacijent.korisnickoIme)
+                    if (parent.Pacijent.korisnickoIme == termin.Pacijent.korisnickoIme)
                     {
                         if (termin.status == StatusTermina.zakazan && termin.datumZakazivanja.Date.Equals(date.SelectedDate))
                         {
@@ -175,122 +235,10 @@ namespace InformacioniSistemBolnice
             }
 
             time.ItemsSource = availableTimes;
-            if (availableTimes.Contains(selektovan.datumZakazivanja.ToString("HH:mm"))) {
+            if (availableTimes.Contains(selektovan.datumZakazivanja.ToString("HH:mm")))
+            {
                 time.SelectedItem = selektovan.datumZakazivanja.ToString("HH:mm");
             }
-
-            
-        }
-
-
-
-        private void BlackOutDates() {
-            date.SelectedDate = selektovan.datumZakazivanja.Date;
-            CalendarDateRange kal = new CalendarDateRange(DateTime.Today, DateTime.Today);
-            CalendarDateRange kalendar = new CalendarDateRange(DateTime.MinValue, selektovan.datumZakazivanja.AddDays(-3));
-            CalendarDateRange kalendar1 = new CalendarDateRange(selektovan.datumZakazivanja.AddDays(3), DateTime.MaxValue);
-            date.BlackoutDates.Add(kalendar);
-            date.BlackoutDates.Add(kalendar1);
-            date.BlackoutDates.Add(kal);
-
-
-        }
-
-        private Prostorija GetAvailableRoom(DateTime pocetak, DateTime kraj)
-        {
-            prostorije = new List<Prostorija>();
-            foreach (Prostorija prostorija in ProstorijaFileStorage.GetAll())
-            {
-                if (prostorija.IsAvailable(pocetak, kraj) && !prostorija.IsDeleted)
-                {
-                    prostorije.Add(prostorija);
-                }
-            }
-
-            return prostorije.ElementAt(0);
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)//potvrda
-        {
-            global::Lekar l = (global::Lekar)lekar.SelectedItem;
-            Pacijent p = parent.pacijent;
-        
-            if (time.SelectedIndex != -1)
-            {
-                var item = time.SelectedItem;
-                String t = item.ToString();
-                String d = date.Text;
-                DateTime dt = DateTime.Parse(d + " " + t);
-                TipTermina tt = TipTermina.pregledKodLekaraOpstePrakse;
-
-                DateTime start;
-                DateTime end;
-                CalculateStartAndEnd(out start, out end);
-
-                Prostorija prvaDostupnaProstorija = GetAvailableRoom(start, end);
-
-                Termin termin = new Termin(selektovan.iDTermina, dt, trajanjePregleda, tt, StatusTermina.zakazan, p, l, prvaDostupnaProstorija);
-                TerminFileStorage.UpdateTermin(selektovan.iDTermina, termin);
-                parent.updateTable();
-                this.Close();
-
-                InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, pacijent.korisnickoIme,VrstaFunkcionalnosti.pomjeranje);
-                InformacijeFileStorage.AddInformacije(informacija);
-            }
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e) //odustajanje
-        {
-            this.Close();
-        }
-
-        private void setEnabledButtonSubmit()
-        {
-            if (lekar.SelectedItem != null && date.SelectedDate != null && time.SelectedItem != null)
-            {
-                submitButton.IsEnabled = true;
-            }
-            else
-            {
-                submitButton.IsEnabled = false;
-            }
-        }
-
-        private void time_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateComponents();
-        }
-
-        private void UpdateComponents()
-        {
-            DateTime start;
-            DateTime end;
-
-            CalculateStartAndEnd(out start, out end);
-
-            setEnabledButtonSubmit();
-            Debug.WriteLine(brojac);
-            if (brojac > 4)
-            {
-                CheckAvailableTimes();
-            }
-            else
-            {
-                LoadTimes();
-            }
-            
-
-            lekari = new List<global::Lekar>();
-            foreach (global::Lekar l in LekarFileStorage.GetAll())
-            {
-                if (l.IsAvailable(start, end) && !l.isDeleted)
-                {
-                    lekari.Add(l);
-                }
-            }
-            
 
 
         }
@@ -312,9 +260,8 @@ namespace InformacioniSistemBolnice
             }
         }
 
-        private void date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void time_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ++brojac;
             UpdateComponents();
         }
 
@@ -322,8 +269,80 @@ namespace InformacioniSistemBolnice
         {
             UpdateComponents();
         }
+
+        private void date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ++brojac;
+            UpdateComponents();
+        }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            parent.startWindow.Content = new PregledTerminaPage(parent);
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            updateVisibility();
+            parent.startWindow.Content = new PregledTerminaPage(parent);
+
+        }
+
+        private void updateVisibility()
+        {
+            parent.titleLabel.Visibility = Visibility.Hidden;
+            parent.titlePriorityLabel.Visibility = Visibility.Hidden;
+            parent.odjava.Visibility = Visibility.Visible;
+            parent.imePacijenta.Visibility = Visibility.Visible;
+        }
+
+        private void submitButton_Click(object sender, RoutedEventArgs e)
+        {
+            global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            Pacijent p = parent.Pacijent;
+
+            if (time.SelectedIndex != -1)
+            {
+                var item = time.SelectedItem;
+                String t = item.ToString();
+                String d = date.Text;
+                DateTime dt = DateTime.Parse(d + " " + t);
+                TipTermina tt = TipTermina.pregledKodLekaraOpstePrakse;
+
+                DateTime start;
+                DateTime end;
+                CalculateStartAndEnd(out start, out end);
+
+                Prostorija prvaDostupnaProstorija = GetAvailableRoom(start, end);
+
+                Termin termin = new Termin(selektovan.iDTermina, dt, trajanjePregleda, tt, StatusTermina.zakazan, p, l, prvaDostupnaProstorija);
+                TerminFileStorage.UpdateTermin(selektovan.iDTermina, termin);
+                PregledTerminaPage ptp = new PregledTerminaPage(parent);
+                updateVisibility();
+                parent.startWindow.Content = ptp;
+                ptp.updateTable();
+
+                InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, parent.Pacijent.korisnickoIme, VrstaFunkcionalnosti.pomjeranje);
+                InformacijeFileStorage.AddInformacije(informacija);
+            }
+
+
+
+        }
+
+        private Prostorija GetAvailableRoom(DateTime pocetak, DateTime kraj)
+        {
+            prostorije = new List<Prostorija>();
+            foreach (Prostorija prostorija in ProstorijaFileStorage.GetAll())
+            {
+                if (prostorija.IsAvailable(pocetak, kraj) && !prostorija.IsDeleted)
+                {
+                    prostorije.Add(prostorija);
+                }
+            }
+
+            return prostorije.ElementAt(0);
+
+        }
     }
-
-
 }
-

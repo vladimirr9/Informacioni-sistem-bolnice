@@ -25,45 +25,15 @@ namespace InformacioniSistemBolnice
     {
 
         public Pacijent Pacijent { get; set; }
-        public DateTime DatumProvjereStatusa { get; set; }
+       
         public PocetnaPacijent(Pacijent pacijent)
         {
             this.Pacijent = pacijent;
             InitializeComponent();
-            DatumProvjereStatusa = DatumiProvjereStatusaFileStorage.PosljednjiDatumProvjere();
             imePacijenta.Text = pacijent.ime + " " + pacijent.prezime;
-            if (DatumProvjereStatusa.AddMinutes(2) < DateTime.Now)
-            {
-                ProvjeraStatusaPacijenta();
-            }
-
-            PacijentFileStorage.OdblokirajPacijenta(Pacijent);
-
-
-        }
-
-        
-
-        private void ProvjeraStatusaPacijenta()
-        {
-            DatumProvjereStatusa = DateTime.Now;
-            DatumiProvjereStatusaFileStorage.AddDatum(DatumProvjereStatusa);
-            int brojZakazivanja = InformacijeFileStorage.kolikoJePutaIzvrsenaNekaFunkcionalnost(Pacijent.korisnickoIme, VrstaFunkcionalnosti.zakazivanje);
-            int brojPomjeranja = InformacijeFileStorage.kolikoJePutaIzvrsenaNekaFunkcionalnost(Pacijent.korisnickoIme, VrstaFunkcionalnosti.pomjeranje);
-            int brojOtkazivanja = InformacijeFileStorage.kolikoJePutaIzvrsenaNekaFunkcionalnost(Pacijent.korisnickoIme, VrstaFunkcionalnosti.otkazivanje);
-
-                if (brojZakazivanja > 2 || brojOtkazivanja > 1 || brojPomjeranja > 1)
-                {
-                    PacijentFileStorage.BanujPacijenta(Pacijent);
-                }
-                else {
-                    Pacijent.Banovan = false;
-                    Pacijent.TrenutakBanovanja = DateTime.Parse("1970-01-01T00:00:00");
-                    PacijentFileStorage.UpdatePacijent(Pacijent.korisnickoIme, Pacijent);
-                    InformacijeFileStorage.RemoveInformacijePacijenta(Pacijent.korisnickoIme);
-                }
-
             
+
+
         }
 
         private void odjava_Click(object sender, RoutedEventArgs e)
@@ -75,39 +45,9 @@ namespace InformacioniSistemBolnice
             return;
         }
 
-        private void pregledTermina_Click(object sender, RoutedEventArgs e)
-        {
-            PacijentWindow pw = new PacijentWindow(this.Pacijent);
-            Application.Current.MainWindow = pw;
-            pw.Show();
-            this.Close();
-            return;
-        }
-
-        private void obavjestenja_Click(object sender, RoutedEventArgs e)
-        {
-            ObavjestenjaPacijent op = new ObavjestenjaPacijent(this.Pacijent);
-            Application.Current.MainWindow = op;
-            op.Show();
-            this.Close();
-            return;
-        }
-
-        private void ocjenjivanje_Click(object sender, RoutedEventArgs e)
-        {
-            PacijentFileStorage.OdblokirajPacijenta(Pacijent);
-            if (Pacijent.Banovan == true)
-            {
-                MessageBox.Show("Ova opcija Vam je trenutno onemogućena!", "Greška");
-            }
-            else
-            {
-                Ocjenjivanje o = new Ocjenjivanje(this);
-                Application.Current.MainWindow = o;
-                o.Show();
-                this.Close();
-                return;
-            }
+        public void UpdateVisibilityOfComponents() {
+            imePacijenta.Visibility = Visibility.Hidden;
+            odjava.Visibility = Visibility.Hidden;
         }
 
        

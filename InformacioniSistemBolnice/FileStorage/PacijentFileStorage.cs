@@ -105,7 +105,7 @@ public class PacijentFileStorage
         {
             if (pac.korisnickoIme.Equals(pacijent.korisnickoIme))
             {
-                if (pacijent.Banovan == true && pacijent.TrenutakBanovanja.AddMinutes(1) < DateTime.Now)
+                if (pacijent.Banovan == true && pacijent.TrenutakBanovanja.AddSeconds(30) < DateTime.Now)
                 {
                     pacijent.Banovan = false;
                     pacijent.TrenutakBanovanja = DateTime.Parse("1970-01-01T00:00:00");

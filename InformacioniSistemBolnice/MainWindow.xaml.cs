@@ -61,6 +61,7 @@ namespace InformacioniSistemBolnice
                             
                             PocetnaPacijent pp = new PocetnaPacijent(pacijent);
                             Application.Current.MainWindow = pp;
+                            pp.startWindow.Content = new StartPacijentPage(pp);
                             pp.Show();
                             this.Close();
                             return;
