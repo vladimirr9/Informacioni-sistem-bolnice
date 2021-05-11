@@ -74,6 +74,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Anketa.cs" />
+    <Compile Include="AnketaPage.xaml.cs">
+      <DependentUpon>AnketaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FileStorage\AnketaFileStorage.cs" />
     <Compile Include="FileStorage\DatumiProvjereStatusaFileStorage.cs" />
     <Compile Include="FileStorage\InformacijeFileStorage.cs" />
@@ -91,14 +94,14 @@
     <Compile Include="Lekar\ProfilPage.xaml.cs">
       <DependentUpon>ProfilPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ObavjestenjaPacijent.xaml.cs">
-      <DependentUpon>ObavjestenjaPacijent.xaml</DependentUpon>
+    <Compile Include="ObavjestenjaPage.xaml.cs">
+      <DependentUpon>ObavjestenjaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ocjenjivanje.xaml.cs">
-      <DependentUpon>Ocjenjivanje.xaml</DependentUpon>
+    <Compile Include="PacijentZakazujePage.xaml.cs">
+      <DependentUpon>PacijentZakazujePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PacijentZakazujePoPrioritetu.xaml.cs">
-      <DependentUpon>PacijentZakazujePoPrioritetu.xaml</DependentUpon>
+    <Compile Include="PacijentZakazujePoPrioritetuPage.xaml.cs">
+      <DependentUpon>PacijentZakazujePoPrioritetuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pacijent\Sastojak.cs" />
     <Compile Include="Lekar\LekarDodajTerminWindow.xaml.cs">
@@ -119,26 +122,26 @@
     </Compile>
     <Compile Include="Lekar\Recept.cs" />
     <Compile Include="Lekar\Terapija.cs" />
-    <Compile Include="PacijentMijenja.xaml.cs">
-      <DependentUpon>PacijentMijenja.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PacijentZakazuje.xaml.cs">
-      <DependentUpon>PacijentZakazuje.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pacijent\PacijentWindow.xaml.cs">
       <DependentUpon>PacijentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PocetnaPacijent.xaml.cs">
       <DependentUpon>PocetnaPacijent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PopunjavanjeAnkete.xaml.cs">
-      <DependentUpon>PopunjavanjeAnkete.xaml</DependentUpon>
+    <Compile Include="PomjeranjeTerminaPage.xaml.cs">
+      <DependentUpon>PomjeranjeTerminaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PrioritetLjekar.xaml.cs">
-      <DependentUpon>PrioritetLjekar.xaml</DependentUpon>
+    <Compile Include="PopunjavanjeAnketePage.xaml.cs">
+      <DependentUpon>PopunjavanjeAnketePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PrioritetVrijeme.xaml.cs">
-      <DependentUpon>PrioritetVrijeme.xaml</DependentUpon>
+    <Compile Include="PregledTerminaPage.xaml.cs">
+      <DependentUpon>PregledTerminaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrioritetLjekarPage.xaml.cs">
+      <DependentUpon>PrioritetLjekarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrioritetVrijemePage.xaml.cs">
+      <DependentUpon>PrioritetVrijemePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sekretar_ns\DetaljnijeWindow.xaml.cs">
       <DependentUpon>DetaljnijeWindow.xaml</DependentUpon>
@@ -181,6 +184,9 @@
     </Compile>
     <Compile Include="Sekretar_ns\TerminiPage.xaml.cs">
       <DependentUpon>TerminiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartPacijentPage.xaml.cs">
+      <DependentUpon>StartPacijentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Upravnik\DodavanjeLekaWindow.xaml.cs">
       <DependentUpon>DodavanjeLekaWindow.xaml</DependentUpon>
@@ -243,6 +249,10 @@
       <DependentUpon>ZakazivanjeRenoviranjaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="VrstaFunkcionalnosti.cs" />
+    <Page Include="AnketaPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Lekar\LekarDodajTerminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -292,25 +302,17 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ObavjestenjaPacijent.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="ObavjestenjaPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ocjenjivanje.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="PacijentZakazujePage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="PacijentMijenja.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="PacijentZakazujePoPrioritetuPage.xaml">
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PacijentZakazuje.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PacijentZakazujePoPrioritetu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pacijent\PacijentWindow.xaml">
       <SubType>Designer</SubType>
@@ -320,17 +322,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PopunjavanjeAnkete.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="PomjeranjeTerminaPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="PrioritetLjekar.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="PopunjavanjeAnketePage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="PrioritetVrijeme.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="PregledTerminaPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrioritetLjekarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrioritetVrijemePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Sekretar_ns\DetaljnijeWindow.xaml">
       <SubType>Designer</SubType>
@@ -387,6 +397,10 @@
     <Page Include="Sekretar_ns\TerminiPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartPacijentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Upravnik\DodavanjeLekaWindow.xaml">
       <SubType>Designer</SubType>
