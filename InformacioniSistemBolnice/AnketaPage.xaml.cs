@@ -98,6 +98,7 @@ namespace InformacioniSistemBolnice
         {
             kojiJePritisnut = rate;
             selektovan = (Termin)PrikazPregleda.SelectedItem;
+            parent.imeLjekara.Visibility = Visibility.Visible;
             PopunjavanjeAnketePage pa = new PopunjavanjeAnketePage(this,parent,selektovan);
             parent.startWindow.Content = pa;
             return;
