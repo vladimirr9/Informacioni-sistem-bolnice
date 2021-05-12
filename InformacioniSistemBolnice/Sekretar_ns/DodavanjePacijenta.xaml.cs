@@ -20,10 +20,12 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     public partial class DodavanjePacijenta : Window
     {
         private PacijentiPage parent;
+        public string JMBG { get; set; }
         public DodavanjePacijenta(PacijentiPage parent)
         {
             this.parent = parent;
             InitializeComponent();
+            this.DataContext = this;
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)

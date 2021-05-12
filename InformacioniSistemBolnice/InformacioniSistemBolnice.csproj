@@ -242,6 +242,7 @@
     <Compile Include="Upravnik\ZakazivanjeRenoviranjaWindow.xaml.cs">
       <DependentUpon>ZakazivanjeRenoviranjaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validation\JMBGValidationRule.cs" />
     <Compile Include="VrstaFunkcionalnosti.cs" />
     <Page Include="Lekar\LekarDodajTerminWindow.xaml">
       <SubType>Designer</SubType>

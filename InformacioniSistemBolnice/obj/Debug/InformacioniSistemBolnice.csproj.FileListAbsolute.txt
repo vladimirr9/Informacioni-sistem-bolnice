@@ -359,3 +359,4 @@ C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeStatickeWindow.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\ZakazivanjeRenoviranjaWindow.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\FiltriranaOprema.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\GeneratedInternalTypeHelper.g.cs

@@ -21,14 +21,16 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     {
         private Pacijent inicijalniPacijent;
         private PacijentiPage parent;
+        public string JMBG { get; set; }
         public IzmenaPacijenta(Pacijent p, PacijentiPage parent)
         {
             inicijalniPacijent = p;
             InitializeComponent();
+            this.DataContext = this;
 
             NameText.Text = inicijalniPacijent.ime;
             SurnameText.Text = inicijalniPacijent.prezime;
-            JMBGText.Text = inicijalniPacijent.jmbg;
+            JMBG = inicijalniPacijent.jmbg;
             if (inicijalniPacijent.pol == 'M')
                 GenderCombo.SelectedIndex = 0;
             else
@@ -51,7 +53,6 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         {
             string ime = NameText.Text;
             string prezime = SurnameText.Text;
-            string jmbg = JMBGText.Text;
             char pol;
             if (GenderCombo.SelectedIndex == 0)
                 pol = 'M';
@@ -67,7 +68,7 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             string brojZdravstveneKartice = SocialSecurityText.Text;
             if (IsUnique(korisnickoIme) || korisnickoIme.Equals(inicijalniPacijent.korisnickoIme))
             {
-                Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
+                Pacijent p = new Pacijent(ime, prezime, JMBG, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
                 p.zdravstveniKarton.pacijent = p;
                 PacijentFileStorage.UpdatePacijent(inicijalniPacijent.korisnickoIme, p);
                 parent.updateTable();

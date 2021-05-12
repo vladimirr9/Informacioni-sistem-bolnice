@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns" 
+        xmlns:val="clr-namespace:InformacioniSistemBolnice.Validation"
         mc:Ignorable="d"  ResizeMode="NoResize" FontSize="14"
         Title="Dodavanje Pacijenta" Height="750" Width="540" 
         >
@@ -15,6 +16,15 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                Value="{Binding RelativeSource={RelativeSource Self},
+                Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
     <Grid Margin="25,30,10,10">
@@ -29,7 +39,15 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="JMBG:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="JMBGText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="JMBGText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="13">
+                    <TextBox.Text>
+                        <Binding Path="JMBG" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:JMBGValidationRule ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <CheckBox x:Name="GuestCheckbox" HorizontalAlignment="Right" Margin="15,0,0,0" VerticalAlignment="Center" FontSize="18" FontFamily="Verdana" Width="100" HorizontalContentAlignment="Left">Guest</CheckBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
