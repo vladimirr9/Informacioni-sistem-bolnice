@@ -66,15 +66,24 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             AdresaStanovanja adresaStanovanja = new AdresaStanovanja(AddressText.Text, new MestoStanovanja(CityText.Text, PostalCodeText.Text, new DrzavaStanovanja(CountryText.Text)));
             bool isGuest = (bool)GuestCheckbox.IsChecked;
             string brojZdravstveneKartice = SocialSecurityText.Text;
-            if (IsUnique(korisnickoIme) || korisnickoIme.Equals(inicijalniPacijent.korisnickoIme))
+            if (!(IsUsernameUnique(korisnickoIme) || korisnickoIme.Equals(inicijalniPacijent.korisnickoIme)))
             {
-                Pacijent p = new Pacijent(ime, prezime, JMBG, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
-                p.zdravstveniKarton.pacijent = p;
-                PacijentFileStorage.UpdatePacijent(inicijalniPacijent.korisnickoIme, p);
-                parent.updateTable();
-                Close();
+                MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
+                return;
             }
+            if (!(IsJMBGUnique(JMBG) || JMBG.Equals(inicijalniPacijent.jmbg)))
+            {
+                MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
+                return;
+            }
+            Pacijent p = new Pacijent(ime, prezime, JMBG, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
+            p.zdravstveniKarton.pacijent = p;
+            PacijentFileStorage.UpdatePacijent(inicijalniPacijent.korisnickoIme, p);
+            parent.updateTable();
+            Close();
             
+                
+
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -82,11 +91,19 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             Close();
         }
 
-        public bool IsUnique(String korisnickoIme)
+        public bool IsUsernameUnique(String korisnickoIme)
         {
             if (PacijentFileStorage.GetOne(korisnickoIme) == null)
                 return true;
             else return false;
         }
+        
+        public bool IsJMBGUnique(String jmbg)
+        {
+            if (PacijentFileStorage.GetOneByJMBG(jmbg) == null)
+                return true;
+            else return false;
+        }
     }
+
 }

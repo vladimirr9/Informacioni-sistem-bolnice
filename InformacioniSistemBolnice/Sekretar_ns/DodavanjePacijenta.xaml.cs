@@ -51,31 +51,43 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             bool IsGuest = (bool)GuestCheckbox.IsChecked;
             AdresaStanovanja adresaStanovanja = new AdresaStanovanja(AddressText.Text, new MestoStanovanja(CityText.Text, PostalCodeText.Text, new DrzavaStanovanja(CountryText.Text)));
             string brojZdravstveneKartice = SocialSecurityText.Text;
-            if (IsUnique(korisnickoIme))
+            if (!IsUsernameUnique(korisnickoIme))
             {
-                Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, IsGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
-                p.zdravstveniKarton.pacijent = p;
-                PacijentFileStorage.AddPacijent(p);
-                parent.updateTable();
-                this.Close();
+                MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
+                return;
             }
-            
+            if (!IsJMBGUnique(JMBG))
+            {
+                MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
+                return;
+            }
+            Pacijent p = new Pacijent(ime, prezime, jmbg, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, IsGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
+            p.zdravstveniKarton.pacijent = p;
+            PacijentFileStorage.AddPacijent(p);
+            parent.updateTable();
+            this.Close();
 
-            
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-        
-        public bool IsUnique(String korisnickoIme)
+
+        public bool IsUsernameUnique(String korisnickoIme)
         {
             if (PacijentFileStorage.GetOne(korisnickoIme) == null)
                 return true;
             else return false;
         }
 
-       
+        public bool IsJMBGUnique(String jmbg)
+        {
+            if (PacijentFileStorage.GetOneByJMBG(jmbg) == null)
+                return true;
+            else return false;
+        }
+
+
     }
 }
