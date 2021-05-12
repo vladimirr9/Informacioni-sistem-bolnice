@@ -1,7 +1,6 @@
 ﻿using InformacioniSistemBolnice.FileStorage;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,23 +17,22 @@ using System.Windows.Shapes;
 namespace InformacioniSistemBolnice
 {
     /// <summary>
-    /// Interaction logic for PrioritetLjekar.xaml
+    /// Interaction logic for PrioritetLjekarPage.xaml
     /// </summary>
-    public partial class PrioritetLjekar : Page
+    public partial class PrioritetLjekarPage : Page
     {
         private const int trajanjePregleda = 15;
         private List<global::Lekar> ljekariLista;
-        private Pacijent pacijent;
         private List<Termin> termini;
         private List<string> availableTimes;
         private List<Prostorija> prostorije;
-        private PacijentWindow parent;
-        private PacijentZakazujePoPrioritetu parentp;
-        public PrioritetLjekar(Pacijent p, PacijentWindow pw, PacijentZakazujePoPrioritetu pzpp)
+        private PocetnaPacijent parent;
+        private PacijentZakazujePoPrioritetuPage parentp;
+
+        public PrioritetLjekarPage(PocetnaPacijent pp,PacijentZakazujePoPrioritetuPage pzppp)
         {
-            this.pacijent = p;
-            parent = pw;
-            parentp = pzpp;
+            parent = pp;
+            parentp = pzppp;
             termini = new List<Termin>();
             InitializeComponent();
             ljekariLista = new List<global::Lekar>();
@@ -54,6 +52,12 @@ namespace InformacioniSistemBolnice
             availableTimes = new List<string>();
         }
 
+        private void ljekari_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            date.IsEnabled = true;
+            date.IsEnabled = true;
+        }
+
         private void BlackOutDates()
         {
             CalendarDateRange kalendar = new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1));
@@ -61,16 +65,12 @@ namespace InformacioniSistemBolnice
 
         }
 
-        private void ljekari_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            date.IsEnabled = true;
-        }
-
         private void date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             timeLabel.Visibility = Visibility.Visible;
             times.Visibility = Visibility.Visible;
             pretraziTermine();
+
         }
 
         private void pretraziTermine()
@@ -89,7 +89,7 @@ namespace InformacioniSistemBolnice
                     }
                 }
 
-                if (pacijent.korisnickoIme == t.Pacijent.korisnickoIme && t.datumZakazivanja.Date.Equals(date.SelectedDate))
+                if (parent.Pacijent.korisnickoIme == t.Pacijent.korisnickoIme && t.datumZakazivanja.Date.Equals(date.SelectedDate))
                 {
                     if (t.status == StatusTermina.zakazan)
                     {
@@ -139,18 +139,17 @@ namespace InformacioniSistemBolnice
             submit.IsEnabled = true;
         }
 
-        private void submit_Click(object sender, RoutedEventArgs e) //potvrda
+        private void submit_Click(object sender, RoutedEventArgs e)
         {
             ZakaziTermin();
-            InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now,pacijent.korisnickoIme,VrstaFunkcionalnosti.zakazivanje);
+            InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, parent.Pacijent.korisnickoIme, VrstaFunkcionalnosti.zakazivanje);
             InformacijeFileStorage.AddInformacije(informacija);
-
         }
 
         private void ZakaziTermin()
         {
             global::Lekar l = (global::Lekar)ljekari.SelectedItem;
-            Pacijent p = this.pacijent;
+            Pacijent p = parent.Pacijent;
 
 
             var item = times.SelectedItem;
@@ -172,13 +171,23 @@ namespace InformacioniSistemBolnice
             }
             int id = TerminFileStorage.GetAll().Count + 1;
             DateTime end = start.AddMinutes(trajanjePregleda);
-           
-            Prostorija prvaDostupnaProstorija = GetAvailableRoom(start,end);
+
+            Prostorija prvaDostupnaProstorija = GetAvailableRoom(start, end);
             Termin termin = new Termin(id, start, trajanjePregleda, tipt, StatusTermina.zakazan, p, l, prvaDostupnaProstorija);
             TerminFileStorage.AddTermin(termin);
-            parent.updateTable();
-            parentp.Close();
+            PregledTerminaPage ptp = new PregledTerminaPage(parent);
+            updateVisibility();
+            parent.startWindow.Content = ptp;
+            ptp.updateTable();
 
+        }
+
+        private void updateVisibility()
+        {
+            parent.titleLabel.Visibility = Visibility.Hidden;
+            parent.titlePriorityLabel.Visibility = Visibility.Hidden;
+            parent.odjava.Visibility = Visibility.Visible;
+            parent.imePacijenta.Visibility = Visibility.Visible;
         }
 
         private Prostorija GetAvailableRoom(DateTime pocetak, DateTime kraj)
@@ -196,9 +205,5 @@ namespace InformacioniSistemBolnice
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) //odustanak
-        {
-            parentp.Close();
-        }
     }
 }
