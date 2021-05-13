@@ -20,19 +20,20 @@ namespace InformacioniSistemBolnice.Sekretar_ns
     /// </summary>
     public partial class NewGuestPatientWindow : Window
     {
+        public string JMBG { get; set; }
         public NoviHitanTermin parent;
         public Pacijent Patient;
         public NewGuestPatientWindow(NoviHitanTermin parent)
         {
             this.parent = parent;
             InitializeComponent();
+            DataContext = this;
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             string name = NameText.Text;
             string surname = SurnameText.Text;
-            string JMBG = JMBGText.Text;
             string username = "Guest" + PacijentFileStorage.GetAll().Count.ToString();
 
             if (IsJMBGUnique(JMBG))
