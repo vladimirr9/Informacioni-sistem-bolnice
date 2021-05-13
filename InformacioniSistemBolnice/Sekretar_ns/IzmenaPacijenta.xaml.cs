@@ -78,12 +78,26 @@ namespace InformacioniSistemBolnice.Sekretar_ns
             }
             Pacijent p = new Pacijent(ime, prezime, JMBG, pol, brojTelefona, email, datumRodjenja, korisnickoIme, lozinka, adresaStanovanja, isGuest, brojZdravstveneKartice, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
             p.zdravstveniKarton.pacijent = p;
+            if (!inicijalniPacijent.korisnickoIme.Equals(korisnickoIme))
+                UpdateAppointmentsForUsernameChange(korisnickoIme);
             PacijentFileStorage.UpdatePacijent(inicijalniPacijent.korisnickoIme, p);
             parent.updateTable();
             Close();
-            
-                
 
+
+
+        }
+
+        private void UpdateAppointmentsForUsernameChange(string korisnickoIme)
+        {
+            foreach (Termin appointment in TerminFileStorage.GetAll())
+            {
+                if (appointment.KorisnickoImePacijenta.Equals(inicijalniPacijent.korisnickoIme))
+                {
+                    appointment.KorisnickoImePacijenta = korisnickoIme;
+                    TerminFileStorage.UpdateTermin(appointment.iDTermina, appointment);
+                }
+            }
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

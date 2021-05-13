@@ -32,6 +32,8 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         {
             if (instance == null)
                 instance = new TerminiPage();
+            else
+                instance.updateTable();
             return instance;
         }
 

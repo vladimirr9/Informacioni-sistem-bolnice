@@ -36,6 +36,8 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         {
             if (instance == null)
                 instance = new PocetnaPage(tekSekretar);
+            else
+                instance.updateTable();
             return instance;
         }
 

@@ -30,6 +30,8 @@ namespace InformacioniSistemBolnice.Sekretar_ns
         {
             if (instance == null)
                 instance = new PacijentiPage();
+            else
+                instance.updateTable();
             return instance;
         }
 
