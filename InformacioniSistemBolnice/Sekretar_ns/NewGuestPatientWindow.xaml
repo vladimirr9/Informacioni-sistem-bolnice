@@ -3,19 +3,56 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Sekretar_ns" xmlns:val="clr-namespace:InformacioniSistemBolnice.Validation"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="NewGuestPatientWindow" Height="350" Width="510">
+        Title="NewGuestPatientWindow" Height="360" Width="520">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#FF085394"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                Value="{Binding RelativeSource={RelativeSource Self},
+                Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Button x:Name="ConfirmButton" Content="Potvrdi" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Top" Width="110" FontSize="20" FontFamily="Verdana" Margin="115,234,267,0" Click="Confirm_Click"/>
-        <Button x:Name="CancelButton" Content="Odustani" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Top" Width="110" FontSize="20" FontFamily="Verdana" Margin="280,234,102,0" Click="Cancel_Click"/>
-        <TextBlock HorizontalAlignment="Left" Height="31" Margin="29,51,0,0" TextWrapping="Wrap" Text="Ime:" VerticalAlignment="Top" Width="95" FontSize="20" TextAlignment="Right" FontFamily="Verdana"/>
-        <TextBox x:Name="NameText" HorizontalAlignment="Left" Height="33" Margin="146,49,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="316" FontFamily="Verdana" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" Height="31" Margin="29,102,0,0" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Top" Width="95" FontSize="20" TextAlignment="Right" FontFamily="Verdana"/>
-        <TextBox x:Name="SurnameText" HorizontalAlignment="Left" Height="33" Margin="146,100,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="316" FontFamily="Verdana" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" Height="31" Margin="29,160,0,0" TextWrapping="Wrap" Text="JMBG:" VerticalAlignment="Top" Width="95" FontSize="20" TextAlignment="Right" FontFamily="Verdana"/>
-        <TextBox x:Name="JMBGText" HorizontalAlignment="Left" Height="33" Margin="146,158,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="316" FontFamily="Verdana" FontSize="20"/>
-
+                
+        <StackPanel Orientation="Vertical" Margin="20,30,0,0">
+            <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+                <TextBlock HorizontalAlignment="Left"   TextWrapping="Wrap" Text="Ime:" VerticalAlignment="Center" Width="95" FontSize="20" TextAlignment="Right" FontFamily="Verdana"/>
+                <TextBox x:Name="NameText" Margin="20,0,0,0" HorizontalAlignment="Left" Height="33"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="316" FontFamily="Verdana" FontSize="20"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,30,0,0">
+                <TextBlock HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Center" Width="95" FontSize="20" TextAlignment="Right" FontFamily="Verdana"/>
+                <TextBox x:Name="SurnameText" HorizontalAlignment="Left" Height="33" Margin="20,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Center" Width="316" FontFamily="Verdana" FontSize="20"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,30,0,0">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="JMBG:" VerticalAlignment="Center" Width="95" FontSize="20" TextAlignment="Right" FontFamily="Verdana"/>
+                <TextBox x:Name="JMBGText" HorizontalAlignment="Left" Height="33" Margin="20,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="316" FontFamily="Verdana" FontSize="20">
+                    <TextBox.Text>
+                        <Binding Path="JMBG" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <val:JMBGValidationRule ValidationStep="RawProposedValue"/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,40,0,0" HorizontalAlignment="Center">
+                <Button x:Name="ConfirmButton" Content="Potvrdi" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Top" Width="110" FontSize="20" FontFamily="Verdana" Margin="0,0,20,0"  Click="Confirm_Click"/>
+                <Button x:Name="CancelButton" Content="Odustani" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Top" Width="110" FontSize="20" FontFamily="Verdana" Margin="20,0,0,0" Click="Cancel_Click" Background="#FFCF2A28"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
