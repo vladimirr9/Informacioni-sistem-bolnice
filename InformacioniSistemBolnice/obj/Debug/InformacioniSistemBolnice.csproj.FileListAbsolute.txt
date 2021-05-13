@@ -234,16 +234,7 @@ D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\ob
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\PrikazKartona.g.cs
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilPage.g.cs
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.g.cs
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPacijent.g.cs
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.g.cs
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentMijenja.g.cs
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.g.cs
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetu.g.cs
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.g.cs
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.g.cs
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.g.cs
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekar.g.cs
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijeme.g.cs
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DetaljnijeWindow.g.cs
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.g.cs
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.g.cs
@@ -284,16 +275,7 @@ D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\ob
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\PrikazKartona.baml
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilPage.baml
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.baml
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPacijent.baml
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.baml
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentMijenja.baml
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.baml
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetu.baml
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.baml
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.baml
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.baml
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekar.baml
-D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijeme.baml
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DetaljnijeWindow.baml
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.baml
 D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.baml
@@ -362,3 +344,24 @@ C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekarPage.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijemePage.baml
 C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\StartPacijentPage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\AnketaPage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetuPage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PomjeranjeTerminaPage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnketePage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PregledTerminaPage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekarPage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijemePage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\StartPacijentPage.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\AnketaPage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetuPage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PomjeranjeTerminaPage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnketePage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PregledTerminaPage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekarPage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijemePage.baml
+D:\SIMS vezbe\cetvrtakt\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\StartPacijentPage.baml

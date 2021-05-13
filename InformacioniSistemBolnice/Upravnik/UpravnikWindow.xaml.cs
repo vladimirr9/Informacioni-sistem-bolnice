@@ -35,5 +35,13 @@ namespace InformacioniSistemBolnice.Upravnik
             LekoviWindow lw = new LekoviWindow(this);
             lw.Show();
         }
+
+        private void Pocetna(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            Application.Current.MainWindow = mainWindow;
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }
