@@ -23,42 +23,15 @@ namespace InformacioniSistemBolnice
     {
 
         private static PocetnaPacijent parent;
-        public DateTime DatumProvjereStatusa { get; set; }
         public StartPacijentPage(PocetnaPacijent p)
         {
             parent = p;
             InitializeComponent();
-            DatumProvjereStatusa = DatumiProvjereStatusaFileStorage.PosljednjiDatumProvjere();
-            if (DatumProvjereStatusa.AddMonths(1) < DateTime.Now)
-            {
-                ProvjeraStatusaPacijenta();
-            }
-
-            PacijentFileStorage.OdblokirajPacijenta(parent.Pacijent);
         }
 
-        private void ProvjeraStatusaPacijenta()
-        {
-            DatumProvjereStatusa = DateTime.Now;
-            DatumiProvjereStatusaFileStorage.AddDatum(DatumProvjereStatusa);
-            int brojZakazivanja = InformacijeFileStorage.kolikoJePutaIzvrsenaNekaFunkcionalnost(parent.Pacijent.korisnickoIme, VrstaFunkcionalnosti.zakazivanje);
-            int brojPomjeranja = InformacijeFileStorage.kolikoJePutaIzvrsenaNekaFunkcionalnost(parent.Pacijent.korisnickoIme, VrstaFunkcionalnosti.pomjeranje);
-            int brojOtkazivanja = InformacijeFileStorage.kolikoJePutaIzvrsenaNekaFunkcionalnost(parent.Pacijent.korisnickoIme, VrstaFunkcionalnosti.otkazivanje);
+        
 
-            if (brojZakazivanja > 7 || brojOtkazivanja > 3 || brojPomjeranja > 3)
-            {
-                PacijentFileStorage.BanujPacijenta(parent.Pacijent);
-            }
-            else
-            {
-                parent.Pacijent.Banovan = false;
-                parent.Pacijent.TrenutakBanovanja = DateTime.Parse("1970-01-01T00:00:00");
-                PacijentFileStorage.UpdatePacijent(parent.Pacijent.korisnickoIme, parent.Pacijent);
-                InformacijeFileStorage.RemoveInformacijePacijenta(parent.Pacijent.korisnickoIme);
-            }
-
-
-        }
+        
     
 
         private void pregledTermina_Click(object sender, RoutedEventArgs e)
@@ -73,7 +46,15 @@ namespace InformacioniSistemBolnice
 
         private void ocjenjivanje_Click(object sender, RoutedEventArgs e)
         {
-            parent.startWindow.Content = new AnketaPage(parent);
+            PacijentFileStorage.ProvjeritiStatusPacijenta(parent.Pacijent);
+            if (parent.Pacijent.Banovan == true)
+            {
+                MessageBox.Show("Ova funkcionalnost Vam je trenutno onemogućena,obratite se sekretaru!", "Greška");
+            }
+            else
+            {
+                parent.startWindow.Content = new AnketaPage(parent);
+            }
         }
     }
 }

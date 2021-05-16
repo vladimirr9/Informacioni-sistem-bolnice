@@ -53,13 +53,13 @@ namespace InformacioniSistemBolnice
 
         private void cancelTermin_Click(object sender, RoutedEventArgs e)
         {
-            /*PacijentFileStorage.OdblokirajPacijenta(pacijent);
-           if (pacijent.Banovan == true)
+            PacijentFileStorage.ProvjeritiStatusPacijenta(parent.Pacijent);
+           if (parent.Pacijent.Banovan == true)
            {
                MessageBox.Show("Otkazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
            }
            else
-           {*/
+           {
 
             if (PrikazPregleda.SelectedItem != null)
             {
@@ -85,12 +85,13 @@ namespace InformacioniSistemBolnice
                 MessageBox.Show("Prvo morate odabrati termin koji želite otkazati!", "Greška");
 
             }
-            //}
+            }
 
         }
 
         private void zakazi_Click(object sender, RoutedEventArgs e)
         {
+            PacijentFileStorage.ProvjeritiStatusPacijenta(parent.Pacijent);
             if (parent.Pacijent.Banovan == true)
             {
                 MessageBox.Show("Zakazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
@@ -103,7 +104,7 @@ namespace InformacioniSistemBolnice
 
         private void pomjeri_Click(object sender, RoutedEventArgs e)
         {
-
+            PacijentFileStorage.ProvjeritiStatusPacijenta(parent.Pacijent);
             if (parent.Pacijent.Banovan == true)
             {
                 MessageBox.Show("Pomeranje termina Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");

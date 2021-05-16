@@ -78,7 +78,6 @@
       <DependentUpon>AnketaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileStorage\AnketaFileStorage.cs" />
-    <Compile Include="FileStorage\DatumiProvjereStatusaFileStorage.cs" />
     <Compile Include="FileStorage\InformacijeFileStorage.cs" />
     <Compile Include="FileStorage\LekFileStorage.cs" />
     <Compile Include="FileStorage\SastojakFileStorage.cs" />
