@@ -6,17 +6,11 @@ namespace InformacioniSistemBolnice.Secretary_ns
 {
     public partial class DetailedWindow : Window
     {
-        private List<Ingredient> _allergens;
-        private PatientsPage _parent;
         private Pacijent _patient;
-        private string _username;
 
         public DetailedWindow(PatientsPage parent, string username)
         {
-            _parent = parent;
-            _username = username;
             _patient = PacijentFileStorage.GetOne(username);
-            _allergens = _patient.zdravstveniKarton.Alergen;
             InitializeComponent();
             DataContext = _patient;
             UpdateTable();
