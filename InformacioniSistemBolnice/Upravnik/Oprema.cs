@@ -59,12 +59,12 @@ public class Oprema
             IsDeleted = isDeleted;
         }
 
-        /*public Oprema(string sifra, string naziv, TipOpreme tipOpreme, int kolicina, bool isDeleted)
+        /*public Oprema(string sifra, string Name, TipOpreme tipOpreme, int kolicina, bool IsDeleted)
         {
             this.sifra = sifra;
-            this.naziv = naziv;
+            this.Name = Name;
             this.tipOpreme = tipOpreme;
             this.kolicina = kolicina;
-            this.isDeleted = isDeleted;
+            this.IsDeleted = IsDeleted;
         }*/
     }

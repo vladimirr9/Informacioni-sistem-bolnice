@@ -80,10 +80,10 @@
     <Compile Include="FileStorage\AnketaFileStorage.cs" />
     <Compile Include="FileStorage\InformacijeFileStorage.cs" />
     <Compile Include="FileStorage\LekFileStorage.cs" />
-    <Compile Include="FileStorage\SastojakFileStorage.cs" />
-    <Compile Include="FileStorage\ObavestenjeFileStorage.cs" />
+    <Compile Include="FileStorage\IngredientFileStorage.cs" />
+    <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="InformacijeOKoriscenjuFunkcionalnosti.cs" />
-    <Compile Include="Korisnik\Obavestenje.cs" />
+    <Compile Include="Korisnik\Notification.cs" />
     <Compile Include="Lekar\LekoviPage.xaml.cs">
       <DependentUpon>LekoviPage.xaml</DependentUpon>
     </Compile>
@@ -102,7 +102,7 @@
     <Compile Include="PacijentZakazujePoPrioritetuPage.xaml.cs">
       <DependentUpon>PacijentZakazujePoPrioritetuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pacijent\Sastojak.cs" />
+    <Compile Include="Pacijent\Ingredient.cs" />
     <Compile Include="Lekar\LekarDodajTerminWindow.xaml.cs">
       <DependentUpon>LekarDodajTerminWindow.xaml</DependentUpon>
     </Compile>
@@ -139,47 +139,47 @@
     <Compile Include="PrioritetVrijemePage.xaml.cs">
       <DependentUpon>PrioritetVrijemePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\DetaljnijeWindow.xaml.cs">
-      <DependentUpon>DetaljnijeWindow.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\DetailedWindow.xaml.cs">
+      <DependentUpon>DetailedWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\DodavanjePacijenta.xaml.cs">
-      <DependentUpon>DodavanjePacijenta.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\NewPatientWindow.xaml.cs">
+      <DependentUpon>NewPatientWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\IzmenaPacijenta.xaml.cs">
-      <DependentUpon>IzmenaPacijenta.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\EditPatientWindow.xaml.cs">
+      <DependentUpon>EditPatientWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\IzmeniObavestenjeWindow.xaml.cs">
-      <DependentUpon>IzmeniObavestenjeWindow.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\EditNotificationWindow.xaml.cs">
+      <DependentUpon>EditNotificationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\IzmeniTerminWindow.xaml.cs">
-      <DependentUpon>IzmeniTerminWindow.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\EditAppointmentWindow.xaml.cs">
+      <DependentUpon>EditAppointmentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\NewGuestPatientWindow.xaml.cs">
+    <Compile Include="Secretary_ns\NewGuestPatientWindow.xaml.cs">
       <DependentUpon>NewGuestPatientWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\NoviHitanTermin.xaml.cs">
-      <DependentUpon>NoviHitanTermin.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\NewUrgentAppointment.xaml.cs">
+      <DependentUpon>NewUrgentAppointment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\NoviTerminWindow.xaml.cs">
-      <DependentUpon>NoviTerminWindow.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\NewAppointmentWindow.xaml.cs">
+      <DependentUpon>NewAppointmentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\NovoObavestenjeWindow.xaml.cs">
-      <DependentUpon>NovoObavestenjeWindow.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\NewNotificationWindow.xaml.cs">
+      <DependentUpon>NewNotificationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\PacijentiPage.xaml.cs">
-      <DependentUpon>PacijentiPage.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\PatientsPage.xaml.cs">
+      <DependentUpon>PatientsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\PocetnaPage.xaml.cs">
-      <DependentUpon>PocetnaPage.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\StartingPage.xaml.cs">
+      <DependentUpon>StartingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\PostponeAppointmentWIndow.xaml.cs">
+    <Compile Include="Secretary_ns\PostponeAppointmentWIndow.xaml.cs">
       <DependentUpon>PostponeAppointmentWIndow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\SekretarMain.xaml.cs">
-      <DependentUpon>SekretarMain.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\SecretaryMain.xaml.cs">
+      <DependentUpon>SecretaryMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sekretar_ns\TerminiPage.xaml.cs">
-      <DependentUpon>TerminiPage.xaml</DependentUpon>
+    <Compile Include="Secretary_ns\AppointmentsPage.xaml.cs">
+      <DependentUpon>AppointmentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="StartPacijentPage.xaml.cs">
       <DependentUpon>StartPacijentPage.xaml</DependentUpon>
@@ -215,8 +215,8 @@
     </Compile>
     <Compile Include="Upravnik\Prostorija.cs" />
     <Compile Include="FileStorage\ProstorijaFileStorage.cs" />
-    <Compile Include="Sekretar_ns\Sekretar.cs" />
-    <Compile Include="FileStorage\SekretarFileStorage.cs" />
+    <Compile Include="Secretary_ns\Secretary.cs" />
+    <Compile Include="FileStorage\SecretaryFileStorage.cs" />
     <Compile Include="Termin\StatusTermina.cs" />
     <Compile Include="Termin\Termin.cs" />
     <Compile Include="FileStorage\TerminFileStorage.cs" />
@@ -335,59 +335,59 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Sekretar_ns\DetaljnijeWindow.xaml">
+    <Page Include="Secretary_ns\DetailedWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\DodavanjePacijenta.xaml">
+    <Page Include="Secretary_ns\NewPatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\IzmenaPacijenta.xaml">
+    <Page Include="Secretary_ns\EditPatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\IzmeniObavestenjeWindow.xaml">
+    <Page Include="Secretary_ns\EditNotificationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\IzmeniTerminWindow.xaml">
+    <Page Include="Secretary_ns\EditAppointmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\NewGuestPatientWindow.xaml">
+    <Page Include="Secretary_ns\NewGuestPatientWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Sekretar_ns\NoviHitanTermin.xaml">
+    <Page Include="Secretary_ns\NewUrgentAppointment.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Sekretar_ns\NoviTerminWindow.xaml">
+    <Page Include="Secretary_ns\NewAppointmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\NovoObavestenjeWindow.xaml">
+    <Page Include="Secretary_ns\NewNotificationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\PacijentiPage.xaml">
+    <Page Include="Secretary_ns\PatientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\PocetnaPage.xaml">
+    <Page Include="Secretary_ns\StartingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\PostponeAppointmentWIndow.xaml">
+    <Page Include="Secretary_ns\PostponeAppointmentWIndow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\SekretarMain.xaml">
+    <Page Include="Secretary_ns\SecretaryMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sekretar_ns\TerminiPage.xaml">
+    <Page Include="Secretary_ns\AppointmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

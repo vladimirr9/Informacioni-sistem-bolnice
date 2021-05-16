@@ -81,7 +81,7 @@ namespace InformacioniSistemBolnice.Upravnik
             opremaLista.Remove(opremaZaIzmenu);
             opremaLista.Add(o);
 
-            //Oprema o = new Oprema(sifra, naziv, tipOpreme, kolicina, isDeleted);
+            //Oprema o = new Oprema(sifra, Name, tipOpreme, kolicina, IsDeleted);
             //OpremaFileStorage.UpdateOprema(opremaZaIzmenu.Sifra, o);
             Prostorija p = new Prostorija(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
 

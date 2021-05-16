@@ -22,7 +22,7 @@ public class Lekar : Korisnik
         return base.Equals(obj);
     }
 
-    public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je lekar slobodan izmedju neka dva trenutka u vremenu
+    public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je DoctorComboBox slobodan izmedju neka dva trenutka u vremenu
     {
         if (pocetak.Equals(kraj))
             return true;

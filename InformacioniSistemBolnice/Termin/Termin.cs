@@ -5,7 +5,7 @@
 
 using System;
 using System.Collections.Generic;
-using InformacioniSistemBolnice.Sekretar_ns;
+using InformacioniSistemBolnice.Secretary_ns;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 

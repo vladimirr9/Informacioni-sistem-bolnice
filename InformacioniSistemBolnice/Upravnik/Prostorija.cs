@@ -94,12 +94,12 @@ public class Prostorija
         OpremaLista = opremaLista;
     }
 
-    /*public Prostorija(String naziv, int iDprostorije, TipProstorije tipProstorije, Boolean isDeleted, Boolean isActive, Double kvadratura, int brSprata, int brSobe)
+    /*public Prostorija(String Name, int iDprostorije, TipProstorije tipProstorije, Boolean IsDeleted, Boolean isActive, Double kvadratura, int brSprata, int brSobe)
     {
-        Naziv = naziv;
+        Naziv = Name;
         IDprostorije = iDprostorije;
         TipProstorije = tipProstorije;
-        this.isDeleted = false;
+        this.IsDeleted = false;
         IsActive = isActive;
         Kvadratura = kvadratura;
         BrSprata = brSprata;
@@ -107,7 +107,7 @@ public class Prostorija
     }*/
 
 
-    public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je prostorija slobodna izmedju neka dva trenutka u vremenu
+    public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je RoomComboBox slobodna izmedju neka dva trenutka u vremenu
     {
         if (pocetak.Equals(kraj))
             return true;

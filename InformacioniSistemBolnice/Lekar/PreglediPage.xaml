@@ -17,7 +17,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="50"/>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="140"/>
-                <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="100"/>
+                <DataGridTextColumn Header="AppointmentDuration" Binding="{Binding trajanjeUMinutima}" Width="100"/>
                 <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="170"/>
                 <DataGridTextColumn Header="Status pregleda" Binding="{Binding status}" Width="120"/>
                 <DataGridTextColumn Header="Pacijent" Width="150">
