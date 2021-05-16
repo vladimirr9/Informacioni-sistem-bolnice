@@ -128,10 +128,26 @@ public class PacijentFileStorage
                 p.Banovan = true;
                 p.TrenutakBanovanja = DateTime.Now;
                 UpdatePacijent(p.korisnickoIme, p);
-                InformacijeFileStorage.RemoveInformacijePacijenta(p.korisnickoIme);
-
-
             }
         }
+    }
+    public static void ProvjeritiStatusPacijenta(Pacijent pacijent)
+    {
+        int brojZakazivanja = InformacijeFileStorage.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, VrstaFunkcionalnosti.zakazivanje);
+        int brojPomjeranja = InformacijeFileStorage.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, VrstaFunkcionalnosti.pomjeranje);
+        int brojOtkazivanja = InformacijeFileStorage.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, VrstaFunkcionalnosti.otkazivanje);
+
+        if (brojZakazivanja > 3 || brojOtkazivanja > 2 || brojPomjeranja > 2)
+        {
+            BanujPacijenta(pacijent);
+        }
+        else
+        {
+            pacijent.Banovan = false;
+            pacijent.TrenutakBanovanja = DateTime.Parse("1970-01-01T00:00:00");
+            UpdatePacijent(pacijent.korisnickoIme, pacijent);
+            
+        }
+
     }
 }
