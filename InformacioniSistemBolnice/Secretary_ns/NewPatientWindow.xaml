@@ -65,13 +65,13 @@
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
-                <CheckBox x:Name="GuestCheckbox" HorizontalAlignment="Right" Margin="15,0,0,0" VerticalAlignment="Center" FontSize="18" FontFamily="Verdana" Width="100" HorizontalContentAlignment="Left">Guest</CheckBox>
+                <CheckBox x:Name="GuestCheckbox" HorizontalAlignment="Right" Margin="15,0,0,0" VerticalAlignment="Center" FontSize="18" FontFamily="Verdana" Width="100" HorizontalContentAlignment="Left" IsChecked="{Binding Path=Guest, Mode=TwoWay}">Guest</CheckBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Ime:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
                 <TextBox x:Name="NameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="NameText_TextChanged">
                     <TextBox.Text>
-                        <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="LegalName" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>
@@ -79,7 +79,7 @@
                     </TextBox.Text>
                 </TextBox>
                 <Label  Content="Pol:" Margin="10,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="45" HorizontalContentAlignment="Right"/>
-                <ComboBox x:Name="GenderCombo" Width="45" Margin="5,0,0,0" FontFamily="Verdana" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" SelectedIndex="0">
+                <ComboBox x:Name="GenderCombo" Width="45" Margin="5,0,0,0" FontFamily="Verdana" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" SelectedValue="{Binding Gender}" SelectedValuePath="Content" SelectedIndex="0">
                     <ComboBoxItem>M</ComboBoxItem>
                     <ComboBoxItem>Ž</ComboBoxItem>
                 </ComboBox>

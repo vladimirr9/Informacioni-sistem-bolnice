@@ -22,8 +22,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public string Password { get; set; }
         public string JMBG { get; set; }
         public bool Guest { get; set; }
-        public string Name { get; set; }
-        public char Gender { get; set; }
+        public string LegalName { get; set; }
+        public string Gender { get; set; }
         public string Surname { get; set; }
         public string TelephoneNumber { get; set; }
         public string EmailAddress { get; set; }
@@ -54,7 +54,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return;
             }
-            Pacijent patient = new Pacijent(Name, Surname, JMBG, Gender, TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
+            Pacijent patient = new Pacijent(LegalName, Surname, JMBG,char.Parse(Gender), TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
             patient.zdravstveniKarton.pacijent = patient;
             PacijentFileStorage.AddPacijent(patient);
             _parent.UpdateTable();
@@ -66,7 +66,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             /*
             ConfirmButton.IsEnabled = Username.Length != 0 && Password.Length != 0 && JMBG.Length != 0 &&
-                                      Name.Length != 00 && Surname.Length != 0 && TelephoneNumber.Length != 0 &&
+                                      LegalName.Length != 00 && Surname.Length != 0 && TelephoneNumber.Length != 0 &&
                                       EmailAddress.Length != 0 && ResidentialAddress.Length != 0 &&
                                       PostalCode.Length != 0 && City.Length != 0 && Country.Length != 0 &&
                                       !DateOfBirth.Equals(null) && SocialSecurityNumber.Length != 0;

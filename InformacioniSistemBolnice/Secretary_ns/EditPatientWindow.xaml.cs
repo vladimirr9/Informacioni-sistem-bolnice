@@ -18,52 +18,52 @@ namespace InformacioniSistemBolnice.Secretary_ns
     {
         private Pacijent _initialPatient;
         private PatientsPage _parent;
+
+        public string Username { get; set; }
+        public string Password { get; set; }
         public string JMBG { get; set; }
+        public bool Guest { get; set; }
+        public string LegalName { get; set; }
+        public string Gender { get; set; }
+        public string Surname { get; set; }
+        public string TelephoneNumber { get; set; }
+        public string EmailAddress { get; set; }
+        public string ResidentialAddress { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string SocialSecurityNumber { get; set; }
         public EditPatientWindow(Pacijent patient, PatientsPage parent)
         {
             _initialPatient = patient;
             InitializeComponent();
             this.DataContext = this;
 
-            NameText.Text = _initialPatient.ime;
-            SurnameText.Text = _initialPatient.prezime;
+            //NameText.Text = _initialPatient.ime;
+            LegalName = _initialPatient.ime;
+            Surname = _initialPatient.prezime;
             JMBG = _initialPatient.jmbg;
-            if (_initialPatient.pol == 'M')
-                GenderCombo.SelectedIndex = 0;
-            else
-                GenderCombo.SelectedIndex = 1;
-            PhoneText.Text = _initialPatient.brojTelefona;
-            EmailText.Text = _initialPatient.email;
-            BirthDate.SelectedDate = _initialPatient.datumRodenja;
-            UsernameText.Text = _initialPatient.korisnickoIme;
-            PasswordText.Text = _initialPatient.lozinka;
-            CountryText.Text = _initialPatient.adresaStanovanja.mestoStanovanja.drzavaStanovanja.naziv;
-            PostalCodeText.Text = _initialPatient.adresaStanovanja.mestoStanovanja.postanskiBroj;
-            CityText.Text = _initialPatient.adresaStanovanja.mestoStanovanja.naziv;
-            AddressText.Text = _initialPatient.adresaStanovanja.ulicaIBroj;
-            SocialSecurityText.Text = _initialPatient.brojZdravstveneKartice;
-            GuestCheckbox.IsChecked = patient.isGuest;
+            Gender = _initialPatient.pol.ToString();
+            TelephoneNumber = _initialPatient.brojTelefona;
+            EmailAddress = _initialPatient.email;
+            DateOfBirth = _initialPatient.datumRodenja;
+            Username = _initialPatient.korisnickoIme;
+            Password = _initialPatient.lozinka;
+            Country = _initialPatient.adresaStanovanja.mestoStanovanja.drzavaStanovanja.naziv;
+            PostalCode = _initialPatient.adresaStanovanja.mestoStanovanja.postanskiBroj;
+            City = _initialPatient.adresaStanovanja.mestoStanovanja.naziv;
+            ResidentialAddress = _initialPatient.adresaStanovanja.ulicaIBroj;
+            SocialSecurityNumber = _initialPatient.brojZdravstveneKartice;
+            Guest = patient.isGuest;
             this._parent = parent;
         }
 
-        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
+        private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            string name = NameText.Text;
-            string surname = SurnameText.Text;
-            char gender;
-            if (GenderCombo.SelectedIndex == 0)
-                gender = 'M';
-            else
-                gender = 'Ž';
-            string phoneNumber = PhoneText.Text;
-            string email = EmailText.Text;
-            DateTime dateOfBirth = BirthDate.SelectedDate.Value;
-            string username = UsernameText.Text;
-            string password = PasswordText.Text;
-            AdresaStanovanja residentialAddress = new AdresaStanovanja(AddressText.Text, new MestoStanovanja(CityText.Text, PostalCodeText.Text, new DrzavaStanovanja(CountryText.Text)));
-            bool isGuest = (bool)GuestCheckbox.IsChecked;
-            string socialSecurityNumber = SocialSecurityText.Text;
-            if (!(IsUsernameUnique(username) || username.Equals(_initialPatient.korisnickoIme)))
+           
+            AdresaStanovanja residentialAddress = new AdresaStanovanja(ResidentialAddress, new MestoStanovanja(City, PostalCode, new DrzavaStanovanja(Country)));
+            if (!(IsUsernameUnique(Username) || Username.Equals(_initialPatient.korisnickoIme)))
             {
                 MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return;
@@ -73,10 +73,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return;
             }
-            Pacijent patient = new Pacijent(name, surname, JMBG, gender, phoneNumber, email, dateOfBirth, username, password, residentialAddress, isGuest, socialSecurityNumber, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
+            Pacijent patient = new Pacijent(LegalName, Surname, JMBG, char.Parse(Gender), TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
             patient.zdravstveniKarton.pacijent = patient;
-            if (!_initialPatient.korisnickoIme.Equals(username))
-                UpdateAppointmentsForUsernameChange(username);
+            if (!_initialPatient.korisnickoIme.Equals(Username))
+                UpdateAppointmentsForUsernameChange(Username);
             PacijentFileStorage.UpdatePacijent(_initialPatient.korisnickoIme, patient);
             _parent.UpdateTable();
             Close();
@@ -97,7 +97,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             }
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
@@ -114,6 +114,81 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (PacijentFileStorage.GetOneByJMBG(jmbg) == null)
                 return true;
             return false;
+        }
+        private void SetConfirmIsEnabled()
+        {
+            /*
+            ConfirmButton.IsEnabled = Username.Length != 0 && Password.Length != 0 && JMBG.Length != 0 &&
+                                      LegalName.Length != 00 && Surname.Length != 0 && TelephoneNumber.Length != 0 &&
+                                      EmailAddress.Length != 0 && ResidentialAddress.Length != 0 &&
+                                      PostalCode.Length != 0 && City.Length != 0 && Country.Length != 0 &&
+                                      !DateOfBirth.Equals(null) && SocialSecurityNumber.Length != 0;
+                                      */
+
+        }
+        private void UsernameText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void PasswordText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void JMBGText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void NameText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void SurnameText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void PhoneText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void EmailText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void AddressText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void PostalCodeText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void CityText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void CountryText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void SocialSecurityText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void BirthDate_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
         }
     }
 
