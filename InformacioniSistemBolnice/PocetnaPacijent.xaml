@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="PocetnaPacijent" Height="550" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="odjava"  FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" Content="Odjava" HorizontalAlignment="Left" Margin="697,23,0,0" VerticalAlignment="Top" Width="75" Click="odjava_Click" />
+        <Button x:Name="odjava"  FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" Content="Odjava" HorizontalAlignment="Left" Margin="707,23,0,0" VerticalAlignment="Top" Width="75" Click="odjava_Click" />
         <TextBlock x:Name="imePacijenta" FontStyle="Italic" HorizontalAlignment="Left" Margin="22,23,0,0" TextWrapping="Wrap" Text="" FontSize="25" VerticalAlignment="Top"/>
         <Label x:Name="imeLjekara" FontStyle="Italic" HorizontalAlignment="Left" Margin="22,23,0,0"  FontSize="25" VerticalAlignment="Top"/>
         

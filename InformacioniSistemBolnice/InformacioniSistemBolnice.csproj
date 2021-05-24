@@ -82,13 +82,7 @@
     <Compile Include="FileStorage\LekFileStorage.cs" />
     <Compile Include="FileStorage\SastojakFileStorage.cs" />
     <Compile Include="FileStorage\ObavestenjeFileStorage.cs" />
-    <Compile Include="InformacijeKartonPage.xaml.cs">
-      <DependentUpon>InformacijeKartonPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="InformacijeOKoriscenjuFunkcionalnosti.cs" />
-    <Compile Include="IstorijaBolestiPage.xaml.cs">
-      <DependentUpon>IstorijaBolestiPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Korisnik\Obavestenje.cs" />
     <Compile Include="Lekar\LekoviPage.xaml.cs">
       <DependentUpon>LekoviPage.xaml</DependentUpon>
@@ -101,9 +95,6 @@
     </Compile>
     <Compile Include="ObavjestenjaPage.xaml.cs">
       <DependentUpon>ObavjestenjaPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PacijentKartonPage.xaml.cs">
-      <DependentUpon>PacijentKartonPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PacijentZakazujePage.xaml.cs">
       <DependentUpon>PacijentZakazujePage.xaml</DependentUpon>
@@ -253,22 +244,11 @@
     <Compile Include="Upravnik\ZakazivanjeRenoviranjaWindow.xaml.cs">
       <DependentUpon>ZakazivanjeRenoviranjaWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UzimanjeTerapijePage.xaml.cs">
-      <DependentUpon>UzimanjeTerapijePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Validation\JMBGValidationRule.cs" />
     <Compile Include="VrstaFunkcionalnosti.cs" />
     <Page Include="AnketaPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="InformacijeKartonPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="IstorijaBolestiPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Lekar\LekarDodajTerminWindow.xaml">
       <SubType>Designer</SubType>
@@ -322,10 +302,6 @@
     <Page Include="ObavjestenjaPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PacijentKartonPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PacijentZakazujePage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -472,10 +448,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Upravnik\ZakazivanjeRenoviranjaWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UzimanjeTerapijePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

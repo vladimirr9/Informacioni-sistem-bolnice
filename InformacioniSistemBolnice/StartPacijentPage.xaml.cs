@@ -56,12 +56,6 @@ namespace InformacioniSistemBolnice
                 parent.startWindow.Content = new AnketaPage(parent);
             }
         }
-
-        private void karton_Click(object sender, RoutedEventArgs e)
-        {
-            parent.startWindow.Content = new PacijentKartonPage(parent);
-        }
     }
-    
 }
 

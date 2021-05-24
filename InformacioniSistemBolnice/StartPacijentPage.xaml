@@ -10,9 +10,9 @@
 
     <Grid>
         <Button x:Name="pregledTermina" Background="White" FontSize="22" BorderThickness="2" BorderBrush="Black"  Content="Pregled termina" HorizontalAlignment="Left" Margin="50,80,0,0" VerticalAlignment="Top" Height="50" Width="675" Click="pregledTermina_Click" />
-        <Button x:Name="ocjenjivanje" FontSize="22" Background="White" BorderThickness="2" BorderBrush="Black" Content="Ocenjivanje usluga" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="ocjenjivanje_Click" />
-        <Button x:Name="obavjestenja" FontSize="22" Background="White" Content="Obaveštenja" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,265,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="obavjestenja_Click" />
-        <Button x:Name="karton" FontSize="22" Content="Zdravstveni karton" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="50,140,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="karton_Click" />
+        <Button x:Name="ocjenjivanje" FontSize="22" Background="White" BorderThickness="2" BorderBrush="Black" Content="Ocenjivanje usluga" HorizontalAlignment="Left" Margin="50,140,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="ocjenjivanje_Click" />
+        <Button x:Name="obavjestenja" FontSize="22" Background="White" Content="Obaveštenja" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,260,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="obavjestenja_Click" />
+        <Button x:Name="karton" FontSize="22" Content="Zdravstveni karton" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" Width="675" Height="50" />
 
     </Grid>
 </Page>
