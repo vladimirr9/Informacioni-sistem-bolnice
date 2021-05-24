@@ -1,0 +1,35 @@
+﻿<Page x:Class="InformacioniSistemBolnice.InformacijeKartonPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InformacioniSistemBolnice"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="583"
+      Title="InformacijeKartonPage">
+
+    <Grid>
+        <GroupBox x:Name="informacijeGroupBox" Header="Informacije" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,2"/>
+        <TextBox x:Name="imeTextBox" FontSize="15" HorizontalAlignment="Left" Height="23" Margin="300,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" BorderBrush="Black" />
+        <TextBox x:Name="prezimeTextBox" FontSize="15" HorizontalAlignment="Left" Height="23" Margin="300,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" BorderThickness="1" BorderBrush="Black" />
+            <TextBlock x:Name="prezimeTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Top" Margin="60,55,0,0" FontSize="17" />
+            <TextBlock x:Name="imeTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ime:" VerticalAlignment="Top" Margin="60,90,0,0" FontSize="17" />
+            <TextBlock x:Name="jmbgTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="JMBG:" VerticalAlignment="Top" Margin="60,120,0,0" FontSize="17" />
+            <TextBlock x:Name="datumRodjenjaTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Datum rođenja:" VerticalAlignment="Top" Margin="60,150,0,0" FontSize="17" />
+            <TextBlock x:Name="kontaktTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Kontakt telefon:" VerticalAlignment="Top" Margin="60,180,0,0" FontSize="17" />
+            <TextBlock x:Name="emailTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="E-mail:" VerticalAlignment="Top" Margin="60,210,0,0" FontSize="17" />
+            <TextBlock x:Name="polTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pol:" VerticalAlignment="Top" Margin="60,240,0,0" FontSize="17" />
+            <TextBlock x:Name="adresaTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Adresa stanovanja:" VerticalAlignment="Top" Margin="60,280,0,0" FontSize="17" />
+            <TextBlock x:Name="brojKartonaTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Broj kartona:" VerticalAlignment="Top" Margin="60,310,0,0" FontSize="17" />
+        <TextBlock x:Name="brojKarticeTextBlock"   HorizontalAlignment="Left" TextWrapping="Wrap" Text="Broj zdravstvene kartice:" VerticalAlignment="Top" Margin="60,340,0,0" FontSize="17" />
+        <TextBox x:Name="JMBGTextBox"  HorizontalAlignment="Left" FontSize="15" Height="23" Margin="300,120,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" BorderBrush="Black" />
+        <DatePicker x:Name="datumRodjenjaDatePicker"  HorizontalAlignment="Left" Margin="300,150,0,0" VerticalAlignment="Top" Width="180" BorderBrush="Black" />
+        <TextBox x:Name="kontaktTextBox" FontSize="15" HorizontalAlignment="Left" Height="23" Margin="300,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" BorderBrush="Black" />
+        <TextBox x:Name="emailTextBox" FontSize="15" HorizontalAlignment="Left" Height="23" Margin="300,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" BorderBrush="Black" />
+        <TextBox x:Name="adresaTextBox" FontSize="15" HorizontalAlignment="Left" Height="23" Margin="300,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" BorderBrush="Black" />
+        <TextBox x:Name="brojKartonaTextBox" FontSize="15" HorizontalAlignment="Left" Height="23" Margin="300,310,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" BorderBrush="Black" />
+        <TextBox x:Name="brojKarticeTextBox" FontSize="15" HorizontalAlignment="Left" Height="23" Margin="300,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" BorderBrush="Black"/>
+        <RadioButton x:Name="mRadioButton" Margin="320,240,0,0" Content="M"></RadioButton>
+        <RadioButton x:Name="zRadioButton" Margin="320,260,0,0" Content="Ž" ></RadioButton>
+    </Grid>
+</Page>
