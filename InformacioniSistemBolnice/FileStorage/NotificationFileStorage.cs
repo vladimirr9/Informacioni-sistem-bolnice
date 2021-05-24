@@ -8,7 +8,7 @@ namespace InformacioniSistemBolnice.FileStorage
 {
     public class NotificationFileStorage
     {
-        private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "obavestenja.json";
+        private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "notifications.json";
 
         public static List<Notification> GetAll()
         {

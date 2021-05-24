@@ -17,7 +17,22 @@ namespace InformacioniSistemBolnice.Secretary_ns
     public partial class NewPatientWindow : Window
     {
         private PatientsPage _parent;
+
+        public string Username { get; set; }
+        public string Password { get; set; }
         public string JMBG { get; set; }
+        public bool Guest { get; set; }
+        public string Name { get; set; }
+        public char Gender { get; set; }
+        public string Surname { get; set; }
+        public string TelephoneNumber { get; set; }
+        public string EmailAddress { get; set; }
+        public string ResidentialAddress { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string SocialSecurityNumber { get; set; }
         public NewPatientWindow(PatientsPage parent)
         {
             this._parent = parent;
@@ -28,27 +43,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
 
-            string name = NameText.Text;
-            string surname = SurnameText.Text;
-            string jmbg = JMBGText.Text;
-            char gender;
-            if (GenderCombo.SelectedIndex == 0)
-                gender = 'M';
-            else
-                gender = 'Ž';
-            string phoneNumber = PhoneText.Text;
-            string email = EmailText.Text;
-            DateTime dateOfBirth;
-            if (BirthDate.SelectedDate.Value != null)
-                dateOfBirth = BirthDate.SelectedDate.Value;
-            else
-                dateOfBirth = new DateTime();
-            string username = UsernameText.Text;
-            string password = PasswordText.Text;
-            bool isGuest = (bool)GuestCheckbox.IsChecked;
-            AdresaStanovanja residentialAddress = new AdresaStanovanja(AddressText.Text, new MestoStanovanja(CityText.Text, PostalCodeText.Text, new DrzavaStanovanja(CountryText.Text)));
-            string socialSecurityNumber = SocialSecurityText.Text;
-            if (!IsUsernameUnique(username))
+            AdresaStanovanja residentialAddress = new AdresaStanovanja(ResidentialAddress, new MestoStanovanja(City, PostalCode, new DrzavaStanovanja(Country)));
+            if (!IsUsernameUnique(Username))
             {
                 MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return;
@@ -58,11 +54,23 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return;
             }
-            Pacijent patient = new Pacijent(name, surname, jmbg, gender, phoneNumber, email, dateOfBirth, username, password, residentialAddress, isGuest, socialSecurityNumber, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
+            Pacijent patient = new Pacijent(Name, Surname, JMBG, Gender, TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
             patient.zdravstveniKarton.pacijent = patient;
             PacijentFileStorage.AddPacijent(patient);
             _parent.UpdateTable();
             this.Close();
+
+        }
+
+        private void SetConfirmIsEnabled()
+        {
+            /*
+            ConfirmButton.IsEnabled = Username.Length != 0 && Password.Length != 0 && JMBG.Length != 0 &&
+                                      Name.Length != 00 && Surname.Length != 0 && TelephoneNumber.Length != 0 &&
+                                      EmailAddress.Length != 0 && ResidentialAddress.Length != 0 &&
+                                      PostalCode.Length != 0 && City.Length != 0 && Country.Length != 0 &&
+                                      !DateOfBirth.Equals(null) && SocialSecurityNumber.Length != 0;
+                                      */
 
         }
 
@@ -85,6 +93,69 @@ namespace InformacioniSistemBolnice.Secretary_ns
             return false;
         }
 
+        private void UsernameText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
 
+        private void PasswordText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void JMBGText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void NameText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void SurnameText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void PhoneText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void EmailText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void AddressText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void PostalCodeText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void CityText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void CountryText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void SocialSecurityText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
+
+        private void BirthDate_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetConfirmIsEnabled();
+        }
     }
 }

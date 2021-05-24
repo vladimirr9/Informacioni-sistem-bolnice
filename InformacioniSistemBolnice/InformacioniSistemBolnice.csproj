@@ -245,6 +245,7 @@
       <DependentUpon>ZakazivanjeRenoviranjaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation\JMBGValidationRule.cs" />
+    <Compile Include="Validation\NonEmptyValidationRule.cs" />
     <Compile Include="VrstaFunkcionalnosti.cs" />
     <Page Include="AnketaPage.xaml">
       <Generator>MSBuild:Compile</Generator>

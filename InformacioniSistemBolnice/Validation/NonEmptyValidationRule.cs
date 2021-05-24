@@ -8,27 +8,24 @@ using System.Windows.Controls;
 
 namespace InformacioniSistemBolnice.Validation
 {
-    public class JMBGValidationRule : ValidationRule
+    class NonEmptyValidationRule : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             try
             {
-                string s = value.ToString();
-                long result;
-                if (long.TryParse(s, out result) && s.Length == 13)
+                string strValue = value.ToString();
+                if (strValue.Length == 0)
                 {
-                    return new ValidationResult(true, null);
+                    return new ValidationResult(false, "Vrednost se mora popuniti");
                 }
-                return new ValidationResult(false, "JMBG se sastoji iz 13 cifara.");
-                
+                return new ValidationResult(true, null);
+
             }
             catch (Exception e)
             {
                 return new ValidationResult(false, e.Message);
             }
         }
-
-
     }
 }

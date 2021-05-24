@@ -8,7 +8,7 @@
         Title="NewUrgentAppointment" Height="700" Width="550">
     <Grid>
         <TextBlock  HorizontalAlignment="Left" Margin="25,447,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Tip Lekara:"/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="48,501,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="AppointmentDuration:"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="48,501,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Trajanje:"/><LineBreak/><Run/></TextBlock>
         <TextBox x:Name="DurationInMinutes" HorizontalAlignment="Left" Height="26" Margin="168,501,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana"/>
         <TextBlock  HorizontalAlignment="Left" Margin="48,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Pacijent:"/><LineBreak/><Run/></TextBlock>
         <ListBox x:Name="PatientsList" HorizontalAlignment="Left" Height="226" Margin="166,35,0,0" VerticalAlignment="Top" Width="301" FontFamily="Verdana" FontSize="14" SelectionMode="Single" />
