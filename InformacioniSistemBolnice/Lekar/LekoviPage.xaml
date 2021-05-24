@@ -14,7 +14,7 @@
         <Label Content="Lekovi:" HorizontalAlignment="Left" Margin="71,72,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Sastav:" HorizontalAlignment="Left" Margin="568,72,0,0" VerticalAlignment="Top" FontSize="20"/>
         <ListBox x:Name="SastavList" HorizontalAlignment="Left" Height="380" Margin="682,72,0,0" VerticalAlignment="Top" Width="250" FontSize="20"/>
-        <ComboBox x:Name="Sastojci" HorizontalAlignment="Left" Margin="682,490,0,0" VerticalAlignment="Top" Width="250" Height="36" FontSize="20" DisplayMemberPath="naziv"/>
+        <ComboBox x:Name="Sastojci" HorizontalAlignment="Left" Margin="682,490,0,0" VerticalAlignment="Top" Width="250" Height="36" FontSize="20" DisplayMemberPath="Name"/>
         <Button Content="Dodaj sastojak" Margin="804,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="DodajSastojakClick"/>
 
     </Grid>

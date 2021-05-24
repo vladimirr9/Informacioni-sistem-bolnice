@@ -90,8 +90,8 @@ namespace InformacioniSistemBolnice.Upravnik
         /*private void IspisiSastojke(Lek lek)
         {
             SastojciLeka.Items.Clear();
-            //List<Sastojak> sastojci = new List<Sastojak>();
-            foreach (Sastojak sastojak in SastojakFileStorage.GetAll())
+            //List<Ingredient> sastojci = new List<Ingredient>();
+            foreach (Ingredient sastojak in IngredientFileStorage.GetAll())
             {
                 if (lek.ListaSastojaka.Contains(sastojak))
                 {
@@ -117,9 +117,9 @@ namespace InformacioniSistemBolnice.Upravnik
                     SastojciLeka.Items.Add(lek.;
                 }
             }*/
-            foreach(Sastojak s in selektovani.ListaSastojaka)
+            foreach(Ingredient s in selektovani.ListaSastojaka)
             {
-                SastojciLeka.Items.Add(s.naziv);
+                SastojciLeka.Items.Add(s.Name);
             }
         }
     }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Upravnik
 {
@@ -27,11 +28,11 @@ namespace InformacioniSistemBolnice.Upravnik
             this.parent = parent;
             lekZaIzmenu = l;
 
-            String naziviSastojaka = lekZaIzmenu.ListaSastojaka.Select(x => x.naziv).ToArray().ToString();
+            String naziviSastojaka = lekZaIzmenu.ListaSastojaka.Select(x => x.Name).ToArray().ToString();
 
             List<global::Lekar> lekari = LekarFileStorage.GetAll();
             Lekar.ItemsSource = lekari;
-            List<Sastojak> sastojci = SastojakFileStorage.GetAll();
+            List<Ingredient> sastojci = IngredientFileStorage.GetAll();
             Sastojci.ItemsSource = sastojci;
 
             Sifra.Text = lekZaIzmenu.Sifra;
@@ -48,31 +49,31 @@ namespace InformacioniSistemBolnice.Upravnik
             StatusLeka statusLeka = StatusLeka.cekaNaValidaciju;
             bool isDeleted = false;
             global::Lekar lekar = (global::Lekar)Lekar.SelectedItem;
-            /*List<Sastojak> sastojciSvi = SastojakFileStorage.GetAll();
-            List<Sastojak> sastojciLeka = new List<Sastojak>();
+            /*List<Ingredient> sastojciSvi = IngredientFileStorage.GetAll();
+            List<Ingredient> sastojciLeka = new List<Ingredient>();
             String[] naziviSastojaka1 = Sastojci.Text.Split(',');
-            foreach (Sastojak s in sastojciSvi)
+            foreach (Ingredient s in sastojciSvi)
             {
-                Sastojak noviSastojak = new Sastojak(0, "", false);
+                Ingredient noviSastojak = new Ingredient(0, "", false);
 
                 for (int i = 0; i < naziviSastojaka1.Length; i++)
                 {
-                    if (naziviSastojaka1[i].Equals(s.naziv))
+                    if (naziviSastojaka1[i].Equals(s.Name))
                     {
-                        noviSastojak.id = s.id;
-                        noviSastojak.naziv = naziviSastojaka1[i];
-                        noviSastojak.isDeleted = false;
+                        noviSastojak.ID = s.ID;
+                        noviSastojak.Name = naziviSastojaka1[i];
+                        noviSastojak.IsDeleted = false;
                     }
                 }
 
                 sastojciLeka.Add(noviSastojak);
             }*/
-            List<Sastojak> sastojciLeka = (List<Sastojak>)SastojciList.ItemsSource;
+            List<Ingredient> sastojciLeka = (List<Ingredient>)SastojciList.ItemsSource;
             Lek l = new Lek(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
             LekFileStorage.UpdateLek(lekZaIzmenu.Sifra, l);
 
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
-            //parent.UpdateTable();
+            //_parent.UpdateTable();
             this.Close();
         }
 
@@ -88,11 +89,11 @@ namespace InformacioniSistemBolnice.Upravnik
                 List<Lek> lekovi = LekFileStorage.GetAll();
                 foreach (Lek l in lekovi)
                 {
-                    l.ListaSastojaka.Add((Sastojak)Sastojci.SelectedItem);
+                    l.ListaSastojaka.Add((Ingredient)Sastojci.SelectedItem);
                     //dodati u storage
-                    foreach (Sastojak s in l.ListaSastojaka)
+                    foreach (Ingredient s in l.ListaSastojaka)
                     {
-                        SastojciList.Items.Add(s.naziv);
+                        SastojciList.Items.Add(s.Name);
                     }
 
                 }

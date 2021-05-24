@@ -2,7 +2,7 @@
 using InformacioniSistemBolnice.FileStorage;
 using InformacioniSistemBolnice.Korisnik;
 using InformacioniSistemBolnice.Lekar;
-using InformacioniSistemBolnice.Sekretar_ns;
+using InformacioniSistemBolnice.Secretary_ns;
 using InformacioniSistemBolnice.Upravnik;
 using Newtonsoft.Json;
 using System;
@@ -69,14 +69,14 @@ namespace InformacioniSistemBolnice
                     
                 }
             }
-            List<Sekretar> sekretari = SekretarFileStorage.GetAll();
-            foreach (Sekretar s in sekretari)
+            List<Secretary> sekretari = SecretaryFileStorage.GetAll();
+            foreach (Secretary s in sekretari)
             {
                 if (ime.Text.Equals(s.korisnickoIme) && lozinka.Password.Equals(s.lozinka))
                 {
-                    SekretarMain sw = new SekretarMain(s);
+                    SecretaryMain sw = new SecretaryMain(s);
                     Application.Current.MainWindow = sw;
-                    sw.Main.Content = PocetnaPage.GetPage(s);
+                    sw.Main.Content = StartingPage.GetPage(s);
                     sw.Show();
                     this.Close();
                     return;

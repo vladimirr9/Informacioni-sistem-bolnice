@@ -82,7 +82,7 @@ namespace InformacioniSistemBolnice.Upravnik
             }
 
             Prostorija p1 = new Prostorija(naziv, idProstorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista1);
-            //int novaKolicina = prostorija.GetOne(selektovana.Sifra).Kolicina + kolicina;
+            //int novaKolicina = RoomComboBox.GetOne(selektovana.Sifra).Kolicina + kolicina;
             //izabrana.GetOne(selektovana.Sifra).Kolicina -= kolicina;
             ProstorijaFileStorage.UpdateProstorija(prostorija.IDprostorije, p1);
             parent.updateTable();

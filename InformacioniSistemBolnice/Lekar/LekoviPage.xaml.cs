@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Lekar
 {
@@ -54,7 +55,7 @@ namespace InformacioniSistemBolnice.Lekar
                 {
                     if (l.Naziv == LekoviList.SelectedItem.ToString())
                     {
-                        l.ListaSastojaka.Add((Sastojak)Sastojci.SelectedItem);
+                        l.ListaSastojaka.Add((Ingredient)Sastojci.SelectedItem);
                         //dodati u storage
                         IspisiSastojke(l);
                     }
@@ -88,12 +89,12 @@ namespace InformacioniSistemBolnice.Lekar
         private void IspisiSastojke(Lek lek)
         {
             SastavList.Items.Clear();
-            List<Sastojak> sastojci = new List<Sastojak>();
-            foreach (Sastojak sastojak in SastojakFileStorage.GetAll())
+            List<Ingredient> sastojci = new List<Ingredient>();
+            foreach (Ingredient sastojak in IngredientFileStorage.GetAll())
             {
                 if (lek.ListaSastojaka.Contains(sastojak))
                 {
-                    SastavList.Items.Add(sastojak.naziv);
+                    SastavList.Items.Add(sastojak.Name);
                 }
                 else
                 {
