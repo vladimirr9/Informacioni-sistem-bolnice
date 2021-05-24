@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿//using GalaSoft.MvvmLight.Command;
 using InformacioniSistemBolnice.FileStorage;
 using InformacioniSistemBolnice.Korisnik;
 using InformacioniSistemBolnice.Lekar;
