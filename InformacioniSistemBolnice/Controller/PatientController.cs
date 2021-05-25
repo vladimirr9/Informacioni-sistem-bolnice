@@ -17,6 +17,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             _patientService.Register(patient);
         }
+        public void Remove(Pacijent patient)
+        {
+            _patientService.Remove(patient);
+        }
 
         public void Update(string initialUsername, Pacijent patient)
         {
@@ -27,5 +31,16 @@ namespace InformacioniSistemBolnice.Controller
         {
             _patientService.Unban(patient);
         }
+
+        public void AddAllergen(Pacijent patient, Ingredient allergen)
+        {
+            _patientService.AddAllergen(patient, allergen);
+        }
+
+        public void RemoveAllergen(Pacijent patient, Ingredient allergen)
+        {
+            _patientService.RemoveAllergen(patient, allergen);
+        }
+        
     }
 }

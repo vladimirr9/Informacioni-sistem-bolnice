@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Secretary_ns
@@ -7,6 +8,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
     public partial class DetailedWindow : Window
     {
         private Pacijent _patient;
+        private PatientController _patientController = new PatientController();
 
         public DetailedWindow(PatientsPage parent, string username)
         {
@@ -23,8 +25,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            _patient.zdravstveniKarton.AddSastojak((Ingredient) AllergensCombo.SelectedItem);
-            PacijentFileStorage.UpdatePacijent(_patient.korisnickoIme, _patient);
+            if (AllergensCombo.SelectedItem == null)
+                return;
+            Ingredient ingredient = (Ingredient)AllergensCombo.SelectedItem;
+            _patientController.AddAllergen(_patient, ingredient);
             UpdateTable();
         }
 
@@ -38,8 +42,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (result == MessageBoxResult.No)
                 return;
 
-            _patient.zdravstveniKarton.RemoveAlergen((Ingredient) AllergenListView.SelectedItem);
-            PacijentFileStorage.UpdatePacijent(_patient.korisnickoIme, _patient);
+            Ingredient ingredient = (Ingredient)AllergenListView.SelectedItem;
+            _patientController.RemoveAllergen(_patient, ingredient);
             UpdateTable();
         }
 
