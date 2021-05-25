@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 {
     public partial class PatientsPage : Page
     {
+        private PatientController _patientController = new PatientController();
         private static PatientsPage _instance;
         private PatientsPage()
         {
@@ -64,6 +66,30 @@ namespace InformacioniSistemBolnice.Secretary_ns
             
             
         }
+
+        private void Unban_Click(object sender, RoutedEventArgs e)
+        {
+            if (PatientsDataGrid.SelectedItem == null)
+                return;
+            Pacijent patient = (Pacijent)(PatientsDataGrid.SelectedItem);
+            if (!patient.Banovan)
+                return;
+            var result = MessageBox.Show("Da li ste sigurni da želite da odblokirate ovog pacijenta?", "Potvrda odblokiranja", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.No)
+                return;
+            _patientController.Unban(patient);
+            UpdateTable();
+
+        }
+        private void Detailed_Click(object sender, RoutedEventArgs e)
+        {
+            if (PatientsDataGrid.SelectedItem == null)
+                return;
+
+            DetailedWindow window = new DetailedWindow(this, ((Pacijent)(PatientsDataGrid.SelectedItem)).korisnickoIme);
+            window.Show();
+
+        }
         public void UpdateTable()
         {
             PatientsDataGrid.Items.Clear();
@@ -75,14 +101,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
             }
         }
 
-        private void Detailed_Click(object sender, RoutedEventArgs e)
-        {
-            if (PatientsDataGrid.SelectedItem == null)
-                return;
-            
-            DetailedWindow window = new DetailedWindow(this, ((Pacijent)(PatientsDataGrid.SelectedItem)).korisnickoIme);
-            window.Show();
-            
-        }
+        
+
+        
     }
 }

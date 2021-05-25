@@ -11,12 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Secretary_ns
 {
     public partial class NewPatientWindow : Window
     {
         private PatientsPage _parent;
+        private PatientController _patientController = new PatientController();
 
         public string Username { get; set; }
         public string Password { get; set; }
@@ -44,19 +46,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
 
             AdresaStanovanja residentialAddress = new AdresaStanovanja(ResidentialAddress, new MestoStanovanja(City, PostalCode, new DrzavaStanovanja(Country)));
-            if (!IsUsernameUnique(Username))
-            {
-                MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
-                return;
-            }
-            if (!IsJMBGUnique(JMBG))
-            {
-                MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
-                return;
-            }
             Pacijent patient = new Pacijent(LegalName, Surname, JMBG,char.Parse(Gender), TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
             patient.zdravstveniKarton.pacijent = patient;
-            PacijentFileStorage.AddPacijent(patient);
+            _patientController.Register(patient);
             _parent.UpdateTable();
             this.Close();
 
@@ -79,19 +71,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
             this.Close();
         }
 
-        public bool IsUsernameUnique(String username)
-        {
-            if (PacijentFileStorage.GetOne(username) == null)
-                return true;
-            return false;
-        }
-
-        public bool IsJMBGUnique(String jmbg)
-        {
-            if (PacijentFileStorage.GetOneByJMBG(jmbg) == null)
-                return true;
-            return false;
-        }
 
         private void UsernameText_TextChanged(object sender, TextChangedEventArgs e)
         {

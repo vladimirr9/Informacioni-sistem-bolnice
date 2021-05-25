@@ -79,7 +79,7 @@
           AlternationCount="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled"> 
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Naziv alergena" Width="340" DisplayMemberBinding="{Binding Path=naziv}"/>
+                            <GridViewColumn Header="Naziv alergena" Width="340" DisplayMemberBinding="{Binding Path=Name}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>

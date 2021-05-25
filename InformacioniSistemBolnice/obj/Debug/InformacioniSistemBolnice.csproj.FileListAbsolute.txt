@@ -488,3 +488,13 @@ C:\Users\mx\Desktop\projekat - simsi\Informacioni-sistem-bolnice\InformacioniSis
 C:\Users\mx\Desktop\projekat - simsi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\TerapijaKartonPage.baml
 C:\Users\mx\Desktop\projekat - simsi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\IstorijaBolestiPage.baml
 C:\Users\mx\Desktop\projekat - simsi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PregledAnamnezaPage.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacijeKartonPage.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\IstorijaBolestiPage.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentKartonPage.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PregledAnamnezaPage.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\TerapijaKartonPage.g.cs
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacijeKartonPage.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\IstorijaBolestiPage.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentKartonPage.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PregledAnamnezaPage.baml
+C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\TerapijaKartonPage.baml
