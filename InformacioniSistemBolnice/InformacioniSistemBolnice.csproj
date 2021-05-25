@@ -77,6 +77,7 @@
     <Compile Include="AnketaPage.xaml.cs">
       <DependentUpon>AnketaPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\PatientController.cs" />
     <Compile Include="FileStorage\AnketaFileStorage.cs" />
     <Compile Include="FileStorage\InformacijeFileStorage.cs" />
     <Compile Include="FileStorage\LekFileStorage.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Secretary_ns\AppointmentsPage.xaml.cs">
       <DependentUpon>AppointmentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Service\PatientService.cs" />
     <Compile Include="StartPacijentPage.xaml.cs">
       <DependentUpon>StartPacijentPage.xaml</DependentUpon>
     </Compile>
@@ -519,5 +521,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

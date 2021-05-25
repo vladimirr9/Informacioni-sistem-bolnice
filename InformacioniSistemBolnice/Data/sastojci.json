@@ -1,27 +1,27 @@
 [
   {
-    "id": 0,
-    "naziv": "Laktoza",
-    "isDeleted": false
+    "ID": 0,
+    "Name": "Laktoza",
+    "IsDeleted": false
   },
   {
-    "id": 1,
-    "naziv": "Aspirin",
-    "isDeleted": false
+    "ID": 1,
+    "Name": "Aspirin",
+    "IsDeleted": false
   },
   {
-    "id": 2,
-    "naziv": "Paracetamol",
-    "isDeleted": false
+    "ID": 2,
+    "Name": "Paracetamol",
+    "IsDeleted": false
   },
   {
-    "id": 3,
-    "naziv": "Soja",
-    "isDeleted": false
+    "ID": 3,
+    "Name": "Soja",
+    "IsDeleted": false
   },
   {
-    "id": 4,
-    "naziv": "Kokosovo ulje",
-    "isDeleted": false
+    "ID": 4,
+    "Name": "Kokosovo ulje",
+    "IsDeleted": false
   }
 ]
