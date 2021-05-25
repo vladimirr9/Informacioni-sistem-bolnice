@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.FileStorage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -87,40 +88,54 @@ namespace InformacioniSistemBolnice.Upravnik
             }
         }
 
-        /*private void IspisiSastojke(Lek lek)
+        /*private void IspisiSastojke(Lek medicine)
         {
             SastojciLeka.Items.Clear();
-            //List<Ingredient> sastojci = new List<Ingredient>();
-            foreach (Ingredient sastojak in IngredientFileStorage.GetAll())
+            List<Ingredient> ingredients = new List<Ingredient>();
+            foreach (Ingredient ingredient in selec)
             {
-                if (lek.ListaSastojaka.Contains(sastojak))
+                if (medicine.ListaSastojaka.Contains(ingredient))
                 {
-                    SastojciLeka.Items.Add(sastojak);
+                    ingredients.Add(ingredient);
                 }
-                /*else
-                {
-                    sastojci.Add(sastojak);
-                }
-
             }
-            //SastojciLeka.ItemsSource = sastojci;
+            SastojciLeka.ItemsSource = ingredients;
         }*/
 
         private void dataGridLekovi_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SastojciLeka.Items.Clear();
-            Lek selektovani = (Lek)dataGridLekovi.SelectedItem;
-            /*foreach (Lek lek in LekFileStorage.GetAll())
+            Lek selected = (Lek)dataGridLekovi.SelectedItem;
+            foreach(Lek med in LekFileStorage.GetAll())
             {
-                if (selektovani == lek)
+                if(med.Naziv == selected.Naziv)
                 {
-                    SastojciLeka.Items.Add(lek.;
+                    foreach (Ingredient i in IngredientFileStorage.GetAll())
+                    {
+                        if (selected.ListaSastojaka.Contains(i))
+                        {
+                            SastojciLeka.Items.Add(i);
+                        }
+                    }
+                }
+            }
+            
+            /*List<String> ingredients = new List<String>();
+            foreach(Ingredient i in selected.ListaSastojaka)
+            {
+                ingredients.Add(i.Name);
+            }
+            SastojciLeka.ItemsSource = ingredients;
+            /*foreach (Lek medicine in LekFileStorage.GetAll())
+            {
+                if (medicine.Naziv == selected.Naziv)
+                {
+                    foreach (Ingredient i in selected.ListaSastojaka)
+                    {
+                        SastojciLeka.Items.Add(i.Name);
+                    }
                 }
             }*/
-            foreach(Ingredient s in selektovani.ListaSastojaka)
-            {
-                SastojciLeka.Items.Add(s.Name);
-            }
         }
     }
 }

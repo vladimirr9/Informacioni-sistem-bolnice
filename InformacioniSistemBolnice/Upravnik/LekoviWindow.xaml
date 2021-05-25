@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LekoviWindow" Height="768" Width="1024">
     <Grid>
-        <Label x:Name="label" HorizontalAlignment="Left" Margin="25,25,0,0" VerticalAlignment="Top" FontSize="50" Content="Lekovi" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold">
+        <Label x:Name="label" HorizontalAlignment="Left" Margin="39,35,0,0" VerticalAlignment="Top" FontSize="50" Content="Lekovi" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold" RenderTransformOrigin="0.503,0.549">
         </Label>
         <DataGrid x:Name="dataGridLekovi" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="500"
                   AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4" SelectionChanged="dataGridLekovi_SelectionChanged">
@@ -31,7 +31,7 @@
         <Button x:Name="button1" Content="Izmeni" HorizontalAlignment="Left" Margin="334,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="IzmeniLek"/>
         <Button x:Name="button2" Content="Obriši" HorizontalAlignment="Left" Margin="229,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="ObrisiLek"/>
         <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="908,684,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Zatvori" />
-        <ListBox x:Name="SastojciLeka" HorizontalAlignment="Left" Height="363" Margin="606,181,0,0" VerticalAlignment="Top" Width="356"/>
+        <ListBox x:Name="SastojciLeka" HorizontalAlignment="Left" Height="220" Margin="606,181,0,0" VerticalAlignment="Top" Width="356"/>
         <Label x:Name="label2" Content="Sastojci:" HorizontalAlignment="Left" Margin="606,132,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
     </Grid>
 </Window>

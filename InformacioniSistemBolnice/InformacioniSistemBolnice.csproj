@@ -82,6 +82,7 @@
     <Compile Include="FileStorage\LekFileStorage.cs" />
     <Compile Include="FileStorage\IngredientFileStorage.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
+    <Compile Include="FileStorage\RenovationPeriodFileStorage.cs" />
     <Compile Include="InformacijeKartonPage.xaml.cs">
       <DependentUpon>InformacijeKartonPage.xaml</DependentUpon>
     </Compile>
@@ -242,6 +243,7 @@
     <Compile Include="Upravnik\RasporedjivanjeStatickeWindow.xaml.cs">
       <DependentUpon>RasporedjivanjeStatickeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Upravnik\RenovationPeriod.cs" />
     <Compile Include="Upravnik\StatusLeka.cs" />
     <Compile Include="Upravnik\TipOpreme.cs" />
     <Compile Include="Upravnik\TipProstorije.cs" />

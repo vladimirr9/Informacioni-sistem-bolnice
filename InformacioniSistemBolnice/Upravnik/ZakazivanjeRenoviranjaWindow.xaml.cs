@@ -20,62 +20,51 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class ZakazivanjeRenoviranjaWindow : Window
     {
         private WindowProstorije parent;
-        private Prostorija selektovana;
+        private Prostorija selected;
         public ZakazivanjeRenoviranjaWindow(Prostorija p, WindowProstorije parent)
         {
             InitializeComponent();
             this.parent = parent;
-            selektovana = p;
+            selected = p;
             parent.updateTable();
-            CalendarDateRange kalendar = new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1));
-            DatumOd.BlackoutDates.Add(kalendar);
-            DatumDo.BlackoutDates.Add(kalendar);
+            CalendarDateRange calendar = new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1));
+            DateFrom.BlackoutDates.Add(calendar);
+            DateTo.BlackoutDates.Add(calendar);
         }
 
         private void ZakaziRenoviranje(object sender, RoutedEventArgs e)
         {
-            DateTime datumOd = (DateTime)DatumOd.SelectedDate;
-            DateTime datumDo = (DateTime)DatumDo.SelectedDate;
-            int interval = 1;
+            DateTime dateFrom = (DateTime)DateFrom.SelectedDate;
+            DateTime dateTo = (DateTime)DateTo.SelectedDate;
+            //int interval = 1;
             //CalendarDateRange periodRenoviranja = new CalendarDateRange(datumOd, datumDo);
 
-            int idProstorije2 = selektovana.IDprostorije;
-            String naziv2 = selektovana.Naziv;
-            TipProstorije tipProstorije = selektovana.TipProstorije;
-            Boolean isDeleted2 = selektovana.IsDeleted;
-            Boolean isActive = selektovana.IsActive;
-            Double kvadratura = selektovana.Kvadratura;
-            int brSprata = selektovana.BrSprata;
-            int brSobe = selektovana.BrSobe;
-            List<Oprema> opremaLista = selektovana.OpremaLista;
+            /*int idProstorije2 = selected.IDprostorije;
+            String naziv2 = selected.Naziv;
+            TipProstorije tipProstorije = selected.TipProstorije;
+            Boolean isDeleted2 = selected.IsDeleted;
+            Double kvadratura = selected.Kvadratura;
+            int brSprata = selected.BrSprata;
+            int brSobe = selected.BrSobe;
+            List<Oprema> opremaLista = selected.OpremaLista;*/
 
-            List<Termin> listaTermina = TerminFileStorage.GetAll();
+            Boolean isActive = selected.IsActive;
+            Boolean isDeleted = false;
 
-            if (datumOd < datumDo)
+            if (dateFrom < dateTo)
             {
-                //foreach (DateTime day in PeriodRenoviranja(datumOd, datumDo))
-                //{
-                    //foreach (Termin t in listaTermina)
-                    //{
-                        //if (t.datumZakazivanja.Date != day)
-                if(selektovana.IsAvailable(datumOd, datumDo))
+                if (selected.IsAvailable(dateFrom, dateTo))
                 {
-                    if (DateTime.Today.Date == datumOd.Date)
+                    foreach (DateTime day in RenPeriod(dateFrom, dateTo))
                     {
                         isActive = false;
                     }
-                    else
-                    {
-                        isActive = true;
-                    }
                 }
                 else
-                {
+                { 
                     MessageBox.Show("Ima zakazanih termina u tom periodu!", "Upozorenje", MessageBoxButton.OK);
                     this.Close();
-                }
-                    //}
-               // }
+                }    
             }
             else
             {
@@ -83,10 +72,10 @@ namespace InformacioniSistemBolnice.Upravnik
                 this.Close();
             }
 
-            Prostorija p = new Prostorija(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
-            ProstorijaFileStorage.UpdateProstorija(selektovana.IDprostorije, p);
-            parent.updateTable();
-            this.Close();
+            Prostorija p = new Prostorija(selected.Naziv, selected.IDprostorije, selected.TipProstorije, selected.IsDeleted, isActive, selected.Kvadratura, selected.BrSprata, selected.BrSobe, selected.OpremaLista);
+            RenovationPeriod rp = new RenovationPeriod(dateFrom, dateTo, isDeleted, p);
+            ProstorijaFileStorage.UpdateProstorija(selected.IDprostorije, p);
+            RenovationPeriodFileStorage.AddRenovationPeriod(rp);
         }
 
         private void Otkazi(object sender, RoutedEventArgs e)
@@ -94,10 +83,10 @@ namespace InformacioniSistemBolnice.Upravnik
             this.Close();
         }
 
-        /*public IEnumerable<DateTime> PeriodRenoviranja(DateTime from, DateTime to)
+        public IEnumerable<DateTime> RenPeriod(DateTime from, DateTime to)
         {
-            for (var dan = from.Date; dan.Date <= to.Date; dan = dan.AddDays(1))
-                yield return dan;
-        }*/
+            for (var day = from.Date; day.Date <= to.Date; day = day.AddDays(1))
+                yield return day;
+        }
     }
 }
