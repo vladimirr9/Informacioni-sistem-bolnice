@@ -224,7 +224,7 @@ namespace InformacioniSistemBolnice
                 if (slobodno)
                     availableTimes.Add(tm.ToString("HH:mm"));
 
-                /*if (date.SelectedDate == danas)
+                /*if (DatePicker.SelectedDate == danas)
                 {
                     if (tm < DateTime.Now.AddMinutes(30))
                     {

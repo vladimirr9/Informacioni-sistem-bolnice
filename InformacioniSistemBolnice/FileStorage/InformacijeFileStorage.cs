@@ -50,7 +50,7 @@ namespace InformacioniSistemBolnice.FileStorage
             File.WriteAllText(startupPath, upis);
         }
 
-        public static int kolikoJePutaIzvrsenaNekaFunkcionalnost(string korisnickoIme, VrstaFunkcionalnosti vrsta)
+        public static int BrojIzvrsenihFunkcionalnosti(string korisnickoIme, VrstaFunkcionalnosti vrsta)
         {
             int brojacIzvrsenja = 0;
             List<InformacijeOKoriscenjuFunkcionalnosti> informacije = GetAll();
@@ -58,7 +58,7 @@ namespace InformacioniSistemBolnice.FileStorage
             {
                 if (i.KorisnickoImePacijenta.Equals(korisnickoIme) && i.Vrsta.Equals(vrsta))
                 {
-                    if (i.IsDeleted == false)
+                    if (i.TrenutakIzvrsenjaFunkcionalnosti> DateTime.Now.AddDays(-10))
 
                     {
                         ++brojacIzvrsenja;
@@ -71,20 +71,7 @@ namespace InformacioniSistemBolnice.FileStorage
 
         }
 
-        public static void RemoveInformacijePacijenta(string korisnickoIme)
-        {
-            List<InformacijeOKoriscenjuFunkcionalnosti> informacije = GetAll();
-            foreach (InformacijeOKoriscenjuFunkcionalnosti informacija in informacije)
-            {
-                if (informacija.KorisnickoImePacijenta.Equals(korisnickoIme))
-                {
-                    informacije[informacije.IndexOf(informacija)].IsDeleted = true;
-                    Save(informacije);
-
-                }
-            }
-
-        }
+        
 
         
 

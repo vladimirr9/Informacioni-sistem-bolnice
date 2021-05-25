@@ -45,7 +45,7 @@ namespace InformacioniSistemBolnice.Lekar
             Zvanje.Content = lekar.tipLekara.ToString();
             Datum.Content = lekar.datumRodenja.Date;
             JMBG.Content = lekar.jmbg;
-            //Mesto.Content = lekar.adresaStanovanja.mestoStanovanja.ToString();
+            //Mesto.Content = DoctorComboBox.adresaStanovanja.mestoStanovanja.ToString();
             Email.Content = lekar.email;
         }
     }

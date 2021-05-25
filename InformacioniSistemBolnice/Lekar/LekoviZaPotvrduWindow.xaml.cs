@@ -70,9 +70,9 @@ namespace InformacioniSistemBolnice.Lekar
                 if (l.Naziv == naziv)
                 {
                     Console.WriteLine(naziv);
-                    foreach (Sastojak s in l.ListaSastojaka)
+                    foreach (Ingredient s in l.ListaSastojaka)
                     {
-                        SastavList.Items.Add(s.naziv);
+                        SastavList.Items.Add(s.Name);
                     }
                 }
             }

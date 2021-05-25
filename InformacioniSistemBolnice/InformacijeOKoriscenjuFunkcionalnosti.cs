@@ -12,7 +12,7 @@ namespace InformacioniSistemBolnice
         public DateTime TrenutakIzvrsenjaFunkcionalnosti { get; set; }
         public string KorisnickoImePacijenta { get; set; }
         public VrstaFunkcionalnosti Vrsta { get; set; }
-        public Boolean IsDeleted { get; set; } = false;
+        
 
         
 

@@ -16,7 +16,6 @@ namespace InformacioniSistemBolnice.Validation
             {
                 string s = value.ToString();
                 long result;
-                Console.WriteLine(s.Length);
                 if (long.TryParse(s, out result) && s.Length == 13)
                 {
                     return new ValidationResult(true, null);

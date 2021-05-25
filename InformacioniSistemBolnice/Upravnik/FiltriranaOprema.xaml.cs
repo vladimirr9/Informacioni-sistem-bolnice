@@ -26,7 +26,7 @@ namespace InformacioniSistemBolnice.Upravnik
             InitializeComponent();
             this.parent = parent;
             this.pretraga = search;
-            //updateTable();
+            //UpdateTable();
 
             List<Prostorija> sveProstorije = ProstorijaFileStorage.GetAll();
             //List<Oprema> opremaLista = new List<Oprema>();

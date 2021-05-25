@@ -37,7 +37,7 @@ public class Pacijent : Korisnik
     }
 
 
-    public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je pacijent slobodan izmedju neka dva trenutka u vremenu
+    public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je PatientComboBox slobodan izmedju neka dva trenutka u vremenu
     {
         if (pocetak.Equals(kraj))
             return true;

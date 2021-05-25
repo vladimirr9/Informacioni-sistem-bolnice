@@ -10,7 +10,7 @@ public class Lek
     private String naziv;
     private bool isDeleted = false;
     private StatusLeka statusLeka;
-    private List<Sastojak> listaSastojaka;
+    private List<Ingredient> listaSastojaka;
 
     #region Properties
     public String Sifra
@@ -37,7 +37,7 @@ public class Lek
         set { statusLeka = value; }
     }
 
-    public List<Sastojak> ListaSastojaka
+    public List<Ingredient> ListaSastojaka
     {
         get { return listaSastojaka; }
         set { listaSastojaka = value; }
@@ -46,7 +46,7 @@ public class Lek
 
     public Lek() { }
 
-    public Lek(String sifra, String naziv, bool isDeleted, StatusLeka statusLeka, List<Sastojak> listaSastojaka)
+    public Lek(String sifra, String naziv, bool isDeleted, StatusLeka statusLeka, List<Ingredient> listaSastojaka)
     {
         Sifra = sifra;
         Naziv = naziv;

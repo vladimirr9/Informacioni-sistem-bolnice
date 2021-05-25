@@ -60,7 +60,7 @@ namespace InformacioniSistemBolnice.Upravnik
             List<Oprema> opremaLista = selektovana.OpremaLista;
 
             opremaLista.Add(o);
-            //Oprema o1 = new Oprema(sifra, naziv, tipOpreme, kolicina, isDeleted);
+            //Oprema o1 = new Oprema(sifra, Name, tipOpreme, kolicina, IsDeleted);
             //OpremaFileStorage.AddOprema(o)
             //;
             //selektovana.OpremaLista.Add(o);
