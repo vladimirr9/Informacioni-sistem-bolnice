@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.FileStorage;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Secretary_ns
 {
@@ -22,11 +23,13 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public List<Notification> Notifications { get; set; }
         private Secretary _currentSecretary;
         private static StartingPage _instance;
+        private NotificationController _notificationController = new NotificationController();
         private StartingPage(Secretary currentSecretary)
         {
             this._currentSecretary = currentSecretary;
             
             InitializeComponent();
+            this.DataContext = this;
             UpdateTable();
         }
 
@@ -65,9 +68,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
             var result = MessageBox.Show("Da li ste sigurni da želite da obrišete ovo obavestenje?", "Potvrda brisanja", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.No)
                 return;
-            
-            int id = ((Notification)NotificationListView.SelectedItem).ID;
-            NotificationFileStorage.RemoveNotification(id);
+
+            Notification notification = (Notification)NotificationListView.SelectedItem;
+            _notificationController.Delete(notification);
             UpdateTable();
             
             

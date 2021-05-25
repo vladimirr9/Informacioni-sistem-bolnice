@@ -14,18 +14,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.FileStorage;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Secretary_ns
 {
     public partial class NewNotificationWindow : Window
     {
         private StartingPage _parent;
-        private List<String> _recipients;
+        private NotificationController _notificationController = new NotificationController();
+        public List<String> Recipients { get; set; }
+        public string NotificationTitle { get; set; }
+        public string NotificationContent { get; set; }
         public NewNotificationWindow(StartingPage parent)
         {
             this._parent = parent;
             InitializeComponent();
             InitializeRecipients();
+            this.DataContext = this;
         }
 
         
@@ -34,13 +39,11 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             if (RecipientsListBox.SelectedItems.Count == 0)
                 return;
-            String title = TitleTextBox.Text;
-            String content = ContentsTextBox.Text;
-            DateTime dateAndTime = DateTime.Now;
             int id = NotificationFileStorage.GetAll().Count;
-            Notification newNotification = new Notification(id, title, content, dateAndTime);
-            FillRecipients(newNotification);
-            NotificationFileStorage.AddNotification(newNotification);
+            Notification newNotification = new Notification(id, NotificationTitle, NotificationContent, DateTime.Now);
+            List<string> selectedRecipients = RecipientsListBox.SelectedItems.Cast<string>().ToList();
+            newNotification.FillRecipients(selectedRecipients);
+            _notificationController.Create(newNotification);
             _parent.UpdateTable();
             Close();
         }
@@ -49,35 +52,17 @@ namespace InformacioniSistemBolnice.Secretary_ns
             Close();
         }
 
-        private void FillRecipients(Notification newNotification)
-        {
-            foreach (var item in RecipientsListBox.SelectedItems)
-            {
-                if (item.ToString().Equals("Svi korisnici"))
-                    newNotification.Recipients.Add("ALL_USERS");
-                else if (item.ToString().Equals("Zaposleni"))
-                    newNotification.Recipients.Add("EMPLOYED_USERS");
-                else if (item.ToString().Equals("Svi pacijenti"))
-                    newNotification.Recipients.Add("PATIENT_USERS");
-                else
-                {
-                    String username = item.ToString().Split('-')[1].Trim();
-                    newNotification.Recipients.Add(username);
-                }
-            }
-        }
         private void InitializeRecipients()
         {
-            _recipients = new List<String>();
-            _recipients.Add("Svi korisnici");
-            _recipients.Add("Zaposleni");
-            _recipients.Add("Svi pacijenti");
+            Recipients = new List<String>();
+            Recipients.Add("Svi korisnici");
+            Recipients.Add("Zaposleni");
+            Recipients.Add("Svi pacijenti");
             foreach (Pacijent patient in PacijentFileStorage.GetAll())
             {
                 if (!patient.isDeleted)
-                    _recipients.Add(patient.ime + " " + patient.prezime + " - " + patient.korisnickoIme);
+                    Recipients.Add(patient.ime + " " + patient.prezime + " - " + patient.korisnickoIme);
             }
-            RecipientsListBox.ItemsSource = _recipients;
             RecipientsListBox.SelectedIndex = 0;
         }
 
