@@ -14,8 +14,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="datagridProstorije" Height="400" VerticalAlignment="Top" RenderTransformOrigin="0.49,0.51" Margin="24,147,140,0" AutoGenerateColumns="True" 
-                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4">
+        <DataGrid x:Name="datagridProstorije" Height="400" VerticalAlignment="Top" RenderTransformOrigin="0.49,0.51" Margin="30,145,386,0" AutoGenerateColumns="True" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4" Width="600" FontSize="20">
             <!--SelectedItem="{Binding Path=SelectedRoom, Mode=TwoWay}" -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -28,27 +28,32 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}" Width="100"/>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=IDprostorije}" Width="100"/>
-                <DataGridTextColumn Header="Tip" Binding="{Binding Path=TipProstorije}" Width="125"/>
-                <DataGridTextColumn Header="Obrisana" Binding="{Binding Path=IsDeleted}" Width="100"/>
-                <DataGridTextColumn Header="Kvadratura" Binding="{Binding Path=Kvadratura}" Width="125"/>
-                <DataGridTextColumn Header="Aktivna" Binding="{Binding Path=IsActive}" Width="75"/>
-                <DataGridTextColumn Header="Broj sprata" Binding="{Binding Path=BrSprata}" Width="125"/>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}" Width="120"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=IDprostorije}" Width="120"/>
+                <!--DataGridTextColumn Header="Tip" Binding="{Binding Path=TipProstorije}" Width="125"/-->
+                <!-- DataGridTextColumn Header="Obrisana" Binding="{Binding Path=IsDeleted}" Width="100"/-->
+                <DataGridTextColumn Header="Kvadratura" Binding="{Binding Path=Kvadratura}" Width="120"/>
+                <!--DataGridTextColumn Header="Aktivna" Binding="{Binding Path=IsActive}" Width="75"/-->
+                <DataGridTextColumn Header="Broj sprata" Binding="{Binding Path=BrSprata}" Width="120"/>
                 <DataGridTextColumn Header="Broj sobe" Binding="{Binding Path=BrSobe}" Width="*"/>
             </DataGrid.Columns>
 
         </DataGrid>
 
 
-        <Button Background="CornflowerBlue" x:Name="button" Content="Dodaj" FontSize="20" HorizontalAlignment="Left" Margin="564,589,0,0" VerticalAlignment="Top" Width="100" Click="DodajProstoriju" Grid.Row="3"/>
-        <Button Background="CornflowerBlue" x:Name="button1" Content="Izmeni" FontSize="20" HorizontalAlignment="Left" Margin="671,589,0,0" VerticalAlignment="Top" Width="100" Click="IzmeniProstoriju" Grid.Row="3"/>
-        <Button Background="CornflowerBlue" x:Name="button2" Content="Obriši" FontSize="20" HorizontalAlignment="Left" Margin="459,589,0,0" VerticalAlignment="Top" Width="100" Click="ObrišiProstoriju" Grid.Row="3"/>
-        <Button Background="CornflowerBlue" x:Name="button3" Content="Oprema" FontSize="20" HorizontalAlignment="Left" Margin="776,589,0,0" VerticalAlignment="Top" Width="100" Click="OpremaProstorije" Grid.Row="3"/>
+        <Button Background="CornflowerBlue" x:Name="button" Content="Dodaj" FontSize="20" HorizontalAlignment="Left" Margin="310,564,0,0" VerticalAlignment="Top" Width="100" Click="DodajProstoriju" Grid.Row="3"/>
+        <Button Background="CornflowerBlue" x:Name="button1" Content="Izmeni" FontSize="20" HorizontalAlignment="Left" Margin="420,564,0,0" VerticalAlignment="Top" Width="100" Click="IzmeniProstoriju" Grid.Row="3"/>
+        <Button Background="CornflowerBlue" x:Name="button2" Content="Obriši" FontSize="20" HorizontalAlignment="Left" Margin="200,564,0,0" VerticalAlignment="Top" Width="100" Click="ObrišiProstoriju" Grid.Row="3"/>
+        <Button Background="CornflowerBlue" x:Name="button3" Content="Oprema" FontSize="20" HorizontalAlignment="Left" Margin="530,564,0,0" VerticalAlignment="Top" Width="100" Click="OpremaProstorije" Grid.Row="3"/>
         <Button Background="IndianRed" x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="911,675,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="Zatvori" FontSize="17"/>
         <Label x:Name="label" Content="Prostorije" HorizontalAlignment="Left" Margin="24,36,0,0" Grid.Row="3" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
-        <Button Background="CornflowerBlue" x:Name="button5" Content="Zakaži renoviranje" FontSize="20" HorizontalAlignment="Left" Margin="279,589,0,0" VerticalAlignment="Top" Width="175" Click="ZakaziRenoviranje" Grid.Row="3"/>
-        <TextBox x:Name="Pretraga" HorizontalAlignment="Left" Height="35" Margin="620,94,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Pretraga opreme..." VerticalAlignment="Top" Width="200" FontSize="20" Foreground="LightGray"/>
-        <Button x:Name="button6" Content="?" Margin="834,94,140,0" Grid.Row="3" VerticalAlignment="Top" Height="35" Background="LightSteelBlue" Click="PretragaOpreme"/>
+        <Button Background="CornflowerBlue" x:Name="button5" Content="Zakaži" FontSize="20" Margin="721,238,120,0" VerticalAlignment="Top" Click="ZakaziRenoviranje" Grid.Row="3"/>
+        <TextBox x:Name="Pretraga" Height="35" Margin="696,94,120,0" Grid.Row="3" TextWrapping="Wrap" Text="Pretraga opreme..." VerticalAlignment="Top" FontSize="20" Foreground="LightGray"/>
+        <Button x:Name="button6" Content="?" Margin="914,94,60,0" Grid.Row="3" VerticalAlignment="Top" Height="35" Background="LightSteelBlue" Click="PretragaOpreme"/>
+        <Button Background="CornflowerBlue" x:Name="button7" Content="Zakaži" FontSize="20" Margin="721,370,120,0" VerticalAlignment="Top" Click="ZakaziRenoviranje" Grid.Row="3"/>
+        <Label x:Name="label1" Content="Zakazivanje renoviranja &#xD;&#xA;jedne prostorije:" Margin="654,145,104,0" Grid.Row="3" VerticalAlignment="Top" FontSize="22" Foreground="DarkBlue" Height="70"/>
+        <Label x:Name="label2" Content="Deljenje jedne prostorije&#xD;&#xA;na dve" Margin="654,288,104,0" Grid.Row="3" VerticalAlignment="Top" FontSize="22" Foreground="DarkBlue" Height="70"/>
+        <Label x:Name="label3" Content="Spajanje dve prostorije&#xD;&#xA;u jednu" HorizontalAlignment="Left" Margin="654,420,0,0" Grid.Row="3" VerticalAlignment="Top" Height="70" FontSize="22" Foreground="DarkBlue" Width="258"/>
+        <Button Background="CornflowerBlue" x:Name="button8" Content="Zakaži" FontSize="20" Margin="721,512,120,0" VerticalAlignment="Top" Click="ZakaziRenoviranje" Grid.Row="3"/>
     </Grid>
 </Window>

@@ -34,7 +34,9 @@ namespace InformacioniSistemBolnice.Upravnik
 
             Sifra.Text = medForUpdate.Sifra;
             Naziv.Text = medForUpdate.Naziv;
-            SastojciList.ItemsSource = medForUpdate.ListaSastojaka;
+            List<Ingredient> ingredientList = medForUpdate.ListaSastojaka;
+            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(ingredientList);
+            SastojciList.ItemsSource = ingredients;
             //StatusLeka statusLeka = medForUpdate.StatusLeka;
             //bool isDeleted = medForUpdate.IsDeleted;
         }
@@ -45,13 +47,13 @@ namespace InformacioniSistemBolnice.Upravnik
             String naziv = Naziv.Text;
             StatusLeka statusLeka = StatusLeka.cekaNaValidaciju;
             bool isDeleted = false;
-
-            List<Ingredient> sastojciLeka = (List<Ingredient>)SastojciList.ItemsSource;
+            ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
+            List<Ingredient> sastojciLeka = ingredients.ToList();
             Lek updatedMed = new Lek(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
             LekFileStorage.UpdateLek(medForUpdate.Sifra, updatedMed);
 
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
-            //_parent.UpdateTable();
+            parent.updateTable();
             this.Close();
         }
 
@@ -84,7 +86,8 @@ namespace InformacioniSistemBolnice.Upravnik
         private void RemoveIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)SastojciList.SelectedItem;
-            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
+            List<Ingredient> medIngredients = medForUpdate.ListaSastojaka;
+            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
             foreach (Ingredient i in IngredientFileStorage.GetAll())
             {
                 if (i.Name.Equals(selected.Name) && SastojciList.SelectedItem != null)

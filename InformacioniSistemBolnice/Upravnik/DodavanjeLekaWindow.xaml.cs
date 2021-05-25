@@ -38,13 +38,13 @@ namespace InformacioniSistemBolnice.Upravnik
             String naziv = Naziv.Text;
             StatusLeka statusLeka = StatusLeka.cekaNaValidaciju;
             bool isDeleted = false;
-            List<Ingredient> sastojciLeka = (List<Ingredient>)SastojciList.ItemsSource;
-
+            ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
+            List<Ingredient> sastojciLeka = ingredients.ToList();
 
             Lek medicine = new Lek(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
             LekFileStorage.AddLek(medicine);
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
-            //_parent.UpdateTable();
+            parent.updateTable();
             this.Close();
         }
 
