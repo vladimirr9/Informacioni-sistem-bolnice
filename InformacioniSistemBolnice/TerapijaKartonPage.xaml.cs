@@ -20,9 +20,14 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class TerapijaKartonPage : Page
     {
+      
         public TerapijaKartonPage()
         {
+            
             InitializeComponent();
+            
         }
+
+        
     }
 }

@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice
 
         private void obavjestenja_Click(object sender, RoutedEventArgs e)
         {
-            parent.startWindow.Content = new ObavjestenjaPage(parent);
+            parent.startWindow.Content = new ObavjestenjaPage(parent,parent.Pacijent);
         }
 
         private void ocjenjivanje_Click(object sender, RoutedEventArgs e)

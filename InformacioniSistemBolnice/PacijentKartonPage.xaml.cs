@@ -20,10 +20,10 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class PacijentKartonPage : Page
     {
-        private static PocetnaPacijent parent;
+        public static PocetnaPacijent pparent { get; set; }
         public PacijentKartonPage(PocetnaPacijent pp)
         {
-            parent = pp;
+            pparent = pp;
             InitializeComponent();
             borderWindow.Content = new InformacijeKartonPage(pp);
         }
@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice
 
         private void informacijeKarton_Click(object sender, RoutedEventArgs e)
         {
-            borderWindow.Content = new InformacijeKartonPage(parent);
+            borderWindow.Content = new InformacijeKartonPage(pparent);
         }
 
         private void terapijaKarton_Click(object sender, RoutedEventArgs e)
@@ -46,12 +46,12 @@ namespace InformacioniSistemBolnice
 
         private void pregledAnamneza_Click(object sender, RoutedEventArgs e)
         {
-            borderWindow.Content = new PregledAnamnezaPage();
+            borderWindow.Content = new PregledAnamnezaPage(pparent,this);
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            parent.startWindow.Content = new StartPacijentPage(parent);
+            pparent.startWindow.Content = new StartPacijentPage(pparent);
         }
     }
 }

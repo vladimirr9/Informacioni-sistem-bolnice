@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.FileStorage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,48 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class PregledAnamnezaPage : Page
     {
-        public PregledAnamnezaPage()
+        private static PocetnaPacijent parent;
+        public static PacijentKartonPage karton { get; set; }
+        private static String UsernameOfLoggedInPatient;
+        public static Anamnesis selectedAnamnesis { get; set; }
+        public PregledAnamnezaPage(PocetnaPacijent pp,PacijentKartonPage pkp)
         {
+            parent = pp;
+            UsernameOfLoggedInPatient = pp.Pacijent.korisnickoIme;
+            karton = pkp;
             InitializeComponent();
+            this.DataContext = this;
+            addNoteButton.IsEnabled = false;
+            FillTable();
+        }
+
+        private void FillTable()
+        {
+            List<Anamnesis> anamneses = AnamnesisFileRepository.GetAll();
+            foreach (Anamnesis a in anamneses)
+            {
+                if (a.UsernameOfPatient.Equals(UsernameOfLoggedInPatient))
+                {
+                    DataGridAnamneses.Items.Add(a);
+                }
+            }
+        }
+
+        private void addNoteButton_Click(object sender, RoutedEventArgs e)
+        {
+            selectedAnamnesis = (Anamnesis)DataGridAnamneses.SelectedItem;
+            karton.borderWindow.Content = new AddingNotePage(parent,karton,selectedAnamnesis);
+        }
+
+        private void ShowNotesForAnamnesis(object sender, RoutedEventArgs e)
+        {
+            karton.borderWindow.Content = new ShowNotesPage(karton,selectedAnamnesis);
+        }
+
+        private void DataGridAnamneses_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedAnamnesis = (Anamnesis)DataGridAnamneses.SelectedItem;
+            addNoteButton.IsEnabled = true;
         }
     }
 }

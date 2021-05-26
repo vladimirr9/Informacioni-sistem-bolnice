@@ -73,10 +73,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddingNotePage.xaml.cs">
+      <DependentUpon>AddingNotePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Anamnesis.cs" />
     <Compile Include="Anketa.cs" />
     <Compile Include="AnketaPage.xaml.cs">
       <DependentUpon>AnketaPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileStorage\AnamnesisFileRepository.cs" />
     <Compile Include="FileStorage\AnketaFileStorage.cs" />
     <Compile Include="FileStorage\InformacijeFileStorage.cs" />
     <Compile Include="FileStorage\LekFileStorage.cs" />
@@ -99,6 +104,7 @@
     <Compile Include="Lekar\ProfilPage.xaml.cs">
       <DependentUpon>ProfilPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Note.cs" />
     <Compile Include="ObavjestenjaPage.xaml.cs">
       <DependentUpon>ObavjestenjaPage.xaml</DependentUpon>
     </Compile>
@@ -193,6 +199,9 @@
     <Compile Include="Secretary_ns\AppointmentsPage.xaml.cs">
       <DependentUpon>AppointmentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShowNotesPage.xaml.cs">
+      <DependentUpon>ShowNotesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StartPacijentPage.xaml.cs">
       <DependentUpon>StartPacijentPage.xaml</DependentUpon>
     </Compile>
@@ -262,6 +271,10 @@
     <Compile Include="Validation\JMBGValidationRule.cs" />
     <Compile Include="Validation\NonEmptyValidationRule.cs" />
     <Compile Include="VrstaFunkcionalnosti.cs" />
+    <Page Include="AddingNotePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AnketaPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -420,6 +433,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary_ns\AppointmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowNotesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

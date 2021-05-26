@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using InformacioniSistemBolnice;
 using InformacioniSistemBolnice.Secretary_ns;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -23,7 +24,11 @@ public class Termin
     [JsonIgnore]
     private Prostorija prostorija;
 
+    
     public String anamneza { get; set; }
+
+    [JsonIgnore]
+    public Anamnesis anamnesis { get; set; }
 
 
     public int IdProstorije;
