@@ -8,11 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-public class UpravnikFileStorage
+public class ManagerFileRepository
 {
     private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "upravnik.json";
 
-    public static List<Upravnik> GetAll()
+    public static List<Manager> GetAll()
    {
         if (!File.Exists(startupPath))
         {
@@ -20,41 +20,41 @@ public class UpravnikFileStorage
             tmp.Close();
         }
 
-        List<Upravnik> upravnikLista;
-        String procitano = File.ReadAllText(startupPath);
-        if (procitano.Equals(""))
+        List<Manager> managerList;
+        String read = File.ReadAllText(startupPath);
+        if (read.Equals(""))
         {
-            upravnikLista = new List<Upravnik>();
+            managerList = new List<Manager>();
         }
         else
         {
-            upravnikLista = JsonConvert.DeserializeObject<List<Upravnik>>(procitano);
+            managerList = JsonConvert.DeserializeObject<List<Manager>>(read);
         }
-        return upravnikLista;
+        return managerList;
     }
    
-   public static Upravnik GetOne(String korisnickoIme)
+   public static Manager GetOne(String username)
    {
-        List<Upravnik> upravnikLista = GetAll();
-        foreach (Upravnik u in upravnikLista)
+        List<Manager> managerList = GetAll();
+        foreach (Manager manager in managerList)
         {
-            if (u.korisnickoIme.Equals(korisnickoIme))
-                return u;
+            if (manager.korisnickoIme.Equals(username))
+                return manager;
         }
         return null;
     }
    
-   public static Boolean RemoveUpravnik(int iDUpravnika)
+   public static Boolean RemoveManager(int managerId)
    {
       throw new NotImplementedException();
    }
    
-   public static Boolean AddUpravnik(Upravnik noviUpravnik)
+   public static Boolean AddUpravnik(Manager noviUpravnik)
    {
       throw new NotImplementedException();
    }
    
-   public static Boolean UpdateUpravnik(int iDUpravnika, Upravnik noviUpravnik)
+   public static Boolean UpdateUpravnik(int iDUpravnika, Manager noviUpravnik)
    {
       throw new NotImplementedException();
    }

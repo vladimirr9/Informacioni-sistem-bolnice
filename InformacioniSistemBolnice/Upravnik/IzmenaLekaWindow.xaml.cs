@@ -22,8 +22,8 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class IzmenaLekaWindow : Window
     {
         private LekoviWindow parent;
-        private Lek medForUpdate;
-        public IzmenaLekaWindow(Lek med, LekoviWindow parent)
+        private Medicine medForUpdate;
+        public IzmenaLekaWindow(Medicine med, LekoviWindow parent)
         {
             InitializeComponent();
             this.parent = parent;
@@ -32,9 +32,9 @@ namespace InformacioniSistemBolnice.Upravnik
             List<Ingredient> sastojci = IngredientFileStorage.GetAll();
             Sastojci.ItemsSource = sastojci;
 
-            Sifra.Text = medForUpdate.Sifra;
-            Naziv.Text = medForUpdate.Naziv;
-            List<Ingredient> ingredientList = medForUpdate.ListaSastojaka;
+            Sifra.Text = medForUpdate.Id;
+            Naziv.Text = medForUpdate.Name;
+            List<Ingredient> ingredientList = medForUpdate.IngredientsList;
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(ingredientList);
             SastojciList.ItemsSource = ingredients;
             //StatusLeka statusLeka = medForUpdate.StatusLeka;
@@ -45,12 +45,12 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             String sifra = Sifra.Text;
             String naziv = Naziv.Text;
-            StatusLeka statusLeka = StatusLeka.cekaNaValidaciju;
+            MedicineStatus statusLeka = MedicineStatus.waitingForValidation;
             bool isDeleted = false;
             ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
             List<Ingredient> sastojciLeka = ingredients.ToList();
-            Lek updatedMed = new Lek(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
-            LekFileStorage.UpdateLek(medForUpdate.Sifra, updatedMed);
+            Medicine updatedMed = new Medicine(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
+            MedicineFileRepository.UpdateMedicine(medForUpdate.Id, updatedMed);
 
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
             parent.updateTable();
@@ -65,7 +65,7 @@ namespace InformacioniSistemBolnice.Upravnik
         private void AddIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)Sastojci.SelectedItem;
-            List<Ingredient> medIngredients = medForUpdate.ListaSastojaka;
+            List<Ingredient> medIngredients = medForUpdate.IngredientsList;
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
             /*var ingredients = new ObservableCollection<Ingredient>();
             var medIngredients = medForUpdate.ListaSastojaka;
@@ -86,7 +86,7 @@ namespace InformacioniSistemBolnice.Upravnik
         private void RemoveIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)SastojciList.SelectedItem;
-            List<Ingredient> medIngredients = medForUpdate.ListaSastojaka;
+            List<Ingredient> medIngredients = medForUpdate.IngredientsList;
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
             foreach (Ingredient i in IngredientFileStorage.GetAll())
             {

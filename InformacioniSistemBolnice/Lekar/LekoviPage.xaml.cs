@@ -50,12 +50,12 @@ namespace InformacioniSistemBolnice.Lekar
         {
             if (Sastojci.SelectedIndex != -1)
             {
-                List<Lek> lekovi = LekFileStorage.GetAll();
-                foreach (Lek l in lekovi)
+                List<Medicine> lekovi = MedicineFileRepository.GetAll();
+                foreach (Medicine l in lekovi)
                 {
-                    if (l.Naziv == LekoviList.SelectedItem.ToString())
+                    if (l.Name == LekoviList.SelectedItem.ToString())
                     {
-                        l.ListaSastojaka.Add((Ingredient)Sastojci.SelectedItem);
+                        l.IngredientsList.Add((Ingredient)Sastojci.SelectedItem);
                         //dodati u storage
                         IspisiSastojke(l);
                     }
@@ -66,33 +66,33 @@ namespace InformacioniSistemBolnice.Lekar
         private void UpdateList()
         {
             LekoviList.Items.Clear();
-            List<Lek> lekovi = LekFileStorage.GetAll();
-            foreach (Lek l in lekovi)
+            List<Medicine> lekovi = MedicineFileRepository.GetAll();
+            foreach (Medicine l in lekovi)
             {
-                if (!l.IsDeleted && l.StatusLeka.Equals(StatusLeka.validiran))
-                    LekoviList.Items.Add(l.Naziv);
+                if (!l.IsDeleted && l.MedicineStatus.Equals(MedicineStatus.validated))
+                    LekoviList.Items.Add(l.Name);
             }
         }
 
         public void SelectionChange(object sender, SelectionChangedEventArgs e)
         {
             SastavList.Items.Clear();
-            foreach (Lek lek in LekFileStorage.GetAll())
+            foreach (Medicine lek in MedicineFileRepository.GetAll())
             {
-                if (lek.Naziv == LekoviList.SelectedItem.ToString())
+                if (lek.Name == LekoviList.SelectedItem.ToString())
                 {
                     IspisiSastojke(lek);
                 }
             }
         }
 
-        private void IspisiSastojke(Lek lek)
+        private void IspisiSastojke(Medicine lek)
         {
             SastavList.Items.Clear();
             List<Ingredient> sastojci = new List<Ingredient>();
             foreach (Ingredient sastojak in IngredientFileStorage.GetAll())
             {
-                if (lek.ListaSastojaka.Contains(sastojak))
+                if (lek.IngredientsList.Contains(sastojak))
                 {
                     SastavList.Items.Add(sastojak.Name);
                 }

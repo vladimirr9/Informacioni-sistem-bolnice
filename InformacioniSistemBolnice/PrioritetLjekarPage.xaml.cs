@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice
         private List<global::Lekar> ljekariLista;
         private List<Termin> termini;
         private List<string> availableTimes;
-        private List<Prostorija> prostorije;
+        private List<Room> prostorije;
         private PocetnaPacijent parent;
         private PacijentZakazujePoPrioritetuPage parentp;
 
@@ -172,7 +172,7 @@ namespace InformacioniSistemBolnice
             int id = TerminFileStorage.GetAll().Count + 1;
             DateTime end = start.AddMinutes(trajanjePregleda);
 
-            Prostorija prvaDostupnaProstorija = GetAvailableRoom(start, end);
+            Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
             Termin termin = new Termin(id, start, trajanjePregleda, tipt, StatusTermina.zakazan, p, l, prvaDostupnaProstorija);
             TerminFileStorage.AddTermin(termin);
             PregledTerminaPage ptp = new PregledTerminaPage(parent);
@@ -190,10 +190,10 @@ namespace InformacioniSistemBolnice
             parent.imePacijenta.Visibility = Visibility.Visible;
         }
 
-        private Prostorija GetAvailableRoom(DateTime pocetak, DateTime kraj)
+        private Room GetAvailableRoom(DateTime pocetak, DateTime kraj)
         {
-            prostorije = new List<Prostorija>();
-            foreach (Prostorija prostorija in ProstorijaFileStorage.GetAll())
+            prostorije = new List<Room>();
+            foreach (Room prostorija in RoomFileRepoistory.GetAll())
             {
                 if (prostorija.IsAvailable(pocetak, kraj) && !prostorija.IsDeleted)
                 {

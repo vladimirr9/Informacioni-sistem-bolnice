@@ -5,10 +5,10 @@
 
 using System;
 
-public enum TipProstorije
+public enum RoomType
 {
-   operacionaSala,
-   bolnickaSoba,
-   ordinacija,
-   magacin
+   operatingRoom,
+   recoveryRoom,
+   examinationRoom,
+   stockroom
 }

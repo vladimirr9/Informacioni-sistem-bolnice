@@ -29,7 +29,7 @@ namespace InformacioniSistemBolnice.Lekar
             lekar.ItemsSource = lekari;
             List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
             pacijent.ItemsSource = pacijenti;
-            List<Prostorija> prostorije = ProstorijaFileStorage.GetAll();
+            List<Room> prostorije = RoomFileRepoistory.GetAll();
             prostorija.ItemsSource = prostorije;
         }
 
@@ -44,7 +44,7 @@ namespace InformacioniSistemBolnice.Lekar
         {
             Pacijent p = (Pacijent)pacijent.SelectedItem;
             global::Lekar l = (global::Lekar)lekar.SelectedItem;
-            Prostorija pr = (Prostorija)prostorija.SelectedItem;
+            Room pr = (Room)prostorija.SelectedItem;
             if (time.SelectedIndex != -1)
             {
                 ComboBoxItem item = time.SelectedItem as ComboBoxItem;

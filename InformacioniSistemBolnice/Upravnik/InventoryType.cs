@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum StatusLeka
+public enum InventoryType
 {
-    validiran,
-    odbijen,
-    cekaNaValidaciju
+    staticInventory,
+    dinamicInventory
 }
+

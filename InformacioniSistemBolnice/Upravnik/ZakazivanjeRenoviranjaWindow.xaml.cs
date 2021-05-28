@@ -20,8 +20,8 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class ZakazivanjeRenoviranjaWindow : Window
     {
         private WindowProstorije parent;
-        private Prostorija selected;
-        public ZakazivanjeRenoviranjaWindow(Prostorija p, WindowProstorije parent)
+        private Room selected;
+        public ZakazivanjeRenoviranjaWindow(Room p, WindowProstorije parent)
         {
             InitializeComponent();
             this.parent = parent;
@@ -72,9 +72,9 @@ namespace InformacioniSistemBolnice.Upravnik
                 this.Close();
             }
 
-            Prostorija p = new Prostorija(selected.Naziv, selected.IDprostorije, selected.TipProstorije, selected.IsDeleted, isActive, selected.Kvadratura, selected.BrSprata, selected.BrSobe, selected.OpremaLista);
+            Room p = new Room(selected.Name, selected.RoomId, selected.RoomType, selected.IsDeleted, isActive, selected.Area, selected.FloorNumber, selected.RoomNumber, selected.InventoryList);
             RenovationPeriod rp = new RenovationPeriod(dateFrom, dateTo, isDeleted, p);
-            ProstorijaFileStorage.UpdateProstorija(selected.IDprostorije, p);
+            RoomFileRepoistory.UpdateRoom(selected.RoomId, p);
             RenovationPeriodFileStorage.AddRenovationPeriod(rp);
         }
 

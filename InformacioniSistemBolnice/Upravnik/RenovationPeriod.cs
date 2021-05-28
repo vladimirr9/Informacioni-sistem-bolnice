@@ -13,7 +13,7 @@ public class RenovationPeriod
     private DateTime dateFrom;
     private DateTime dateTo;
     private Boolean isDeleted = false;
-    private Prostorija room;
+    private Room room;
 
     #region
     public DateTime DateFrom
@@ -34,7 +34,7 @@ public class RenovationPeriod
         set { isDeleted = value; }
     }
 
-    public Prostorija Room
+    public Room Room
     {
         get { return room; }
         set { room = value; }
@@ -43,7 +43,7 @@ public class RenovationPeriod
 
     public RenovationPeriod() { }
 
-    public RenovationPeriod(DateTime dateFrom, DateTime dateTo, Boolean isDeleted, Prostorija prostorija)
+    public RenovationPeriod(DateTime dateFrom, DateTime dateTo, Boolean isDeleted, Room prostorija)
     {
         DateFrom = dateFrom;
         DateTo = dateTo;

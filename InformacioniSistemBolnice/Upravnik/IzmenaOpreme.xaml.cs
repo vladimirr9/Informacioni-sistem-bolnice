@@ -20,19 +20,19 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class IzmenaOpreme : Window
     {
         private OpremaWindow parent;
-        private Oprema opremaZaIzmenu;
-        private Prostorija selektovana;
-        public IzmenaOpreme(Prostorija p, Oprema o, OpremaWindow parent)
+        private Inventory opremaZaIzmenu;
+        private Room selektovana;
+        public IzmenaOpreme(Room p, Inventory o, OpremaWindow parent)
         {
             InitializeComponent();
             this.parent = parent;
             opremaZaIzmenu = o;
             selektovana = p;
 
-            IdProstorije.Text = selektovana.GetOne(opremaZaIzmenu.Sifra).IdProstorije.ToString();
-            Sifra.Text = opremaZaIzmenu.Sifra;
-            Naziv.Text = opremaZaIzmenu.Naziv;
-            if (opremaZaIzmenu.TipOpreme == 0)
+            IdProstorije.Text = selektovana.GetOne(opremaZaIzmenu.Id).RoomId.ToString();
+            Sifra.Text = opremaZaIzmenu.Id;
+            Naziv.Text = opremaZaIzmenu.Name;
+            if (opremaZaIzmenu.InventoryType == 0)
             {
                 TipOpreme.SelectedIndex = 0;
             }
@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice.Upravnik
             {
                 TipOpreme.SelectedIndex = 1;
             }
-            Kolicina.Text = opremaZaIzmenu.Kolicina.ToString();
+            Kolicina.Text = opremaZaIzmenu.Quantity.ToString();
             IsDeleted.IsChecked = opremaZaIzmenu.IsDeleted;
         }
 
@@ -51,41 +51,41 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void IzmeniOpremu(object sender, RoutedEventArgs e)
         {
-            int idProstorije = selektovana.GetOne(opremaZaIzmenu.Sifra).IdProstorije;
+            int idProstorije = selektovana.GetOne(opremaZaIzmenu.Id).RoomId;
             String sifra = Sifra.Text;
             String naziv = Naziv.Text;
-            TipOpreme tipOpreme;
+            InventoryType tipOpreme;
             if (TipOpreme.SelectedIndex == 0)
             {
                 tipOpreme = 0;
             }
             else
             {
-                tipOpreme = (TipOpreme)1;
+                tipOpreme = (InventoryType)1;
             }
             int kolicina = Convert.ToInt32(Kolicina.Text);
             Boolean isDeleted = (bool)IsDeleted.IsChecked;
 
-            Oprema o = new Oprema(idProstorije, sifra, naziv, tipOpreme, kolicina, isDeleted);
+            Inventory o = new Inventory(idProstorije, sifra, naziv, tipOpreme, kolicina, isDeleted);
 
-            int idProstorije2 = selektovana.IDprostorije;
-            String naziv2 = selektovana.Naziv;
-            TipProstorije tipProstorije = selektovana.TipProstorije;
+            int idProstorije2 = selektovana.RoomId;
+            String naziv2 = selektovana.Name;
+            RoomType tipProstorije = selektovana.RoomType;
             Boolean isDeleted2 = selektovana.IsDeleted;
             Boolean isActive = selektovana.IsActive;
-            Double kvadratura = selektovana.Kvadratura;
-            int brSprata = selektovana.BrSprata;
-            int brSobe = selektovana.BrSobe;
-            List<Oprema> opremaLista = selektovana.OpremaLista;
+            Double kvadratura = selektovana.Area;
+            int brSprata = selektovana.FloorNumber;
+            int brSobe = selektovana.RoomNumber;
+            List<Inventory> opremaLista = selektovana.InventoryList;
 
             opremaLista.Remove(opremaZaIzmenu);
             opremaLista.Add(o);
 
             //Oprema o = new Oprema(sifra, Name, tipOpreme, kolicina, IsDeleted);
             //OpremaFileStorage.UpdateOprema(opremaZaIzmenu.Sifra, o);
-            Prostorija p = new Prostorija(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
+            Room p = new Room(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
 
-            ProstorijaFileStorage.UpdateProstorija(selektovana.IDprostorije, p);
+            RoomFileRepoistory.UpdateRoom(selektovana.RoomId, p);
 
             //selektovana.OpremaLista.Remove(opremaZaIzmenu);
             //selektovana.OpremaLista.Add(o);

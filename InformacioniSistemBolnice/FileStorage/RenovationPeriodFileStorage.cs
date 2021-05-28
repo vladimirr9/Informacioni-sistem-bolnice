@@ -32,7 +32,7 @@ public class RenovationPeriodFileStorage
         return renovationPeriods;
     }
 
-    public static RenovationPeriod GetOne(Prostorija room)
+    public static RenovationPeriod GetOne(Room room)
     {
         List<RenovationPeriod> renovationPeriods = GetAll();
         foreach (RenovationPeriod rp in renovationPeriods)
@@ -45,7 +45,7 @@ public class RenovationPeriodFileStorage
         return null;
     }
 
-    public static Boolean RemoveRenovationPeriod(Prostorija room)
+    public static Boolean RemoveRenovationPeriod(Room room)
     {
         List<RenovationPeriod> renovationPeriods = GetAll();
         foreach (RenovationPeriod rp in renovationPeriods)
@@ -74,7 +74,7 @@ public class RenovationPeriodFileStorage
         return true;
     }
 
-    public static Boolean UpdateRenovationPeriod(Prostorija room, RenovationPeriod newRenovationPeriod)
+    public static Boolean UpdateRenovationPeriod(Room room, RenovationPeriod newRenovationPeriod)
     {
         List<RenovationPeriod> renovationPeriods = GetAll();
         foreach (RenovationPeriod rp in renovationPeriods)

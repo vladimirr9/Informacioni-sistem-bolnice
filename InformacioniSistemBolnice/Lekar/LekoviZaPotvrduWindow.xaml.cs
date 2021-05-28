@@ -31,12 +31,12 @@ namespace InformacioniSistemBolnice.Lekar
             if (LekoviList.SelectedItem != null)
             {
                 String naziv = LekoviList.SelectedItem.ToString();
-                List<Lek> lekovi = LekFileStorage.GetAll();
-                foreach (Lek l in lekovi)
+                List<Medicine> lekovi = MedicineFileRepository.GetAll();
+                foreach (Medicine l in lekovi)
                 {
-                    if (l.Naziv == naziv)
+                    if (l.Name == naziv)
                     {
-                        l.StatusLeka = StatusLeka.validiran;
+                        l.MedicineStatus = MedicineStatus.validated;
                     }
                 }
                 UpdateList();
@@ -52,11 +52,11 @@ namespace InformacioniSistemBolnice.Lekar
         private void UpdateList()
         {
             LekoviList.Items.Clear();
-            List<Lek> lekovi = LekFileStorage.GetAll();
-            foreach (Lek l in lekovi)
+            List<Medicine> lekovi = MedicineFileRepository.GetAll();
+            foreach (Medicine l in lekovi)
             {
-                if (!l.IsDeleted && l.StatusLeka.Equals(StatusLeka.cekaNaValidaciju))
-                    LekoviList.Items.Add(l.Naziv);
+                if (!l.IsDeleted && l.MedicineStatus.Equals(MedicineStatus.waitingForValidation))
+                    LekoviList.Items.Add(l.Name);
             }
         }
 
@@ -64,13 +64,13 @@ namespace InformacioniSistemBolnice.Lekar
         {
             SastavList.Items.Clear();
             String naziv = LekoviList.SelectedItem.ToString();
-            List<Lek> lekovi = LekFileStorage.GetAll();
-            foreach (Lek l in lekovi)
+            List<Medicine> lekovi = MedicineFileRepository.GetAll();
+            foreach (Medicine l in lekovi)
             {
-                if (l.Naziv == naziv)
+                if (l.Name == naziv)
                 {
                     Console.WriteLine(naziv);
-                    foreach (Ingredient s in l.ListaSastojaka)
+                    foreach (Ingredient s in l.IngredientsList)
                     {
                         SastavList.Items.Add(s.Name);
                     }

@@ -38,8 +38,8 @@ namespace InformacioniSistemBolnice.Upravnik
                 MessageBoxResult odgovor = MessageBox.Show("Da li želite da obrišete selektovani lek?", "Potvrda brisanja leka", MessageBoxButton.YesNo);
                 if (odgovor == MessageBoxResult.Yes)
                 {
-                    Lek selektovan = (Lek)dataGridLekovi.SelectedItem;
-                    selektovan.StatusLeka = StatusLeka.cekaNaValidaciju;
+                    Medicine selektovan = (Medicine)dataGridLekovi.SelectedItem;
+                    selektovan.MedicineStatus = MedicineStatus.waitingForValidation;
                     //LekFileStorage.RemoveLek(selektovan.Naziv);
                     //dataGridLekovi.Items.Remove(dataGridLekovi.SelectedItem);
                     updateTable();
@@ -51,10 +51,10 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             if (dataGridLekovi.SelectedItem != null)
             {
-                Lek l = (Lek)dataGridLekovi.SelectedItem;
-                if (l.StatusLeka == StatusLeka.validiran || l.StatusLeka == StatusLeka.odbijen)
+                Medicine l = (Medicine)dataGridLekovi.SelectedItem;
+                if (l.MedicineStatus == MedicineStatus.validated || l.MedicineStatus == MedicineStatus.rejected)
                 {
-                    Lek lekZaIzmenu = LekFileStorage.GetOne(l.Sifra);
+                    Medicine lekZaIzmenu = MedicineFileRepository.GetOne(l.Id);
                     IzmenaLekaWindow prozor = new IzmenaLekaWindow(lekZaIzmenu, this);
                     prozor.Show();
                 }
@@ -80,8 +80,8 @@ namespace InformacioniSistemBolnice.Upravnik
         public void updateTable()
         {
             dataGridLekovi.Items.Clear();
-            List<Lek> lekovi = LekFileStorage.GetAll();
-            foreach (Lek l in lekovi)
+            List<Medicine> lekovi = MedicineFileRepository.GetAll();
+            foreach (Medicine l in lekovi)
             {
                 if (!l.IsDeleted)
                     dataGridLekovi.Items.Add(l);
@@ -105,14 +105,14 @@ namespace InformacioniSistemBolnice.Upravnik
         private void dataGridLekovi_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SastojciLeka.Items.Clear();
-            Lek selected = (Lek)dataGridLekovi.SelectedItem;
-            foreach(Lek med in LekFileStorage.GetAll())
+            Medicine selected = (Medicine)dataGridLekovi.SelectedItem;
+            foreach(Medicine med in MedicineFileRepository.GetAll())
             {
-                if(med.Naziv == selected.Naziv)
+                if(med.Name == selected.Name)
                 {
                     foreach (Ingredient i in IngredientFileStorage.GetAll())
                     {
-                        if (selected.ListaSastojaka.Contains(i))
+                        if (selected.IngredientsList.Contains(i))
                         {
                             SastojciLeka.Items.Add(i);
                         }

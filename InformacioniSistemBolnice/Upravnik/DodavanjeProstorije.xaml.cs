@@ -30,28 +30,28 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             String naziv = Naziv.Text;
             int iDprostorije = Convert.ToInt32(IDprostorije.Text);
-            TipProstorije tipProstorije; //= (TipProstorije)TipProstorije.SelectedItem;
+            RoomType tipProstorije; //= (TipProstorije)TipProstorije.SelectedItem;
             if (TipProstorije.SelectedIndex == 0)
             {
                 tipProstorije = 0;
             }
             else if (TipProstorije.SelectedIndex == 1)
             {
-                tipProstorije = (TipProstorije)1;
+                tipProstorije = (RoomType)1;
             }
             else
             {
-                tipProstorije = (TipProstorije)2;
+                tipProstorije = (RoomType)2;
             }
             Boolean isDeleted = false;
             Boolean isActive = (Boolean)IsActive.IsChecked;
             Double kvadratura = Convert.ToDouble(Kvadratura.Text);
             int brSprata = Convert.ToInt32(BrSprata.Text);
             int brSobe = Convert.ToInt32(BrSobe.Text);
-            List<Oprema> opremaLista = new List<Oprema>();
+            List<Inventory> opremaLista = new List<Inventory>();
 
-            Prostorija p = new Prostorija(naziv, iDprostorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista);
-            ProstorijaFileStorage.AddProstorija(p);
+            Room p = new Room(naziv, iDprostorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista);
+            RoomFileRepoistory.AddRoom(p);
             parent.updateTable();
             this.Close();
         }

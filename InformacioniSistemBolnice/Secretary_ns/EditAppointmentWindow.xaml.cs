@@ -20,7 +20,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private AppointmentsPage _parent;
         private List<global::Lekar> _doctors;
         private List<Pacijent> _patients;
-        private List<Prostorija> _rooms;
+        private List<Room> _rooms;
         private List<String> _times;
         private Termin _selectedAppointment;
         private bool _confirmed;
@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
             _doctors = LekarFileStorage.GetAll();
             DoctorComboBox.ItemsSource = _doctors;
-            _rooms = ProstorijaFileStorage.GetAll();
+            _rooms = RoomFileRepoistory.GetAll();
             RoomComboBox.ItemsSource = _rooms;
 
             _patients = new List<Pacijent>();
@@ -60,9 +60,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
 
 
-            foreach (Prostorija room in _rooms)
+            foreach (Room room in _rooms)
             {
-                if (room.IDprostorije == selectedAppointment.Prostorija.IDprostorije)
+                if (room.RoomId == selectedAppointment.Prostorija.RoomId)
                 {
                     RoomComboBox.SelectedItem = room;
                 }
@@ -80,7 +80,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             Pacijent patient = (Pacijent)PatientComboBox.SelectedItem;
             global::Lekar doctor = (global::Lekar)DoctorComboBox.SelectedItem;
-            Prostorija room = (Prostorija)RoomComboBox.SelectedItem;
+            Room room = (Room)RoomComboBox.SelectedItem;
             String selectedTime = AppointmentTime.SelectedItem.ToString();
             String selectedDate = DatePicker.Text;
             DateTime selectedDateTime = DateTime.Parse(selectedDate + " " + selectedTime);
@@ -165,8 +165,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         }
         private void UpdateAvailableRoomList(DateTime start, DateTime end)
         {
-            _rooms = new List<Prostorija>();
-            foreach (Prostorija room in ProstorijaFileStorage.GetAll())
+            _rooms = new List<Room>();
+            foreach (Room room in RoomFileRepoistory.GetAll())
             {
                 if (room.IsAvailable(start, end) && !room.IsDeleted)
                 {

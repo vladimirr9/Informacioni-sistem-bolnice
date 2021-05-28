@@ -20,19 +20,19 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class RasporedjivanjeOpreme : Window
     {
         private OpremaWindow parent;
-        private Oprema selektovana;
-        private Prostorija izabrana;
-        public RasporedjivanjeOpreme(Prostorija p, Oprema o, OpremaWindow parent)
+        private Inventory selektovana;
+        private Room izabrana;
+        public RasporedjivanjeOpreme(Room p, Inventory o, OpremaWindow parent)
         {
             InitializeComponent();
             this.parent = parent;
             selektovana = o;
             izabrana = p;
-            List<Prostorija> prostorijeSve = ProstorijaFileStorage.GetAll();
-            List<Prostorija> prostorije = new List<Prostorija>();
-            foreach (Prostorija pr in prostorijeSve)
+            List<Room> prostorijeSve = RoomFileRepoistory.GetAll();
+            List<Room> prostorije = new List<Room>();
+            foreach (Room pr in prostorijeSve)
             {
-                if (!izabrana.Naziv.Equals(pr.Naziv))
+                if (!izabrana.Name.Equals(pr.Name))
                 {
                     prostorije.Add(pr);
                 }
@@ -42,57 +42,57 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void RasporediOpremu(object sender, RoutedEventArgs e)
         {
-            Prostorija prostorija = (Prostorija)Prostorija.SelectedItem;
+            Room prostorija = (Room)Prostorija.SelectedItem;
             int kolicina = Convert.ToInt32(Kolicina.Text);
 
-            int idProstorije = prostorija.IDprostorije;
-            String naziv = prostorija.Naziv;
-            TipProstorije tipProstorije = prostorija.TipProstorije;
+            int idProstorije = prostorija.RoomId;
+            String naziv = prostorija.Name;
+            RoomType tipProstorije = prostorija.RoomType;
             Boolean isDeleted = prostorija.IsDeleted;
             Boolean isActive = prostorija.IsActive;
-            Double kvadratura = prostorija.Kvadratura;
-            int brSprata = prostorija.BrSprata;
-            int brSobe = prostorija.BrSobe;
-            List<Oprema> opremaLista1 = prostorija.OpremaLista;
+            Double kvadratura = prostorija.Area;
+            int brSprata = prostorija.FloorNumber;
+            int brSobe = prostorija.RoomNumber;
+            List<Inventory> opremaLista1 = prostorija.InventoryList;
 
-            foreach (Oprema o in opremaLista1)
+            foreach (Inventory o in opremaLista1)
             {
-                if (o.Sifra.Equals(selektovana.Sifra) && selektovana.Kolicina > kolicina)
+                if (o.Id.Equals(selektovana.Id) && selektovana.Quantity > kolicina)
                 {
-                    opremaLista1[opremaLista1.IndexOf(o)].Kolicina += kolicina;
+                    opremaLista1[opremaLista1.IndexOf(o)].Quantity += kolicina;
                 }
             }
 
-            int idProstorije2 = izabrana.IDprostorije;
-            String naziv2 = izabrana.Naziv;
-            TipProstorije tipProstorije2 = izabrana.TipProstorije;
+            int idProstorije2 = izabrana.RoomId;
+            String naziv2 = izabrana.Name;
+            RoomType tipProstorije2 = izabrana.RoomType;
             Boolean isDeleted2 = izabrana.IsDeleted;
             Boolean isActive2 = izabrana.IsActive;
-            Double kvadratura2 = izabrana.Kvadratura;
-            int brSprata2 = izabrana.BrSprata;
-            int brSobe2 = izabrana.BrSobe;
-            List<Oprema> opremaLista2 = izabrana.OpremaLista;
+            Double kvadratura2 = izabrana.Area;
+            int brSprata2 = izabrana.FloorNumber;
+            int brSobe2 = izabrana.RoomNumber;
+            List<Inventory> opremaLista2 = izabrana.InventoryList;
 
-            foreach (Oprema o in opremaLista2)
+            foreach (Inventory o in opremaLista2)
             {
-                if (o.Sifra.Equals(selektovana.Sifra) && selektovana.Kolicina > kolicina)
+                if (o.Id.Equals(selektovana.Id) && selektovana.Quantity > kolicina)
                 {
-                    opremaLista2[opremaLista2.IndexOf(o)].Kolicina -= kolicina;
+                    opremaLista2[opremaLista2.IndexOf(o)].Quantity -= kolicina;
                 }
             }
 
-            Prostorija p1 = new Prostorija(naziv, idProstorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista1);
+            Room p1 = new Room(naziv, idProstorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista1);
             //int novaKolicina = RoomComboBox.GetOne(selektovana.Sifra).Kolicina + kolicina;
             //izabrana.GetOne(selektovana.Sifra).Kolicina -= kolicina;
-            ProstorijaFileStorage.UpdateProstorija(prostorija.IDprostorije, p1);
+            RoomFileRepoistory.UpdateRoom(prostorija.RoomId, p1);
             parent.updateTable();
 
-            Prostorija p2 = new Prostorija(naziv2, idProstorije2, tipProstorije2, isDeleted2, isActive2, kvadratura2, brSprata2, brSobe2, opremaLista2);
-            ProstorijaFileStorage.UpdateProstorija(izabrana.IDprostorije, p2);
+            Room p2 = new Room(naziv2, idProstorije2, tipProstorije2, isDeleted2, isActive2, kvadratura2, brSprata2, brSobe2, opremaLista2);
+            RoomFileRepoistory.UpdateRoom(izabrana.RoomId, p2);
 
             parent.updateTable();
 
-            if (selektovana.Kolicina < kolicina)
+            if (selektovana.Quantity < kolicina)
             {
                 MessageBoxResult odgovor = MessageBox.Show("Nema dovoljno opreme", "Greška", MessageBoxButton.OK);
                 if (odgovor == MessageBoxResult.OK)

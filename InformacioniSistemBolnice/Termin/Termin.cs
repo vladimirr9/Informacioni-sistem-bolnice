@@ -21,7 +21,7 @@ public class Termin
     [JsonIgnore]
     private Pacijent pacijent;
     [JsonIgnore]
-    private Prostorija prostorija;
+    private Room prostorija;
 
     public String anamneza { get; set; }
 
@@ -65,7 +65,7 @@ public class Termin
     }
 
 
-    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Lekar lekar, Prostorija prostorija)
+    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Lekar lekar, Room prostorija)
     {
         this.iDTermina = iDTermina;
         this.datumZakazivanja = datumZakazivanja;
@@ -75,7 +75,7 @@ public class Termin
         Pacijent = pacijent;
         Lekar = lekar;
         Prostorija = prostorija;
-        IdProstorije = prostorija.IDprostorije;
+        IdProstorije = prostorija.RoomId;
         KorisnickoImeLekara = lekar.korisnickoIme;
         KorisnickoImePacijenta = pacijent.korisnickoIme;
     }
@@ -120,11 +120,11 @@ public class Termin
         }
     }
     [JsonIgnore]
-    public Prostorija Prostorija
+    public Room Prostorija
     {
         get
         {
-            return ProstorijaFileStorage.GetOne(IdProstorije);
+            return RoomFileRepoistory.GetOne(IdProstorije);
         }
         set
         {
@@ -132,13 +132,13 @@ public class Termin
             {
                 if (this.prostorija != null)
                 {
-                    Prostorija oldProstorija = this.prostorija;
+                    Room oldProstorija = this.prostorija;
                     this.prostorija = null;
                 }
                 if (value != null)
                 {
                     this.prostorija = value;
-                    IdProstorije = this.prostorija.IDprostorije;
+                    IdProstorije = this.prostorija.RoomId;
                 }
             }
         }

@@ -20,14 +20,14 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class OpremaWindow : Window
     {
         private WindowProstorije parent;
-        private Prostorija selektovana;
-        public OpremaWindow(Prostorija selektovana, WindowProstorije parent)
+        private Room selektovana;
+        public OpremaWindow(Room selektovana, WindowProstorije parent)
         {
             this.parent = parent;
             this.selektovana = selektovana;
             InitializeComponent();
             this.DataContext = this;
-            if (selektovana.OpremaLista != null)
+            if (selektovana.InventoryList != null)
             {
                 updateTable();
             }
@@ -48,9 +48,9 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             if (dataGridOprema.SelectedItem != null)
             {
-                Oprema o = (Oprema)dataGridOprema.SelectedItem;
+                Inventory o = (Inventory)dataGridOprema.SelectedItem;
                 //Oprema opremaZaIzmenu = OpremaFileStorage.GetOne(o.Sifra);
-                Oprema opremaZaIzmenu = selektovana.GetOne(o.Sifra);
+                Inventory opremaZaIzmenu = selektovana.GetOne(o.Id);
                 IzmenaOpreme prozor = new IzmenaOpreme(selektovana, opremaZaIzmenu, this);
                 prozor.Show();
             }
@@ -63,30 +63,30 @@ namespace InformacioniSistemBolnice.Upravnik
                 MessageBoxResult odgovor = MessageBox.Show("Da li želite da obrišete selektovanu opremu?", "Potvrda brisanja opreme", MessageBoxButton.YesNo);
                 if (odgovor == MessageBoxResult.Yes)
                 {
-                    Oprema selektovan = (Oprema)dataGridOprema.SelectedItem;
+                    Inventory selektovan = (Inventory)dataGridOprema.SelectedItem;
                     //OpremaFileStorage.RemoveOprema(selektovan.Sifra);
                     //selektovana.OpremaLista.Remove(selektovan);
                     dataGridOprema.Items.Remove(dataGridOprema.SelectedItem);
 
-                    int idProstorije = selektovana.IDprostorije;
-                    String naziv = selektovana.Naziv;
-                    TipProstorije tipProstorije = selektovana.TipProstorije;
+                    int idProstorije = selektovana.RoomId;
+                    String naziv = selektovana.Name;
+                    RoomType tipProstorije = selektovana.RoomType;
                     Boolean isDeleted = selektovana.IsDeleted;
                     Boolean isActive = selektovana.IsActive;
-                    Double kvadratura = selektovana.Kvadratura;
-                    int brSprata = selektovana.BrSprata;
-                    int brSobe = selektovana.BrSobe;
-                    List<Oprema> opremaLista = selektovana.OpremaLista;
+                    Double kvadratura = selektovana.Area;
+                    int brSprata = selektovana.FloorNumber;
+                    int brSobe = selektovana.RoomNumber;
+                    List<Inventory> opremaLista = selektovana.InventoryList;
 
-                    foreach (Oprema op in opremaLista.ToList())
+                    foreach (Inventory op in opremaLista.ToList())
                     {
-                        if (op.Sifra.Equals(selektovan.Sifra))
+                        if (op.Id.Equals(selektovan.Id))
                         {
                             opremaLista.Remove(selektovan);
                         }
                     }
-                    Prostorija p = new Prostorija(naziv, idProstorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista);
-                    ProstorijaFileStorage.UpdateProstorija(idProstorije, p);
+                    Room p = new Room(naziv, idProstorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista);
+                    RoomFileRepoistory.UpdateRoom(idProstorije, p);
                     //List<Oprema> oprema = selektovana.OpremaLista;
                     //oprema[oprema.IndexOf(selektovan)].IsDeleted = true;
                     updateTable();
@@ -98,9 +98,9 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             if (dataGridOprema.SelectedItem != null)
             {
-                Oprema o = (Oprema)dataGridOprema.SelectedItem;
-                Oprema opremaZaPremestanje = selektovana.GetOne(o.Sifra);
-                if (o.TipOpreme == TipOpreme.dinamicka)
+                Inventory o = (Inventory)dataGridOprema.SelectedItem;
+                Inventory opremaZaPremestanje = selektovana.GetOne(o.Id);
+                if (o.InventoryType == InventoryType.dinamicInventory)
                 {
                     RasporedjivanjeOpreme prozor = new RasporedjivanjeOpreme(selektovana, opremaZaPremestanje, this);
                     prozor.Show();
@@ -117,8 +117,8 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             dataGridOprema.Items.Clear();
             //List<Oprema> oprema = OpremaFileStorage.GetAll();
-            List<Oprema> opremaLista = selektovana.OpremaLista;
-            foreach (Oprema o in opremaLista)
+            List<Inventory> opremaLista = selektovana.InventoryList;
+            foreach (Inventory o in opremaLista)
             {
                 if (!o.IsDeleted)
                     dataGridOprema.Items.Add(o);
@@ -128,8 +128,8 @@ namespace InformacioniSistemBolnice.Upravnik
         private void Pretraga_TextChanged(object sender, KeyEventArgs e)
         {
             dataGridOprema.Items.Clear();
-            List<Oprema> opremaLista = selektovana.OpremaLista;
-            var filtered = opremaLista.Where(oprema => oprema.Naziv.StartsWith(Pretraga.Text) || oprema.Naziv.Contains(Pretraga.Text));
+            List<Inventory> opremaLista = selektovana.InventoryList;
+            var filtered = opremaLista.Where(oprema => oprema.Name.StartsWith(Pretraga.Text) || oprema.Name.Contains(Pretraga.Text));
 
             dataGridOprema.ItemsSource = filtered;
         }

@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice.Lekar
             lekar.ItemsSource = lekari;
             List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
             pacijent.ItemsSource = pacijenti;
-            List<Prostorija> prostorije = ProstorijaFileStorage.GetAll();
+            List<Room> prostorije = RoomFileRepoistory.GetAll();
             prostorija.ItemsSource = prostorije;
 
             date.SelectedDate = selektovan.datumZakazivanja;
@@ -51,9 +51,9 @@ namespace InformacioniSistemBolnice.Lekar
 
             tip.SelectedIndex = (int)selektovan.tipTermina;
 
-            foreach (Prostorija pr in prostorije)
+            foreach (Room pr in prostorije)
             {
-                if (pr.IDprostorije == selektovan.Prostorija.IDprostorije)
+                if (pr.RoomId == selektovan.Prostorija.RoomId)
                     prostorija.SelectedItem = pr;
             }
         }
@@ -68,7 +68,7 @@ namespace InformacioniSistemBolnice.Lekar
         {
             Pacijent p = (Pacijent)pacijent.SelectedItem;
             global::Lekar l = (global::Lekar)lekar.SelectedItem;
-            Prostorija prostor = (Prostorija)prostorija.SelectedItem;
+            Room prostor = (Room)prostorija.SelectedItem;
             if (time.SelectedIndex != -1)
             {
                 ComboBoxItem item = time.SelectedItem as ComboBoxItem;

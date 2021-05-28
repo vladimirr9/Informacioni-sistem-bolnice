@@ -19,20 +19,20 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class IzmenaProstorije : Window
     {
-        private Prostorija prostorijaZaIzmenu;
+        private Room prostorijaZaIzmenu;
         private WindowProstorije parent;
-        public IzmenaProstorije(Prostorija p, WindowProstorije parent)
+        public IzmenaProstorije(Room p, WindowProstorije parent)
         {
             prostorijaZaIzmenu = p;
             InitializeComponent();
 
-            Naziv.Text = prostorijaZaIzmenu.Naziv;
-            IDprostorije.Text = prostorijaZaIzmenu.IDprostorije.ToString();
-            if (prostorijaZaIzmenu.TipProstorije == 0)
+            Naziv.Text = prostorijaZaIzmenu.Name;
+            IDprostorije.Text = prostorijaZaIzmenu.RoomId.ToString();
+            if (prostorijaZaIzmenu.RoomType == 0)
             {
                 TipProstorije.SelectedIndex = 0;
             }
-            else if (prostorijaZaIzmenu.TipProstorije == (TipProstorije)1)
+            else if (prostorijaZaIzmenu.RoomType == (RoomType)1)
             {
                 TipProstorije.SelectedIndex = 1;
             }
@@ -42,9 +42,9 @@ namespace InformacioniSistemBolnice.Upravnik
             }
             //IsDeleted.IsChecked = prostorijaZaIzmenu.IsDeleted;
             IsActive.IsChecked = prostorijaZaIzmenu.IsActive;
-            Kvadratura.Text = prostorijaZaIzmenu.Kvadratura.ToString();
-            BrSprata.Text = prostorijaZaIzmenu.BrSprata.ToString();
-            BrSobe.Text = prostorijaZaIzmenu.BrSobe.ToString();
+            Kvadratura.Text = prostorijaZaIzmenu.Area.ToString();
+            BrSprata.Text = prostorijaZaIzmenu.FloorNumber.ToString();
+            BrSobe.Text = prostorijaZaIzmenu.RoomNumber.ToString();
             this.parent = parent;
         }
 
@@ -52,28 +52,28 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             String naziv = Naziv.Text;
             int iDprostorije = Convert.ToInt32(IDprostorije.Text);
-            TipProstorije tipProstorije; // = (TipProstorije)TipProstorije.SelectedItem;
+            RoomType tipProstorije; // = (TipProstorije)TipProstorije.SelectedItem;
             if (TipProstorije.SelectedIndex == 0)
             {
                 tipProstorije = 0;
             }
             else if (TipProstorije.SelectedIndex == 1)
             {
-                tipProstorije = (TipProstorije)1;
+                tipProstorije = (RoomType)1;
             }
             else
             {
-                tipProstorije = (TipProstorije)2;
+                tipProstorije = (RoomType)2;
             }
             Boolean isDeleted = false;
             Boolean isActive = (Boolean)IsActive.IsChecked;
             Double kvadratura = Convert.ToDouble(Kvadratura.Text);
             int brSprata = Convert.ToInt32(BrSprata.Text);
             int brSobe = Convert.ToInt32(BrSobe.Text);
-            List<Oprema> opremaLista = prostorijaZaIzmenu.OpremaLista;
+            List<Inventory> opremaLista = prostorijaZaIzmenu.InventoryList;
 
-            Prostorija p = new Prostorija(naziv, iDprostorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista);
-            ProstorijaFileStorage.UpdateProstorija(prostorijaZaIzmenu.IDprostorije, p);
+            Room p = new Room(naziv, iDprostorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista);
+            RoomFileRepoistory.UpdateRoom(prostorijaZaIzmenu.RoomId, p);
             parent.updateTable();
             Close();
         }

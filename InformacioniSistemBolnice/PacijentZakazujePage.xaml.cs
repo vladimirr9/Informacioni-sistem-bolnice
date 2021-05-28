@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice
         private PocetnaPacijent parent;
         private List<string> availableTimes;
         private List<global::Lekar> lekari;
-        private List<Prostorija> prostorije;
+        private List<Room> prostorije;
         private Pacijent pacijent;
         public PacijentZakazujePage(PocetnaPacijent p)
         {
@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
             availableTimes = new List<string>();
             timeComboBox();
             dugmePotvrdi.IsEnabled = false;
-            prostorije = ProstorijaFileStorage.GetAll();
+            prostorije = RoomFileRepoistory.GetAll();
             BlackOutDates();
             lekari = new List<global::Lekar>();
             foreach (global::Lekar l in LekarFileStorage.GetAll())
@@ -100,7 +100,7 @@ namespace InformacioniSistemBolnice
                 DateTime end;
                 CalculateStartAndEnd(out start, out end);
 
-                Prostorija prvaDostupnaProstorija = GetAvailableRoom(start, end);
+                Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
                 Termin termin = new Termin(id, dt, trajanjePregleda, tipt, StatusTermina.zakazan, p, l, prvaDostupnaProstorija);
                 TerminFileStorage.AddTermin(termin);
                 PregledTerminaPage ptp = new PregledTerminaPage(parent);
@@ -236,10 +236,10 @@ namespace InformacioniSistemBolnice
             UpdateComponents();
         }
 
-        private Prostorija GetAvailableRoom(DateTime pocetak, DateTime kraj)
+        private Room GetAvailableRoom(DateTime pocetak, DateTime kraj)
         {
-            prostorije = new List<Prostorija>();
-            foreach (Prostorija prostorija in ProstorijaFileStorage.GetAll())
+            prostorije = new List<Room>();
+            foreach (Room prostorija in RoomFileRepoistory.GetAll())
             {
                 if (prostorija.IsAvailable(pocetak, kraj) && !prostorija.IsDeleted)
                 {
