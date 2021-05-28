@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.FileStorage;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Secretary_ns
 {
@@ -20,16 +21,21 @@ namespace InformacioniSistemBolnice.Secretary_ns
     {
         private StartingPage _parent;
         private Notification initialNotification;
-        private List<String> _recipients;
+        private NotificationController _notificationController = new NotificationController();
+        public List<String> Recipients { get; set; }
+        public string NotificationTitle { get; set; }
+        public string NotificationContent { get; set; }
         public EditNotificationWindow(StartingPage parent, Notification initialNotification)
         {
             this._parent = parent;
+            
             this.initialNotification = initialNotification;
             InitializeComponent();
+            this.DataContext = this;
             InitializeRecipients();
 
-            TitleTextBox.Text = initialNotification.Title;
-            ContentTextBox.Text = initialNotification.Content;
+            NotificationTitle = initialNotification.Title;
+            NotificationContent = initialNotification.Content;
 
         }
 
@@ -37,10 +43,11 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            initialNotification.Title = TitleTextBox.Text;
-            initialNotification.Content = ContentTextBox.Text;
+            initialNotification.Title = NotificationTitle;
+            initialNotification.Content = NotificationContent;
             initialNotification.CreationDate = DateTime.Now;
 
+            _notificationController.Update(initialNotification.ID, initialNotification);
             NotificationFileStorage.UpdateNotification(initialNotification.ID, initialNotification);
             _parent.UpdateTable();
             Close();
@@ -48,17 +55,16 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void InitializeRecipients()
         {
-            _recipients = new List<String>();
-            _recipients.Add("Svi korisnici");
-            _recipients.Add("Zaposleni");
-            _recipients.Add("Svi pacijenti");
+            Recipients = new List<String>();
+            Recipients.Add("Svi korisnici");
+            Recipients.Add("Zaposleni");
+            Recipients.Add("Svi pacijenti");
             foreach (Pacijent patient in PacijentFileStorage.GetAll())
             {
                 if (!patient.isDeleted)
-                    _recipients.Add(patient.ime + " " + patient.prezime + " - " + patient.korisnickoIme);
+                    Recipients.Add(patient.ime + " " + patient.prezime + " - " + patient.korisnickoIme);
             }
-            Primalac.ItemsSource = _recipients;
-            Primalac.SelectedIndex = 0;
+            RecipientsListBox.SelectedIndex = 0;
         }
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {

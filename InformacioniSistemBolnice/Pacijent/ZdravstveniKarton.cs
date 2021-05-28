@@ -28,13 +28,13 @@ public class ZdravstveniKarton
             if (value != null)
             {
                 foreach (Ingredient oAlergen in value)
-                    AddSastojak(oAlergen);
+                    AddAllergen(oAlergen);
             }
         }
     }
 
 
-    public void AddSastojak(Ingredient newAlergen)
+    public void AddAllergen(Ingredient newAlergen)
     {
         if (newAlergen == null)
             return;

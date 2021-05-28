@@ -24,9 +24,26 @@ namespace InformacioniSistemBolnice.Service
             PacijentFileStorage.AddPacijent(patient);
         }
 
-        internal void Unban(Pacijent patient)
+        public void Remove(Pacijent patient)
+        {
+            PacijentFileStorage.RemovePacijent(patient.korisnickoIme);
+        }
+
+        public void Unban(Pacijent patient)
         {
             patient.Banovan = false;
+            PacijentFileStorage.UpdatePacijent(patient.korisnickoIme, patient);
+        }
+
+        public void RemoveAllergen(Pacijent patient, Ingredient allergen)
+        {
+            patient.zdravstveniKarton.RemoveAlergen(allergen);
+            PacijentFileStorage.UpdatePacijent(patient.korisnickoIme, patient);
+        }
+
+        public void AddAllergen(Pacijent patient, Ingredient allergen)
+        {
+            patient.zdravstveniKarton.AddAllergen(allergen);
             PacijentFileStorage.UpdatePacijent(patient.korisnickoIme, patient);
         }
 

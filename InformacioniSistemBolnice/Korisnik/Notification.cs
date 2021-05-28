@@ -58,6 +58,24 @@ namespace InformacioniSistemBolnice.Korisnik
             return false;
         }
 
+        public void FillRecipients(List<string> recipients)
+        {
+            foreach (var item in recipients)
+            {
+                if (item.Equals("Svi korisnici"))
+                    Recipients.Add("ALL_USERS");
+                else if (item.Equals("Zaposleni"))
+                    Recipients.Add("EMPLOYED_USERS");
+                else if (item.Equals("Svi pacijenti"))
+                    Recipients.Add("PATIENT_USERS");
+                else
+                {
+                    String username = item.ToString().Split('-')[1].Trim();
+                    Recipients.Add(username);
+                }
+            }
+        }
+
 
     }
 }

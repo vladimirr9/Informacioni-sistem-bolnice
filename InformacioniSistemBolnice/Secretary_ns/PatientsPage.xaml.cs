@@ -60,8 +60,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
             var result = MessageBox.Show("Da li ste sigurni da želite da obrišete ovog pacijenta?", "Potvrda brisanja", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.No)
                 return;
-            
-            PacijentFileStorage.RemovePacijent(((Pacijent)(PatientsDataGrid.SelectedItem)).korisnickoIme);
+
+            Pacijent patient = (Pacijent) PatientsDataGrid.SelectedItem;
+            _patientController.Remove(patient);
             UpdateTable();
             
             

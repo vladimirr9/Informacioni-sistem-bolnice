@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.FileStorage;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,6 +76,14 @@ namespace InformacioniSistemBolnice.Lekar
             if (anamneza.Trim() != "")
             {
                 termin.anamneza = anamneza;
+
+
+                int idOfAnamnesis = AnamnesisFileRepository.GetAll().Count + 1;
+                Anamnesis newAnamnesis = new Anamnesis(anamneza, null, selektovan.korisnickoIme, idOfAnamnesis, DateTime.Now, termin.iDTermina);
+                AnamnesisFileRepository.AddAnamnesis(newAnamnesis);// - dodati u prikaz kartona
+
+
+
                 TerminFileStorage.UpdateTermin(termin.iDTermina, termin);
             }
         }
