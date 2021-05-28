@@ -46,7 +46,7 @@ namespace InformacioniSistemBolnice
 
         private void pregledAnamneza_Click(object sender, RoutedEventArgs e)
         {
-            borderWindow.Content = new PregledAnamnezaPage();
+            borderWindow.Content = new PregledAnamnezaPage(parent,this);
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
