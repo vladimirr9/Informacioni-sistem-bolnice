@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice
 {
@@ -29,6 +30,7 @@ namespace InformacioniSistemBolnice
             updateVisibility();
             this.DataContext = this;
             LoadNotifications();
+            LoadReminders();
         }
         private void LoadNotifications()
         {
@@ -43,6 +45,23 @@ namespace InformacioniSistemBolnice
             }
         }
 
+        private void LoadReminders()
+        {
+            List<Anamnesis> anamneses = AnamnesisFileRepository.GetAll();
+            foreach (Anamnesis a in anamneses)
+            {
+                if (a.UsernameOfPatient.Equals(parent.Pacijent.korisnickoIme))
+                {
+                    foreach (Note n in a.NotesForAnamnesis)
+                    {
+                        if (n.IsSetReminder == true)
+                        {
+                            PrikazObavjestenja.Items.Add(n.DescriptionOfNote);
+                        }
+                    }
+                }
+            }
+        }
 
 
         private void updateVisibility()
