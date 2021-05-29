@@ -23,6 +23,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using InformacioniSistemBolnice.Patient_ns;
 
 namespace InformacioniSistemBolnice
 {
@@ -59,9 +60,9 @@ namespace InformacioniSistemBolnice
 
                     String ime = pacijent.korisnickoIme;
                             
-                            PocetnaPacijent pp = new PocetnaPacijent(pacijent);
+                            StartPatientWindow pp = new StartPatientWindow(pacijent);
                             Application.Current.MainWindow = pp;
-                            pp.startWindow.Content = new StartPacijentPage(pp);
+                            pp.startWindow.Content = new StartPatientPage(pp);
                             pp.Show();
                             this.Close();
                             return;
