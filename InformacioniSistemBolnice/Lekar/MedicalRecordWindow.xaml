@@ -33,15 +33,9 @@
                 <Grid Background="#FFE5E5E5">
                     <Label Content="Alergije:" HorizontalAlignment="Left" Margin="150,53,0,0" VerticalAlignment="Top" FontSize="20"/>
                     <Label Content="Dodaj alergiju:" HorizontalAlignment="Left" Margin="93,277,0,0" VerticalAlignment="Top" FontSize="20"/>
-                    <ListView x:Name="AllergiesiList" HorizontalAlignment="Left" Height="189" Margin="264,53,0,0" VerticalAlignment="Top" Width="200">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Naziv alergena" Width="200" DisplayMemberBinding="{Binding naziv}"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="499,279,0,0" VerticalAlignment="Top" Width="106" Height="35" Background="#FF2B78E4" Foreground="White"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="264,279,0,0" VerticalAlignment="Top" Width="200" Height="35"/>
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="499,279,0,0" VerticalAlignment="Top" Width="106" Height="35" Background="#FF2B78E4" Foreground="White" Click="Button_Click_3"/>
+                    <ComboBox x:Name="AllergiesComboBox" HorizontalAlignment="Left" Margin="264,279,0,0" VerticalAlignment="Top" Width="200" Height="35" DisplayMemberPath="Name"/>
+                    <ListBox x:Name="AllergiesList" HorizontalAlignment="Left" Height="183" Margin="264,53,0,0" VerticalAlignment="Top" Width="200" FontSize="20"/>
 
                 </Grid>
             </TabItem>
@@ -61,25 +55,30 @@
             </TabItem>
             <TabItem Header="Terapija">
                 <Grid Background="#FFE5E5E5">
-                    <Label Content="Naziv leka" HorizontalAlignment="Left" Margin="176,47,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Opis" HorizontalAlignment="Left" Margin="206,122,0,0" VerticalAlignment="Top"/>
-                    <RichTextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="100" Margin="277,122,0,0" VerticalAlignment="Top" Width="156">
+                    <RichTextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="100" Margin="192,122,0,0" VerticalAlignment="Top" Width="276">
                         <FlowDocument>
                             <Paragraph>
                                 <Run Text=""/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
-                    <DatePicker x:Name="BeginDatePicker" HorizontalAlignment="Left" Margin="206,253,0,0" VerticalAlignment="Top"/>
-                    <DatePicker x:Name="EndDatePicker" HorizontalAlignment="Left" Margin="382,253,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Pocetak
-                           " HorizontalAlignment="Left" Margin="133,252,0,0" VerticalAlignment="Top" Width="54"/>
-                    <Label Content="Kraj" HorizontalAlignment="Left" Margin="341,251,0,0" VerticalAlignment="Top" Width="54"/>
-                    <TextBox x:Name="FrequencyTextBox" HorizontalAlignment="Left" Height="23" Margin="341,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47"/>
-                    <Label Content="Na svaka" HorizontalAlignment="Left" Margin="277,304,0,0" VerticalAlignment="Top"/>
-                    <Label Content="dana." HorizontalAlignment="Left" Margin="394,304,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.02,0.586"/>
-                    <Button Content="Izdaj terapiju" HorizontalAlignment="Left" Margin="550,47,0,0" VerticalAlignment="Top" Width="81" Height="26" Click="Button_Click" Background="#FF2B78E4" Foreground="White"/>
-                    <TextBox x:Name="DrugsTextBox" HorizontalAlignment="Left" Height="26" Margin="277,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="156"/>
+                    <DatePicker x:Name="BeginDatePicker" HorizontalAlignment="Left" Margin="192,251,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="EndDatePicker" HorizontalAlignment="Left" Margin="442,251,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.44,0.535"/>
+                    <TextBox x:Name="FrequencyTextBox" HorizontalAlignment="Left" Height="32" Margin="296,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="69"/>
+                    <Button Content="Izdaj terapiju" HorizontalAlignment="Left" Margin="527,42,0,0" VerticalAlignment="Top"  Width="106" Height="32" Click="Button_Click" Background="#FF2B78E4" Foreground="White"/>
+                    <ComboBox x:Name="DrugsComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="276" Margin="192,42,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Naziv}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="69,42,0,0" TextWrapping="Wrap" Text="Naziv leka:" VerticalAlignment="Top" Width="118" FontSize="20"/>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="69,122,0,0" TextWrapping="Wrap" Text="Opis:" VerticalAlignment="Top" Width="118" FontSize="20"/>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="69,246,0,0" TextWrapping="Wrap" Text="Pocetak:" VerticalAlignment="Top" Width="118" FontSize="20"/>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="350,246,0,0" TextWrapping="Wrap" Text="Kraj:" VerticalAlignment="Top" Width="60" FontSize="20"/>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="192,308,0,0" TextWrapping="Wrap" Text="Na svaka" VerticalAlignment="Top" Width="118" FontSize="20"/>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="384,308,0,0" TextWrapping="Wrap" Text="dana." VerticalAlignment="Top" Width="84" FontSize="20"/>
                 </Grid>
             </TabItem>
         </TabControl>

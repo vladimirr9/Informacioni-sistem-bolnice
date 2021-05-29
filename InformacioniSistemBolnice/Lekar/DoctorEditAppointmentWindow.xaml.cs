@@ -75,7 +75,7 @@ namespace InformacioniSistemBolnice.Lekar
                 TipTermina type = (TipTermina)TypeComboBox.SelectedIndex;
                 Termin appointment = new Termin(selected.iDTermina, dateTime, 15, type, StatusTermina.zakazan, patient, doctor, room);
                 TerminFileStorage.UpdateTermin(selected.iDTermina, appointment);
-                parent.UpdateTable();
+                AppointmentsPage.GetPage(parent).UpdateTable();
                 this.Close();
             }
         }

@@ -31,8 +31,8 @@
                 <DataGridTextColumn Header="Lekar" Width="150">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="Lekar.ime"/>
-                            <Binding Path="Lekar.prezime"/>
+                            <Binding Path="Doctor.ime"/>
+                            <Binding Path="Doctor.prezime"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>

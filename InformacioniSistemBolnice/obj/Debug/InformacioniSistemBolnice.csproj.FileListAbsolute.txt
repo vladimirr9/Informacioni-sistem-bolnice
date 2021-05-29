@@ -644,3 +644,5 @@ D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\AppointmentsPage.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\MedicalRecordWindow.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilePage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.baml

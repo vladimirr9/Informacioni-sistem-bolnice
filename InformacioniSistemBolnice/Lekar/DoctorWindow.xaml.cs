@@ -23,20 +23,13 @@ namespace InformacioniSistemBolnice
         {
             this.Doctor = doctor;
             InitializeComponent();
-            UpdateTable();
             this.Title = doctor.ime + " " + doctor.prezime;
             Main.Content = ProfilePage.GetPage(this);
         }
 
         private void KartonClick(object sender, RoutedEventArgs e)
         {
-            if (AppointmentsPage.GetSelected() != null)
-            {
-                Termin appointment = AppointmentsPage.GetSelected();
-                MedicalRecordWindow kartonWindow = new MedicalRecordWindow(appointment, this);
-                Application.Current.MainWindow = kartonWindow;
-                kartonWindow.Show();
-            }
+            Main.Content = DoctorPatientsPage.GetPage(this);
         }
 
         private void PreglediClick(object sender, RoutedEventArgs e)
@@ -61,19 +54,5 @@ namespace InformacioniSistemBolnice
             mainWindow.Show();
             this.Close();
         }
-
-        public void UpdateTable()  //srediti za page
-        {
-            /*
-            PrikazPregleda.Items.Clear();
-            List<Termin> termini = TerminFileStorage.GetAll();
-            foreach (Termin termin in termini)
-            {
-                if (termin.status == StatusTermina.zakazan)
-                    PrikazPregleda.Items.Add(termin);
-            }
-            */
-        }
-
     }
 }

@@ -83,13 +83,13 @@ namespace InformacioniSistemBolnice.Lekar
             }
         }
 
-        private void WriteIngredients(Lek lek)
+        private void WriteIngredients(Lek drug)
         {
             IngredientsList.Items.Clear();
             List<Ingredient> ingredients = new List<Ingredient>();
             foreach (Ingredient ingredient in IngredientFileStorage.GetAll())
             {
-                if (lek.ListaSastojaka.Contains(ingredient))
+                if (drug.ListaSastojaka.Contains(ingredient))
                 {
                     IngredientsList.Items.Add(ingredient.Name);
                 }

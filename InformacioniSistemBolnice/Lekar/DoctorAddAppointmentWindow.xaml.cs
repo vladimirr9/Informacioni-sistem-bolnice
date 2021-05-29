@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice.Lekar
                 int id = TerminFileStorage.GetAll().Count + 1;
                 Termin appointment = new Termin(id, dt, 15, type, StatusTermina.zakazan, patient, doctor, room);
                 TerminFileStorage.AddTermin(appointment);
-                parent.UpdateTable();
+                AppointmentsPage.GetPage(parent).UpdateTable();
                 this.Close();
             }
         }

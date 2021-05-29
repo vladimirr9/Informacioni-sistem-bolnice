@@ -7,12 +7,12 @@ using System;
 
 public class Prescription
 {
-   public String Drug { get; set; }
+   public Lek Drug { get; set; }
    public DateTime Date { get; set; }
 
     public Doctor Doctor;
 
-    public Prescription(String drug, DateTime date, Doctor doctor)
+    public Prescription(Lek drug, DateTime date, Doctor doctor)
     {
         this.Drug = drug;
         this.Date = date;
