@@ -34,6 +34,8 @@ namespace InformacioniSistemBolnice.Lekar
                     if (drug.Naziv == name)
                     {
                         drug.StatusLeka = StatusLeka.validiran;
+
+                        //update lek storage!
                     }
                 }
                 UpdateList();
@@ -67,9 +69,9 @@ namespace InformacioniSistemBolnice.Lekar
                 if (drug.Naziv == name)
                 {
                     Console.WriteLine(name);
-                    foreach (Ingredient s in drug.ListaSastojaka)
+                    foreach (Ingredient ingredient in drug.ListaSastojaka)
                     {
-                        IngredientsList.Items.Add(s.Name);
+                        IngredientsList.Items.Add(ingredient.Name);
                     }
                 }
             }

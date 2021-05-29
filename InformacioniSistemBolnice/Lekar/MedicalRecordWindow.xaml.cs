@@ -20,6 +20,8 @@ namespace InformacioniSistemBolnice.Lekar
     {
         private DoctorWindow parent;
         private Pacijent selected;
+        private PatientController _patientController = new PatientController();
+
         public MedicalRecordWindow(Pacijent patient , DoctorWindow parent)
         {
             this.selected = patient;
@@ -58,24 +60,36 @@ namespace InformacioniSistemBolnice.Lekar
             if (DrugsComboBox.SelectedItem != null && BeginDatePicker.Text != "" && EndDatePicker.Text != "")
             {
                 Lek drug = (Lek)DrugsComboBox.SelectedItem;
-                List<Ingredient> ingredients = drug.ListaSastojaka;
-                foreach (Ingredient ingredient in ingredients)
+                if (IsAllergic(drug, selected))
                 {
-                    if (selected.zdravstveniKarton.Alergen.Contains(ingredient))
-                    {
-                        MessageBox.Show("Pacijent je alergican na izabrani lek.", "Alergican");
-                        return;
-                    }
+                    MessageBox.Show("Pacijent je alergican na izabrani lek.", "Alergican");
+                    return;
                 }
+                
                 Prescription prescription = new Prescription((Lek)DrugsComboBox.SelectedItem, DateTime.Parse(BeginDatePicker.Text), parent.Doctor);
                 selected.zdravstveniKarton.AddRecept(prescription);
-                PacijentFileStorage.UpdatePacijent(selected.korisnickoIme, selected);
+
+                _patientController.Update(selected.korisnickoIme, selected);
                 DrugsComboBox.SelectedIndex = -1;
                 DescriptionTextBox.Document.Blocks.Clear();
                 BeginDatePicker.SelectedDate = null;
                 EndDatePicker.SelectedDate = null;
                 FrequencyTextBox.Text = "";
             }
+        }
+
+        private bool IsAllergic(Lek drug, Pacijent patient)              //izmestiti u pacijenta ili servis
+        {
+            List<Ingredient> ingredients = drug.ListaSastojaka;
+            foreach (Ingredient ingredient in ingredients)
+            {
+                if (patient.zdravstveniKarton.Alergen.Contains(ingredient))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         //Upisivanje anamneze

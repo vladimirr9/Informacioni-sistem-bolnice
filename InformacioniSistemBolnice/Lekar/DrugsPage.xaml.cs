@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.Lekar
             lekoviWindow.Show();
         }
 
-        private void DodajSastojakClick(object sender, RoutedEventArgs e)
+        private void DodajSastojakClick(object sender, RoutedEventArgs e)      //ubaciti kontroler za lekove
         {
             if (IngredientsComboBox.SelectedIndex != -1)
             {
@@ -53,7 +53,7 @@ namespace InformacioniSistemBolnice.Lekar
                     if (drug.Naziv == DrugsList.SelectedItem.ToString())
                     {
                         drug.ListaSastojaka.Add((Ingredient)IngredientsComboBox.SelectedItem);
-                        //dodati u storage
+                        LekFileStorage.UpdateLek(drug.Sifra, drug);
                         WriteIngredients(drug);
                     }
                 }

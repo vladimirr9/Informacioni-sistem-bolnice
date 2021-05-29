@@ -12,22 +12,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Lekar
 {
     public partial class DoctorAddAppointmentWindow : Window
     {
         private DoctorWindow parent;
+        private AppointmentController _appointmentController = new AppointmentController();
+
         public DoctorAddAppointmentWindow(DoctorWindow parent)
         {
             this.parent = parent;
             InitializeComponent();
-            List<Doctor> doctors = LekarFileStorage.GetAll();
-            DoctorComboBox.ItemsSource = doctors;
-            List<Pacijent> patients = PacijentFileStorage.GetAll();
-            PatientComboBox.ItemsSource = patients;
-            List<Prostorija> rooms = ProstorijaFileStorage.GetAll();
-            RoomComboBox.ItemsSource = rooms;
+            InitializeComboBoxes();
         }
 
         //odustani
@@ -49,12 +47,24 @@ namespace InformacioniSistemBolnice.Lekar
                 String d = date.Text;
                 DateTime dt = DateTime.Parse(d + " " + t);
                 TipTermina type = (TipTermina)TypeComboBox.SelectedIndex;
-                int id = TerminFileStorage.GetAll().Count + 1;
+                int id = _appointmentController.GenerateNewId();
+
                 Termin appointment = new Termin(id, dt, 15, type, StatusTermina.zakazan, patient, doctor, room);
-                TerminFileStorage.AddTermin(appointment);
+                _appointmentController.Add(appointment);
+
                 AppointmentsPage.GetPage(parent).UpdateTable();
                 this.Close();
             }
+        }
+
+        private void InitializeComboBoxes()
+        {
+            List<Doctor> doctors = LekarFileStorage.GetAll();
+            DoctorComboBox.ItemsSource = doctors;
+            List<Pacijent> patients = PacijentFileStorage.GetAll();
+            PatientComboBox.ItemsSource = patients;
+            List<Prostorija> rooms = ProstorijaFileStorage.GetAll();
+            RoomComboBox.ItemsSource = rooms;
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Lekar
 {
@@ -18,41 +19,15 @@ namespace InformacioniSistemBolnice.Lekar
     {
         private DoctorWindow parent;
         private Termin selected;
+        private AppointmentController _appointmentController = new AppointmentController();
+
         public DoctorEditAppointmentWindow(Termin selected, DoctorWindow parent)
         {
             this.selected = selected;
             this.parent = parent;
             InitializeComponent();
+            InitializeComboBoxes();
 
-            List<Doctor> doctors = LekarFileStorage.GetAll();
-            DoctorComboBox.ItemsSource = doctors;
-            List<Pacijent> patients = PacijentFileStorage.GetAll();
-            PatientComboBox.ItemsSource = patients;
-            List<Prostorija> rooms = ProstorijaFileStorage.GetAll();
-            RoomComboBox.ItemsSource = rooms;
-
-            date.SelectedDate = selected.datumZakazivanja;
-            time.SelectedValue = selected.datumZakazivanja.ToString("HH:mm");
-
-            foreach(Doctor doctor in doctors)
-            {
-                if (doctor.jmbg == selected.Doctor.jmbg)
-                    DoctorComboBox.SelectedItem = doctor;
-            }
-
-            foreach (Pacijent patient in patients)
-            {
-                if (patient.jmbg != null && patient.jmbg == selected.Pacijent.jmbg)
-                    PatientComboBox.SelectedItem = patient;
-            }
-
-            TypeComboBox.SelectedIndex = (int)selected.tipTermina;
-
-            foreach (Prostorija room in rooms)
-            {
-                if (room.IDprostorije == selected.Prostorija.IDprostorije)
-                    RoomComboBox.SelectedItem = room;
-            }
         }
         //odustani
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -74,9 +49,44 @@ namespace InformacioniSistemBolnice.Lekar
                 DateTime dateTime = DateTime.Parse(d + " " + t);
                 TipTermina type = (TipTermina)TypeComboBox.SelectedIndex;
                 Termin appointment = new Termin(selected.iDTermina, dateTime, 15, type, StatusTermina.zakazan, patient, doctor, room);
-                TerminFileStorage.UpdateTermin(selected.iDTermina, appointment);
+
+                _appointmentController.Update(appointment);
+
                 AppointmentsPage.GetPage(parent).UpdateTable();
                 this.Close();
+            }
+        }
+
+        private void InitializeComboBoxes()
+        {
+            List<Doctor> doctors = LekarFileStorage.GetAll();
+            DoctorComboBox.ItemsSource = doctors;
+            List<Pacijent> patients = PacijentFileStorage.GetAll();
+            PatientComboBox.ItemsSource = patients;
+            List<Prostorija> rooms = ProstorijaFileStorage.GetAll();
+            RoomComboBox.ItemsSource = rooms;
+
+            date.SelectedDate = selected.datumZakazivanja;
+            time.SelectedValue = selected.datumZakazivanja.ToString("HH:mm");
+
+            foreach (Doctor doctor in doctors)
+            {
+                if (doctor.jmbg == selected.Doctor.jmbg)
+                    DoctorComboBox.SelectedItem = doctor;
+            }
+
+            foreach (Pacijent patient in patients)
+            {
+                if (patient.jmbg != null && patient.jmbg == selected.Pacijent.jmbg)
+                    PatientComboBox.SelectedItem = patient;
+            }
+
+            TypeComboBox.SelectedIndex = (int)selected.tipTermina;
+
+            foreach (Prostorija room in rooms)
+            {
+                if (room.IDprostorije == selected.Prostorija.IDprostorije)
+                    RoomComboBox.SelectedItem = room;
             }
         }
     }

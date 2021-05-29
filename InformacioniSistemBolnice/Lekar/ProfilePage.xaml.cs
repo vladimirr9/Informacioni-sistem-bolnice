@@ -42,7 +42,7 @@ namespace InformacioniSistemBolnice.Lekar
             TitleLabel.Content = Doctor.doctorType.ToString();
             DateLabel.Content = Doctor.datumRodenja.Date;
             JmbgLabel.Content = Doctor.jmbg;
-            //Mesto.Content = DoctorComboBox.adresaStanovanja.mestoStanovanja.ToString();
+            AddressLabel.Content = Doctor.adresaStanovanja.ToString();
             EmailLabel.Content = Doctor.email;
         }
     }

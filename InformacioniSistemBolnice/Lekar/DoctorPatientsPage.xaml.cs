@@ -36,13 +36,13 @@ namespace InformacioniSistemBolnice.Lekar
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (PatientsDataGrid.SelectedItem == null)
-                return;
-
-            Pacijent selectedPatient = PacijentFileStorage.GetOne(((Pacijent)(PatientsDataGrid.SelectedItem)).korisnickoIme);
-            MedicalRecordWindow recordWindow = new MedicalRecordWindow(selectedPatient, parent);
-            Application.Current.MainWindow = recordWindow;
-            recordWindow.Show();
+            if (PatientsDataGrid.SelectedItem != null)
+            {
+                Pacijent selectedPatient = (Pacijent)PatientsDataGrid.SelectedItem;
+                MedicalRecordWindow recordWindow = new MedicalRecordWindow(selectedPatient, parent);
+                Application.Current.MainWindow = recordWindow;
+                recordWindow.Show();
+            }
         }
 
         public void UpdateTable()
