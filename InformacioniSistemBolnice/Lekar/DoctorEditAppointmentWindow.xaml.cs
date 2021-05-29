@@ -39,7 +39,7 @@ namespace InformacioniSistemBolnice.Lekar
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Pacijent patient = (Pacijent)PatientComboBox.SelectedItem;
-            Doctor doctor = (global::Doctor)DoctorComboBox.SelectedItem;
+            Doctor doctor = (Doctor)DoctorComboBox.SelectedItem;
             Prostorija room = (Prostorija)RoomComboBox.SelectedItem;
             if (time.SelectedIndex != -1)
             {
@@ -57,7 +57,7 @@ namespace InformacioniSistemBolnice.Lekar
             }
         }
 
-        private void InitializeComboBoxes()
+        private void InitializeComboBoxes()                         //ubaciti kontrolere
         {
             List<Doctor> doctors = LekarFileStorage.GetAll();
             DoctorComboBox.ItemsSource = doctors;

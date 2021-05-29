@@ -57,7 +57,7 @@ namespace InformacioniSistemBolnice.Lekar
             }
         }
 
-        private void InitializeComboBoxes()
+        private void InitializeComboBoxes()                       //ubaciti kontrolere
         {
             List<Doctor> doctors = LekarFileStorage.GetAll();
             DoctorComboBox.ItemsSource = doctors;

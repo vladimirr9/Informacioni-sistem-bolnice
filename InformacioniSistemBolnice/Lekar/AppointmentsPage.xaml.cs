@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using Microsoft.Win32;
 
 namespace InformacioniSistemBolnice.Lekar
@@ -21,6 +22,8 @@ namespace InformacioniSistemBolnice.Lekar
         public DoctorWindow parent;
         public Doctor Doctor;
         private static AppointmentsPage instance;
+        private AppointmentController _appointmentController = new AppointmentController();
+
         public AppointmentsPage(DoctorWindow parent)
         {
             this.parent = parent;
@@ -48,8 +51,7 @@ namespace InformacioniSistemBolnice.Lekar
         {
             if (AppointmentsDataGrid.SelectedItem != null)
             {
-                Termin appointment = TerminFileStorage.GetOne(((Termin)AppointmentsDataGrid.SelectedItem).iDTermina);
-                DoctorEditAppointmentWindow editWindow = new DoctorEditAppointmentWindow(appointment, parent);
+                DoctorEditAppointmentWindow editWindow = new DoctorEditAppointmentWindow(_appointmentController.GetOne((Termin)AppointmentsDataGrid.SelectedItem), parent);
                 Application.Current.MainWindow = editWindow;
                 editWindow.Show();
             }
@@ -60,7 +62,7 @@ namespace InformacioniSistemBolnice.Lekar
         {
             if (AppointmentsDataGrid.SelectedItem != null)
             {
-                TerminFileStorage.RemoveTermin(((Termin)AppointmentsDataGrid.SelectedItem).iDTermina);
+                _appointmentController.Remove(((Termin)AppointmentsDataGrid.SelectedItem));
                 UpdateTable();
             }
         }
@@ -68,23 +70,11 @@ namespace InformacioniSistemBolnice.Lekar
         public void UpdateTable()
         {
             AppointmentsDataGrid.Items.Clear();
-            List<Termin> appointments = TerminFileStorage.GetAll();
-            foreach (Termin appointment in appointments)
+            foreach (Termin appointment in _appointmentController.GetAll())
             {
                 if (appointment.status == StatusTermina.zakazan)
                     AppointmentsDataGrid.Items.Add(appointment);
             }
         }
-
-        public static Termin GetSelected()
-        {
-            if (instance != null && instance.AppointmentsDataGrid.SelectedItem != null)
-            {
-                Termin appointment = TerminFileStorage.GetOne(((Termin)instance.AppointmentsDataGrid.SelectedItem).iDTermina);
-                return appointment;
-            }
-            return null;
-        }
-
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Lekar"
         mc:Ignorable="d"
-        Title="PrikazKartona" Height="450" Width="800">
+        Title="PrikazKartona" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Margin="10,5,-10,-5">
         <TabControl HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="758">
             <TabItem Header="Karton">

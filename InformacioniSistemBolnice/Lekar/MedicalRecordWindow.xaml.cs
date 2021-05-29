@@ -130,7 +130,7 @@ namespace InformacioniSistemBolnice.Lekar
             WriteAllergies(selected);
         }
 
-        private void WriteAllergies(Pacijent patient)
+        private void WriteAllergies(Pacijent patient)               //dodati ingredients kontroler i izmestiti
         {
             AllergiesList.Items.Clear();
             List<Ingredient> ingredients = new List<Ingredient>();

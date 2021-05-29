@@ -38,9 +38,9 @@ namespace InformacioniSistemBolnice.Lekar
 
         private void LekoviZaPotvrduClick(object sender, RoutedEventArgs e)
         {
-            DrugsValidationWindow lekoviWindow = new DrugsValidationWindow();
-            Application.Current.MainWindow = lekoviWindow;
-            lekoviWindow.Show();
+            DrugsValidationWindow drugsWindow = new DrugsValidationWindow();
+            Application.Current.MainWindow = drugsWindow;
+            drugsWindow.Show();
         }
 
         private void DodajSastojakClick(object sender, RoutedEventArgs e)      //ubaciti kontroler za lekove
@@ -63,7 +63,7 @@ namespace InformacioniSistemBolnice.Lekar
         private void UpdateList()
         {
             DrugsList.Items.Clear();
-            List<Lek> drugs = LekFileStorage.GetAll();
+            List<Lek> drugs = LekFileStorage.GetAll();                    //kontroler
             foreach (Lek drug in drugs)
             {
                 if (!drug.IsDeleted && drug.StatusLeka.Equals(StatusLeka.validiran))
@@ -74,7 +74,7 @@ namespace InformacioniSistemBolnice.Lekar
         public void SelectionChange(object sender, SelectionChangedEventArgs e)
         {
             IngredientsList.Items.Clear();
-            foreach (Lek drug in LekFileStorage.GetAll())
+            foreach (Lek drug in LekFileStorage.GetAll())                        //kontroler
             {
                 if (drug.Naziv == DrugsList.SelectedItem.ToString())
                 {

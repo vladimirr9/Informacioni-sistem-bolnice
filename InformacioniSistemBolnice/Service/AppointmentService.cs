@@ -25,9 +25,19 @@ namespace InformacioniSistemBolnice.Service
             TerminFileStorage.UpdateTermin(appointment.iDTermina, appointment);
         }
 
+        public List<Termin> GetAll()
+        {
+            return TerminFileStorage.GetAll();
+        }
+
         public int GenerateNewId()
         {
             return TerminFileStorage.GetAll().Count + 1;
+        }
+
+        public Termin GetOne(Termin appointment)
+        {
+            return TerminFileStorage.GetOne(appointment.iDTermina);
         }
     }
 }

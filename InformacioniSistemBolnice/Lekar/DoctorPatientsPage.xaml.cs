@@ -38,8 +38,7 @@ namespace InformacioniSistemBolnice.Lekar
         {
             if (PatientsDataGrid.SelectedItem != null)
             {
-                Pacijent selectedPatient = (Pacijent)PatientsDataGrid.SelectedItem;
-                MedicalRecordWindow recordWindow = new MedicalRecordWindow(selectedPatient, parent);
+                MedicalRecordWindow recordWindow = new MedicalRecordWindow((Pacijent)PatientsDataGrid.SelectedItem, parent);
                 Application.Current.MainWindow = recordWindow;
                 recordWindow.Show();
             }
@@ -48,7 +47,7 @@ namespace InformacioniSistemBolnice.Lekar
         public void UpdateTable()
         {
             PatientsDataGrid.Items.Clear();
-            List<Pacijent> patients = PacijentFileStorage.GetAll();
+            List<Pacijent> patients = PacijentFileStorage.GetAll();                 //dodati patient kontroler
             foreach (Pacijent patient in patients)
             {
                 if (!patient.isDeleted)

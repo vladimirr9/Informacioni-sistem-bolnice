@@ -548,5 +548,8 @@
     <None Include="Patient_ns\App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Lekar\doctor_medical_avatar_people_icon_131305.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

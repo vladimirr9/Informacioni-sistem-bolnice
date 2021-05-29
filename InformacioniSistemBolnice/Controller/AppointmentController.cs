@@ -30,5 +30,15 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _appointmentService.GenerateNewId();
         }
+
+        public List<Termin> GetAll()
+        {
+            return _appointmentService.GetAll();
+        }
+
+        public Termin GetOne(Termin appointment)
+        {
+            return _appointmentService.GetOne(appointment);
+        }
     }
 }

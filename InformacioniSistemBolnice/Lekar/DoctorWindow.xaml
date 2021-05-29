@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice"
         mc:Ignorable="d"
-        Title="Lekar" Height="718" Width="1280">
+        Title="Lekar" Height="718" Width="1280" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle Fill="#CCCCCC" HorizontalAlignment="Left" Stroke="#CCCCCC" Width="140"/>
         <Frame x:Name="Main" Margin="140,0,0,0" NavigationUIVisibility="Hidden"/>
