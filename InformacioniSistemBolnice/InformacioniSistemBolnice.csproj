@@ -249,7 +249,7 @@
     <Compile Include="Termin\StatusTermina.cs" />
     <Compile Include="Termin\Termin.cs" />
     <Compile Include="FileStorage\TerminFileStorage.cs" />
-    <Compile Include="Lekar\TipLekara.cs" />
+    <Compile Include="Lekar\DoctorType.cs" />
     <Compile Include="Upravnik\RasporedjivanjeOpreme.xaml.cs">
       <DependentUpon>RasporedjivanjeOpreme.xaml</DependentUpon>
     </Compile>

@@ -36,7 +36,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            TipLekara doctorType = global::Doctor.DoctorTypeFromString(DoctorTypeCombo.SelectedItem.ToString());
+            DoctorType doctorType = global::Doctor.DoctorTypeFromString(DoctorTypeCombo.SelectedItem.ToString());
             int duration = int.Parse(DurationInMinutes.Text);
             string jmbg = PatientsList.SelectedItem.ToString().Split('-')[1].Trim();
             Pacijent patient = PacijentFileStorage.GetOneByJMBG(jmbg);
@@ -124,7 +124,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             }
             return filteredRooms;
         }
-        private List<global::Doctor> GetFilteredDoctors(List<global::Doctor> doctors, TipLekara doctorType)
+        private List<global::Doctor> GetFilteredDoctors(List<global::Doctor> doctors, DoctorType doctorType)
         {
             List<global::Doctor> filteredDoctors = new List<global::Doctor>();
             foreach (global::Doctor doctor in doctors)

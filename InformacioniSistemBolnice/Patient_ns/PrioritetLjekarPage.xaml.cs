@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice
             ljekariLista = new List<global::Doctor>();
             foreach (global::Doctor l in LekarFileStorage.GetAll())
             {
-                if (l.doctorType == TipLekara.opstePrakse)
+                if (l.doctorType == DoctorType.opstePrakse)
                 {
                     ljekariLista.Add(l);
                 }
@@ -157,11 +157,11 @@ namespace InformacioniSistemBolnice
             String d = date.Text;
             DateTime start = DateTime.Parse(d + " " + t);
             TipTermina tipt;
-            if (l.doctorType.Equals(TipLekara.opstePrakse))
+            if (l.doctorType.Equals(DoctorType.opstePrakse))
             {
                 tipt = TipTermina.pregledKodLekaraOpstePrakse;
             }
-            else if (l.doctorType.Equals(TipLekara.hirurg))
+            else if (l.doctorType.Equals(DoctorType.hirurg))
             {
                 tipt = TipTermina.operacija;
             }

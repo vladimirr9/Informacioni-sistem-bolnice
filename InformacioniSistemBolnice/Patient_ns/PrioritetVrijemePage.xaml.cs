@@ -102,7 +102,7 @@ namespace InformacioniSistemBolnice
                 for (DateTime tm = pocetniDatum; tm < krajnjiDatum; tm = tm.AddMinutes(15))
                 {
                     DateTime end = tm.AddMinutes(15);
-                    if (lekar.doctorType.Equals(TipLekara.opstePrakse))
+                    if (lekar.doctorType.Equals(DoctorType.opstePrakse))
                     {
                         if (lekar.IsAvailable(tm, end.AddMinutes(-1)) && parent.Pacijent.IsAvailable(tm, end.AddMinutes(-1)))
                         {
@@ -173,11 +173,11 @@ namespace InformacioniSistemBolnice
             String t = selektovanTermin.AvailableTimes;
             DateTime start = DateTime.Parse(d + " " + t);
             TipTermina tipt;
-            if (selektovanTermin.Ljekar.doctorType.Equals(TipLekara.opstePrakse))
+            if (selektovanTermin.Ljekar.doctorType.Equals(DoctorType.opstePrakse))
             {
                 tipt = TipTermina.pregledKodLekaraOpstePrakse;
             }
-            else if (selektovanTermin.Ljekar.doctorType.Equals(TipLekara.hirurg))
+            else if (selektovanTermin.Ljekar.doctorType.Equals(DoctorType.hirurg))
             {
                 tipt = TipTermina.operacija;
             }

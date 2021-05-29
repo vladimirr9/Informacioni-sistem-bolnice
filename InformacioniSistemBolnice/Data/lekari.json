@@ -1,6 +1,6 @@
 [
   {
-    "tipLekara": 1,
+    "doctorType": 1,
 
     "ime": "Petar",
     "prezime": "Petrovic",
@@ -15,7 +15,7 @@
     "adresaStanovanja": null
   },
   {
-    "tipLekara": 0,
+    "doctorType": 0,
 
     "ime": "Marko",
     "prezime": "Markovic",

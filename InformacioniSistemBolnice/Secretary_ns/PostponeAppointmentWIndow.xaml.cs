@@ -21,7 +21,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
     {
         private Pacijent _patient;
         private int _appointmentDuration;
-        private TipLekara _doctorType;
+        private DoctorType _doctorType;
         private TipProstorije _roomType;
         private TipTermina _appointmentType;
         private DateTime _earliestAppointmentTime;
@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private List<Termin> _appointments;
         private List<Termin> _appointmentsForPostponing;
-        public PostponeAppointmentWIndow(NewUrgentAppointment parent, Pacijent patient, int duration, TipLekara doctorType, TipProstorije roomType, TipTermina appointmentType, DateTime earliestAppointmentTime)
+        public PostponeAppointmentWIndow(NewUrgentAppointment parent, Pacijent patient, int duration, DoctorType doctorType, TipProstorije roomType, TipTermina appointmentType, DateTime earliestAppointmentTime)
         {
             _parent = parent;
             _patient = patient;

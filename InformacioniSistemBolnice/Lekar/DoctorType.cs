@@ -5,7 +5,7 @@
 
 using System;
 
-public enum TipLekara
+public enum DoctorType
 {
    opstePrakse,
    kardiolog,

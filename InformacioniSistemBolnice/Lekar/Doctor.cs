@@ -9,10 +9,10 @@ using System.Windows.Documents;
 
 public class Doctor : Korisnik
 {
-    public TipLekara doctorType { get; set; }
+    public DoctorType doctorType { get; set; }
     //private int iDLekara;
 
-    public Doctor(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime birthday, string username, string password, AdresaStanovanja address, TipLekara doctorType, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, birthday, username, password, address, isDeleted)
+    public Doctor(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime birthday, string username, string password, AdresaStanovanja address, DoctorType doctorType, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, birthday, username, password, address, isDeleted)
     {
         this.doctorType = doctorType;
     }
@@ -62,18 +62,18 @@ public class Doctor : Korisnik
         types.Add("Neurolog");
         return types;
     }
-    public static TipLekara DoctorTypeFromString(string type)
+    public static DoctorType DoctorTypeFromString(string type)
     {
         if (type.Equals("Opšte Prakse"))
-            return TipLekara.opstePrakse;
+            return DoctorType.opstePrakse;
         else if (type.Equals("Kardiolog"))
-            return TipLekara.kardiolog;
+            return DoctorType.kardiolog;
         else if (type.Equals("Hirurg"))
-            return TipLekara.hirurg;
+            return DoctorType.hirurg;
         else if (type.Equals("Pedijatar"))
-            return TipLekara.pedijatar;
+            return DoctorType.pedijatar;
         else if (type.Equals("Opšte Prakse"))
-            return TipLekara.neurolog;
+            return DoctorType.neurolog;
         else return 0;
     }
 
