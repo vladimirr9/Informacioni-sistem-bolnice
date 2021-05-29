@@ -1,4 +1,4 @@
-﻿<Page x:Class="InformacioniSistemBolnice.Lekar.ProfilPage"
+﻿<Page x:Class="InformacioniSistemBolnice.Lekar.ProfilePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,12 +15,12 @@
         <Label Content="JMBG:" HorizontalAlignment="Left" Margin="465,274,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Mesto stanovanja:" HorizontalAlignment="Left" Margin="465,323,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="465,373,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="Ime" HorizontalAlignment="Left" Margin="653,142,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="Zvanje" HorizontalAlignment="Left" Margin="653,187,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="Datum" HorizontalAlignment="Left" Margin="653,228,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="JMBG" HorizontalAlignment="Left" Margin="653,274,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="Mesto" HorizontalAlignment="Left" Margin="653,323,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="Email" HorizontalAlignment="Left" Margin="653,373,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="NameLabel" HorizontalAlignment="Left" Margin="653,142,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="TitleLabel" HorizontalAlignment="Left" Margin="653,187,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="DateLabel" HorizontalAlignment="Left" Margin="653,228,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="JmbgLabel" HorizontalAlignment="Left" Margin="653,274,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="AddressLabel" HorizontalAlignment="Left" Margin="653,323,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="EmailLabel" HorizontalAlignment="Left" Margin="653,373,0,0" VerticalAlignment="Top" FontSize="20"/>
 
     </Grid>
 </Page>

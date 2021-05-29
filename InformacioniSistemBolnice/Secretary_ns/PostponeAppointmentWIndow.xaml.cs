@@ -53,7 +53,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
             Termin selectedAppointment = (Termin)AppointmentData.SelectedItem;
             int id = TerminFileStorage.GetAll().Count + 1;
-            Termin newAppointment = new Termin(id, selectedAppointment.datumZakazivanja, _appointmentDuration, _appointmentType, StatusTermina.zakazan, _patient, selectedAppointment.Lekar, selectedAppointment.Prostorija);
+            Termin newAppointment = new Termin(id, selectedAppointment.datumZakazivanja, _appointmentDuration, _appointmentType, StatusTermina.zakazan, _patient, selectedAppointment.Doctor, selectedAppointment.Prostorija);
             
             foreach (Termin appointment in _appointmentsForPostponing)
                 Postpone(appointment);
@@ -127,7 +127,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             _appointments = new List<Termin>();
             foreach (Termin appointment in appointmentsInTheUpcomingWeek)
             {
-                if (appointment.status == StatusTermina.zakazan && appointment.datumZakazivanja.Date.Equals(_earliestAppointmentTime.Date) && appointment.datumZakazivanja.TimeOfDay >= _earliestAppointmentTime.TimeOfDay && appointment.Prostorija.TipProstorije == _roomType && appointment.Lekar.tipLekara == _doctorType)
+                if (appointment.status == StatusTermina.zakazan && appointment.datumZakazivanja.Date.Equals(_earliestAppointmentTime.Date) && appointment.datumZakazivanja.TimeOfDay >= _earliestAppointmentTime.TimeOfDay && appointment.Prostorija.TipProstorije == _roomType && appointment.Doctor.doctorType == _doctorType)
                 {
                     appointment.PostponementDuration = GetPostponementDuration(appointment);
                     _appointments.Add(appointment);
@@ -154,7 +154,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             foreach(var item in AppointmentData.Items)
             {
                 Termin appointment = (Termin)item;
-                if (appointment.datumZakazivanja >= appointmentStart && appointment.datumZakazivanja <= appointmentEnd && (appointment.Lekar.Equals(selectedAppointment.Lekar) || (appointment.Prostorija.Equals(selectedAppointment.Prostorija))))
+                if (appointment.datumZakazivanja >= appointmentStart && appointment.datumZakazivanja <= appointmentEnd && (appointment.Doctor.Equals(selectedAppointment.Doctor) || (appointment.Prostorija.Equals(selectedAppointment.Prostorija))))
                 {
                     DataGridRow row = (DataGridRow)AppointmentData.ItemContainerGenerator.ContainerFromItem(item);
                     row.Background = Brushes.Red;

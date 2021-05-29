@@ -19,7 +19,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
     public partial class NewAppointmentWindow : Window
     {
         private AppointmentsPage _parent;
-        private List<global::Lekar> _doctors;
+        private List<global::Doctor> _doctors;
         private List<Pacijent> _patients;
         private List<Prostorija> _rooms;
         private List<String> _times;
@@ -37,7 +37,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             Pacijent selectedPatient = (Pacijent) PatientComboBox.SelectedItem;
-            global::Lekar selectedDoctor = (global::Lekar)DoctorComboBox.SelectedItem;
+            global::Doctor selectedDoctor = (global::Doctor)DoctorComboBox.SelectedItem;
             Prostorija selectedRoom = (Prostorija)RoomComboBox.SelectedItem;
             String selectedTime = AppointmentTime.SelectedItem.ToString();
             String selectedDate = DatePicker.Text;
@@ -131,8 +131,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         }
         private void UpdateAvailableDoctorList(DateTime start, DateTime end)
         {
-            _doctors = new List<global::Lekar>();
-            foreach (global::Lekar doctor in LekarFileStorage.GetAll())
+            _doctors = new List<global::Doctor>();
+            foreach (global::Doctor doctor in LekarFileStorage.GetAll())
             {
                 if (doctor.IsAvailable(start, end) && !doctor.isDeleted)
                 {
@@ -188,7 +188,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             List<Termin> appointments = new List<Termin>();
             foreach (Termin appointment in TerminFileStorage.GetAll())
             {
-                if (appointment.OccursOn(date) && appointment.InvolvesEither((Pacijent)PatientComboBox.SelectedItem, (global::Lekar)DoctorComboBox.SelectedItem) && appointment.status == StatusTermina.zakazan)
+                if (appointment.OccursOn(date) && appointment.InvolvesEither((Pacijent)PatientComboBox.SelectedItem, (global::Doctor)DoctorComboBox.SelectedItem) && appointment.status == StatusTermina.zakazan)
                 {
                     appointments.Add(appointment);
                 }

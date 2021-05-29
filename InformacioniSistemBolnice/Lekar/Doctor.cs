@@ -7,14 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Documents;
 
-public class Lekar : Korisnik
+public class Doctor : Korisnik
 {
-    public TipLekara tipLekara { get; set; }
+    public TipLekara doctorType { get; set; }
     //private int iDLekara;
 
-    public Lekar(string ime, string prezime, string jmbg, char pol, string brojTelefona, string email, DateTime datumRodenja, string korisnickoIme, string lozinka, AdresaStanovanja adresaStanovanja, TipLekara tipLekara, bool isDeleted = false) : base(ime, prezime, jmbg, pol, brojTelefona, email, datumRodenja, korisnickoIme, lozinka, adresaStanovanja, isDeleted)
+    public Doctor(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime birthday, string username, string password, AdresaStanovanja address, TipLekara doctorType, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, birthday, username, password, address, isDeleted)
     {
-        this.tipLekara = tipLekara;
+        this.doctorType = doctorType;
     }
 
     public override bool Equals(object obj)
@@ -22,27 +22,27 @@ public class Lekar : Korisnik
         return base.Equals(obj);
     }
 
-    public bool IsAvailable(DateTime pocetak, DateTime kraj) // proverava da li je DoctorComboBox slobodan izmedju neka dva trenutka u vremenu
+    public bool IsAvailable(DateTime begin, DateTime end) // proverava da li je DoctorComboBox slobodan izmedju neka dva trenutka u vremenu
     {
-        if (pocetak.Equals(kraj))
+        if (begin.Equals(end))
             return true;
         bool retVal = true;
-        List<Termin> termini = TerminFileStorage.GetAll();
-        foreach (Termin termin in termini)
+        List<Termin> appointmens = TerminFileStorage.GetAll();
+        foreach (Termin appointmen in appointmens)
         {
-            if (termin.Lekar.Equals(this) && termin.status == StatusTermina.zakazan)
+            if (appointmen.Doctor.Equals(this) && appointmen.status == StatusTermina.zakazan)
             {
-                if (pocetak >= termin.datumZakazivanja && pocetak <= termin.KrajTermina)
+                if (begin >= appointmen.datumZakazivanja && begin <= appointmen.KrajTermina)
                 {
                     retVal = false;
                     break;
                 }
-                if (kraj >= termin.datumZakazivanja && kraj <= termin.KrajTermina)
+                if (end >= appointmen.datumZakazivanja && end <= appointmen.KrajTermina)
                 {
                     retVal = false;
                     break;
                 }
-                if (pocetak <= termin.datumZakazivanja && kraj >= termin.KrajTermina)
+                if (begin <= appointmen.datumZakazivanja && end >= appointmen.KrajTermina)
                 {
                     retVal = false;
                     break;
@@ -52,7 +52,7 @@ public class Lekar : Korisnik
         return retVal;
 
     }
-    public static List<string> GetLekarTypes()
+    public static List<string> GetDoctorTypes()
     {
         List<string> types = new List<string>();
         types.Add("Opšte Prakse");
@@ -62,7 +62,7 @@ public class Lekar : Korisnik
         types.Add("Neurolog");
         return types;
     }
-    public static TipLekara LekarTypeFromString(string type)
+    public static TipLekara DoctorTypeFromString(string type)
     {
         if (type.Equals("Opšte Prakse"))
             return TipLekara.opstePrakse;

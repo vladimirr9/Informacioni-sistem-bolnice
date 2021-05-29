@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice
             submit.IsEnabled = false;
             if (parentp.kojiJePritisnut == parentp.rate)
             {
-                parent.imeLjekara.Content = "dr. " + t.Lekar.ime + " " + t.Lekar.prezime;
+                parent.imeLjekara.Content = "dr. " + t.Doctor.ime + " " + t.Doctor.prezime;
             }
             else
             {
@@ -83,7 +83,7 @@ namespace InformacioniSistemBolnice
             {
                 int IdAnkete = AnketaFileStorage.GetAll().Count + 1;
                 string komentar = commentText.Text;
-                Anketa novaAnketa = new Anketa(IdAnkete, komentar, (int)rateComboBox.SelectedItem, selektovan.Lekar.korisnickoIme, selektovan.Pacijent.korisnickoIme, selektovan.iDTermina, false, DateTime.Now);
+                Anketa novaAnketa = new Anketa(IdAnkete, komentar, (int)rateComboBox.SelectedItem, selektovan.Doctor.korisnickoIme, selektovan.Pacijent.korisnickoIme, selektovan.iDTermina, false, DateTime.Now);
                 AnketaFileStorage.AddAnketa(novaAnketa);
                 AnketaPage ap = new AnketaPage(parent);
                 parentp.UpdateTable();

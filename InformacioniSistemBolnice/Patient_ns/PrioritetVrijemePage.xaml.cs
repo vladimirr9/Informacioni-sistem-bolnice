@@ -96,13 +96,13 @@ namespace InformacioniSistemBolnice
             DateTime pocetniDatum = DateTime.Parse(datum + " " + pocetak);
             DateTime krajnjiDatum = DateTime.Parse(datum + " " + kraj);
 
-            List<global::Lekar> ljekari = LekarFileStorage.GetAll();
-            foreach (global::Lekar lekar in ljekari)
+            List<global::Doctor> ljekari = LekarFileStorage.GetAll();
+            foreach (global::Doctor lekar in ljekari)
             {
                 for (DateTime tm = pocetniDatum; tm < krajnjiDatum; tm = tm.AddMinutes(15))
                 {
                     DateTime end = tm.AddMinutes(15);
-                    if (lekar.tipLekara.Equals(TipLekara.opstePrakse))
+                    if (lekar.doctorType.Equals(TipLekara.opstePrakse))
                     {
                         if (lekar.IsAvailable(tm, end.AddMinutes(-1)) && parent.Pacijent.IsAvailable(tm, end.AddMinutes(-1)))
                         {
@@ -118,7 +118,7 @@ namespace InformacioniSistemBolnice
         }
         public class SlobodniTermini
         {
-            public global::Lekar Ljekar { get; set; }
+            public global::Doctor Ljekar { get; set; }
             public string AvailableTimes { get; set; }
 
 
@@ -126,7 +126,7 @@ namespace InformacioniSistemBolnice
             {
 
             }
-            public SlobodniTermini(global::Lekar ljekarNovi, string times)
+            public SlobodniTermini(global::Doctor ljekarNovi, string times)
             {
                 this.Ljekar = ljekarNovi;
                 this.AvailableTimes = times;
@@ -173,11 +173,11 @@ namespace InformacioniSistemBolnice
             String t = selektovanTermin.AvailableTimes;
             DateTime start = DateTime.Parse(d + " " + t);
             TipTermina tipt;
-            if (selektovanTermin.Ljekar.tipLekara.Equals(TipLekara.opstePrakse))
+            if (selektovanTermin.Ljekar.doctorType.Equals(TipLekara.opstePrakse))
             {
                 tipt = TipTermina.pregledKodLekaraOpstePrakse;
             }
-            else if (selektovanTermin.Ljekar.tipLekara.Equals(TipLekara.hirurg))
+            else if (selektovanTermin.Ljekar.doctorType.Equals(TipLekara.hirurg))
             {
                 tipt = TipTermina.operacija;
             }

@@ -68,14 +68,14 @@ public class ZdravstveniKarton
         
     }
     [JsonIgnore]
-    public System.Collections.Generic.List<Terapija> terapija;
+    public System.Collections.Generic.List<Therapy> terapija;
 
-    public System.Collections.Generic.List<Terapija> Terapija
+    public System.Collections.Generic.List<Therapy> Terapija
     {
         get
         {
             if (terapija == null)
-                terapija = new System.Collections.Generic.List<Terapija>();
+                terapija = new System.Collections.Generic.List<Therapy>();
             return terapija;
         }
         set
@@ -83,29 +83,29 @@ public class ZdravstveniKarton
             RemoveAllTerapija();
             if (value != null)
             {
-                foreach (Terapija oTerapija in value)
+                foreach (Therapy oTerapija in value)
                     AddTerapija(oTerapija);
             }
         }
     }
 
-    public void AddTerapija(Terapija newTerapija)
+    public void AddTerapija(Therapy newTherapy)
     {
-        if (newTerapija == null)
+        if (newTherapy == null)
             return;
         if (this.terapija == null)
-            this.terapija = new System.Collections.Generic.List<Terapija>();
-        if (!this.terapija.Contains(newTerapija))
-            this.terapija.Add(newTerapija);
+            this.terapija = new System.Collections.Generic.List<Therapy>();
+        if (!this.terapija.Contains(newTherapy))
+            this.terapija.Add(newTherapy);
     }
 
-    public void RemoveTerapija(Terapija oldTerapija)
+    public void RemoveTerapija(Therapy oldTherapy)
     {
-        if (oldTerapija == null)
+        if (oldTherapy == null)
             return;
         if (this.terapija != null)
-            if (this.terapija.Contains(oldTerapija))
-                this.terapija.Remove(oldTerapija);
+            if (this.terapija.Contains(oldTherapy))
+                this.terapija.Remove(oldTherapy);
     }
 
     public void RemoveAllTerapija()
@@ -113,14 +113,14 @@ public class ZdravstveniKarton
         if (terapija != null)
             terapija.Clear();
     }
-    public System.Collections.Generic.List<Recept> recept;
+    public System.Collections.Generic.List<Prescription> recept;
 
-    public System.Collections.Generic.List<Recept> Recept
+    public System.Collections.Generic.List<Prescription> Recept
     {
         get
         {
             if (recept == null)
-                recept = new System.Collections.Generic.List<Recept>();
+                recept = new System.Collections.Generic.List<Prescription>();
             return recept;
         }
         set
@@ -128,29 +128,29 @@ public class ZdravstveniKarton
             RemoveAllRecept();
             if (value != null)
             {
-                foreach (Recept oRecept in value)
+                foreach (Prescription oRecept in value)
                     AddRecept(oRecept);
             }
         }
     }
 
-    public void AddRecept(Recept newRecept)
+    public void AddRecept(Prescription newPrescription)
     {
-        if (newRecept == null)
+        if (newPrescription == null)
             return;
         if (this.recept == null)
-            this.recept = new System.Collections.Generic.List<Recept>();
-        if (!this.recept.Contains(newRecept))
-            this.recept.Add(newRecept);
+            this.recept = new System.Collections.Generic.List<Prescription>();
+        if (!this.recept.Contains(newPrescription))
+            this.recept.Add(newPrescription);
     }
 
-    public void RemoveRecept(Recept oldRecept)
+    public void RemoveRecept(Prescription oldPrescription)
     {
-        if (oldRecept == null)
+        if (oldPrescription == null)
             return;
         if (this.recept != null)
-            if (this.recept.Contains(oldRecept))
-                this.recept.Remove(oldRecept);
+            if (this.recept.Contains(oldPrescription))
+                this.recept.Remove(oldPrescription);
     }
 
     public void RemoveAllRecept()

@@ -97,14 +97,14 @@
       <DependentUpon>IstorijaBolestiPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Korisnik\Notification.cs" />
-    <Compile Include="Lekar\LekoviPage.xaml.cs">
-      <DependentUpon>LekoviPage.xaml</DependentUpon>
+    <Compile Include="Lekar\DrugsPage.xaml.cs">
+      <DependentUpon>DrugsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\LekoviZaPotvrduWindow.xaml.cs">
-      <DependentUpon>LekoviZaPotvrduWindow.xaml</DependentUpon>
+    <Compile Include="Lekar\DrugsValidationWindow.xaml.cs">
+      <DependentUpon>DrugsValidationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\ProfilPage.xaml.cs">
-      <DependentUpon>ProfilPage.xaml</DependentUpon>
+    <Compile Include="Lekar\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\Note.cs" />
     <Compile Include="Patient_ns\ObavjestenjaPage.xaml.cs">
@@ -120,24 +120,24 @@
       <DependentUpon>PacijentZakazujePoPrioritetuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\Ingredient.cs" />
-    <Compile Include="Lekar\LekarDodajTerminWindow.xaml.cs">
-      <DependentUpon>LekarDodajTerminWindow.xaml</DependentUpon>
+    <Compile Include="Lekar\DoctorAddAppointmentWindow.xaml.cs">
+      <DependentUpon>DoctorAddAppointmentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\LekarIzmeniTerminWindow.xaml.cs">
-      <DependentUpon>LekarIzmeniTerminWindow.xaml</DependentUpon>
+    <Compile Include="Lekar\DoctorEditAppointmentWindow.xaml.cs">
+      <DependentUpon>DoctorEditAppointmentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\LekarWindow.xaml.cs">
-      <DependentUpon>LekarWindow.xaml</DependentUpon>
+    <Compile Include="Lekar\DoctorWindow.xaml.cs">
+      <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileStorage\PacijentFileStorage.cs" />
-    <Compile Include="Lekar\PreglediPage.xaml.cs">
-      <DependentUpon>PreglediPage.xaml</DependentUpon>
+    <Compile Include="Lekar\AppointmentsPage.xaml.cs">
+      <DependentUpon>AppointmentsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\PrikazKartona.xaml.cs">
-      <DependentUpon>PrikazKartona.xaml</DependentUpon>
+    <Compile Include="Lekar\MedicalRecordWindow.xaml.cs">
+      <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\Recept.cs" />
-    <Compile Include="Lekar\Terapija.cs" />
+    <Compile Include="Lekar\Prescription.cs" />
+    <Compile Include="Lekar\Therapy.cs" />
     <Compile Include="Patient_ns\PocetnaPacijent.xaml.cs">
       <DependentUpon>PocetnaPacijent.xaml</DependentUpon>
     </Compile>
@@ -292,35 +292,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\LekarDodajTerminWindow.xaml">
+    <Page Include="Lekar\DoctorAddAppointmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\LekarIzmeniTerminWindow.xaml">
+    <Page Include="Lekar\DoctorEditAppointmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\LekarWindow.xaml">
+    <Page Include="Lekar\DoctorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\LekoviPage.xaml">
+    <Page Include="Lekar\DrugsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\LekoviZaPotvrduWindow.xaml">
+    <Page Include="Lekar\DrugsValidationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\PreglediPage.xaml">
+    <Page Include="Lekar\AppointmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\PrikazKartona.xaml">
+    <Page Include="Lekar\MedicalRecordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\ProfilPage.xaml">
+    <Page Include="Lekar\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -335,7 +335,7 @@
     </Compile>
     <Compile Include="Korisnik\DrzavaStanovanja.cs" />
     <Compile Include="Korisnik\Korisnik.cs" />
-    <Compile Include="Lekar\Lekar.cs" />
+    <Compile Include="Lekar\Doctor.cs" />
     <Compile Include="FileStorage\LekarFileStorage.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

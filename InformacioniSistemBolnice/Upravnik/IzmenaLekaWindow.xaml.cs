@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice.Upravnik
 
             String naziviSastojaka = lekZaIzmenu.ListaSastojaka.Select(x => x.Name).ToArray().ToString();
 
-            List<global::Lekar> lekari = LekarFileStorage.GetAll();
+            List<global::Doctor> lekari = LekarFileStorage.GetAll();
             Lekar.ItemsSource = lekari;
             List<Ingredient> sastojci = IngredientFileStorage.GetAll();
             Sastojci.ItemsSource = sastojci;
@@ -48,7 +48,7 @@ namespace InformacioniSistemBolnice.Upravnik
             String naziv = Naziv.Text;
             StatusLeka statusLeka = StatusLeka.cekaNaValidaciju;
             bool isDeleted = false;
-            global::Lekar lekar = (global::Lekar)Lekar.SelectedItem;
+            global::Doctor doctor = (global::Doctor)Lekar.SelectedItem;
             /*List<Ingredient> sastojciSvi = IngredientFileStorage.GetAll();
             List<Ingredient> sastojciLeka = new List<Ingredient>();
             String[] naziviSastojaka1 = Sastojci.Text.Split(',');

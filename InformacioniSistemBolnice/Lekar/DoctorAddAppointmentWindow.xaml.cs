@@ -15,22 +15,19 @@ using System.Windows.Shapes;
 
 namespace InformacioniSistemBolnice.Lekar
 {
-    /// <summary>
-    /// Interaction logic for LekarDodajTerminWindow.xaml
-    /// </summary>
-    public partial class LekarDodajTerminWindow : Window
+    public partial class DoctorAddAppointmentWindow : Window
     {
-        private LekarWindow parent;
-        public LekarDodajTerminWindow(LekarWindow parent)
+        private DoctorWindow parent;
+        public DoctorAddAppointmentWindow(DoctorWindow parent)
         {
             this.parent = parent;
             InitializeComponent();
-            List<global::Lekar> lekari = LekarFileStorage.GetAll();
-            lekar.ItemsSource = lekari;
-            List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
-            pacijent.ItemsSource = pacijenti;
-            List<Prostorija> prostorije = ProstorijaFileStorage.GetAll();
-            prostorija.ItemsSource = prostorije;
+            List<Doctor> doctors = LekarFileStorage.GetAll();
+            DoctorComboBox.ItemsSource = doctors;
+            List<Pacijent> patients = PacijentFileStorage.GetAll();
+            PatientComboBox.ItemsSource = patients;
+            List<Prostorija> rooms = ProstorijaFileStorage.GetAll();
+            RoomComboBox.ItemsSource = rooms;
         }
 
         //odustani
@@ -42,19 +39,19 @@ namespace InformacioniSistemBolnice.Lekar
         //potvrdi
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Pacijent p = (Pacijent)pacijent.SelectedItem;
-            global::Lekar l = (global::Lekar)lekar.SelectedItem;
-            Prostorija pr = (Prostorija)prostorija.SelectedItem;
+            Pacijent patient = (Pacijent)PatientComboBox.SelectedItem;
+            Doctor doctor = (Doctor)DoctorComboBox.SelectedItem;
+            Prostorija room = (Prostorija)RoomComboBox.SelectedItem;
             if (time.SelectedIndex != -1)
             {
                 ComboBoxItem item = time.SelectedItem as ComboBoxItem;
                 String t = item.Content.ToString();
                 String d = date.Text;
                 DateTime dt = DateTime.Parse(d + " " + t);
-                TipTermina tt = (TipTermina)tip.SelectedIndex;
+                TipTermina type = (TipTermina)TypeComboBox.SelectedIndex;
                 int id = TerminFileStorage.GetAll().Count + 1;
-                Termin termin = new Termin(id, dt, 15, tt, StatusTermina.zakazan, p, l, pr);
-                TerminFileStorage.AddTermin(termin);
+                Termin appointment = new Termin(id, dt, 15, type, StatusTermina.zakazan, patient, doctor, room);
+                TerminFileStorage.AddTermin(appointment);
                 parent.UpdateTable();
                 this.Close();
             }

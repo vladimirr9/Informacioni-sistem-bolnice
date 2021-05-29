@@ -24,7 +24,7 @@ namespace InformacioniSistemBolnice
         private const int trajanjePregleda = 15;
         private PocetnaPacijent parent;
         private List<string> availableTimes;
-        private List<global::Lekar> lekari;
+        private List<global::Doctor> lekari;
         private List<Prostorija> prostorije;
         private Pacijent pacijent;
         public PacijentZakazujePage(PocetnaPacijent p)
@@ -37,10 +37,10 @@ namespace InformacioniSistemBolnice
             dugmePotvrdi.IsEnabled = false;
             prostorije = ProstorijaFileStorage.GetAll();
             BlackOutDates();
-            lekari = new List<global::Lekar>();
-            foreach (global::Lekar l in LekarFileStorage.GetAll())
+            lekari = new List<global::Doctor>();
+            foreach (global::Doctor l in LekarFileStorage.GetAll())
             {
-                if (l.tipLekara.Equals(TipLekara.opstePrakse))
+                if (l.doctorType.Equals(TipLekara.opstePrakse))
                 {
                     lekari.Add(l);
                 }
@@ -72,7 +72,7 @@ namespace InformacioniSistemBolnice
 
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
-            global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            global::Doctor l = (global::Doctor)lekar.SelectedItem;
             Pacijent p = parent.Pacijent;
 
             if (time.SelectedIndex != -1)
@@ -82,11 +82,11 @@ namespace InformacioniSistemBolnice
                 String d = date.Text;
                 DateTime dt = DateTime.Parse(d + " " + t);
                 TipTermina tipt;
-                if (l.tipLekara.Equals(TipLekara.opstePrakse))
+                if (l.doctorType.Equals(TipLekara.opstePrakse))
                 {
                     tipt = TipTermina.pregledKodLekaraOpstePrakse;
                 }
-                else if (l.tipLekara.Equals(TipLekara.hirurg))
+                else if (l.doctorType.Equals(TipLekara.hirurg))
                 {
                     tipt = TipTermina.operacija;
                 }
@@ -130,7 +130,7 @@ namespace InformacioniSistemBolnice
         {
 
             DateTime datum;
-            global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            global::Doctor l = (global::Doctor)lekar.SelectedItem;
             if (date.SelectedDate != null)
             {
                 datum = DateTime.Parse(date.Text);
@@ -146,7 +146,7 @@ namespace InformacioniSistemBolnice
             {
                 foreach (Termin termin in TerminFileStorage.GetAll())
                 {
-                    if (l.jmbg == termin.Lekar.jmbg)
+                    if (l.jmbg == termin.Doctor.jmbg)
                     {
                         if (termin.status == StatusTermina.zakazan && termin.datumZakazivanja.Date.Equals(date.SelectedDate))
                         {

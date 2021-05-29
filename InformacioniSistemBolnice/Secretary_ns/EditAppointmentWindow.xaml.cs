@@ -18,7 +18,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
     public partial class EditAppointmentWindow : Window
     {
         private AppointmentsPage _parent;
-        private List<global::Lekar> _doctors;
+        private List<global::Doctor> _doctors;
         private List<Pacijent> _patients;
         private List<Prostorija> _rooms;
         private List<String> _times;
@@ -46,9 +46,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
                     _patients.Add(patient);
             PatientComboBox.ItemsSource = _patients;
             PatientComboBox.SelectedItem = selectedAppointment.Pacijent;
-            foreach (global::Lekar doctors in _doctors)
+            foreach (global::Doctor doctors in _doctors)
             {
-                if (doctors.Equals(selectedAppointment.Lekar))
+                if (doctors.Equals(selectedAppointment.Doctor))
                     DoctorComboBox.SelectedItem = doctors;
             }
             UpdateAvailableTimes();
@@ -79,7 +79,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             Pacijent patient = (Pacijent)PatientComboBox.SelectedItem;
-            global::Lekar doctor = (global::Lekar)DoctorComboBox.SelectedItem;
+            global::Doctor doctor = (global::Doctor)DoctorComboBox.SelectedItem;
             Prostorija room = (Prostorija)RoomComboBox.SelectedItem;
             String selectedTime = AppointmentTime.SelectedItem.ToString();
             String selectedDate = DatePicker.Text;
@@ -176,8 +176,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         }
         private void UpdateAvailableDoctorList(DateTime start, DateTime end)
         {
-            _doctors = new List<global::Lekar>();
-            foreach (global::Lekar doctor in LekarFileStorage.GetAll())
+            _doctors = new List<global::Doctor>();
+            foreach (global::Doctor doctor in LekarFileStorage.GetAll())
             {
                 if (doctor.IsAvailable(start, end) && !doctor.isDeleted)
                 {
@@ -233,7 +233,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             List<Termin> appointments = new List<Termin>();
             foreach (Termin appointment in TerminFileStorage.GetAll())
             {
-                if (appointment.OccursOn(date) && appointment.InvolvesEither((Pacijent)PatientComboBox.SelectedItem, (global::Lekar)DoctorComboBox.SelectedItem) && appointment.status == StatusTermina.zakazan)
+                if (appointment.OccursOn(date) && appointment.InvolvesEither((Pacijent)PatientComboBox.SelectedItem, (global::Doctor)DoctorComboBox.SelectedItem) && appointment.status == StatusTermina.zakazan)
                 {
                     appointments.Add(appointment);
                 }

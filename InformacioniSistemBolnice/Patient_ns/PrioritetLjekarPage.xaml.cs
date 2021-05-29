@@ -22,7 +22,7 @@ namespace InformacioniSistemBolnice
     public partial class PrioritetLjekarPage : Page
     {
         private const int trajanjePregleda = 15;
-        private List<global::Lekar> ljekariLista;
+        private List<global::Doctor> ljekariLista;
         private List<Termin> termini;
         private List<string> availableTimes;
         private List<Prostorija> prostorije;
@@ -35,10 +35,10 @@ namespace InformacioniSistemBolnice
             parentp = pzppp;
             termini = new List<Termin>();
             InitializeComponent();
-            ljekariLista = new List<global::Lekar>();
-            foreach (global::Lekar l in LekarFileStorage.GetAll())
+            ljekariLista = new List<global::Doctor>();
+            foreach (global::Doctor l in LekarFileStorage.GetAll())
             {
-                if (l.tipLekara == TipLekara.opstePrakse)
+                if (l.doctorType == TipLekara.opstePrakse)
                 {
                     ljekariLista.Add(l);
                 }
@@ -78,10 +78,10 @@ namespace InformacioniSistemBolnice
             times.Items.Clear();
             availableTimes.Clear();
             termini.Clear();
-            global::Lekar selektovanLjekar = (global::Lekar)ljekari.SelectedItem;
+            global::Doctor selektovanLjekar = (global::Doctor)ljekari.SelectedItem;
             foreach (Termin t in TerminFileStorage.GetAll())
             {
-                if (t.Lekar.jmbg.Equals(selektovanLjekar.jmbg))
+                if (t.Doctor.jmbg.Equals(selektovanLjekar.jmbg))
                 {
                     if (t.datumZakazivanja.Date.Equals(date.SelectedDate) && t.status == StatusTermina.zakazan)
                     {
@@ -148,7 +148,7 @@ namespace InformacioniSistemBolnice
 
         private void ZakaziTermin()
         {
-            global::Lekar l = (global::Lekar)ljekari.SelectedItem;
+            global::Doctor l = (global::Doctor)ljekari.SelectedItem;
             Pacijent p = parent.Pacijent;
 
 
@@ -157,11 +157,11 @@ namespace InformacioniSistemBolnice
             String d = date.Text;
             DateTime start = DateTime.Parse(d + " " + t);
             TipTermina tipt;
-            if (l.tipLekara.Equals(TipLekara.opstePrakse))
+            if (l.doctorType.Equals(TipLekara.opstePrakse))
             {
                 tipt = TipTermina.pregledKodLekaraOpstePrakse;
             }
-            else if (l.tipLekara.Equals(TipLekara.hirurg))
+            else if (l.doctorType.Equals(TipLekara.hirurg))
             {
                 tipt = TipTermina.operacija;
             }

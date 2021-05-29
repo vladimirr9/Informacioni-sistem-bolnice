@@ -35,12 +35,12 @@ namespace InformacioniSistemBolnice
         private void LoadNotifications()
         {
             DateTime now = DateTime.Now;
-            foreach (Terapija t in parent.Pacijent.zdravstveniKarton.Terapija)
+            foreach (Therapy t in parent.Pacijent.zdravstveniKarton.Terapija)
             {
-                if (t.PocetakTerapije < now && t.KrajTerapije > now)
+                if (t.BeginningDate < now && t.EndingDate > now)
                 {
 
-                    PrikazObavjestenja.Items.Add(t.Opis);
+                    PrikazObavjestenja.Items.Add(t.Description);
                 }
             }
         }

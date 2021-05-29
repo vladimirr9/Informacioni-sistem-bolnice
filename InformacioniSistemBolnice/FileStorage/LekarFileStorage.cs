@@ -11,30 +11,30 @@ using Newtonsoft.Json;
 public class LekarFileStorage
 {
     private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "lekari.json";
-    public static List<Lekar> GetAll()
+    public static List<Doctor> GetAll()
     {
         if (!File.Exists(startupPath))
         {
             var tmp = File.OpenWrite(startupPath);
             tmp.Close();
         }
-        List<Lekar> lekari;
+        List<Doctor> lekari;
         String procitano = File.ReadAllText(startupPath);
         if (procitano.Equals(""))
         {
-            lekari = new List<Lekar>();
+            lekari = new List<Doctor>();
         }
         else
         {
-            lekari = JsonConvert.DeserializeObject<List<Lekar>>(procitano);
+            lekari = JsonConvert.DeserializeObject<List<Doctor>>(procitano);
         }
         return lekari;
     }
 
-    public static Lekar GetOne(string korisnickoIme)
+    public static Doctor GetOne(string korisnickoIme)
     {
-        List<Lekar> lekari = GetAll();
-        foreach (Lekar l in lekari)
+        List<Doctor> lekari = GetAll();
+        foreach (Doctor l in lekari)
         {
             if (l.korisnickoIme.Equals(korisnickoIme))
                 return l;
@@ -44,8 +44,8 @@ public class LekarFileStorage
 
     public static Boolean RemoveLekar(string korisnickoIme)
     {
-        List<Lekar> lekari = GetAll();
-        foreach (Lekar l in lekari)
+        List<Doctor> lekari = GetAll();
+        foreach (Doctor l in lekari)
         {
             if (l.korisnickoIme.Equals(korisnickoIme))
             {
@@ -57,22 +57,22 @@ public class LekarFileStorage
         return false;
     }
 
-    public static Boolean AddLekar(Lekar noviLekar)
+    public static Boolean AddLekar(Doctor newDoctor)
     {
-        List<Lekar> lekari = GetAll();
-        lekari.Add(noviLekar);
+        List<Doctor> lekari = GetAll();
+        lekari.Add(newDoctor);
         Save(lekari);
         return true;
     }
 
-    public static Boolean UpdateLekar(string korisnickoIme, Lekar noviLekar)
+    public static Boolean UpdateLekar(string korisnickoIme, Doctor newDoctor)
     {
-        List<Lekar> lekari = GetAll();
-        foreach (Lekar l in lekari)
+        List<Doctor> lekari = GetAll();
+        foreach (Doctor l in lekari)
         {
             if (l.korisnickoIme.Equals(korisnickoIme))
             {
-                lekari[lekari.IndexOf(l)] = noviLekar;
+                lekari[lekari.IndexOf(l)] = newDoctor;
                 Save(lekari);
                 return true;
             }
@@ -80,7 +80,7 @@ public class LekarFileStorage
         return false;
     }
 
-    private static void Save(List<Lekar> lista)
+    private static void Save(List<Doctor> lista)
     {
         string upis = JsonConvert.SerializeObject(lista);
         File.WriteAllText(startupPath, upis);

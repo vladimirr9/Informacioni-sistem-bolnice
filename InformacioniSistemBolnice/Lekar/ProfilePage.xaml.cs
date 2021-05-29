@@ -15,38 +15,35 @@ using System.Windows.Shapes;
 
 namespace InformacioniSistemBolnice.Lekar
 {
-    /// <summary>
-    /// Interaction logic for ProfilPage.xaml
-    /// </summary>
-    public partial class ProfilPage : Page
+    public partial class ProfilePage : Page
     {
 
-        public LekarWindow parent;
-        public global::Lekar lekar;
-        private static ProfilPage instance;
-        public ProfilPage(LekarWindow parent)
+        public DoctorWindow parent;
+        public Doctor Doctor;
+        private static ProfilePage instance;
+        public ProfilePage(DoctorWindow parent)
         {
             this.parent = parent;
-            this.lekar = parent.lekar;
+            this.Doctor = parent.Doctor;
             InitializeComponent();
             FillLabels();
         }
 
-        public static ProfilPage GetPage(LekarWindow parent)
+        public static ProfilePage GetPage(DoctorWindow parent)
         {
             if (instance == null)
-                instance = new ProfilPage(parent);
+                instance = new ProfilePage(parent);
             return instance;
         }
 
         private void FillLabels()
         {
-            Ime.Content = lekar.ime + " " + lekar.prezime;
-            Zvanje.Content = lekar.tipLekara.ToString();
-            Datum.Content = lekar.datumRodenja.Date;
-            JMBG.Content = lekar.jmbg;
+            NameLabel.Content = Doctor.ime + " " + Doctor.prezime;
+            TitleLabel.Content = Doctor.doctorType.ToString();
+            DateLabel.Content = Doctor.datumRodenja.Date;
+            JmbgLabel.Content = Doctor.jmbg;
             //Mesto.Content = DoctorComboBox.adresaStanovanja.mestoStanovanja.ToString();
-            Email.Content = lekar.email;
+            EmailLabel.Content = Doctor.email;
         }
     }
 }

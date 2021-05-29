@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice
         private Termin selektovan;
         private List<string> availableTimes;
         private List<Termin> termini;
-        private List<global::Lekar> lekari;
+        private List<global::Doctor> lekari;
         private List<Prostorija> prostorije;
         private int brojac;
         public PomjeranjeTerminaPage(Termin selektovan, PocetnaPacijent prozor)
@@ -47,18 +47,18 @@ namespace InformacioniSistemBolnice
             BlackOutDates();
             date.SelectedDate = selektovan.datumZakazivanja;
             time.SelectedItem = selektovan.datumZakazivanja.ToString("HH:mm");
-            lekari = new List<global::Lekar>();
-            foreach (global::Lekar l in LekarFileStorage.GetAll())
+            lekari = new List<global::Doctor>();
+            foreach (global::Doctor l in LekarFileStorage.GetAll())
             {
-                if (l.tipLekara.Equals(TipLekara.opstePrakse))
+                if (l.doctorType.Equals(TipLekara.opstePrakse))
                 {
                     lekari.Add(l);
                 }
             }
             lekar.ItemsSource = lekari;
-            foreach (global::Lekar l in lekari)
+            foreach (global::Doctor l in lekari)
             {
-                if (l.jmbg == selektovan.Lekar.jmbg)
+                if (l.jmbg == selektovan.Doctor.jmbg)
                     lekar.SelectedItem = l;
             }
 
@@ -68,7 +68,7 @@ namespace InformacioniSistemBolnice
         {
 
             DateTime datum;
-            global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            global::Doctor l = (global::Doctor)lekar.SelectedItem;
             if (date.SelectedDate != null)
             {
                 datum = DateTime.Parse(date.Text);
@@ -141,8 +141,8 @@ namespace InformacioniSistemBolnice
             }
 
 
-            lekari = new List<global::Lekar>();
-            foreach (global::Lekar l in LekarFileStorage.GetAll())
+            lekari = new List<global::Doctor>();
+            foreach (global::Doctor l in LekarFileStorage.GetAll())
             {
                 if (l.IsAvailable(start, end) && !l.isDeleted)
                 {
@@ -170,7 +170,7 @@ namespace InformacioniSistemBolnice
         {
 
             DateTime datum;
-            global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            global::Doctor l = (global::Doctor)lekar.SelectedItem;
             if (date.SelectedDate != null)
             {
                 datum = DateTime.Parse(date.Text);
@@ -186,7 +186,7 @@ namespace InformacioniSistemBolnice
             {
                 foreach (Termin termin in TerminFileStorage.GetAll())
                 {
-                    if (l.jmbg == termin.Lekar.jmbg)
+                    if (l.jmbg == termin.Doctor.jmbg)
                     {
                         if (termin.status == StatusTermina.zakazan && termin.datumZakazivanja.Date.Equals(date.SelectedDate))
                         {
@@ -298,7 +298,7 @@ namespace InformacioniSistemBolnice
 
         private void submitButton_Click(object sender, RoutedEventArgs e)
         {
-            global::Lekar l = (global::Lekar)lekar.SelectedItem;
+            global::Doctor l = (global::Doctor)lekar.SelectedItem;
             Pacijent p = parent.Pacijent;
 
             if (time.SelectedIndex != -1)

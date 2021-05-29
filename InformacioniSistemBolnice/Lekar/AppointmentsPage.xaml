@@ -1,4 +1,4 @@
-﻿<Page x:Class="InformacioniSistemBolnice.Lekar.PreglediPage"
+﻿<Page x:Class="InformacioniSistemBolnice.Lekar.AppointmentsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
       Title="PreglediPage">
 
     <Grid>
-        <DataGrid x:Name="PrikazPregleda" Margin="35,75,34,137" IsReadOnly="True">
+        <DataGrid x:Name="AppointmentsDataGrid" Margin="35,75,34,137" IsReadOnly="True">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.Resources>

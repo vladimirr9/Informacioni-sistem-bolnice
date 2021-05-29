@@ -82,12 +82,12 @@ namespace InformacioniSistemBolnice
                     return;
                 }
             }
-            List<global::Lekar> lekari = LekarFileStorage.GetAll();
-            foreach (global::Lekar l in lekari)
+            List<global::Doctor> lekari = LekarFileStorage.GetAll();
+            foreach (global::Doctor l in lekari)
             {
                 if (ime.Text.Equals(l.korisnickoIme) && lozinka.Password.Equals(l.lozinka))
                 {
-                    LekarWindow lw = new LekarWindow(l);
+                    DoctorWindow lw = new DoctorWindow(l);
                     Application.Current.MainWindow = lw;
                     lw.Show();
                     this.Close();
