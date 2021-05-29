@@ -201,7 +201,7 @@
     <Compile Include="Secretary_ns\AppointmentsPage.xaml.cs">
       <DependentUpon>AppointmentsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service\AppintmentService.cs" />
+    <Compile Include="Service\AppointmentService.cs" />
     <Compile Include="Service\NotificationService.cs" />
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Patient_ns\ShowNotesPage.xaml.cs">

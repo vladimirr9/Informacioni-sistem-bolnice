@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InformacioniSistemBolnice.Service
 {
-    public class AppintmentService
+    public class AppointmentService
     {
     }
 }
