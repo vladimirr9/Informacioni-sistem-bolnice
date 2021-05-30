@@ -90,4 +90,17 @@ public class RoomFileRepository
         return false;
     }
 
+    public static Room GetOneByName(String name)
+    {
+        List<Room> rooms = GetAll();
+        foreach (Room room in rooms)
+        {
+            if (room.Name == name)
+            {
+                return rooms[rooms.IndexOf(room)];
+            }
+        }
+        return null;
+    }
+
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,83 +22,78 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class IzmenaLekaWindow : Window
     {
         private LekoviWindow parent;
-        private Medicine lekZaIzmenu;
-        public IzmenaLekaWindow(Medicine l, LekoviWindow parent)
+        private Medicine medForUpdate;
+        public IzmenaLekaWindow(Medicine med, LekoviWindow parent)
         {
             InitializeComponent();
             this.parent = parent;
-            lekZaIzmenu = l;
+            medForUpdate = med;
 
-            String naziviSastojaka = lekZaIzmenu.IngredientsList.Select(x => x.Name).ToArray().ToString();
-
-            List<global::Doctor> lekari = DoctorFileRepository.GetAll();
-            Lekar.ItemsSource = lekari;
             List<Ingredient> sastojci = IngredientFileStorage.GetAll();
             Sastojci.ItemsSource = sastojci;
 
-            Sifra.Text = lekZaIzmenu.MedicineId;
-            Naziv.Text = lekZaIzmenu.Name;
-            SastojciList.ItemsSource = lekZaIzmenu.IngredientsList;
-            MedicineStatus statusLeka = lekZaIzmenu.MedicineStatus;
-            bool isDeleted = lekZaIzmenu.IsDeleted;
+            Sifra.Text = medForUpdate.MedicineId;
+            Naziv.Text = medForUpdate.Name;
+            List<Ingredient> ingredientList = medForUpdate.IngredientsList;
+            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(ingredientList);
+            SastojciList.ItemsSource = ingredients;
         }
 
-        private void IzmeniLek(object sender, RoutedEventArgs e)
+        private void RemoveIngredient(object sender, RoutedEventArgs e)
+        {
+            Ingredient selected = (Ingredient)SastojciList.SelectedItem;
+            List<Ingredient> medIngredients = medForUpdate.IngredientsList;
+            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
+            foreach (Ingredient i in IngredientFileStorage.GetAll())
+            {
+                if (i.Name.Equals(selected.Name) && SastojciList.SelectedItem != null)
+                {
+                    ingredients.Remove(selected);
+                }
+            }
+            SastojciList.ItemsSource = ingredients;
+        }
+
+        private void AddIngredient(object sender, RoutedEventArgs e)
+        {
+            Ingredient selected = (Ingredient)Sastojci.SelectedItem;
+            List<Ingredient> medIngredients = medForUpdate.IngredientsList;
+            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
+            /*var ingredients = new ObservableCollection<Ingredient>();
+            var medIngredients = medForUpdate.ListaSastojaka;
+            foreach(var ingredient in medIngredients)
+            {
+                ingredients.Add(ingredient);
+            }*/
+            foreach (Ingredient i in IngredientFileStorage.GetAll())
+            {
+                if (!SastojciList.Items.Contains(selected) && i.Name.Equals(selected.Name))
+                {
+                    ingredients.Add(i);
+                }
+            }
+            SastojciList.ItemsSource = ingredients;
+        }
+
+        private void UpdateMedicine(object sender, RoutedEventArgs e)
         {
             String sifra = Sifra.Text;
             String naziv = Naziv.Text;
             MedicineStatus statusLeka = MedicineStatus.waitingForValidation;
             bool isDeleted = false;
-            global::Doctor doctor = (global::Doctor)Lekar.SelectedItem;
-            /*List<Ingredient> sastojciSvi = IngredientFileStorage.GetAll();
-            List<Ingredient> sastojciLeka = new List<Ingredient>();
-            String[] naziviSastojaka1 = Sastojci.Text.Split(',');
-            foreach (Ingredient s in sastojciSvi)
-            {
-                Ingredient noviSastojak = new Ingredient(0, "", false);
-
-                for (int i = 0; i < naziviSastojaka1.Length; i++)
-                {
-                    if (naziviSastojaka1[i].Equals(s.Name))
-                    {
-                        noviSastojak.ID = s.ID;
-                        noviSastojak.Name = naziviSastojaka1[i];
-                        noviSastojak.IsDeleted = false;
-                    }
-                }
-
-                sastojciLeka.Add(noviSastojak);
-            }*/
-            List<Ingredient> sastojciLeka = (List<Ingredient>)SastojciList.ItemsSource;
-            Medicine l = new Medicine(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
-            MedicineFileRepository.UpdateMedicine(lekZaIzmenu.MedicineId, l);
+            ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
+            List<Ingredient> sastojciLeka = ingredients.ToList();
+            Medicine updatedMed = new Medicine(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
+            MedicineFileRepository.UpdateMedicine(medForUpdate.MedicineId, updatedMed);
 
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
-            //_parent.UpdateTable();
+            parent.updateTable();
             this.Close();
         }
 
-        private void Otkazi(object sender, RoutedEventArgs e)
+        private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void Sastojci_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            /*if (Sastojci.SelectedIndex != -1)
-            {
-                List<Lek> lekovi = LekFileStorage.GetAll();
-                foreach (Lek l in lekovi)
-                {
-                    l.ListaSastojaka.Add((Ingredient)Sastojci.SelectedItem);
-                    //dodati u storage
-                    foreach (Ingredient s in l.ListaSastojaka)
-                    {
-                        SastojciList.Items.Add(s.Name);
-                    }
-
-                }
-            }*/
         }
     }
 }
