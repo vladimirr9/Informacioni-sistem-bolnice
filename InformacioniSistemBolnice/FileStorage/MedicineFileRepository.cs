@@ -5,7 +5,7 @@ using System.IO;
 
 public class MedicineFileRepository
 {
-    private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "lekovi.json";
+    private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "medicines.json";
 
     public static List<Medicine> GetAll()
     {

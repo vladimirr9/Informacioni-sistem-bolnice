@@ -10,7 +10,7 @@ using System.IO;
 
 public class RoomFileRepository
 {
-    private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "prostorije4.json";
+    private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "rooms.json";
 
     public static List<Room> GetAll()
    {
