@@ -42,7 +42,6 @@ namespace InformacioniSistemBolnice
             //DoctorFileRepository.AddDoctor(new global::Lekar("Rada", "Radić", "143234230034", 'ž', "+38341664548407", "radaradic@gmail.com", new DateTime(1972, 5, 14), "Rada", "rdic", new ResidentialAddress("Kralja Petra 11", new City("Novi Sad", "23232", new Country("Republika Srbija"))), TipLekara.generalPractitioner, false));
             //ManagerFileRepository.AddManager( new Manager("Petar", "Petrovic", "1234567890123", 'm', "060 / 555 - 555", "petar@gmail.com", new DateTime(1970, 4, 12), "pera1", "perica123", new ResidentialAddress("Novosadska 2", new City("Novi Sad", "21000", new Country("Republika Srbija"))), false));
 
-
         }
 
         

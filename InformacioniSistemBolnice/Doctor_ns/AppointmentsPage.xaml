@@ -15,24 +15,24 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="50"/>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="140"/>
-                <DataGridTextColumn Header="AppointmentDuration" Binding="{Binding trajanjeUMinutima}" Width="100"/>
-                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="170"/>
-                <DataGridTextColumn Header="Status pregleda" Binding="{Binding status}" Width="120"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}" Width="50"/>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding AppointmentDate}" Width="140"/>
+                <DataGridTextColumn Header="AppointmentDuration" Binding="{Binding DurationInMinutes}" Width="100"/>
+                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding Type}" Width="170"/>
+                <DataGridTextColumn Header="Status pregleda" Binding="{Binding AppointmentStatus}" Width="120"/>
                 <DataGridTextColumn Header="Patient" Width="150">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="Pacijent.ime"/>
-                            <Binding Path="Pacijent.prezime"/>
+                            <Binding Path="Patient.Name"/>
+                            <Binding Path="Patient.Surname"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Lekar" Width="150">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="Doctor.ime"/>
-                            <Binding Path="Doctor.prezime"/>
+                            <Binding Path="Doctor.Name"/>
+                            <Binding Path="Doctor.Surname"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>

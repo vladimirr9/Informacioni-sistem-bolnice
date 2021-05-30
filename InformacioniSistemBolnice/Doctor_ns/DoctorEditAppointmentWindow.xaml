@@ -9,14 +9,14 @@
         Title="Izmeni termin" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,40,0,0" TextWrapping="Wrap" Text="Lekar" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox x:Name="DoctorComboBox" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,40,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <ComboBox x:Name="DoctorComboBox" ItemsSource="{Binding Path=Doctor}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,40,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
             <ComboBox.ItemTemplate>
             <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
                             <MultiBinding StringFormat="{}{0} {1}">
-                                <Binding Path="ime"/>
-                                <Binding Path="prezime"/>
+                                <Binding Path="Name"/>
+                                <Binding Path="Surname"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
@@ -24,14 +24,14 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,88,0,0" TextWrapping="Wrap" Text="Patient" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox x:Name="PatientComboBox" ItemsSource="{Binding Path=Pacijent}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,88,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <ComboBox x:Name="PatientComboBox" ItemsSource="{Binding Path=Patient}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,88,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                    <TextBlock>
                        <TextBlock.Text>
                             <MultiBinding StringFormat="{}{0} {1}">
-                              <Binding Path="ime"/>
-                               <Binding Path="prezime"/>
+                              <Binding Path="Name"/>
+                               <Binding Path="Surname"/>
                           </MultiBinding>
                      </TextBlock.Text>
                    </TextBlock>

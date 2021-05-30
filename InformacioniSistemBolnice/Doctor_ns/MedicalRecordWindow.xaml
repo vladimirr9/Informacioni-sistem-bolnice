@@ -69,7 +69,7 @@
                     <ComboBox x:Name="DrugsComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="276" Margin="192,42,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Naziv}"/>
+                                <TextBlock Text="{Binding Name}"/>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
