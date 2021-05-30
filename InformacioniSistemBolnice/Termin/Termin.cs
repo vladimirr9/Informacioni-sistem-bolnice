@@ -21,7 +21,7 @@ public class Termin
     [JsonIgnore]
     private Pacijent pacijent;
     [JsonIgnore]
-    private Prostorija prostorija;
+    private Room prostorija;
 
     public String anamneza { get; set; }
 
@@ -55,7 +55,7 @@ public class Termin
         }
     }
     [JsonIgnore]
-    private Doctor _doctor;
+    private Lekar lekar;
 
     public DateTime KrajTermina { 
     get
@@ -65,7 +65,7 @@ public class Termin
     }
 
 
-    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Doctor doctor, Prostorija prostorija)
+    public Termin(int iDTermina, DateTime datumZakazivanja, int trajanjeUMinutima, TipTermina tipTermina, StatusTermina status, Pacijent pacijent, Lekar lekar, Room prostorija)
     {
         this.iDTermina = iDTermina;
         this.datumZakazivanja = datumZakazivanja;
@@ -73,10 +73,10 @@ public class Termin
         this.tipTermina = tipTermina;
         this.status = status;
         Pacijent = pacijent;
-        Doctor = doctor;
+        Lekar = lekar;
         Prostorija = prostorija;
-        IdProstorije = prostorija.IDprostorije;
-        KorisnickoImeLekara = doctor.korisnickoIme;
+        IdProstorije = prostorija.RoomId;
+        KorisnickoImeLekara = lekar.korisnickoIme;
         KorisnickoImePacijenta = pacijent.korisnickoIme;
     }
 
@@ -96,7 +96,7 @@ public class Termin
 
 
     [JsonIgnore]
-    public Doctor Doctor
+    public Lekar Lekar
     {
         get
         {
@@ -104,27 +104,27 @@ public class Termin
         }
         set
         {
-            if (this._doctor == null || !this._doctor.Equals(value))
+            if (this.lekar == null || !this.lekar.Equals(value))
             {
-                if (this._doctor != null)
+                if (this.lekar != null)
                 {
-                    Doctor oldDoctor = this._doctor;
-                    this._doctor = null;
+                    Lekar oldLekar = this.lekar;
+                    this.lekar = null;
                 }
                 if (value != null)
                 {
-                    this._doctor = value;
-                    KorisnickoImeLekara = this._doctor.korisnickoIme;
+                    this.lekar = value;
+                    KorisnickoImeLekara = this.lekar.korisnickoIme;
                 }
             }
         }
     }
     [JsonIgnore]
-    public Prostorija Prostorija
+    public Room Prostorija
     {
         get
         {
-            return ProstorijaFileStorage.GetOne(IdProstorije);
+            return RoomFileRepoistory.GetOne(IdProstorije);
         }
         set
         {
@@ -132,13 +132,13 @@ public class Termin
             {
                 if (this.prostorija != null)
                 {
-                    Prostorija oldProstorija = this.prostorija;
+                    Room oldProstorija = this.prostorija;
                     this.prostorija = null;
                 }
                 if (value != null)
                 {
                     this.prostorija = value;
-                    IdProstorije = this.prostorija.IDprostorije;
+                    IdProstorije = this.prostorija.RoomId;
                 }
             }
         }
@@ -156,16 +156,16 @@ public class Termin
     {
         return datumZakazivanja.Date.Equals(date.Date);
     }
-    public bool InvolvesEither(Pacijent patient, Doctor doctor)
+    public bool InvolvesEither(Pacijent patient, Lekar doctor)
     {
         if (patient == null && doctor == null)
             return false;
         else if (patient == null)
-            return (Doctor.Equals(doctor));
+            return (Lekar.Equals(doctor));
         else if (doctor == null)
             return (Pacijent.Equals(patient));
         else
-            return (Doctor.Equals(doctor)) || (Pacijent.Equals(patient));
+            return (Lekar.Equals(doctor)) || (Pacijent.Equals(patient));
     }
     public bool AreAllEntitiesAvailable(List<Termin> appointmentsToCheck = null)
     {
@@ -198,7 +198,7 @@ public class Termin
                     break;
                 }
             }
-            if (termin.Doctor.Equals(this.Doctor))
+            if (termin.Lekar.Equals(this.Lekar))
             {
                 if (this.datumZakazivanja >= termin.datumZakazivanja && this.datumZakazivanja <= termin.KrajTermina)
                 {

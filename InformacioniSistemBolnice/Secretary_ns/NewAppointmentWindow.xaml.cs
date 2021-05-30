@@ -19,9 +19,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
     public partial class NewAppointmentWindow : Window
     {
         private AppointmentsPage _parent;
-        private List<global::Doctor> _doctors;
+        private List<global::Lekar> _doctors;
         private List<Pacijent> _patients;
-        private List<Prostorija> _rooms;
+        private List<Room> _rooms;
         private List<String> _times;
         public NewAppointmentWindow(AppointmentsPage parent)
         {
@@ -37,8 +37,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             Pacijent selectedPatient = (Pacijent) PatientComboBox.SelectedItem;
-            global::Doctor selectedDoctor = (global::Doctor)DoctorComboBox.SelectedItem;
-            Prostorija selectedRoom = (Prostorija)RoomComboBox.SelectedItem;
+            global::Lekar selectedDoctor = (global::Lekar)DoctorComboBox.SelectedItem;
+            Room selectedRoom = (Room)RoomComboBox.SelectedItem;
             String selectedTime = AppointmentTime.SelectedItem.ToString();
             String selectedDate = DatePicker.Text;
             DateTime selectedDateTime = DateTime.Parse(selectedDate + " " + selectedTime);
@@ -120,8 +120,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         }
         private void UpdateAvailableRoomList(DateTime start, DateTime end)
         {
-            _rooms = new List<Prostorija>();
-            foreach (Prostorija room in ProstorijaFileStorage.GetAll())
+            _rooms = new List<Room>();
+            foreach (Room room in RoomFileRepoistory.GetAll())
             {
                 if (room.IsAvailable(start, end) && !room.IsDeleted)
                 {
@@ -131,8 +131,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         }
         private void UpdateAvailableDoctorList(DateTime start, DateTime end)
         {
-            _doctors = new List<global::Doctor>();
-            foreach (global::Doctor doctor in LekarFileStorage.GetAll())
+            _doctors = new List<global::Lekar>();
+            foreach (global::Lekar doctor in LekarFileStorage.GetAll())
             {
                 if (doctor.IsAvailable(start, end) && !doctor.isDeleted)
                 {
@@ -188,7 +188,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             List<Termin> appointments = new List<Termin>();
             foreach (Termin appointment in TerminFileStorage.GetAll())
             {
-                if (appointment.OccursOn(date) && appointment.InvolvesEither((Pacijent)PatientComboBox.SelectedItem, (global::Doctor)DoctorComboBox.SelectedItem) && appointment.status == StatusTermina.zakazan)
+                if (appointment.OccursOn(date) && appointment.InvolvesEither((Pacijent)PatientComboBox.SelectedItem, (global::Lekar)DoctorComboBox.SelectedItem) && appointment.status == StatusTermina.zakazan)
                 {
                     appointments.Add(appointment);
                 }
