@@ -36,7 +36,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            TipLekara doctorType = global::Lekar.LekarTypeFromString(DoctorTypeCombo.SelectedItem.ToString());
+            DoctorType doctorType = global::Doctor.DoctorTypeFromString(DoctorTypeCombo.SelectedItem.ToString());
             int duration = int.Parse(DurationInMinutes.Text);
             string jmbg = PatientsList.SelectedItem.ToString().Split('-')[1].Trim();
             Pacijent patient = PacijentFileStorage.GetOneByJMBG(jmbg);
@@ -44,24 +44,24 @@ namespace InformacioniSistemBolnice.Secretary_ns
             
             DateTime appointmentEnd = appointmentStart.AddMinutes(duration);
             TipTermina appointmentType;
-            RoomType roomType;
+            TipProstorije roomType;
             if (AppointmentTypeCombo.Text.Equals("Operacija"))
             {
                 appointmentType = TipTermina.operacija;
-                roomType = RoomType.operatingRoom;
+                roomType = TipProstorije.operacionaSala;
             }
             else
             {
                 appointmentType = TipTermina.pregledKodLekaraOpstePrakse;
-                roomType = RoomType.examinationRoom;
+                roomType = TipProstorije.ordinacija;
             }
                 
 
-            List<Room> availableRooms = GetAvailableRooms(appointmentStart, appointmentEnd);
-            List<global::Lekar> availableDoctors = GetAvailableDoctors(appointmentStart, appointmentEnd);
+            List<Prostorija> availableRooms = GetAvailableRooms(appointmentStart, appointmentEnd);
+            List<global::Doctor> availableDoctors = GetAvailableDoctors(appointmentStart, appointmentEnd);
 
-            List<Room> filteredRooms = GetFilteredRooms(availableRooms, appointmentType);
-            List<global::Lekar> filteredDoctors = GetFilteredDoctors(availableDoctors, doctorType);
+            List<Prostorija> filteredRooms = GetFilteredRooms(availableRooms, appointmentType);
+            List<global::Doctor> filteredDoctors = GetFilteredDoctors(availableDoctors, doctorType);
 
 
             if (filteredRooms.Count > 0 && filteredDoctors.Count > 0)
@@ -73,8 +73,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 }
 
 
-                Room room = filteredRooms[0];
-                global::Lekar doctor = filteredDoctors[0];
+                Prostorija room = filteredRooms[0];
+                global::Doctor doctor = filteredDoctors[0];
                 int id = TerminFileStorage.GetAll().Count + 1;
 
                 Termin appointment = new Termin(id, appointmentStart, duration, appointmentType, StatusTermina.zakazan, patient, doctor, room);
@@ -103,42 +103,42 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
 
 
-        private List<Room> GetFilteredRooms(List<Room> rooms, TipTermina appointmentType)
+        private List<Prostorija> GetFilteredRooms(List<Prostorija> rooms, TipTermina appointmentType)
         {
-            List<Room> filteredRooms = new List<Room>();
+            List<Prostorija> filteredRooms = new List<Prostorija>();
             if (appointmentType == TipTermina.operacija)
             {
-                foreach (Room room in rooms)
+                foreach (Prostorija room in rooms)
                 {
-                    if (room.RoomType == RoomType.operatingRoom)
+                    if (room.TipProstorije == TipProstorije.operacionaSala)
                         filteredRooms.Add(room);
                 }
             }
             else
             {
-                foreach (Room room in rooms)
+                foreach (Prostorija room in rooms)
                 {
-                    if (room.RoomType == RoomType.examinationRoom)
+                    if (room.TipProstorije == TipProstorije.ordinacija)
                         filteredRooms.Add(room);
                 }
             }
             return filteredRooms;
         }
-        private List<global::Lekar> GetFilteredDoctors(List<global::Lekar> doctors, TipLekara doctorType)
+        private List<global::Doctor> GetFilteredDoctors(List<global::Doctor> doctors, DoctorType doctorType)
         {
-            List<global::Lekar> filteredDoctors = new List<global::Lekar>();
-            foreach (global::Lekar doctor in doctors)
+            List<global::Doctor> filteredDoctors = new List<global::Doctor>();
+            foreach (global::Doctor doctor in doctors)
             {
-                if (doctor.tipLekara == doctorType)
+                if (doctor.doctorType == doctorType)
                     filteredDoctors.Add(doctor);
             }
             return filteredDoctors;
         }
 
-        private List<Room> GetAvailableRooms(DateTime pocetak, DateTime kraj)
+        private List<Prostorija> GetAvailableRooms(DateTime pocetak, DateTime kraj)
         {
-            List<Room> rooms = new List<Room>();
-            foreach (Room room in RoomFileRepoistory.GetAll())
+            List<Prostorija> rooms = new List<Prostorija>();
+            foreach (Prostorija room in ProstorijaFileStorage.GetAll())
             {
                 if (room.IsAvailable(pocetak, kraj) && !room.IsDeleted)
                 {
@@ -147,10 +147,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
             }
             return rooms;
         }
-        private List<global::Lekar> GetAvailableDoctors(DateTime pocetak, DateTime kraj)
+        private List<global::Doctor> GetAvailableDoctors(DateTime pocetak, DateTime kraj)
         {
-            List<global::Lekar> doctors = new List<global::Lekar>();
-            foreach (global::Lekar doctor in LekarFileStorage.GetAll())
+            List<global::Doctor> doctors = new List<global::Doctor>();
+            foreach (global::Doctor doctor in LekarFileStorage.GetAll())
             {
                 if (doctor.IsAvailable(pocetak, kraj) && !doctor.isDeleted)
                 {
@@ -191,7 +191,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         }
         public void InitializeDoctorTypes()
         {
-            _doctorTypes = global::Lekar.GetLekarTypes();
+            _doctorTypes = global::Doctor.GetDoctorTypes();
             DoctorTypeCombo.ItemsSource = _doctorTypes;
         }
 
