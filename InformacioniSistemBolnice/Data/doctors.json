@@ -1,1 +1,45 @@
-[{"doctorType":0,"Name":"Petar","Surname":"Petrovic","JMBG":"1507970600034","Gender":"m","PhoneNumber":"+381661238407","Email":"ppetrovic@gmail.com","DateOfBirth":"1970-04-12T00:00:00","Username":"PPetrovic","Password":"petrovic123","IsDeleted":false,"ResidentialAddress":{"StreetAndNumber":"Dunavska 21","City":{"Country":{"Name":"Republika Srbija"},"Name":"Novi Sad","PostalCode":"21000"}}}]
+[
+
+  {
+    "doctorType": 0,
+    "Name": "Petar",
+    "Surname": "Petrovic",
+    "JMBG": "1507970600034",
+    "Gender": "m",
+    "PhoneNumber": "+381661238407",
+    "Email": "ppetrovic@gmail.com",
+    "DateOfBirth": "1970-04-12T00:00:00",
+    "Username": "PPetrovic",
+    "Password": "petrovic123",
+    "IsDeleted": false,
+    "ResidentialAddress": {
+      "StreetAndNumber": "Dunavska 21",
+      "City": {
+        "Country": { "Name": "Republika Srbija" },
+        "Name": "Novi Sad",
+        "PostalCode": "21000"
+      }
+    }
+  },
+  {
+    "doctorType": 0,
+    "Name": "Marko",
+    "Surname": "Markovic",
+    "JMBG": "1508970600034",
+    "Gender": "m",
+    "PhoneNumber": "+381661238407",
+    "Email": "ppetrovic@gmail.com",
+    "DateOfBirth": "1970-08-15T00:00:00",
+    "Username": "marko",
+    "Password": "markovic123",
+    "IsDeleted": false,
+    "ResidentialAddress": {
+      "StreetAndNumber": "Dunavska 12",
+      "City": {
+        "Country": { "Name": "Republika Srbija" },
+        "Name": "Novi Sad",
+        "PostalCode": "21000"
+      }
+    }
+  }
+]

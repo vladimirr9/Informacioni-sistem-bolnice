@@ -15,16 +15,16 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="35"/>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="150" />
-                <DataGridTextColumn Header="Trajanje u minutima" Binding="{Binding trajanjeUMinutima}" Width="60"/>
-                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding tipTermina}" Width="150"/>
-                <DataGridTextColumn Header="Status pregleda" Binding ="{Binding status}" Width="80"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}" Width="35"/>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding AppointmentDate}" Width="150" />
+                <DataGridTextColumn Header="Trajanje u minutima" Binding="{Binding DurationInMinutes}" Width="60"/>
+                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding Type}" Width="150"/>
+                <DataGridTextColumn Header="Status pregleda" Binding ="{Binding AppointmentStatus}" Width="80"/>
                 <DataGridTextColumn Header="Lekar" Width="*">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="Doctor.name"/>
-                            <Binding Path="Doctor.surname"/>
+                            <Binding Path="Doctor.Name"/>
+                            <Binding Path="Doctor.Surname"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
