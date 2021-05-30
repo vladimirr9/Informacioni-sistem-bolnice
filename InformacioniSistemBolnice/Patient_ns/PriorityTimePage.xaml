@@ -25,8 +25,8 @@
                 <DataGridTextColumn  Header="Lekar" Width="100">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="Ljekar.ime"/>
-                            <Binding Path="Ljekar.prezime"/>
+                            <Binding Path="Ljekar.Name"/>
+                            <Binding Path="Ljekar.Surname"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
