@@ -40,5 +40,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             Main.Content = AppointmentsPage.GetPage();
         }
+
+        private void DoctorsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = DoctorsPage.GetPage();
+        }
     }
 }

@@ -1,0 +1,79 @@
+﻿<Window x:Class="InformacioniSistemBolnice.Secretary_ns.DoctorWorktimeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Secretary_ns"
+        mc:Ignorable="d"
+        Title="DoctorWorktimeWindow" Height="550" Width="1000">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#FF085394"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal"  Margin="25, 20, 0, 0">
+                <StackPanel VerticalAlignment="Center">
+                    <RadioButton x:Name="FirstShift" Checked="FirstShift_Checked">
+                        Prva smena
+                    </RadioButton>
+                    <RadioButton x:Name="SecondShift" Margin="0,20,0,0" Checked="SecondShift_Checked">
+                        Druga smena
+                    </RadioButton>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label  FontFamily="Verdana" HorizontalContentAlignment="Right" Width="180"  FontSize="16" Content="Broj slobodnih dana:"></Label>
+                        <Label x:Name="FreeDays" FontFamily="Verdana" Margin="10,0,0,0"  FontSize="16" Content="{Binding DaysOfVacation, Mode=TwoWay}"></Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label Content="Početak godišnjeg:" Width="180" FontFamily="Verdana" FontSize="16" HorizontalContentAlignment="Right" ></Label>
+                        <DatePicker Width="200" Margin="10,0,0,0" FontFamily="Verdana" FontSize="16" >
+                            <DatePicker.SelectedDate>
+                                <Binding Path="Start" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged"/>
+                            </DatePicker.SelectedDate>
+                        </DatePicker>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+                        <Label Content="Kraj godišnjeg:" Width="180" FontFamily="Verdana" FontSize="16" HorizontalContentAlignment="Right" ></Label>
+                        <DatePicker Width="200" Margin="10,0,0,0" FontFamily="Verdana" FontSize="16">
+                            <DatePicker.SelectedDate>
+                                <Binding Path="End" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged"/>
+                            </DatePicker.SelectedDate>
+                        </DatePicker>
+                    </StackPanel>
+                    <Button Width="90" x:Name="Add" Height="35" Content="Dodaj" Margin="0,33,0,0" Click="Add_Click" />
+
+                </StackPanel>
+                <StackPanel Orientation="Vertical"  Margin="40,0,0,0">
+                    <ListView x:Name="VacationList" ItemsSource="{Binding Vacations}" Width="300" Height="150">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Početak" Width="120" DisplayMemberBinding="{Binding Path=StartDisplay}"/>
+                                <GridViewColumn Header="Kraj" Width="120" DisplayMemberBinding="{Binding Path=EndDisplay}"/>
+                                <GridViewColumn Header="Trajanje" Width="60" DisplayMemberBinding="{Binding Path=DurationInBusinessDays}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button Width="90" x:Name="Delete" Height="35" Content="Obriši" Margin="0,15,0,0" Click="Delete_Click" />
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,170,0,0">
+                <Button Width="90" x:Name="Confirm" Height="35" Content="Potvrdi" Margin="0,0,30,0" Click="Confirm_Click" />
+                <Button Width="90" x:Name="Cancel" Height="35" Content="Otkaži" Margin="30,0,0,0" Click="Cancel_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

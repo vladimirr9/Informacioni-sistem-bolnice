@@ -3,6 +3,7 @@
 // Created: Monday, March 22, 2021 6:32:18 PM
 // Purpose: Definition of Class Lekar
 
+using InformacioniSistemBolnice.Doctor_ns;
 using System;
 using System.Collections.Generic;
 using System.Windows.Documents;
@@ -10,11 +11,17 @@ using System.Windows.Documents;
 public class Doctor : User
 {
     public DoctorType doctorType { get; set; }
+    public WorkShift Shift { get; set; }
+    public List<Vacation> Vacations;
+    public int DaysOfVacation { get; set;}
     //private int iDLekara;
 
-    public Doctor(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime birthday, string username, string password, ResidentialAddress address, DoctorType doctorType, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, birthday, username, password, address, isDeleted)
+    public Doctor(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime birthday, string username, string password, ResidentialAddress address, DoctorType doctorType, WorkShift shift, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, birthday, username, password, address, isDeleted)
     {
         this.doctorType = doctorType;
+        Shift = shift;
+        Vacations = new List<Vacation>();
+        DaysOfVacation = 25;
     }
 
     public override bool Equals(object obj)
@@ -24,8 +31,19 @@ public class Doctor : User
 
     public bool IsAvailable(DateTime start, DateTime end) // proverava da li je DoctorComboBox slobodan izmedju neka dva trenutka u vremenu
     {
+
         if (start.Equals(end))
             return true;
+        if (Shift == WorkShift.firstShift)
+        {
+            if (start >= start.Date.AddHours(14))
+                return false;
+        }
+        else if (Shift == WorkShift.secondShift)
+        {
+            if (start <= start.Date.AddHours(14))
+                return false;
+        }
         bool retVal = true;
         List<Appointment> appointments = AppointmentFileRepository.GetAll();
         foreach (Appointment appointment in appointments)

@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice
         private Patient Patient { get; set; }
         public MainWindow()
         {
-            //DoctorFileRepository.AddDoctor(new Doctor("Petar", "Petrovic", "1507970600034", 'm', "+381661238407", "ppetrovic@gmail.com", new DateTime(1970,4,12), "PPetrovic", "petrovic123", null, DoctorType.generalPractitioner, false));
+            //DoctorFileRepository.AddDoctor(new Doctor("Petar", "Petrovic", "1507970600034", 'm', "+381661238407", "ppetrovic@gmail.com", new DateTime(1970,4,12), "PPetrovic", "petrovic123", null, DoctorType.generalPractitioner, WorkShift.firstShift, false));
             //SecretaryFileRepository.AddSecretary(new Secretary("Vladimir", "Rokvic", "0405993705030", 'M', "+32432343232", "neko@nesto.com", new DateTime(), "vladimir", "rokvic", new ResidentialAddress("Kralja Petra 1", new City("Novi Sad", "23223", new Country("Republika Srbija"))), false));
             //PatientFileRepository.AddPatient(new Patient("Pera","Peric", "09320434533",'M',"+3245344323","Pera@peric.com",new DateTime(),"pera","peric",new ResidentialAddress("Kralja Petra 12", new City("Novi Sad", "23232", new Country("Republika Srbija"))),false,"2323224343",new MedicalRecord("232"),false));
             InitializeComponent();
