@@ -23,7 +23,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using InformacioniSistemBolnice.Patient_ns;
 
 namespace InformacioniSistemBolnice
 {
@@ -60,9 +59,9 @@ namespace InformacioniSistemBolnice
 
                     String ime = pacijent.korisnickoIme;
                             
-                            StartPatientWindow pp = new StartPatientWindow(pacijent);
+                            PocetnaPacijent pp = new PocetnaPacijent(pacijent);
                             Application.Current.MainWindow = pp;
-                            pp.startWindow.Content = new StartPatientPage(pp);
+                            pp.startWindow.Content = new StartPacijentPage(pp);
                             pp.Show();
                             this.Close();
                             return;
@@ -83,12 +82,12 @@ namespace InformacioniSistemBolnice
                     return;
                 }
             }
-            List<global::Doctor> lekari = LekarFileStorage.GetAll();
-            foreach (global::Doctor l in lekari)
+            List<global::Lekar> lekari = LekarFileStorage.GetAll();
+            foreach (global::Lekar l in lekari)
             {
                 if (ime.Text.Equals(l.korisnickoIme) && lozinka.Password.Equals(l.lozinka))
                 {
-                    DoctorWindow lw = new DoctorWindow(l);
+                    LekarWindow lw = new LekarWindow(l);
                     Application.Current.MainWindow = lw;
                     lw.Show();
                     this.Close();
