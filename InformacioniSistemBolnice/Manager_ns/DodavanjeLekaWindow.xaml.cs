@@ -16,43 +16,33 @@ using InformacioniSistemBolnice.FileStorage;
 namespace InformacioniSistemBolnice.Upravnik
 {
     /// <summary>
-    /// Interaction logic for IzmenaLekaWindow.xaml
+    /// Interaction logic for DodavanjeLekaWindow.xaml
     /// </summary>
-    public partial class IzmenaLekaWindow : Window
+    public partial class DodavanjeLekaWindow : Window
     {
-        private LekoviWindow parent;
-        private Lek lekZaIzmenu;
-        public IzmenaLekaWindow(Lek l, LekoviWindow parent)
+        LekoviWindow parent;
+        public DodavanjeLekaWindow(LekoviWindow parent)
         {
             InitializeComponent();
             this.parent = parent;
-            lekZaIzmenu = l;
-
-            String naziviSastojaka = lekZaIzmenu.ListaSastojaka.Select(x => x.Name).ToArray().ToString();
-
             List<global::Doctor> lekari = LekarFileStorage.GetAll();
+
             Lekar.ItemsSource = lekari;
             List<Ingredient> sastojci = IngredientFileStorage.GetAll();
             Sastojci.ItemsSource = sastojci;
-
-            Sifra.Text = lekZaIzmenu.Sifra;
-            Naziv.Text = lekZaIzmenu.Naziv;
-            SastojciList.ItemsSource = lekZaIzmenu.ListaSastojaka;
-            StatusLeka statusLeka = lekZaIzmenu.StatusLeka;
-            bool isDeleted = lekZaIzmenu.IsDeleted;
         }
 
-        private void IzmeniLek(object sender, RoutedEventArgs e)
+        private void DodajLek(object sender, RoutedEventArgs e)
         {
             String sifra = Sifra.Text;
             String naziv = Naziv.Text;
-            StatusLeka statusLeka = StatusLeka.cekaNaValidaciju;
+            MedicineStatus statusLeka = MedicineStatus.waitingForValidation;
             bool isDeleted = false;
             global::Doctor doctor = (global::Doctor)Lekar.SelectedItem;
-            /*List<Ingredient> sastojciSvi = IngredientFileStorage.GetAll();
+            List<Ingredient> sastojciSvi = IngredientFileStorage.GetAll();
             List<Ingredient> sastojciLeka = new List<Ingredient>();
             String[] naziviSastojaka1 = Sastojci.Text.Split(',');
-            foreach (Ingredient s in sastojciSvi)
+            /*foreach (Ingredient s in sastojciSvi)
             {
                 Ingredient noviSastojak = new Ingredient(0, "", false);
 
@@ -68,10 +58,9 @@ namespace InformacioniSistemBolnice.Upravnik
 
                 sastojciLeka.Add(noviSastojak);
             }*/
-            List<Ingredient> sastojciLeka = (List<Ingredient>)SastojciList.ItemsSource;
-            Lek l = new Lek(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
-            LekFileStorage.UpdateLek(lekZaIzmenu.Sifra, l);
 
+            Medicine l = new Medicine(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
+            MedicineFileRepository.AddMedicine(l);
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
             //_parent.UpdateTable();
             this.Close();
@@ -80,24 +69,6 @@ namespace InformacioniSistemBolnice.Upravnik
         private void Otkazi(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void Sastojci_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            /*if (Sastojci.SelectedIndex != -1)
-            {
-                List<Lek> lekovi = LekFileStorage.GetAll();
-                foreach (Lek l in lekovi)
-                {
-                    l.ListaSastojaka.Add((Ingredient)Sastojci.SelectedItem);
-                    //dodati u storage
-                    foreach (Ingredient s in l.ListaSastojaka)
-                    {
-                        SastojciList.Items.Add(s.Name);
-                    }
-
-                }
-            }*/
         }
     }
 }

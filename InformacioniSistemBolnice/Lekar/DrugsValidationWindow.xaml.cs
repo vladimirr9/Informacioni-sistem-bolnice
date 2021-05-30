@@ -29,12 +29,12 @@ namespace InformacioniSistemBolnice.Lekar
             if (DrugsList.SelectedItem != null)
             {
                 String name = DrugsList.SelectedItem.ToString();
-                List<Lek> drugs = LekFileStorage.GetAll();
-                foreach (Lek drug in drugs)
+                List<Medicine> drugs = MedicineFileRepository.GetAll();
+                foreach (Medicine drug in drugs)
                 {
-                    if (drug.Naziv == name)
+                    if (drug.Name == name)
                     {
-                        drug.StatusLeka = StatusLeka.validiran;
+                        drug.MedicineStatus = MedicineStatus.validiran;
 
                         //update lek storage!
                     }
@@ -52,11 +52,11 @@ namespace InformacioniSistemBolnice.Lekar
         private void UpdateList()
         {
             DrugsList.Items.Clear();
-            List<Lek> drugs = LekFileStorage.GetAll();
-            foreach (Lek drug in drugs)
+            List<Medicine> drugs = MedicineFileRepository.GetAll();
+            foreach (Medicine drug in drugs)
             {
-                if (!drug.IsDeleted && drug.StatusLeka.Equals(StatusLeka.cekaNaValidaciju))
-                    DrugsList.Items.Add(drug.Naziv);
+                if (!drug.IsDeleted && drug.MedicineStatus.Equals(MedicineStatus.waitingForValidation))
+                    DrugsList.Items.Add(drug.Name);
             }
         }
 
@@ -64,13 +64,13 @@ namespace InformacioniSistemBolnice.Lekar
         {
             IngredientsList.Items.Clear();
             String name = DrugsList.SelectedItem.ToString();
-            List<Lek> drugs = LekFileStorage.GetAll();
-            foreach (Lek drug in drugs)
+            List<Medicine> drugs = MedicineFileRepository.GetAll();
+            foreach (Medicine drug in drugs)
             {
-                if (drug.Naziv == name)
+                if (drug.Name == name)
                 {
                     Console.WriteLine(name);
-                    foreach (Ingredient ingredient in drug.ListaSastojaka)
+                    foreach (Ingredient ingredient in drug.IngredientsList)
                     {
                         IngredientsList.Items.Add(ingredient.Name);
                     }

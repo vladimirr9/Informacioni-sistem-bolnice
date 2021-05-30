@@ -89,7 +89,7 @@
     <Compile Include="FileStorage\AnamnesisFileRepository.cs" />
     <Compile Include="FileStorage\RatingFileRepository.cs" />
     <Compile Include="FileStorage\ActivityLogFileRepository.cs" />
-    <Compile Include="FileStorage\LekFileStorage.cs" />
+    <Compile Include="FileStorage\MedicineFileRepository.cs" />
     <Compile Include="FileStorage\IngredientFileStorage.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
@@ -221,64 +221,64 @@
     <Compile Include="Service\AppointmentService.cs" />
     <Compile Include="Service\NotificationService.cs" />
     <Compile Include="Service\PatientService.cs" />
-    <Compile Include="Upravnik\DodavanjeLekaWindow.xaml.cs">
+    <Compile Include="Manager_ns\DodavanjeLekaWindow.xaml.cs">
       <DependentUpon>DodavanjeLekaWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\DodavanjeOpreme.xaml.cs">
+    <Compile Include="Manager_ns\DodavanjeOpreme.xaml.cs">
       <DependentUpon>DodavanjeOpreme.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\DodavanjeProstorije.xaml.cs">
+    <Compile Include="Manager_ns\DodavanjeProstorije.xaml.cs">
       <DependentUpon>DodavanjeProstorije.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\FiltriranaOprema.xaml.cs">
+    <Compile Include="Manager_ns\FiltriranaOprema.xaml.cs">
       <DependentUpon>FiltriranaOprema.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\IzmenaLekaWindow.xaml.cs">
+    <Compile Include="Manager_ns\IzmenaLekaWindow.xaml.cs">
       <DependentUpon>IzmenaLekaWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\IzmenaOpreme.xaml.cs">
+    <Compile Include="Manager_ns\IzmenaOpreme.xaml.cs">
       <DependentUpon>IzmenaOpreme.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\IzmenaProstorije.xaml.cs">
+    <Compile Include="Manager_ns\IzmenaProstorije.xaml.cs">
       <DependentUpon>IzmenaProstorije.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\Lek.cs" />
-    <Compile Include="Upravnik\LekoviWindow.xaml.cs">
+    <Compile Include="Manager_ns\Medicine.cs" />
+    <Compile Include="Manager_ns\LekoviWindow.xaml.cs">
       <DependentUpon>LekoviWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\Oprema.cs" />
-    <Compile Include="Upravnik\OpremaWindow.xaml.cs">
+    <Compile Include="Manager_ns\Inventory.cs" />
+    <Compile Include="Manager_ns\OpremaWindow.xaml.cs">
       <DependentUpon>OpremaWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\Prostorija.cs" />
-    <Compile Include="FileStorage\ProstorijaFileStorage.cs" />
+    <Compile Include="Manager_ns\Room.cs" />
+    <Compile Include="FileStorage\RoomFileRepository.cs" />
     <Compile Include="Secretary_ns\Secretary.cs" />
     <Compile Include="FileStorage\SecretaryFileStorage.cs" />
     <Compile Include="Termin\StatusTermina.cs" />
     <Compile Include="Termin\Termin.cs" />
     <Compile Include="FileStorage\TerminFileStorage.cs" />
     <Compile Include="Lekar\DoctorType.cs" />
-    <Compile Include="Upravnik\RasporedjivanjeOpreme.xaml.cs">
+    <Compile Include="Manager_ns\RasporedjivanjeOpreme.xaml.cs">
       <DependentUpon>RasporedjivanjeOpreme.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\RasporedjivanjeStatickeWindow.xaml.cs">
+    <Compile Include="Manager_ns\RasporedjivanjeStatickeWindow.xaml.cs">
       <DependentUpon>RasporedjivanjeStatickeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\StatusLeka.cs" />
-    <Compile Include="Upravnik\TipOpreme.cs" />
-    <Compile Include="Upravnik\TipProstorije.cs" />
+    <Compile Include="Manager_ns\MedicineStatus.cs" />
+    <Compile Include="Manager_ns\InventoryType.cs" />
+    <Compile Include="Manager_ns\RoomType.cs" />
     <Compile Include="Termin\TipTermina.cs" />
-    <Compile Include="Upravnik\Upravnik.cs" />
-    <Compile Include="FileStorage\UpravnikFileStorage.cs" />
-    <Compile Include="Upravnik\UpravnikWindow.xaml.cs">
+    <Compile Include="Manager_ns\Manager.cs" />
+    <Compile Include="FileStorage\ManagerFileRepository.cs" />
+    <Compile Include="Manager_ns\UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileStorage\ZdravstevniKartonFileStorage.cs" />
     <Compile Include="Patient_ns\ZdravstveniKarton.cs" />
-    <Compile Include="Upravnik\WindowProstorije.xaml.cs">
+    <Compile Include="Manager_ns\WindowProstorije.xaml.cs">
       <DependentUpon>WindowProstorije.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\ZakazivanjeRenoviranjaWindow.xaml.cs">
+    <Compile Include="Manager_ns\ZakazivanjeRenoviranjaWindow.xaml.cs">
       <DependentUpon>ZakazivanjeRenoviranjaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation\JMBGValidationRule.cs" />
@@ -465,59 +465,59 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\DodavanjeLekaWindow.xaml">
+    <Page Include="Manager_ns\DodavanjeLekaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\DodavanjeOpreme.xaml">
+    <Page Include="Manager_ns\DodavanjeOpreme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\DodavanjeProstorije.xaml">
+    <Page Include="Manager_ns\DodavanjeProstorije.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\FiltriranaOprema.xaml">
+    <Page Include="Manager_ns\FiltriranaOprema.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\IzmenaLekaWindow.xaml">
+    <Page Include="Manager_ns\IzmenaLekaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\IzmenaOpreme.xaml">
+    <Page Include="Manager_ns\IzmenaOpreme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\IzmenaProstorije.xaml">
+    <Page Include="Manager_ns\IzmenaProstorije.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\LekoviWindow.xaml">
+    <Page Include="Manager_ns\LekoviWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\OpremaWindow.xaml">
+    <Page Include="Manager_ns\OpremaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\RasporedjivanjeOpreme.xaml">
+    <Page Include="Manager_ns\RasporedjivanjeOpreme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\RasporedjivanjeStatickeWindow.xaml">
+    <Page Include="Manager_ns\RasporedjivanjeStatickeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\UpravnikWindow.xaml">
+    <Page Include="Manager_ns\UpravnikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\WindowProstorije.xaml">
+    <Page Include="Manager_ns\WindowProstorije.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Upravnik\ZakazivanjeRenoviranjaWindow.xaml">
+    <Page Include="Manager_ns\ZakazivanjeRenoviranjaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

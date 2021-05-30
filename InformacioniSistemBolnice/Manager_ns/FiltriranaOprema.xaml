@@ -20,9 +20,9 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID prostorije" Binding="{Binding Path=IdProstorije}" Width="150"/>
-                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}" Width="150"/>
-                <DataGridTextColumn Header="Količina" Binding="{Binding Path=Kolicina}" Width="*"/>
+                <DataGridTextColumn Header="ID prostorije" Binding="{Binding Path=RoomId}" Width="150"/>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="150"/>
+                <DataGridTextColumn Header="Količina" Binding="{Binding Path=Quantity}" Width="*"/>
             </DataGrid.Columns>
 
         </DataGrid>

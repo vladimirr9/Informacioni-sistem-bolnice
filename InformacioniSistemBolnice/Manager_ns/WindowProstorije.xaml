@@ -28,14 +28,14 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}" Width="100"/>
-                <DataGridTextColumn Header="ID" Binding="{Binding Path=IDprostorije}" Width="100"/>
-                <DataGridTextColumn Header="Tip" Binding="{Binding Path=TipProstorije}" Width="125"/>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="100"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=RoomId}" Width="100"/>
+                <DataGridTextColumn Header="Tip" Binding="{Binding Path=RoomType}" Width="125"/>
                 <DataGridTextColumn Header="Obrisana" Binding="{Binding Path=IsDeleted}" Width="100"/>
-                <DataGridTextColumn Header="Kvadratura" Binding="{Binding Path=Kvadratura}" Width="125"/>
+                <DataGridTextColumn Header="Kvadratura" Binding="{Binding Path=Area}" Width="125"/>
                 <DataGridTextColumn Header="Aktivna" Binding="{Binding Path=IsActive}" Width="75"/>
-                <DataGridTextColumn Header="Broj sprata" Binding="{Binding Path=BrSprata}" Width="125"/>
-                <DataGridTextColumn Header="Broj sobe" Binding="{Binding Path=BrSobe}" Width="*"/>
+                <DataGridTextColumn Header="Broj sprata" Binding="{Binding Path=Floor}" Width="125"/>
+                <DataGridTextColumn Header="Broj sobe" Binding="{Binding Path=RoomNumber}" Width="*"/>
             </DataGrid.Columns>
 
         </DataGrid>
