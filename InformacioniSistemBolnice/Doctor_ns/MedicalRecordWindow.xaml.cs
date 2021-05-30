@@ -22,6 +22,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private Patient selected;
         private PatientController _patientController = new PatientController();
         private AnamnesisController _anamnesisController = new AnamnesisController();
+        private AppointmentController _appointmentController = new AppointmentController();
 
         public MedicalRecordWindow(Patient patient , DoctorWindow parent)
         {
@@ -49,10 +50,16 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 GenderComboBox.SelectedItem = 1;
             }
 
-            AnamnesisTextBox.Document.Blocks.Clear();
-            //AnamnesisTextBox.Document.Blocks.Add(new Paragraph(new Run(_anamnesisController.AppointmentAnamnesis(appointment))));    //dodati listu pregleda i izmestiti u selectionChanged
+            foreach (Appointment appointment in _appointmentController.PatientsAppointments(selected))
+            {
+                AppointmentsDataGrid.Items.Add(appointment);
+            }
 
-            List<Medicine> drugs = MedicineFileRepository.GetAll();
+
+            AnamnesisTextBox.Document.Blocks.Clear();
+
+
+            List<Medicine> drugs = MedicineFileRepository.GetAll();               //kontroler
             DrugsComboBox.ItemsSource = drugs;
         }
 
@@ -85,25 +92,35 @@ namespace InformacioniSistemBolnice.Doctor_ns
             FrequencyTextBox.Text = "";
         }
 
-        //Upisivanje anamneze
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Selection_Changed(object sender, SelectionChangedEventArgs e)
         {
-            /*
+            Appointment appointment = (Appointment) AppointmentsDataGrid.SelectedItem;
+            AnamnesisTextBox.Document.Blocks.Clear();
+            if(_anamnesisController.AppointmentAnamnesis(appointment) != null)
+            {
+                AnamnesisTextBox.Document.Blocks.Add(new Paragraph(new Run(_anamnesisController.AppointmentAnamnesis(appointment).DescriptionOfAnamnesis)));
+            }
+
+        }
+
+        private void Save_Anamnesis_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment = (Appointment)AppointmentsDataGrid.SelectedItem;
             String anamnesis = new TextRange(AnamnesisTextBox.Document.ContentStart, AnamnesisTextBox.Document.ContentEnd).Text;
+
             if (anamnesis.Trim() != "")
             {
-                appointment.Anamnesis = anamnesis;
-
-
-                int idOfAnamnesis = AnamnesisFileRepository.GetAll().Count + 1;
-                Anamnesis newAnamnesis = new Anamnesis(anamnesis, null, selected.Username, idOfAnamnesis, DateTime.Now, appointment.AppointmentID);
-                AnamnesisFileRepository.AddAnamnesis(newAnamnesis);// - dodati u prikaz kartona
-
-
-
-                AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+                if (_anamnesisController.AppointmentAnamnesis(appointment) != null)
+                {
+                    _anamnesisController.Update(_anamnesisController.AppointmentAnamnesis(appointment));
+                }
+                else
+                {
+                    Anamnesis newAnamnesis = new Anamnesis(anamnesis, null, selected.Username, _anamnesisController.GenerateId(), DateTime.Now, appointment.AppointmentID);
+                    _anamnesisController.Add(newAnamnesis);
+                }
             }
-            */
+            
         }
 
         //Izdavanje uputa

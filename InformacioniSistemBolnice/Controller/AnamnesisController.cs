@@ -35,5 +35,20 @@ namespace InformacioniSistemBolnice.Controller
             return _anamnesisService.AppointmentAnamnesis(appointment);
 
         }
+
+        public int GenerateId()
+        {
+            return _anamnesisService.GenerateId();
+        }
+
+        public void Add(Anamnesis anamnesis)
+        {
+            _anamnesisService.Add(anamnesis);
+        }
+
+        public void Update(Anamnesis anamnesis)
+        { 
+            _anamnesisService.Update(anamnesis);
+        }
     }
 }

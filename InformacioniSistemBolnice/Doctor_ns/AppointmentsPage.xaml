@@ -17,10 +17,10 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}" Width="50"/>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding AppointmentDate}" Width="140"/>
-                <DataGridTextColumn Header="AppointmentDuration" Binding="{Binding DurationInMinutes}" Width="100"/>
+                <DataGridTextColumn Header="Trajanje" Binding="{Binding DurationInMinutes}" Width="100"/>
                 <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding Type}" Width="170"/>
                 <DataGridTextColumn Header="Status pregleda" Binding="{Binding AppointmentStatus}" Width="120"/>
-                <DataGridTextColumn Header="Patient" Width="150">
+                <DataGridTextColumn Header="Pacijent" Width="150">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
                             <Binding Path="Patient.Name"/>
@@ -44,9 +44,9 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Dodaj termin" Margin="287,0,0,63" Click="Button_Click" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
-        <Button Content="Izmeni termin" Margin="498,0,0,63" Click="Button_Click_1" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
-        <Button Content="Ukloni termin" Margin="714,0,0,63" Click="Button_Click_2" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+        <Button Content="Dodaj termin" Margin="287,0,0,63" Click="Add_Click" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+        <Button Content="Izmeni termin" Margin="498,0,0,63" Click="Edit_Click" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+        <Button Content="Ukloni termin" Margin="714,0,0,63" Click="Delete_Click" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
 
     </Grid>
 </Page>

@@ -92,6 +92,21 @@ namespace InformacioniSistemBolnice.Service
 
         }
 
+        public int GenerateId()
+        {
+            return AnamnesisFileRepository.GetAll().Count + 1;
+        }
+
+        public void Add(Anamnesis anamnesis)
+        {
+            AnamnesisFileRepository.AddAnamnesis(anamnesis);
+        }
+
+        public void Update(Anamnesis anamnesis)
+        {
+            AnamnesisFileRepository.UpdateAnamnesis(anamnesis.IdOfAnamnesis, anamnesis);
+        }
+
     }
 
 }
