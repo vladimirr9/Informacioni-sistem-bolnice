@@ -50,7 +50,7 @@ namespace InformacioniSistemBolnice.Korisnik
                 if (Recipients.Contains("PATIENT_USERS") || Recipients.Contains(username))
                     return true;
             }
-            else if (SecretaryFileStorage.GetOne(username) != null || LekarFileStorage.GetOne(username) != null || UpravnikFileStorage.GetOne(username) != null)
+            else if (SecretaryFileStorage.GetOne(username) != null || LekarFileStorage.GetOne(username) != null || ManagerFileRepository.GetOne(username) != null)
             {
                 if (Recipients.Contains("EMPLOYED_USERS") || Recipients.Contains(username))
                     return true;

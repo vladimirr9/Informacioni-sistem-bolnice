@@ -50,7 +50,7 @@ namespace InformacioniSistemBolnice.Lekar
             AnamnesisTextBox.Document.Blocks.Clear();
             //AnamnesisTextBox.Document.Blocks.Add(new Paragraph(new Run(appointment.anamneza)));
 
-            List<Lek> drugs = LekFileStorage.GetAll();
+            List<Medicine> drugs = MedicineFileRepository.GetAll();
             DrugsComboBox.ItemsSource = drugs;
         }
 
@@ -59,14 +59,14 @@ namespace InformacioniSistemBolnice.Lekar
         {
             if (DrugsComboBox.SelectedItem != null && BeginDatePicker.Text != "" && EndDatePicker.Text != "")
             {
-                Lek drug = (Lek)DrugsComboBox.SelectedItem;
+                Medicine drug = (Medicine)DrugsComboBox.SelectedItem;
                 if (IsAllergic(drug, selected))
                 {
                     MessageBox.Show("Pacijent je alergican na izabrani lek.", "Alergican");
                     return;
                 }
                 
-                Prescription prescription = new Prescription((Lek)DrugsComboBox.SelectedItem, DateTime.Parse(BeginDatePicker.Text), parent.Doctor);
+                Prescription prescription = new Prescription((Medicine)DrugsComboBox.SelectedItem, DateTime.Parse(BeginDatePicker.Text), parent.Doctor);
                 selected.zdravstveniKarton.AddRecept(prescription);
 
                 _patientController.Update(selected.korisnickoIme, selected);
@@ -78,9 +78,9 @@ namespace InformacioniSistemBolnice.Lekar
             }
         }
 
-        private bool IsAllergic(Lek drug, Pacijent patient)              //izmestiti u pacijenta ili servis
+        private bool IsAllergic(Medicine drug, Pacijent patient)              //izmestiti u pacijenta ili servis
         {
-            List<Ingredient> ingredients = drug.ListaSastojaka;
+            List<Ingredient> ingredients = drug.IngredientsList;
             foreach (Ingredient ingredient in ingredients)
             {
                 if (patient.zdravstveniKarton.Alergen.Contains(ingredient))

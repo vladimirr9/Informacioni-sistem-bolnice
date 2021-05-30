@@ -47,13 +47,13 @@ namespace InformacioniSistemBolnice.Lekar
         {
             if (IngredientsComboBox.SelectedIndex != -1)
             {
-                List<Lek> drugs = LekFileStorage.GetAll();
-                foreach (Lek drug in drugs)
+                List<Medicine> drugs = MedicineFileRepository.GetAll();
+                foreach (Medicine drug in drugs)
                 {
-                    if (drug.Naziv == DrugsList.SelectedItem.ToString())
+                    if (drug.Name == DrugsList.SelectedItem.ToString())
                     {
-                        drug.ListaSastojaka.Add((Ingredient)IngredientsComboBox.SelectedItem);
-                        LekFileStorage.UpdateLek(drug.Sifra, drug);
+                        drug.IngredientsList.Add((Ingredient)IngredientsComboBox.SelectedItem);
+                        MedicineFileRepository.UpdateMedicine(drug.MedicineId, drug);
                         WriteIngredients(drug);
                     }
                 }
@@ -63,33 +63,33 @@ namespace InformacioniSistemBolnice.Lekar
         private void UpdateList()
         {
             DrugsList.Items.Clear();
-            List<Lek> drugs = LekFileStorage.GetAll();                    //kontroler
-            foreach (Lek drug in drugs)
+            List<Medicine> drugs = MedicineFileRepository.GetAll();                    //kontroler
+            foreach (Medicine drug in drugs)
             {
-                if (!drug.IsDeleted && drug.StatusLeka.Equals(StatusLeka.validiran))
-                    DrugsList.Items.Add(drug.Naziv);
+                if (!drug.IsDeleted && drug.MedicineStatus.Equals(MedicineStatus.validiran))
+                    DrugsList.Items.Add(drug.Name);
             }
         }
 
         public void SelectionChange(object sender, SelectionChangedEventArgs e)
         {
             IngredientsList.Items.Clear();
-            foreach (Lek drug in LekFileStorage.GetAll())                        //kontroler
+            foreach (Medicine drug in MedicineFileRepository.GetAll())                        //kontroler
             {
-                if (drug.Naziv == DrugsList.SelectedItem.ToString())
+                if (drug.Name == DrugsList.SelectedItem.ToString())
                 {
                     WriteIngredients(drug);
                 }
             }
         }
 
-        private void WriteIngredients(Lek drug)
+        private void WriteIngredients(Medicine drug)
         {
             IngredientsList.Items.Clear();
             List<Ingredient> ingredients = new List<Ingredient>();
             foreach (Ingredient ingredient in IngredientFileStorage.GetAll())
             {
-                if (drug.ListaSastojaka.Contains(ingredient))
+                if (drug.IngredientsList.Contains(ingredient))
                 {
                     IngredientsList.Items.Add(ingredient.Name);
                 }

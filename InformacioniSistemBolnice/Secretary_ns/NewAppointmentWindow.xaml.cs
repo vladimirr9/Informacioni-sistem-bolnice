@@ -21,7 +21,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private AppointmentsPage _parent;
         private List<global::Doctor> _doctors;
         private List<Pacijent> _patients;
-        private List<Prostorija> _rooms;
+        private List<Room> _rooms;
         private List<String> _times;
         public NewAppointmentWindow(AppointmentsPage parent)
         {
@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             Pacijent selectedPatient = (Pacijent) PatientComboBox.SelectedItem;
             global::Doctor selectedDoctor = (global::Doctor)DoctorComboBox.SelectedItem;
-            Prostorija selectedRoom = (Prostorija)RoomComboBox.SelectedItem;
+            Room selectedRoom = (Room)RoomComboBox.SelectedItem;
             String selectedTime = AppointmentTime.SelectedItem.ToString();
             String selectedDate = DatePicker.Text;
             DateTime selectedDateTime = DateTime.Parse(selectedDate + " " + selectedTime);
@@ -120,8 +120,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         }
         private void UpdateAvailableRoomList(DateTime start, DateTime end)
         {
-            _rooms = new List<Prostorija>();
-            foreach (Prostorija room in ProstorijaFileStorage.GetAll())
+            _rooms = new List<Room>();
+            foreach (Room room in RoomFileRepository.GetAll())
             {
                 if (room.IsAvailable(start, end) && !room.IsDeleted)
                 {

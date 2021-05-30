@@ -22,7 +22,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private Pacijent _patient;
         private int _appointmentDuration;
         private DoctorType _doctorType;
-        private TipProstorije _roomType;
+        private RoomType _roomType;
         private TipTermina _appointmentType;
         private DateTime _earliestAppointmentTime;
         private NewUrgentAppointment _parent;
@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private List<Termin> _appointments;
         private List<Termin> _appointmentsForPostponing;
-        public PostponeAppointmentWIndow(NewUrgentAppointment parent, Pacijent patient, int duration, DoctorType doctorType, TipProstorije roomType, TipTermina appointmentType, DateTime earliestAppointmentTime)
+        public PostponeAppointmentWIndow(NewUrgentAppointment parent, Pacijent patient, int duration, DoctorType doctorType, RoomType roomType, TipTermina appointmentType, DateTime earliestAppointmentTime)
         {
             _parent = parent;
             _patient = patient;
@@ -127,7 +127,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             _appointments = new List<Termin>();
             foreach (Termin appointment in appointmentsInTheUpcomingWeek)
             {
-                if (appointment.status == StatusTermina.zakazan && appointment.datumZakazivanja.Date.Equals(_earliestAppointmentTime.Date) && appointment.datumZakazivanja.TimeOfDay >= _earliestAppointmentTime.TimeOfDay && appointment.Prostorija.TipProstorije == _roomType && appointment.Doctor.doctorType == _doctorType)
+                if (appointment.status == StatusTermina.zakazan && appointment.datumZakazivanja.Date.Equals(_earliestAppointmentTime.Date) && appointment.datumZakazivanja.TimeOfDay >= _earliestAppointmentTime.TimeOfDay && appointment.Prostorija.RoomType == _roomType && appointment.Doctor.doctorType == _doctorType)
                 {
                     appointment.PostponementDuration = GetPostponementDuration(appointment);
                     _appointments.Add(appointment);

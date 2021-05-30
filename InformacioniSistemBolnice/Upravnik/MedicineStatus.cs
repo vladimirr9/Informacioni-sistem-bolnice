@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum StatusLeka
+public enum MedicineStatus
 {
     validiran,
-    odbijen,
-    cekaNaValidaciju
+    rejected,
+    waitingForValidation
 }

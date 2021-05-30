@@ -88,7 +88,7 @@
     <Compile Include="FileStorage\AnamnesisFileRepository.cs" />
     <Compile Include="FileStorage\RatingFileRepository.cs" />
     <Compile Include="FileStorage\ActivityLogFileRepository.cs" />
-    <Compile Include="FileStorage\LekFileStorage.cs" />
+    <Compile Include="FileStorage\MedicineFileRepository.cs" />
     <Compile Include="FileStorage\IngredientFileStorage.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
@@ -240,16 +240,16 @@
     <Compile Include="Upravnik\IzmenaProstorije.xaml.cs">
       <DependentUpon>IzmenaProstorije.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\Lek.cs" />
+    <Compile Include="Upravnik\Medicine.cs" />
     <Compile Include="Upravnik\LekoviWindow.xaml.cs">
       <DependentUpon>LekoviWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\Oprema.cs" />
+    <Compile Include="Upravnik\Inventory.cs" />
     <Compile Include="Upravnik\OpremaWindow.xaml.cs">
       <DependentUpon>OpremaWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\Prostorija.cs" />
-    <Compile Include="FileStorage\ProstorijaFileStorage.cs" />
+    <Compile Include="Upravnik\Room.cs" />
+    <Compile Include="FileStorage\RoomFileRepository.cs" />
     <Compile Include="Secretary_ns\Secretary.cs" />
     <Compile Include="FileStorage\SecretaryFileStorage.cs" />
     <Compile Include="Termin\StatusTermina.cs" />
@@ -262,12 +262,12 @@
     <Compile Include="Upravnik\RasporedjivanjeStatickeWindow.xaml.cs">
       <DependentUpon>RasporedjivanjeStatickeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Upravnik\StatusLeka.cs" />
-    <Compile Include="Upravnik\TipOpreme.cs" />
-    <Compile Include="Upravnik\TipProstorije.cs" />
+    <Compile Include="Upravnik\MedicineStatus.cs" />
+    <Compile Include="Upravnik\InventoryType.cs" />
+    <Compile Include="Upravnik\RoomType.cs" />
     <Compile Include="Termin\TipTermina.cs" />
-    <Compile Include="Upravnik\Upravnik.cs" />
-    <Compile Include="FileStorage\UpravnikFileStorage.cs" />
+    <Compile Include="Upravnik\Manager.cs" />
+    <Compile Include="FileStorage\ManagerFileRepository.cs" />
     <Compile Include="Upravnik\UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>

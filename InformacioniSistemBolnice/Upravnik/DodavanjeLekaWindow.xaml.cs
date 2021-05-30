@@ -36,7 +36,7 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             String sifra = Sifra.Text;
             String naziv = Naziv.Text;
-            StatusLeka statusLeka = StatusLeka.cekaNaValidaciju;
+            MedicineStatus statusLeka = MedicineStatus.waitingForValidation;
             bool isDeleted = false;
             global::Doctor doctor = (global::Doctor)Lekar.SelectedItem;
             List<Ingredient> sastojciSvi = IngredientFileStorage.GetAll();
@@ -59,8 +59,8 @@ namespace InformacioniSistemBolnice.Upravnik
                 sastojciLeka.Add(noviSastojak);
             }*/
 
-            Lek l = new Lek(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
-            LekFileStorage.AddLek(l);
+            Medicine l = new Medicine(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
+            MedicineFileRepository.AddMedicine(l);
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
             //_parent.UpdateTable();
             this.Close();
