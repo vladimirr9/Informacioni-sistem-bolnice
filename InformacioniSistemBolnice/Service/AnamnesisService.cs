@@ -74,6 +74,11 @@ namespace InformacioniSistemBolnice.Service
             AnamnesisFileRepository.UpdateAnamnesis(anamnesis.IdOfAnamnesis, anamnesis);
         }
 
+        public void UpdateAnamnesis(int AnamnesisID, Anamnesis anamnesis)
+        {
+            AnamnesisFileRepository.UpdateAnamnesis(AnamnesisID, anamnesis);
+        }
+
     }
 
 }

@@ -25,5 +25,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             _anamnesisService.AddNoteForAnamnesis(note, anamnesis);
         }
+
+        public void UpdateAnamnesis(int idOfAnamnesis, Anamnesis anamnesis)
+        {
+            _anamnesisService.UpdateAnamnesis(idOfAnamnesis,anamnesis);
+        }
     }
 }
