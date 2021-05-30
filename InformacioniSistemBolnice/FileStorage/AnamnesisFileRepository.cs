@@ -63,6 +63,15 @@ namespace InformacioniSistemBolnice.FileStorage
             File.WriteAllText(startupPath, upis);
         }
 
-
+        public static Anamnesis GetOneById(int idOfAnamnesis)
+        {
+            List<Anamnesis> anamneses = new List<Anamnesis>();
+            foreach (Anamnesis a in anamneses)
+            {
+                if (a.IdOfAnamnesis.Equals(idOfAnamnesis))
+                    return anamneses[anamneses.IndexOf(a)];
+            }
+            return null;
+        }
     }
 }

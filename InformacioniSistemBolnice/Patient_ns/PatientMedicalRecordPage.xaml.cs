@@ -21,9 +21,11 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class PatientMedicalRecordPage : Page
     {
         private static StartPatientWindow parent;
+        public Pacijent pacijent;
         public PatientMedicalRecordPage(StartPatientWindow pp)
         {
             parent = pp;
+            pacijent = pp.Pacijent;
             InitializeComponent();
             borderWindow.Content = new MedicalRecordPage(pp);
         }

@@ -15,5 +15,15 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _anamnesisService.NotesWithActiveReminder(patient);
         }
+
+        public List<Note> NotesForAnamnesis(Anamnesis anamnesis,Pacijent patient)
+        {
+            return _anamnesisService.NotesForAnamnesis(anamnesis,patient);
+        }
+
+        public void AddNoteForAnamnesis(Note note, Anamnesis anamnesis)
+        {
+            _anamnesisService.AddNoteForAnamnesis(note,anamnesis);
+        }
     }
 }

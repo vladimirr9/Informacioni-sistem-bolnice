@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Patient_ns
@@ -23,10 +24,13 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class ShowNotePage : Page
     {
         private PatientMedicalRecordPage karton;
-        private Anamnesis selectedAnamnesis;
+        private Anamnesis _selectedAnamnesis;
+        private AnamnesisController _anamnesisController = new AnamnesisController();
+        private Pacijent _loggedInPatient;
         public ShowNotePage(PatientMedicalRecordPage pkp, Anamnesis selected)
         {
-            selectedAnamnesis = selected;
+            _selectedAnamnesis = selected;
+            _loggedInPatient = pkp.pacijent;
             Debug.WriteLine(selected.IdOfAppointment.ToString());
             karton = pkp;
             InitializeComponent();
@@ -36,20 +40,9 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void UpdateListView()
         {
-            List<Anamnesis> anamneses = AnamnesisFileRepository.GetAll();
-            foreach (Anamnesis a in anamneses)
+            foreach (Note n in _anamnesisController.NotesForAnamnesis(_selectedAnamnesis,_loggedInPatient))
             {
-                if (a.IdOfAnamnesis.Equals(selectedAnamnesis.IdOfAnamnesis))
-                {
-                    if (a.NotesForAnamnesis != null)
-
-                    {
-                        foreach (Note n in a.NotesForAnamnesis)
-                        {
-                            showNotesListView.Items.Add(n.DescriptionOfNote);
-                        }
-                    }
-                }
+                showNotesListView.Items.Add(n.DescriptionOfNote);
             }
         }
     }

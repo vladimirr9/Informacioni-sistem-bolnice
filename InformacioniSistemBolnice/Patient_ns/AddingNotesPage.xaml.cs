@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Patient_ns
@@ -23,7 +24,8 @@ namespace InformacioniSistemBolnice.Patient_ns
     {
         private static PatientMedicalRecordPage karton;
         private static StartPatientWindow pparent;
-        private Anamnesis selectedAnamnesis;
+        private Anamnesis _selectedAnamnesis;
+        private AnamnesisController _anamnesisController = new AnamnesisController();
         private List<String> ElementsInComboBox;
         private Boolean IsPressedReminderButton;
         private Note newNote;
@@ -31,7 +33,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
             IsPressedReminderButton = false;
             newNote = new Note();
-            selectedAnamnesis = selected;
+            _selectedAnamnesis = selected;
             karton = pkp;
             pparent = pp;
             InitializeComponent();
@@ -124,19 +126,19 @@ namespace InformacioniSistemBolnice.Patient_ns
                 newNote.EndDate = DateTime.MinValue;
                 newNote.StartPeriodOfTime = DateTime.MinValue;
                 newNote.EndPeriodOfTime = DateTime.MinValue;
-                if (selectedAnamnesis.NotesForAnamnesis != null)
+                if (_selectedAnamnesis.NotesForAnamnesis != null)
                 {
-                    selectedAnamnesis.NotesForAnamnesis.Add(newNote);
+                    _anamnesisController.AddNoteForAnamnesis(newNote,_selectedAnamnesis);
                 }
                 else
                 {
                     List<Note> notes = new List<Note>();
                     notes.Add(newNote);
-                    selectedAnamnesis.NotesForAnamnesis = notes;
+                    _selectedAnamnesis.NotesForAnamnesis = notes;
                 }
 
 
-                AnamnesisFileRepository.UpdateAnamnesis(selectedAnamnesis.IdOfAnamnesis, selectedAnamnesis);
+                AnamnesisFileRepository.UpdateAnamnesis(_selectedAnamnesis.IdOfAnamnesis, _selectedAnamnesis);
                 karton.borderWindow.Content = new PatientExamineAnamnesesPage(pparent, karton);
 
             }
@@ -154,19 +156,19 @@ namespace InformacioniSistemBolnice.Patient_ns
                 String d1 = startDatePicker.Text;
                 DateTime dt1 = DateTime.Parse(d1 + " " + t1);
                 newNote.EndPeriodOfTime = dt1;
-                if (selectedAnamnesis.NotesForAnamnesis != null)
+                if (_selectedAnamnesis.NotesForAnamnesis != null)
                 {
-                    selectedAnamnesis.NotesForAnamnesis.Add(newNote);
+                    _selectedAnamnesis.NotesForAnamnesis.Add(newNote);
                 }
                 else
                 {
                     List<Note> notes = new List<Note>();
                     notes.Add(newNote);
-                    selectedAnamnesis.NotesForAnamnesis = notes;
+                    _selectedAnamnesis.NotesForAnamnesis = notes;
                 }
 
 
-                AnamnesisFileRepository.UpdateAnamnesis(selectedAnamnesis.IdOfAnamnesis, selectedAnamnesis);
+                AnamnesisFileRepository.UpdateAnamnesis(_selectedAnamnesis.IdOfAnamnesis, _selectedAnamnesis);
                 karton.borderWindow.Content = new PatientExamineAnamnesesPage(pparent, karton);
 
             }
