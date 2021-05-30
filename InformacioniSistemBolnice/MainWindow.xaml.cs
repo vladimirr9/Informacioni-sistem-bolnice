@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             List<Patient> pacijenti = PatientFileRepository.GetAll();
-            List<Appointment> termini = ApointmentFileRepository.GetAll();
+            List<Appointment> termini = AppointmentFileRepository.GetAll();
             foreach (var pacijent in pacijenti)
             {
                 if (ime.Text.Equals(pacijent.Username)  && lozinka.Password.Equals(pacijent.Password))

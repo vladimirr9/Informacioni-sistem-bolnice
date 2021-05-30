@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice.Upravnik
             int brSobe = selektovana.RoomNumber;
             List<Inventory> opremaLista = selektovana.InventoryList;
 
-            List<Appointment> listaTermina = ApointmentFileRepository.GetAll();
+            List<Appointment> listaTermina = AppointmentFileRepository.GetAll();
 
             if (datumOd < datumDo)
             {

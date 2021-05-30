@@ -11,7 +11,7 @@ namespace InformacioniSistemBolnice.Controller
     {
         private AnamnesisService _anamnesisService = new AnamnesisService();
 
-        public List<Note> GetNotesWithReminder(Pacijent patient)
+        public List<Note> GetNotesWithReminder(Patient patient)
         {
             return _anamnesisService.NotesWithActiveReminder(patient);
         }

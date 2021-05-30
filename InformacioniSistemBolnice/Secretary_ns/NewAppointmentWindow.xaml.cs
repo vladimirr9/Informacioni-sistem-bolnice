@@ -43,13 +43,13 @@ namespace InformacioniSistemBolnice.Secretary_ns
             String selectedDate = DatePicker.Text;
             DateTime selectedDateTime = DateTime.Parse(selectedDate + " " + selectedTime);
             AppointmentType appointmentType = (AppointmentType)AppointmentTypeComboBox.SelectedIndex;
-            int id = ApointmentFileRepository.GetAll().Count + 1;
+            int id = AppointmentFileRepository.GetAll().Count + 1;
             int duration = Int32.Parse(AppointmentDuration.Text);
 
             if (selectedPatient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))
             {
                 Appointment newAppointment = new Appointment(id, selectedDateTime, duration, appointmentType, AppointmentStatus.scheduled, selectedPatient, selectedDoctor, selectedRoom);
-                ApointmentFileRepository.AddAppointment(newAppointment);
+                AppointmentFileRepository.AddAppointment(newAppointment);
                 _parent.UpdateTable();
                 this.Close();
             }
@@ -186,7 +186,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
 
             List<Appointment> appointments = new List<Appointment>();
-            foreach (Appointment appointment in ApointmentFileRepository.GetAll())
+            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
             {
                 if (appointment.OccursOn(date) && appointment.InvolvesEither((Patient)PatientComboBox.SelectedItem, (global::Doctor)DoctorComboBox.SelectedItem) && appointment.AppointmentStatus == AppointmentStatus.scheduled)
                 {

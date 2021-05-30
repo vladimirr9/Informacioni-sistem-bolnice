@@ -9,12 +9,12 @@ namespace InformacioniSistemBolnice.Service
 {
     public class AnamnesisService
     {
-        private List<Anamnesis> PatientsAnamneses(Pacijent patient)
+        private List<Anamnesis> PatientsAnamneses(Patient patient)
         {
             List<Anamnesis> anamneses = new List<Anamnesis>();
             foreach (Anamnesis a in AnamnesisFileRepository.GetAll())
             {
-                if (a.UsernameOfPatient.Equals(patient.korisnickoIme))
+                if (a.UsernameOfPatient.Equals(patient.Username))
                 {
                     anamneses.Add(a);
                 }
@@ -22,7 +22,7 @@ namespace InformacioniSistemBolnice.Service
             return anamneses;
         }
 
-        private List<Note> NotesWithReminder(Pacijent patient)
+        private List<Note> NotesWithReminder(Patient patient)
         {
             List<Note> notes = new List<Note>();
             foreach (Anamnesis a in PatientsAnamneses(patient))
@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice.Service
             return notes;
         }
 
-        public List<Note> NotesWithActiveReminder(Pacijent patient)
+        public List<Note> NotesWithActiveReminder(Patient patient)
         {
             List<Note> notes = new List<Note>();
             foreach (Note n in NotesWithReminder(patient))

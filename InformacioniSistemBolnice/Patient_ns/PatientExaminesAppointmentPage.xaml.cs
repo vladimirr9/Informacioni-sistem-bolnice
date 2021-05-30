@@ -39,7 +39,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         public void updateTable()
         {
             PrikazPregleda.Items.Clear();
-            List<Appointment> termini = ApointmentFileRepository.GetAll();
+            List<Appointment> termini = AppointmentFileRepository.GetAll();
             foreach (Appointment termin in termini)
             {
                 if (parent.Patient.Username == termin.Patient.Username)
@@ -68,7 +68,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
                 if (PrikazPregleda.SelectedItem != null)
                 {
-                    Appointment appointment = ApointmentFileRepository.GetOne(((Appointment) PrikazPregleda.SelectedItem).AppointmentID);
+                    Appointment appointment = AppointmentFileRepository.GetOne(((Appointment) PrikazPregleda.SelectedItem).AppointmentID);
                     if (appointment.AppointmentDate.Date <= DateTime.Now.AddHours(24).Date)
                     {
                         MessageBox.Show("Nije moguće otkazati termin koji je zakazan u naredna 24 sata!", "Greška");
@@ -80,7 +80,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                             MessageBoxButton.YesNo);
                         if (result == MessageBoxResult.Yes)
                         {
-                            ApointmentFileRepository.RemoveAppointment(((Appointment) (PrikazPregleda.SelectedItem)).AppointmentID);
+                            AppointmentFileRepository.RemoveAppointment(((Appointment) (PrikazPregleda.SelectedItem)).AppointmentID);
                             updateTable();
                             ActivityLog informacija =
                                 new ActivityLog(DateTime.Now, parent.Patient.Username,
@@ -123,7 +123,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 if (PrikazPregleda.SelectedIndex != -1)
                 {
-                    Appointment appointment = ApointmentFileRepository.GetOne(((Appointment) PrikazPregleda.SelectedItem).AppointmentID);
+                    Appointment appointment = AppointmentFileRepository.GetOne(((Appointment) PrikazPregleda.SelectedItem).AppointmentID);
                     if (appointment.AppointmentDate.Date <= DateTime.Now.AddHours(24).Date)
                     {
                         MessageBox.Show("Nije moguće menjati termin koji je zakazan u naredna 24 sata!", "Greška");

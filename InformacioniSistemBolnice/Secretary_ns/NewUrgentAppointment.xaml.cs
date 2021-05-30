@@ -66,19 +66,19 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
             if (filteredRooms.Count > 0 && filteredDoctors.Count > 0)
             {
-                foreach (Appointment appointmentItem in ApointmentFileRepository.GetAll())
+                foreach (Appointment appointmentItem in AppointmentFileRepository.GetAll())
                 {
                     if (appointmentItem.AppointmentStatus == AppointmentStatus.scheduled && appointmentItem.Patient.Equals(patient) && (appointmentItem.AppointmentDate >= appointmentStart && appointmentItem.AppointmentDate <= appointmentEnd))
-                        ApointmentFileRepository.RemoveAppointment(appointmentItem.AppointmentID);
+                        AppointmentFileRepository.RemoveAppointment(appointmentItem.AppointmentID);
                 }
 
 
                 Room room = filteredRooms[0];
                 global::Doctor doctor = filteredDoctors[0];
-                int id = ApointmentFileRepository.GetAll().Count + 1;
+                int id = AppointmentFileRepository.GetAll().Count + 1;
 
                 Appointment appointment = new Appointment(id, appointmentStart, duration, appointmentType, AppointmentStatus.scheduled, patient, doctor, room);
-                ApointmentFileRepository.AddAppointment(appointment);
+                AppointmentFileRepository.AddAppointment(appointment);
                 _parent.UpdateTable();
                 Close();
             }

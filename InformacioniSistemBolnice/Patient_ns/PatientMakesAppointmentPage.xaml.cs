@@ -100,7 +100,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                     tipt = AppointmentType.specialistCheckup;
                 }
 
-                int id = ApointmentFileRepository.GetAll().Count + 1;
+                int id = AppointmentFileRepository.GetAll().Count + 1;
 
                 DateTime start;
                 DateTime end;
@@ -109,7 +109,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
                 Appointment appointment = new Appointment(id, dt, trajanjePregleda, tipt, AppointmentStatus.scheduled, p, l,
                     prvaDostupnaProstorija);
-                ApointmentFileRepository.AddAppointment(appointment);
+                AppointmentFileRepository.AddAppointment(appointment);
                 PatientExaminesAppointmentPage ptp = new PatientExaminesAppointmentPage(parent);
                 updateVisibility();
                 parent.startWindow.Content = ptp;
@@ -153,7 +153,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             List<Appointment> termini = new List<Appointment>();
             if (lekar.SelectedItem != null && date.SelectedDate != null)
             {
-                foreach (Appointment termin in ApointmentFileRepository.GetAll())
+                foreach (Appointment termin in AppointmentFileRepository.GetAll())
                 {
                     if (l.JMBG == termin.Doctor.JMBG)
                     {

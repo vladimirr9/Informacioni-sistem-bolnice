@@ -83,6 +83,9 @@
       <DependentUpon>AddingNotesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\Anamnesis.cs" />
+    <Compile Include="Patient_ns\NotificationPatientPage.xaml.cs">
+      <DependentUpon>NotificationPatientPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Patient_ns\Rating.cs" />
     <Compile Include="Controller\NotificationController.cs" />
     <Compile Include="Controller\PatientController.cs" />
@@ -93,6 +96,7 @@
     <Compile Include="FileStorage\IngredientFileStorage.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
+    <Compile Include="Service\PatientService.cs" />
     <Compile Include="User\Notification.cs" />
     <Compile Include="Doctor_ns\DrugsPage.xaml.cs">
       <DependentUpon>DrugsPage.xaml</DependentUpon>
@@ -110,9 +114,6 @@
       <DependentUpon>MedicalRecordPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\Note.cs" />
-    <Compile Include="Patient_ns\NotificationPatientPage.xaml.cs">
-      <DependentUpon>NotificationPatientPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Patient_ns\Ingredient.cs" />
     <Compile Include="Doctor_ns\DoctorAddAppointmentWindow.xaml.cs">
       <DependentUpon>DoctorAddAppointmentWindow.xaml</DependentUpon>
@@ -223,7 +224,6 @@
     <Compile Include="Service\AnamnesisService.cs" />
     <Compile Include="Service\AppointmentService.cs" />
     <Compile Include="Service\NotificationService.cs" />
-    <Compile Include="Service\PatientService.cs" />
     <Compile Include="Manager_ns\DodavanjeLekaWindow.xaml.cs">
       <DependentUpon>DodavanjeLekaWindow.xaml</DependentUpon>
     </Compile>
@@ -259,7 +259,7 @@
     <Compile Include="FileStorage\SecretaryFileRepository.cs" />
     <Compile Include="Termin\AppointmentStatus.cs" />
     <Compile Include="Termin\Appointment.cs" />
-    <Compile Include="FileStorage\ApointmentFileRepository.cs" />
+    <Compile Include="FileStorage\AppointmentFileRepository.cs" />
     <Compile Include="Doctor_ns\DoctorType.cs" />
     <Compile Include="Manager_ns\RasporedjivanjeOpreme.xaml.cs">
       <DependentUpon>RasporedjivanjeOpreme.xaml</DependentUpon>
@@ -352,8 +352,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Patient_ns\NotificationPatientPage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Patient_ns\PatientEditsAppointmentPage.xaml">
       <SubType>Designer</SubType>

@@ -1,14 +1,14 @@
-// File:    ApointmentFileRepository.cs
+// File:    AppointmentFileRepository.cs
 // Author:  User
 // Created: Monday, March 22, 2021 8:27:36 PM
-// Purpose: Definition of Class ApointmentFileRepository
+// Purpose: Definition of Class AppointmentFileRepository
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
-public class ApointmentFileRepository
+public class AppointmentFileRepository
 {
     private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "appointments.json";
     public static List<Appointment> GetAll()
@@ -18,17 +18,17 @@ public class ApointmentFileRepository
             var tmp = File.OpenWrite(_startupPath);
             tmp.Close();
         }
-        List<Appointment> appointmnets;
+        List<Appointment> appointments;
         String allText = File.ReadAllText(_startupPath);
         if (allText.Equals(""))
         {
-            appointmnets = new List<Appointment>();
+            appointments = new List<Appointment>();
         }
         else
         {
-            appointmnets = JsonConvert.DeserializeObject<List<Appointment>>(allText);
+            appointments = JsonConvert.DeserializeObject<List<Appointment>>(allText);
         }
-        return appointmnets;
+        return appointments;
     }
 
     public static Appointment GetOne(int appointmentID)

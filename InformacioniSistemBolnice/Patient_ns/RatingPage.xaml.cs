@@ -80,7 +80,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
 
 
-            foreach (Appointment t in ApointmentFileRepository.GetAll())
+            foreach (Appointment t in AppointmentFileRepository.GetAll())
             {
                 if (t.AppointmentStatus == AppointmentStatus.scheduled && !RatingFileRepository.Contains(t.AppointmentID) && t.PatientUsername.Equals(parent.Patient.Username))
                 {

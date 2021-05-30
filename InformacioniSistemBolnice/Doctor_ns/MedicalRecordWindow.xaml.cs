@@ -109,7 +109,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
 
 
-                ApointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+                AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
             }
             */
         }

@@ -186,12 +186,12 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 tipt = AppointmentType.specialistCheckup;
             }
-            int id = ApointmentFileRepository.GetAll().Count + 1;
+            int id = AppointmentFileRepository.GetAll().Count + 1;
             DateTime end = start.AddMinutes(trajanjePregleda);
 
             Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
             Appointment appointment = new Appointment(id, start, trajanjePregleda, tipt, AppointmentStatus.scheduled, parent.Patient, selektovanTermin.Ljekar, prvaDostupnaProstorija);
-            ApointmentFileRepository.AddAppointment(appointment);
+            AppointmentFileRepository.AddAppointment(appointment);
             PatientExaminesAppointmentPage ptp = new PatientExaminesAppointmentPage(parent);
             updateVisibility();
             parent.startWindow.Content = ptp;

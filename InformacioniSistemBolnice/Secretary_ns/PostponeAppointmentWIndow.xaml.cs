@@ -52,13 +52,13 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 return;
 
             Appointment selectedAppointment = (Appointment)AppointmentData.SelectedItem;
-            int id = ApointmentFileRepository.GetAll().Count + 1;
+            int id = AppointmentFileRepository.GetAll().Count + 1;
             Appointment newAppointment = new Appointment(id, selectedAppointment.AppointmentDate, _appointmentDuration, _appointmentType, AppointmentStatus.scheduled, _patient, selectedAppointment.Doctor, selectedAppointment.Room);
             
             foreach (Appointment appointment in _appointmentsForPostponing)
                 Postpone(appointment);
            
-            ApointmentFileRepository.AddAppointment(newAppointment);
+            AppointmentFileRepository.AddAppointment(newAppointment);
 
             _parent._parent.UpdateTable();
             _parent.Close();
@@ -80,13 +80,13 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             int postPostponementDuration = GetPostponementDuration(appointment);
             appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(postPostponementDuration);
-            ApointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
         }
 
         private int GetPostponementDuration(Appointment appointment)
         {
             appointment.AppointmentStatus = AppointmentStatus.cancelled;
-            ApointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
             DateTime originalStart = appointment.AppointmentDate;
             appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(_appointmentDuration + 1);
             appointment.AppointmentDate = GetNextEarliestAppointmentTime(appointment.AppointmentDate);
@@ -97,7 +97,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             DateTime potentialNewStart = appointment.AppointmentDate;
             appointment.AppointmentDate = originalStart;
             appointment.AppointmentStatus = AppointmentStatus.scheduled;
-            ApointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
             return Convert.ToInt32((potentialNewStart - originalStart).TotalMinutes);
 
         }
@@ -171,7 +171,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private List<Appointment> GetAppointmentsForUpcomingWeek()
         {
             List<Appointment> appointments = new List<Appointment>();
-            foreach (Appointment appointment in ApointmentFileRepository.GetAll())
+            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
             {
                 if (appointment.AppointmentStatus != AppointmentStatus.cancelled && appointment.AppointmentDate >= DateTime.Today && appointment.AppointmentDate <= DateTime.Today.AddDays(7))
                     appointments.Add(appointment);

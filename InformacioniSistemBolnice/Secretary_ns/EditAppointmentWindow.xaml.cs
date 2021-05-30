@@ -90,7 +90,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (patient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))
             {
                 Appointment appointment = new Appointment(_selectedAppointment.AppointmentID, selectedDateTime, duration, appointmentType, AppointmentStatus.scheduled, patient, doctor, room);
-                ApointmentFileRepository.UpdateAppointment(_selectedAppointment.AppointmentID,appointment);
+                AppointmentFileRepository.UpdateAppointment(_selectedAppointment.AppointmentID,appointment);
                 _parent.UpdateTable();
                 _confirmed = true;
                 this.Close();
@@ -231,7 +231,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
 
             List<Appointment> appointments = new List<Appointment>();
-            foreach (Appointment appointment in ApointmentFileRepository.GetAll())
+            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
             {
                 if (appointment.OccursOn(date) && appointment.InvolvesEither((Patient)PatientComboBox.SelectedItem, (global::Doctor)DoctorComboBox.SelectedItem) && appointment.AppointmentStatus == AppointmentStatus.scheduled)
                 {
@@ -277,7 +277,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (_confirmed)
                 return;
             _selectedAppointment.AppointmentStatus = AppointmentStatus.scheduled;
-            ApointmentFileRepository.UpdateAppointment(_selectedAppointment.AppointmentID, _selectedAppointment);
+            AppointmentFileRepository.UpdateAppointment(_selectedAppointment.AppointmentID, _selectedAppointment);
             
         }
     }

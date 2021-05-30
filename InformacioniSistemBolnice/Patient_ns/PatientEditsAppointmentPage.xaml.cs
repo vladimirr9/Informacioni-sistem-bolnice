@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             parent.titleLabel.Content = "Pomeranje termina";
             parent.titleLabel.Visibility = Visibility.Visible;
             availableTimes = new List<string>();
-            termini = ApointmentFileRepository.GetAll();
+            termini = AppointmentFileRepository.GetAll();
             time.ItemsSource = availableTimes;
             prostorije = RoomFileRepository.GetAll();
             LoadTimes();
@@ -185,7 +185,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             List<Appointment> termini = new List<Appointment>();
             if (lekar.SelectedItem != null && date.SelectedDate != null)
             {
-                foreach (Appointment termin in ApointmentFileRepository.GetAll())
+                foreach (Appointment termin in AppointmentFileRepository.GetAll())
                 {
                     if (l.JMBG == termin.Doctor.JMBG)
                     {
@@ -317,7 +317,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
 
                 Appointment appointment = new Appointment(selektovan.AppointmentID, dt, trajanjePregleda, tt, AppointmentStatus.scheduled, p, l, prvaDostupnaProstorija);
-                ApointmentFileRepository.UpdateAppointment(selektovan.AppointmentID, appointment);
+                AppointmentFileRepository.UpdateAppointment(selektovan.AppointmentID, appointment);
                 PatientExaminesAppointmentPage ptp = new PatientExaminesAppointmentPage(parent);
                 updateVisibility();
                 parent.startWindow.Content = ptp;
