@@ -24,7 +24,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             IngredientsList.Items.Clear();
         }
 
-        private void ValidirajClick(object sender, RoutedEventArgs e)
+        private void Validate_Click(object sender, RoutedEventArgs e)
         {
             if (DrugsList.SelectedItem != null)
             {
@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
         }
 
-        private void VratiClick(object sender, RoutedEventArgs e)
+        private void Return_Click(object sender, RoutedEventArgs e)
         {
             EditBox.Clear();
             UpdateList();

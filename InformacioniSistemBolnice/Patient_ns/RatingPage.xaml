@@ -15,16 +15,16 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="25"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}" Width="25"/>
                 <DataGridTextColumn Header="Lekar" Width="200">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="Doctor.name"/>
-                            <Binding Path="Doctor.surname"/>
+                            <Binding Path="Doctor.Name"/>
+                            <Binding Path="Doctor.Surname"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="*" />
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding AppointmentDate}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="rate" Background="White" BorderBrush="Black" BorderThickness="2" Content="Oceni lekara" HorizontalAlignment="Left" Margin="605,40,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="rate_Click" />

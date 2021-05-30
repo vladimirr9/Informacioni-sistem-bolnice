@@ -1,1 +1,90 @@
-[{"IsGuest":false,"SocialSecurityNumber":"2323224343","Banned":false,"TimeOfBan":"0001-01-01T00:00:00","MedicalRecord":{"recept":[],"MedicalRecordNumber":"1","Allergens":[{"ID":0,"Name":"Laktoza","IsDeleted":false},{"ID":1,"Name":"Aspirin","IsDeleted":false}],"Terapija":[],"Recept":[]},"Name":"Pera","Surname":"Peric","JMBG":"09320434533","Gender":"M","PhoneNumber":"+3245344323","Email":"Pera@peric.com","DateOfBirth":"2001-01-01T00:00:00","Username":"pera","Password":"peric","IsDeleted":false,"ResidentialAddress":{"StreetAndNumber":"Kralja Petra 12","City":{"Country":{"Name":"Republika Srbija"},"Name":"Novi Sad","PostalCode":"23232"}}},{"IsGuest":true,"SocialSecurityNumber":"","Banned":false,"TimeOfBan":"0001-01-01T00:00:00","MedicalRecord":{"recept":null,"MedicalRecordNumber":"","Allergens":[],"Terapija":[],"Recept":[]},"Name":"Neko","Surname":"Nekic","JMBG":"4234324324324","Gender":" ","PhoneNumber":"","Email":"","DateOfBirth":"0001-01-01T00:00:00","Username":"Guest1","Password":"","IsDeleted":false,"ResidentialAddress":{"StreetAndNumber":"","City":{"Country":{"Name":""},"Name":"","PostalCode":""}}}]
+[
+  
+  {
+    "IsGuest": false,
+    "SocialSecurityNumber": "2323224343",
+    "Banned": false,
+    "TimeOfBan": "0001-01-01T00:00:00",
+    "MedicalRecord": {
+      "recept": [],
+      "MedicalRecordNumber": "1",
+      "Allergens": [
+        {
+          "ID": 0,
+          "Name": "Laktoza",
+          "IsDeleted": false
+        },
+        {
+          "ID": 1,
+          "Name": "Aspirin",
+          "IsDeleted": false
+        }
+      ],
+      "Terapija": [
+        {
+          "Description": "Popiti Brufen na svakih 8 sati",
+          "BeginningDate": "2021-05-29T00:00:00",
+          "EndingDate": "2021-06-20T08:00:00",
+          "Day": 2
+        },
+        {
+          "Description": "Popiti Diklofen na svakih 6 sati.",
+          "BeginningDate": "2021-05-21T00:00:00",
+          "EndingDate": "2021-06-12T12:00:00",
+          "Day": 3
+        }
+
+      ],
+      "Recept": []
+    },
+    "Name": "Pera",
+    "Surname": "Peric",
+    "JMBG": "09320434533",
+    "Gender": "M",
+    "PhoneNumber": "+3245344323",
+    "Email": "Pera@peric.com",
+    "DateOfBirth": "2001-01-01T00:00:00",
+    "Username": "pera",
+    "Password": "peric",
+    "IsDeleted": false,
+    "ResidentialAddress": {
+      "StreetAndNumber": "Kralja Petra 12",
+      "City": {
+        "Country": { "Name": "Republika Srbija" },
+        "Name": "Novi Sad",
+        "PostalCode": "23232"
+      }
+    }
+  },
+  {
+    "IsGuest": true,
+    "SocialSecurityNumber": "",
+    "Banned": false,
+    "TimeOfBan": "0001-01-01T00:00:00",
+    "MedicalRecord": {
+      "recept": null,
+      "MedicalRecordNumber": "",
+      "Allergens": [],
+      "Terapija": [],
+      "Recept": []
+    },
+    "Name": "Neko",
+    "Surname": "Nekic",
+    "JMBG": "4234324324324",
+    "Gender": " ",
+    "PhoneNumber": "",
+    "Email": "",
+    "DateOfBirth": "0001-01-01T00:00:00",
+    "Username": "Guest1",
+    "Password": "",
+    "IsDeleted": false,
+    "ResidentialAddress": {
+      "StreetAndNumber": "",
+      "City": {
+        "Country": { "Name": "" },
+        "Name": "",
+        "PostalCode": ""
+      }
+    }
+  }
+]

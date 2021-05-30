@@ -20,7 +20,6 @@ namespace InformacioniSistemBolnice.Doctor_ns
     public partial class AppointmentsPage : Page
     {
         public DoctorWindow parent;
-        public Doctor Doctor;
         private static AppointmentsPage instance;
         private AppointmentController _appointmentController = new AppointmentController();
 
@@ -38,16 +37,14 @@ namespace InformacioniSistemBolnice.Doctor_ns
             return instance;
         }
 
-        //dodavanje
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
             DoctorAddAppointmentWindow addWindow = new DoctorAddAppointmentWindow(parent);
             Application.Current.MainWindow = addWindow;
             addWindow.Show();
         }
 
-        //izmena
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
             if (AppointmentsDataGrid.SelectedItem != null)
             {
@@ -57,8 +54,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
         }
 
-        //brisanje
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
             if (AppointmentsDataGrid.SelectedItem != null)
             {
@@ -70,10 +66,9 @@ namespace InformacioniSistemBolnice.Doctor_ns
         public void UpdateTable()
         {
             AppointmentsDataGrid.Items.Clear();
-            foreach (Appointment appointment in _appointmentController.GetAll())
+            foreach (Appointment appointment  in _appointmentController.GetScheduled())
             {
-                if (appointment.AppointmentStatus == AppointmentStatus.scheduled)
-                    AppointmentsDataGrid.Items.Add(appointment);
+                AppointmentsDataGrid.Items.Add(appointment);
             }
         }
     }

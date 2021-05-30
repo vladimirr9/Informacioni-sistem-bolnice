@@ -16,8 +16,8 @@
                     <TextBlock>
                         <TextBlock.Text>
                             <MultiBinding StringFormat="{}{0} {1}">
-                                <Binding Path="ime"/>
-                                <Binding Path="prezime"/>
+                                <Binding Path="Name"/>
+                                <Binding Path="Surname"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>

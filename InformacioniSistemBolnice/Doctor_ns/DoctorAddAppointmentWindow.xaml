@@ -88,8 +88,8 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="166,331,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click_1" Background="#FF2B78E4" Foreground="White"/>
-        <Button Content="Odustani" HorizontalAlignment="Left" Height="37" Margin="500,331,0,0" VerticalAlignment="Top" Width="126" Click="Button_Click" Background="#FF2B78E4" Foreground="White"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="166,331,0,0" VerticalAlignment="Top" Width="126" Click="Confirm_Click" Background="#FF2B78E4" Foreground="White"/>
+        <Button Content="Odustani" HorizontalAlignment="Left" Height="37" Margin="500,331,0,0" VerticalAlignment="Top" Width="126" Click="Abandon_Click" Background="#FF2B78E4" Foreground="White"/>
         <CheckBox Content="Hitno" HorizontalAlignment="Left"  Margin="517,192,0,0"  VerticalAlignment="Top" FontSize="22" Width="78"/>
 
     </Grid>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
@@ -19,6 +20,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
     {
         public DoctorWindow parent;
         private static DoctorPatientsPage instance;
+        private PatientController _patientController = new PatientController();
 
         public DoctorPatientsPage(DoctorWindow parent)
         {
@@ -34,7 +36,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             return instance;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Medical_Record_Click(object sender, RoutedEventArgs e)
         {
             if (PatientsDataGrid.SelectedItem != null)
             {
@@ -47,11 +49,9 @@ namespace InformacioniSistemBolnice.Doctor_ns
         public void UpdateTable()
         {
             PatientsDataGrid.Items.Clear();
-            List<Patient> patients = PatientFileRepository.GetAll();                 //dodati patient kontroler
-            foreach (Patient patient in patients)
+            foreach (Patient patient in _patientController.GetAll())
             {
-                if (!patient.IsDeleted)
-                    PatientsDataGrid.Items.Add(patient);
+                PatientsDataGrid.Items.Add(patient);
             }
         }
 

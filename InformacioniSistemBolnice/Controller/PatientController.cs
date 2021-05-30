@@ -11,6 +11,7 @@ namespace InformacioniSistemBolnice.Controller
     public class PatientController
     {
         private PatientService _patientService = new PatientService();
+        private AllergyCheck _allergyCheck = new AllergyCheck();
 
 
         public void Register(Patient patient)
@@ -50,6 +51,16 @@ namespace InformacioniSistemBolnice.Controller
         public List<Therapy> GetTherapiesFromMedicalRecord(Patient patient)
         {
             return _patientService.GetTherapiesFromRecord(patient);
+        }
+
+        public List<Patient> GetAll()
+        {
+            return _patientService.GetAll();
+        }
+
+        public bool IsAllergic(Medicine medicine, Patient patient)
+        {
+           return _allergyCheck.IsAllergic(medicine, patient);
         }
     }
 }

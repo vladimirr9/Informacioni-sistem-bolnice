@@ -22,7 +22,7 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Zdravstveni karton" Margin="35,0,0,65" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Click="Button_Click"/>
+        <Button Content="Zdravstveni karton" Margin="35,0,0,65" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Click="Medical_Record_Click"/>
 
     </Grid>
 </Page>

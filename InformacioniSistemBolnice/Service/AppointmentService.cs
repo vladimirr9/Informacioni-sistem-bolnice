@@ -39,5 +39,37 @@ namespace InformacioniSistemBolnice.Service
         {
             return AppointmentFileRepository.GetOne(appointment.AppointmentID);
         }
+
+        public List<Appointment> GetScheduled()
+        {
+            List<Appointment> scheduled = new List<Appointment>();
+            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            {
+                if (appointment.AppointmentStatus == AppointmentStatus.scheduled)
+                {
+                      scheduled.Add(appointment);  
+                }
+            }
+            return scheduled;
+        }
+
+        public List<Appointment> PatientsAppointments(Patient patient)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            {
+                if (appointment.Patient.Equals(patient) && appointment.AppointmentStatus != AppointmentStatus.cancelled && appointment.AppointmentStatus != AppointmentStatus.missed)
+                {
+                    appointments.Add(appointment);
+                } 
+            }
+            return appointments;
+        }
+
+        public void FinishAppointment(Appointment appointment)
+        {
+            appointment.AppointmentStatus = AppointmentStatus.finished;
+            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+        }
     }
 }

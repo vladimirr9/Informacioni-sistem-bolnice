@@ -78,6 +78,9 @@
     <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Doctor_ns\Vacation.cs" />
     <Compile Include="Doctor_ns\WorkShift.cs" />
+
+    <Compile Include="Controller\DoctorControler.cs" />
+
     <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,8 @@
     <Compile Include="Secretary_ns\DoctorWorktimeWindow.xaml.cs">
       <DependentUpon>DoctorWorktimeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Service\AllergyCheck.cs" />
+    <Compile Include="Service\DoctorService.cs" />
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="User\Notification.cs" />
     <Compile Include="Doctor_ns\DrugsPage.xaml.cs">
