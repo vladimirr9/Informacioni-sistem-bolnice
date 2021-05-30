@@ -9,14 +9,14 @@
     
     <Grid>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="66,76,0,0" TextWrapping="Wrap" Text="Lekar:" VerticalAlignment="Top" Width="118" FontSize="18" TextAlignment="Right" FontFamily="Verdana"/>
-        <ComboBox x:Name="DoctorComboBox" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262"  Margin="213,75,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="Doctor_SelectionChanged">
+        <ComboBox x:Name="DoctorComboBox" ItemsSource="{Binding Path=Doctor}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262"  Margin="213,75,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="Doctor_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
                             <MultiBinding StringFormat="{}{0} {1}">
-                                <Binding Path="ime"/>
-                                <Binding Path="prezime"/>
+                                <Binding Path="Name"/>
+                                <Binding Path="Surname"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
@@ -25,14 +25,14 @@
         </ComboBox>
 
         <TextBlock HorizontalAlignment="Left" Height="39" Margin="66,30,0,0" TextWrapping="Wrap" Text="Patient:" VerticalAlignment="Top" Width="118" FontSize="18" TextAlignment="Right" FontFamily="Verdana"/>
-        <ComboBox x:Name="PatientComboBox" ItemsSource="{Binding Path=Pacijent}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="213,30,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="Patient_SelectionChanged">
+        <ComboBox x:Name="PatientComboBox" ItemsSource="{Binding Path=Patient}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="213,30,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="Patient_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
                             <MultiBinding StringFormat="{}{0} {1}">
-                                <Binding Path="ime"/>
-                                <Binding Path="prezime"/>
+                                <Binding Path="Name"/>
+                                <Binding Path="Surname"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
@@ -58,7 +58,7 @@
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <Binding Path="Naziv"/>
+                            <Binding Path="Name"/>
                         </TextBlock.Text>
                     </TextBlock>
                 </DataTemplate>
