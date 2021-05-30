@@ -96,8 +96,8 @@ namespace InformacioniSistemBolnice
                 }
             }
 
-            List<global::Upravnik> upravnikLista = UpravnikFileStorage.GetAll();
-            foreach (global::Upravnik u in upravnikLista)
+            List<global::Manager> upravnikLista = ManagerFileRepository.GetAll();
+            foreach (global::Manager u in upravnikLista)
             {
                 if (ime.Text.Equals(u.korisnickoIme) && lozinka.Password.Equals(u.lozinka))
                 {

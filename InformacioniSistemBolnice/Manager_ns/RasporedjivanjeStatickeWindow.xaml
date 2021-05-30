@@ -1,11 +1,11 @@
-﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.RasporedjivanjeOpreme"
+﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.RasporedjivanjeStatickeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="RasporedjivanjeOpreme" Height="500" Width="550">
+        Title="RasporedjivanjeStatickeWindow" Height="500" Width="550">
     <Grid>
         <Label x:Name="label" Content="Rasporedi opremu" HorizontalAlignment="Left" Margin="38,46,0,0" VerticalAlignment="Top" FontSize="24" Foreground="DarkBlue" FontWeight="SemiBold" FontStyle="Italic"/>
         <Label x:Name="label1" Content="Količina:" HorizontalAlignment="Left" Margin="38,151,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
@@ -18,11 +18,13 @@
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <Binding Path="Naziv"/>
+                            <Binding Path="Name"/>
                         </TextBlock.Text>
                     </TextBlock>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <DatePicker Name="DatumDo" HorizontalAlignment="Left" Margin="224,325,0,0" VerticalAlignment="Top" FontSize="20" IsTodayHighlighted="True" Width="200"/>
+        <Label x:Name="label3" Content="Datum do:" HorizontalAlignment="Left" Margin="38,323,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
     </Grid>
 </Window>

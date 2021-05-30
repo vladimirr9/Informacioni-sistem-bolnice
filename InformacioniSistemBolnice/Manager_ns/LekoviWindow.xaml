@@ -22,9 +22,9 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Šifra" Binding="{Binding Path=Sifra}" Width="150"/>
-                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}" Width="200"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Path=StatusLeka}" Width="*"/>
+                <DataGridTextColumn Header="Šifra" Binding="{Binding Path=MedicineId}" Width="150"/>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="200"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=MedicineStatus}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="button" Content="Dodaj" HorizontalAlignment="Left" Margin="439,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="DodajNoviLek"/>

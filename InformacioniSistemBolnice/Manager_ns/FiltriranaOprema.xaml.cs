@@ -28,14 +28,14 @@ namespace InformacioniSistemBolnice.Upravnik
             this.pretraga = search;
             //UpdateTable();
 
-            List<Prostorija> sveProstorije = ProstorijaFileStorage.GetAll();
+            List<Room> sveProstorije = RoomFileRepository.GetAll();
             //List<Oprema> opremaLista = new List<Oprema>();
 
-            foreach (Prostorija p in sveProstorije)
+            foreach (Room p in sveProstorije)
             {
-                foreach (Oprema o in p.OpremaLista)
+                foreach (Inventory o in p.InventoryList)
                 {
-                    if (o.Naziv.Equals(pretraga))
+                    if (o.Name.Equals(pretraga))
                     {
                         dataGridOprema.Items.Add(o);
                     }

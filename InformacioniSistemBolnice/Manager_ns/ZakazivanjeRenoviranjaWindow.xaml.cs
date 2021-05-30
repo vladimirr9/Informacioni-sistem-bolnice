@@ -20,8 +20,8 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class ZakazivanjeRenoviranjaWindow : Window
     {
         private WindowProstorije parent;
-        private Prostorija selektovana;
-        public ZakazivanjeRenoviranjaWindow(Prostorija p, WindowProstorije parent)
+        private Room selektovana;
+        public ZakazivanjeRenoviranjaWindow(Room p, WindowProstorije parent)
         {
             InitializeComponent();
             this.parent = parent;
@@ -39,15 +39,15 @@ namespace InformacioniSistemBolnice.Upravnik
             int interval = 1;
             //CalendarDateRange periodRenoviranja = new CalendarDateRange(datumOd, datumDo);
 
-            int idProstorije2 = selektovana.IDprostorije;
-            String naziv2 = selektovana.Naziv;
-            TipProstorije tipProstorije = selektovana.TipProstorije;
+            int idProstorije2 = selektovana.RoomId;
+            String naziv2 = selektovana.Name;
+            RoomType tipProstorije = selektovana.RoomType;
             Boolean isDeleted2 = selektovana.IsDeleted;
             Boolean isActive = selektovana.IsActive;
-            Double kvadratura = selektovana.Kvadratura;
-            int brSprata = selektovana.BrSprata;
-            int brSobe = selektovana.BrSobe;
-            List<Oprema> opremaLista = selektovana.OpremaLista;
+            Double kvadratura = selektovana.Area;
+            int brSprata = selektovana.Floor;
+            int brSobe = selektovana.RoomNumber;
+            List<Inventory> opremaLista = selektovana.InventoryList;
 
             List<Termin> listaTermina = TerminFileStorage.GetAll();
 
@@ -83,8 +83,8 @@ namespace InformacioniSistemBolnice.Upravnik
                 this.Close();
             }
 
-            Prostorija p = new Prostorija(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
-            ProstorijaFileStorage.UpdateProstorija(selektovana.IDprostorije, p);
+            Room p = new Room(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
+            RoomFileRepository.UpdateRoom(selektovana.RoomId, p);
             parent.updateTable();
             this.Close();
         }

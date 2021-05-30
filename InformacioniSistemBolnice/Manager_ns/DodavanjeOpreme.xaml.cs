@@ -20,44 +20,44 @@ namespace InformacioniSistemBolnice.Upravnik
     public partial class DodavanjeOpreme : Window
     {
         private OpremaWindow parent;
-        private Prostorija selektovana;
-        public DodavanjeOpreme(Prostorija p, OpremaWindow parent)
+        private Room selektovana;
+        public DodavanjeOpreme(Room p, OpremaWindow parent)
         {
             InitializeComponent();
             this.parent = parent;
             selektovana = p;
 
-            IdProstorije.Text = selektovana.IDprostorije.ToString();
+            IdProstorije.Text = selektovana.RoomId.ToString();
         }
 
         private void DodajOpremu(object sender, RoutedEventArgs e)
         {
-            int idProstorije = selektovana.IDprostorije;
+            int idProstorije = selektovana.RoomId;
             String sifra = Sifra.Text;
             String naziv = Naziv.Text;
-            TipOpreme tipOpreme;
+            InventoryType tipOpreme;
             if (TipOpreme.SelectedIndex == 0)
             {
                 tipOpreme = 0;
             }
             else
             {
-                tipOpreme = (TipOpreme)1;
+                tipOpreme = (InventoryType)1;
             }
             int kolicina = Convert.ToInt32(Kolicina.Text);
             Boolean isDeleted = (bool)IsDeleted.IsChecked;
 
-            Oprema o = new Oprema(idProstorije, sifra, naziv, tipOpreme, kolicina, isDeleted);
+            Inventory o = new Inventory(idProstorije, sifra, naziv, tipOpreme, kolicina, isDeleted);
 
-            int idProstorije2 = selektovana.IDprostorije;
-            String naziv2 = selektovana.Naziv;
-            TipProstorije tipProstorije = selektovana.TipProstorije;
+            int idProstorije2 = selektovana.RoomId;
+            String naziv2 = selektovana.Name;
+            RoomType tipProstorije = selektovana.RoomType;
             Boolean isDeleted2 = selektovana.IsDeleted;
             Boolean isActive = selektovana.IsActive;
-            Double kvadratura = selektovana.Kvadratura;
-            int brSprata = selektovana.BrSprata;
-            int brSobe = selektovana.BrSobe;
-            List<Oprema> opremaLista = selektovana.OpremaLista;
+            Double kvadratura = selektovana.Area;
+            int brSprata = selektovana.Floor;
+            int brSobe = selektovana.RoomNumber;
+            List<Inventory> opremaLista = selektovana.InventoryList;
 
             opremaLista.Add(o);
             //Oprema o1 = new Oprema(sifra, Name, tipOpreme, kolicina, IsDeleted);
@@ -65,9 +65,9 @@ namespace InformacioniSistemBolnice.Upravnik
             //;
             //selektovana.OpremaLista.Add(o);
 
-            Prostorija p = new Prostorija(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
+            Room p = new Room(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
 
-            ProstorijaFileStorage.UpdateProstorija(selektovana.IDprostorije, p);
+            RoomFileRepository.UpdateRoom(selektovana.RoomId, p);
             parent.updateTable();
             this.Close();
         }

@@ -20,12 +20,12 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID prostorije" Binding="{Binding Path=IdProstorije}" Width="125"/>
-                <DataGridTextColumn Header="Šifra" Binding="{Binding Path=Sifra}" Width="125"/>
-                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}" Width="125"/>
-                <DataGridTextColumn Header="Tip" Binding="{Binding Path=TipOpreme}" Width="125"/>
+                <DataGridTextColumn Header="ID prostorije" Binding="{Binding Path=RoomId}" Width="125"/>
+                <DataGridTextColumn Header="Šifra" Binding="{Binding Path=InventoryId}" Width="125"/>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="125"/>
+                <DataGridTextColumn Header="Tip" Binding="{Binding Path=InventoryType}" Width="125"/>
                 <DataGridTextColumn Header="Obrisana" Binding="{Binding Path=IsDeleted}" Width="100"/>
-                <DataGridTextColumn Header="Količina" Binding="{Binding Path=Kolicina}" Width="*"/>
+                <DataGridTextColumn Header="Količina" Binding="{Binding Path=Quantity}" Width="*"/>
             </DataGrid.Columns>
 
         </DataGrid>

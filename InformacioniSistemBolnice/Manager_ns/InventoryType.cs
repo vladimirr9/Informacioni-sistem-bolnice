@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum TipOpreme
+public enum InventoryType
 {
-    staticka,
-    dinamicka
+    staticInv,
+    dinamicInv
 }
 
