@@ -99,7 +99,7 @@ public class PacijentFileStorage
         File.WriteAllText(startupPath, upis);
     }
 
-    public static void OdblokirajPacijenta(Pacijent pacijent)
+    /*public static void OdblokirajPacijenta(Pacijent pacijent)
     {
         foreach (Pacijent pac in GetAll())
         {
@@ -116,38 +116,10 @@ public class PacijentFileStorage
             }
         }
 
-    }
+    }*/
 
-    public static void BanujPacijenta(Pacijent p)
-    {
-        foreach (Pacijent pac in GetAll())
-        {
-            if (pac.korisnickoIme.Equals(p.korisnickoIme))
-            {
+   
+   
 
-                p.Banovan = true;
-                p.TrenutakBanovanja = DateTime.Now;
-                UpdatePacijent(p.korisnickoIme, p);
-            }
-        }
-    }
-    public static void ProvjeritiStatusPacijenta(Pacijent pacijent)
-    {
-        int brojZakazivanja = ActivityLogFileRepository.NumberOfActivity(pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
-        int brojPomjeranja = ActivityLogFileRepository.NumberOfActivity(pacijent.korisnickoIme, TypeOfActivity.editingAppointment);
-        int brojOtkazivanja = ActivityLogFileRepository.NumberOfActivity(pacijent.korisnickoIme, TypeOfActivity.cancelingAppointment);
-
-        if (brojZakazivanja > 3 || brojOtkazivanja > 2 || brojPomjeranja > 2)
-        {
-            BanujPacijenta(pacijent);
-        }
-        else
-        {
-            pacijent.Banovan = false;
-            pacijent.TrenutakBanovanja = DateTime.Parse("1970-01-01T00:00:00");
-            UpdatePacijent(pacijent.korisnickoIme, pacijent);
-            
-        }
-
-    }
+    
 }

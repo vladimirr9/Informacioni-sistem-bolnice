@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Patient_ns
@@ -22,6 +23,7 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class PriorityDoctorPage : Page
     {
         private const int trajanjePregleda = 15;
+        private ActivityLogController _activityLogController = new ActivityLogController();
         private List<global::Doctor> ljekariLista;
         private List<Termin> termini;
         private List<string> availableTimes;
@@ -142,8 +144,8 @@ namespace InformacioniSistemBolnice.Patient_ns
         private void submit_Click(object sender, RoutedEventArgs e)
         {
             ZakaziTermin();
-            ActivityLog informacija = new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
-            ActivityLogFileRepository.AddActivity(informacija);
+            ActivityLog activity = new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
+            _activityLogController.AddActivity(activity);
         }
 
         private void ZakaziTermin()

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InformacioniSistemBolnice
+namespace InformacioniSistemBolnice.Patient_ns
 {
     public class ActivityLog
     {

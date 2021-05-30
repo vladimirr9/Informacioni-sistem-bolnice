@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Patient_ns
@@ -22,6 +24,8 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class PatientExaminesAppointmentPage : Page
     {
         private StartPatientWindow parent { get; set; }
+        private PatientController _patientController = new PatientController();
+        private ActivityLogController _activityLogController = new ActivityLogController();
 
         public PatientExaminesAppointmentPage(StartPatientWindow pp)
         {
@@ -54,8 +58,8 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void cancelTermin_Click(object sender, RoutedEventArgs e)
         {
-            PacijentFileStorage.ProvjeritiStatusPacijenta(parent.Pacijent);
-            if (parent.Pacijent.Banovan == true)
+            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Pacijent);
+            if (isBanned == true)
             {
                 MessageBox.Show("Otkazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
             }
@@ -81,7 +85,8 @@ namespace InformacioniSistemBolnice.Patient_ns
                             ActivityLog informacija =
                                 new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme,
                                     TypeOfActivity.cancelingAppointment);
-                            ActivityLogFileRepository.AddActivity(informacija);
+                            Debug.WriteLine(informacija.UsernameOfPatient);
+                            _activityLogController.AddActivity(informacija);
                         }
                     }
                 }
@@ -96,8 +101,8 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void zakazi_Click(object sender, RoutedEventArgs e)
         {
-            PacijentFileStorage.ProvjeritiStatusPacijenta(parent.Pacijent);
-            if (parent.Pacijent.Banovan == true)
+            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Pacijent);
+            if (isBanned == true)
             {
                 MessageBox.Show("Zakazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
             }
@@ -109,8 +114,8 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void pomjeri_Click(object sender, RoutedEventArgs e)
         {
-            PacijentFileStorage.ProvjeritiStatusPacijenta(parent.Pacijent);
-            if (parent.Pacijent.Banovan == true)
+            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Pacijent);
+            if (isBanned == true)
             {
                 MessageBox.Show("Pomeranje termina Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
             }

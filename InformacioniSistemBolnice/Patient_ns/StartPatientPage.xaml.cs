@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Patient_ns
 {
@@ -21,6 +22,7 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class StartPatientPage : Page
     {
         private static StartPatientWindow parent;
+        private PatientController _patientController = new PatientController();
 
         public StartPatientPage(StartPatientWindow p)
         {
@@ -45,8 +47,8 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void ocjenjivanje_Click(object sender, RoutedEventArgs e)
         {
-            PacijentFileStorage.ProvjeritiStatusPacijenta(parent.Pacijent);
-            if (parent.Pacijent.Banovan == true)
+            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Pacijent);
+            if (isBanned == true)
             {
                 MessageBox.Show("Ova funkcionalnost Vam je trenutno onemogućena,obratite se sekretaru!", "Greška");
             }

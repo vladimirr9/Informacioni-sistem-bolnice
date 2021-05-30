@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InformacioniSistemBolnice.FileStorage;
+using InformacioniSistemBolnice.Patient_ns;
 
 namespace InformacioniSistemBolnice.Service
 {
@@ -12,12 +13,12 @@ namespace InformacioniSistemBolnice.Service
         public  int NumberOfActivity(string username, TypeOfActivity type)
         {
             int counterOfActivity = 0;
-            List<ActivityLog> informacije = ActivityLogFileRepository.GetAll();
-            foreach (ActivityLog i in informacije)
+            List<ActivityLog> activities = ActivityLogFileRepository.GetAll();
+            foreach (ActivityLog activity in activities)
             {
-                if (i.UsernameOfPatient.Equals(username) && i.Type.Equals(type))
+                if (activity.UsernameOfPatient.Equals(username) && activity.Type.Equals(type))
                 {
-                    if (i.DateOfActivity > DateTime.Now.AddDays(-10))
+                    if (activity.DateOfActivity > DateTime.Now.AddDays(-10))
 
                     {
                         ++counterOfActivity;
@@ -28,6 +29,11 @@ namespace InformacioniSistemBolnice.Service
 
             return counterOfActivity;
 
+        }
+
+        public void AddActivity(ActivityLog newActivity)
+        {
+            ActivityLogFileRepository.AddActivity(newActivity);
         }
     }
 }

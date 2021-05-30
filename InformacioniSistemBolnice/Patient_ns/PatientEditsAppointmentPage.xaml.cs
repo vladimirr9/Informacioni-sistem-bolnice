@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Patient_ns
@@ -23,6 +24,7 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class PatientEditsAppointmentPage : Page
     {
         private const int trajanjePregleda = 15;
+        private ActivityLogController _activityLogController = new ActivityLogController();
         private StartPatientWindow parent;
         private Termin selektovan;
         private List<string> availableTimes;
@@ -321,8 +323,8 @@ namespace InformacioniSistemBolnice.Patient_ns
                 parent.startWindow.Content = ptp;
                 ptp.updateTable();
 
-                ActivityLog informacija = new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme, TypeOfActivity.editingAppointment);
-                ActivityLogFileRepository.AddActivity(informacija);
+                ActivityLog activity = new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme, TypeOfActivity.editingAppointment);
+                _activityLogController.AddActivity(activity);
             }
 
 

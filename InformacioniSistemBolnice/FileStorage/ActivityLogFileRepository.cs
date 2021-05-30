@@ -5,12 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InformacioniSistemBolnice.Patient_ns;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
     public class ActivityLogFileRepository
     {
-        private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "informacije.json";
+        private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "activities.json";
 
         public static List<ActivityLog> GetAll()
         {
@@ -71,6 +72,8 @@ namespace InformacioniSistemBolnice.FileStorage
             return counterOfActivity;
 
         }
+
+        
 
         
 
