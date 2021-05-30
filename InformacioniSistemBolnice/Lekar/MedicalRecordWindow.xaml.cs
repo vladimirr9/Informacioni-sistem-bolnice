@@ -29,6 +29,7 @@ namespace InformacioniSistemBolnice.Lekar
             InitializeComponent();
             FillMedicalRecord();
             WriteAllergies(selected);
+            BlackOutDates();
         }
 
         private void FillMedicalRecord()
@@ -130,6 +131,16 @@ namespace InformacioniSistemBolnice.Lekar
             WriteAllergies(selected);
         }
 
+        //bolnicko lecenje
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null &&
+                RoomComboBox.SelectedIndex != -1 && BedComboBox.SelectedIndex != -1)
+            {
+
+            }
+        }
+
         private void WriteAllergies(Pacijent patient)               //dodati ingredients kontroler i izmestiti
         {
             AllergiesList.Items.Clear();
@@ -147,6 +158,45 @@ namespace InformacioniSistemBolnice.Lekar
 
             }
             AllergiesComboBox.ItemsSource = ingredients;
+        }
+
+        private void date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateComponents();
+            BlackOutDates();
+        }
+
+        private void UpdateComponents()
+        {
+            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null)
+            {
+                List<Prostorija> rooms = ProstorijaFileStorage.GetAll();
+                List<Prostorija> available = new List<Prostorija>();
+                DateTime begin = (DateTime) RoomBeginDatePicker.SelectedDate;
+                DateTime end = (DateTime) RoomEndDatePicker.SelectedDate;
+                foreach (Prostorija room in rooms)
+                {
+                    if (room.TipProstorije.Equals(TipProstorije.bolnickaSoba) && room.IsAvailable(begin, end))
+                    {
+                        available.Add(room);
+                    }
+                }
+                RoomComboBox.IsEnabled = true;
+                RoomComboBox.ItemsSource = available;
+
+
+            }
+        }
+
+        private void BlackOutDates()
+        {
+            RoomBeginDatePicker.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1)));
+            RoomEndDatePicker.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1)));
+            if (RoomBeginDatePicker.SelectedDate != null)
+            {
+                RoomEndDatePicker.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, (DateTime)RoomBeginDatePicker.SelectedDate));
+            }
+
         }
     }
 }
