@@ -90,7 +90,7 @@
                     <ComboBox x:Name="RoomComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="352" Margin="234,156,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Naziv}"/>
+                                <TextBlock Text="{Binding .Name}"/>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
