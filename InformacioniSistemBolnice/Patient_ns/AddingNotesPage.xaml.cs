@@ -121,60 +121,65 @@ namespace InformacioniSistemBolnice.Patient_ns
             String textOfNote = textBox.Text;
             if (_isPressedReminderButton == false)
             {
-                _newNote.DescriptionOfNote = textOfNote;
-                _newNote.StartDate = DateTime.MinValue;
-                _newNote.EndDate = DateTime.MinValue;
-                _newNote.StartPeriodOfTime = DateTime.MinValue;
-                _newNote.EndPeriodOfTime = DateTime.MinValue;
-                if (_selectedAnamnesis.NotesForAnamnesis != null)
-                {
-                    _selectedAnamnesis.NotesForAnamnesis.Add(_newNote);
-                }
-                else
-                {
-                    List<Note> notes = new List<Note>();
-                    notes.Add(_newNote);
-                    _selectedAnamnesis.NotesForAnamnesis = notes;
-                }
-
-
-                _anamnesisController.UpdateAnamnesis(_selectedAnamnesis.IdOfAnamnesis, _selectedAnamnesis);
-                _medicalRecord.borderWindow.Content = new PatientExamineAnamnesesPage(_pparent, _medicalRecord);
-
+                AddingNoteWithoutReminder(textOfNote);
             }
             else
             {
-                _newNote.DescriptionOfNote = textOfNote;
-                _newNote.StartDate = (DateTime)startDatePicker.SelectedDate;
-                _newNote.EndDate = (DateTime)endDatePicker.SelectedDate;
-                _newNote.IsSetReminder = true;
-                String t = startMomentComboBox.SelectedItem.ToString();
-                String d = startDatePicker.Text;
-                var dt = DateTime.Parse(d + " " + t);
-                _newNote.StartPeriodOfTime = dt;
-                String t1 = endMomentComboBox.SelectedItem.ToString();
-                String d1 = startDatePicker.Text;
-                DateTime dt1 = DateTime.Parse(d1 + " " + t1);
-                _newNote.EndPeriodOfTime = dt1;
-                if (_selectedAnamnesis.NotesForAnamnesis != null)
-                {
-                    _selectedAnamnesis.NotesForAnamnesis.Add(_newNote);
-                }
-                else
-                {
-                    List<Note> notes = new List<Note>();
-                    notes.Add(_newNote);
-                    _selectedAnamnesis.NotesForAnamnesis = notes;
-                }
+                AddingNoteWithReminder(textOfNote);
+            }
+        }
 
-
-                _anamnesisController.UpdateAnamnesis(_selectedAnamnesis.IdOfAnamnesis, _selectedAnamnesis);
-                _medicalRecord.borderWindow.Content = new PatientExamineAnamnesesPage(_pparent, _medicalRecord);
-
+        private void AddingNoteWithoutReminder(String text)
+        {
+            _newNote.DescriptionOfNote = text;
+            _newNote.StartDate = DateTime.MinValue;
+            _newNote.EndDate = DateTime.MinValue;
+            _newNote.StartPeriodOfTime = DateTime.MinValue;
+            _newNote.EndPeriodOfTime = DateTime.MinValue;
+            if (_selectedAnamnesis.NotesForAnamnesis != null)
+            {
+                _selectedAnamnesis.NotesForAnamnesis.Add(_newNote);
+            }
+            else
+            {
+                List<Note> notes = new List<Note>();
+                notes.Add(_newNote);
+                _selectedAnamnesis.NotesForAnamnesis = notes;
             }
 
 
+            _anamnesisController.UpdateAnamnesis(_selectedAnamnesis.IdOfAnamnesis, _selectedAnamnesis);
+            _medicalRecord.borderWindow.Content = new PatientExamineAnamnesesPage(_pparent, _medicalRecord);
+        }
 
+        private void AddingNoteWithReminder(String text)
+        {
+            _newNote.DescriptionOfNote = text;
+            _newNote.StartDate = (DateTime)startDatePicker.SelectedDate;
+            _newNote.EndDate = (DateTime)endDatePicker.SelectedDate;
+            _newNote.IsSetReminder = true;
+            String t = startMomentComboBox.SelectedItem.ToString();
+            String d = startDatePicker.Text;
+            var dt = DateTime.Parse(d + " " + t);
+            _newNote.StartPeriodOfTime = dt;
+            String t1 = endMomentComboBox.SelectedItem.ToString();
+            String d1 = startDatePicker.Text;
+            DateTime dt1 = DateTime.Parse(d1 + " " + t1);
+            _newNote.EndPeriodOfTime = dt1;
+            if (_selectedAnamnesis.NotesForAnamnesis != null)
+            {
+                _selectedAnamnesis.NotesForAnamnesis.Add(_newNote);
+            }
+            else
+            {
+                List<Note> notes = new List<Note>();
+                notes.Add(_newNote);
+                _selectedAnamnesis.NotesForAnamnesis = notes;
+            }
+
+
+            _anamnesisController.UpdateAnamnesis(_selectedAnamnesis.IdOfAnamnesis, _selectedAnamnesis);
+            _medicalRecord.borderWindow.Content = new PatientExamineAnamnesesPage(_pparent, _medicalRecord);
         }
 
         private void reminderButton_Click(object sender, RoutedEventArgs e)
