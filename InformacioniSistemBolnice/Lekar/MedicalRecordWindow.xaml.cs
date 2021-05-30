@@ -170,13 +170,13 @@ namespace InformacioniSistemBolnice.Lekar
         {
             if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null)
             {
-                List<Prostorija> rooms = ProstorijaFileStorage.GetAll();
-                List<Prostorija> available = new List<Prostorija>();
+                List<Room> rooms = RoomFileRepository.GetAll();
+                List<Room> available = new List<Room>();
                 DateTime begin = (DateTime) RoomBeginDatePicker.SelectedDate;
                 DateTime end = (DateTime) RoomEndDatePicker.SelectedDate;
-                foreach (Prostorija room in rooms)
+                foreach (Room room in rooms)
                 {
-                    if (room.TipProstorije.Equals(TipProstorije.bolnickaSoba) && room.IsAvailable(begin, end))
+                    if (room.RoomType.Equals(RoomType.recoveryRoom) && room.IsAvailable(begin, end))
                     {
                         available.Add(room);
                     }

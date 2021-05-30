@@ -38,7 +38,7 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Prostorija" Width="*">
                     <DataGridTextColumn.Binding>
-                        <Binding Path="Prostorija.Naziv"/>
+                        <Binding Path="Room.Name"/>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
             </DataGrid.Columns>
