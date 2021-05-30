@@ -20,9 +20,9 @@
         "IsSetReminder": true
       }
     ],
-    "UsernameOfPatient": "jovan",
+    "UsernameOfPatient": "pera",
     "IdOfAnamnesis": 1,
     "DateOfWritingAnamnesis": "2021-05-28T16:36:01.4631087+02:00",
-    "IdOfAppointment": 103
+    "IdOfAppointment": 2
   }
 ]
