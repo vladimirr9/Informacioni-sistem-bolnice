@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Patient_ns
@@ -21,14 +22,15 @@ namespace InformacioniSistemBolnice.Patient_ns
     /// </summary>
     public partial class PatientExamineAnamnesesPage : Page
     {
-        private static StartPatientWindow parent;
-        public static PatientMedicalRecordPage karton { get; set; }
-        private static String UsernameOfLoggedInPatient;
-        public static Anamnesis selectedAnamnesis { get; set; }
+        private  StartPatientWindow parent;
+        private AnamnesisController _anamnesisController = new AnamnesisController();
+        public  PatientMedicalRecordPage karton { get; set; }
+        private  Patient _loggedInPatient;
+        public  Anamnesis selectedAnamnesis { get; set; }
         public PatientExamineAnamnesesPage(StartPatientWindow pp, PatientMedicalRecordPage pkp)
         {
             parent = pp;
-            UsernameOfLoggedInPatient = pp.Patient.Username;
+            _loggedInPatient = pp.Patient;
             karton = pkp;
             InitializeComponent();
             this.DataContext = this;
@@ -38,13 +40,9 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void FillTable()
         {
-            List<Anamnesis> anamneses = AnamnesisFileRepository.GetAll();
-            foreach (Anamnesis a in anamneses)
+            foreach (Anamnesis a in _anamnesisController.GetPatientsAnamneses(_loggedInPatient))
             {
-                if (a.UsernameOfPatient.Equals(UsernameOfLoggedInPatient))
-                {
-                    DataGridAnamneses.Items.Add(a);
-                }
+                DataGridAnamneses.Items.Add(a);
             }
         }
 

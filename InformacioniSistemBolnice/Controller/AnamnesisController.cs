@@ -35,5 +35,10 @@ namespace InformacioniSistemBolnice.Controller
             return _anamnesisService.AppointmentAnamnesis(appointment);
 
         }
+
+        public List<Anamnesis> GetPatientsAnamneses(Patient patient)
+        {
+            return _anamnesisService.PatientsAnamneses(patient);
+        }
     }
 }

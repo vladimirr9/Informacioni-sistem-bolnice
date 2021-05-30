@@ -45,5 +45,15 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _appointmentService.GetScheduled();
         }
+
+        public List<Appointment> GetScheduledAppointmentForPatient(Patient patient)
+        {
+            return _appointmentService.GetScheduledAppointmentsForPatient(patient);
+        }
+
+        public Boolean IsAppointmentTomorrow(Appointment appointment)
+        {
+            return _appointmentService.IsAppointmentTomorrow(appointment);
+        }
     }
 }
