@@ -49,15 +49,15 @@ namespace InformacioniSistemBolnice.Upravnik
             int brSobe = selektovana.RoomNumber;
             List<Inventory> opremaLista = selektovana.InventoryList;
 
-            List<Termin> listaTermina = TerminFileStorage.GetAll();
+            List<Appointment> listaTermina = ApointmentFileRepository.GetAll();
 
             if (datumOd < datumDo)
             {
                 //foreach (DateTime day in PeriodRenoviranja(datumOd, datumDo))
                 //{
-                    //foreach (Termin t in listaTermina)
+                    //foreach (Appointment t in listaTermina)
                     //{
-                        //if (t.datumZakazivanja.Date != day)
+                        //if (t.AppointmentDate.Date != day)
                 if(selektovana.IsAvailable(datumOd, datumDo))
                 {
                     if (DateTime.Today.Date == datumOd.Date)

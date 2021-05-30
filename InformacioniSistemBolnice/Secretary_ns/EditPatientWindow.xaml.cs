@@ -17,7 +17,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 {
     public partial class EditPatientWindow : Window
     {
-        private Pacijent _initialPatient;
+        private Patient _initialPatient;
         private PatientsPage _parent;
         private PatientController _patientController = new PatientController();
 
@@ -36,7 +36,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public string Country { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string SocialSecurityNumber { get; set; }
-        public EditPatientWindow(Pacijent patient, PatientsPage parent)
+        public EditPatientWindow(Patient patient, PatientsPage parent)
         {
             this._parent = parent;
             _initialPatient = patient;
@@ -53,10 +53,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
            
-            AdresaStanovanja residentialAddress = new AdresaStanovanja(ResidentialAddress, new MestoStanovanja(City, PostalCode, new DrzavaStanovanja(Country)));
-            Pacijent patient = new Pacijent(LegalName, Surname, JMBG, char.Parse(Gender), TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
-            patient.zdravstveniKarton.pacijent = patient;
-            _patientController.Update(_initialPatient.korisnickoIme, patient);
+            ResidentialAddress residentialAddress = new ResidentialAddress(ResidentialAddress, new City(City, PostalCode, new Country(Country)));
+            Patient patient = new Patient(LegalName, Surname, JMBG, char.Parse(Gender), TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new MedicalRecord(PatientFileRepository.GetAll().Count.ToString()), false);
+            patient.MedicalRecord.patient = patient;
+            _patientController.Update(_initialPatient.Username, patient);
             _parent.UpdateTable();
             this.Close();
 
@@ -142,23 +142,23 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             SetConfirmIsEnabled();
         }
-        private void InitializeStartingValuesForComponents(Pacijent patient)
+        private void InitializeStartingValuesForComponents(Patient patient)
         {
-            LegalName = _initialPatient.ime;
-            Surname = _initialPatient.prezime;
-            JMBG = _initialPatient.jmbg;
-            Gender = _initialPatient.pol.ToString();
-            TelephoneNumber = _initialPatient.brojTelefona;
-            EmailAddress = _initialPatient.email;
-            DateOfBirth = _initialPatient.datumRodenja;
-            Username = _initialPatient.korisnickoIme;
-            Password = _initialPatient.lozinka;
-            Country = _initialPatient.adresaStanovanja.mestoStanovanja.drzavaStanovanja.naziv;
-            PostalCode = _initialPatient.adresaStanovanja.mestoStanovanja.postanskiBroj;
-            City = _initialPatient.adresaStanovanja.mestoStanovanja.naziv;
-            ResidentialAddress = _initialPatient.adresaStanovanja.ulicaIBroj;
-            SocialSecurityNumber = _initialPatient.brojZdravstveneKartice;
-            Guest = patient.isGuest;
+            LegalName = _initialPatient.Name;
+            Surname = _initialPatient.Surname;
+            JMBG = _initialPatient.JMBG;
+            Gender = _initialPatient.Gender.ToString();
+            TelephoneNumber = _initialPatient.PhoneNumber;
+            EmailAddress = _initialPatient.Email;
+            DateOfBirth = _initialPatient.DateOfBirth;
+            Username = _initialPatient.Username;
+            Password = _initialPatient.Password;
+            Country = _initialPatient.ResidentialAddress.City.Country.Name;
+            PostalCode = _initialPatient.ResidentialAddress.City.PostalCode;
+            City = _initialPatient.ResidentialAddress.City.Name;
+            ResidentialAddress = _initialPatient.ResidentialAddress.StreetAndNumber;
+            SocialSecurityNumber = _initialPatient.SocialSecurityNumber;
+            Guest = patient.IsGuest;
         }
     }
 

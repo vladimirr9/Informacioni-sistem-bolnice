@@ -21,34 +21,34 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class MedicalRecordPage : Page
     {
         private static StartPatientWindow pp;
-        private static Pacijent pacijent;
+        private static Patient _patient;
         public MedicalRecordPage(StartPatientWindow p)
         {
             pp = p;
-            pacijent = pp.Pacijent;
+            _patient = pp.Patient;
             InitializeComponent();
             LoadData();
         }
 
         private void LoadData()
         {
-            prezimeTextBox.Text = pacijent.prezime;
+            prezimeTextBox.Text = _patient.Surname;
             prezimeTextBox.IsEnabled = false;
-            imeTextBox.Text = pacijent.ime;
+            imeTextBox.Text = _patient.Name;
             imeTextBox.IsEnabled = false;
-            JMBGTextBox.Text = pacijent.jmbg;
+            JMBGTextBox.Text = _patient.JMBG;
             JMBGTextBox.IsEnabled = false;
-            datumRodjenjaDatePicker.SelectedDate = pacijent.datumRodenja.Date;
+            datumRodjenjaDatePicker.SelectedDate = _patient.DateOfBirth.Date;
             datumRodjenjaDatePicker.IsEnabled = false;
-            kontaktTextBox.Text = pacijent.brojTelefona;
+            kontaktTextBox.Text = _patient.PhoneNumber;
             kontaktTextBox.IsEnabled = false;
-            emailTextBox.Text = pacijent.email;
+            emailTextBox.Text = _patient.Email;
             emailTextBox.IsEnabled = false;
-            brojKarticeTextBox.Text = pacijent.brojZdravstveneKartice;
+            brojKarticeTextBox.Text = _patient.SocialSecurityNumber;
             brojKarticeTextBox.IsEnabled = false;
-            brojKartonaTextBox.Text = pacijent.zdravstveniKarton.brojZdravstvenogKartona;
+            brojKartonaTextBox.Text = _patient.MedicalRecord.MedicalRecordNumber;
             brojKartonaTextBox.IsEnabled = false;
-            if (pacijent.pol.Equals('M'))
+            if (_patient.Gender.Equals('M'))
             {
                 mRadioButton.IsChecked = true;
                 mRadioButton.IsEnabled = false;
@@ -60,7 +60,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 mRadioButton.IsEnabled = false;
                 zRadioButton.IsEnabled = false;
             }
-            adresaTextBox.Text = pacijent.adresaStanovanja.ulicaIBroj + "," + pacijent.adresaStanovanja.mestoStanovanja;
+            adresaTextBox.Text = _patient.ResidentialAddress.StreetAndNumber + "," + _patient.ResidentialAddress.City;
             adresaTextBox.IsEnabled = false;
         }
     }

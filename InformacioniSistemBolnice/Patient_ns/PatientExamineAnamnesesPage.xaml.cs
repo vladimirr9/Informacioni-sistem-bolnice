@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         public PatientExamineAnamnesesPage(StartPatientWindow pp, PatientMedicalRecordPage pkp)
         {
             parent = pp;
-            UsernameOfLoggedInPatient = pp.Pacijent.korisnickoIme;
+            UsernameOfLoggedInPatient = pp.Patient.Username;
             karton = pkp;
             InitializeComponent();
             this.DataContext = this;

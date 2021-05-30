@@ -1,5 +1,5 @@
 // File:    UpravnikFileStorage.cs
-// Author:  Korisnik
+// Author:  User
 // Created: Saturday, March 27, 2021 2:15:03 PM
 // Purpose: Definition of Class UpravnikFileStorage
 
@@ -10,18 +10,18 @@ using System.IO;
 
 public class ManagerFileRepository
 {
-    private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "upravnik.json";
+    private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "managers.json";
 
     public static List<Manager> GetAll()
    {
-        if (!File.Exists(startupPath))
+        if (!File.Exists(_startupPath))
         {
-            var tmp = File.OpenWrite(startupPath);
+            var tmp = File.OpenWrite(_startupPath);
             tmp.Close();
         }
 
         List<Manager> managers;
-        String read = File.ReadAllText(startupPath);
+        String read = File.ReadAllText(_startupPath);
         if (read.Equals(""))
         {
             managers = new List<Manager>();
@@ -38,7 +38,7 @@ public class ManagerFileRepository
         List<Manager> managers = GetAll();
         foreach (Manager u in managers)
         {
-            if (u.korisnickoIme.Equals(username))
+            if (u.Username.Equals(username))
                 return u;
         }
         return null;
@@ -49,14 +49,22 @@ public class ManagerFileRepository
       throw new NotImplementedException();
    }
    
-   public static Boolean AddManager(Manager newmanager)
+   public static Boolean AddManager(Manager newManager)
    {
-      throw new NotImplementedException();
-   }
+       List<Manager> managers = GetAll();
+       managers.Add(newManager);
+       Save(managers);
+       return true;
+    }
    
    public static Boolean UpdateManager(int managerId, Manager newManager)
    {
       throw new NotImplementedException();
+   }
+   private static void Save(List<Manager> managers)
+   {
+       string serializeObject = JsonConvert.SerializeObject(managers);
+       File.WriteAllText(_startupPath, serializeObject);
    }
 
 }

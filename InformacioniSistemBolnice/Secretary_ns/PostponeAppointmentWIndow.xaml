@@ -27,7 +27,7 @@
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="150"/>
                 <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="60"/>
                 <DataGridTextColumn Header="Tip termina" Binding ="{Binding tipTermina}" Width="140"/>
-                <DataGridTextColumn Header="Pacijent" Width="120">
+                <DataGridTextColumn Header="Patient" Width="120">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
                             <Binding Path="Pacijent.ime"/>

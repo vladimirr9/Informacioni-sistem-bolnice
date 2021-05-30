@@ -21,7 +21,7 @@ namespace InformacioniSistemBolnice
         public DateTime DateOfWritingRating { get; set; }
         
         [JsonIgnore]
-        public Termin Appointment { get; set; }
+        public Appointment Appointment { get; set; }
 
         public Rating()
         {

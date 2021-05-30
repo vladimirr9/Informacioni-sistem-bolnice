@@ -39,20 +39,20 @@ namespace InformacioniSistemBolnice.Secretary_ns
             DoctorType doctorType = global::Doctor.DoctorTypeFromString(DoctorTypeCombo.SelectedItem.ToString());
             int duration = int.Parse(DurationInMinutes.Text);
             string jmbg = PatientsList.SelectedItem.ToString().Split('-')[1].Trim();
-            Pacijent patient = PacijentFileStorage.GetOneByJMBG(jmbg);
+            Patient patient = PatientFileRepository.GetOneByJMBG(jmbg);
             DateTime appointmentStart = GetNextEarliestAppointmentTime(DateTime.Today.AddHours(DateTime.Now.TimeOfDay.Hours).AddMinutes(DateTime.Now.TimeOfDay.Minutes));
             
             DateTime appointmentEnd = appointmentStart.AddMinutes(duration);
-            TipTermina appointmentType;
+            AppointmentType appointmentType;
             RoomType roomType;
             if (AppointmentTypeCombo.Text.Equals("Operacija"))
             {
-                appointmentType = TipTermina.operacija;
+                appointmentType = AppointmentType.operation;
                 roomType = RoomType.operatingRoom;
             }
             else
             {
-                appointmentType = TipTermina.pregledKodLekaraOpstePrakse;
+                appointmentType = AppointmentType.generalPractitionerCheckup;
                 roomType = RoomType.examinationRoom;
             }
                 
@@ -66,19 +66,19 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
             if (filteredRooms.Count > 0 && filteredDoctors.Count > 0)
             {
-                foreach (Termin appointmentItem in TerminFileStorage.GetAll())
+                foreach (Appointment appointmentItem in ApointmentFileRepository.GetAll())
                 {
-                    if (appointmentItem.status == StatusTermina.zakazan && appointmentItem.Pacijent.Equals(patient) && (appointmentItem.datumZakazivanja >= appointmentStart && appointmentItem.datumZakazivanja <= appointmentEnd))
-                        TerminFileStorage.RemoveTermin(appointmentItem.iDTermina);
+                    if (appointmentItem.AppointmentStatus == AppointmentStatus.scheduled && appointmentItem.Patient.Equals(patient) && (appointmentItem.AppointmentDate >= appointmentStart && appointmentItem.AppointmentDate <= appointmentEnd))
+                        ApointmentFileRepository.RemoveAppointment(appointmentItem.AppointmentID);
                 }
 
 
                 Room room = filteredRooms[0];
                 global::Doctor doctor = filteredDoctors[0];
-                int id = TerminFileStorage.GetAll().Count + 1;
+                int id = ApointmentFileRepository.GetAll().Count + 1;
 
-                Termin appointment = new Termin(id, appointmentStart, duration, appointmentType, StatusTermina.zakazan, patient, doctor, room);
-                TerminFileStorage.AddTermin(appointment);
+                Appointment appointment = new Appointment(id, appointmentStart, duration, appointmentType, AppointmentStatus.scheduled, patient, doctor, room);
+                ApointmentFileRepository.AddAppointment(appointment);
                 _parent.UpdateTable();
                 Close();
             }
@@ -103,10 +103,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
 
 
-        private List<Room> GetFilteredRooms(List<Room> rooms, TipTermina appointmentType)
+        private List<Room> GetFilteredRooms(List<Room> rooms, AppointmentType appointmentType)
         {
             List<Room> filteredRooms = new List<Room>();
-            if (appointmentType == TipTermina.operacija)
+            if (appointmentType == AppointmentType.operation)
             {
                 foreach (Room room in rooms)
                 {
@@ -150,9 +150,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private List<global::Doctor> GetAvailableDoctors(DateTime pocetak, DateTime kraj)
         {
             List<global::Doctor> doctors = new List<global::Doctor>();
-            foreach (global::Doctor doctor in LekarFileStorage.GetAll())
+            foreach (global::Doctor doctor in DoctorFileRepository.GetAll())
             {
-                if (doctor.IsAvailable(pocetak, kraj) && !doctor.isDeleted)
+                if (doctor.IsAvailable(pocetak, kraj) && !doctor.IsDeleted)
                 {
                     doctors.Add(doctor);
                 }
@@ -182,10 +182,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public void InitializePatients()
         {
             _patients = new List<String>();
-            foreach (Pacijent patient in PacijentFileStorage.GetAll())
+            foreach (Patient patient in PatientFileRepository.GetAll())
             {
-                if (!patient.isDeleted)
-                    _patients.Add(patient.ime + " " + patient.prezime + " - " + patient.jmbg);
+                if (!patient.IsDeleted)
+                    _patients.Add(patient.Name + " " + patient.Surname + " - " + patient.JMBG);
             }
             PatientsList.ItemsSource = _patients;
         }

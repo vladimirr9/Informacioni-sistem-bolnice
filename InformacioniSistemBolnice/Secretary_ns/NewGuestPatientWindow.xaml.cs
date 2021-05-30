@@ -22,7 +22,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
     {
         public string JMBG { get; set; }
         private NewUrgentAppointment _parent;
-        public Pacijent Patient;
+        public Patient Patient;
         public NewGuestPatientWindow(NewUrgentAppointment parent)
         {
             this._parent = parent;
@@ -34,14 +34,14 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             string name = NameText.Text;
             string surname = SurnameText.Text;
-            string username = "Guest" + PacijentFileStorage.GetAll().Count.ToString();
+            string username = "Guest" + PatientFileRepository.GetAll().Count.ToString();
 
             if (IsJMBGUnique(JMBG))
             {
-                Patient = new Pacijent(name, surname, JMBG, ' ', "", "", new DateTime(), username, "", new AdresaStanovanja("", new MestoStanovanja("", "", new DrzavaStanovanja(""))), true, "", new ZdravstveniKarton(""));
-                PacijentFileStorage.AddPacijent(Patient);
+                Patient = new Patient(name, surname, JMBG, ' ', "", "", new DateTime(), username, "", new ResidentialAddress("", new City("", "", new Country(""))), true, "", new MedicalRecord(""));
+                PatientFileRepository.AddPatient(Patient);
                 _parent.InitializePatients();
-                _parent.PatientsList.SelectedItem = Patient.ime + " " + Patient.prezime + " - " + Patient.jmbg;
+                _parent.PatientsList.SelectedItem = Patient.Name + " " + Patient.Surname + " - " + Patient.JMBG;
                 Close();
             }
             else
@@ -50,9 +50,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private static bool IsJMBGUnique(string JMBG)
         {
-            foreach (Pacijent patient in PacijentFileStorage.GetAll())
+            foreach (Patient patient in PatientFileRepository.GetAll())
             {
-                if (patient.jmbg.Equals(JMBG))
+                if (patient.JMBG.Equals(JMBG))
                     return false;
             }
 

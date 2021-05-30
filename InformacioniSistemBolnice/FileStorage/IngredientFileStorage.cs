@@ -1,5 +1,5 @@
-﻿using InformacioniSistemBolnice.Korisnik;
-using InformacioniSistemBolnice.Lekar;
+﻿using InformacioniSistemBolnice.User;
+using InformacioniSistemBolnice.Doctor_ns;
 
 using Newtonsoft.Json;
 using System;
@@ -10,7 +10,7 @@ namespace InformacioniSistemBolnice.FileStorage
 {
     public class IngredientFileStorage
     {
-        private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "sastojci.json";
+        private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "ingredients.json";
 
         public static List<Ingredient> GetAll()
         {

@@ -19,13 +19,13 @@ namespace InformacioniSistemBolnice.Patient_ns
     /// </summary>
     public partial class StartPatientWindow : Window
     {
-        public Pacijent Pacijent { get; set; }
+        public Patient Patient { get; set; }
 
-        public StartPatientWindow(Pacijent pacijent)
+        public StartPatientWindow(Patient patient)
         {
-            this.Pacijent = pacijent;
+            this.Patient = patient;
             InitializeComponent();
-            imePacijenta.Text = pacijent.ime + " " + pacijent.prezime;
+            imePacijenta.Text = patient.Name + " " + patient.Surname;
 
 
 

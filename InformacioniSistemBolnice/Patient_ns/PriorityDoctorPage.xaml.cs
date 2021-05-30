@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private const int trajanjePregleda = 15;
         private ActivityLogController _activityLogController = new ActivityLogController();
         private List<global::Doctor> ljekariLista;
-        private List<Termin> termini;
+        private List<Appointment> termini;
         private List<string> availableTimes;
         private List<Room> prostorije;
         private StartPatientWindow parent;
@@ -35,12 +35,12 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
             parent = pp;
             parentp = pzppp;
-            termini = new List<Termin>();
+            termini = new List<Appointment>();
             InitializeComponent();
             ljekariLista = new List<global::Doctor>();
-            foreach (global::Doctor l in LekarFileStorage.GetAll())
+            foreach (global::Doctor l in DoctorFileRepository.GetAll())
             {
-                if (l.doctorType == DoctorType.opstePrakse)
+                if (l.doctorType == DoctorType.generalPractitioner)
                 {
                     ljekariLista.Add(l);
                 }
@@ -81,19 +81,19 @@ namespace InformacioniSistemBolnice.Patient_ns
             availableTimes.Clear();
             termini.Clear();
             global::Doctor selektovanLjekar = (global::Doctor)ljekari.SelectedItem;
-            foreach (Termin t in TerminFileStorage.GetAll())
+            foreach (Appointment t in ApointmentFileRepository.GetAll())
             {
-                if (t.Doctor.jmbg.Equals(selektovanLjekar.jmbg))
+                if (t.Doctor.JMBG.Equals(selektovanLjekar.JMBG))
                 {
-                    if (t.datumZakazivanja.Date.Equals(date.SelectedDate) && t.status == StatusTermina.zakazan)
+                    if (t.AppointmentDate.Date.Equals(date.SelectedDate) && t.AppointmentStatus == AppointmentStatus.scheduled)
                     {
                         termini.Add(t);
                     }
                 }
 
-                if (parent.Pacijent.korisnickoIme == t.Pacijent.korisnickoIme && t.datumZakazivanja.Date.Equals(date.SelectedDate))
+                if (parent.Patient.Username == t.Patient.Username && t.AppointmentDate.Date.Equals(date.SelectedDate))
                 {
-                    if (t.status == StatusTermina.zakazan)
+                    if (t.AppointmentStatus == AppointmentStatus.scheduled)
                     {
 
                         termini.Add(t);
@@ -102,16 +102,16 @@ namespace InformacioniSistemBolnice.Patient_ns
                 }
             }
 
-            List<Termin> terminiBezDuplikata = termini.Distinct().ToList();
+            List<Appointment> terminiBezDuplikata = termini.Distinct().ToList();
             DateTime danas = DateTime.Today;
 
             for (DateTime tm = danas.AddHours(8); tm < danas.AddHours(20); tm = tm.AddMinutes(15))
             {
                 bool slobodno = true;
-                foreach (Termin termin in terminiBezDuplikata)
+                foreach (Appointment termin in terminiBezDuplikata)
                 {
-                    DateTime start = DateTime.Parse(termin.datumZakazivanja.ToString("HH:mm"));
-                    DateTime end = DateTime.Parse(termin.datumZakazivanja.AddMinutes(termin.trajanjeUMinutima).ToString("HH:mm"));
+                    DateTime start = DateTime.Parse(termin.AppointmentDate.ToString("HH:mm"));
+                    DateTime end = DateTime.Parse(termin.AppointmentDate.AddMinutes(termin.DurationInMinutes).ToString("HH:mm"));
                     if (tm >= start && tm < end)
                     {
                         slobodno = false;
@@ -144,39 +144,39 @@ namespace InformacioniSistemBolnice.Patient_ns
         private void submit_Click(object sender, RoutedEventArgs e)
         {
             ZakaziTermin();
-            ActivityLog activity = new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
+            ActivityLog activity = new ActivityLog(DateTime.Now, parent.Patient.Username, TypeOfActivity.makingAppointment);
             _activityLogController.AddActivity(activity);
         }
 
         private void ZakaziTermin()
         {
             global::Doctor l = (global::Doctor)ljekari.SelectedItem;
-            Pacijent p = parent.Pacijent;
+            Patient p = parent.Patient;
 
 
             var item = times.SelectedItem;
             String t = item.ToString();
             String d = date.Text;
             DateTime start = DateTime.Parse(d + " " + t);
-            TipTermina tipt;
-            if (l.doctorType.Equals(DoctorType.opstePrakse))
+            AppointmentType tipt;
+            if (l.doctorType.Equals(DoctorType.generalPractitioner))
             {
-                tipt = TipTermina.pregledKodLekaraOpstePrakse;
+                tipt = AppointmentType.generalPractitionerCheckup;
             }
-            else if (l.doctorType.Equals(DoctorType.hirurg))
+            else if (l.doctorType.Equals(DoctorType.surgeon))
             {
-                tipt = TipTermina.operacija;
+                tipt = AppointmentType.operation;
             }
             else
             {
-                tipt = TipTermina.pregledKodLekaraSpecijaliste;
+                tipt = AppointmentType.specialistCheckup;
             }
-            int id = TerminFileStorage.GetAll().Count + 1;
+            int id = ApointmentFileRepository.GetAll().Count + 1;
             DateTime end = start.AddMinutes(trajanjePregleda);
 
             Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
-            Termin termin = new Termin(id, start, trajanjePregleda, tipt, StatusTermina.zakazan, p, l, prvaDostupnaProstorija);
-            TerminFileStorage.AddTermin(termin);
+            Appointment appointment = new Appointment(id, start, trajanjePregleda, tipt, AppointmentStatus.scheduled, p, l, prvaDostupnaProstorija);
+            ApointmentFileRepository.AddAppointment(appointment);
             PatientExaminesAppointmentPage ptp = new PatientExaminesAppointmentPage(parent);
             updateVisibility();
             parent.startWindow.Content = ptp;

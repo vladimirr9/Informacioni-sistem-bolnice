@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             InitializeComponent();
             this.parent = parent;
-            List<global::Doctor> lekari = LekarFileStorage.GetAll();
+            List<global::Doctor> lekari = DoctorFileRepository.GetAll();
 
             Lekar.ItemsSource = lekari;
             List<Ingredient> sastojci = IngredientFileStorage.GetAll();

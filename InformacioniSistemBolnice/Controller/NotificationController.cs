@@ -1,4 +1,4 @@
-﻿using InformacioniSistemBolnice.Korisnik;
+﻿using InformacioniSistemBolnice.User;
 using InformacioniSistemBolnice.Service;
 using System;
 using System.Collections.Generic;

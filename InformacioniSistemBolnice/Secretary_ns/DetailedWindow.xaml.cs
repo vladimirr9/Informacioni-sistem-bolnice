@@ -7,12 +7,12 @@ namespace InformacioniSistemBolnice.Secretary_ns
 {
     public partial class DetailedWindow : Window
     {
-        private Pacijent _patient;
+        private Patient _patient;
         private PatientController _patientController = new PatientController();
 
         public DetailedWindow(PatientsPage parent, string username)
         {
-            _patient = PacijentFileStorage.GetOne(username);
+            _patient = PatientFileRepository.GetOne(username);
             InitializeComponent();
             DataContext = _patient;
             UpdateTable();
@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             AllergenListView.Items.Clear();
             var allergensComboList = new List<Ingredient>();
             foreach (var ingredient in IngredientFileStorage.GetAll())
-                if (_patient.zdravstveniKarton.Alergen.Contains(ingredient))
+                if (_patient.MedicalRecord.Allergens.Contains(ingredient))
                     AllergenListView.Items.Add(ingredient);
                 else
                     allergensComboList.Add(ingredient);

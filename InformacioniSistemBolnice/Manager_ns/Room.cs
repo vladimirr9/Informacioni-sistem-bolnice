@@ -1,7 +1,7 @@
-// File:    Prostorija.cs
-// Author:  Korisnik
+// File:    Room.cs
+// Author:  User
 // Created: Monday, March 22, 2021 6:44:09 PM
-// Purpose: Definition of Class Prostorija
+// Purpose: Definition of Class Room
 
 using System;
 using System.Collections.Generic;
@@ -94,7 +94,7 @@ public class Room
         InventoryList = inventoryList;
     }
 
-    /*public Prostorija(String Name, int iDprostorije, TipProstorije tipProstorije, Boolean IsDeleted, Boolean isActive, Double kvadratura, int brSprata, int brSobe)
+    /*public Room(String Name, int iDprostorije, TipProstorije tipProstorije, Boolean IsDeleted, Boolean isActive, Double kvadratura, int brSprata, int brSobe)
     {
         Naziv = Name;
         IDprostorije = iDprostorije;
@@ -112,22 +112,22 @@ public class Room
         if (start.Equals(end))
             return true;
         bool retVal = true;
-        List<Termin> termini = TerminFileStorage.GetAll();
-        foreach (Termin termin in termini)
+        List<Appointment> termini = ApointmentFileRepository.GetAll();
+        foreach (Appointment termin in termini)
         {
-            if (termin.Prostorija.Equals(this) && termin.status == StatusTermina.zakazan)
+            if (termin.Room.Equals(this) && termin.AppointmentStatus == AppointmentStatus.scheduled)
             {
-                if (start >= termin.datumZakazivanja && start <= termin.KrajTermina)
+                if (start >= termin.AppointmentDate && start <= termin.AppointmentEnd)
                 {
                     retVal = false;
                     break;
                 }
-                if (end >= termin.datumZakazivanja && end <= termin.KrajTermina)
+                if (end >= termin.AppointmentDate && end <= termin.AppointmentEnd)
                 {
                     retVal = false;
                     break;
                 }
-                if (start <= termin.datumZakazivanja && end >= termin.KrajTermina)
+                if (start <= termin.AppointmentDate && end >= termin.AppointmentEnd)
                 {
                     retVal = false;
                     break;

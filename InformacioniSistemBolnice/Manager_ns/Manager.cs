@@ -1,13 +1,13 @@
 // File:    Upravnik.cs
-// Author:  Korisnik
+// Author:  User
 // Created: Monday, March 22, 2021 6:32:16 PM
 // Purpose: Definition of Class Upravnik
 
 using System;
 
-public class Manager : Korisnik
+public class Manager : User
 {
-   public Manager(string ime, string prezime, string jmbg, char pol, string brojTelefona, string email, DateTime datumRodenja, string korisnickoIme, string lozinka, AdresaStanovanja adresaStanovanja, bool isDeleted = false) : base(ime, prezime, jmbg, pol, brojTelefona, email, datumRodenja, korisnickoIme, lozinka, adresaStanovanja, isDeleted)
+   public Manager(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime dateOfBirth, string username, string password, ResidentialAddress residentialAddress, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, dateOfBirth, username, password, residentialAddress, isDeleted)
     {
 
     }

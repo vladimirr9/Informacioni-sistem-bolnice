@@ -39,12 +39,12 @@ namespace InformacioniSistemBolnice.Patient_ns
         public void updateTable()
         {
             PrikazPregleda.Items.Clear();
-            List<Termin> termini = TerminFileStorage.GetAll();
-            foreach (Termin termin in termini)
+            List<Appointment> termini = ApointmentFileRepository.GetAll();
+            foreach (Appointment termin in termini)
             {
-                if (parent.Pacijent.korisnickoIme == termin.Pacijent.korisnickoIme)
+                if (parent.Patient.Username == termin.Patient.Username)
                 {
-                    if ((termin.status == StatusTermina.zakazan) && (termin.datumZakazivanja > DateTime.Now))
+                    if ((termin.AppointmentStatus == AppointmentStatus.scheduled) && (termin.AppointmentDate > DateTime.Now))
                         PrikazPregleda.Items.Add(termin);
                 }
             }
@@ -58,7 +58,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void cancelTermin_Click(object sender, RoutedEventArgs e)
         {
-            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Pacijent);
+            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Patient);
             if (isBanned == true)
             {
                 MessageBox.Show("Otkazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
@@ -68,8 +68,8 @@ namespace InformacioniSistemBolnice.Patient_ns
 
                 if (PrikazPregleda.SelectedItem != null)
                 {
-                    Termin termin = TerminFileStorage.GetOne(((Termin) PrikazPregleda.SelectedItem).iDTermina);
-                    if (termin.datumZakazivanja.Date <= DateTime.Now.AddHours(24).Date)
+                    Appointment appointment = ApointmentFileRepository.GetOne(((Appointment) PrikazPregleda.SelectedItem).AppointmentID);
+                    if (appointment.AppointmentDate.Date <= DateTime.Now.AddHours(24).Date)
                     {
                         MessageBox.Show("Nije moguće otkazati termin koji je zakazan u naredna 24 sata!", "Greška");
                     }
@@ -80,10 +80,10 @@ namespace InformacioniSistemBolnice.Patient_ns
                             MessageBoxButton.YesNo);
                         if (result == MessageBoxResult.Yes)
                         {
-                            TerminFileStorage.RemoveTermin(((Termin) (PrikazPregleda.SelectedItem)).iDTermina);
+                            ApointmentFileRepository.RemoveAppointment(((Appointment) (PrikazPregleda.SelectedItem)).AppointmentID);
                             updateTable();
                             ActivityLog informacija =
-                                new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme,
+                                new ActivityLog(DateTime.Now, parent.Patient.Username,
                                     TypeOfActivity.cancelingAppointment);
                             Debug.WriteLine(informacija.UsernameOfPatient);
                             _activityLogController.AddActivity(informacija);
@@ -101,7 +101,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void zakazi_Click(object sender, RoutedEventArgs e)
         {
-            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Pacijent);
+            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Patient);
             if (isBanned == true)
             {
                 MessageBox.Show("Zakazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
@@ -114,7 +114,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void pomjeri_Click(object sender, RoutedEventArgs e)
         {
-            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Pacijent);
+            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Patient);
             if (isBanned == true)
             {
                 MessageBox.Show("Pomeranje termina Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
@@ -123,15 +123,15 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 if (PrikazPregleda.SelectedIndex != -1)
                 {
-                    Termin termin = TerminFileStorage.GetOne(((Termin) PrikazPregleda.SelectedItem).iDTermina);
-                    if (termin.datumZakazivanja.Date <= DateTime.Now.AddHours(24).Date)
+                    Appointment appointment = ApointmentFileRepository.GetOne(((Appointment) PrikazPregleda.SelectedItem).AppointmentID);
+                    if (appointment.AppointmentDate.Date <= DateTime.Now.AddHours(24).Date)
                     {
                         MessageBox.Show("Nije moguće menjati termin koji je zakazan u naredna 24 sata!", "Greška");
                     }
                     else
                     {
                         parent.UpdateVisibilityOfComponents();
-                        parent.startWindow.Content = new PatientEditsAppointmentPage(termin, parent);
+                        parent.startWindow.Content = new PatientEditsAppointmentPage(appointment, parent);
                     }
                 }
                 else

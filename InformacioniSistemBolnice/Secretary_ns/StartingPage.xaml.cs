@@ -1,4 +1,4 @@
-﻿using InformacioniSistemBolnice.Korisnik;
+﻿using InformacioniSistemBolnice.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +54,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             if (NotificationListView.SelectedItem != null && ((Notification)NotificationListView.SelectedItem).Recipients.Contains("ALL_USERS"))
             {
-                Notification initialNotification = NotificationFileStorage.GetOne(((Notification)(NotificationListView.SelectedItem)).ID);
+                Notification initialNotification = NotificationFileStorage.GetOne(((Notification)NotificationListView.SelectedItem).ID);
                 EditNotificationWindow window = new EditNotificationWindow(this, initialNotification);
                 window.Show();
             }
@@ -81,7 +81,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             Notifications = new List<Notification>();
             foreach (Notification notification in NotificationFileStorage.GetAll())
             {
-                if (notification.IsDirectedTo(_currentSecretary.korisnickoIme))
+                if (notification.IsDirectedTo(_currentSecretary.Username))
                 {
                     if (!notification.IsDeleted)
                         Notifications.Add(notification);

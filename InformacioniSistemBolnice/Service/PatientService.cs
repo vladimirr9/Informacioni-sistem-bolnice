@@ -12,66 +12,66 @@ namespace InformacioniSistemBolnice.Service
     {
         private ActivityLogService _activityLogService = new ActivityLogService();
 
-        public void Register(Pacijent patient)
+        public void Register(Patient patient)
         {
-            if (!IsUsernameUnique(patient.korisnickoIme))
+            if (!IsUsernameUnique(patient.Username))
             {
-                MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni",
+                MessageBox.Show("Uneto korisničko Name već postoji u sistemu", "Podaci nisu unikatni",
                     MessageBoxButton.OK);
                 return;
             }
 
-            if (!IsJMBGUnique(patient.jmbg))
+            if (!IsJMBGUnique(patient.JMBG))
             {
                 MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return;
             }
 
-            PacijentFileStorage.AddPacijent(patient);
+            PatientFileRepository.AddPatient(patient);
         }
 
-        public void Remove(Pacijent patient)
+        public void Remove(Patient patient)
         {
-            PacijentFileStorage.RemovePacijent(patient.korisnickoIme);
+            PatientFileRepository.RemovePatient(patient.Username);
         }
 
-        public void Unban(Pacijent patient)
+        public void Unban(Patient patient)
         {
-            patient.Banovan = false;
-            PacijentFileStorage.UpdatePacijent(patient.korisnickoIme, patient);
+            patient.Banned = false;
+            PatientFileRepository.UpdatePatient(patient.Username, patient);
         }
 
-        public void RemoveAllergen(Pacijent patient, Ingredient allergen)
+        public void RemoveAllergen(Patient patient, Ingredient allergen)
         {
-            patient.zdravstveniKarton.RemoveAlergen(allergen);
-            PacijentFileStorage.UpdatePacijent(patient.korisnickoIme, patient);
+            patient.MedicalRecord.RemoveAlergen(allergen);
+            PatientFileRepository.UpdatePatient(patient.Username, patient);
         }
 
-        public void AddAllergen(Pacijent patient, Ingredient allergen)
+        public void AddAllergen(Patient patient, Ingredient allergen)
         {
-            patient.zdravstveniKarton.AddAllergen(allergen);
-            PacijentFileStorage.UpdatePacijent(patient.korisnickoIme, patient);
+            patient.MedicalRecord.AddAllergen(allergen);
+            PatientFileRepository.UpdatePatient(patient.Username, patient);
         }
 
-        public void Update(string initialUsername, Pacijent patient)
+        public void Update(string initialUsername, Patient patient)
         {
-            Pacijent initialPatient = PacijentFileStorage.GetOne(initialUsername);
-            if (!(IsUsernameUnique(patient.korisnickoIme) || patient.korisnickoIme.Equals(initialUsername)))
+            Patient initialPatient = PatientFileRepository.GetOne(initialUsername);
+            if (!(IsUsernameUnique(patient.Username) || patient.Username.Equals(initialUsername)))
             {
-                MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni",
+                MessageBox.Show("Uneto korisničko Name već postoji u sistemu", "Podaci nisu unikatni",
                     MessageBoxButton.OK);
                 return;
             }
 
-            if (!(IsJMBGUnique(patient.jmbg) || patient.jmbg.Equals(initialPatient.jmbg)))
+            if (!(IsJMBGUnique(patient.JMBG) || patient.JMBG.Equals(initialPatient.JMBG)))
             {
                 MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return;
             }
 
-            if (!initialUsername.Equals(patient.korisnickoIme))
-                UpdateAppointmentsForUsernameChange(patient.korisnickoIme, initialUsername);
-            PacijentFileStorage.UpdatePacijent(initialUsername, patient);
+            if (!initialUsername.Equals(patient.Username))
+                UpdateAppointmentsForUsernameChange(patient.Username, initialUsername);
+            PatientFileRepository.UpdatePatient(initialUsername, patient);
 
 
         }
@@ -83,36 +83,36 @@ namespace InformacioniSistemBolnice.Service
 
         public bool IsUsernameUnique(String username)
         {
-            if (PacijentFileStorage.GetOne(username) == null)
+            if (PatientFileRepository.GetOne(username) == null)
                 return true;
             return false;
         }
 
         public bool IsJMBGUnique(String jmbg)
         {
-            if (PacijentFileStorage.GetOneByJMBG(jmbg) == null)
+            if (PatientFileRepository.GetOneByJMBG(jmbg) == null)
                 return true;
             return false;
         }
 
         private void UpdateAppointmentsForUsernameChange(string username, string initialUsername)
         {
-            foreach (Termin appointment in TerminFileStorage.GetAll())
+            foreach (Appointment appointment in ApointmentFileRepository.GetAll())
             {
-                if (appointment.KorisnickoImePacijenta.Equals(initialUsername))
+                if (appointment.PatientUsername.Equals(initialUsername))
                 {
-                    appointment.KorisnickoImePacijenta = username;
-                    TerminFileStorage.UpdateTermin(appointment.iDTermina, appointment);
+                    appointment.PatientUsername = username;
+                    ApointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
                 }
             }
         }
 
-        public Boolean CheckStatusOfPatient(Pacijent patient)
+        public Boolean CheckStatusOfPatient(Patient patient)
         {
             Boolean IsBlocked = false;
-            int numberOfMakingAppointment = _activityLogService.NumberOfActivity(patient.korisnickoIme, TypeOfActivity.makingAppointment);
-            int numberOfEditingAppointment = _activityLogService.NumberOfActivity(patient.korisnickoIme, TypeOfActivity.editingAppointment);
-            int numberOfCancelingAppointment = _activityLogService.NumberOfActivity(patient.korisnickoIme, TypeOfActivity.cancelingAppointment);
+            int numberOfMakingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.makingAppointment);
+            int numberOfEditingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.editingAppointment);
+            int numberOfCancelingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.cancelingAppointment);
 
             if (numberOfMakingAppointment > 3 || numberOfCancelingAppointment > 2 || numberOfEditingAppointment > 2)
             {
@@ -124,25 +124,25 @@ namespace InformacioniSistemBolnice.Service
 
         }
 
-        private void BanPatient(Pacijent patient)
+        private void BanPatient(Patient patient)
         {
-            foreach (Pacijent p in PacijentFileStorage.GetAll())
+            foreach (Patient p in PatientFileRepository.GetAll())
             {
-                if (p.korisnickoIme.Equals(patient.korisnickoIme))
+                if (p.Username.Equals(patient.Username))
                 {
                     SetInformationsAboutBanning(patient);
                 }
             }
         }
 
-        private void SetInformationsAboutBanning(Pacijent patient)
+        private void SetInformationsAboutBanning(Patient patient)
         {
-            patient.Banovan = true;
-            patient.TrenutakBanovanja = DateTime.Now;
-            PacijentFileStorage.UpdatePacijent(patient.korisnickoIme, patient);
+            patient.Banned = true;
+            patient.TimeOfBan = DateTime.Now;
+            PatientFileRepository.UpdatePatient(patient.Username, patient);
         }
 
-        public List<Therapy> GetTherapiesFromRecord(Pacijent patient)
+        public List<Therapy> GetTherapiesFromRecord(Patient patient)
         {
             List<Therapy> therapies = new List<Therapy>();
             foreach (Therapy t in GetMedicalRecordForPatient(patient).Terapija)
@@ -156,15 +156,15 @@ namespace InformacioniSistemBolnice.Service
             return therapies;
         }
 
-        private ZdravstveniKarton GetMedicalRecordForPatient(Pacijent patient)
+        private MedicalRecord GetMedicalRecordForPatient(Patient patient)
         {
-            ZdravstveniKarton medicalRecord = new ZdravstveniKarton();
-            List<Pacijent> patients = PacijentFileStorage.GetAll();
-            foreach (Pacijent p in patients)
+            MedicalRecord medicalRecord = new MedicalRecord();
+            List<Patient> patients = PatientFileRepository.GetAll();
+            foreach (Patient p in patients)
             {
-                if (p.korisnickoIme.Equals(patient.korisnickoIme))
+                if (p.Username.Equals(patient.Username))
                 {
-                    medicalRecord = p.zdravstveniKarton;
+                    medicalRecord = p.MedicalRecord;
                     
                 }
 

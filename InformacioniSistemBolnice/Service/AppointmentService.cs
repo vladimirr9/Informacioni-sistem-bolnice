@@ -8,36 +8,36 @@ namespace InformacioniSistemBolnice.Service
 {
     public class AppointmentService
     {
-        public void Add(Termin appointment)
+        public void Add(Appointment appointment)
         {
             //odraditi provere!
-            TerminFileStorage.AddTermin(appointment);
+            ApointmentFileRepository.AddAppointment(appointment);
         }
 
-        public void Remove(Termin appointment)
+        public void Remove(Appointment appointment)
         {
-            TerminFileStorage.RemoveTermin(appointment.iDTermina);
+            ApointmentFileRepository.RemoveAppointment(appointment.AppointmentID);
         }
 
-        public void Update(Termin appointment)
+        public void Update(Appointment appointment)
         {
             //odraditi provere!
-            TerminFileStorage.UpdateTermin(appointment.iDTermina, appointment);
+            ApointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
         }
 
-        public List<Termin> GetAll()
+        public List<Appointment> GetAll()
         {
-            return TerminFileStorage.GetAll();
+            return ApointmentFileRepository.GetAll();
         }
 
         public int GenerateNewId()
         {
-            return TerminFileStorage.GetAll().Count + 1;
+            return ApointmentFileRepository.GetAll().Count + 1;
         }
 
-        public Termin GetOne(Termin appointment)
+        public Appointment GetOne(Appointment appointment)
         {
-            return TerminFileStorage.GetOne(appointment.iDTermina);
+            return ApointmentFileRepository.GetOne(appointment.AppointmentID);
         }
     }
 }

@@ -24,12 +24,12 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class NotificationPatientPage : Page
     {
         private StartPatientWindow parent;
-        private Pacijent loggedInPatient;
+        private Patient loggedInPatient;
         private PatientController _patientController = new PatientController();
         public NotificationPatientPage(StartPatientWindow pp)
         {
             parent = pp;
-            loggedInPatient = pp.Pacijent;
+            loggedInPatient = pp.Patient;
             InitializeComponent();
             updateVisibility();
             this.DataContext = this;
@@ -50,7 +50,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             List<Anamnesis> anamneses = AnamnesisFileRepository.GetAll();
             foreach (Anamnesis a in anamneses)
             {
-                if (a.UsernameOfPatient.Equals(parent.Pacijent.korisnickoIme))
+                if (a.UsernameOfPatient.Equals(parent.Patient.Username))
                 {
                     foreach (Note n in a.NotesForAnamnesis)
                     {

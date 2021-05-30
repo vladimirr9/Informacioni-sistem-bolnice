@@ -22,9 +22,9 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class PatientRatesPage : Page
     {
         private StartPatientWindow parent;
-        private Termin selektovan;
+        private Appointment selektovan;
         private RatingPage parentp;
-        public PatientRatesPage(RatingPage ap, StartPatientWindow pp, Termin t)
+        public PatientRatesPage(RatingPage ap, StartPatientWindow pp, Appointment t)
         {
             parentp = ap;
             selektovan = t;
@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             submit.IsEnabled = false;
             if (parentp.kojiJePritisnut == parentp.rate)
             {
-                parent.imeLjekara.Content = "dr. " + t.Doctor.ime + " " + t.Doctor.prezime;
+                parent.imeLjekara.Content = "dr. " + t.Doctor.Name + " " + t.Doctor.Surname;
             }
             else
             {
@@ -83,7 +83,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 int IdAnkete = RatingFileRepository.GetAll().Count + 1;
                 string komentar = commentText.Text;
-                Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, selektovan.Doctor.korisnickoIme, selektovan.Pacijent.korisnickoIme, selektovan.iDTermina, false, DateTime.Now);
+                Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, selektovan.Doctor.Username, selektovan.Patient.Username, selektovan.AppointmentID, false, DateTime.Now);
                 RatingFileRepository.AddAnketa(novaRating);
                 RatingPage ap = new RatingPage(parent);
                 parentp.UpdateTable();
@@ -96,7 +96,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 int IdAnkete = RatingFileRepository.GetAll().Count + 1;
                 string komentar = commentText.Text;
-                Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, null, parent.Pacijent.korisnickoIme, 0, false, DateTime.Now);
+                Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, null, parent.Patient.Username, 0, false, DateTime.Now);
                 RatingFileRepository.AddAnketa(novaRating);
                 RatingPage ap = new RatingPage(parent);
                 parentp.rateHospital.Visibility = Visibility.Hidden;

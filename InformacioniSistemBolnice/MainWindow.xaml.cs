@@ -1,7 +1,7 @@
 ﻿//using GalaSoft.MvvmLight.Command;
 using InformacioniSistemBolnice.FileStorage;
-using InformacioniSistemBolnice.Korisnik;
-using InformacioniSistemBolnice.Lekar;
+using InformacioniSistemBolnice.User;
+using InformacioniSistemBolnice.Doctor_ns;
 using InformacioniSistemBolnice.Secretary_ns;
 using InformacioniSistemBolnice.Upravnik;
 using Newtonsoft.Json;
@@ -32,15 +32,15 @@ namespace InformacioniSistemBolnice
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Pacijent pacijent { get; set; }
+        private Patient Patient { get; set; }
         public MainWindow()
         {
-            //LekarFileStorage.AddLekar(new global::Lekar("Petar", "Petrovic", "1507970600034", 'm', "+381661238407", "ppetrovic@gmail.com", new DateTime(1970,4,12), "PPetrovic", "petrovic123", null, TipLekara.specijalista, false));
-            //SekretarFileStorage.AddSekretar(new Sekretar("Vladimir", "Rokvic", "0405993705030", 'M', "+32432343232", "neko@nesto.com", new DateTime(), "vladimir", "rokvic", new AdresaStanovanja("Kralja Petra 1", new MestoStanovanja("Novi Sad", "23223", new DrzavaStanovanja("Republika Srbija"))), false));
-            //PacijentFileStorage.AddPacijent(new Pacijent("Pera","Peric", "09320434533",'M',"+3245344323","Pera@peric.com",new DateTime(),"pera","peric",new AdresaStanovanja("Kralja Petra 12", new MestoStanovanja("Novi Sad", "23232", new DrzavaStanovanja("Republika Srbija"))),false,"2323224343",new List<Termin>(),new ZdravstveniKarton("232", null),false));
+            //DoctorFileRepository.AddDoctor(new Doctor("Petar", "Petrovic", "1507970600034", 'm', "+381661238407", "ppetrovic@gmail.com", new DateTime(1970,4,12), "PPetrovic", "petrovic123", null, DoctorType.generalPractitioner, false));
+            //SecretaryFileRepository.AddSecretary(new Secretary("Vladimir", "Rokvic", "0405993705030", 'M', "+32432343232", "neko@nesto.com", new DateTime(), "vladimir", "rokvic", new ResidentialAddress("Kralja Petra 1", new City("Novi Sad", "23223", new Country("Republika Srbija"))), false));
+            //PatientFileRepository.AddPatient(new Patient("Pera","Peric", "09320434533",'M',"+3245344323","Pera@peric.com",new DateTime(),"pera","peric",new ResidentialAddress("Kralja Petra 12", new City("Novi Sad", "23232", new Country("Republika Srbija"))),false,"2323224343",new MedicalRecord("232"),false));
             InitializeComponent();
-            //LekarFileStorage.AddLekar(new global::Lekar("Rada", "Radić", "143234230034", 'ž', "+38341664548407", "radaradic@gmail.com", new DateTime(1972, 5, 14), "Rada", "rdic", new AdresaStanovanja("Kralja Petra 11", new MestoStanovanja("Novi Sad", "23232", new DrzavaStanovanja("Republika Srbija"))), TipLekara.opstePrakse, false));
-
+            //DoctorFileRepository.AddDoctor(new global::Lekar("Rada", "Radić", "143234230034", 'ž', "+38341664548407", "radaradic@gmail.com", new DateTime(1972, 5, 14), "Rada", "rdic", new ResidentialAddress("Kralja Petra 11", new City("Novi Sad", "23232", new Country("Republika Srbija"))), TipLekara.generalPractitioner, false));
+            //ManagerFileRepository.AddManager( new Manager("Petar", "Petrovic", "1234567890123", 'm', "060 / 555 - 555", "petar@gmail.com", new DateTime(1970, 4, 12), "pera1", "perica123", new ResidentialAddress("Novosadska 2", new City("Novi Sad", "21000", new Country("Republika Srbija"))), false));
 
 
         }
@@ -51,14 +51,14 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            List<Pacijent> pacijenti = PacijentFileStorage.GetAll();
-            List<Termin> termini = TerminFileStorage.GetAll();
+            List<Patient> pacijenti = PatientFileRepository.GetAll();
+            List<Appointment> termini = ApointmentFileRepository.GetAll();
             foreach (var pacijent in pacijenti)
             {
-                if (ime.Text.Equals(pacijent.korisnickoIme)  && lozinka.Password.Equals(pacijent.lozinka))
+                if (ime.Text.Equals(pacijent.Username)  && lozinka.Password.Equals(pacijent.Password))
                 {
 
-                    String ime = pacijent.korisnickoIme;
+                    String ime = pacijent.Username;
                             
                             StartPatientWindow pp = new StartPatientWindow(pacijent);
                             Application.Current.MainWindow = pp;
@@ -70,10 +70,10 @@ namespace InformacioniSistemBolnice
                     
                 }
             }
-            List<Secretary> sekretari = SecretaryFileStorage.GetAll();
+            List<Secretary> sekretari = SecretaryFileRepository.GetAll();
             foreach (Secretary s in sekretari)
             {
-                if (ime.Text.Equals(s.korisnickoIme) && lozinka.Password.Equals(s.lozinka))
+                if (ime.Text.Equals(s.Username) && lozinka.Password.Equals(s.Password))
                 {
                     SecretaryMain sw = new SecretaryMain(s);
                     Application.Current.MainWindow = sw;
@@ -83,10 +83,10 @@ namespace InformacioniSistemBolnice
                     return;
                 }
             }
-            List<global::Doctor> lekari = LekarFileStorage.GetAll();
+            List<global::Doctor> lekari = DoctorFileRepository.GetAll();
             foreach (global::Doctor l in lekari)
             {
-                if (ime.Text.Equals(l.korisnickoIme) && lozinka.Password.Equals(l.lozinka))
+                if (ime.Text.Equals(l.Username) && lozinka.Password.Equals(l.Password))
                 {
                     DoctorWindow lw = new DoctorWindow(l);
                     Application.Current.MainWindow = lw;
@@ -99,7 +99,7 @@ namespace InformacioniSistemBolnice
             List<global::Manager> upravnikLista = ManagerFileRepository.GetAll();
             foreach (global::Manager u in upravnikLista)
             {
-                if (ime.Text.Equals(u.korisnickoIme) && lozinka.Password.Equals(u.lozinka))
+                if (ime.Text.Equals(u.Username) && lozinka.Password.Equals(u.Password))
                 {
                     UpravnikWindow uw = new UpravnikWindow();
                     Application.Current.MainWindow = uw;

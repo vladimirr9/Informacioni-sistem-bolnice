@@ -1,0 +1,38 @@
+[
+  {
+    "IsGuest": false,
+    "SocialSecurityNumber": "2323224343",
+    "Banned": false,
+    "TimeOfBan": "0001-01-01T00:00:00",
+    "MedicalRecord": {
+      "recept": null,
+      "MedicalRecordNumber": "232",
+      "Allergens": [
+      ],
+      "Terapija": [
+      ],
+      "Recept": [
+      ]
+    },
+    "Name": "Pera",
+    "Surname": "Peric",
+    "JMBG": "09320434533",
+    "Gender": "M",
+    "PhoneNumber": "+3245344323",
+    "Email": "Pera@peric.com",
+    "DateOfBirth": "0001-01-01T00:00:00",
+    "Username": "pera",
+    "Password": "peric",
+    "IsDeleted": false,
+    "ResidentialAddress": {
+      "StreetAndNumber": "Kralja Petra 12",
+      "City": {
+        "Country": {
+          "Name": "Republika Srbija"
+        },
+        "Name": "Novi Sad",
+        "PostalCode": "23232"
+      }
+    }
+  }
+]

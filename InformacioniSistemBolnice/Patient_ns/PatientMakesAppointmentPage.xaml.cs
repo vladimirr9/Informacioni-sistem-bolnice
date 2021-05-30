@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private List<string> availableTimes;
         private List<global::Doctor> lekari;
         private List<Room> prostorije;
-        private Pacijent pacijent;
+        private Patient _patient;
 
         public PatientMakesAppointmentPage(StartPatientWindow p)
         {
@@ -41,16 +41,16 @@ namespace InformacioniSistemBolnice.Patient_ns
             prostorije = RoomFileRepository.GetAll();
             BlackOutDates();
             lekari = new List<global::Doctor>();
-            foreach (global::Doctor l in LekarFileStorage.GetAll())
+            foreach (global::Doctor l in DoctorFileRepository.GetAll())
             {
-                if (l.doctorType.Equals(DoctorType.opstePrakse))
+                if (l.doctorType.Equals(DoctorType.generalPractitioner))
                 {
                     lekari.Add(l);
                 }
             }
 
             lekar.ItemsSource = lekari;
-            pacijent = parent.Pacijent;
+            _patient = parent.Patient;
             parent.titleLabel.Content = "Zakazivanje pregleda";
             parent.titleLabel.Visibility = Visibility.Visible;
         }
@@ -78,7 +78,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private void dugmePotvrdi_Click(object sender, RoutedEventArgs e)
         {
             global::Doctor l = (global::Doctor)lekar.SelectedItem;
-            Pacijent p = parent.Pacijent;
+            Patient p = parent.Patient;
 
             if (time.SelectedIndex != -1)
             {
@@ -86,35 +86,35 @@ namespace InformacioniSistemBolnice.Patient_ns
                 String t = item.ToString();
                 String d = date.Text;
                 DateTime dt = DateTime.Parse(d + " " + t);
-                TipTermina tipt;
-                if (l.doctorType.Equals(DoctorType.opstePrakse))
+                AppointmentType tipt;
+                if (l.doctorType.Equals(DoctorType.generalPractitioner))
                 {
-                    tipt = TipTermina.pregledKodLekaraOpstePrakse;
+                    tipt = AppointmentType.generalPractitionerCheckup;
                 }
-                else if (l.doctorType.Equals(DoctorType.hirurg))
+                else if (l.doctorType.Equals(DoctorType.surgeon))
                 {
-                    tipt = TipTermina.operacija;
+                    tipt = AppointmentType.operation;
                 }
                 else
                 {
-                    tipt = TipTermina.pregledKodLekaraSpecijaliste;
+                    tipt = AppointmentType.specialistCheckup;
                 }
 
-                int id = TerminFileStorage.GetAll().Count + 1;
+                int id = ApointmentFileRepository.GetAll().Count + 1;
 
                 DateTime start;
                 DateTime end;
                 CalculateStartAndEnd(out start, out end);
 
                 Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
-                Termin termin = new Termin(id, dt, trajanjePregleda, tipt, StatusTermina.zakazan, p, l,
+                Appointment appointment = new Appointment(id, dt, trajanjePregleda, tipt, AppointmentStatus.scheduled, p, l,
                     prvaDostupnaProstorija);
-                TerminFileStorage.AddTermin(termin);
+                ApointmentFileRepository.AddAppointment(appointment);
                 PatientExaminesAppointmentPage ptp = new PatientExaminesAppointmentPage(parent);
                 updateVisibility();
                 parent.startWindow.Content = ptp;
                 ptp.updateTable();
-                ActivityLog activity = new ActivityLog(DateTime.Now, pacijent.korisnickoIme,
+                ActivityLog activity = new ActivityLog(DateTime.Now, _patient.Username,
                         TypeOfActivity.makingAppointment);
                 _activityLogController.AddActivity(activity);
             }
@@ -150,24 +150,24 @@ namespace InformacioniSistemBolnice.Patient_ns
             }
 
             availableTimes = new List<string>();
-            List<Termin> termini = new List<Termin>();
+            List<Appointment> termini = new List<Appointment>();
             if (lekar.SelectedItem != null && date.SelectedDate != null)
             {
-                foreach (Termin termin in TerminFileStorage.GetAll())
+                foreach (Appointment termin in ApointmentFileRepository.GetAll())
                 {
-                    if (l.jmbg == termin.Doctor.jmbg)
+                    if (l.JMBG == termin.Doctor.JMBG)
                     {
-                        if (termin.status == StatusTermina.zakazan &&
-                            termin.datumZakazivanja.Date.Equals(date.SelectedDate))
+                        if (termin.AppointmentStatus == AppointmentStatus.scheduled &&
+                            termin.AppointmentDate.Date.Equals(date.SelectedDate))
                         {
                             termini.Add(termin);
                         }
                     }
 
-                    if (pacijent.korisnickoIme == termin.Pacijent.korisnickoIme)
+                    if (_patient.Username == termin.Patient.Username)
                     {
-                        if (termin.status == StatusTermina.zakazan &&
-                            termin.datumZakazivanja.Date.Equals(date.SelectedDate))
+                        if (termin.AppointmentStatus == AppointmentStatus.scheduled &&
+                            termin.AppointmentDate.Date.Equals(date.SelectedDate))
                         {
                             termini.Add(termin);
                         }
@@ -182,10 +182,10 @@ namespace InformacioniSistemBolnice.Patient_ns
             for (DateTime tm = danas.AddHours(8); tm < danas.AddHours(20); tm = tm.AddMinutes(15))
             {
                 bool slobodno = true;
-                foreach (Termin termin in termini)
+                foreach (Appointment termin in termini)
                 {
-                    DateTime start = DateTime.Parse(termin.datumZakazivanja.ToString("HH:mm"));
-                    DateTime end = DateTime.Parse(termin.datumZakazivanja.AddMinutes(termin.trajanjeUMinutima)
+                    DateTime start = DateTime.Parse(termin.AppointmentDate.ToString("HH:mm"));
+                    DateTime end = DateTime.Parse(termin.AppointmentDate.AddMinutes(termin.DurationInMinutes)
                         .ToString("HH:mm"));
                     if (tm >= start && tm < end)
                     {

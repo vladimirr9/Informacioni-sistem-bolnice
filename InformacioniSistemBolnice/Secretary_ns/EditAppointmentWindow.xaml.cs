@@ -19,13 +19,13 @@ namespace InformacioniSistemBolnice.Secretary_ns
     {
         private AppointmentsPage _parent;
         private List<global::Doctor> _doctors;
-        private List<Pacijent> _patients;
+        private List<Patient> _patients;
         private List<Room> _rooms;
         private List<String> _times;
-        private Termin _selectedAppointment;
+        private Appointment _selectedAppointment;
         private bool _confirmed;
         private bool _done;
-        public EditAppointmentWindow(AppointmentsPage parent, Termin selectedAppointment)
+        public EditAppointmentWindow(AppointmentsPage parent, Appointment selectedAppointment)
         {
             _done = false;
             InitializeComponent();
@@ -33,36 +33,36 @@ namespace InformacioniSistemBolnice.Secretary_ns
             this._parent = parent;
             _confirmed = false;
 
-            _doctors = LekarFileStorage.GetAll();
+            _doctors = DoctorFileRepository.GetAll();
             DoctorComboBox.ItemsSource = _doctors;
             _rooms = RoomFileRepository.GetAll();
             RoomComboBox.ItemsSource = _rooms;
 
-            _patients = new List<Pacijent>();
+            _patients = new List<Patient>();
             
             
-            foreach (Pacijent patient in PacijentFileStorage.GetAll())
-                if (!patient.isDeleted)
+            foreach (Patient patient in PatientFileRepository.GetAll())
+                if (!patient.IsDeleted)
                     _patients.Add(patient);
             PatientComboBox.ItemsSource = _patients;
-            PatientComboBox.SelectedItem = selectedAppointment.Pacijent;
+            PatientComboBox.SelectedItem = selectedAppointment.Patient;
             foreach (global::Doctor doctors in _doctors)
             {
                 if (doctors.Equals(selectedAppointment.Doctor))
                     DoctorComboBox.SelectedItem = doctors;
             }
             UpdateAvailableTimes();
-            DatePicker.SelectedDate = selectedAppointment.datumZakazivanja;
-            AppointmentTime.SelectedValue = selectedAppointment.datumZakazivanja.ToString("HH:mm");
-            DurationTextBox.Text = selectedAppointment.trajanjeUMinutima.ToString();
-            AppointmentTypeComboBox.SelectedIndex = (int)selectedAppointment.tipTermina;
+            DatePicker.SelectedDate = selectedAppointment.AppointmentDate;
+            AppointmentTime.SelectedValue = selectedAppointment.AppointmentDate.ToString("HH:mm");
+            DurationTextBox.Text = selectedAppointment.DurationInMinutes.ToString();
+            AppointmentTypeComboBox.SelectedIndex = (int)selectedAppointment.Type;
 
 
 
 
             foreach (Room room in _rooms)
             {
-                if (room.RoomId == selectedAppointment.Prostorija.RoomId)
+                if (room.RoomId == selectedAppointment.Room.RoomId)
                 {
                     RoomComboBox.SelectedItem = room;
                 }
@@ -78,25 +78,25 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent patient = (Pacijent)PatientComboBox.SelectedItem;
+            Patient patient = (Patient)PatientComboBox.SelectedItem;
             global::Doctor doctor = (global::Doctor)DoctorComboBox.SelectedItem;
             Room room = (Room)RoomComboBox.SelectedItem;
             String selectedTime = AppointmentTime.SelectedItem.ToString();
             String selectedDate = DatePicker.Text;
             DateTime selectedDateTime = DateTime.Parse(selectedDate + " " + selectedTime);
-            TipTermina appointmentType = (TipTermina)AppointmentTypeComboBox.SelectedIndex;
+            AppointmentType appointmentType = (AppointmentType)AppointmentTypeComboBox.SelectedIndex;
             int duration = int.Parse(DurationTextBox.Text);
 
             if (patient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))
             {
-                Termin termin = new Termin(_selectedAppointment.iDTermina, selectedDateTime, duration, appointmentType, StatusTermina.zakazan, patient, doctor, room);
-                TerminFileStorage.UpdateTermin(_selectedAppointment.iDTermina,termin);
+                Appointment appointment = new Appointment(_selectedAppointment.AppointmentID, selectedDateTime, duration, appointmentType, AppointmentStatus.scheduled, patient, doctor, room);
+                ApointmentFileRepository.UpdateAppointment(_selectedAppointment.AppointmentID,appointment);
                 _parent.UpdateTable();
                 _confirmed = true;
                 this.Close();
             }
             else
-                MessageBox.Show("Pacijentu ne odgovara ovako dugo trajanje, preklapa se sa drugim obavezama", "Pacijent zauzet", MessageBoxButton.OK);
+                MessageBox.Show("Pacijentu ne odgovara ovako dugo trajanje, preklapa se sa drugim obavezama", "Patient zauzet", MessageBoxButton.OK);
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -177,9 +177,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void UpdateAvailableDoctorList(DateTime start, DateTime end)
         {
             _doctors = new List<global::Doctor>();
-            foreach (global::Doctor doctor in LekarFileStorage.GetAll())
+            foreach (global::Doctor doctor in DoctorFileRepository.GetAll())
             {
-                if (doctor.IsAvailable(start, end) && !doctor.isDeleted)
+                if (doctor.IsAvailable(start, end) && !doctor.IsDeleted)
                 {
                     _doctors.Add(doctor);
                 }
@@ -187,7 +187,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         }
         private void ColorDurationField(DateTime start, DateTime end)
         {
-            if (((Pacijent)(PatientComboBox.SelectedItem)).IsAvailable(start, end))
+            if (((Patient)(PatientComboBox.SelectedItem)).IsAvailable(start, end))
                 DurationTextBox.Background = Brushes.White;
             else
                 DurationTextBox.Background = Brushes.Red;
@@ -230,10 +230,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 date = DateTime.Now;
 
 
-            List<Termin> appointments = new List<Termin>();
-            foreach (Termin appointment in TerminFileStorage.GetAll())
+            List<Appointment> appointments = new List<Appointment>();
+            foreach (Appointment appointment in ApointmentFileRepository.GetAll())
             {
-                if (appointment.OccursOn(date) && appointment.InvolvesEither((Pacijent)PatientComboBox.SelectedItem, (global::Doctor)DoctorComboBox.SelectedItem) && appointment.status == StatusTermina.zakazan)
+                if (appointment.OccursOn(date) && appointment.InvolvesEither((Patient)PatientComboBox.SelectedItem, (global::Doctor)DoctorComboBox.SelectedItem) && appointment.AppointmentStatus == AppointmentStatus.scheduled)
                 {
                     appointments.Add(appointment);
                 }
@@ -241,17 +241,17 @@ namespace InformacioniSistemBolnice.Secretary_ns
             AppointmentTime.ItemsSource = GetAvailableAppointmentTimes(appointments);
         }
 
-        private List<String> GetAvailableAppointmentTimes(List<Termin> appointments)
+        private List<String> GetAvailableAppointmentTimes(List<Appointment> appointments)
         {
             _times = new List<String>();
             DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
             for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
             {
                 bool free = true;
-                foreach (Termin appointment in appointments)
+                foreach (Appointment appointment in appointments)
                 {
-                    DateTime start = DateTime.Parse("01-Jan-1970" + " " + appointment.datumZakazivanja.ToString("HH:mm"));
-                    DateTime end = DateTime.Parse("01-Jan-1970" + " " + appointment.datumZakazivanja.AddMinutes(appointment.trajanjeUMinutima).ToString("HH:mm"));
+                    DateTime start = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.ToString("HH:mm"));
+                    DateTime end = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.AddMinutes(appointment.DurationInMinutes).ToString("HH:mm"));
                     if (potentialTime >= start && potentialTime <= end)
                     {
                         free = false;
@@ -276,8 +276,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             if (_confirmed)
                 return;
-            _selectedAppointment.status = StatusTermina.zakazan;
-            TerminFileStorage.UpdateTermin(_selectedAppointment.iDTermina, _selectedAppointment);
+            _selectedAppointment.AppointmentStatus = AppointmentStatus.scheduled;
+            ApointmentFileRepository.UpdateAppointment(_selectedAppointment.AppointmentID, _selectedAppointment);
             
         }
     }

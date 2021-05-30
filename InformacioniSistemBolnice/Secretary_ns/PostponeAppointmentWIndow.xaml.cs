@@ -19,18 +19,18 @@ namespace InformacioniSistemBolnice.Secretary_ns
     /// </summary>
     public partial class PostponeAppointmentWIndow : Window
     {
-        private Pacijent _patient;
+        private Patient _patient;
         private int _appointmentDuration;
         private DoctorType _doctorType;
         private RoomType _roomType;
-        private TipTermina _appointmentType;
+        private AppointmentType _appointmentType;
         private DateTime _earliestAppointmentTime;
         private NewUrgentAppointment _parent;
-        private List<Termin> _appointmentsInTheUpcomingWeek;
+        private List<Appointment> _appointmentsInTheUpcomingWeek;
 
-        private List<Termin> _appointments;
-        private List<Termin> _appointmentsForPostponing;
-        public PostponeAppointmentWIndow(NewUrgentAppointment parent, Pacijent patient, int duration, DoctorType doctorType, RoomType roomType, TipTermina appointmentType, DateTime earliestAppointmentTime)
+        private List<Appointment> _appointments;
+        private List<Appointment> _appointmentsForPostponing;
+        public PostponeAppointmentWIndow(NewUrgentAppointment parent, Patient patient, int duration, DoctorType doctorType, RoomType roomType, AppointmentType appointmentType, DateTime earliestAppointmentTime)
         {
             _parent = parent;
             _patient = patient;
@@ -39,7 +39,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             _roomType = roomType;
             _appointmentType = appointmentType;
             _earliestAppointmentTime = earliestAppointmentTime;
-            _appointmentsForPostponing = new List<Termin>();
+            _appointmentsForPostponing = new List<Appointment>();
             InitializeComponent();
             _appointmentsInTheUpcomingWeek = GetAppointmentsForUpcomingWeek();
             InitializeAppointments(_appointmentsInTheUpcomingWeek);
@@ -51,14 +51,14 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (AppointmentData.SelectedIndex == -1)
                 return;
 
-            Termin selectedAppointment = (Termin)AppointmentData.SelectedItem;
-            int id = TerminFileStorage.GetAll().Count + 1;
-            Termin newAppointment = new Termin(id, selectedAppointment.datumZakazivanja, _appointmentDuration, _appointmentType, StatusTermina.zakazan, _patient, selectedAppointment.Doctor, selectedAppointment.Prostorija);
+            Appointment selectedAppointment = (Appointment)AppointmentData.SelectedItem;
+            int id = ApointmentFileRepository.GetAll().Count + 1;
+            Appointment newAppointment = new Appointment(id, selectedAppointment.AppointmentDate, _appointmentDuration, _appointmentType, AppointmentStatus.scheduled, _patient, selectedAppointment.Doctor, selectedAppointment.Room);
             
-            foreach (Termin appointment in _appointmentsForPostponing)
+            foreach (Appointment appointment in _appointmentsForPostponing)
                 Postpone(appointment);
            
-            TerminFileStorage.AddTermin(newAppointment);
+            ApointmentFileRepository.AddAppointment(newAppointment);
 
             _parent._parent.UpdateTable();
             _parent.Close();
@@ -76,28 +76,28 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
 
 
-        private void Postpone(Termin appointment)
+        private void Postpone(Appointment appointment)
         {
             int postPostponementDuration = GetPostponementDuration(appointment);
-            appointment.datumZakazivanja = appointment.datumZakazivanja.AddMinutes(postPostponementDuration);
-            TerminFileStorage.UpdateTermin(appointment.iDTermina, appointment);
+            appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(postPostponementDuration);
+            ApointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
         }
 
-        private int GetPostponementDuration(Termin appointment)
+        private int GetPostponementDuration(Appointment appointment)
         {
-            appointment.status = StatusTermina.otkazan;
-            TerminFileStorage.UpdateTermin(appointment.iDTermina, appointment);
-            DateTime originalStart = appointment.datumZakazivanja;
-            appointment.datumZakazivanja = appointment.datumZakazivanja.AddMinutes(_appointmentDuration + 1);
-            appointment.datumZakazivanja = GetNextEarliestAppointmentTime(appointment.datumZakazivanja);
-            while (!(GetPossibleAppointmentTimes().Contains(appointment.datumZakazivanja.ToString("HH:mm")) && appointment.AreAllEntitiesAvailable(_appointmentsInTheUpcomingWeek)))
+            appointment.AppointmentStatus = AppointmentStatus.cancelled;
+            ApointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+            DateTime originalStart = appointment.AppointmentDate;
+            appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(_appointmentDuration + 1);
+            appointment.AppointmentDate = GetNextEarliestAppointmentTime(appointment.AppointmentDate);
+            while (!(GetPossibleAppointmentTimes().Contains(appointment.AppointmentDate.ToString("HH:mm")) && appointment.AreAllEntitiesAvailable(_appointmentsInTheUpcomingWeek)))
             {
-                appointment.datumZakazivanja = appointment.datumZakazivanja.AddMinutes(15);
+                appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(15);
             }
-            DateTime potentialNewStart = appointment.datumZakazivanja;
-            appointment.datumZakazivanja = originalStart;
-            appointment.status = StatusTermina.zakazan;
-            TerminFileStorage.UpdateTermin(appointment.iDTermina, appointment);
+            DateTime potentialNewStart = appointment.AppointmentDate;
+            appointment.AppointmentDate = originalStart;
+            appointment.AppointmentStatus = AppointmentStatus.scheduled;
+            ApointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
             return Convert.ToInt32((potentialNewStart - originalStart).TotalMinutes);
 
         }
@@ -121,20 +121,20 @@ namespace InformacioniSistemBolnice.Secretary_ns
             return datetime;
         }
 
-        private void InitializeAppointments(List<Termin> appointmentsInTheUpcomingWeek)
+        private void InitializeAppointments(List<Appointment> appointmentsInTheUpcomingWeek)
         {
             AppointmentData.Items.Clear();
-            _appointments = new List<Termin>();
-            foreach (Termin appointment in appointmentsInTheUpcomingWeek)
+            _appointments = new List<Appointment>();
+            foreach (Appointment appointment in appointmentsInTheUpcomingWeek)
             {
-                if (appointment.status == StatusTermina.zakazan && appointment.datumZakazivanja.Date.Equals(_earliestAppointmentTime.Date) && appointment.datumZakazivanja.TimeOfDay >= _earliestAppointmentTime.TimeOfDay && appointment.Prostorija.RoomType == _roomType && appointment.Doctor.doctorType == _doctorType)
+                if (appointment.AppointmentStatus == AppointmentStatus.scheduled && appointment.AppointmentDate.Date.Equals(_earliestAppointmentTime.Date) && appointment.AppointmentDate.TimeOfDay >= _earliestAppointmentTime.TimeOfDay && appointment.Room.RoomType == _roomType && appointment.Doctor.doctorType == _doctorType)
                 {
                     appointment.PostponementDuration = GetPostponementDuration(appointment);
                     _appointments.Add(appointment);
                 }
             }
-            _appointments.Sort(Termin.SortByPostponementDurationAscending);
-            foreach (Termin appointment in _appointments)
+            _appointments.Sort(Appointment.SortByPostponementDurationAscending);
+            foreach (Appointment appointment in _appointments)
             {
                  AppointmentData.Items.Add(appointment);
             }
@@ -148,13 +148,13 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (AppointmentData.SelectedIndex == -1)
                 return;
             _appointmentsForPostponing.Clear();
-            Termin selectedAppointment = (Termin)AppointmentData.SelectedItem;
-            DateTime appointmentStart = selectedAppointment.datumZakazivanja;
+            Appointment selectedAppointment = (Appointment)AppointmentData.SelectedItem;
+            DateTime appointmentStart = selectedAppointment.AppointmentDate;
             DateTime appointmentEnd = appointmentStart.AddMinutes(_appointmentDuration);
             foreach(var item in AppointmentData.Items)
             {
-                Termin appointment = (Termin)item;
-                if (appointment.datumZakazivanja >= appointmentStart && appointment.datumZakazivanja <= appointmentEnd && (appointment.Doctor.Equals(selectedAppointment.Doctor) || (appointment.Prostorija.Equals(selectedAppointment.Prostorija))))
+                Appointment appointment = (Appointment)item;
+                if (appointment.AppointmentDate >= appointmentStart && appointment.AppointmentDate <= appointmentEnd && (appointment.Doctor.Equals(selectedAppointment.Doctor) || (appointment.Room.Equals(selectedAppointment.Room))))
                 {
                     DataGridRow row = (DataGridRow)AppointmentData.ItemContainerGenerator.ContainerFromItem(item);
                     row.Background = Brushes.Red;
@@ -168,12 +168,12 @@ namespace InformacioniSistemBolnice.Secretary_ns
             }
         }
 
-        private List<Termin> GetAppointmentsForUpcomingWeek()
+        private List<Appointment> GetAppointmentsForUpcomingWeek()
         {
-            List<Termin> appointments = new List<Termin>();
-            foreach (Termin appointment in TerminFileStorage.GetAll())
+            List<Appointment> appointments = new List<Appointment>();
+            foreach (Appointment appointment in ApointmentFileRepository.GetAll())
             {
-                if (appointment.status != StatusTermina.otkazan && appointment.datumZakazivanja >= DateTime.Today && appointment.datumZakazivanja <= DateTime.Today.AddDays(7))
+                if (appointment.AppointmentStatus != AppointmentStatus.cancelled && appointment.AppointmentDate >= DateTime.Today && appointment.AppointmentDate <= DateTime.Today.AddDays(7))
                     appointments.Add(appointment);
             }
             return appointments;

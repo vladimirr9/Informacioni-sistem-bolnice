@@ -32,8 +32,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             if (AppointmentPreview.SelectedItem == null)
                 return;
-            Termin initialAppointment = TerminFileStorage.GetOne(((Termin)(AppointmentPreview.SelectedItem)).iDTermina);
-            TerminFileStorage.RemoveTermin(initialAppointment.iDTermina);
+            Appointment initialAppointment = ApointmentFileRepository.GetOne(((Appointment)(AppointmentPreview.SelectedItem)).AppointmentID);
+            ApointmentFileRepository.RemoveAppointment(initialAppointment.AppointmentID);
             EditAppointmentWindow window = new EditAppointmentWindow(this, initialAppointment);
             window.ShowDialog();
 
@@ -48,7 +48,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (result != MessageBoxResult.Yes)
                 return;
 
-            TerminFileStorage.RemoveTermin(((Termin)AppointmentPreview.SelectedItem).iDTermina);
+            ApointmentFileRepository.RemoveAppointment(((Appointment)AppointmentPreview.SelectedItem).AppointmentID);
             UpdateTable();
 
 
@@ -62,10 +62,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public void UpdateTable()
         {
             AppointmentPreview.Items.Clear();
-            List<Termin> appointments = TerminFileStorage.GetAll();
-            foreach (Termin appointment in appointments)
+            List<Appointment> appointments = ApointmentFileRepository.GetAll();
+            foreach (Appointment appointment in appointments)
             {
-                if (appointment.status == StatusTermina.zakazan)
+                if (appointment.AppointmentStatus == AppointmentStatus.scheduled)
                     AppointmentPreview.Items.Add(appointment);
             }
         }

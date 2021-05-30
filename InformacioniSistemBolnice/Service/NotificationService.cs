@@ -1,5 +1,5 @@
 ﻿using InformacioniSistemBolnice.FileStorage;
-using InformacioniSistemBolnice.Korisnik;
+using InformacioniSistemBolnice.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;

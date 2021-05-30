@@ -76,7 +76,7 @@
     <Compile Include="Controller\ActivityLogController.cs" />
     <Compile Include="Controller\AnamnesisController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
-    <Compile Include="Lekar\DoctorPatientsPage.xaml.cs">
+    <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\AddingNotesPage.xaml.cs">
@@ -93,14 +93,14 @@
     <Compile Include="FileStorage\IngredientFileStorage.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
-    <Compile Include="Korisnik\Notification.cs" />
-    <Compile Include="Lekar\DrugsPage.xaml.cs">
+    <Compile Include="User\Notification.cs" />
+    <Compile Include="Doctor_ns\DrugsPage.xaml.cs">
       <DependentUpon>DrugsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\DrugsValidationWindow.xaml.cs">
+    <Compile Include="Doctor_ns\DrugsValidationWindow.xaml.cs">
       <DependentUpon>DrugsValidationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\ProfilePage.xaml.cs">
+    <Compile Include="Doctor_ns\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\MedicalHistoryPage.xaml.cs">
@@ -114,24 +114,24 @@
       <DependentUpon>NotificationPatientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\Ingredient.cs" />
-    <Compile Include="Lekar\DoctorAddAppointmentWindow.xaml.cs">
+    <Compile Include="Doctor_ns\DoctorAddAppointmentWindow.xaml.cs">
       <DependentUpon>DoctorAddAppointmentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\DoctorEditAppointmentWindow.xaml.cs">
+    <Compile Include="Doctor_ns\DoctorEditAppointmentWindow.xaml.cs">
       <DependentUpon>DoctorEditAppointmentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\DoctorWindow.xaml.cs">
+    <Compile Include="Doctor_ns\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FileStorage\PacijentFileStorage.cs" />
-    <Compile Include="Lekar\AppointmentsPage.xaml.cs">
+    <Compile Include="FileStorage\PatientFileRepository.cs" />
+    <Compile Include="Doctor_ns\AppointmentsPage.xaml.cs">
       <DependentUpon>AppointmentsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\MedicalRecordWindow.xaml.cs">
+    <Compile Include="Doctor_ns\MedicalRecordWindow.xaml.cs">
       <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Lekar\Prescription.cs" />
-    <Compile Include="Lekar\Therapy.cs" />
+    <Compile Include="Doctor_ns\Prescription.cs" />
+    <Compile Include="Doctor_ns\Therapy.cs" />
     <Compile Include="Patient_ns\PatientEditsAppointmentPage.xaml.cs">
       <DependentUpon>PatientEditsAppointmentPage.xaml</DependentUpon>
     </Compile>
@@ -176,6 +176,9 @@
     </Compile>
     <Compile Include="Secretary_ns\DetailedWindow.xaml.cs">
       <DependentUpon>DetailedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary_ns\DoctorsPage.xaml.cs">
+      <DependentUpon>DoctorsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary_ns\NewPatientWindow.xaml.cs">
       <DependentUpon>NewPatientWindow.xaml</DependentUpon>
@@ -253,11 +256,11 @@
     <Compile Include="Manager_ns\Room.cs" />
     <Compile Include="FileStorage\RoomFileRepository.cs" />
     <Compile Include="Secretary_ns\Secretary.cs" />
-    <Compile Include="FileStorage\SecretaryFileStorage.cs" />
-    <Compile Include="Termin\StatusTermina.cs" />
-    <Compile Include="Termin\Termin.cs" />
-    <Compile Include="FileStorage\TerminFileStorage.cs" />
-    <Compile Include="Lekar\DoctorType.cs" />
+    <Compile Include="FileStorage\SecretaryFileRepository.cs" />
+    <Compile Include="Termin\AppointmentStatus.cs" />
+    <Compile Include="Termin\Appointment.cs" />
+    <Compile Include="FileStorage\ApointmentFileRepository.cs" />
+    <Compile Include="Doctor_ns\DoctorType.cs" />
     <Compile Include="Manager_ns\RasporedjivanjeOpreme.xaml.cs">
       <DependentUpon>RasporedjivanjeOpreme.xaml</DependentUpon>
     </Compile>
@@ -267,14 +270,13 @@
     <Compile Include="Manager_ns\MedicineStatus.cs" />
     <Compile Include="Manager_ns\InventoryType.cs" />
     <Compile Include="Manager_ns\RoomType.cs" />
-    <Compile Include="Termin\TipTermina.cs" />
+    <Compile Include="Termin\AppointmentType.cs" />
     <Compile Include="Manager_ns\Manager.cs" />
     <Compile Include="FileStorage\ManagerFileRepository.cs" />
     <Compile Include="Manager_ns\UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FileStorage\ZdravstevniKartonFileStorage.cs" />
-    <Compile Include="Patient_ns\ZdravstveniKarton.cs" />
+    <Compile Include="Patient_ns\MedicalRecord.cs" />
     <Compile Include="Manager_ns\WindowProstorije.xaml.cs">
       <DependentUpon>WindowProstorije.xaml</DependentUpon>
     </Compile>
@@ -284,7 +286,7 @@
     <Compile Include="Validation\JMBGValidationRule.cs" />
     <Compile Include="Validation\NonEmptyValidationRule.cs" />
     <Compile Include="Patient_ns\TypeOfActivity.cs" />
-    <Page Include="Lekar\DoctorPatientsPage.xaml">
+    <Page Include="Doctor_ns\DoctorPatientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,35 +294,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\DoctorAddAppointmentWindow.xaml">
+    <Page Include="Doctor_ns\DoctorAddAppointmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\DoctorEditAppointmentWindow.xaml">
+    <Page Include="Doctor_ns\DoctorEditAppointmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\DoctorWindow.xaml">
+    <Page Include="Doctor_ns\DoctorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\DrugsPage.xaml">
+    <Page Include="Doctor_ns\DrugsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\DrugsValidationWindow.xaml">
+    <Page Include="Doctor_ns\DrugsValidationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\AppointmentsPage.xaml">
+    <Page Include="Doctor_ns\AppointmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\MedicalRecordWindow.xaml">
+    <Page Include="Doctor_ns\MedicalRecordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Lekar\ProfilePage.xaml">
+    <Page Include="Doctor_ns\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -328,15 +330,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Korisnik\AdresaStanovanja.cs" />
+    <Compile Include="User\ResidentialAddress.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Korisnik\DrzavaStanovanja.cs" />
-    <Compile Include="Korisnik\Korisnik.cs" />
-    <Compile Include="Lekar\Doctor.cs" />
-    <Compile Include="FileStorage\LekarFileStorage.cs" />
+    <Compile Include="User\Country.cs" />
+    <Compile Include="User\User.cs" />
+    <Compile Include="Doctor_ns\Doctor.cs" />
+    <Compile Include="FileStorage\DoctorFileRepository.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -410,6 +412,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary_ns\DetailedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary_ns\DoctorsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -523,8 +529,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Korisnik\MestoStanovanja.cs" />
-    <Compile Include="Patient_ns\Pacijent.cs" />
+    <Compile Include="User\City.cs" />
+    <Compile Include="Patient_ns\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -553,7 +559,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Lekar\doctor_medical_avatar_people_icon_131305.png" />
+    <Resource Include="Doctor_ns\doctor_medical_avatar_people_icon_131305.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

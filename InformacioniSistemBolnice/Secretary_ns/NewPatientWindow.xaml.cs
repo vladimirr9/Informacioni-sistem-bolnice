@@ -45,9 +45,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
 
-            AdresaStanovanja residentialAddress = new AdresaStanovanja(ResidentialAddress, new MestoStanovanja(City, PostalCode, new DrzavaStanovanja(Country)));
-            Pacijent patient = new Pacijent(LegalName, Surname, JMBG,char.Parse(Gender), TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new ZdravstveniKarton(PacijentFileStorage.GetAll().Count.ToString()), false);
-            patient.zdravstveniKarton.pacijent = patient;
+            ResidentialAddress residentialAddress = new ResidentialAddress(ResidentialAddress, new City(City, PostalCode, new Country(Country)));
+            Patient patient = new Patient(LegalName, Surname, JMBG,char.Parse(Gender), TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new MedicalRecord(PatientFileRepository.GetAll().Count.ToString()), false);
+            patient.MedicalRecord.patient = patient;
             _patientController.Register(patient);
             _parent.UpdateTable();
             this.Close();

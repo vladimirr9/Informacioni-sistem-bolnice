@@ -22,7 +22,7 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class RatingPage : Page
     {
         private StartPatientWindow parent;
-        private Termin selektovan;
+        private Appointment selektovan;
         public Button kojiJePritisnut;
         public RatingPage(StartPatientWindow pp)
         {
@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 if (a.UsernameOfDoctor == null && a.IdOfAppointment == 0)
                 {
-                    if (a.UsernameOfPatient.Equals(parent.Pacijent.korisnickoIme))
+                    if (a.UsernameOfPatient.Equals(parent.Patient.Username))
                     {
                         ocjenjivanjeBolnice.Add(a);
                     }
@@ -80,11 +80,11 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
 
 
-            foreach (Termin t in TerminFileStorage.GetAll())
+            foreach (Appointment t in ApointmentFileRepository.GetAll())
             {
-                if (t.status == StatusTermina.zakazan && !RatingFileRepository.Contains(t.iDTermina) && t.KorisnickoImePacijenta.Equals(parent.Pacijent.korisnickoIme))
+                if (t.AppointmentStatus == AppointmentStatus.scheduled && !RatingFileRepository.Contains(t.AppointmentID) && t.PatientUsername.Equals(parent.Patient.Username))
                 {
-                    if (DateTime.Now.AddDays(-10) < t.datumZakazivanja && t.datumZakazivanja.Date < DateTime.Now)
+                    if (DateTime.Now.AddDays(-10) < t.AppointmentDate && t.AppointmentDate.Date < DateTime.Now)
                     {
                         PrikazPregleda.Items.Add(t);
                     }
@@ -97,7 +97,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private void rate_Click(object sender, RoutedEventArgs e)
         {
             kojiJePritisnut = rate;
-            selektovan = (Termin)PrikazPregleda.SelectedItem;
+            selektovan = (Appointment)PrikazPregleda.SelectedItem;
             parent.imeLjekara.Visibility = Visibility.Visible;
             PatientRatesPage pa = new PatientRatesPage(this, parent, selektovan);
             parent.startWindow.Content = pa;

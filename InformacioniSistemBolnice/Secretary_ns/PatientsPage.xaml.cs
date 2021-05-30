@@ -45,7 +45,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (PatientsDataGrid.SelectedItem == null)
                 return;
             
-            Pacijent initialPatient = PacijentFileStorage.GetOne(((Pacijent)(PatientsDataGrid.SelectedItem)).korisnickoIme);
+            Patient initialPatient = PatientFileRepository.GetOne(((Patient)(PatientsDataGrid.SelectedItem)).Username);
             EditPatientWindow window = new EditPatientWindow(initialPatient, this);
             window.Show();
             
@@ -61,7 +61,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (result == MessageBoxResult.No)
                 return;
 
-            Pacijent patient = (Pacijent) PatientsDataGrid.SelectedItem;
+            Patient patient = (Patient) PatientsDataGrid.SelectedItem;
             _patientController.Remove(patient);
             UpdateTable();
             
@@ -72,8 +72,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             if (PatientsDataGrid.SelectedItem == null)
                 return;
-            Pacijent patient = (Pacijent)(PatientsDataGrid.SelectedItem);
-            if (!patient.Banovan)
+            Patient patient = (Patient)(PatientsDataGrid.SelectedItem);
+            if (!patient.Banned)
                 return;
             var result = MessageBox.Show("Da li ste sigurni da želite da odblokirate ovog pacijenta?", "Potvrda odblokiranja", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.No)
@@ -87,17 +87,17 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (PatientsDataGrid.SelectedItem == null)
                 return;
 
-            DetailedWindow window = new DetailedWindow(this, ((Pacijent)(PatientsDataGrid.SelectedItem)).korisnickoIme);
+            DetailedWindow window = new DetailedWindow(this, ((Patient)(PatientsDataGrid.SelectedItem)).Username);
             window.Show();
 
         }
         public void UpdateTable()
         {
             PatientsDataGrid.Items.Clear();
-            List<Pacijent> patients = PacijentFileStorage.GetAll();
-            foreach (Pacijent patient in patients)
+            List<Patient> patients = PatientFileRepository.GetAll();
+            foreach (Patient patient in patients)
             {
-                if (!patient.isDeleted)
+                if (!patient.IsDeleted)
                     PatientsDataGrid.Items.Add(patient);
             }
         }

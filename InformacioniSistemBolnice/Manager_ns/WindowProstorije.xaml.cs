@@ -48,7 +48,7 @@ namespace InformacioniSistemBolnice.Upravnik
             if (datagridProstorije.SelectedItem != null)
             {
                 Room p = (Room)datagridProstorije.SelectedItem;
-                //Prostorija prostorijaZaIzmenu = ProstorijaFileStorage.GetOne((Prostorija)datagridProstorije.SelectedItem)).iDprostorije).ToString();
+                //Room prostorijaZaIzmenu = ProstorijaFileStorage.GetOne((Room)datagridProstorije.SelectedItem)).iDprostorije).ToString();
                 Room prostorijaZaIzmenu = RoomFileRepository.GetOne(p.RoomId);
                 IzmenaProstorije prozor = new IzmenaProstorije(prostorijaZaIzmenu, this);
                 prozor.Show();

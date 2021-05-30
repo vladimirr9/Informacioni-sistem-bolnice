@@ -97,15 +97,15 @@ namespace InformacioniSistemBolnice.Patient_ns
             DateTime pocetniDatum = DateTime.Parse(datum + " " + pocetak);
             DateTime krajnjiDatum = DateTime.Parse(datum + " " + kraj);
 
-            List<global::Doctor> ljekari = LekarFileStorage.GetAll();
+            List<global::Doctor> ljekari = DoctorFileRepository.GetAll();
             foreach (global::Doctor lekar in ljekari)
             {
                 for (DateTime tm = pocetniDatum; tm < krajnjiDatum; tm = tm.AddMinutes(15))
                 {
                     DateTime end = tm.AddMinutes(15);
-                    if (lekar.doctorType.Equals(DoctorType.opstePrakse))
+                    if (lekar.doctorType.Equals(DoctorType.generalPractitioner))
                     {
-                        if (lekar.IsAvailable(tm, end.AddMinutes(-1)) && parent.Pacijent.IsAvailable(tm, end.AddMinutes(-1)))
+                        if (lekar.IsAvailable(tm, end.AddMinutes(-1)) && parent.Patient.IsAvailable(tm, end.AddMinutes(-1)))
                         {
                             PrikazSlobodnihTermina.Items.Add(new SlobodniTermini(lekar, tm.ToString("HH:mm")));
                         }
@@ -150,7 +150,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private void submit_Click(object sender, RoutedEventArgs e)
         {
             ZakaziTermin();
-            ActivityLog activity = new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
+            ActivityLog activity = new ActivityLog(DateTime.Now, parent.Patient.Username, TypeOfActivity.makingAppointment);
             _activityLogController.AddActivity(activity);
         }
 
@@ -173,25 +173,25 @@ namespace InformacioniSistemBolnice.Patient_ns
             String d = date.Text;
             String t = selektovanTermin.AvailableTimes;
             DateTime start = DateTime.Parse(d + " " + t);
-            TipTermina tipt;
-            if (selektovanTermin.Ljekar.doctorType.Equals(DoctorType.opstePrakse))
+            AppointmentType tipt;
+            if (selektovanTermin.Ljekar.doctorType.Equals(DoctorType.generalPractitioner))
             {
-                tipt = TipTermina.pregledKodLekaraOpstePrakse;
+                tipt = AppointmentType.generalPractitionerCheckup;
             }
-            else if (selektovanTermin.Ljekar.doctorType.Equals(DoctorType.hirurg))
+            else if (selektovanTermin.Ljekar.doctorType.Equals(DoctorType.surgeon))
             {
-                tipt = TipTermina.operacija;
+                tipt = AppointmentType.operation;
             }
             else
             {
-                tipt = TipTermina.pregledKodLekaraSpecijaliste;
+                tipt = AppointmentType.specialistCheckup;
             }
-            int id = TerminFileStorage.GetAll().Count + 1;
+            int id = ApointmentFileRepository.GetAll().Count + 1;
             DateTime end = start.AddMinutes(trajanjePregleda);
 
             Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
-            Termin termin = new Termin(id, start, trajanjePregleda, tipt, StatusTermina.zakazan, parent.Pacijent, selektovanTermin.Ljekar, prvaDostupnaProstorija);
-            TerminFileStorage.AddTermin(termin);
+            Appointment appointment = new Appointment(id, start, trajanjePregleda, tipt, AppointmentStatus.scheduled, parent.Patient, selektovanTermin.Ljekar, prvaDostupnaProstorija);
+            ApointmentFileRepository.AddAppointment(appointment);
             PatientExaminesAppointmentPage ptp = new PatientExaminesAppointmentPage(parent);
             updateVisibility();
             parent.startWindow.Content = ptp;

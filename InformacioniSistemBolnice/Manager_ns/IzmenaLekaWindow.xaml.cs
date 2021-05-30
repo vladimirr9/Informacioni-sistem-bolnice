@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice.Upravnik
 
             String naziviSastojaka = lekZaIzmenu.IngredientsList.Select(x => x.Name).ToArray().ToString();
 
-            List<global::Doctor> lekari = LekarFileStorage.GetAll();
+            List<global::Doctor> lekari = DoctorFileRepository.GetAll();
             Lekar.ItemsSource = lekari;
             List<Ingredient> sastojci = IngredientFileStorage.GetAll();
             Sastojci.ItemsSource = sastojci;

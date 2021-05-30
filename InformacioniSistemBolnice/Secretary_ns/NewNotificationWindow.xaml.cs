@@ -1,4 +1,4 @@
-﻿using InformacioniSistemBolnice.Korisnik;
+﻿using InformacioniSistemBolnice.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,10 +58,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
             Recipients.Add("Svi korisnici");
             Recipients.Add("Zaposleni");
             Recipients.Add("Svi pacijenti");
-            foreach (Pacijent patient in PacijentFileStorage.GetAll())
+            foreach (Patient patient in PatientFileRepository.GetAll())
             {
-                if (!patient.isDeleted)
-                    Recipients.Add(patient.ime + " " + patient.prezime + " - " + patient.korisnickoIme);
+                if (!patient.IsDeleted)
+                    Recipients.Add(patient.Name + " " + patient.Surname + " - " + patient.Username);
             }
             RecipientsListBox.SelectedIndex = 0;
         }

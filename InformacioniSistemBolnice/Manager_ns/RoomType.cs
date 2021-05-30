@@ -1,5 +1,5 @@
 // File:    TipProstorije.cs
-// Author:  Korisnik
+// Author:  User
 // Created: Monday, March 22, 2021 7:05:32 PM
 // Purpose: Definition of Enum TipProstorije
 

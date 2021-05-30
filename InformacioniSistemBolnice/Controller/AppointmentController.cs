@@ -11,17 +11,17 @@ namespace InformacioniSistemBolnice.Controller
     {
         private AppointmentService _appointmentService = new AppointmentService();
 
-        public void Add(Termin appointment)
+        public void Add(Appointment appointment)
         {
             _appointmentService.Add(appointment);
         }
 
-        public void Remove(Termin appointment)
+        public void Remove(Appointment appointment)
         {
             _appointmentService.Remove(appointment);
         }
 
-        public void Update(Termin appointment)
+        public void Update(Appointment appointment)
         {
             _appointmentService.Update(appointment);
         }
@@ -31,12 +31,12 @@ namespace InformacioniSistemBolnice.Controller
             return _appointmentService.GenerateNewId();
         }
 
-        public List<Termin> GetAll()
+        public List<Appointment> GetAll()
         {
             return _appointmentService.GetAll();
         }
 
-        public Termin GetOne(Termin appointment)
+        public Appointment GetOne(Appointment appointment)
         {
             return _appointmentService.GetOne(appointment);
         }
