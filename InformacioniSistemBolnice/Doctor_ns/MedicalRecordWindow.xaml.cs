@@ -22,6 +22,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private Patient selected;
         private PatientController _patientController = new PatientController();
         private AnamnesisController _anamnesisController = new AnamnesisController();
+        private AppointmentController _appointmentController = new AppointmentController();
 
         public MedicalRecordWindow(Patient patient , DoctorWindow parent)
         {
@@ -49,20 +50,20 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 GenderComboBox.SelectedItem = 1;
             }
 
-            AnamnesisTextBox.Document.Blocks.Clear();
-            //AnamnesisTextBox.Document.Blocks.Add(new Paragraph(new Run(_anamnesisController.AppointmentAnamnesis(appointment))));    //dodati listu pregleda i izmestiti u selectionChanged
+            foreach (Appointment appointment in _appointmentController.PatientsAppointments(selected))
+            {
+                AppointmentsDataGrid.Items.Add(appointment);
+            }
 
-            List<Medicine> drugs = MedicineFileRepository.GetAll();
-            DrugsComboBox.ItemsSource = drugs;
+            AnamnesisTextBox.Document.Blocks.Clear();
+            DrugsComboBox.ItemsSource = MedicineFileRepository.GetAll();      //kontroler
         }
 
-        //izadvanje recepta i terapije
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Prescription_Click(object sender, RoutedEventArgs e)
         {
             if (DrugsComboBox.SelectedItem != null && BeginDatePicker.Text != "" && EndDatePicker.Text != "")
             {
-                Medicine drug = (Medicine)DrugsComboBox.SelectedItem;
-                if (_patientController.IsAllergic(drug, selected))
+                if (_patientController.IsAllergic((Medicine)DrugsComboBox.SelectedItem, selected))
                 {
                     MessageBox.Show("Patient je alergican na izabrani lek.", "Alergican");
                     return;
@@ -85,37 +86,45 @@ namespace InformacioniSistemBolnice.Doctor_ns
             FrequencyTextBox.Text = "";
         }
 
-        //Upisivanje anamneze
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Selection_Changed(object sender, SelectionChangedEventArgs e)
         {
-            /*
-            String anamnesis = new TextRange(AnamnesisTextBox.Document.ContentStart, AnamnesisTextBox.Document.ContentEnd).Text;
-            if (anamnesis.Trim() != "")
+            Appointment appointment = (Appointment) AppointmentsDataGrid.SelectedItem;
+            AnamnesisTextBox.Document.Blocks.Clear();
+            if(_anamnesisController.AppointmentAnamnesis(appointment) != null)
             {
-                appointment.Anamnesis = anamnesis;
-
-
-                int idOfAnamnesis = AnamnesisFileRepository.GetAll().Count + 1;
-                Anamnesis newAnamnesis = new Anamnesis(anamnesis, null, selected.Username, idOfAnamnesis, DateTime.Now, appointment.AppointmentID);
-                AnamnesisFileRepository.AddAnamnesis(newAnamnesis);// - dodati u prikaz kartona
-
-
-
-                AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+                AnamnesisTextBox.Document.Blocks.Add(new Paragraph(new Run(_anamnesisController.AppointmentAnamnesis(appointment).DescriptionOfAnamnesis)));
             }
-            */
+
         }
 
-        //Izdavanje uputa
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Save_Anamnesis_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment = (Appointment)AppointmentsDataGrid.SelectedItem;
+            String anamnesis = new TextRange(AnamnesisTextBox.Document.ContentStart, AnamnesisTextBox.Document.ContentEnd).Text;
+
+            if (anamnesis.Trim() != "")
+            {
+                if (_anamnesisController.AppointmentAnamnesis(appointment) != null)
+                {
+                    _anamnesisController.Update(_anamnesisController.AppointmentAnamnesis(appointment));
+                }
+                else
+                {
+                    Anamnesis newAnamnesis = new Anamnesis(anamnesis, null, selected.Username, _anamnesisController.GenerateId(), DateTime.Now, appointment.AppointmentID);
+                    _anamnesisController.Add(newAnamnesis);
+                }
+                _appointmentController.FinishAppointment(appointment);
+            }
+        }
+
+        private void Referral_Click(object sender, RoutedEventArgs e)
         {
             DoctorAddAppointmentWindow addWindow = new DoctorAddAppointmentWindow(parent);
             Application.Current.MainWindow = addWindow;
             addWindow.Show();
         }
 
-        //dodaj alergiju
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Add_Allergy_Click(object sender, RoutedEventArgs e)
         {
             PatientController patientController = new PatientController();
             patientController.AddAllergen(selected, (Ingredient)AllergiesComboBox.SelectedItem);
@@ -123,8 +132,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             WriteAllergies(selected);
         }
 
-        //bolnicko lecenje
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void Hospitalisation_Click(object sender, RoutedEventArgs e)
         {
             if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null &&
                 RoomComboBox.SelectedIndex != -1 && BedComboBox.SelectedIndex != -1)
@@ -160,7 +168,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
         private void UpdateComponents()
         {
-            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null)
+            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null)              //room controler
             {
                 List<Room> rooms = RoomFileRepository.GetAll();
                 List<Room> available = new List<Room>();

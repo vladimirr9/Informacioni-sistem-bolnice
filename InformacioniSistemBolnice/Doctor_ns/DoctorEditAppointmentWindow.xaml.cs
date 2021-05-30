@@ -31,14 +31,13 @@ namespace InformacioniSistemBolnice.Doctor_ns
             InitializeComboBoxes();
 
         }
-        //odustani
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void Abandon_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        //potvrdi
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             Patient patient = (Patient)PatientComboBox.SelectedItem;
             Doctor doctor = (Doctor)DoctorComboBox.SelectedItem;

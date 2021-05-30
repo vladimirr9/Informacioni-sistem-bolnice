@@ -23,9 +23,6 @@ public class Appointment
     [JsonIgnore]
     private Room _room;
 
-    public String Anamnesis { get; set; }
-
-
     public int RoomID;
     public string DoctorUsername;
     public string PatientUsername;
