@@ -81,6 +81,26 @@
                     <TextBlock HorizontalAlignment="Left" Height="32" Margin="384,308,0,0" TextWrapping="Wrap" Text="dana." VerticalAlignment="Top" Width="84" FontSize="20"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Lečenje">
+                <Grid Background="#FFE5E5E5">
+                    <DatePicker x:Name="RoomBeginDatePicker" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" Margin="234,65,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="RoomEndDatePicker" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" Margin="484,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.44,0.535"/>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="111,60,0,0" TextWrapping="Wrap" Text="Pocetak:" VerticalAlignment="Top" Width="118" FontSize="20"/>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="392,60,0,0" TextWrapping="Wrap" Text="Kraj:" VerticalAlignment="Top" Width="60" FontSize="20"/>
+                    <ComboBox x:Name="RoomComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="352" Margin="234,156,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Naziv}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="111,156,0,0" TextWrapping="Wrap" Text="Prostorija:" VerticalAlignment="Top" Width="118" FontSize="20"/>
+                    <Button Content="Zakaži lečenje" HorizontalAlignment="Left" Margin="480,254,0,0" VerticalAlignment="Top"  Width="106" Height="32" Background="#FF2B78E4" Foreground="White" Click="Button_Click_4"/>
+                    <TextBlock HorizontalAlignment="Left" Height="32" Margin="111,253,0,0" TextWrapping="Wrap" Text="Krevet:" VerticalAlignment="Top" Width="118" FontSize="20"/>
+                    <ComboBox x:Name="BedComboBox" HorizontalAlignment="Left" Margin="234,254,0,0" VerticalAlignment="Top" Width="131" Height="32"/>
+
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>
