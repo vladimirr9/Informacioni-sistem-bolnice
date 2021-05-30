@@ -20,6 +20,8 @@ namespace InformacioniSistemBolnice.Doctor_ns
     {
         private DoctorWindow parent;
         private AppointmentController _appointmentController = new AppointmentController();
+        private DoctorControler _doctorControler = new DoctorControler();
+        private PatientController _patientController = new PatientController();
 
         public DoctorAddAppointmentWindow(DoctorWindow parent)
         {
@@ -43,13 +45,10 @@ namespace InformacioniSistemBolnice.Doctor_ns
             if (time.SelectedIndex != -1)
             {
                 ComboBoxItem item = time.SelectedItem as ComboBoxItem;
-                String t = item.Content.ToString();
-                String d = date.Text;
-                DateTime dt = DateTime.Parse(d + " " + t);
+                DateTime dateTime = DateTime.Parse(date.Text + " " + item.Content.ToString());
                 AppointmentType type = (AppointmentType)TypeComboBox.SelectedIndex;
-                int id = _appointmentController.GenerateNewId();
 
-                Appointment appointment = new Appointment(id, dt, 15, type, AppointmentStatus.scheduled, patient, doctor, room);
+                Appointment appointment = new Appointment(_appointmentController.GenerateNewId(), dateTime, 15, type, AppointmentStatus.scheduled, patient, doctor, room);
                 _appointmentController.Add(appointment);
 
                 AppointmentsPage.GetPage(parent).UpdateTable();
@@ -59,10 +58,8 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
         private void InitializeComboBoxes()                       //ubaciti kontrolere
         {
-            List<Doctor> doctors = DoctorFileRepository.GetAll();
-            DoctorComboBox.ItemsSource = doctors;
-            List<Patient> patients = PatientFileRepository.GetAll();
-            PatientComboBox.ItemsSource = patients;
+            DoctorComboBox.ItemsSource = _doctorControler.GetAll();
+            PatientComboBox.ItemsSource = _patientController.GetAll();
             List<Room> rooms = RoomFileRepository.GetAll();
             RoomComboBox.ItemsSource = rooms;
         }

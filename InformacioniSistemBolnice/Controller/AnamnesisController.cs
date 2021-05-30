@@ -25,5 +25,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             _anamnesisService.AddNoteForAnamnesis(note, anamnesis);
         }
+
+        public Anamnesis AppointmentAnamnesis(Appointment appointment)
+        {
+            return _anamnesisService.AppointmentAnamnesis(appointment);
+        }
     }
 }

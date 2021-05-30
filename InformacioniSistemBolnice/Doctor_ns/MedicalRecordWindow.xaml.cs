@@ -21,6 +21,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private DoctorWindow parent;
         private Patient selected;
         private PatientController _patientController = new PatientController();
+        private AnamnesisController _anamnesisController = new AnamnesisController();
 
         public MedicalRecordWindow(Patient patient , DoctorWindow parent)
         {
@@ -49,7 +50,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
 
             AnamnesisTextBox.Document.Blocks.Clear();
-            //AnamnesisTextBox.Document.Blocks.Add(new Paragraph(new Run(appointment.Anamnesis)));
+            //AnamnesisTextBox.Document.Blocks.Add(new Paragraph(new Run(_anamnesisController.AppointmentAnamnesis(appointment))));    //dodati listu pregleda i izmestiti u selectionChanged
 
             List<Medicine> drugs = MedicineFileRepository.GetAll();
             DrugsComboBox.ItemsSource = drugs;
@@ -61,7 +62,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             if (DrugsComboBox.SelectedItem != null && BeginDatePicker.Text != "" && EndDatePicker.Text != "")
             {
                 Medicine drug = (Medicine)DrugsComboBox.SelectedItem;
-                if (IsAllergic(drug, selected))
+                if (_patientController.IsAllergic(drug, selected))
                 {
                     MessageBox.Show("Patient je alergican na izabrani lek.", "Alergican");
                     return;
@@ -71,26 +72,17 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 selected.MedicalRecord.AddRecept(prescription);
 
                 _patientController.Update(selected.Username, selected);
-                DrugsComboBox.SelectedIndex = -1;
-                DescriptionTextBox.Document.Blocks.Clear();
-                BeginDatePicker.SelectedDate = null;
-                EndDatePicker.SelectedDate = null;
-                FrequencyTextBox.Text = "";
+                ClearTherapy();
             }
         }
 
-        private bool IsAllergic(Medicine drug, Patient patient)              //izmestiti u pacijenta ili servis
+        private void ClearTherapy()
         {
-            List<Ingredient> ingredients = drug.IngredientsList;
-            foreach (Ingredient ingredient in ingredients)
-            {
-                if (patient.MedicalRecord.Allergens.Contains(ingredient))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            DrugsComboBox.SelectedIndex = -1;
+            DescriptionTextBox.Document.Blocks.Clear();
+            BeginDatePicker.SelectedDate = null;
+            EndDatePicker.SelectedDate = null;
+            FrequencyTextBox.Text = "";
         }
 
         //Upisivanje anamneze

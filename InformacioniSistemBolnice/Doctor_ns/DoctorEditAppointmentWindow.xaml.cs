@@ -20,6 +20,8 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private DoctorWindow parent;
         private Appointment selected;
         private AppointmentController _appointmentController = new AppointmentController();
+        private DoctorControler _doctorControler = new DoctorControler();
+        private PatientController _patientController = new PatientController();
 
         public DoctorEditAppointmentWindow(Appointment selected, DoctorWindow parent)
         {
@@ -43,10 +45,8 @@ namespace InformacioniSistemBolnice.Doctor_ns
             Room room = (Room)RoomComboBox.SelectedItem;
             if (time.SelectedIndex != -1)
             {
-                ComboBoxItem item = time.SelectedItem as ComboBoxItem;
-                String t = item.Content.ToString();
-                String d = date.Text;
-                DateTime dateTime = DateTime.Parse(d + " " + t);
+                ComboBoxItem timeItem = time.SelectedItem as ComboBoxItem;
+                DateTime dateTime = DateTime.Parse(date.Text + " " + timeItem.Content.ToString());
                 AppointmentType type = (AppointmentType)TypeComboBox.SelectedIndex;
                 Appointment appointment = new Appointment(selected.AppointmentID, dateTime, 15, type, AppointmentStatus.scheduled, patient, doctor, room);
 
@@ -59,35 +59,18 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
         private void InitializeComboBoxes()                         //ubaciti kontrolere
         {
-            List<Doctor> doctors = DoctorFileRepository.GetAll();
-            DoctorComboBox.ItemsSource = doctors;
-            List<Patient> patients = PatientFileRepository.GetAll();
-            PatientComboBox.ItemsSource = patients;
+            DoctorComboBox.ItemsSource = _doctorControler.GetAll();
+            PatientComboBox.ItemsSource = _patientController.GetAll();
             List<Room> rooms = RoomFileRepository.GetAll();
             RoomComboBox.ItemsSource = rooms;
 
             date.SelectedDate = selected.AppointmentDate;
             time.SelectedValue = selected.AppointmentDate.ToString("HH:mm");
-
-            foreach (Doctor doctor in doctors)
-            {
-                if (doctor.JMBG == selected.Doctor.JMBG)
-                    DoctorComboBox.SelectedItem = doctor;
-            }
-
-            foreach (Patient patient in patients)
-            {
-                if (patient.JMBG != null && patient.JMBG == selected.Patient.JMBG)
-                    PatientComboBox.SelectedItem = patient;
-            }
-
             TypeComboBox.SelectedIndex = (int)selected.Type;
 
-            foreach (Room room in rooms)
-            {
-                if (room.RoomId == selected.Room.RoomId)
-                    RoomComboBox.SelectedItem = room;
-            }
+            DoctorComboBox.SelectedItem = selected.Doctor;
+            PatientComboBox.SelectedItem = selected.Patient;
+            RoomComboBox.SelectedItem = selected.Room;
         }
     }
 }

@@ -76,6 +76,20 @@ namespace InformacioniSistemBolnice.Service
 
         }
 
+        public List<Patient> GetAll()
+        {
+            List<Patient> patients = new List<Patient>();
+            foreach (Patient patient in PatientFileRepository.GetAll())
+            {
+                if (!patient.IsDeleted)
+                {
+                    patients.Add(patient);
+                }
+                    
+            }
+            return patients;
+        }
+
 
 
 
