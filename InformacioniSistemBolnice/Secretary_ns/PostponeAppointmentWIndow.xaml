@@ -23,30 +23,30 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding iDTermina}" Width="40"/>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding datumZakazivanja}" Width="150"/>
-                <DataGridTextColumn Header="Trajanje" Binding="{Binding trajanjeUMinutima}" Width="60"/>
-                <DataGridTextColumn Header="Tip termina" Binding ="{Binding tipTermina}" Width="140"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}" Width="40"/>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding AppointmentDate}" Width="150"/>
+                <DataGridTextColumn Header="Trajanje" Binding="{Binding DurationInMinutes}" Width="60"/>
+                <DataGridTextColumn Header="Tip termina" Binding ="{Binding Type}" Width="140"/>
                 <DataGridTextColumn Header="Patient" Width="120">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="Pacijent.ime"/>
-                            <Binding Path="Pacijent.prezime"/>
+                            <Binding Path="Patient.Name"/>
+                            <Binding Path="Patient.Surname"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Lekar" Width="*">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
-                            <Binding Path="Lekar.ime"/>
-                            <Binding Path="Lekar.prezime"/>
+                            <Binding Path="Doctor.Name"/>
+                            <Binding Path="Doctor.Surname"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Prostorija" Width="*">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0}">
-                            <Binding Path="Prostorija.naziv"/>
+                            <Binding Path="Room.Name"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>

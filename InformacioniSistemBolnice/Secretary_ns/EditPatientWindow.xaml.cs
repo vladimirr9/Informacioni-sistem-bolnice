@@ -55,7 +55,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
            
             ResidentialAddress residentialAddress = new ResidentialAddress(ResidentialAddress, new City(City, PostalCode, new Country(Country)));
             Patient patient = new Patient(LegalName, Surname, JMBG, char.Parse(Gender), TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new MedicalRecord(PatientFileRepository.GetAll().Count.ToString()), false);
-            patient.MedicalRecord.patient = patient;
+            patient.MedicalRecord = _initialPatient.MedicalRecord;
+            _initialPatient.MedicalRecord.patient = patient;
             _patientController.Update(_initialPatient.Username, patient);
             _parent.UpdateTable();
             this.Close();
