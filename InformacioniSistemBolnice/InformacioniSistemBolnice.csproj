@@ -76,6 +76,9 @@
     <Compile Include="Controller\ActivityLogController.cs" />
     <Compile Include="Controller\AnamnesisController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="Controller\MedicineController.cs" />
+    <Compile Include="Controller\RenovationPeriodController.cs" />
+    <Compile Include="Controller\RoomController.cs" />
     <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
     </Compile>
@@ -98,7 +101,9 @@
     <Compile Include="FileStorage\IngredientFileStorage.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
+    <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\PatientService.cs" />
+    <Compile Include="Service\RenovationPeriodService.cs" />
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="User\Notification.cs" />
     <Compile Include="Doctor_ns\DrugsPage.xaml.cs">

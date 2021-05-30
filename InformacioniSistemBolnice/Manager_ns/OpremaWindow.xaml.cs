@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,119 +20,93 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class OpremaWindow : Window
     {
-        private WindowProstorije parent;
-        private Room selektovana;
-        public OpremaWindow(Room selektovana, WindowProstorije parent)
+        private WindowProstorije _parent;
+        private Room _selectedRoom;
+        private RoomController _roomController = new RoomController();
+        public OpremaWindow(Room room, WindowProstorije parent)
         {
-            this.parent = parent;
-            this.selektovana = selektovana;
+            this._parent = parent;
+            this._selectedRoom = room;
             InitializeComponent();
             this.DataContext = this;
-            if (selektovana.InventoryList != null)
+            if (room.InventoryList != null)
             {
-                updateTable();
+                UpdateTable();
             }
+            UpdateTable();
         }
 
-        private void Zatvori(object sender, RoutedEventArgs e)
+        private void Close(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void DodajNovuOpremu(object sender, RoutedEventArgs e)
+        private void AddInventory(object sender, RoutedEventArgs e)
         {
-            DodavanjeOpreme prozor = new DodavanjeOpreme(selektovana, this);
-            prozor.Show();
+            DodavanjeOpreme newInventoryWindow = new DodavanjeOpreme(_selectedRoom, this);
+            newInventoryWindow.Show();
         }
 
-        private void IzmeniOpremu(object sender, RoutedEventArgs e)
+        private void UpdateInventory(object sender, RoutedEventArgs e)
         {
-            if (dataGridOprema.SelectedItem != null)
+            if (dataGridInventory.SelectedItem != null)
             {
-                Inventory o = (Inventory)dataGridOprema.SelectedItem;
-                //Oprema opremaZaIzmenu = OpremaFileStorage.GetOne(o.Sifra);
-                Inventory opremaZaIzmenu = selektovana.GetOne(o.InventoryId);
-                IzmenaOpreme prozor = new IzmenaOpreme(selektovana, opremaZaIzmenu, this);
+                Inventory inventoryForUpdate = (Inventory)dataGridInventory.SelectedItem;
+                IzmenaOpreme prozor = new IzmenaOpreme(_selectedRoom, inventoryForUpdate, this);
                 prozor.Show();
             }
         }
 
-        private void ObrisiOpremu(object sender, RoutedEventArgs e)
+        private void RemoveInventory(object sender, RoutedEventArgs e)
         {
-            if (dataGridOprema.SelectedItem != null)
+            if (dataGridInventory.SelectedItem != null)
             {
                 MessageBoxResult odgovor = MessageBox.Show("Da li želite da obrišete selektovanu opremu?", "Potvrda brisanja opreme", MessageBoxButton.YesNo);
                 if (odgovor == MessageBoxResult.Yes)
                 {
-                    Inventory selektovan = (Inventory)dataGridOprema.SelectedItem;
-                    //OpremaFileStorage.RemoveOprema(selektovan.Sifra);
-                    //selektovana.OpremaLista.Remove(selektovan);
-                    dataGridOprema.Items.Remove(dataGridOprema.SelectedItem);
-
-                    int idProstorije = selektovana.RoomId;
-                    String naziv = selektovana.Name;
-                    RoomType tipProstorije = selektovana.RoomType;
-                    Boolean isDeleted = selektovana.IsDeleted;
-                    Boolean isActive = selektovana.IsActive;
-                    Double kvadratura = selektovana.Area;
-                    int brSprata = selektovana.Floor;
-                    int brSobe = selektovana.RoomNumber;
-                    List<Inventory> opremaLista = selektovana.InventoryList;
-
-                    foreach (Inventory op in opremaLista.ToList())
-                    {
-                        if (op.InventoryId.Equals(selektovan.InventoryId))
-                        {
-                            opremaLista.Remove(selektovan);
-                        }
-                    }
-                    Room p = new Room(naziv, idProstorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista);
-                    RoomFileRepository.UpdateRoom(idProstorije, p);
-                    //List<Oprema> oprema = selektovana.OpremaLista;
-                    //oprema[oprema.IndexOf(selektovan)].IsDeleted = true;
-                    updateTable();
+                    Inventory selectedInventory = (Inventory)dataGridInventory.SelectedItem;
+                    dataGridInventory.Items.Remove(dataGridInventory.SelectedItem);
+                    _roomController.RemoveInventory(_selectedRoom, selectedInventory);
+                    UpdateTable();
                 }
             }
         }
 
-        private void RasporediOpremu(object sender, RoutedEventArgs e)
+        private void RelocateInventory(object sender, RoutedEventArgs e)
         {
-            if (dataGridOprema.SelectedItem != null)
+            if (dataGridInventory.SelectedItem != null)
             {
-                Inventory o = (Inventory)dataGridOprema.SelectedItem;
-                Inventory opremaZaPremestanje = selektovana.GetOne(o.InventoryId);
-                if (o.InventoryType == InventoryType.dinamicInv)
-                {
-                    RasporedjivanjeOpreme prozor = new RasporedjivanjeOpreme(selektovana, opremaZaPremestanje, this);
-                    prozor.Show();
-                }
+                Inventory inventoryForRelocation = (Inventory)dataGridInventory.SelectedItem;
+                /*if (o.InventoryType == InventoryType.dinamicInv)
+                {*/
+                    RasporedjivanjeOpreme relocateInventoryWindow = new RasporedjivanjeOpreme(_selectedRoom, inventoryForRelocation, this);
+                    relocateInventoryWindow.Show();
+                /*}
                 else
                 {
-                    RasporedjivanjeStatickeWindow prozor = new RasporedjivanjeStatickeWindow(selektovana, opremaZaPremestanje, this);
+                    RasporedjivanjeStatickeWindow prozor = new RasporedjivanjeStatickeWindow(_selectedRoom, opremaZaPremestanje, this);
                     prozor.Show();
-                }
+                }*/
             }
         }
 
-        public void updateTable()
+        public void UpdateTable()
         {
-            dataGridOprema.Items.Clear();
-            //List<Oprema> oprema = OpremaFileStorage.GetAll();
-            List<Inventory> opremaLista = selektovana.InventoryList;
-            foreach (Inventory o in opremaLista)
+            dataGridInventory.Items.Clear();
+            foreach (Inventory i in _selectedRoom.InventoryList)
             {
-                if (!o.IsDeleted)
-                    dataGridOprema.Items.Add(o);
+                if (!i.IsDeleted)
+                    dataGridInventory.Items.Add(i);
             }
         }
 
         private void Pretraga_TextChanged(object sender, KeyEventArgs e)
         {
-            dataGridOprema.Items.Clear();
-            List<Inventory> opremaLista = selektovana.InventoryList;
+            dataGridInventory.Items.Clear();
+            List<Inventory> opremaLista = _selectedRoom.InventoryList;
             var filtered = opremaLista.Where(oprema => oprema.Name.StartsWith(Pretraga.Text) || oprema.Name.Contains(Pretraga.Text));
 
-            dataGridOprema.ItemsSource = filtered;
+            dataGridInventory.ItemsSource = filtered;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,20 +20,40 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class IzmenaProstorije : Window
     {
-        private Room prostorijaZaIzmenu;
-        private WindowProstorije parent;
-        public IzmenaProstorije(Room p, WindowProstorije parent)
+        private Room _roomForUpdate;
+        private WindowProstorije _parent;
+        private RoomController _roomController = new RoomController();
+        public IzmenaProstorije(Room room, WindowProstorije parent)
         {
-            prostorijaZaIzmenu = p;
+            _roomForUpdate = room;
             InitializeComponent();
+            SelectedRoomData();
+            this._parent = parent;
+        }
 
-            Naziv.Text = prostorijaZaIzmenu.Name;
-            IDprostorije.Text = prostorijaZaIzmenu.RoomId.ToString();
-            if (prostorijaZaIzmenu.RoomType == 0)
+        private void UpdateRoom(object sender, RoutedEventArgs e)
+        {
+            Room newRoom = GenerateRoomObjectFromCollectedData();
+            _roomController.UpdateRoom(newRoom);
+            _parent.UpdateTable();
+            Close();
+        }
+
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        public void SelectedRoomData()
+        {
+            Naziv.Text = _roomForUpdate.Name;
+            IDprostorije.Text = _roomForUpdate.RoomId.ToString();
+            if (_roomForUpdate.RoomType == 0)
             {
                 TipProstorije.SelectedIndex = 0;
             }
-            else if (prostorijaZaIzmenu.RoomType == (RoomType)1)
+            else if (_roomForUpdate.RoomType == (RoomType)1)
             {
                 TipProstorije.SelectedIndex = 1;
             }
@@ -41,56 +62,39 @@ namespace InformacioniSistemBolnice.Upravnik
                 TipProstorije.SelectedIndex = 2;
             }
             //IsDeleted.IsChecked = prostorijaZaIzmenu.IsDeleted;
-            IsActive.IsChecked = prostorijaZaIzmenu.IsActive;
-            Kvadratura.Text = prostorijaZaIzmenu.Area.ToString();
-            BrSprata.Text = prostorijaZaIzmenu.Floor.ToString();
-            BrSobe.Text = prostorijaZaIzmenu.RoomNumber.ToString();
-            this.parent = parent;
+            IsActive.IsChecked = _roomForUpdate.IsActive;
+            Kvadratura.Text = _roomForUpdate.Area.ToString();
+            BrSprata.Text = _roomForUpdate.Floor.ToString();
+            BrSobe.Text = _roomForUpdate.RoomNumber.ToString();
         }
 
-        private void Potvrda_Click(object sender, RoutedEventArgs e)
+        public Room GenerateRoomObjectFromCollectedData()
         {
-            String naziv = Naziv.Text;
-            int iDprostorije = Convert.ToInt32(IDprostorije.Text);
-            RoomType tipProstorije; // = (TipProstorije)TipProstorije.SelectedItem;
+            String name = Naziv.Text;
+            int roomId = Convert.ToInt32(IDprostorije.Text);
+            RoomType roomType; // = (TipProstorije)TipProstorije.SelectedItem;
             if (TipProstorije.SelectedIndex == 0)
             {
-                tipProstorije = 0;
+                roomType = 0;
             }
             else if (TipProstorije.SelectedIndex == 1)
             {
-                tipProstorije = (RoomType)1;
+                roomType = (RoomType)1;
             }
             else
             {
-                tipProstorije = (RoomType)2;
+                roomType = (RoomType)2;
             }
             Boolean isDeleted = false;
             Boolean isActive = (Boolean)IsActive.IsChecked;
-            Double kvadratura = Convert.ToDouble(Kvadratura.Text);
-            int brSprata = Convert.ToInt32(BrSprata.Text);
-            int brSobe = Convert.ToInt32(BrSobe.Text);
-            List<Inventory> opremaLista = prostorijaZaIzmenu.InventoryList;
+            Double area = Convert.ToDouble(Kvadratura.Text);
+            int floor = Convert.ToInt32(BrSprata.Text);
+            int roomNumber = Convert.ToInt32(BrSobe.Text);
+            List<Inventory> inventoryList = _roomForUpdate.InventoryList;
 
-            Room p = new Room(naziv, iDprostorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista);
-            RoomFileRepository.UpdateRoom(prostorijaZaIzmenu.RoomId, p);
-            parent.updateTable();
-            Close();
-        }
+            Room room = new Room(name, roomId, roomType, isDeleted, isActive, area, floor, roomNumber, inventoryList);
 
-        /*private void isDeleted_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }*/
-
-        private void IsActive_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Odustanak_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
+            return room;
         }
     }
 }

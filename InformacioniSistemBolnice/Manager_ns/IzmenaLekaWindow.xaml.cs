@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Upravnik
@@ -21,28 +22,25 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class IzmenaLekaWindow : Window
     {
-        private LekoviWindow parent;
-        private Medicine medForUpdate;
+        private LekoviWindow _parent;
+        private Medicine _medForUpdate;
+        private MedicineController _medicineController = new MedicineController();
+
         public IzmenaLekaWindow(Medicine med, LekoviWindow parent)
         {
             InitializeComponent();
-            this.parent = parent;
-            medForUpdate = med;
+            this._parent = parent;
+            _medForUpdate = med;
 
-            List<Ingredient> sastojci = IngredientFileStorage.GetAll();
+            List<Ingredient> sastojci = _medicineController.GetAllIngredients();
             Sastojci.ItemsSource = sastojci;
-
-            Sifra.Text = medForUpdate.MedicineId;
-            Naziv.Text = medForUpdate.Name;
-            List<Ingredient> ingredientList = medForUpdate.IngredientsList;
-            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(ingredientList);
-            SastojciList.ItemsSource = ingredients;
+            CollectSelectedMedicineData();
         }
 
         private void RemoveIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)SastojciList.SelectedItem;
-            List<Ingredient> medIngredients = medForUpdate.IngredientsList;
+            /*List<Ingredient> medIngredients = _medForUpdate.IngredientsList;
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
             foreach (Ingredient i in IngredientFileStorage.GetAll())
             {
@@ -50,50 +48,67 @@ namespace InformacioniSistemBolnice.Upravnik
                 {
                     ingredients.Remove(selected);
                 }
-            }
+            }*/
+            ObservableCollection<Ingredient> ingredients = _medicineController.RemoveIngredient(selected);
             SastojciList.ItemsSource = ingredients;
         }
 
         private void AddIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)Sastojci.SelectedItem;
-            List<Ingredient> medIngredients = medForUpdate.IngredientsList;
-            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
-            /*var ingredients = new ObservableCollection<Ingredient>();
+            //List<Ingredient> medIngredients = _medForUpdate.IngredientsList;
+            /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
+            var ingredients = new ObservableCollection<Ingredient>();
             var medIngredients = medForUpdate.ListaSastojaka;
             foreach(var ingredient in medIngredients)
             {
                 ingredients.Add(ingredient);
             }*/
-            foreach (Ingredient i in IngredientFileStorage.GetAll())
+            /*foreach (Ingredient i in IngredientFileStorage.GetAll())
             {
                 if (!SastojciList.Items.Contains(selected) && i.Name.Equals(selected.Name))
                 {
                     ingredients.Add(i);
                 }
-            }
+            }*/
+            ObservableCollection<Ingredient> ingredients = _medicineController.AddIngredientsToNewMedicine(selected);
             SastojciList.ItemsSource = ingredients;
         }
 
         private void UpdateMedicine(object sender, RoutedEventArgs e)
         {
-            String sifra = Sifra.Text;
-            String naziv = Naziv.Text;
-            MedicineStatus statusLeka = MedicineStatus.waitingForValidation;
-            bool isDeleted = false;
-            ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
-            List<Ingredient> sastojciLeka = ingredients.ToList();
-            Medicine updatedMed = new Medicine(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
-            MedicineFileRepository.UpdateMedicine(medForUpdate.MedicineId, updatedMed);
-
+            Medicine updatedMed = GenerateMedicineObjectFromCollectedData();
+            //MedicineFileRepository.UpdateMedicine(_medForUpdate.MedicineId, updatedMed);
+            _medicineController.UpdateMedicine(updatedMed);
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
-            parent.updateTable();
+            _parent.UpdateTable();
             this.Close();
         }
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        public void CollectSelectedMedicineData()
+        {
+            Sifra.Text = _medForUpdate.MedicineId;
+            Naziv.Text = _medForUpdate.Name;
+            List<Ingredient> ingredientList = _medForUpdate.IngredientsList;
+            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(ingredientList);
+            SastojciList.ItemsSource = ingredients;
+        }
+        public Medicine GenerateMedicineObjectFromCollectedData()
+        {
+            String medicineId = Sifra.Text;
+            String name = Naziv.Text;
+            MedicineStatus medicineStatus = MedicineStatus.waitingForValidation;
+            bool isDeleted = false;
+            ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
+            List<Ingredient> medicineIngredients = ingredients.ToList();
+
+            Medicine medicine = new Medicine(medicineId, name, isDeleted, medicineStatus, medicineIngredients);
+            return medicine;
         }
     }
 }

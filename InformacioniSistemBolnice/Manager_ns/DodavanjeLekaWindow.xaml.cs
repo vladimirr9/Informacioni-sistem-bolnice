@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Upravnik
@@ -21,30 +22,25 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class DodavanjeLekaWindow : Window
     {
-        LekoviWindow parent;
+        private LekoviWindow _parent;
+        private MedicineController _medicineController = new MedicineController();
         public DodavanjeLekaWindow(LekoviWindow parent)
         {
             InitializeComponent();
-            this.parent = parent;
+            this._parent = parent;
 
-            List<Ingredient> ingredients = IngredientFileStorage.GetAll();
-            Sastojci.ItemsSource = ingredients;
+            //List<Ingredient> ingredients = IngredientFileStorage.GetAll();
+            Sastojci.ItemsSource = _medicineController.GetAllIngredients();
             SastojciList.Items.Clear();
         }
 
         private void DodajLek(object sender, RoutedEventArgs e)
         {
-            String sifra = Sifra.Text;
-            String naziv = Naziv.Text;
-            MedicineStatus statusLeka = MedicineStatus.waitingForValidation;
-            bool isDeleted = false;
-            ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
-            List<Ingredient> sastojciLeka = ingredients.ToList();
-
-            Medicine medicine = new Medicine(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
-            MedicineFileRepository.AddMedicine(medicine);
+            Medicine newMedicine = GenerateMedicineObjectFromCollectedData();
+            //MedicineFileRepository.AddMedicine(medicine);
+            _medicineController.AddMedicine(newMedicine);
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
-            parent.updateTable();
+            _parent.UpdateTable();
             this.Close();
         }
 
@@ -56,14 +52,15 @@ namespace InformacioniSistemBolnice.Upravnik
         private void AddIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)Sastojci.SelectedItem;
-            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
+            /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
             foreach (Ingredient i in IngredientFileStorage.GetAll())
             {
                 if (!SastojciList.Items.Contains(selected) && i.Name.Equals(selected.Name))
                 {
                     ingredients.Add(i);
                 }
-            }
+            }*/
+            ObservableCollection<Ingredient> ingredients =_medicineController.AddIngredientsToNewMedicine(selected);
             SastojciList.ItemsSource = ingredients;
         }
 
@@ -71,15 +68,29 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             // SastojciList.Items.Clear();
             Ingredient selected = (Ingredient)SastojciList.SelectedItem;
-            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
+            /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
             foreach (Ingredient i in IngredientFileStorage.GetAll())
             {
                 if (i.Name.Equals(selected.Name) && SastojciList.SelectedItem != null)
                 {
                     ingredients.Remove(selected);
                 }
-            }
+            }*/
+            ObservableCollection<Ingredient> ingredients = _medicineController.RemoveIngredient(selected);
             SastojciList.ItemsSource = ingredients;
+        }
+
+        public Medicine GenerateMedicineObjectFromCollectedData()
+        {
+            String medicineId = Sifra.Text;
+            String name = Naziv.Text;
+            MedicineStatus medicineStatus = MedicineStatus.waitingForValidation;
+            bool isDeleted = false;
+            ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
+            List<Ingredient> medicineIngredients = ingredients.ToList();
+
+            Medicine medicine = new Medicine(medicineId, name, isDeleted, medicineStatus, medicineIngredients);
+            return medicine;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,35 +20,37 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class FiltriranaOprema : Window
     {
-        private WindowProstorije parent;
-        private String pretraga;
+        private WindowProstorije _parent;
+        private String _search;
+        private RoomController _roomController = new RoomController();
         public FiltriranaOprema(WindowProstorije parent, String search)
         {
             InitializeComponent();
-            this.parent = parent;
-            this.pretraga = search;
+            this._parent = parent;
+            this._search = search;
             //UpdateTable();
-
-            List<Room> sveProstorije = RoomFileRepository.GetAll();
-            //List<Oprema> opremaLista = new List<Oprema>();
-
-            foreach (Room p in sveProstorije)
-            {
-                foreach (Inventory o in p.InventoryList)
-                {
-                    if (o.Name.Equals(pretraga))
-                    {
-                        dataGridOprema.Items.Add(o);
-                    }
-                }
-            }
-
+            List<Inventory> filteredInventory = _roomController.FilteredInventory(_search);
+            dataGridInventory.ItemsSource = filteredInventory;
             this.DataContext = this;
         }
 
-        private void Zatvori(object sender, RoutedEventArgs e)
+        private void Close(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
     }
+
+    //List<Room> sveProstorije = RoomFileRepository.GetAll();
+    //List<Oprema> opremaLista = new List<Oprema>();
+
+    /*foreach (Room p in sveProstorije)
+    {
+        foreach (Inventory o in p.InventoryList)
+        {
+            if (o.Name.Equals(pretraga))
+            {
+                dataGridOprema.Items.Add(o);
+            }
+        }
+    }*/
 }

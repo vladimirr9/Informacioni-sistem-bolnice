@@ -21,9 +21,9 @@
         <TextBox x:Name="Naziv" HorizontalAlignment="Left" Height="30" Margin="204,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
         <TextBox x:Name="Kolicina" HorizontalAlignment="Left" Height="30" Margin="204,480,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
         <CheckBox x:Name="IsDeleted" Content="" HorizontalAlignment="Left" Margin="204,546,0,0" VerticalAlignment="Top" IsChecked="False" IsEnabled="False" FontSize="20" Width="17"/>
-        <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" Margin="121,605,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Background="CornflowerBlue" Click="DodajOpremu"/>
-        <Button x:Name="button1" Content="Otkaži" HorizontalAlignment="Left" Margin="323,605,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Background="IndianRed" Click="Otkazi"/>
+        <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" Margin="121,605,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Background="CornflowerBlue" Click="AddInventory"/>
+        <Button x:Name="button1" Content="Otkaži" HorizontalAlignment="Left" Margin="323,605,0,0" VerticalAlignment="Top" Width="100" FontSize="15" Background="IndianRed" Click="Cancel"/>
         <Label x:Name="label6" Content="ID prostorije:" HorizontalAlignment="Left" Margin="41,125,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
-        <TextBox x:Name="IdProstorije" HorizontalAlignment="Left" Height="30" Margin="204,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="20"/>
+        <TextBox x:Name="IdProstorije" HorizontalAlignment="Left" Height="30" Margin="204,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="20" IsEnabled="False"/>
     </Grid>
 </Window>

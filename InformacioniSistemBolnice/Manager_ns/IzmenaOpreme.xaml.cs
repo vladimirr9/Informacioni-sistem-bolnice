@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,20 +20,59 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class IzmenaOpreme : Window
     {
-        private OpremaWindow parent;
-        private Inventory opremaZaIzmenu;
-        private Room selektovana;
-        public IzmenaOpreme(Room p, Inventory o, OpremaWindow parent)
+        private OpremaWindow _parent;
+        private Inventory _inventoryForUpdate;
+        private Room _selectedRoom;
+        private RoomController _roomController = new RoomController();
+        public IzmenaOpreme(Room room, Inventory inventory, OpremaWindow parent)
         {
             InitializeComponent();
-            this.parent = parent;
-            opremaZaIzmenu = o;
-            selektovana = p;
+            this._parent = parent;
+            _inventoryForUpdate = inventory;
+            _selectedRoom = room;
+            SelectedInventoryData();
+        }
 
-            IdProstorije.Text = selektovana.GetOne(opremaZaIzmenu.InventoryId).RoomId.ToString();
-            Sifra.Text = opremaZaIzmenu.InventoryId;
-            Naziv.Text = opremaZaIzmenu.Name;
-            if (opremaZaIzmenu.InventoryType == 0)
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void UpdateInventory(object sender, RoutedEventArgs e)
+        {
+            Inventory newInventory = GeneratedInventoryObjectFromCollectedData();
+            _roomController.UpdateInventory(_selectedRoom, _inventoryForUpdate, newInventory);
+            _parent.UpdateTable();
+            this.Close();
+        }
+
+        public Inventory GeneratedInventoryObjectFromCollectedData()
+        {
+            int roomId = _selectedRoom.GetOne(_inventoryForUpdate.InventoryId).RoomId;
+            String inventoryid = Sifra.Text;
+            String name = Naziv.Text;
+            InventoryType inventoryType;
+            if (TipOpreme.SelectedIndex == 0)
+            {
+                inventoryType = 0;
+            }
+            else
+            {
+                inventoryType = (InventoryType)1;
+            }
+            int quantity = Convert.ToInt32(Kolicina.Text);
+            Boolean isDeleted = (bool)IsDeleted.IsChecked;
+
+            Inventory updatedInventory = new Inventory(roomId, inventoryid, name, inventoryType, quantity, isDeleted);
+            return updatedInventory;
+        }
+
+        public void SelectedInventoryData()
+        {
+            IdProstorije.Text = _selectedRoom.GetOne(_inventoryForUpdate.InventoryId).RoomId.ToString();
+            Sifra.Text = _inventoryForUpdate.InventoryId;
+            Naziv.Text = _inventoryForUpdate.Name;
+            if (_inventoryForUpdate.InventoryType == 0)
             {
                 TipOpreme.SelectedIndex = 0;
             }
@@ -40,57 +80,8 @@ namespace InformacioniSistemBolnice.Upravnik
             {
                 TipOpreme.SelectedIndex = 1;
             }
-            Kolicina.Text = opremaZaIzmenu.Quantity.ToString();
-            IsDeleted.IsChecked = opremaZaIzmenu.IsDeleted;
-        }
-
-        private void Otkazi(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void IzmeniOpremu(object sender, RoutedEventArgs e)
-        {
-            int idProstorije = selektovana.GetOne(opremaZaIzmenu.InventoryId).RoomId;
-            String sifra = Sifra.Text;
-            String naziv = Naziv.Text;
-            InventoryType tipOpreme;
-            if (TipOpreme.SelectedIndex == 0)
-            {
-                tipOpreme = 0;
-            }
-            else
-            {
-                tipOpreme = (InventoryType)1;
-            }
-            int kolicina = Convert.ToInt32(Kolicina.Text);
-            Boolean isDeleted = (bool)IsDeleted.IsChecked;
-
-            Inventory o = new Inventory(idProstorije, sifra, naziv, tipOpreme, kolicina, isDeleted);
-
-            int idProstorije2 = selektovana.RoomId;
-            String naziv2 = selektovana.Name;
-            RoomType tipProstorije = selektovana.RoomType;
-            Boolean isDeleted2 = selektovana.IsDeleted;
-            Boolean isActive = selektovana.IsActive;
-            Double kvadratura = selektovana.Area;
-            int brSprata = selektovana.Floor;
-            int brSobe = selektovana.RoomNumber;
-            List<Inventory> opremaLista = selektovana.InventoryList;
-
-            opremaLista.Remove(opremaZaIzmenu);
-            opremaLista.Add(o);
-
-            //Oprema o = new Oprema(sifra, Name, tipOpreme, kolicina, IsDeleted);
-            //OpremaFileStorage.UpdateOprema(opremaZaIzmenu.Sifra, o);
-            Room p = new Room(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
-
-            RoomFileRepository.UpdateRoom(selektovana.RoomId, p);
-
-            //selektovana.OpremaLista.Remove(opremaZaIzmenu);
-            //selektovana.OpremaLista.Add(o);
-            parent.updateTable();
-            this.Close();
+            Kolicina.Text = _inventoryForUpdate.Quantity.ToString();
+            IsDeleted.IsChecked = _inventoryForUpdate.IsDeleted;
         }
     }
 }

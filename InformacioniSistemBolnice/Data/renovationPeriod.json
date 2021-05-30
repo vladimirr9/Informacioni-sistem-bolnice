@@ -1,0 +1,1 @@
+[{"StartDate":"2021-05-30T00:00:00","EndDate":"2021-05-31T00:00:00","IsDeleted":false,"Room":{"Name":"Operaciona Sala 2","RoomId":101,"RoomType":0,"IsDeleted":false,"IsActive":false,"Area":50.0,"Floor":3,"RoomNumber":305,"InventoryList":[{"Name":"makaze","InventoryId":"m100","InventoryType":0,"Quantity":2,"IsDeleted":false,"RoomId":101}]}}]

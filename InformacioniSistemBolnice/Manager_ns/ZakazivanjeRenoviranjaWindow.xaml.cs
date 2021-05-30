@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,73 +20,33 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class ZakazivanjeRenoviranjaWindow : Window
     {
-        private WindowProstorije parent;
-        private Room selektovana;
-        public ZakazivanjeRenoviranjaWindow(Room p, WindowProstorije parent)
+        private WindowProstorije _parent;
+        private Room _selectedRoom;
+        private RenovationPeriodController _renovationPeriodController = new RenovationPeriodController();
+        public ZakazivanjeRenoviranjaWindow(Room room, WindowProstorije parent)
         {
             InitializeComponent();
-            this.parent = parent;
-            selektovana = p;
-            parent.updateTable();
-            CalendarDateRange kalendar = new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1));
-            DatumOd.BlackoutDates.Add(kalendar);
-            DatumDo.BlackoutDates.Add(kalendar);
+            this._parent = parent;
+            _selectedRoom = room;
+            parent.UpdateTable();
+            CalendarSettings();
         }
 
         private void ZakaziRenoviranje(object sender, RoutedEventArgs e)
         {
-            DateTime datumOd = (DateTime)DatumOd.SelectedDate;
-            DateTime datumDo = (DateTime)DatumDo.SelectedDate;
-            int interval = 1;
-            //CalendarDateRange periodRenoviranja = new CalendarDateRange(datumOd, datumDo);
-
-            int idProstorije2 = selektovana.RoomId;
-            String naziv2 = selektovana.Name;
-            RoomType tipProstorije = selektovana.RoomType;
-            Boolean isDeleted2 = selektovana.IsDeleted;
-            Boolean isActive = selektovana.IsActive;
-            Double kvadratura = selektovana.Area;
-            int brSprata = selektovana.Floor;
-            int brSobe = selektovana.RoomNumber;
-            List<Inventory> opremaLista = selektovana.InventoryList;
-
-            List<Appointment> listaTermina = AppointmentFileRepository.GetAll();
-
-            if (datumOd < datumDo)
-            {
-                //foreach (DateTime day in PeriodRenoviranja(datumOd, datumDo))
-                //{
-                    //foreach (Appointment t in listaTermina)
-                    //{
-                        //if (t.AppointmentDate.Date != day)
-                if(selektovana.IsAvailable(datumOd, datumDo))
-                {
-                    if (DateTime.Today.Date == datumOd.Date)
-                    {
-                        isActive = false;
-                    }
-                    else
-                    {
-                        isActive = true;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Ima zakazanih termina u tom periodu!", "Upozorenje", MessageBoxButton.OK);
-                    this.Close();
-                }
-                    //}
-               // }
-            }
+            DateTime dateFrom = (DateTime)DateFrom.SelectedDate;
+            DateTime dateTo = (DateTime)DateTo.SelectedDate;
+            
+            //if(_renovationPeriodController.IsAvailable(_selectedRoom, dateFrom, dateTo))
+            //{
+                _renovationPeriodController.ScheduleRenovation(_selectedRoom, dateFrom, dateTo);
+            /*} 
             else
             {
-                MessageBox.Show("Uneli ste neispravan period!", "Upozorenje", MessageBoxButton.OK);
+                MessageBox.Show("Ima zakazanih termina u tom periodu!", "Upozorenje", MessageBoxButton.OK);
                 this.Close();
-            }
-
-            Room p = new Room(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
-            RoomFileRepository.UpdateRoom(selektovana.RoomId, p);
-            parent.updateTable();
+            }*/
+            _parent.UpdateTable();
             this.Close();
         }
 
@@ -94,10 +55,65 @@ namespace InformacioniSistemBolnice.Upravnik
             this.Close();
         }
 
+        public void CalendarSettings()
+        {
+            CalendarDateRange kalendar = new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1));
+            DateFrom.BlackoutDates.Add(kalendar);
+            DateTo.BlackoutDates.Add(kalendar);
+        }
+
         /*public IEnumerable<DateTime> PeriodRenoviranja(DateTime from, DateTime to)
         {
             for (var dan = from.Date; dan.Date <= to.Date; dan = dan.AddDays(1))
                 yield return dan;
+        }*/
+
+        //Room p = new Room(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
+        //RoomFileRepository.UpdateRoom(_selectedRoom.RoomId, p);//int interval = 1;
+        //CalendarDateRange periodRenoviranja = new CalendarDateRange(datumOd, datumDo);
+
+        /*int idProstorije2 = _selectedRoom.RoomId;
+        String naziv2 = _selectedRoom.Name;
+        RoomType tipProstorije = _selectedRoom.RoomType;
+        Boolean isDeleted2 = _selectedRoom.IsDeleted;
+        Boolean isActive = _selectedRoom.IsActive;
+        Double kvadratura = _selectedRoom.Area;
+        int brSprata = _selectedRoom.Floor;
+        int brSobe = _selectedRoom.RoomNumber;
+        List<Inventory> opremaLista = _selectedRoom.InventoryList;
+
+        List<Appointment> listaTermina = AppointmentFileRepository.GetAll();
+
+        if (dateFrom < dateTo)
+        {
+            //foreach (DateTime day in PeriodRenoviranja(datumOd, datumDo))
+            //{
+                //foreach (Appointment t in listaTermina)
+                //{
+                    //if (t.AppointmentDate.Date != day)
+            if(_selectedRoom.IsAvailable(dateFrom, dateTo))
+            {
+                if (DateTime.Today.Date == dateFrom.Date)
+                {
+                    isActive = false;
+                }
+                else
+                {
+                    isActive = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ima zakazanih termina u tom periodu!", "Upozorenje", MessageBoxButton.OK);
+                this.Close();
+            }
+                //}
+           // }
+        }
+        else
+        {
+            MessageBox.Show("Uneli ste neispravan period!", "Upozorenje", MessageBoxButton.OK);
+            this.Close();
         }*/
     }
 }

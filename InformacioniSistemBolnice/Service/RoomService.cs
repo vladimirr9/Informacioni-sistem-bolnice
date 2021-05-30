@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace InformacioniSistemBolnice.Service
 {
-    class RoomService
+    public class RoomService
     {
         public void AddRoom(Room room)
         {
@@ -49,23 +49,22 @@ namespace InformacioniSistemBolnice.Service
 
         public void UpdateRoom(Room room)
         {
-            if (!IsIdunique(room.RoomId))
-            {
-                MessageBox.Show("Uneti ID prostorije već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
-                return;
-            }
-
-            if (!IsNameUnique(room.Name))
-            {
-                MessageBox.Show("Uneto ime prostorije već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
-                return;
-            }
             RoomFileRepository.UpdateRoom(room.RoomId, room);
         }
 
         public void RemoveRoom(Room room)
         {
             RoomFileRepository.RemoveRoom(room.RoomId);
+        }
+
+        public Room GetOneRoom(int roomId)
+        {
+            return RoomFileRepository.GetOne(roomId);
+        }
+
+        public List<Room> GetAllRooms()
+        {
+            return RoomFileRepository.GetAll();
         }
 
         public Inventory GetOneInventoryFromSpecifiedRoom(int roomId, String inventoryId)
@@ -81,57 +80,36 @@ namespace InformacioniSistemBolnice.Service
             return null;
         }
 
-        public void AddRenovatoinPeriod(RenovationPeriod newRenovationPeriod)
+        public void AddNewInventory(Room room, Inventory newInventory)
         {
-            RenovationperiodFileRepository.AddRenovationPeriod(newRenovationPeriod);
+            room.InventoryList.Add(newInventory);
+            UpdateRoom(room);
         }
 
-        public void AddNewInventory(Inventory newInventory)
+        public void UpdateInventory(Room room, Inventory inventoryForUpdate, Inventory updatedInventory)
         {
-            //List<Room> rooms = RoomFileRepository.GetAll();
-            foreach(Room room in RoomFileRepository.GetAll())
-            {
-                if(newInventory.RoomId == room.RoomId)
-                {
-                    room.InventoryList.Add(newInventory);
-                    UpdateRoom(room);
-                }
-            }
+            room.InventoryList[room.InventoryList.IndexOf(inventoryForUpdate)] = updatedInventory;
+            UpdateRoom(room);
         }
 
-        public void UpdateInventory(Inventory inventoryForUpdate, Inventory updatedInventory)
+        public void RemoveInventory(Room room, Inventory inventoryForRemove)
         {
-            foreach (Room room in RoomFileRepository.GetAll())
-            {
-                if (inventoryForUpdate.RoomId == room.RoomId)
-                {
-                    room.InventoryList[room.InventoryList.IndexOf(inventoryForUpdate)] = updatedInventory;
-                    UpdateRoom(room);
-                }
-            }
+            room.InventoryList.Remove(inventoryForRemove);
+            UpdateRoom(room);
         }
 
-        public void RemoveInventory(Inventory inventoryForRemove)
-        {
-            foreach (Room room in RoomFileRepository.GetAll())
-            {
-                if (inventoryForRemove.RoomId == room.RoomId)
-                {
-                    room.InventoryList.Remove(inventoryForRemove);
-                    UpdateRoom(room);
-                }
-            }
-        }
-
-        public void DinamicInventoryRelocation(Room roomWhere, Inventory inventoryForRelocating, int quantity)
+        public void DinamicInventoryRelocation(Room destinationRoom, Inventory inventoryForRelocating, int quantity)
         {
             IsEnoughInventory(inventoryForRelocating, quantity);
-            if(inventoryForRelocating.RoomId == roomWhere.RoomId)
+            foreach(Inventory inventory in destinationRoom.InventoryList)
             {
-                roomWhere.InventoryList[roomWhere.InventoryList.IndexOf(inventoryForRelocating)].Quantity += quantity;
-                inventoryForRelocating.Quantity -= quantity;
+                if (inventory.InventoryId.Equals(inventoryForRelocating.InventoryId))
+                {
+                    inventory.Quantity += quantity;
+                    inventoryForRelocating.Quantity -= quantity;
+                }
             }
-            UpdateRoom(roomWhere);
+            UpdateRoom(destinationRoom);
             UpdateRoom(RoomFileRepository.GetOne(inventoryForRelocating.RoomId));
         }
 
@@ -140,6 +118,22 @@ namespace InformacioniSistemBolnice.Service
             if (inventoryForRelocating.Quantity < quantity)
                 MessageBox.Show("Ne možete prebaciti više opreme nego što ima u prostoriji", "Nema dovoljno opreme!", MessageBoxButton.OK);
             return;
+        }
+
+        public List<Inventory> FilteredInventory(String search)
+        {
+            List<Inventory> inventoryList = new List<Inventory>();
+            foreach (Room room in GetAllRooms())
+            {
+                foreach (Inventory inventory in room.InventoryList)
+                {
+                    if (inventory.Name.Contains(search))
+                    {
+                        inventoryList.Add(inventory);
+                    }
+                }
+            }
+            return inventoryList;
         }
     }
 }
