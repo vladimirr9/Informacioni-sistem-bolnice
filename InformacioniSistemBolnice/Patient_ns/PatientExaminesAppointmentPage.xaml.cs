@@ -81,7 +81,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                             ActivityLog informacija =
                                 new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme,
                                     TypeOfActivity.cancelingAppointment);
-                            ActivityLogFileRepository.AddInformacije(informacija);
+                            ActivityLogFileRepository.AddActivity(informacija);
                         }
                     }
                 }

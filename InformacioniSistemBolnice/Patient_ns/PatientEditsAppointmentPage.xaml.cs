@@ -322,7 +322,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 ptp.updateTable();
 
                 ActivityLog informacija = new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme, TypeOfActivity.editingAppointment);
-                ActivityLogFileRepository.AddInformacije(informacija);
+                ActivityLogFileRepository.AddActivity(informacija);
             }
 
 

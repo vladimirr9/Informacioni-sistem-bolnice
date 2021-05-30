@@ -149,7 +149,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
             ZakaziTermin();
             ActivityLog informacija = new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
-            ActivityLogFileRepository.AddInformacije(informacija);
+            ActivityLogFileRepository.AddActivity(informacija);
         }
 
         private void startTime_SelectionChanged(object sender, SelectionChangedEventArgs e)

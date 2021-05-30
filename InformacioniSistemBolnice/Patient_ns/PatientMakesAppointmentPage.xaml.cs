@@ -115,7 +115,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 ActivityLog informacija =
                     new ActivityLog(DateTime.Now, pacijent.korisnickoIme,
                         TypeOfActivity.makingAppointment);
-                ActivityLogFileRepository.AddInformacije(informacija);
+                ActivityLogFileRepository.AddActivity(informacija);
             }
         }
 

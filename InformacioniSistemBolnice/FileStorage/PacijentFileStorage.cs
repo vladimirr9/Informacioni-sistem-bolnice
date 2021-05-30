@@ -133,9 +133,9 @@ public class PacijentFileStorage
     }
     public static void ProvjeritiStatusPacijenta(Pacijent pacijent)
     {
-        int brojZakazivanja = ActivityLogFileRepository.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
-        int brojPomjeranja = ActivityLogFileRepository.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, TypeOfActivity.editingAppointment);
-        int brojOtkazivanja = ActivityLogFileRepository.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, TypeOfActivity.cancelingAppointment);
+        int brojZakazivanja = ActivityLogFileRepository.NumberOfActivity(pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
+        int brojPomjeranja = ActivityLogFileRepository.NumberOfActivity(pacijent.korisnickoIme, TypeOfActivity.editingAppointment);
+        int brojOtkazivanja = ActivityLogFileRepository.NumberOfActivity(pacijent.korisnickoIme, TypeOfActivity.cancelingAppointment);
 
         if (brojZakazivanja > 3 || brojOtkazivanja > 2 || brojPomjeranja > 2)
         {

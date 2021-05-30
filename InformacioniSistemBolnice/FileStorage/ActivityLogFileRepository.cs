@@ -20,54 +20,55 @@ namespace InformacioniSistemBolnice.FileStorage
                 var tmp = File.OpenWrite(startupPath);
                 tmp.Close();
             }
-            List<ActivityLog> informacije;
+            List<ActivityLog> activities;
             String procitano = File.ReadAllText(startupPath);
             if (procitano.Equals(""))
             {
-                informacije = new List<ActivityLog>();
+                activities = new List<ActivityLog>();
             }
             else
             {
-                informacije = JsonConvert.DeserializeObject<List<ActivityLog>>(procitano);
+                activities = JsonConvert.DeserializeObject<List<ActivityLog>>(procitano);
             }
-            return informacije;
+            return activities;
 
 
         }
 
 
-        public static Boolean AddInformacije(ActivityLog novoKoriscenje)
+        public static Boolean AddActivity(ActivityLog newActivity)
         {
-            List<ActivityLog> informacije = GetAll();
-            informacije.Add(novoKoriscenje);
-            Save(informacije);
+            List<ActivityLog> activities = GetAll();
+            activities.Add(newActivity);
+            Save(activities);
             return true;
         }
 
-        private static void Save(List<ActivityLog> informacije)
+        private static void Save(List<ActivityLog> activities)
         {
-            string upis = JsonConvert.SerializeObject(informacije);
+            string upis = JsonConvert.SerializeObject(activities);
             File.WriteAllText(startupPath, upis);
         }
 
-        public static int BrojIzvrsenihFunkcionalnosti(string korisnickoIme, TypeOfActivity vrsta)
+        //prebaciti u servis
+        public static int NumberOfActivity(string username, TypeOfActivity type)
         {
-            int brojacIzvrsenja = 0;
+            int counterOfActivity = 0;
             List<ActivityLog> informacije = GetAll();
             foreach (ActivityLog i in informacije)
             {
-                if (i.UsernameOfPatient.Equals(korisnickoIme) && i.Type.Equals(vrsta))
+                if (i.UsernameOfPatient.Equals(username) && i.Type.Equals(type))
                 {
                     if (i.DateOfActivity> DateTime.Now.AddDays(-10))
 
                     {
-                        ++brojacIzvrsenja;
+                        ++counterOfActivity;
                     }
                 }
 
             }
 
-            return brojacIzvrsenja;
+            return counterOfActivity;
 
         }
 
