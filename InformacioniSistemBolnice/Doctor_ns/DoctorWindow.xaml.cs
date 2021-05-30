@@ -27,27 +27,27 @@ namespace InformacioniSistemBolnice
             Main.Content = ProfilePage.GetPage(this);
         }
 
-        private void KartonClick(object sender, RoutedEventArgs e)
+        private void Patients_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = DoctorPatientsPage.GetPage(this);
         }
 
-        private void PreglediClick(object sender, RoutedEventArgs e)
+        private void Appointments_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = AppointmentsPage.GetPage(this);
         }
 
-        private void LekoviClick(object sender, RoutedEventArgs e)
+        private void Medicine_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = DrugsPage.GetPage(this);
         }
 
-        private void ProfilClick(object sender, RoutedEventArgs e)
+        private void Profile_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = ProfilePage.GetPage(this);
         }
 
-        private void OdjavaClick(object sender, RoutedEventArgs e)
+        private void Logout_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             Application.Current.MainWindow = mainWindow;

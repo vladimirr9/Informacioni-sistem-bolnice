@@ -36,14 +36,14 @@ namespace InformacioniSistemBolnice.Doctor_ns
             return instance;
         }
 
-        private void LekoviZaPotvrduClick(object sender, RoutedEventArgs e)
+        private void For_Confirmation_Click(object sender, RoutedEventArgs e)
         {
             DrugsValidationWindow drugsWindow = new DrugsValidationWindow();
             Application.Current.MainWindow = drugsWindow;
             drugsWindow.Show();
         }
 
-        private void DodajSastojakClick(object sender, RoutedEventArgs e)      //ubaciti kontroler za lekove
+        private void Add_Ingredient_Click(object sender, RoutedEventArgs e)      //ubaciti kontroler za lekove
         {
             if (IngredientsComboBox.SelectedIndex != -1)
             {

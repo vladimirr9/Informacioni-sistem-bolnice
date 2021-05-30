@@ -50,5 +50,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _appointmentService.PatientsAppointments(patient);
         }
+
+        public void FinishAppointment(Appointment appointment)
+        {
+            _appointmentService.FinishAppointment(appointment);
+        }
     }
 }

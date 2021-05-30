@@ -36,7 +36,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             return instance;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Medical_Record_Click(object sender, RoutedEventArgs e)
         {
             if (PatientsDataGrid.SelectedItem != null)
             {

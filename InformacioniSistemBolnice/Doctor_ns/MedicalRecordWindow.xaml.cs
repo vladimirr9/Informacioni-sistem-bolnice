@@ -55,21 +55,15 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 AppointmentsDataGrid.Items.Add(appointment);
             }
 
-
             AnamnesisTextBox.Document.Blocks.Clear();
-
-
-            List<Medicine> drugs = MedicineFileRepository.GetAll();               //kontroler
-            DrugsComboBox.ItemsSource = drugs;
+            DrugsComboBox.ItemsSource = MedicineFileRepository.GetAll();      //kontroler
         }
 
-        //izadvanje recepta i terapije
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Prescription_Click(object sender, RoutedEventArgs e)
         {
             if (DrugsComboBox.SelectedItem != null && BeginDatePicker.Text != "" && EndDatePicker.Text != "")
             {
-                Medicine drug = (Medicine)DrugsComboBox.SelectedItem;
-                if (_patientController.IsAllergic(drug, selected))
+                if (_patientController.IsAllergic((Medicine)DrugsComboBox.SelectedItem, selected))
                 {
                     MessageBox.Show("Patient je alergican na izabrani lek.", "Alergican");
                     return;
@@ -119,20 +113,18 @@ namespace InformacioniSistemBolnice.Doctor_ns
                     Anamnesis newAnamnesis = new Anamnesis(anamnesis, null, selected.Username, _anamnesisController.GenerateId(), DateTime.Now, appointment.AppointmentID);
                     _anamnesisController.Add(newAnamnesis);
                 }
+                _appointmentController.FinishAppointment(appointment);
             }
-            
         }
 
-        //Izdavanje uputa
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Referral_Click(object sender, RoutedEventArgs e)
         {
             DoctorAddAppointmentWindow addWindow = new DoctorAddAppointmentWindow(parent);
             Application.Current.MainWindow = addWindow;
             addWindow.Show();
         }
 
-        //dodaj alergiju
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Add_Allergy_Click(object sender, RoutedEventArgs e)
         {
             PatientController patientController = new PatientController();
             patientController.AddAllergen(selected, (Ingredient)AllergiesComboBox.SelectedItem);
@@ -140,8 +132,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             WriteAllergies(selected);
         }
 
-        //bolnicko lecenje
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private void Hospitalisation_Click(object sender, RoutedEventArgs e)
         {
             if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null &&
                 RoomComboBox.SelectedIndex != -1 && BedComboBox.SelectedIndex != -1)
@@ -177,7 +168,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
         private void UpdateComponents()
         {
-            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null)
+            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null)              //room controler
             {
                 List<Room> rooms = RoomFileRepository.GetAll();
                 List<Room> available = new List<Room>();

@@ -58,12 +58,18 @@ namespace InformacioniSistemBolnice.Service
             List<Appointment> appointments = new List<Appointment>();
             foreach (Appointment appointment in AppointmentFileRepository.GetAll())
             {
-                if (appointment.Patient.Equals(patient))
+                if (appointment.Patient.Equals(patient) && appointment.AppointmentStatus != AppointmentStatus.cancelled && appointment.AppointmentStatus != AppointmentStatus.missed)
                 {
                     appointments.Add(appointment);
                 } 
             }
             return appointments;
+        }
+
+        public void FinishAppointment(Appointment appointment)
+        {
+            appointment.AppointmentStatus = AppointmentStatus.finished;
+            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
         }
     }
 }

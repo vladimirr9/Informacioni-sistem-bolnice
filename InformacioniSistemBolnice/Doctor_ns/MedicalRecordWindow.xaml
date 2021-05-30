@@ -33,7 +33,7 @@
                 <Grid Background="#FFE5E5E5">
                     <Label Content="Alergije:" HorizontalAlignment="Left" Margin="150,53,0,0" VerticalAlignment="Top" FontSize="20"/>
                     <Label Content="Dodaj alergiju:" HorizontalAlignment="Left" Margin="93,277,0,0" VerticalAlignment="Top" FontSize="20"/>
-                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="499,279,0,0" VerticalAlignment="Top" Width="106" Height="35" Background="#FF2B78E4" Foreground="White" Click="Button_Click_3"/>
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="499,279,0,0" VerticalAlignment="Top" Width="106" Height="35" Background="#FF2B78E4" Foreground="White" Click="Add_Allergy_Click"/>
                     <ComboBox x:Name="AllergiesComboBox" HorizontalAlignment="Left" Margin="264,279,0,0" VerticalAlignment="Top" Width="200" Height="35" DisplayMemberPath="Name"/>
                     <ListBox x:Name="AllergiesList" HorizontalAlignment="Left" Height="183" Margin="264,53,0,0" VerticalAlignment="Top" Width="200" FontSize="20"/>
 
@@ -50,7 +50,7 @@
                     </RichTextBox>
                     <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="44,237,0,0" VerticalAlignment="Top" Width="108" FontSize="20"/>
                     <Button Content="Sacuvaj" HorizontalAlignment="Left" Margin="46,313,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Save_Anamnesis_Click" Background="#FF2B78E4" Foreground="White"/>
-                    <Button Content="Uput" HorizontalAlignment="Left" Margin="599,165,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Button_Click_2" Background="#FF2B78E4" Foreground="White"/>
+                    <Button Content="Uput" HorizontalAlignment="Left" Margin="599,165,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Referral_Click" Background="#FF2B78E4" Foreground="White"/>
                     <DataGrid x:Name="AppointmentsDataGrid" Margin="46,10,47,225" IsReadOnly="True" SelectionChanged="Selection_Changed">
                         <DataGrid.Resources>
                             <Style TargetType="{x:Type DataGridColumnHeader}"/>
@@ -87,7 +87,7 @@
                     <DatePicker x:Name="BeginDatePicker" HorizontalAlignment="Left" Margin="192,249,0,0" VerticalAlignment="Top"/>
                     <DatePicker x:Name="EndDatePicker" HorizontalAlignment="Left" Margin="366,249,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.44,0.535"/>
                     <TextBox x:Name="FrequencyTextBox" HorizontalAlignment="Left" Height="32" Margin="310,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="57"/>
-                    <Button Content="Izdaj terapiju" HorizontalAlignment="Left" Margin="527,42,0,0" VerticalAlignment="Top"  Width="106" Height="32" Click="Button_Click" Background="#FF2B78E4" Foreground="White"/>
+                    <Button Content="Izdaj terapiju" HorizontalAlignment="Left" Margin="527,42,0,0" VerticalAlignment="Top"  Width="106" Height="32" Click="Prescription_Click" Background="#FF2B78E4" Foreground="White"/>
                     <ComboBox x:Name="DrugsComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="276" Margin="192,42,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
@@ -117,7 +117,7 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                     <TextBlock HorizontalAlignment="Left" Height="32" Margin="111,156,0,0" TextWrapping="Wrap" Text="Prostorija:" VerticalAlignment="Top" Width="118" FontSize="20"/>
-                    <Button Content="Zakaži lečenje" HorizontalAlignment="Left" Margin="480,254,0,0" VerticalAlignment="Top"  Width="106" Height="32" Background="#FF2B78E4" Foreground="White" Click="Button_Click_4"/>
+                    <Button Content="Zakaži lečenje" HorizontalAlignment="Left" Margin="480,254,0,0" VerticalAlignment="Top"  Width="106" Height="32" Background="#FF2B78E4" Foreground="White" Click="Hospitalisation_Click"/>
                     <TextBlock HorizontalAlignment="Left" Height="32" Margin="111,253,0,0" TextWrapping="Wrap" Text="Krevet:" VerticalAlignment="Top" Width="118" FontSize="20"/>
                     <ComboBox x:Name="BedComboBox" HorizontalAlignment="Left" Margin="234,254,0,0" VerticalAlignment="Top" Width="131" Height="32"/>
 
