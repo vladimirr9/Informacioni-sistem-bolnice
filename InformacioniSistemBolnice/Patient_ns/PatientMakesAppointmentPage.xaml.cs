@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice.Patient_ns
     {
         private const int trajanjePregleda = 15;
         private ActivityLogController _activityLogController = new ActivityLogController();
+        private DoctorControler _doctorController = new DoctorControler();
         private StartPatientWindow parent;
         private List<string> availableTimes;
         private List<global::Doctor> lekari;
@@ -41,31 +42,29 @@ namespace InformacioniSistemBolnice.Patient_ns
             prostorije = RoomFileRepository.GetAll();
             BlackOutDates();
             lekari = new List<global::Doctor>();
-            foreach (global::Doctor l in DoctorFileRepository.GetAll())
-            {
-                if (l.doctorType.Equals(DoctorType.generalPractitioner))
-                {
-                    lekari.Add(l);
-                }
-            }
-
+            FillDoctorsComboBox();
             lekar.ItemsSource = lekari;
             _patient = parent.Patient;
             parent.titleLabel.Content = "Zakazivanje pregleda";
             parent.titleLabel.Visibility = Visibility.Visible;
         }
-
+        private void FillDoctorsComboBox()
+        {
+            foreach (global::Doctor doctor in _doctorController.GetDoctorsByType(DoctorType.generalPractitioner))
+            {
+                lekari.Add(doctor);
+            }
+            lekar.ItemsSource = lekari;
+        }
 
         private void timeComboBox()
         {
 
             DateTime danas = DateTime.Today;
-
             for (DateTime tm = danas.AddHours(8); tm < danas.AddHours(20); tm = tm.AddMinutes(15))
             {
                 availableTimes.Add(tm.ToString("HH:mm"));
             }
-
             time.ItemsSource = availableTimes;
         }
 
@@ -127,11 +126,8 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
             DateTime start;
             DateTime end;
-
             CalculateStartAndEnd(out start, out end);
-
-            setEnabledButtonSubmit();
-
+            SetEnabledButtonSubmit();
             CheckAvailableTimes();
         }
 
@@ -209,7 +205,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             time.ItemsSource = availableTimes;
         }
 
-        private void setEnabledButtonSubmit()
+        private void SetEnabledButtonSubmit()
         {
             if (lekar.SelectedItem != null && date.SelectedDate != null && time.SelectedItem != null)
             {
@@ -227,7 +223,6 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 String timeSelected = time.SelectedItem.ToString();
                 String dateSelected = date.Text;
-
                 start = DateTime.Parse(dateSelected + " " + timeSelected);
                 end = start.AddMinutes(trajanjePregleda);
             }
@@ -253,7 +248,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             UpdateComponents();
         }
 
-        private Room GetAvailableRoom(DateTime pocetak, DateTime kraj)
+        private Room GetAvailableRoom(DateTime pocetak, DateTime kraj) //u neki servis premjestiti
         {
             prostorije = new List<Room>();
             foreach (Room prostorija in RoomFileRepository.GetAll())
