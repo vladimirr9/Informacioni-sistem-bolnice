@@ -78,10 +78,10 @@ namespace InformacioniSistemBolnice.Patient_ns
                         {
                             TerminFileStorage.RemoveTermin(((Termin) (PrikazPregleda.SelectedItem)).iDTermina);
                             updateTable();
-                            InformacijeOKoriscenjuFunkcionalnosti informacija =
-                                new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, parent.Pacijent.korisnickoIme,
-                                    VrstaFunkcionalnosti.otkazivanje);
-                            InformacijeFileStorage.AddInformacije(informacija);
+                            ActivityLog informacija =
+                                new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme,
+                                    TypeOfActivity.cancelingAppointment);
+                            ActivityLogFileRepository.AddInformacije(informacija);
                         }
                     }
                 }

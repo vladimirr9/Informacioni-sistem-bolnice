@@ -112,10 +112,10 @@ namespace InformacioniSistemBolnice.Patient_ns
                 updateVisibility();
                 parent.startWindow.Content = ptp;
                 ptp.updateTable();
-                InformacijeOKoriscenjuFunkcionalnosti informacija =
-                    new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, pacijent.korisnickoIme,
-                        VrstaFunkcionalnosti.zakazivanje);
-                InformacijeFileStorage.AddInformacije(informacija);
+                ActivityLog informacija =
+                    new ActivityLog(DateTime.Now, pacijent.korisnickoIme,
+                        TypeOfActivity.makingAppointment);
+                ActivityLogFileRepository.AddInformacije(informacija);
             }
         }
 

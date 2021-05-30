@@ -8,36 +8,36 @@ using System.Threading.Tasks;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    public class AnketaFileStorage
+    public class RatingFileRepository
     {
 
         private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "ankete.json";
-        public static List<Anketa> GetAll()
+        public static List<Rating> GetAll()
         {
             if (!File.Exists(startupPath))
             {
                 var tmp = File.OpenWrite(startupPath);
                 tmp.Close();
             }
-            List<Anketa> ankete;
+            List<Rating> ankete;
             String procitano = File.ReadAllText(startupPath);
             if (procitano.Equals(""))
             {
-                ankete = new List<Anketa>();
+                ankete = new List<Rating>();
             }
             else
             {
-                ankete = JsonConvert.DeserializeObject<List<Anketa>>(procitano);
+                ankete = JsonConvert.DeserializeObject<List<Rating>>(procitano);
             }
             return ankete;
         }
 
-        public Anketa GetOne(int idAnkete)
+        public Rating GetOne(int idAnkete)
         {
-            List<Anketa> ankete = GetAll();
-            foreach (Anketa a in ankete)
+            List<Rating> ankete = GetAll();
+            foreach (Rating a in ankete)
             {
-                if (a.IdAnkete.Equals(idAnkete))
+                if (a.IdOfRating.Equals(idAnkete))
                     return ankete[ankete.IndexOf(a)];
             }
             return null;
@@ -45,12 +45,12 @@ namespace InformacioniSistemBolnice.FileStorage
 
         public static Boolean RemoveAnketa(int idAnketa)
         {
-            List<Anketa> ankete = GetAll();
-            foreach (Anketa a in ankete)
+            List<Rating> ankete = GetAll();
+            foreach (Rating a in ankete)
             {
-                if (a.IdAnkete.Equals(idAnketa))
+                if (a.IdOfRating.Equals(idAnketa))
                 {
-                    ankete[ankete.IndexOf(a)].IsDeleted = true;
+                    ankete[ankete.IndexOf(a)].IsRatingDeleted = true;
                     Save(ankete);
                     return true;
                 }
@@ -58,28 +58,28 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        private static void Save(List<Anketa> ankete)
+        private static void Save(List<Rating> ankete)
         {
             string upis = JsonConvert.SerializeObject(ankete);
             File.WriteAllText(startupPath, upis);
         }
 
-        public static Boolean AddAnketa(Anketa novaAnketa)
+        public static Boolean AddAnketa(Rating novaRating)
         {
-            List<Anketa> ankete = GetAll();
-            ankete.Add(novaAnketa);
+            List<Rating> ankete = GetAll();
+            ankete.Add(novaRating);
             Save(ankete);
             return true;
         }
 
-        public static Boolean UpdateAnketa(int idAnketa, Anketa novaAnketa)
+        public static Boolean UpdateAnketa(int idAnketa, Rating novaRating)
         {
-            List<Anketa> ankete = GetAll();
-            foreach (Anketa a in ankete)
+            List<Rating> ankete = GetAll();
+            foreach (Rating a in ankete)
             {
-                if (a.IdAnkete.Equals(idAnketa))
+                if (a.IdOfRating.Equals(idAnketa))
                 {
-                    ankete[ankete.IndexOf(a)] = novaAnketa;
+                    ankete[ankete.IndexOf(a)] = novaRating;
                     Save(ankete);
                     return true;
                 }
@@ -88,9 +88,9 @@ namespace InformacioniSistemBolnice.FileStorage
         }
 
         public static Boolean Contains(int idTermina) {
-            List<Anketa> ankete = GetAll();
-            foreach (Anketa a in ankete) {
-                if (a.IdTermina.Equals(idTermina))
+            List<Rating> ankete = GetAll();
+            foreach (Rating a in ankete) {
+                if (a.IdOfAppointment.Equals(idTermina))
                 {
                     return true;
                 }

@@ -81,16 +81,16 @@
       <DependentUpon>AddingNotesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\Anamnesis.cs" />
-    <Compile Include="Patient_ns\Anketa.cs" />
+    <Compile Include="Patient_ns\Rating.cs" />
     <Compile Include="Controller\NotificationController.cs" />
     <Compile Include="Controller\PatientController.cs" />
     <Compile Include="FileStorage\AnamnesisFileRepository.cs" />
-    <Compile Include="FileStorage\AnketaFileStorage.cs" />
-    <Compile Include="FileStorage\InformacijeFileStorage.cs" />
+    <Compile Include="FileStorage\RatingFileRepository.cs" />
+    <Compile Include="FileStorage\ActivityLogFileRepository.cs" />
     <Compile Include="FileStorage\LekFileStorage.cs" />
     <Compile Include="FileStorage\IngredientFileStorage.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
-    <Compile Include="Patient_ns\InformacijeOKoriscenjuFunkcionalnosti.cs" />
+    <Compile Include="Patient_ns\ActivityLog.cs" />
     <Compile Include="Korisnik\Notification.cs" />
     <Compile Include="Lekar\DrugsPage.xaml.cs">
       <DependentUpon>DrugsPage.xaml</DependentUpon>
@@ -279,7 +279,7 @@
     </Compile>
     <Compile Include="Validation\JMBGValidationRule.cs" />
     <Compile Include="Validation\NonEmptyValidationRule.cs" />
-    <Compile Include="Patient_ns\VrstaFunkcionalnosti.cs" />
+    <Compile Include="Patient_ns\TypeOfActivity.cs" />
     <Page Include="Lekar\DoctorPatientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

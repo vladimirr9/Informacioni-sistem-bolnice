@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum VrstaFunkcionalnosti
+public enum TypeOfActivity
 { 
-    zakazivanje,
-    pomjeranje,
-    otkazivanje
+    makingAppointment,
+    editingAppointment,
+    cancelingAppointment
     
 
 }

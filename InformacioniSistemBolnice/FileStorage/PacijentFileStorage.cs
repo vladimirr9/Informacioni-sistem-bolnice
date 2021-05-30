@@ -110,7 +110,7 @@ public class PacijentFileStorage
                     pacijent.Banovan = false;
                     pacijent.TrenutakBanovanja = DateTime.Parse("1970-01-01T00:00:00");
                     UpdatePacijent(pacijent.korisnickoIme, pacijent);
-                    //InformacijeFileStorage.RemoveInformacijePacijenta(p.korisnickoIme);
+                    //ActivityLogFileRepository.RemoveInformacijePacijenta(p.korisnickoIme);
 
                 }
             }
@@ -133,9 +133,9 @@ public class PacijentFileStorage
     }
     public static void ProvjeritiStatusPacijenta(Pacijent pacijent)
     {
-        int brojZakazivanja = InformacijeFileStorage.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, VrstaFunkcionalnosti.zakazivanje);
-        int brojPomjeranja = InformacijeFileStorage.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, VrstaFunkcionalnosti.pomjeranje);
-        int brojOtkazivanja = InformacijeFileStorage.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, VrstaFunkcionalnosti.otkazivanje);
+        int brojZakazivanja = ActivityLogFileRepository.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
+        int brojPomjeranja = ActivityLogFileRepository.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, TypeOfActivity.editingAppointment);
+        int brojOtkazivanja = ActivityLogFileRepository.BrojIzvrsenihFunkcionalnosti(pacijent.korisnickoIme, TypeOfActivity.cancelingAppointment);
 
         if (brojZakazivanja > 3 || brojOtkazivanja > 2 || brojPomjeranja > 2)
         {

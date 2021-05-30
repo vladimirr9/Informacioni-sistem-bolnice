@@ -37,13 +37,13 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void Provjera()
         {
-            List<Anketa> ocjenjivanjeBolnice = new List<Anketa>();
+            List<Rating> ocjenjivanjeBolnice = new List<Rating>();
 
-            foreach (Anketa a in AnketaFileStorage.GetAll())
+            foreach (Rating a in RatingFileRepository.GetAll())
             {
-                if (a.KorisnickoImeLekara == null && a.IdTermina == 0)
+                if (a.UsernameOfDoctor == null && a.IdOfAppointment == 0)
                 {
-                    if (a.KorisnickoImePacijenta.Equals(parent.Pacijent.korisnickoIme))
+                    if (a.UsernameOfPatient.Equals(parent.Pacijent.korisnickoIme))
                     {
                         ocjenjivanjeBolnice.Add(a);
                     }
@@ -53,14 +53,14 @@ namespace InformacioniSistemBolnice.Patient_ns
             DateTime posljednjaNapisana = DateTime.Parse("1970-01-01" + " " + "00:00:00");
             if (ocjenjivanjeBolnice.Count != 0)
             {
-                posljednjaNapisana = ocjenjivanjeBolnice.ElementAt(0).NastanakAnkete;
+                posljednjaNapisana = ocjenjivanjeBolnice.ElementAt(0).DateOfWritingRating;
             }
 
-            foreach (Anketa a in ocjenjivanjeBolnice)
+            foreach (Rating a in ocjenjivanjeBolnice)
             {
-                if (posljednjaNapisana < a.NastanakAnkete)
+                if (posljednjaNapisana < a.DateOfWritingRating)
                 {
-                    posljednjaNapisana = a.NastanakAnkete;
+                    posljednjaNapisana = a.DateOfWritingRating;
 
                 }
             }
@@ -82,7 +82,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
             foreach (Termin t in TerminFileStorage.GetAll())
             {
-                if (t.status == StatusTermina.zakazan && !AnketaFileStorage.Contains(t.iDTermina) && t.KorisnickoImePacijenta.Equals(parent.Pacijent.korisnickoIme))
+                if (t.status == StatusTermina.zakazan && !RatingFileRepository.Contains(t.iDTermina) && t.KorisnickoImePacijenta.Equals(parent.Pacijent.korisnickoIme))
                 {
                     if (DateTime.Now.AddDays(-10) < t.datumZakazivanja && t.datumZakazivanja.Date < DateTime.Now)
                     {

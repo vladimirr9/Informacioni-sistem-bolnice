@@ -81,10 +81,10 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
             if (parentp.kojiJePritisnut == parentp.rate)
             {
-                int IdAnkete = AnketaFileStorage.GetAll().Count + 1;
+                int IdAnkete = RatingFileRepository.GetAll().Count + 1;
                 string komentar = commentText.Text;
-                Anketa novaAnketa = new Anketa(IdAnkete, komentar, (int)rateComboBox.SelectedItem, selektovan.Doctor.korisnickoIme, selektovan.Pacijent.korisnickoIme, selektovan.iDTermina, false, DateTime.Now);
-                AnketaFileStorage.AddAnketa(novaAnketa);
+                Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, selektovan.Doctor.korisnickoIme, selektovan.Pacijent.korisnickoIme, selektovan.iDTermina, false, DateTime.Now);
+                RatingFileRepository.AddAnketa(novaRating);
                 RatingPage ap = new RatingPage(parent);
                 parentp.UpdateTable();
                 parent.startWindow.Content = new RatingPage(parent);
@@ -93,10 +93,10 @@ namespace InformacioniSistemBolnice.Patient_ns
             }
             else
             {
-                int IdAnkete = AnketaFileStorage.GetAll().Count + 1;
+                int IdAnkete = RatingFileRepository.GetAll().Count + 1;
                 string komentar = commentText.Text;
-                Anketa novaAnketa = new Anketa(IdAnkete, komentar, (int)rateComboBox.SelectedItem, null, parent.Pacijent.korisnickoIme, 0, false, DateTime.Now);
-                AnketaFileStorage.AddAnketa(novaAnketa);
+                Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, null, parent.Pacijent.korisnickoIme, 0, false, DateTime.Now);
+                RatingFileRepository.AddAnketa(novaRating);
                 RatingPage ap = new RatingPage(parent);
                 parentp.rateHospital.Visibility = Visibility.Hidden;
                 parent.startWindow.Content = new RatingPage(parent);

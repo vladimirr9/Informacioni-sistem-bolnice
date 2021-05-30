@@ -142,8 +142,8 @@ namespace InformacioniSistemBolnice.Patient_ns
         private void submit_Click(object sender, RoutedEventArgs e)
         {
             ZakaziTermin();
-            InformacijeOKoriscenjuFunkcionalnosti informacija = new InformacijeOKoriscenjuFunkcionalnosti(DateTime.Now, parent.Pacijent.korisnickoIme, VrstaFunkcionalnosti.zakazivanje);
-            InformacijeFileStorage.AddInformacije(informacija);
+            ActivityLog informacija = new ActivityLog(DateTime.Now, parent.Pacijent.korisnickoIme, TypeOfActivity.makingAppointment);
+            ActivityLogFileRepository.AddInformacije(informacija);
         }
 
         private void ZakaziTermin()
