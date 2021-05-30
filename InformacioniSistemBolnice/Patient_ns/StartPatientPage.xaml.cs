@@ -47,8 +47,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void ocjenjivanje_Click(object sender, RoutedEventArgs e)
         {
-            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Patient);
-            if (isBanned == true)
+            if (_patientController.CheckStatusOfPatient(parent.Patient) == true)
             {
                 MessageBox.Show("Ova funkcionalnost Vam je trenutno onemogućena,obratite se sekretaru!", "Greška");
             }
