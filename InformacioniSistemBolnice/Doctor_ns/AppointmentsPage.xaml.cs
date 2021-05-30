@@ -70,11 +70,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         public void UpdateTable()
         {
             AppointmentsDataGrid.Items.Clear();
-            foreach (Appointment appointment in _appointmentController.GetAll())
-            {
-                if (appointment.AppointmentStatus == AppointmentStatus.scheduled)
-                    AppointmentsDataGrid.Items.Add(appointment);
-            }
+            AppointmentsDataGrid.ItemsSource = _appointmentController.GetScheduled();
         }
     }
 }

@@ -19,12 +19,12 @@ namespace InformacioniSistemBolnice.Doctor_ns
     {
 
         public DoctorWindow parent;
-        public Doctor Doctor;
+        public Doctor doctor;
         private static ProfilePage instance;
         public ProfilePage(DoctorWindow parent)
         {
             this.parent = parent;
-            this.Doctor = parent.Doctor;
+            this.doctor = parent.Doctor;
             InitializeComponent();
             FillLabels();
         }
@@ -38,12 +38,12 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
         private void FillLabels()
         {
-            NameLabel.Content = Doctor.Name + " " + Doctor.Surname;
-            TitleLabel.Content = Doctor.doctorType.ToString();
-            DateLabel.Content = Doctor.DateOfBirth.Date;
-            JmbgLabel.Content = Doctor.JMBG;
-            AddressLabel.Content = Doctor.ResidentialAddress.ToString();
-            EmailLabel.Content = Doctor.Email;
+            NameLabel.Content = doctor.Name + " " + doctor.Surname;
+            TitleLabel.Content = doctor.doctorType.ToString();
+            DateLabel.Content = doctor.DateOfBirth.Date;
+            JmbgLabel.Content = doctor.JMBG;
+            AddressLabel.Content = doctor.ResidentialAddress.ToString();
+            EmailLabel.Content = doctor.Email;
         }
     }
 }

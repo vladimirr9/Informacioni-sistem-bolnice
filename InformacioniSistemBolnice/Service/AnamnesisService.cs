@@ -64,7 +64,6 @@ namespace InformacioniSistemBolnice.Service
                     }
                 }
             }
-
             return notes;
         }
 
@@ -74,9 +73,23 @@ namespace InformacioniSistemBolnice.Service
             AnamnesisFileRepository.UpdateAnamnesis(anamnesis.IdOfAnamnesis, anamnesis);
         }
 
+
         public void UpdateAnamnesis(int AnamnesisID, Anamnesis anamnesis)
         {
             AnamnesisFileRepository.UpdateAnamnesis(AnamnesisID, anamnesis);
+        }
+
+        public Anamnesis AppointmentAnamnesis(Appointment appointment)
+        {
+            foreach (Anamnesis anamnesis in AnamnesisFileRepository.GetAll())
+            {
+                if (anamnesis.IdOfAppointment.Equals(appointment.AppointmentID))
+                {
+                    return anamnesis;
+                }
+            }
+            return null;
+
         }
 
     }

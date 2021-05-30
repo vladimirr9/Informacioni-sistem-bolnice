@@ -28,7 +28,12 @@ namespace InformacioniSistemBolnice.Controller
 
         public void UpdateAnamnesis(int idOfAnamnesis, Anamnesis anamnesis)
         {
-            _anamnesisService.UpdateAnamnesis(idOfAnamnesis,anamnesis);
+            _anamnesisService.UpdateAnamnesis(idOfAnamnesis, anamnesis);
+        }
+        public Anamnesis AppointmentAnamnesis(Appointment appointment)
+        {
+            return _anamnesisService.AppointmentAnamnesis(appointment);
+
         }
     }
 }

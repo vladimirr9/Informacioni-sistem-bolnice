@@ -39,5 +39,18 @@ namespace InformacioniSistemBolnice.Service
         {
             return AppointmentFileRepository.GetOne(appointment.AppointmentID);
         }
+
+        public List<Appointment> GetScheduled()                       //izmestiti u zaseban servis?
+        {
+            List<Appointment> scheduled = new List<Appointment>();
+            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            {
+                if (appointment.AppointmentStatus.Equals(AppointmentStatus.scheduled))
+                {
+                      scheduled.Add(appointment);  
+                }
+            }
+            return scheduled;
+        }
     }
 }
