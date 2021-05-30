@@ -41,6 +41,11 @@ namespace InformacioniSistemBolnice.Controller
         {
             _patientService.RemoveAllergen(patient, allergen);
         }
-        
+
+        public Boolean CheckStatusOfPatient(Pacijent patient)
+        {
+            return _patientService.CheckStatusOfPatient(patient);
+        }
+
     }
 }

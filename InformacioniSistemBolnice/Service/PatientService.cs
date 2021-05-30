@@ -9,18 +9,23 @@ namespace InformacioniSistemBolnice.Service
 {
     public class PatientService
     {
+        private ActivityLogService _activityLogService = new ActivityLogService();
+
         public void Register(Pacijent patient)
         {
             if (!IsUsernameUnique(patient.korisnickoIme))
             {
-                MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
+                MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni",
+                    MessageBoxButton.OK);
                 return;
             }
+
             if (!IsJMBGUnique(patient.jmbg))
             {
                 MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return;
             }
+
             PacijentFileStorage.AddPacijent(patient);
         }
 
@@ -52,9 +57,11 @@ namespace InformacioniSistemBolnice.Service
             Pacijent initialPatient = PacijentFileStorage.GetOne(initialUsername);
             if (!(IsUsernameUnique(patient.korisnickoIme) || patient.korisnickoIme.Equals(initialUsername)))
             {
-                MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
+                MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni",
+                    MessageBoxButton.OK);
                 return;
             }
+
             if (!(IsJMBGUnique(patient.jmbg) || patient.jmbg.Equals(initialPatient.jmbg)))
             {
                 MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
@@ -98,5 +105,41 @@ namespace InformacioniSistemBolnice.Service
                 }
             }
         }
+
+        public Boolean CheckStatusOfPatient(Pacijent patient)
+        {
+            Boolean IsBlocked = false;
+            int numberOfMakingAppointment = _activityLogService.NumberOfActivity(patient.korisnickoIme, TypeOfActivity.makingAppointment);
+            int numberOfEditingAppointment = _activityLogService.NumberOfActivity(patient.korisnickoIme, TypeOfActivity.editingAppointment);
+            int numberOfCancelingAppointment = _activityLogService.NumberOfActivity(patient.korisnickoIme, TypeOfActivity.cancelingAppointment);
+
+            if (numberOfMakingAppointment > 3 || numberOfCancelingAppointment > 2 || numberOfEditingAppointment > 2)
+            {
+                BanPatient(patient);
+                IsBlocked = true;
+            }
+
+            return IsBlocked;
+
+        }
+
+        private void BanPatient(Pacijent patient)
+        {
+            foreach (Pacijent p in PacijentFileStorage.GetAll())
+            {
+                if (p.korisnickoIme.Equals(patient.korisnickoIme))
+                {
+                    SetInformationsAboutBanning(patient);
+                }
+            }
+        }
+
+        private void SetInformationsAboutBanning(Pacijent patient)
+        {
+            patient.Banovan = true;
+            patient.TrenutakBanovanja = DateTime.Now;
+            PacijentFileStorage.UpdatePacijent(patient.korisnickoIme, patient);
+        }
+
     }
 }

@@ -90,6 +90,7 @@ namespace InformacioniSistemBolnice
                 parent.startWindow.Content = new AnketaPage(parent);
                 parent.imePacijenta.Visibility = Visibility.Visible;
                 parent.odjava.Visibility = Visibility.Visible;
+                imeLjekara.Visibility = Visibility.Hidden;
             }
             else
             {

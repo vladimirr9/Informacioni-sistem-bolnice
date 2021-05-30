@@ -78,39 +78,7 @@ D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.xml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csprojAssemblyReference.cache
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarDodajTerminWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarIzmeniTerminWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekoviPage.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekoviZaPotvrduWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\PreglediPage.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\PrikazKartona.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilPage.g.cs
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPacijent.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentMijenja.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetu.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekar.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijeme.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DetaljnijeWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmeniObavestenjeWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmeniTerminWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NewGuestPatientWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NoviHitanTermin.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NoviTerminWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NovoObavestenjeWindow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PacijentiPage.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PocetnaPage.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PostponeAppointmentWIndow.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarMain.g.cs
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\TerminiPage.g.cs
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.g.cs
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.g.cs
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaOpreme.g.cs
@@ -122,35 +90,7 @@ D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\App.g.cs
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.cache
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.lref
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarDodajTerminWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarIzmeniTerminWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\PreglediPage.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\PrikazKartona.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPacijent.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Ocjenjivanje.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentMijenja.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazuje.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetu.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Pacijent\PacijentWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnkete.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekar.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijeme.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DetaljnijeWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\DodavanjePacijenta.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmenaPacijenta.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmeniObavestenjeWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\IzmeniTerminWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NewGuestPatientWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NoviHitanTermin.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NoviTerminWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\NovoObavestenjeWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PacijentiPage.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PocetnaPage.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\SekretarMain.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\TerminiPage.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaOpreme.baml
@@ -159,10 +99,6 @@ D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeOpreme.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\UpravnikWindow.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\WindowProstorije.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilPage.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekoviPage.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekoviZaPotvrduWindow.baml
-D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Sekretar_ns\PostponeAppointmentWIndow.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.g.resources
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.Properties.Resources.resources
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.GenerateResource.cache
@@ -504,9 +440,6 @@ C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\Inform
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.dll
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.xml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csprojAssemblyReference.cache
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\AnketaPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacijeKartonPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\IstorijaBolestiPage.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarDodajTerminWindow.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarIzmeniTerminWindow.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarWindow.g.cs
@@ -516,17 +449,6 @@ C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\Inform
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\PrikazKartona.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilPage.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentKartonPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetuPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PomjeranjeTerminaPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnketePage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PregledAnamnezaPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PregledTerminaPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekarPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijemePage.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DetailedWindow.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewPatientWindow.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditPatientWindow.g.cs
@@ -541,8 +463,6 @@ C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\Inform
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PostponeAppointmentWIndow.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\SecretaryMain.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\AppointmentsPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\StartPacijentPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\TerapijaKartonPage.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeLekaWindow.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.g.cs
@@ -561,9 +481,6 @@ C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\Inform
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.cache
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.lref
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\AnketaPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacijeKartonPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\IstorijaBolestiPage.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarDodajTerminWindow.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarIzmeniTerminWindow.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\LekarWindow.baml
@@ -573,17 +490,6 @@ C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\Inform
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\PrikazKartona.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilPage.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ObavjestenjaPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentKartonPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PacijentZakazujePoPrioritetuPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PocetnaPacijent.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PomjeranjeTerminaPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PopunjavanjeAnketePage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PregledAnamnezaPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PregledTerminaPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetLjekarPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\PrioritetVrijemePage.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DetailedWindow.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewPatientWindow.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditPatientWindow.baml
@@ -598,8 +504,6 @@ C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\Inform
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PostponeAppointmentWIndow.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\SecretaryMain.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\AppointmentsPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\StartPacijentPage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\TerapijaKartonPage.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeLekaWindow.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.baml
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.baml
@@ -621,7 +525,382 @@ C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\Inform
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
 C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\AddingNotePage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ShowNotesPage.g.cs
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\AddingNotePage.baml
-C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\ShowNotesPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotePage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AnketaPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\InformacijeKartonPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\IstorijaBolestiPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ObavjestenjaPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentKartonPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentZakazujePage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentZakazujePoPrioritetuPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PocetnaPacijent.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PomjeranjeTerminaPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PopunjavanjeAnketePage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PregledAnamnezaPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PregledTerminaPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PrioritetLjekarPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PrioritetVrijemePage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ShowNotesPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPacijentPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\TerapijaKartonPage.g.cs
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotePage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AnketaPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\InformacijeKartonPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\IstorijaBolestiPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ObavjestenjaPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentKartonPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentZakazujePage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentZakazujePoPrioritetuPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PocetnaPacijent.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PomjeranjeTerminaPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PopunjavanjeAnketePage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PregledAnamnezaPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PregledTerminaPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PrioritetLjekarPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PrioritetVrijemePage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ShowNotesPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPacijentPage.baml
+C:\Users\mx\Desktop\treća godina\SIMS\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\TerapijaKartonPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotePage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AnketaPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\InformacijeKartonPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\IstorijaBolestiPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorAddAppointmentWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorEditAppointmentWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ObavjestenjaPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentKartonPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentZakazujePage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentZakazujePoPrioritetuPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PocetnaPacijent.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PomjeranjeTerminaPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PopunjavanjeAnketePage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PregledAnamnezaPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PregledTerminaPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PrioritetLjekarPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PrioritetVrijemePage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DetailedWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewPatientWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditPatientWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditNotificationWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditAppointmentWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewGuestPatientWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewUrgentAppointment.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewAppointmentWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewNotificationWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PatientsPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\StartingPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PostponeAppointmentWIndow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\SecretaryMain.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\AppointmentsPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ShowNotesPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPacijentPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\TerapijaKartonPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\FiltriranaOprema.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotePage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AnketaPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\InformacijeKartonPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\IstorijaBolestiPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorAddAppointmentWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorEditAppointmentWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ObavjestenjaPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentKartonPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentZakazujePage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PacijentZakazujePoPrioritetuPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PocetnaPacijent.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PomjeranjeTerminaPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PopunjavanjeAnketePage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PregledAnamnezaPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PregledTerminaPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PrioritetLjekarPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PrioritetVrijemePage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DetailedWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewPatientWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditPatientWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditNotificationWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditAppointmentWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewGuestPatientWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewUrgentAppointment.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewAppointmentWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewNotificationWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PatientsPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\StartingPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PostponeAppointmentWIndow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\SecretaryMain.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\AppointmentsPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ShowNotesPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPacijentPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\TerapijaKartonPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\FiltriranaOprema.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsValidationWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\AppointmentsPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\MedicalRecordWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilePage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsValidationWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\AppointmentsPage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\MedicalRecordWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilePage.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csprojAssemblyReference.cache
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotesPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorAddAppointmentWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorEditAppointmentWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsValidationWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\AppointmentsPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\MedicalRecordWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilePage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalHistoryPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalRecordPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\NotificationPatientPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientEditsAppointmentPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientExamineAnamnesesPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientExaminesAppointmentPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMakesAppointmentByPriorityPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMakesAppointmentPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMedicalRecordPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientRatesPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PriorityDoctorPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PriorityTimePage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\RatingPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ShowNotePage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPatientPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPatientWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\TherapyPatientPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DetailedWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewPatientWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditPatientWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditNotificationWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditAppointmentWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewGuestPatientWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewUrgentAppointment.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewAppointmentWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewNotificationWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PatientsPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\StartingPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PostponeAppointmentWIndow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\SecretaryMain.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\AppointmentsPage.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeLekaWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\FiltriranaOprema.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaLekaWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaOpreme.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaProstorije.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\LekoviWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\OpremaWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeOpreme.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeStatickeWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\UpravnikWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\WindowProstorije.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\ZakazivanjeRenoviranjaWindow.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\App.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.cache
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.lref
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe.config
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.pdb
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotesPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorAddAppointmentWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorEditAppointmentWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsValidationWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\AppointmentsPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\MedicalRecordWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilePage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalHistoryPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalRecordPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\NotificationPatientPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientEditsAppointmentPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientExamineAnamnesesPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientExaminesAppointmentPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMakesAppointmentByPriorityPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMakesAppointmentPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMedicalRecordPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientRatesPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PriorityDoctorPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PriorityTimePage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\RatingPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ShowNotePage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPatientPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPatientWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\TherapyPatientPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DetailedWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewPatientWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditPatientWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditNotificationWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditAppointmentWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewGuestPatientWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewUrgentAppointment.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewAppointmentWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewNotificationWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PatientsPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\StartingPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PostponeAppointmentWIndow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\SecretaryMain.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\AppointmentsPage.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeLekaWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\FiltriranaOprema.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaLekaWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaOpreme.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaProstorije.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\LekoviWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\OpremaWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeOpreme.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeStatickeWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\UpravnikWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\WindowProstorije.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\ZakazivanjeRenoviranjaWindow.baml
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.g.resources
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.Properties.Resources.resources
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.GenerateResource.cache
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CoreCompileInputs.cache
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
+C:\Users\mx\Desktop\Novi\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csprojAssemblyReference.cache
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotesPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorAddAppointmentWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorEditAppointmentWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsValidationWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\AppointmentsPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\MedicalRecordWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilePage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalHistoryPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalRecordPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\NotificationPatientPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientEditsAppointmentPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientExamineAnamnesesPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientExaminesAppointmentPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMakesAppointmentByPriorityPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMakesAppointmentPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMedicalRecordPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientRatesPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PriorityDoctorPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PriorityTimePage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\RatingPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ShowNotePage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPatientPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPatientWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\TherapyPatientPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DetailedWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewPatientWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditPatientWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditNotificationWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditAppointmentWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewGuestPatientWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewUrgentAppointment.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewAppointmentWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewNotificationWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PatientsPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\StartingPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PostponeAppointmentWIndow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\SecretaryMain.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\AppointmentsPage.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeLekaWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\FiltriranaOprema.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaLekaWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaOpreme.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaProstorije.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\LekoviWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\OpremaWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeOpreme.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeStatickeWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\UpravnikWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\WindowProstorije.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\ZakazivanjeRenoviranjaWindow.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\App.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.cache
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.lref
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe.config
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.pdb
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotesPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorAddAppointmentWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorEditAppointmentWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsValidationWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\AppointmentsPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\MedicalRecordWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilePage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalHistoryPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalRecordPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\NotificationPatientPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientEditsAppointmentPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientExamineAnamnesesPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientExaminesAppointmentPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMakesAppointmentByPriorityPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMakesAppointmentPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientMedicalRecordPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PatientRatesPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PriorityDoctorPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\PriorityTimePage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\RatingPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\ShowNotePage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPatientPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\StartPatientWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\TherapyPatientPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DetailedWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewPatientWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditPatientWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditNotificationWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\EditAppointmentWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewGuestPatientWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewUrgentAppointment.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewAppointmentWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\NewNotificationWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PatientsPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\StartingPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\PostponeAppointmentWIndow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\SecretaryMain.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\AppointmentsPage.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeLekaWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeOpreme.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\DodavanjeProstorije.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\FiltriranaOprema.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaLekaWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaOpreme.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\IzmenaProstorije.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\LekoviWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\OpremaWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeOpreme.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\RasporedjivanjeStatickeWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\UpravnikWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\WindowProstorije.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Upravnik\ZakazivanjeRenoviranjaWindow.baml
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.g.resources
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.Properties.Resources.resources
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.GenerateResource.cache
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CoreCompileInputs.cache
+C:\Users\mx\Desktop\refaktorisanje\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete

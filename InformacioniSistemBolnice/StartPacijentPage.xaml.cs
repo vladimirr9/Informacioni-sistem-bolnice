@@ -1,5 +1,4 @@
-﻿using InformacioniSistemBolnice.FileStorage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,54 +12,56 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 
-namespace InformacioniSistemBolnice
+namespace InformacioniSistemBolnice.Patient_ns
 {
     /// <summary>
-    /// Interaction logic for StartPacijentPage.xaml
+    /// Interaction logic for StartPatientPage.xaml
     /// </summary>
-    public partial class StartPacijentPage : Page
+    public partial class StartPatientPage : Page
     {
+        private static StartPatientWindow parent;
+        private PatientController _patientController = new PatientController();
 
-        private static PocetnaPacijent parent;
-        public StartPacijentPage(PocetnaPacijent p)
+        public StartPatientPage(StartPatientWindow p)
         {
             parent = p;
             InitializeComponent();
         }
 
-        
 
-        
-    
+
+
+
 
         private void pregledTermina_Click(object sender, RoutedEventArgs e)
         {
-            parent.startWindow.Content = new PregledTerminaPage(parent);  
+            parent.startWindow.Content = new PatientExaminesAppointmentPage(parent);
         }
 
         private void obavjestenja_Click(object sender, RoutedEventArgs e)
         {
-            parent.startWindow.Content = new ObavjestenjaPage(parent);
+            parent.startWindow.Content = new NotificationPatientPage(parent);
         }
 
         private void ocjenjivanje_Click(object sender, RoutedEventArgs e)
         {
-            PacijentFileStorage.ProvjeritiStatusPacijenta(parent.Pacijent);
-            if (parent.Pacijent.Banovan == true)
+            Boolean isBanned = _patientController.CheckStatusOfPatient(parent.Pacijent);
+            if (isBanned == true)
             {
                 MessageBox.Show("Ova funkcionalnost Vam je trenutno onemogućena,obratite se sekretaru!", "Greška");
             }
             else
             {
-                parent.startWindow.Content = new AnketaPage(parent);
+                parent.startWindow.Content = new RatingPage(parent);
             }
         }
 
         private void karton_Click(object sender, RoutedEventArgs e)
         {
-            parent.startWindow.Content = new PacijentKartonPage(parent);
+            parent.startWindow.Content = new PatientMedicalRecordPage(parent);
         }
     }
-}
 
+}
