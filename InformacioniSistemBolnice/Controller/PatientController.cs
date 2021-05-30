@@ -47,5 +47,9 @@ namespace InformacioniSistemBolnice.Controller
             return _patientService.CheckStatusOfPatient(patient);
         }
 
+        public List<Therapy> GetTherapiesFromMedicalRecord(Pacijent patient)
+        {
+            return _patientService.GetTherapiesFromRecord(patient);
+        }
     }
 }

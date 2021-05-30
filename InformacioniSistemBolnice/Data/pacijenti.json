@@ -1,1 +1,395 @@
-[{"isGuest":false,"brojZdravstveneKartice":"123","Banovan":false,"TrenutakBanovanja":"1970-01-01T00:00:00","zdravstveniKarton":{"recept":[],"brojZdravstvenogKartona":"7","Alergen":[{"ID":0,"Name":"Laktoza","IsDeleted":false},{"ID":2,"Name":"Paracetamol","IsDeleted":false},{"ID":1,"Name":"Aspirin","IsDeleted":false}],"Terapija":[],"Recept":[]},"ime":"Jovan","prezime":"Jovanovic","jmbg":"0818960700032","pol":"M","brojTelefona":"+381651234567","email":"jovan@gmail.com","datumRodenja":"1960-08-18T00:00:00","korisnickoIme":"jovan","lozinka":"jovan123","isDeleted":false,"adresaStanovanja":{"ulicaIBroj":"Nova 2","mestoStanovanja":{"drzavaStanovanja":{"naziv":"Srbija"},"naziv":"Novi Sad","postanskiBroj":"21000"}}},{"isGuest":false,"brojZdravstveneKartice":"987654321012","Banovan":false,"TrenutakBanovanja":"0001-01-01T00:00:00","zdravstveniKarton":{"recept":null,"brojZdravstvenogKartona":"5","Alergen":[{"ID":0,"Name":"Laktoza","IsDeleted":false}],"Terapija":[],"Recept":[]},"ime":"Marko","prezime":"Markovic","jmbg":"1234567890123","pol":"M","brojTelefona":"06123456789","email":"marko@marko","datumRodenja":"1979-06-21T00:00:00","korisnickoIme":"marko","lozinka":"marko","isDeleted":false,"adresaStanovanja":{"ulicaIBroj":"Ulica 1","mestoStanovanja":{"drzavaStanovanja":{"naziv":"Srbija"},"naziv":"Novi Sad","postanskiBroj":"21000"}}},{"isGuest":false,"brojZdravstveneKartice":"asd","Banovan":false,"TrenutakBanovanja":"1970-01-01T00:00:00","zdravstveniKarton":{"recept":null,"brojZdravstvenogKartona":null,"Alergen":[],"Terapija":[],"Recept":[]},"ime":"asd","prezime":"asd","jmbg":"asd","pol":"M","brojTelefona":"asd","email":"asd","datumRodenja":"2021-04-02T00:00:00","korisnickoIme":"marko1","lozinka":"asd","isDeleted":true,"adresaStanovanja":{"ulicaIBroj":"asd","mestoStanovanja":{"drzavaStanovanja":{"naziv":"asd"},"naziv":"asd","postanskiBroj":"asd"}}},{"isGuest":false,"brojZdravstveneKartice":"34586544","Banovan":false,"TrenutakBanovanja":"0001-01-01T00:00:00","zdravstveniKarton":{"recept":[{"Doctor":{"doctorType":1,"ime":"Petar","prezime":"Petrovic","jmbg":"1507970600034","pol":"m","brojTelefona":"+381661238407","email":"ppetrovic@gmail.com","datumRodenja":"1970-04-12T00:00:00","korisnickoIme":"PPetrovic","lozinka":"petrovic123","isDeleted":false,"adresaStanovanja":null},"Drug":{"Sifra":"x11","Naziv":"Penicilin","IsDeleted":false,"StatusLeka":0,"ListaSastojaka":[{"ID":0,"Name":null,"IsDeleted":false},{"ID":2,"Name":null,"IsDeleted":false}]},"Date":"2021-05-11T00:00:00"}],"brojZdravstvenogKartona":"5","Alergen":[{"ID":3,"Name":"Soja","IsDeleted":false}],"Terapija":[],"Recept":[{"Doctor":{"doctorType":1,"ime":"Petar","prezime":"Petrovic","jmbg":"1507970600034","pol":"m","brojTelefona":"+381661238407","email":"ppetrovic@gmail.com","datumRodenja":"1970-04-12T00:00:00","korisnickoIme":"PPetrovic","lozinka":"petrovic123","isDeleted":false,"adresaStanovanja":null},"Drug":{"Sifra":"x11","Naziv":"Penicilin","IsDeleted":false,"StatusLeka":0,"ListaSastojaka":[{"ID":0,"Name":null,"IsDeleted":false},{"ID":2,"Name":null,"IsDeleted":false}]},"Date":"2021-05-11T00:00:00"}]},"ime":"Marija","prezime":"Mirković","jmbg":"1204910123321","pol":"Ž","brojTelefona":"0645678765","email":"marijamir@gmail.com","datumRodenja":"2010-04-14T00:00:00","korisnickoIme":"marijamir","lozinka":"mir123","isDeleted":false,"adresaStanovanja":{"ulicaIBroj":"Gogoljeva 12","mestoStanovanja":{"drzavaStanovanja":{"naziv":"Srbija"},"naziv":"Novi Sad","postanskiBroj":"1234321"}}},{"isGuest":true,"brojZdravstveneKartice":"","Banovan":false,"TrenutakBanovanja":"0001-01-01T00:00:00","zdravstveniKarton":{"recept":null,"brojZdravstvenogKartona":"7","Alergen":[],"Terapija":[],"Recept":[]},"ime":"Ola","prezime":"Nordmannn","jmbg":"0939402352333","pol":"M","brojTelefona":"","email":"","datumRodenja":"2001-01-01T00:00:00","korisnickoIme":"ola_nordmannn","lozinka":"","isDeleted":false,"adresaStanovanja":{"ulicaIBroj":"","mestoStanovanja":{"drzavaStanovanja":{"naziv":""},"naziv":"","postanskiBroj":""}}},{"isGuest":false,"brojZdravstveneKartice":"123213","Banovan":false,"TrenutakBanovanja":"0001-01-01T00:00:00","zdravstveniKarton":{"recept":null,"brojZdravstvenogKartona":"5","Alergen":[],"Terapija":[],"Recept":[]},"ime":null,"prezime":"12312","jmbg":"1231231232312","pol":"M","brojTelefona":"3123","email":"213","datumRodenja":"0001-01-01T00:00:00","korisnickoIme":"neko","lozinka":"nekic","isDeleted":true,"adresaStanovanja":{"ulicaIBroj":"21312","mestoStanovanja":{"drzavaStanovanja":{"naziv":"12321"},"naziv":"213","postanskiBroj":"3213"}}},{"isGuest":false,"brojZdravstveneKartice":"sdffsd","Banovan":false,"TrenutakBanovanja":"0001-01-01T00:00:00","zdravstveniKarton":{"recept":null,"brojZdravstvenogKartona":"6","Alergen":[],"Terapija":[],"Recept":[]},"ime":"sdasd","prezime":"sdf","jmbg":"1231231231231","pol":"M","brojTelefona":"dsf","email":"sddsf","datumRodenja":"0001-01-01T00:00:00","korisnickoIme":"asd","lozinka":"asd","isDeleted":true,"adresaStanovanja":{"ulicaIBroj":"sdf","mestoStanovanja":{"drzavaStanovanja":{"naziv":"sdf"},"naziv":"sdf","postanskiBroj":"sdf"}}},{"isGuest":false,"brojZdravstveneKartice":"2323","Banovan":false,"TrenutakBanovanja":"0001-01-01T00:00:00","zdravstveniKarton":{"recept":null,"brojZdravstvenogKartona":"7","Alergen":[],"Terapija":[],"Recept":[]},"ime":"Vesna","prezime":"Vesnić","jmbg":"3232343245345","pol":"Ž","brojTelefona":"+543543534","email":"vesna@vesnic.com","datumRodenja":"1997-03-14T00:00:00","korisnickoIme":"vesna_vesnic","lozinka":"vesna","isDeleted":false,"adresaStanovanja":{"ulicaIBroj":"Negde 432324","mestoStanovanja":{"drzavaStanovanja":{"naziv":"Srbija"},"naziv":"Ub","postanskiBroj":"4323432"}}},{"isGuest":false,"brojZdravstveneKartice":"12215512321","Banovan":false,"TrenutakBanovanja":"0001-01-01T00:00:00","zdravstveniKarton":{"recept":null,"brojZdravstvenogKartona":"8","Alergen":[],"Terapija":[],"Recept":[]},"ime":"Ana","prezime":"Radić","jmbg":"1206999123456","pol":"Ž","brojTelefona":"0611123245","email":"anaradic@gmail.com","datumRodenja":"1999-06-12T00:00:00","korisnickoIme":"anar","lozinka":"anaradic","isDeleted":false,"adresaStanovanja":{"ulicaIBroj":"Balzakova 12","mestoStanovanja":{"drzavaStanovanja":{"naziv":"Srbija"},"naziv":"Novi Sad","postanskiBroj":"76316"}}}]
+[
+  
+  {
+    "isGuest": false,
+    "brojZdravstveneKartice": "123",
+    "Banovan": false,
+    "TrenutakBanovanja": "1970-01-01T00:00:00",
+    "zdravstveniKarton": {
+      "recept": [],
+      "brojZdravstvenogKartona": "7",
+      "Alergen": [
+        {
+          "ID": 0,
+          "Name": "Laktoza",
+          "IsDeleted": false
+        },
+        {
+          "ID": 2,
+          "Name": "Paracetamol",
+          "IsDeleted": false
+        },
+        {
+          "ID": 1,
+          "Name": "Aspirin",
+          "IsDeleted": false
+        }
+      ],
+      "Terapija": [
+        {
+          "Description": "Popiti Brufen na svakih 8 sati",
+          "BeginningDate": "2021-05-29T00:00:00",
+          "EndingDate": "2021-06-20T08:00:00",
+          "Day": 2
+        },
+        {
+          "Description": "Popiti Diklofen na svakih 6 sati.",
+          "BeginningDate": "2021-05-21T00:00:00",
+          "EndingDate": "2021-06-12T12:00:00",
+          "Day": 3
+        }
+      ],
+      "Recept": []
+    },
+    "ime": "Jovan",
+    "prezime": "Jovanovic",
+    "jmbg": "0818960700032",
+    "pol": "M",
+    "brojTelefona": "+381651234567",
+    "email": "jovan@gmail.com",
+    "datumRodenja": "1960-08-18T00:00:00",
+    "korisnickoIme": "jovan",
+    "lozinka": "jovan123",
+    "isDeleted": false,
+    "adresaStanovanja": {
+      "ulicaIBroj": "Nova 2",
+      "mestoStanovanja": {
+        "drzavaStanovanja": { "naziv": "Srbija" },
+        "naziv": "Novi Sad",
+        "postanskiBroj": "21000"
+      }
+    }
+  },
+  {
+    "isGuest": false,
+    "brojZdravstveneKartice": "987654321012",
+    "Banovan": false,
+    "TrenutakBanovanja": "0001-01-01T00:00:00",
+    "zdravstveniKarton": {
+      "recept": null,
+      "brojZdravstvenogKartona": "5",
+      "Alergen": [
+        {
+          "ID": 0,
+          "Name": "Laktoza",
+          "IsDeleted": false
+        }
+      ],
+      "Terapija": [],
+      "Recept": []
+    },
+    "ime": "Marko",
+    "prezime": "Markovic",
+    "jmbg": "1234567890123",
+    "pol": "M",
+    "brojTelefona": "06123456789",
+    "email": "marko@marko",
+    "datumRodenja": "1979-06-21T00:00:00",
+    "korisnickoIme": "marko",
+    "lozinka": "marko",
+    "isDeleted": false,
+    "adresaStanovanja": {
+      "ulicaIBroj": "Ulica 1",
+      "mestoStanovanja": {
+        "drzavaStanovanja": { "naziv": "Srbija" },
+        "naziv": "Novi Sad",
+        "postanskiBroj": "21000"
+      }
+    }
+  },
+  {
+    "isGuest": false,
+    "brojZdravstveneKartice": "asd",
+    "Banovan": false,
+    "TrenutakBanovanja": "1970-01-01T00:00:00",
+    "zdravstveniKarton": {
+      "recept": null,
+      "brojZdravstvenogKartona": null,
+      "Alergen": [],
+      "Terapija": [],
+      "Recept": []
+    },
+    "ime": "asd",
+    "prezime": "asd",
+    "jmbg": "asd",
+    "pol": "M",
+    "brojTelefona": "asd",
+    "email": "asd",
+    "datumRodenja": "2021-04-02T00:00:00",
+    "korisnickoIme": "marko1",
+    "lozinka": "asd",
+    "isDeleted": true,
+    "adresaStanovanja": {
+      "ulicaIBroj": "asd",
+      "mestoStanovanja": {
+        "drzavaStanovanja": { "naziv": "asd" },
+        "naziv": "asd",
+        "postanskiBroj": "asd"
+      }
+    }
+  },
+  {
+    "isGuest": false,
+    "brojZdravstveneKartice": "34586544",
+    "Banovan": false,
+    "TrenutakBanovanja": "0001-01-01T00:00:00",
+    "zdravstveniKarton": {
+      "recept": [
+        {
+          "Doctor": {
+            "doctorType": 1,
+            "ime": "Petar",
+            "prezime": "Petrovic",
+            "jmbg": "1507970600034",
+            "pol": "m",
+            "brojTelefona": "+381661238407",
+            "email": "ppetrovic@gmail.com",
+            "datumRodenja": "1970-04-12T00:00:00",
+            "korisnickoIme": "PPetrovic",
+            "lozinka": "petrovic123",
+            "isDeleted": false,
+            "adresaStanovanja": null
+          },
+          "Drug": {
+            "Sifra": "x11",
+            "Naziv": "Penicilin",
+            "IsDeleted": false,
+            "StatusLeka": 0,
+            "ListaSastojaka": [
+              {
+                "ID": 0,
+                "Name": null,
+                "IsDeleted": false
+              },
+              {
+                "ID": 2,
+                "Name": null,
+                "IsDeleted": false
+              }
+            ]
+          },
+          "Date": "2021-05-11T00:00:00"
+        }
+      ],
+      "brojZdravstvenogKartona": "5",
+      "Alergen": [
+        {
+          "ID": 3,
+          "Name": "Soja",
+          "IsDeleted": false
+        }
+      ],
+      "Terapija": [],
+      "Recept": [
+        {
+          "Doctor": {
+            "doctorType": 1,
+            "ime": "Petar",
+            "prezime": "Petrovic",
+            "jmbg": "1507970600034",
+            "pol": "m",
+            "brojTelefona": "+381661238407",
+            "email": "ppetrovic@gmail.com",
+            "datumRodenja": "1970-04-12T00:00:00",
+            "korisnickoIme": "PPetrovic",
+            "lozinka": "petrovic123",
+            "isDeleted": false,
+            "adresaStanovanja": null
+          },
+          "Drug": {
+            "Sifra": "x11",
+            "Naziv": "Penicilin",
+            "IsDeleted": false,
+            "StatusLeka": 0,
+            "ListaSastojaka": [
+              {
+                "ID": 0,
+                "Name": null,
+                "IsDeleted": false
+              },
+              {
+                "ID": 2,
+                "Name": null,
+                "IsDeleted": false
+              }
+            ]
+          },
+          "Date": "2021-05-11T00:00:00"
+        }
+      ]
+    },
+    "ime": "Marija",
+    "prezime": "Mirković",
+    "jmbg": "1204910123321",
+    "pol": "Ž",
+    "brojTelefona": "0645678765",
+    "email": "marijamir@gmail.com",
+    "datumRodenja": "2010-04-14T00:00:00",
+    "korisnickoIme": "marijamir",
+    "lozinka": "mir123",
+    "isDeleted": false,
+    "adresaStanovanja": {
+      "ulicaIBroj": "Gogoljeva 12",
+      "mestoStanovanja": {
+        "drzavaStanovanja": { "naziv": "Srbija" },
+        "naziv": "Novi Sad",
+        "postanskiBroj": "1234321"
+      }
+    }
+  },
+  {
+    "isGuest": true,
+    "brojZdravstveneKartice": "",
+    "Banovan": false,
+    "TrenutakBanovanja": "0001-01-01T00:00:00",
+    "zdravstveniKarton": {
+      "recept": null,
+      "brojZdravstvenogKartona": "7",
+      "Alergen": [],
+      "Terapija": [],
+      "Recept": []
+    },
+    "ime": "Ola",
+    "prezime": "Nordmannn",
+    "jmbg": "0939402352333",
+    "pol": "M",
+    "brojTelefona": "",
+    "email": "",
+    "datumRodenja": "2001-01-01T00:00:00",
+    "korisnickoIme": "ola_nordmannn",
+    "lozinka": "",
+    "isDeleted": false,
+    "adresaStanovanja": {
+      "ulicaIBroj": "",
+      "mestoStanovanja": {
+        "drzavaStanovanja": { "naziv": "" },
+        "naziv": "",
+        "postanskiBroj": ""
+      }
+    }
+  },
+  {
+    "isGuest": false,
+    "brojZdravstveneKartice": "123213",
+    "Banovan": false,
+    "TrenutakBanovanja": "0001-01-01T00:00:00",
+    "zdravstveniKarton": {
+      "recept": null,
+      "brojZdravstvenogKartona": "5",
+      "Alergen": [],
+      "Terapija": [],
+      "Recept": []
+    },
+    "ime": null,
+    "prezime": "12312",
+    "jmbg": "1231231232312",
+    "pol": "M",
+    "brojTelefona": "3123",
+    "email": "213",
+    "datumRodenja": "0001-01-01T00:00:00",
+    "korisnickoIme": "neko",
+    "lozinka": "nekic",
+    "isDeleted": true,
+    "adresaStanovanja": {
+      "ulicaIBroj": "21312",
+      "mestoStanovanja": {
+        "drzavaStanovanja": { "naziv": "12321" },
+        "naziv": "213",
+        "postanskiBroj": "3213"
+      }
+    }
+  },
+  {
+    "isGuest": false,
+    "brojZdravstveneKartice": "sdffsd",
+    "Banovan": false,
+    "TrenutakBanovanja": "0001-01-01T00:00:00",
+    "zdravstveniKarton": {
+      "recept": null,
+      "brojZdravstvenogKartona": "6",
+      "Alergen": [],
+      "Terapija": [],
+      "Recept": []
+    },
+    "ime": "sdasd",
+    "prezime": "sdf",
+    "jmbg": "1231231231231",
+    "pol": "M",
+    "brojTelefona": "dsf",
+    "email": "sddsf",
+    "datumRodenja": "0001-01-01T00:00:00",
+    "korisnickoIme": "asd",
+    "lozinka": "asd",
+    "isDeleted": true,
+    "adresaStanovanja": {
+      "ulicaIBroj": "sdf",
+      "mestoStanovanja": {
+        "drzavaStanovanja": { "naziv": "sdf" },
+        "naziv": "sdf",
+        "postanskiBroj": "sdf"
+      }
+    }
+  },
+  {
+    "isGuest": false,
+    "brojZdravstveneKartice": "2323",
+    "Banovan": false,
+    "TrenutakBanovanja": "0001-01-01T00:00:00",
+    "zdravstveniKarton": {
+      "recept": null,
+      "brojZdravstvenogKartona": "7",
+      "Alergen": [],
+      "Terapija": [],
+      "Recept": []
+    },
+    "ime": "Vesna",
+    "prezime": "Vesnić",
+    "jmbg": "3232343245345",
+    "pol": "Ž",
+    "brojTelefona": "+543543534",
+    "email": "vesna@vesnic.com",
+    "datumRodenja": "1997-03-14T00:00:00",
+    "korisnickoIme": "vesna_vesnic",
+    "lozinka": "vesna",
+    "isDeleted": false,
+    "adresaStanovanja": {
+      "ulicaIBroj": "Negde 432324",
+      "mestoStanovanja": {
+        "drzavaStanovanja": { "naziv": "Srbija" },
+        "naziv": "Ub",
+        "postanskiBroj": "4323432"
+      }
+    }
+  },
+  {
+    "isGuest": false,
+    "brojZdravstveneKartice": "12215512321",
+    "Banovan": false,
+    "TrenutakBanovanja": "0001-01-01T00:00:00",
+    "zdravstveniKarton": {
+      "recept": null,
+      "brojZdravstvenogKartona": "8",
+      "Alergen": [],
+      "Terapija": [],
+      "Recept": []
+    },
+    "ime": "Ana",
+    "prezime": "Radić",
+    "jmbg": "1206999123456",
+    "pol": "Ž",
+    "brojTelefona": "0611123245",
+    "email": "anaradic@gmail.com",
+    "datumRodenja": "1999-06-12T00:00:00",
+    "korisnickoIme": "anar",
+    "lozinka": "anaradic",
+    "isDeleted": false,
+    "adresaStanovanja": {
+      "ulicaIBroj": "Balzakova 12",
+      "mestoStanovanja": {
+        "drzavaStanovanja": { "naziv": "Srbija" },
+        "naziv": "Novi Sad",
+        "postanskiBroj": "76316"
+      }
+    }
+  }
+]

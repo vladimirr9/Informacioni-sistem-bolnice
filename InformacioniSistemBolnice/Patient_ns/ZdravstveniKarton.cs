@@ -67,6 +67,11 @@ public class ZdravstveniKarton
         this.brojZdravstvenogKartona = brojZdravstvenogKartona;
         
     }
+
+    public ZdravstveniKarton()
+    {
+    }
+
     [JsonIgnore]
     public System.Collections.Generic.List<Therapy> terapija;
 

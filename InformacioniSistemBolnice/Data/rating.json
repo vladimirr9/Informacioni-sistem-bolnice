@@ -1,0 +1,13 @@
+[
+  
+  {
+    "IdOfRating": 1,
+    "Comment": "sf",
+    "Evaluation": 5,
+    "UsernameOfDoctor": "mmarko",
+    "UsernameOfPatient": "jovan",
+    "IdOfAppointment": 112,
+    "IsRatingDeleted": false,
+    "DateOfWritingRating": "2021-05-30T12:22:31.9939876+02:00"
+  }
+]

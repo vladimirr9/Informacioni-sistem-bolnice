@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -141,5 +142,34 @@ namespace InformacioniSistemBolnice.Service
             PacijentFileStorage.UpdatePacijent(patient.korisnickoIme, patient);
         }
 
+        public List<Therapy> GetTherapiesFromRecord(Pacijent patient)
+        {
+            List<Therapy> therapies = new List<Therapy>();
+            foreach (Therapy t in GetMedicalRecordForPatient(patient).Terapija)
+            {
+                if (t.BeginningDate < DateTime.Now && t.EndingDate > DateTime.Now)
+                {
+                    therapies.Add(t);
+                }
+            }
+
+            return therapies;
+        }
+
+        private ZdravstveniKarton GetMedicalRecordForPatient(Pacijent patient)
+        {
+            ZdravstveniKarton medicalRecord = new ZdravstveniKarton();
+            List<Pacijent> patients = PacijentFileStorage.GetAll();
+            foreach (Pacijent p in patients)
+            {
+                if (p.korisnickoIme.Equals(patient.korisnickoIme))
+                {
+                    medicalRecord = p.zdravstveniKarton;
+                    
+                }
+
+            }
+            return medicalRecord;
+        }
     }
 }

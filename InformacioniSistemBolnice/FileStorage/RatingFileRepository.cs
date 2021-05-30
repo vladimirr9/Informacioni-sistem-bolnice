@@ -11,7 +11,7 @@ namespace InformacioniSistemBolnice.FileStorage
     public class RatingFileRepository
     {
 
-        private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "ankete.json";
+        private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "rating.json";
         public static List<Rating> GetAll()
         {
             if (!File.Exists(startupPath))

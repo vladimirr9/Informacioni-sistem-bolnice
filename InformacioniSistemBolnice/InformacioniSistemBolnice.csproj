@@ -74,6 +74,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\ActivityLogController.cs" />
+    <Compile Include="Controller\AnamnesisController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Lekar\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
@@ -216,6 +217,7 @@
       <DependentUpon>AppointmentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\ActivityLogService.cs" />
+    <Compile Include="Service\AnamnesisService.cs" />
     <Compile Include="Service\AppointmentService.cs" />
     <Compile Include="Service\NotificationService.cs" />
     <Compile Include="Service\PatientService.cs" />

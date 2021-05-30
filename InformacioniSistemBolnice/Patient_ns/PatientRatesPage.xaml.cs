@@ -103,6 +103,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 parent.startWindow.Content = new RatingPage(parent);
                 parent.imePacijenta.Visibility = Visibility.Visible;
                 parent.odjava.Visibility = Visibility.Visible;
+                imeLjekara.Visibility = Visibility.Hidden;
 
             }
         }

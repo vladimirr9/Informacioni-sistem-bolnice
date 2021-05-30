@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Patient_ns
@@ -22,9 +24,12 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class NotificationPatientPage : Page
     {
         private StartPatientWindow parent;
+        private Pacijent loggedInPatient;
+        private PatientController _patientController = new PatientController();
         public NotificationPatientPage(StartPatientWindow pp)
         {
             parent = pp;
+            loggedInPatient = pp.Pacijent;
             InitializeComponent();
             updateVisibility();
             this.DataContext = this;
@@ -33,14 +38,10 @@ namespace InformacioniSistemBolnice.Patient_ns
         }
         private void LoadNotifications()
         {
-            DateTime now = DateTime.Now;
-            foreach (Therapy t in parent.Pacijent.zdravstveniKarton.Terapija)
+            
+            foreach (Therapy therapy in _patientController.GetTherapiesFromMedicalRecord(loggedInPatient))
             {
-                if (t.BeginningDate < now && t.EndingDate > now)
-                {
-
-                    PrikazObavjestenja.Items.Add(t.Description);
-                }
+                PrikazObavjestenja.Items.Add(therapy.Description);
             }
         }
 
