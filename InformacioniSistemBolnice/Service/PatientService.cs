@@ -152,22 +152,18 @@ namespace InformacioniSistemBolnice.Service
                     therapies.Add(t);
                 }
             }
-
             return therapies;
         }
 
         private ZdravstveniKarton GetMedicalRecordForPatient(Pacijent patient)
         {
             ZdravstveniKarton medicalRecord = new ZdravstveniKarton();
-            List<Pacijent> patients = PacijentFileStorage.GetAll();
-            foreach (Pacijent p in patients)
+            foreach (Pacijent p in PacijentFileStorage.GetAll())
             {
                 if (p.korisnickoIme.Equals(patient.korisnickoIme))
                 {
                     medicalRecord = p.zdravstveniKarton;
-                    
                 }
-
             }
             return medicalRecord;
         }

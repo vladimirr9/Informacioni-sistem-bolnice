@@ -26,6 +26,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private StartPatientWindow parent;
         private Pacijent loggedInPatient;
         private PatientController _patientController = new PatientController();
+        private AnamnesisController _anamnesisController = new AnamnesisController();
         public NotificationPatientPage(StartPatientWindow pp)
         {
             parent = pp;
@@ -38,7 +39,6 @@ namespace InformacioniSistemBolnice.Patient_ns
         }
         private void LoadNotifications()
         {
-            
             foreach (Therapy therapy in _patientController.GetTherapiesFromMedicalRecord(loggedInPatient))
             {
                 PrikazObavjestenja.Items.Add(therapy.Description);
@@ -47,22 +47,11 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void LoadReminders()
         {
-            List<Anamnesis> anamneses = AnamnesisFileRepository.GetAll();
-            foreach (Anamnesis a in anamneses)
+            foreach (Note n in _anamnesisController.GetNotesWithReminder(loggedInPatient))
             {
-                if (a.UsernameOfPatient.Equals(parent.Pacijent.korisnickoIme))
-                {
-                    foreach (Note n in a.NotesForAnamnesis)
-                    {
-                        if (n.IsSetReminder == true)
-                        {
-                            PrikazObavjestenja.Items.Add(n.DescriptionOfNote);
-                        }
-                    }
-                }
+                PrikazObavjestenja.Items.Add(n.DescriptionOfNote);
             }
         }
-
 
         private void updateVisibility()
         {
