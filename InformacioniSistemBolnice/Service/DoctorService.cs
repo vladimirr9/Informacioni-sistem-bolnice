@@ -32,5 +32,18 @@ namespace InformacioniSistemBolnice.Service
         {
             return DoctorFileRepository.GetOne(doctor.Username);
         }
+
+        public List<Doctor> GetDoctorsByType(DoctorType type)
+        {
+            List<Doctor> doctors = new List<Doctor>();
+            foreach (Doctor doctor in DoctorFileRepository.GetAll())
+            {
+                if (doctor.doctorType.Equals(type))
+                {
+                    doctors.Add(doctor);
+                }
+            }
+            return doctors;
+        }
     }
 }

@@ -53,6 +53,21 @@ namespace InformacioniSistemBolnice.Service
             return scheduled;
         }
 
+
+        public List<Appointment> GetScheduledAppointmentsForPatient(Patient patient)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+            foreach (Appointment a in GetScheduled())
+            {
+                if (a.PatientUsername.Equals(patient.Username) && !IsDateOfAppointmentPassed(a))
+                {
+                    appointments.Add(a);
+                }
+            }
+
+            return appointments;
+        }
+
         public List<Appointment> PatientsAppointments(Patient patient)
         {
             List<Appointment> appointments = new List<Appointment>();
@@ -62,14 +77,40 @@ namespace InformacioniSistemBolnice.Service
                 {
                     appointments.Add(appointment);
                 } 
+
             }
             return appointments;
+        }
+
+
+        private Boolean IsDateOfAppointmentPassed(Appointment appointment)
+        {
+            Boolean returnValue = false;
+            if (appointment.AppointmentDate < DateTime.Now)
+            {
+                returnValue = true;
+            }
+
+            return returnValue;
+
+        }
+
+        public Boolean IsAppointmentTomorrow(Appointment appointment)
+        {
+            Boolean returnValue = false;
+            if (appointment.AppointmentDate.Date <= DateTime.Now.AddHours(24).Date)
+            {
+                returnValue = true;
+            }
+
+            return returnValue;
         }
 
         public void FinishAppointment(Appointment appointment)
         {
             appointment.AppointmentStatus = AppointmentStatus.finished;
             AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+
         }
     }
 }

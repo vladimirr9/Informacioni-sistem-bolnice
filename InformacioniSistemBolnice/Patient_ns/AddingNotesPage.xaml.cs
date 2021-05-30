@@ -66,10 +66,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 _elementsInComboBox.Add(tm.ToString("HH:mm"));
 
             }
-
             startMomentComboBox.ItemsSource = _elementsInComboBox;
-
-
         }
 
         private void FillEndMomentComboBox()
@@ -83,7 +80,6 @@ namespace InformacioniSistemBolnice.Patient_ns
                 _elementsInComboBox.Add(tm.ToString("HH:mm"));
 
             }
-
             endMomentComboBox.ItemsSource = _elementsInComboBox;
 
         }

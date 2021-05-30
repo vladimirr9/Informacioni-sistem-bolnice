@@ -35,5 +35,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _doctorService.GetOne(doctor);
         }
+
+        public List<Doctor> GetDoctorsByType(DoctorType type)
+        {
+            return _doctorService.GetDoctorsByType(type);
+        }
     }
 }

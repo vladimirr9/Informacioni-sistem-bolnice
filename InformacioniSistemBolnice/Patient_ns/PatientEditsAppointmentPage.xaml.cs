@@ -25,6 +25,7 @@ namespace InformacioniSistemBolnice.Patient_ns
     {
         private const int trajanjePregleda = 15;
         private ActivityLogController _activityLogController = new ActivityLogController();
+        private DoctorControler _doctorControler = new DoctorControler();
         private StartPatientWindow parent;
         private Appointment selektovan;
         private List<string> availableTimes;
@@ -49,25 +50,30 @@ namespace InformacioniSistemBolnice.Patient_ns
             date.SelectedDate = selektovan.AppointmentDate;
             time.SelectedItem = selektovan.AppointmentDate.ToString("HH:mm");
             lekari = new List<global::Doctor>();
-            foreach (global::Doctor l in DoctorFileRepository.GetAll())
-            {
-                if (l.doctorType.Equals(DoctorType.generalPractitioner))
-                {
-                    lekari.Add(l);
-                }
+            FillDoctorsComboBox();
+            SetSelectedDoctor();
+        }
+
+        private void FillDoctorsComboBox()
+        {
+            foreach (global::Doctor doctor in _doctorControler.GetDoctorsByType(DoctorType.generalPractitioner))
+            { 
+                lekari.Add(doctor);
             }
             lekar.ItemsSource = lekari;
+        }
+
+        private void SetSelectedDoctor()
+        {
             foreach (global::Doctor l in lekari)
             {
                 if (l.JMBG == selektovan.Doctor.JMBG)
                     lekar.SelectedItem = l;
             }
-
         }
 
         private void LoadTimes()
         {
-
             DateTime datum;
             global::Doctor l = (global::Doctor)lekar.SelectedItem;
             if (date.SelectedDate != null)
@@ -78,7 +84,6 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 datum = DateTime.Now;
             }
-
             availableTimes = new List<string>();
             List<Appointment> termini = new List<Appointment>();
             DateTime danas = DateTime.Today;
@@ -120,8 +125,6 @@ namespace InformacioniSistemBolnice.Patient_ns
             date.BlackoutDates.Add(kalendar);
             date.BlackoutDates.Add(kalendar1);
             date.BlackoutDates.Add(kal);
-
-
         }
         private void UpdateComponents()
         {
@@ -140,7 +143,6 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 LoadTimes();
             }
-
 
             lekari = new List<global::Doctor>();
             foreach (global::Doctor l in DoctorFileRepository.GetAll())

@@ -36,6 +36,12 @@ namespace InformacioniSistemBolnice.Controller
 
         }
 
+
+        public List<Anamnesis> GetPatientsAnamneses(Patient patient)
+        {
+            return _anamnesisService.PatientsAnamneses(patient);
+        }
+
         public int GenerateId()
         {
             return _anamnesisService.GenerateId();
@@ -49,6 +55,7 @@ namespace InformacioniSistemBolnice.Controller
         public void Update(Anamnesis anamnesis)
         { 
             _anamnesisService.Update(anamnesis);
+
         }
     }
 }

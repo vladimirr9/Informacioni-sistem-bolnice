@@ -9,7 +9,7 @@ namespace InformacioniSistemBolnice.Service
 {
     public class AnamnesisService
     {
-        private List<Anamnesis> PatientsAnamneses(Patient patient)
+        public List<Anamnesis> PatientsAnamneses(Patient patient)
         {
             List<Anamnesis> anamneses = new List<Anamnesis>();
             foreach (Anamnesis a in AnamnesisFileRepository.GetAll())
