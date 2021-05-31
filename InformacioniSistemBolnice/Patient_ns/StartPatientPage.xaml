@@ -13,5 +13,6 @@
         <Button x:Name="ocjenjivanje" FontSize="22" Background="White" BorderThickness="2" BorderBrush="Black" Content="Ocenjivanje usluga" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="ocjenjivanje_Click" />
         <Button x:Name="obavjestenja" FontSize="22" Background="White" Content="Obaveštenja" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,260,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="obavjestenja_Click" />
         <Button x:Name="karton" FontSize="22" Content="Zdravstveni karton" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="50,140,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="karton_Click" />
+        <Image Source="logo.png" Width="200" Margin="570,320,30,10"/>
     </Grid>
 </Page>

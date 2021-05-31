@@ -571,7 +571,9 @@
   <ItemGroup>
     <None Include="Patient_ns\App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Patient_ns\logo.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Doctor_ns\doctor_medical_avatar_people_icon_131305.png" />
   </ItemGroup>
