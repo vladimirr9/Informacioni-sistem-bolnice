@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,62 +20,50 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class DodavanjeOpreme : Window
     {
-        private OpremaWindow parent;
-        private Room selektovana;
-        public DodavanjeOpreme(Room p, OpremaWindow parent)
+        private OpremaWindow _parent;
+        private Room _selectedRoom;
+        private RoomController _roomController = new RoomController();
+        public DodavanjeOpreme(Room room, OpremaWindow parent)
         {
             InitializeComponent();
-            this.parent = parent;
-            selektovana = p;
+            this._parent = parent;
+            _selectedRoom = room;
 
-            IdProstorije.Text = selektovana.RoomId.ToString();
+            IdProstorije.Text = _selectedRoom.RoomId.ToString();
         }
 
-        private void DodajOpremu(object sender, RoutedEventArgs e)
+        private void AddInventory(object sender, RoutedEventArgs e)
         {
-            int idProstorije = selektovana.RoomId;
-            String sifra = Sifra.Text;
-            String naziv = Naziv.Text;
-            InventoryType tipOpreme;
+            Inventory newInventory = GenerateInventoryObjectFromCollectedData();
+            _roomController.AddInventory(_selectedRoom, newInventory);
+            _parent.UpdateTable();
+            this.Close();
+        }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        public Inventory GenerateInventoryObjectFromCollectedData()
+        {
+            int roomId = _selectedRoom.RoomId;
+            String inventroyId = Sifra.Text;
+            String name = Naziv.Text;
+            InventoryType inventoryType;
             if (TipOpreme.SelectedIndex == 0)
             {
-                tipOpreme = 0;
+                inventoryType = 0;
             }
             else
             {
-                tipOpreme = (InventoryType)1;
+                inventoryType = (InventoryType)1;
             }
-            int kolicina = Convert.ToInt32(Kolicina.Text);
+            int quantity = Convert.ToInt32(Kolicina.Text);
             Boolean isDeleted = (bool)IsDeleted.IsChecked;
+            Inventory newInventory = new Inventory(roomId, inventroyId, name, inventoryType, quantity, isDeleted);
 
-            Inventory o = new Inventory(idProstorije, sifra, naziv, tipOpreme, kolicina, isDeleted);
-
-            int idProstorije2 = selektovana.RoomId;
-            String naziv2 = selektovana.Name;
-            RoomType tipProstorije = selektovana.RoomType;
-            Boolean isDeleted2 = selektovana.IsDeleted;
-            Boolean isActive = selektovana.IsActive;
-            Double kvadratura = selektovana.Area;
-            int brSprata = selektovana.Floor;
-            int brSobe = selektovana.RoomNumber;
-            List<Inventory> opremaLista = selektovana.InventoryList;
-
-            opremaLista.Add(o);
-            //Oprema o1 = new Oprema(sifra, Name, tipOpreme, kolicina, IsDeleted);
-            //OpremaFileStorage.AddOprema(o)
-            //;
-            //selektovana.OpremaLista.Add(o);
-
-            Room p = new Room(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
-
-            RoomFileRepository.UpdateRoom(selektovana.RoomId, p);
-            parent.updateTable();
-            this.Close();
-        }
-
-        private void Otkazi(object sender, RoutedEventArgs e)
-        {
-            this.Close();
+            return newInventory;
         }
     }
 }

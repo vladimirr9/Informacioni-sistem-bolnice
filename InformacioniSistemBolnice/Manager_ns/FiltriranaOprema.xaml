@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="FiltriranaOprema" Height="700" Width="700">
     <Grid>
-        <DataGrid x:Name="dataGridOprema" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="450"
+        <DataGrid x:Name="dataGridInventory" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="450"
                   AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -27,6 +27,6 @@
 
         </DataGrid>
         <Label x:Name="label" Content="Filtrirana oprema" HorizontalAlignment="Left" Margin="39,23,0,0" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
-        <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="566,614,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Zatvori" />
+        <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="566,614,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Close" />
     </Grid>
 </Window>

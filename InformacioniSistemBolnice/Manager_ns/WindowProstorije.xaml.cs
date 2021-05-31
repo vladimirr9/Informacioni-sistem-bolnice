@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,75 +20,73 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class WindowProstorije : Window
     {
-        public UpravnikWindow parent;
+        private UpravnikWindow _parent;
+        private RoomController _roomController = new RoomController();
         public WindowProstorije(UpravnikWindow parent)
         {
             InitializeComponent();
-            this.parent = parent;
-            updateTable();
+            this._parent = parent;
+            UpdateTable();
 
             this.DataContext = this;
         }
 
-        private void Zatvori(object sender, RoutedEventArgs e)
+        private void Close(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void OpremaProstorije(object sender, RoutedEventArgs e)
+        private void RoomInventory(object sender, RoutedEventArgs e)
         {
             if (datagridProstorije.SelectedItem != null)
             {
-                OpremaWindow prozor = new OpremaWindow((Room)datagridProstorije.SelectedItem, this);
-                prozor.Show();
+                OpremaWindow inventoryWindow = new OpremaWindow((Room)datagridProstorije.SelectedItem, this);
+                inventoryWindow.Show();
             }
         }
 
-        private void IzmeniProstoriju(object sender, RoutedEventArgs e)
+        private void UpdateRoom(object sender, RoutedEventArgs e)
         {
             if (datagridProstorije.SelectedItem != null)
             {
-                Room p = (Room)datagridProstorije.SelectedItem;
-                //Room prostorijaZaIzmenu = ProstorijaFileStorage.GetOne((Room)datagridProstorije.SelectedItem)).iDprostorije).ToString();
-                Room prostorijaZaIzmenu = RoomFileRepository.GetOne(p.RoomId);
-                IzmenaProstorije prozor = new IzmenaProstorije(prostorijaZaIzmenu, this);
-                prozor.Show();
+                Room roomForUpdate = (Room)datagridProstorije.SelectedItem;
+                IzmenaProstorije updateRoomWindow = new IzmenaProstorije(roomForUpdate, this);
+                updateRoomWindow.Show();
             }
         }
 
-        private void DodajProstoriju(object sender, RoutedEventArgs e)
+        private void AddRoom(object sender, RoutedEventArgs e)
         {
-            DodavanjeProstorije prozor = new DodavanjeProstorije(this);
-            prozor.Show();
+            DodavanjeProstorije addRoomWindow = new DodavanjeProstorije(this);
+            addRoomWindow.Show();
         }
 
-        private void ObrišiProstoriju(object sender, RoutedEventArgs e)
+        private void RemoveRoom(object sender, RoutedEventArgs e)
         {
             if (datagridProstorije.SelectedItem != null)
             {
-                MessageBoxResult odgovor = MessageBox.Show("Da li želite da obrišete selektovanu prostoriju?", "Potvrda brisanja prostorije", MessageBoxButton.YesNo);
-                if (odgovor == MessageBoxResult.Yes)
+                MessageBoxResult answer = MessageBox.Show("Da li želite da obrišete selektovanu prostoriju?", "Potvrda brisanja prostorije", MessageBoxButton.YesNo);
+                if (answer == MessageBoxResult.Yes)
                 {
-                    Room selektovana = (Room)datagridProstorije.SelectedItem;
-                    RoomFileRepository.RemoveRoom(selektovana.RoomId);
+                    Room selectedRoom = (Room)datagridProstorije.SelectedItem;
+                    _roomController.RemoveRoom(selectedRoom);
                     datagridProstorije.Items.Remove(datagridProstorije.SelectedItem);
-                    updateTable();
+                    UpdateTable();
                 }
             }
         }
 
-        public void updateTable()
+        public void UpdateTable()
         {
             datagridProstorije.Items.Clear();
-            List<Room> prostorije = RoomFileRepository.GetAll();
-            foreach (Room p in prostorije)
+            foreach (Room r in _roomController.GetAllRooms())
             {
-                if (!p.IsDeleted)
-                    datagridProstorije.Items.Add(p);
+                if (!r.IsDeleted)
+                    datagridProstorije.Items.Add(r);
             }
         }
 
-        private void ZakaziRenoviranje(object sender, RoutedEventArgs e)
+        private void Renovation(object sender, RoutedEventArgs e)
         {
             if (datagridProstorije.SelectedItem != null)
             {
@@ -98,13 +97,13 @@ namespace InformacioniSistemBolnice.Upravnik
             }
         }
 
-        private void PretragaOpreme(object sender, RoutedEventArgs e)
+        private void InventorySearch(object sender, RoutedEventArgs e)
         {
             String search = Pretraga.Text;
             if (search != null)
             {
-                FiltriranaOprema prozor = new FiltriranaOprema(this, search);
-                prozor.Show();
+                FiltriranaOprema filteredInventoryWindow = new FiltriranaOprema(this, search);
+                filteredInventoryWindow.Show();
             }
         }
     }
