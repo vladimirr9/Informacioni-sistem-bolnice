@@ -105,15 +105,8 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
             if (anamnesis.Trim() != "")
             {
-                if (_anamnesisController.AppointmentAnamnesis(appointment) != null)
-                {
-                    _anamnesisController.Update(_anamnesisController.AppointmentAnamnesis(appointment));
-                }
-                else
-                {
-                    Anamnesis newAnamnesis = new Anamnesis(anamnesis, null, selected.Username, _anamnesisController.GenerateId(), DateTime.Now, appointment.AppointmentID);
-                    _anamnesisController.Add(newAnamnesis);
-                }
+                Anamnesis newAnamnesis = new Anamnesis(anamnesis, null, selected.Username, _anamnesisController.GenerateId(), DateTime.Now, appointment.AppointmentID);
+                _anamnesisController.Update(newAnamnesis, appointment);
                 _appointmentController.FinishAppointment(appointment);
             }
         }

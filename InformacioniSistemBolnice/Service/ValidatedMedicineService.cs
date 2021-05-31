@@ -21,5 +21,19 @@ namespace InformacioniSistemBolnice.Service
 
             return validated;
         }
+
+        public List<Medicine> GetUnvalidatedMedicines()
+        {
+            List<Medicine> unvalidated = new List<Medicine>();
+            foreach (Medicine medicine in MedicineFileRepository.GetAll())
+            {
+                if (!medicine.IsDeleted && medicine.MedicineStatus.Equals(MedicineStatus.waitingForValidation))
+                {
+                    unvalidated.Add(medicine);
+                }
+            }
+
+            return unvalidated;
+        }
     }
 }

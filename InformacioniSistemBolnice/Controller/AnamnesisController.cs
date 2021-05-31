@@ -52,9 +52,9 @@ namespace InformacioniSistemBolnice.Controller
             _anamnesisService.Add(anamnesis);
         }
 
-        public void Update(Anamnesis anamnesis)
+        public void Update(Anamnesis anamnesis, Appointment appointment)
         { 
-            _anamnesisService.Update(anamnesis);
+            _anamnesisService.Update(anamnesis, appointment);
 
         }
     }

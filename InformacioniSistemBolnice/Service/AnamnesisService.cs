@@ -102,9 +102,16 @@ namespace InformacioniSistemBolnice.Service
             AnamnesisFileRepository.AddAnamnesis(anamnesis);
         }
 
-        public void Update(Anamnesis anamnesis)
+        public void Update(Anamnesis anamnesis, Appointment appointment)
         {
-            AnamnesisFileRepository.UpdateAnamnesis(anamnesis.IdOfAnamnesis, anamnesis);
+            if (AppointmentAnamnesis(appointment) != null)
+            {
+                AnamnesisFileRepository.UpdateAnamnesis(anamnesis.IdOfAnamnesis, anamnesis);
+            }
+            else
+            {
+                AnamnesisFileRepository.AddAnamnesis(anamnesis);
+            }
         }
 
     }
