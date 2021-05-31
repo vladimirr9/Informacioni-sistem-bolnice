@@ -1058,6 +1058,7 @@ D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBoln
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorsPage.baml
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.g.cs
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.baml
+<<<<<<< HEAD
 C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe.config
 C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.exe
 C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\InformacioniSistemBolnice.pdb
@@ -1191,3 +1192,5 @@ C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Informac
 C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
 C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
 C:\SIMS\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.baml
