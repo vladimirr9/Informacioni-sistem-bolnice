@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Doctor_ns;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,6 +58,19 @@ namespace InformacioniSistemBolnice.Service
             }
             return doctors;
         }
+
+        internal void RemoveVacation(Doctor doctor, Vacation selectedVacation)
+        {
+            doctor.Vacations.Remove(selectedVacation);
+            doctor.DaysOfVacation += selectedVacation.DurationInBusinessDays;
+        }
+
+        public void AddVacation(Doctor doctor, Vacation newVacation)
+        {
+            doctor.DaysOfVacation -= newVacation.DurationInBusinessDays;
+            doctor.Vacations.Add(newVacation);
+        }
+
         public List<Doctor> GetFilteredDoctors(List<global::Doctor> doctors, DoctorType doctorType)
         {
             List<Doctor> filteredDoctors = new List<global::Doctor>();

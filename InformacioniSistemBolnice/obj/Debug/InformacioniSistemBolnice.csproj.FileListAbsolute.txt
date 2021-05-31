@@ -130,3 +130,4 @@ C:\sims projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug
 C:\sims projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csproj.CopyComplete
 C:\sims projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.exe
 C:\sims projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.pdb
+C:\sims projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csprojAssemblyReference.cache

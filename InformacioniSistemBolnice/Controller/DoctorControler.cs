@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InformacioniSistemBolnice.Doctor_ns;
 using InformacioniSistemBolnice.Service;
 
 namespace InformacioniSistemBolnice.Controller
@@ -47,6 +48,16 @@ namespace InformacioniSistemBolnice.Controller
         public List<Doctor> GetFilteredDoctors(List<Doctor> doctors, DoctorType doctorType)
         {
             return _doctorService.GetFilteredDoctors(doctors, doctorType);
+        }
+
+        public void AddVacation(Doctor doctor, Vacation newVacation)
+        {
+            _doctorService.AddVacation(doctor, newVacation);
+        }
+
+        public void RemoveVacation(Doctor doctor, Vacation selectedVacation)
+        {
+            _doctorService.RemoveVacation(doctor, selectedVacation);
         }
     }
 }

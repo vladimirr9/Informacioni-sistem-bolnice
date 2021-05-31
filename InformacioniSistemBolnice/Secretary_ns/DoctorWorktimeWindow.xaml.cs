@@ -1,4 +1,5 @@
-﻿using InformacioniSistemBolnice.Doctor_ns;
+﻿using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.Doctor_ns;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public List<Vacation> Vacations { get; set; }
         public WorkShift Shift { get; set; }
         public int DaysOfVacation { get; set; }
+        private DoctorControler _doctorController = new DoctorControler();
         public DoctorWorktimeWindow(Doctor doctor)
         {
             Doctor = doctor;
@@ -51,8 +53,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             Vacation newVacation = new Vacation(Start, End);
             if (newVacation.Overlaps(Vacations))
                 return;
-            Doctor.DaysOfVacation -= newVacation.DurationInBusinessDays;
-            Doctor.Vacations.Add(newVacation);
+            _doctorController.AddVacation(Doctor,  newVacation);
             UpdateValues();
         }
 
@@ -64,8 +65,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (result == MessageBoxResult.No)
                 return;
             Vacation selectedVacation = (Vacation)VacationList.SelectedItem;
-            Doctor.Vacations.Remove(selectedVacation);
-            Doctor.DaysOfVacation += selectedVacation.DurationInBusinessDays;
+            _doctorController.RemoveVacation(Doctor, selectedVacation);
             UpdateValues();
         }
 
@@ -95,7 +95,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            DoctorFileRepository.UpdateDoctor(Doctor.Username, Doctor);
+            _doctorController.Update(Doctor);
             Close();
         }
 
