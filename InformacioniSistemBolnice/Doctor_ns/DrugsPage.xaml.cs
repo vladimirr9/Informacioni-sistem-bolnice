@@ -66,7 +66,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             List<Medicine> drugs = MedicineFileRepository.GetAll();                    //kontroler
             foreach (Medicine drug in drugs)
             {
-                if (!drug.IsDeleted && drug.MedicineStatus.Equals(MedicineStatus.validiran))
+                if (!drug.IsDeleted && drug.MedicineStatus.Equals(MedicineStatus.validated))
                     DrugsList.Items.Add(drug.Name);
             }
         }
@@ -87,7 +87,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             IngredientsList.Items.Clear();
             List<Ingredient> ingredients = new List<Ingredient>();
-            foreach (Ingredient ingredient in IngredientFileStorage.GetAll())
+            foreach (Ingredient ingredient in IngredientFileRepository.GetAll())
             {
                 if (drug.IngredientsList.Contains(ingredient))
                 {

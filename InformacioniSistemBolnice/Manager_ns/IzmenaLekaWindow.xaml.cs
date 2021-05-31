@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice.Upravnik
 
             List<global::Doctor> lekari = DoctorFileRepository.GetAll();
             Lekar.ItemsSource = lekari;
-            List<Ingredient> sastojci = IngredientFileStorage.GetAll();
+            List<Ingredient> sastojci = IngredientFileRepository.GetAll();
             Sastojci.ItemsSource = sastojci;
 
             Sifra.Text = lekZaIzmenu.MedicineId;
@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice.Upravnik
             MedicineStatus statusLeka = MedicineStatus.waitingForValidation;
             bool isDeleted = false;
             global::Doctor doctor = (global::Doctor)Lekar.SelectedItem;
-            /*List<Ingredient> sastojciSvi = IngredientFileStorage.GetAll();
+            /*List<Ingredient> sastojciSvi = IngredientFileRepository.GetAll();
             List<Ingredient> sastojciLeka = new List<Ingredient>();
             String[] naziviSastojaka1 = Sastojci.Text.Split(',');
             foreach (Ingredient s in sastojciSvi)

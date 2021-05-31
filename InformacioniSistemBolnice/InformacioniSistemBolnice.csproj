@@ -97,7 +97,7 @@
     <Compile Include="FileStorage\RatingFileRepository.cs" />
     <Compile Include="FileStorage\ActivityLogFileRepository.cs" />
     <Compile Include="FileStorage\MedicineFileRepository.cs" />
-    <Compile Include="FileStorage\IngredientFileStorage.cs" />
+    <Compile Include="FileStorage\IngredientFileRepository.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
     <Compile Include="Secretary_ns\DoctorWorktimeWindow.xaml.cs">

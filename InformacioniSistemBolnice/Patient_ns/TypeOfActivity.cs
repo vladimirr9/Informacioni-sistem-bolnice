@@ -8,7 +8,7 @@ public enum TypeOfActivity
 { 
     makingAppointment,
     editingAppointment,
-    cancelingAppointment
+    cancellingAppointment
     
 
 }

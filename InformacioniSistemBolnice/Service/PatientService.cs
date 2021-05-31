@@ -126,7 +126,7 @@ namespace InformacioniSistemBolnice.Service
             Boolean IsBanned = false;
             int numberOfMakingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.makingAppointment);
             int numberOfEditingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.editingAppointment);
-            int numberOfCancelingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.cancelingAppointment);
+            int numberOfCancelingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.cancellingAppointment);
 
             if (numberOfMakingAppointment > 3 || numberOfCancelingAppointment > 2 || numberOfEditingAppointment > 2)
             {
