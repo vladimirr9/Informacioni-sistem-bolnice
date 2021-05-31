@@ -14,9 +14,9 @@ namespace InformacioniSistemBolnice.Controller
         private AllergyCheck _allergyCheck = new AllergyCheck();
 
 
-        public void Register(Patient patient)
+        public bool Register(Patient patient)
         {
-            _patientService.Register(patient);
+            return _patientService.Register(patient);
         }
         public void Remove(Patient patient)
         {
@@ -58,9 +58,18 @@ namespace InformacioniSistemBolnice.Controller
             return _patientService.GetAll();
         }
 
+        public Patient GetOneByJMBG(string jmbg)
+        {
+            return _patientService.GetOneByJMBG(jmbg);
+        }
+
         public bool IsAllergic(Medicine medicine, Patient patient)
         {
-           return _allergyCheck.IsAllergic(medicine, patient);
+             return _allergyCheck.IsAllergic(medicine, patient);
+        }
+        public bool IsJMBGUnique(string JMBG)
+        {
+            return _patientService.IsJMBGUnique(JMBG);
         }
     }
 }

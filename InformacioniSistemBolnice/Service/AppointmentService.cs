@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,9 @@ namespace InformacioniSistemBolnice.Service
 {
     public class AppointmentService
     {
+        private RoomController _roomController = new RoomController();
+        private DoctorControler _doctorController = new DoctorControler();
+
         private RatingService _ratingService = new RatingService();
         public void Add(Appointment appointment)
         {
@@ -83,6 +87,34 @@ namespace InformacioniSistemBolnice.Service
             return appointments;
         }
 
+        public bool CreateNewUrgentAppointment(Patient patient, int duration, DoctorType doctorType, RoomType roomType, AppointmentType appointmentType, DateTime appointmentStart, DateTime appointmentEnd)
+        {
+            List<Room> availableRooms = _roomController.GetAvailableRoomList(appointmentStart, appointmentEnd);
+            List<Doctor> availableDoctors = _doctorController.GetAvailableDoctorList(appointmentStart, appointmentEnd);
+
+            List<Room> filteredRooms = _roomController.GetFilteredRooms(availableRooms, appointmentType);
+            List<Doctor> filteredDoctors = _doctorController.GetFilteredDoctors(availableDoctors, doctorType);
+
+
+            if (filteredRooms.Count > 0 && filteredDoctors.Count > 0)
+            {
+                foreach (Appointment appointmentItem in GetAll())
+                {
+                    if (appointmentItem.AppointmentStatus == AppointmentStatus.scheduled && appointmentItem.Patient.Equals(patient) && (appointmentItem.AppointmentDate >= appointmentStart && appointmentItem.AppointmentDate <= appointmentEnd))
+                        Remove(appointmentItem);
+                }
+
+
+                Room room = filteredRooms[0];
+                global::Doctor doctor = filteredDoctors[0];
+                int id = GetAll().Count + 1;
+
+                Appointment appointment = new Appointment(id, appointmentStart, duration, appointmentType, AppointmentStatus.scheduled, patient, doctor, room);
+                Add(appointment);
+                return true;
+            }
+            return false;
+        }
 
         private Boolean IsDateOfAppointmentPassed(Appointment appointment)
         {
@@ -141,5 +173,47 @@ namespace InformacioniSistemBolnice.Service
 
             return appointments;
         }
+        public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments)
+        {
+            List<String> times = new List<String>();
+            DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
+            for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
+            {
+                bool free = true;
+                foreach (Appointment appointment in appointments)
+                {
+                    DateTime start = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.ToString("HH:mm"));
+                    DateTime end = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.AddMinutes(appointment.DurationInMinutes).ToString("HH:mm"));
+                    if (potentialTime >= start && potentialTime <= end)
+                    {
+                        free = false;
+                    }
+                }
+                if (free)
+                    times.Add(potentialTime.ToString("HH:mm"));
+            }
+            return times;
+        }
+
+        public List<string> GetPossibleAppointmentTimes()
+        {
+            List<string> times = new List<string>();
+            DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
+            for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
+            {
+                times.Add(potentialTime.ToString("HH:mm"));
+            }
+            return times;
+        }
+        public DateTime GetNextEarliestAppointmentTime(DateTime datetime)
+        {
+            List<string> times = GetPossibleAppointmentTimes();
+            while (!times.Contains(datetime.ToString("HH:mm")))
+            {
+                datetime = datetime.AddMinutes(1);
+            }
+            return datetime;
+        }
+
     }
 }

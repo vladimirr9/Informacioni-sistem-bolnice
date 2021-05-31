@@ -40,5 +40,13 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _doctorService.GetDoctorsByType(type);
         }
+        public List<Doctor> GetAvailableDoctorList(DateTime start, DateTime end)
+        {
+            return _doctorService.GetAvailableDoctorList(start, end);
+        }
+        public List<Doctor> GetFilteredDoctors(List<Doctor> doctors, DoctorType doctorType)
+        {
+            return _doctorService.GetFilteredDoctors(doctors, doctorType);
+        }
     }
 }

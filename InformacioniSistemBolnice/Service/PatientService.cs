@@ -12,22 +12,23 @@ namespace InformacioniSistemBolnice.Service
     {
         private ActivityLogService _activityLogService = new ActivityLogService();
 
-        public void Register(Patient patient)
+        public bool Register(Patient patient)
         {
             if (!IsUsernameUnique(patient.Username))
             {
                 MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni",
                     MessageBoxButton.OK);
-                return;
+                return false;
             }
 
             if (!IsJMBGUnique(patient.JMBG))
             {
                 MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
-                return;
+                return false;
             }
 
             PatientFileRepository.AddPatient(patient);
+            return true;
         }
 
         public void Remove(Patient patient)
@@ -51,6 +52,11 @@ namespace InformacioniSistemBolnice.Service
         {
             patient.MedicalRecord.AddAllergen(allergen);
             PatientFileRepository.UpdatePatient(patient.Username, patient);
+        }
+
+        internal Patient GetOneByJMBG(string jmbg)
+        {
+            return PatientFileRepository.GetOneByJMBG(jmbg);
         }
 
         public void Update(string initialUsername, Patient patient)

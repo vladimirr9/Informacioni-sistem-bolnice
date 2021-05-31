@@ -135,5 +135,39 @@ namespace InformacioniSistemBolnice.Service
             }
             return inventoryList;
         }
+        public List<Room> GetAvailableRoomList(DateTime start, DateTime end)
+        {
+            List<Room> rooms = new List<Room>();
+            foreach (Room room in RoomFileRepository.GetAll())
+            {
+                if (room.IsAvailable(start, end) && !room.IsDeleted)
+                {
+                    rooms.Add(room);
+                }
+            }
+            return rooms;
+        }
+
+        public List<Room> GetFilteredRooms(List<Room> rooms, AppointmentType appointmentType)
+        {
+            List<Room> filteredRooms = new List<Room>();
+            if (appointmentType == AppointmentType.operation)
+            {
+                foreach (Room room in rooms)
+                {
+                    if (room.RoomType == RoomType.operatingRoom)
+                        filteredRooms.Add(room);
+                }
+            }
+            else
+            {
+                foreach (Room room in rooms)
+                {
+                    if (room.RoomType == RoomType.examinationRoom)
+                        filteredRooms.Add(room);
+                }
+            }
+            return filteredRooms;
+        }
     }
 }

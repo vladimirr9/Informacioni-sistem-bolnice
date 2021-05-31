@@ -65,5 +65,13 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _roomService.FilteredInventory(search);
         }
+        public List<Room> GetAvailableRoomList(DateTime start, DateTime end)
+        {
+            return _roomService.GetAvailableRoomList(start, end);
+        }
+        public List<Room> GetFilteredRooms(List<Room> rooms, AppointmentType appointmentType)
+        {
+            return _roomService.GetFilteredRooms(rooms, appointmentType);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -25,56 +26,22 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private Appointment _selectedAppointment;
         private bool _confirmed;
         private bool _done;
+        private AppointmentController _appointmentController = new AppointmentController();
+        private RoomController _roomController = new RoomController();
+        private DoctorControler _doctorController = new DoctorControler();
+        private PatientController _patientController = new PatientController();
         public EditAppointmentWindow(AppointmentsPage parent, Appointment selectedAppointment)
         {
             _done = false;
-            InitializeComponent();
-            this._selectedAppointment = selectedAppointment;
             this._parent = parent;
-            _confirmed = false;
-
-            _doctors = DoctorFileRepository.GetAll();
-            DoctorComboBox.ItemsSource = _doctors;
-            _rooms = RoomFileRepository.GetAll();
-            RoomComboBox.ItemsSource = _rooms;
-
-            _patients = new List<Patient>();
-            
-            
-            foreach (Patient patient in PatientFileRepository.GetAll())
-                if (!patient.IsDeleted)
-                    _patients.Add(patient);
-            PatientComboBox.ItemsSource = _patients;
-            PatientComboBox.SelectedItem = selectedAppointment.Patient;
-            foreach (global::Doctor doctors in _doctors)
-            {
-                if (doctors.Equals(selectedAppointment.Doctor))
-                    DoctorComboBox.SelectedItem = doctors;
-            }
-            UpdateAvailableTimes();
-            DatePicker.SelectedDate = selectedAppointment.AppointmentDate;
-            AppointmentTime.SelectedValue = selectedAppointment.AppointmentDate.ToString("HH:mm");
-            DurationTextBox.Text = selectedAppointment.DurationInMinutes.ToString();
-            AppointmentTypeComboBox.SelectedIndex = (int)selectedAppointment.Type;
-
-
-
-
-            foreach (Room room in _rooms)
-            {
-                if (room.RoomId == selectedAppointment.Room.RoomId)
-                {
-                    RoomComboBox.SelectedItem = room;
-                }
-            }
-
-
-            _done = true;
-
+            this._selectedAppointment = selectedAppointment;
+            InitializeComponent();
+            InitializeComponentValues();
 
         }
 
-       
+        
+
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
@@ -90,7 +57,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (patient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))
             {
                 Appointment appointment = new Appointment(_selectedAppointment.AppointmentID, selectedDateTime, duration, appointmentType, AppointmentStatus.scheduled, patient, doctor, room);
-                AppointmentFileRepository.UpdateAppointment(_selectedAppointment.AppointmentID,appointment);
+                _appointmentController.Update(appointment);
                 _parent.UpdateTable();
                 _confirmed = true;
                 this.Close();
@@ -156,35 +123,15 @@ namespace InformacioniSistemBolnice.Secretary_ns
             UpdateAvailableTimes();
 
             ColorDurationField(start, end);
-            UpdateAvailableDoctorList(start, end);
-            UpdateAvailableRoomList(start, end);
+
+            _doctors = _doctorController.GetAvailableDoctorList(start, end);
+            _rooms = _roomController.GetAvailableRoomList(start, end);
 
             DoctorComboBox.ItemsSource = _doctors;
             RoomComboBox.ItemsSource = _rooms;
             _done = true;
         }
-        private void UpdateAvailableRoomList(DateTime start, DateTime end)
-        {
-            _rooms = new List<Room>();
-            foreach (Room room in RoomFileRepository.GetAll())
-            {
-                if (room.IsAvailable(start, end) && !room.IsDeleted)
-                {
-                    _rooms.Add(room);
-                }
-            }
-        }
-        private void UpdateAvailableDoctorList(DateTime start, DateTime end)
-        {
-            _doctors = new List<global::Doctor>();
-            foreach (global::Doctor doctor in DoctorFileRepository.GetAll())
-            {
-                if (doctor.IsAvailable(start, end) && !doctor.IsDeleted)
-                {
-                    _doctors.Add(doctor);
-                }
-            }
-        }
+
         private void ColorDurationField(DateTime start, DateTime end)
         {
             if (((Patient)(PatientComboBox.SelectedItem)).IsAvailable(start, end))
@@ -231,37 +178,17 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
 
             List<Appointment> appointments = new List<Appointment>();
-            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            foreach (Appointment appointment in _appointmentController.GetAll())
             {
                 if (appointment.OccursOn(date) && appointment.InvolvesEither((Patient)PatientComboBox.SelectedItem, (global::Doctor)DoctorComboBox.SelectedItem) && appointment.AppointmentStatus == AppointmentStatus.scheduled)
                 {
                     appointments.Add(appointment);
                 }
             }
-            AppointmentTime.ItemsSource = GetAvailableAppointmentTimes(appointments);
+            AppointmentTime.ItemsSource = _appointmentController.GetAvailableAppointmentTimes(appointments);
         }
 
-        private List<String> GetAvailableAppointmentTimes(List<Appointment> appointments)
-        {
-            _times = new List<String>();
-            DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
-            for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
-            {
-                bool free = true;
-                foreach (Appointment appointment in appointments)
-                {
-                    DateTime start = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.ToString("HH:mm"));
-                    DateTime end = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.AddMinutes(appointment.DurationInMinutes).ToString("HH:mm"));
-                    if (potentialTime >= start && potentialTime <= end)
-                    {
-                        free = false;
-                    }
-                }
-                if (free)
-                    _times.Add(potentialTime.ToString("HH:mm"));
-            }
-            return _times;
-        }
+        
 
         private void ResetComponentValues()
         {
@@ -277,8 +204,43 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (_confirmed)
                 return;
             _selectedAppointment.AppointmentStatus = AppointmentStatus.scheduled;
-            AppointmentFileRepository.UpdateAppointment(_selectedAppointment.AppointmentID, _selectedAppointment);
+            _appointmentController.Update(_selectedAppointment);
             
+        }
+        private void InitializeComponentValues()
+        {
+            _confirmed = false;
+
+            _doctors = _doctorController.GetAll();
+            DoctorComboBox.ItemsSource = _doctors;
+            _rooms = _roomController.GetAllRooms();
+            RoomComboBox.ItemsSource = _rooms;
+            _patients = new List<Patient>();
+
+            foreach (Patient patient in _patientController.GetAll())
+                if (!patient.IsDeleted)
+                    _patients.Add(patient);
+            PatientComboBox.ItemsSource = _patients;
+            PatientComboBox.SelectedItem = _selectedAppointment.Patient;
+            foreach (global::Doctor doctors in _doctors)
+            {
+                if (doctors.Equals(_selectedAppointment.Doctor))
+                    DoctorComboBox.SelectedItem = doctors;
+            }
+            UpdateAvailableTimes();
+            DatePicker.SelectedDate = _selectedAppointment.AppointmentDate;
+            AppointmentTime.SelectedValue = _selectedAppointment.AppointmentDate.ToString("HH:mm");
+            DurationTextBox.Text = _selectedAppointment.DurationInMinutes.ToString();
+            AppointmentTypeComboBox.SelectedIndex = (int)_selectedAppointment.Type;
+
+            foreach (Room room in _rooms)
+            {
+                if (room.RoomId == _selectedAppointment.Room.RoomId)
+                {
+                    RoomComboBox.SelectedItem = room;
+                }
+            }
+            _done = true;
         }
     }
 }

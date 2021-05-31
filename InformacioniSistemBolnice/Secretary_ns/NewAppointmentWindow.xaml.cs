@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -23,6 +25,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private List<Patient> _patients;
         private List<Room> _rooms;
         private List<String> _times;
+        private AppointmentController _appointmentController = new AppointmentController();
+        private RoomController _roomController = new RoomController();
+        private DoctorControler _doctorController = new DoctorControler();
+        private PatientController _patientController = new PatientController();
         public NewAppointmentWindow(AppointmentsPage parent)
         {
             this._parent = parent;
@@ -49,7 +55,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (selectedPatient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))
             {
                 Appointment newAppointment = new Appointment(id, selectedDateTime, duration, appointmentType, AppointmentStatus.scheduled, selectedPatient, selectedDoctor, selectedRoom);
-                AppointmentFileRepository.AddAppointment(newAppointment);
+                _appointmentController.Add(newAppointment);
                 _parent.UpdateTable();
                 this.Close();
             }
@@ -112,33 +118,12 @@ namespace InformacioniSistemBolnice.Secretary_ns
             UpdateAvailableTimes();
 
             ColorDurationField(start, end);
-            UpdateAvailableDoctorList(start, end);
-            UpdateAvailableRoomList(start, end);
+
+            _doctors = _doctorController.GetAvailableDoctorList(start, end);
+            _rooms = _roomController.GetAvailableRoomList(start, end);
 
             DoctorComboBox.ItemsSource = _doctors;
             RoomComboBox.ItemsSource = _rooms;
-        }
-        private void UpdateAvailableRoomList(DateTime start, DateTime end)
-        {
-            _rooms = new List<Room>();
-            foreach (Room room in RoomFileRepository.GetAll())
-            {
-                if (room.IsAvailable(start, end) && !room.IsDeleted)
-                {
-                    _rooms.Add(room);
-                }
-            }
-        }
-        private void UpdateAvailableDoctorList(DateTime start, DateTime end)
-        {
-            _doctors = new List<global::Doctor>();
-            foreach (global::Doctor doctor in DoctorFileRepository.GetAll())
-            {
-                if (doctor.IsAvailable(start, end) && !doctor.IsDeleted)
-                {
-                    _doctors.Add(doctor);
-                }
-            }
         }
         private void ColorDurationField(DateTime start, DateTime end)
         {
@@ -186,36 +171,14 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
 
             List<Appointment> appointments = new List<Appointment>();
-            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            foreach (Appointment appointment in _appointmentController.GetAll())
             {
                 if (appointment.OccursOn(date) && appointment.InvolvesEither((Patient)PatientComboBox.SelectedItem, (global::Doctor)DoctorComboBox.SelectedItem) && appointment.AppointmentStatus == AppointmentStatus.scheduled)
                 {
                     appointments.Add(appointment);
                 }
             }
-            AppointmentTime.ItemsSource = GetAvailableAppointmentTimes(appointments);
-        }
-
-        private List<String> GetAvailableAppointmentTimes(List<Appointment> appointments)
-        {
-            _times = new List<String>();
-            DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
-            for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
-            {
-                bool free = true;
-                foreach (Appointment appointment in appointments)
-                {
-                    DateTime start = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.ToString("HH:mm"));
-                    DateTime end = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.AddMinutes(appointment.DurationInMinutes).ToString("HH:mm"));
-                    if (potentialTime >= start && potentialTime <= end)
-                    {
-                        free = false;
-                    }
-                }
-                if (free)
-                    _times.Add(potentialTime.ToString("HH:mm"));
-            }
-            return _times;
+            AppointmentTime.ItemsSource = _appointmentController.GetAvailableAppointmentTimes(appointments);
         }
 
         private void ResetComponentValues()
@@ -230,7 +193,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void InitializePatientValues()
         {
             _patients = new List<Patient>();
-            foreach (Patient patient in PatientFileRepository.GetAll())
+            foreach (Patient patient in _patientController.GetAll())
                 if (!patient.IsDeleted)
                     _patients.Add(patient);
             PatientComboBox.ItemsSource = _patients;
