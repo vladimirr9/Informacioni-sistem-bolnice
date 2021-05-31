@@ -56,7 +56,7 @@ namespace InformacioniSistemBolnice.Upravnik
             if (dataGridLekovi.SelectedItem != null)
             {
                 Medicine selectedMedicine = (Medicine)dataGridLekovi.SelectedItem;
-                if (selectedMedicine.MedicineStatus == MedicineStatus.validiran || selectedMedicine.MedicineStatus == MedicineStatus.rejected)
+                if (selectedMedicine.MedicineStatus == MedicineStatus.validated || selectedMedicine.MedicineStatus == MedicineStatus.rejected)
                 {
                     IzmenaLekaWindow updateMedicineWindow = new IzmenaLekaWindow(selectedMedicine, this);
                     updateMedicineWindow.Show();

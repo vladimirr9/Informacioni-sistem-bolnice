@@ -54,13 +54,11 @@ namespace InformacioniSistemBolnice.Controller
         }
         public List<Ingredient> GetAllIngredients()
         {
-           return  _medicineService.GetAllIngredients();
+            return _medicineService.GetAllIngredients();
         }
         public void SendMedicineForRemovingValidation(Medicine medicine)
         {
             _medicineService.SendMedicineForRemovingValidation(medicine);
         }
-
-
     }
 }
