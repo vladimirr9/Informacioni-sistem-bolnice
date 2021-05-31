@@ -83,7 +83,7 @@ namespace InformacioniSistemBolnice.Controller
 
         public bool CreateNewUrgentAppointment(Patient patient, int duration, DoctorType doctorType, RoomType roomType, AppointmentType appointmentType, DateTime appointmentStart, DateTime appointmentEnd)
         {
-            return _appointmentService.CreateNewUrgentAppointment(patient, duration, doctorType, roomType, appointmentType, appointmentStart, appointmentEnd)
+            return _appointmentService.CreateNewUrgentAppointment(patient, duration, doctorType, roomType, appointmentType, appointmentStart, appointmentEnd);
         }
 
         public List<string> GetPossibleAppointmentTimes()

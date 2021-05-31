@@ -23,7 +23,7 @@
             <DataGrid x:Name="DoctorsDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Center" Height="310" Margin="0,0,0,0"  VerticalAlignment="Top" Width="870" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True"
                   >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Korisničko Name" Binding="{Binding Path=Username}"  Width="120"/>
+                    <DataGridTextColumn Header="Korisničko ime" Binding="{Binding Path=Username}"  Width="120"/>
                     <DataGridTextColumn Header="Ime" Binding="{Binding Path=Name}" Width="100"/>
                     <DataGridTextColumn Header="Prezime" Binding="{Binding Path=Surname}" Width="120" />
                     <DataGridTextColumn Header="Smena" Binding="{Binding Path=Shift}" Width="100"/>
