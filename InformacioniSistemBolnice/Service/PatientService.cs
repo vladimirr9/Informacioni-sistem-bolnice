@@ -123,7 +123,7 @@ namespace InformacioniSistemBolnice.Service
 
         public Boolean CheckStatusOfPatient(Patient patient)
         {
-            Boolean IsBlocked = false;
+            Boolean IsBanned = false;
             int numberOfMakingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.makingAppointment);
             int numberOfEditingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.editingAppointment);
             int numberOfCancelingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.cancelingAppointment);
@@ -131,10 +131,10 @@ namespace InformacioniSistemBolnice.Service
             if (numberOfMakingAppointment > 3 || numberOfCancelingAppointment > 2 || numberOfEditingAppointment > 2)
             {
                 BanPatient(patient);
-                IsBlocked = true;
+                IsBanned = true;
             }
 
-            return IsBlocked;
+            return IsBanned;
 
         }
 
