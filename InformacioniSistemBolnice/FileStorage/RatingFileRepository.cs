@@ -32,23 +32,23 @@ namespace InformacioniSistemBolnice.FileStorage
             return ankete;
         }
 
-        public Rating GetOne(int idAnkete)
+        public static Rating GetOne(int RatingID)
         {
             List<Rating> ankete = GetAll();
             foreach (Rating a in ankete)
             {
-                if (a.IdOfRating.Equals(idAnkete))
+                if (a.IdOfRating.Equals(RatingID))
                     return ankete[ankete.IndexOf(a)];
             }
             return null;
         }
 
-        public static Boolean RemoveAnketa(int idAnketa)
+        public static Boolean RemoveRating(int RatingID)
         {
             List<Rating> ankete = GetAll();
             foreach (Rating a in ankete)
             {
-                if (a.IdOfRating.Equals(idAnketa))
+                if (a.IdOfRating.Equals(RatingID))
                 {
                     ankete[ankete.IndexOf(a)].IsRatingDeleted = true;
                     Save(ankete);
@@ -58,13 +58,13 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        private static void Save(List<Rating> ankete)
+        private static void Save(List<Rating> ratings)
         {
-            string upis = JsonConvert.SerializeObject(ankete);
+            string upis = JsonConvert.SerializeObject(ratings);
             File.WriteAllText(startupPath, upis);
         }
 
-        public static Boolean AddAnketa(Rating novaRating)
+        public static Boolean AddRating(Rating novaRating)
         {
             List<Rating> ankete = GetAll();
             ankete.Add(novaRating);
@@ -72,14 +72,14 @@ namespace InformacioniSistemBolnice.FileStorage
             return true;
         }
 
-        public static Boolean UpdateAnketa(int idAnketa, Rating novaRating)
+        public static Boolean UpdateRating(int idOfRating, Rating newRating)
         {
             List<Rating> ankete = GetAll();
             foreach (Rating a in ankete)
             {
-                if (a.IdOfRating.Equals(idAnketa))
+                if (a.IdOfRating.Equals(idOfRating))
                 {
-                    ankete[ankete.IndexOf(a)] = novaRating;
+                    ankete[ankete.IndexOf(a)] = newRating;
                     Save(ankete);
                     return true;
                 }
@@ -87,16 +87,6 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        public static Boolean Contains(int idTermina) {
-            List<Rating> ankete = GetAll();
-            foreach (Rating a in ankete) {
-                if (a.IdOfAppointment.Equals(idTermina))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
+        
     }
 }

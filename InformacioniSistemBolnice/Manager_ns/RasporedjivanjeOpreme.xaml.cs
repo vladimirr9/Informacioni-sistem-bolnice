@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,31 +20,48 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class RasporedjivanjeOpreme : Window
     {
-        private OpremaWindow parent;
-        private Inventory selektovana;
-        private Room izabrana;
-        public RasporedjivanjeOpreme(Room p, Inventory o, OpremaWindow parent)
+        private OpremaWindow _parent;
+        private Inventory _selectedInventory;
+        private Room _selectedRoom;
+        private RoomController _roomController = new RoomController();
+        public RasporedjivanjeOpreme(Room room, Inventory inventory, OpremaWindow parent)
         {
             InitializeComponent();
-            this.parent = parent;
-            selektovana = o;
-            izabrana = p;
-            List<Room> prostorijeSve = RoomFileRepository.GetAll();
-            List<Room> prostorije = new List<Room>();
-            foreach (Room pr in prostorijeSve)
-            {
-                if (!izabrana.Name.Equals(pr.Name))
-                {
-                    prostorije.Add(pr);
-                }
-            }
-            Prostorija.ItemsSource = prostorije;
+            this._parent = parent;
+            _selectedInventory = inventory;
+            _selectedRoom = room;
+            DisplayRooms();
         }
 
-        private void RasporediOpremu(object sender, RoutedEventArgs e)
+        private void RelocateInventory(object sender, RoutedEventArgs e)
         {
-            Room prostorija = (Room)Prostorija.SelectedItem;
-            int kolicina = Convert.ToInt32(Kolicina.Text);
+            Room destinationRoom = (Room)Prostorija.SelectedItem;
+            int quantity = Convert.ToInt32(Kolicina.Text);           
+            _roomController.DinamicInventoryRelocation(destinationRoom, _selectedInventory, quantity);
+            _parent.UpdateTable();
+            this.Close();
+        }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+
+        }
+
+        public void DisplayRooms()
+        {
+            List<Room> rooms = new List<Room>();
+            foreach (Room room in _roomController.GetAllRooms())
+            {
+                if (!_selectedRoom.Name.Equals(room.Name))
+                {
+                    rooms.Add(room);
+                }
+            }
+            Prostorija.ItemsSource = rooms;
+        }
+
+        /*int kolicina = Convert.ToInt32(Kolicina.Text);
 
             int idProstorije = prostorija.RoomId;
             String naziv = prostorija.Name;
@@ -85,12 +103,12 @@ namespace InformacioniSistemBolnice.Upravnik
             //int novaKolicina = RoomComboBox.GetOne(selektovana.Sifra).Kolicina + kolicina;
             //izabrana.GetOne(selektovana.Sifra).Kolicina -= kolicina;
             RoomFileRepository.UpdateRoom(prostorija.RoomId, p1);
-            parent.updateTable();
+            parent.UpdateTable();
 
             Room p2 = new Room(naziv2, idProstorije2, tipProstorije2, isDeleted2, isActive2, kvadratura2, brSprata2, brSobe2, opremaLista2);
             RoomFileRepository.UpdateRoom(izabrana.RoomId, p2);
 
-            parent.updateTable();
+            parent.UpdateTable();
 
             if (selektovana.Quantity < kolicina)
             {
@@ -99,14 +117,17 @@ namespace InformacioniSistemBolnice.Upravnik
                 {
                     this.Close();
                 }
-            }
-            this.Close();
-        }
+            }*/
 
-        private void Otkazi(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
-        }
+                    /*List<Room> prostorijeSve = RoomFileRepository.GetAll();
+            List<Room> prostorije = new List<Room>();
+            foreach (Room pr in prostorijeSve)
+            {
+                if (!_selectedRoom.Name.Equals(pr.Name))
+                {
+                    prostorije.Add(pr);
+                }
+            }*/
+            //Prostorija.ItemsSource = prostorije;
     }
 }

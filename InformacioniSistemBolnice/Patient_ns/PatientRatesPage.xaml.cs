@@ -31,7 +31,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             parent = pp;
             InitializeComponent();
             submit.IsEnabled = false;
-            if (parentp.kojiJePritisnut == parentp.rate)
+            if (parentp._kojiJePritisnut == parentp.rate)
             {
                 parent.imeLjekara.Content = "dr. " + t.Doctor.Name + " " + t.Doctor.Surname;
             }
@@ -79,12 +79,12 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            if (parentp.kojiJePritisnut == parentp.rate)
+            if (parentp._kojiJePritisnut == parentp.rate)
             {
                 int IdAnkete = RatingFileRepository.GetAll().Count + 1;
                 string komentar = commentText.Text;
                 Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, selektovan.Doctor.Username, selektovan.Patient.Username, selektovan.AppointmentID, false, DateTime.Now);
-                RatingFileRepository.AddAnketa(novaRating);
+                RatingFileRepository.AddRating(novaRating);
                 RatingPage ap = new RatingPage(parent);
                 parentp.UpdateTable();
                 parent.startWindow.Content = new RatingPage(parent);
@@ -97,7 +97,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 int IdAnkete = RatingFileRepository.GetAll().Count + 1;
                 string komentar = commentText.Text;
                 Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, null, parent.Patient.Username, 0, false, DateTime.Now);
-                RatingFileRepository.AddAnketa(novaRating);
+                RatingFileRepository.AddRating(novaRating);
                 RatingPage ap = new RatingPage(parent);
                 parentp.rateHospital.Visibility = Visibility.Hidden;
                 parent.startWindow.Content = new RatingPage(parent);

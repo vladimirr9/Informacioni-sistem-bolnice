@@ -51,27 +51,8 @@ namespace InformacioniSistemBolnice.FileStorage
             File.WriteAllText(startupPath, upis);
         }
 
-        //prebaciti u servis
-        public static int NumberOfActivity(string username, TypeOfActivity type)
-        {
-            int counterOfActivity = 0;
-            List<ActivityLog> informacije = GetAll();
-            foreach (ActivityLog i in informacije)
-            {
-                if (i.UsernameOfPatient.Equals(username) && i.Type.Equals(type))
-                {
-                    if (i.DateOfActivity> DateTime.Now.AddDays(-10))
-
-                    {
-                        ++counterOfActivity;
-                    }
-                }
-
-            }
-
-            return counterOfActivity;
-
-        }
+        
+        
 
         
 

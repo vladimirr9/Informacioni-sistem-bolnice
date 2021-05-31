@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="OpremaWindow" Height="768" Width="1024">
     <Grid>
-        <DataGrid x:Name="dataGridOprema" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="800"
+        <DataGrid x:Name="dataGridInventory" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="800"
                   AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -30,11 +30,11 @@
 
         </DataGrid>
         <Label x:Name="label" Content="Oprema" HorizontalAlignment="Left" Margin="39,23,0,0" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
-        <Button x:Name="button" Content="Dodaj" HorizontalAlignment="Left" Margin="739,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="DodajNovuOpremu"/>
-        <Button x:Name="button1" Content="Izmeni" HorizontalAlignment="Left" Margin="634,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="IzmeniOpremu"/>
-        <Button x:Name="button2" Content="Obriši" HorizontalAlignment="Left" Margin="529,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="ObrisiOpremu"/>
-        <Button x:Name="button3" Content="Rasporedi" HorizontalAlignment="Left" Margin="424,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="RasporediOpremu"/>
-        <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="908,684,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Zatvori" />
+        <Button x:Name="button" Content="Dodaj" HorizontalAlignment="Left" Margin="739,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="AddInventory"/>
+        <Button x:Name="button1" Content="Izmeni" HorizontalAlignment="Left" Margin="634,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="UpdateInventory"/>
+        <Button x:Name="button2" Content="Obriši" HorizontalAlignment="Left" Margin="529,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="RemoveInventory"/>
+        <Button x:Name="button3" Content="Rasporedi" HorizontalAlignment="Left" Margin="424,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="RelocateInventory"/>
+        <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="908,684,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Close" />
         <TextBox x:Name="Pretraga" HorizontalAlignment="Left" Height="33" Margin="39,602,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20" Foreground="Gray" KeyUp="Pretraga_TextChanged"/>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,13 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class LekoviWindow : Window
     {
-        private UpravnikWindow parent;
+        private UpravnikWindow _parent;
+        private MedicineController _medicineController = new MedicineController();
         public LekoviWindow(UpravnikWindow parent)
         {
             InitializeComponent();
-            this.parent = parent;
-            updateTable();
+            this._parent = parent;
+            UpdateTable();
 
             this.DataContext = this;
             SastojciLeka.Items.Clear();
@@ -34,28 +36,30 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             if (dataGridLekovi.SelectedItem != null)
             {
-                MessageBoxResult odgovor = MessageBox.Show("Da li želite da obrišete selektovani lek?", "Potvrda brisanja leka", MessageBoxButton.YesNo);
-                if (odgovor == MessageBoxResult.Yes)
+                MessageBoxResult answer = MessageBox.Show("Da li želite da obrišete selektovani lek?", "Potvrda brisanja leka", MessageBoxButton.YesNo);
+                if (answer == MessageBoxResult.Yes)
                 {
-                    Medicine selektovan = (Medicine)dataGridLekovi.SelectedItem;
-                    selektovan.MedicineStatus = MedicineStatus.waitingForValidation;
+                    Medicine selectedMedicine = (Medicine)dataGridLekovi.SelectedItem;
+                    _medicineController.SendMedicineForRemovingValidation(selectedMedicine);
+                    //selectedMedicine.MedicineStatus = MedicineStatus.waitingForValidation;
                     //LekFileStorage.RemoveLek(selektovan.Naziv);
                     //dataGridLekovi.Items.Remove(dataGridLekovi.SelectedItem);
-                    updateTable();
+                    MessageBox.Show("Lek poslat lekaru na validaciju brisanja!", "Čekanje na validaciju", MessageBoxButton.OK);
+                    this.Close();
                 }
             }
+            UpdateTable();
         }
 
         private void IzmeniLek(object sender, RoutedEventArgs e)
         {
             if (dataGridLekovi.SelectedItem != null)
             {
-                Medicine l = (Medicine)dataGridLekovi.SelectedItem;
-                if (l.MedicineStatus == MedicineStatus.validiran || l.MedicineStatus == MedicineStatus.rejected)
+                Medicine selectedMedicine = (Medicine)dataGridLekovi.SelectedItem;
+                if (selectedMedicine.MedicineStatus == MedicineStatus.validiran || selectedMedicine.MedicineStatus == MedicineStatus.rejected)
                 {
-                    Medicine lekZaIzmenu = MedicineFileRepository.GetOne(l.MedicineId);
-                    IzmenaLekaWindow prozor = new IzmenaLekaWindow(lekZaIzmenu, this);
-                    prozor.Show();
+                    IzmenaLekaWindow updateMedicineWindow = new IzmenaLekaWindow(selectedMedicine, this);
+                    updateMedicineWindow.Show();
                 }
                 else
                 {
@@ -67,8 +71,8 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void DodajNoviLek(object sender, RoutedEventArgs e)
         {
-            DodavanjeLekaWindow prozor = new DodavanjeLekaWindow(this);
-            prozor.Show();
+            DodavanjeLekaWindow addMedicineWindow = new DodavanjeLekaWindow(this);
+            addMedicineWindow.Show();
         }
 
         private void Zatvori(object sender, RoutedEventArgs e)
@@ -76,51 +80,26 @@ namespace InformacioniSistemBolnice.Upravnik
             this.Close();
         }
 
-        public void updateTable()
+        public void UpdateTable()
         {
             dataGridLekovi.Items.Clear();
-            List<Medicine> lekovi = MedicineFileRepository.GetAll();
-            foreach (Medicine l in lekovi)
+            foreach (Medicine med in _medicineController.GetAllMedicines())
             {
-                if (!l.IsDeleted)
-                    dataGridLekovi.Items.Add(l);
+                if (!med.IsDeleted)
+                    dataGridLekovi.Items.Add(med);
             }
         }
-
-        /*private void IspisiSastojke(Lek lek)
-        {
-            SastojciLeka.Items.Clear();
-            //List<Ingredient> sastojci = new List<Ingredient>();
-            foreach (Ingredient sastojak in IngredientFileStorage.GetAll())
-            {
-                if (lek.ListaSastojaka.Contains(sastojak))
-                {
-                    SastojciLeka.Items.Add(sastojak);
-                }
-                /*else
-                {
-                    sastojci.Add(sastojak);
-                }
-
-            }
-            //SastojciLeka.ItemsSource = sastojci;
-        }*/
 
         private void dataGridLekovi_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SastojciLeka.Items.Clear();
-            Medicine selektovani = (Medicine)dataGridLekovi.SelectedItem;
-            /*foreach (Lek lek in LekFileStorage.GetAll())
+            Medicine selectedMedicine = (Medicine)dataGridLekovi.SelectedItem;
+            foreach(Ingredient ingredient in selectedMedicine.IngredientsList)
             {
-                if (selektovani == lek)
-                {
-                    SastojciLeka.Items.Add(lek.;
-                }
-            }*/
-            foreach(Ingredient s in selektovani.IngredientsList)
-            {
-                SastojciLeka.Items.Add(s.Name);
+                SastojciLeka.Items.Add(ingredient);
             }
+            /*List<Ingredient> ingredients = _medicineController.GetMedicineIngredients(selectedMedicine);
+            SastojciLeka.ItemsSource = ingredients;*/
         }
     }
 }

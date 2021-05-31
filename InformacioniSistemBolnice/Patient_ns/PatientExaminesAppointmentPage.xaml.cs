@@ -122,7 +122,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                     {
                         _appointmentController.Remove((Appointment)PrikazPregleda.SelectedItem);
                         updateTable();
-                        ActivityLog informacija = new ActivityLog(DateTime.Now, parent.Patient.Username,TypeOfActivity.cancelingAppointment);
+                        ActivityLog informacija = new ActivityLog(DateTime.Now, parent.Patient.Username,TypeOfActivity.cancellingAppointment);
                         _activityLogController.AddActivity(informacija);
                     }
                 }

@@ -83,4 +83,17 @@ public class MedicineFileRepository
         }
         return false;
     }
+
+    public static Medicine GetOneByName(String name)
+    {
+        List<Medicine> medicines = GetAll();
+        foreach (Medicine med in medicines)
+        {
+            if (med.Name.Equals(name))
+            {
+                return medicines[medicines.IndexOf(med)];
+            }
+        }
+        return null;
+    }
 }

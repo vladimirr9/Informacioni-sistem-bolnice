@@ -34,7 +34,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 {
                     if (drug.Name == name)
                     {
-                        drug.MedicineStatus = MedicineStatus.validiran;
+                        drug.MedicineStatus = MedicineStatus.validated;
 
                         //update lek storage!
                     }
