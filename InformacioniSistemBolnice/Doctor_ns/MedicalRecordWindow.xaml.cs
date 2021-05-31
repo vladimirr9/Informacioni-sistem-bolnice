@@ -145,7 +145,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             AllergiesList.Items.Clear();
             List<Ingredient> ingredients = new List<Ingredient>();
-            foreach (Ingredient ingredient in IngredientFileStorage.GetAll())
+            foreach (Ingredient ingredient in IngredientFileRepository.GetAll())
             {
                 if (patient.MedicalRecord.Allergens.Contains(ingredient))
                 {

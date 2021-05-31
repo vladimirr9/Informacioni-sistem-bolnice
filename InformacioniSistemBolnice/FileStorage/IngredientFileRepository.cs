@@ -8,7 +8,7 @@ using System.IO;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    public class IngredientFileStorage
+    public class IngredientFileRepository
     {
         private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "ingredients.json";
 

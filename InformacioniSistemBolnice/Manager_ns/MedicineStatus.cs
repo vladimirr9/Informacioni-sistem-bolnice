@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public enum MedicineStatus
 {
-    validiran,
+    validated,
     rejected,
     waitingForValidation
 }

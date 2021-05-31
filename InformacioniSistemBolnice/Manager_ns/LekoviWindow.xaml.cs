@@ -51,7 +51,7 @@ namespace InformacioniSistemBolnice.Upravnik
             if (dataGridLekovi.SelectedItem != null)
             {
                 Medicine l = (Medicine)dataGridLekovi.SelectedItem;
-                if (l.MedicineStatus == MedicineStatus.validiran || l.MedicineStatus == MedicineStatus.rejected)
+                if (l.MedicineStatus == MedicineStatus.validated || l.MedicineStatus == MedicineStatus.rejected)
                 {
                     Medicine lekZaIzmenu = MedicineFileRepository.GetOne(l.MedicineId);
                     IzmenaLekaWindow prozor = new IzmenaLekaWindow(lekZaIzmenu, this);
@@ -91,7 +91,7 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             SastojciLeka.Items.Clear();
             //List<Ingredient> sastojci = new List<Ingredient>();
-            foreach (Ingredient sastojak in IngredientFileStorage.GetAll())
+            foreach (Ingredient sastojak in IngredientFileRepository.GetAll())
             {
                 if (lek.ListaSastojaka.Contains(sastojak))
                 {

@@ -51,7 +51,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             AllergenListView.Items.Clear();
             var allergensComboList = new List<Ingredient>();
-            foreach (var ingredient in IngredientFileStorage.GetAll())
+            foreach (var ingredient in IngredientFileRepository.GetAll())
                 if (_patient.MedicalRecord.Allergens.Contains(ingredient))
                     AllergenListView.Items.Add(ingredient);
                 else
