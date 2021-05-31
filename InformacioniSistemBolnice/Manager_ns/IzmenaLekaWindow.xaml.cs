@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Upravnik
@@ -20,84 +22,93 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class IzmenaLekaWindow : Window
     {
-        private LekoviWindow parent;
-        private Medicine lekZaIzmenu;
-        public IzmenaLekaWindow(Medicine l, LekoviWindow parent)
+        private LekoviWindow _parent;
+        private Medicine _medForUpdate;
+        private MedicineController _medicineController = new MedicineController();
+
+        public IzmenaLekaWindow(Medicine med, LekoviWindow parent)
         {
             InitializeComponent();
-            this.parent = parent;
-            lekZaIzmenu = l;
+            this._parent = parent;
+            _medForUpdate = med;
 
-            String naziviSastojaka = lekZaIzmenu.IngredientsList.Select(x => x.Name).ToArray().ToString();
-
-            List<global::Doctor> lekari = DoctorFileRepository.GetAll();
-            Lekar.ItemsSource = lekari;
-            List<Ingredient> sastojci = IngredientFileRepository.GetAll();
-            Sastojci.ItemsSource = sastojci;
-
-            Sifra.Text = lekZaIzmenu.MedicineId;
-            Naziv.Text = lekZaIzmenu.Name;
-            SastojciList.ItemsSource = lekZaIzmenu.IngredientsList;
-            MedicineStatus statusLeka = lekZaIzmenu.MedicineStatus;
-            bool isDeleted = lekZaIzmenu.IsDeleted;
+            List<Ingredient> ingredients = _medicineController.GetAllIngredients();
+            Sastojci.ItemsSource = ingredients;
+            CollectSelectedMedicineData();
         }
 
-        private void IzmeniLek(object sender, RoutedEventArgs e)
+        private void RemoveIngredient(object sender, RoutedEventArgs e)
         {
-            String sifra = Sifra.Text;
-            String naziv = Naziv.Text;
-            MedicineStatus statusLeka = MedicineStatus.waitingForValidation;
-            bool isDeleted = false;
-            global::Doctor doctor = (global::Doctor)Lekar.SelectedItem;
-            /*List<Ingredient> sastojciSvi = IngredientFileRepository.GetAll();
-            List<Ingredient> sastojciLeka = new List<Ingredient>();
-            String[] naziviSastojaka1 = Sastojci.Text.Split(',');
-            foreach (Ingredient s in sastojciSvi)
-            {
-                Ingredient noviSastojak = new Ingredient(0, "", false);
+            Ingredient selected = (Ingredient)SastojciList.SelectedItem;
+            ObservableCollection<Ingredient> ingredients = _medicineController.RemoveIngredient(_medForUpdate ,selected);
+            SastojciList.ItemsSource = ingredients;
+        }
 
-                for (int i = 0; i < naziviSastojaka1.Length; i++)
-                {
-                    if (naziviSastojaka1[i].Equals(s.Name))
-                    {
-                        noviSastojak.ID = s.ID;
-                        noviSastojak.Name = naziviSastojaka1[i];
-                        noviSastojak.IsDeleted = false;
-                    }
-                }
+        private void AddIngredient(object sender, RoutedEventArgs e)
+        {
+            Ingredient selected = (Ingredient)Sastojci.SelectedItem;           
+            ObservableCollection<Ingredient> ingredients = _medicineController.AddIngredients(_medForUpdate, selected);
+            SastojciList.ItemsSource = ingredients;
+        }
 
-                sastojciLeka.Add(noviSastojak);
-            }*/
-            List<Ingredient> sastojciLeka = (List<Ingredient>)SastojciList.ItemsSource;
-            Medicine l = new Medicine(sifra, naziv, isDeleted, statusLeka, sastojciLeka);
-            MedicineFileRepository.UpdateMedicine(lekZaIzmenu.MedicineId, l);
-
+        private void UpdateMedicine(object sender, RoutedEventArgs e)
+        {
+            Medicine updatedMed = GenerateMedicineObjectFromCollectedData();
+            //MedicineFileRepository.UpdateMedicine(_medForUpdate.MedicineId, updatedMed);
+            _medicineController.UpdateMedicine(updatedMed);
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
-            //_parent.UpdateTable();
+            _parent.UpdateTable();
             this.Close();
         }
 
-        private void Otkazi(object sender, RoutedEventArgs e)
+        private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void Sastojci_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void CollectSelectedMedicineData()
         {
-            /*if (Sastojci.SelectedIndex != -1)
-            {
-                List<Lek> lekovi = LekFileStorage.GetAll();
-                foreach (Lek l in lekovi)
-                {
-                    l.ListaSastojaka.Add((Ingredient)Sastojci.SelectedItem);
-                    //dodati u storage
-                    foreach (Ingredient s in l.ListaSastojaka)
-                    {
-                        SastojciList.Items.Add(s.Name);
-                    }
+            Sifra.Text = _medForUpdate.MedicineId;
+            Naziv.Text = _medForUpdate.Name;
+            List<Ingredient> ingredientList = _medForUpdate.IngredientsList;
+            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(ingredientList);
+            SastojciList.ItemsSource = ingredients;
+        }
+        public Medicine GenerateMedicineObjectFromCollectedData()
+        {
+            String medicineId = Sifra.Text;
+            String name = Naziv.Text;
+            MedicineStatus medicineStatus = MedicineStatus.waitingForValidation;
+            bool isDeleted = false;
+            ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
+            List<Ingredient> medicineIngredients = ingredients.ToList();
 
-                }
-            }*/
+            Medicine medicine = new Medicine(medicineId, name, isDeleted, medicineStatus, medicineIngredients);
+            return medicine;
         }
     }
+    //List<Ingredient> medIngredients = _medForUpdate.IngredientsList;
+    /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
+    var ingredients = new ObservableCollection<Ingredient>();
+    var medIngredients = medForUpdate.ListaSastojaka;
+    foreach(var ingredient in medIngredients)
+    {
+        ingredients.Add(ingredient);
+    }*/
+    /*foreach (Ingredient i in IngredientFileStorage.GetAll())
+    {
+        if (!SastojciList.Items.Contains(selected) && i.Name.Equals(selected.Name))
+        {
+            ingredients.Add(i);
+        }
+    }*/
+    /*List<Ingredient> medIngredients = _medForUpdate.IngredientsList;
+    ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
+    foreach (Ingredient i in IngredientFileStorage.GetAll())
+    {
+        if (i.Name.Equals(selected.Name) && SastojciList.SelectedItem != null)
+        {
+            ingredients.Remove(selected);
+        }
+    }*/
 }

@@ -76,13 +76,18 @@
     <Compile Include="Controller\ActivityLogController.cs" />
     <Compile Include="Controller\AnamnesisController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="Controller\MedicineController.cs" />
     <Compile Include="Controller\RatingController.cs" />
+    <Compile Include="Controller\RenovationPeriodController.cs" />
+    <Compile Include="Controller\RoomController.cs" />
     <Compile Include="Doctor_ns\Vacation.cs" />
     <Compile Include="Doctor_ns\WorkShift.cs" />
     <Compile Include="Controller\DoctorControler.cs" />
     <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />
+    <Compile Include="Manager_ns\RenovationPeriod.cs" />
     <Compile Include="Patient_ns\AddingNotesPage.xaml.cs">
       <DependentUpon>AddingNotesPage.xaml</DependentUpon>
     </Compile>
@@ -105,8 +110,11 @@
     </Compile>
     <Compile Include="Service\AllergyCheck.cs" />
     <Compile Include="Service\DoctorService.cs" />
+    <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Service\RatingService.cs" />
+    <Compile Include="Service\RenovationPeriodService.cs" />
+    <Compile Include="Service\RoomService.cs" />
     <Compile Include="User\Notification.cs" />
     <Compile Include="Doctor_ns\DrugsPage.xaml.cs">
       <DependentUpon>DrugsPage.xaml</DependentUpon>

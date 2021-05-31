@@ -705,16 +705,7 @@ D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBoln
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice.csprojAssemblyReference.cache
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.g.cs
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotesPage.g.cs
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorAddAppointmentWindow.g.cs
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorEditAppointmentWindow.g.cs
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorWindow.g.cs
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsPage.g.cs
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsValidationWindow.g.cs
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\AppointmentsPage.g.cs
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\MedicalRecordWindow.g.cs
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilePage.g.cs
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.g.cs
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalHistoryPage.g.cs
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalRecordPage.g.cs
@@ -765,16 +756,7 @@ D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBoln
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.cache
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\InformacioniSistemBolnice_MarkupCompile.lref
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorPatientsPage.baml
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\AddingNotesPage.baml
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorAddAppointmentWindow.baml
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorEditAppointmentWindow.baml
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DoctorWindow.baml
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsPage.baml
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\DrugsValidationWindow.baml
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\AppointmentsPage.baml
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\MedicalRecordWindow.baml
-D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Lekar\ProfilePage.baml
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\MainWindow.baml
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalHistoryPage.baml
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Patient_ns\MedicalRecordPage.baml
@@ -1054,5 +1036,27 @@ D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\MedicalRecordWindow.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\ProfilePage.baml
 D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorsPage.baml
-C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.g.cs
-C:\SIMS\Projekat\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DoctorPatientsPage.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DoctorAddAppointmentWindow.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DoctorEditAppointmentWindow.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DoctorWindow.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DrugsPage.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DrugsValidationWindow.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\AppointmentsPage.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\MedicalRecordWindow.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\ProfilePage.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorsPage.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DoctorPatientsPage.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DoctorAddAppointmentWindow.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DoctorEditAppointmentWindow.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DoctorWindow.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DrugsPage.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\DrugsValidationWindow.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\AppointmentsPage.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\MedicalRecordWindow.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\ProfilePage.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorsPage.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.baml
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.g.cs
+D:\nenad\Documents\GitHub\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.baml

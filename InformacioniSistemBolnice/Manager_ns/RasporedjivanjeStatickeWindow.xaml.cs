@@ -102,7 +102,7 @@ namespace InformacioniSistemBolnice.Upravnik
             RoomFileRepository.UpdateRoom(prostorija.RoomId, p1);
             RoomFileRepository.UpdateRoom(izabrana.RoomId, p2);
 
-            parent.updateTable();
+            parent.UpdateTable();
 
             if (selektovana.Quantity < kolicina)
             {

@@ -90,4 +90,46 @@ public class RoomFileRepository
         return false;
     }
 
+    public static Room GetOneByName(String name)
+    {
+        List<Room> rooms = GetAll();
+        foreach (Room room in rooms)
+        {
+            if (room.Name == name)
+            {
+                return rooms[rooms.IndexOf(room)];
+            }
+        }
+        return null;
+    }
+    /*public static bool IsAvailable(DateTime start, DateTime end) // proverava da li je RoomComboBox slobodna izmedju neka dva trenutka u vremenu
+    {
+        if (start.Equals(end))
+            return true;
+        bool retVal = true;
+        List<Appointment> appointments = AppointmentFileRepository.GetAll();
+        foreach (Appointment appointment in appointments)
+        {
+            if (appointment.Room.Equals(this) && appointment.AppointmentStatus == AppointmentStatus.scheduled)
+            {
+                if (start >= appointment.AppointmentDate && start <= appointment.AppointmentEnd)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (end >= appointment.AppointmentDate && end <= appointment.AppointmentEnd)
+                {
+                    retVal = false;
+                    break;
+                }
+                if (start <= appointment.AppointmentDate && end >= appointment.AppointmentEnd)
+                {
+                    retVal = false;
+                    break;
+                }
+            }
+        }
+        return retVal;
+    }*/
+
 }
