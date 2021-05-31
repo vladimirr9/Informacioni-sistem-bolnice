@@ -11,6 +11,7 @@ namespace InformacioniSistemBolnice.Controller
     public class MedicineController
     {
         private MedicineService _medicineService = new MedicineService();
+        private ValidatedMedicineService _validatedMedicineService = new ValidatedMedicineService();
         public void AddMedicine(Medicine medicine)
         {
             _medicineService.AddMedicine(medicine);
@@ -59,6 +60,11 @@ namespace InformacioniSistemBolnice.Controller
         public void SendMedicineForRemovingValidation(Medicine medicine)
         {
             _medicineService.SendMedicineForRemovingValidation(medicine);
+        }
+
+        public List<Medicine> GetValidatedMedicines()
+        {
+            return _validatedMedicineService.GetValidatedMedicines();
         }
     }
 }

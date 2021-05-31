@@ -50,5 +50,22 @@
         "PostalCode": "21000"
       }
     }
+  },
+  {
+    "Vacations": [],
+    "doctorType": 0,
+    "Shift": 1,
+    "DaysOfVacation": 0,
+    "Name": "Marko",
+    "Surname": "Markovic",
+    "JMBG": "1508972600034",
+    "Gender": "m",
+    "PhoneNumber": "+381661238407",
+    "Email": "ppetrovic@gmail.com",
+    "DateOfBirth": "1972-08-15T00:00:00",
+    "Username": "marko",
+    "Password": "marko123",
+    "IsDeleted": false,
+    "ResidentialAddress": null
   }
 ]

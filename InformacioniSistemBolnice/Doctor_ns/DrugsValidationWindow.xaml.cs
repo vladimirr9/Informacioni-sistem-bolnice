@@ -17,6 +17,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
 {
     public partial class DrugsValidationWindow : Window
     {
+        private MedicineController _medicineController = new MedicineController();
         public DrugsValidationWindow()
         {
             InitializeComponent();
@@ -28,17 +29,9 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             if (DrugsList.SelectedItem != null)
             {
-                String name = DrugsList.SelectedItem.ToString();
-                List<Medicine> drugs = MedicineFileRepository.GetAll();
-                foreach (Medicine drug in drugs)
-                {
-                    if (drug.Name == name)
-                    {
-                        drug.MedicineStatus = MedicineStatus.validated;
-
-                        //update lek storage!
-                    }
-                }
+                Medicine drug = _medicineController.GetOneByname(DrugsList.SelectedItem.ToString());
+                drug.MedicineStatus = MedicineStatus.validated;
+                _medicineController.UpdateMedicine(drug);
                 UpdateList();
             }
         }
@@ -52,8 +45,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private void UpdateList()
         {
             DrugsList.Items.Clear();
-            List<Medicine> drugs = MedicineFileRepository.GetAll();
-            foreach (Medicine drug in drugs)
+            foreach (Medicine drug in _medicineController.GetAllMedicines())
             {
                 if (!drug.IsDeleted && drug.MedicineStatus.Equals(MedicineStatus.waitingForValidation))
                     DrugsList.Items.Add(drug.Name);
@@ -63,19 +55,12 @@ namespace InformacioniSistemBolnice.Doctor_ns
         public void SelectionChange(object sender, SelectionChangedEventArgs e)
         {
             IngredientsList.Items.Clear();
-            String name = DrugsList.SelectedItem.ToString();
-            List<Medicine> drugs = MedicineFileRepository.GetAll();
-            foreach (Medicine drug in drugs)
+            Medicine drug = _medicineController.GetOneByname(DrugsList.SelectedItem.ToString());
+            foreach (Ingredient ingredient in _medicineController.GetMedicineIngredients(drug))
             {
-                if (drug.Name == name)
-                {
-                    Console.WriteLine(name);
-                    foreach (Ingredient ingredient in drug.IngredientsList)
-                    {
-                        IngredientsList.Items.Add(ingredient.Name);
-                    }
-                }
+                IngredientsList.Items.Add(ingredient.Name);
             }
+
         }
     }
 }

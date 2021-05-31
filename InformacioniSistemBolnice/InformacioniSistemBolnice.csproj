@@ -115,6 +115,8 @@
     <Compile Include="Service\RatingService.cs" />
     <Compile Include="Service\RenovationPeriodService.cs" />
     <Compile Include="Service\RoomService.cs" />
+    <Compile Include="Service\RoomsForHospitalisationService.cs" />
+    <Compile Include="Service\ValidatedMedicineService.cs" />
     <Compile Include="User\Notification.cs" />
     <Compile Include="Doctor_ns\DrugsPage.xaml.cs">
       <DependentUpon>DrugsPage.xaml</DependentUpon>
@@ -579,7 +581,9 @@
   <ItemGroup>
     <None Include="Patient_ns\App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Patient_ns\logo.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Doctor_ns\doctor_medical_avatar_people_icon_131305.png" />
   </ItemGroup>
