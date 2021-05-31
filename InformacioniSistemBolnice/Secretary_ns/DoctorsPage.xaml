@@ -26,7 +26,7 @@
                     <DataGridTextColumn Header="Korisničko Name" Binding="{Binding Path=Username}"  Width="120"/>
                     <DataGridTextColumn Header="Ime" Binding="{Binding Path=Name}" Width="100"/>
                     <DataGridTextColumn Header="Prezime" Binding="{Binding Path=Surname}" Width="120" />
-                    <DataGridTextColumn Header="Smena" Binding="{Binding Path=JMBG}" Width="100"/>
+                    <DataGridTextColumn Header="Smena" Binding="{Binding Path=Shift}" Width="100"/>
                     <DataGridTextColumn Header="Adresa" Binding="{Binding Path=ResidentialAddress}" Width="*"/>
                     <DataGridTextColumn Header="Tip" Binding="{Binding Path=doctorType}" Width="120"/>
                     <DataGridTextColumn Header="Pol" Binding="{Binding Path=Gender}" Width="30" />
