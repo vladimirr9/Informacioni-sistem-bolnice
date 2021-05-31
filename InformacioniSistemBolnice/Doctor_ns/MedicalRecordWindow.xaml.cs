@@ -23,6 +23,8 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private PatientController _patientController = new PatientController();
         private AnamnesisController _anamnesisController = new AnamnesisController();
         private AppointmentController _appointmentController = new AppointmentController();
+        private MedicineController _medicineController = new MedicineController();
+        private RoomController _roomController = new RoomController();
 
         public MedicalRecordWindow(Patient patient , DoctorWindow parent)
         {
@@ -40,14 +42,13 @@ namespace InformacioniSistemBolnice.Doctor_ns
             BirthdayTextBox.Text = selected.DateOfBirth.ToString("dd/MM/yyyy");
             JmbgTextBox.Text = selected.JMBG;
             MedicalCardTextBox.Text = selected.SocialSecurityNumber;
-
             if (selected.Gender == 'M')
             {
                 GenderComboBox.SelectedIndex = 0;
             }
             else
             {
-                GenderComboBox.SelectedItem = 1;
+                GenderComboBox.SelectedIndex = 1;
             }
 
             foreach (Appointment appointment in _appointmentController.PatientsAppointments(selected))
@@ -56,7 +57,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
 
             AnamnesisTextBox.Document.Blocks.Clear();
-            DrugsComboBox.ItemsSource = MedicineFileRepository.GetAll();      //kontroler
+            DrugsComboBox.ItemsSource = _medicineController.GetAllMedicines();
         }
 
         private void Prescription_Click(object sender, RoutedEventArgs e)
@@ -126,9 +127,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
         private void Add_Allergy_Click(object sender, RoutedEventArgs e)
         {
-            PatientController patientController = new PatientController();
-            patientController.AddAllergen(selected, (Ingredient)AllergiesComboBox.SelectedItem);
-
+            _patientController.AddAllergen(selected, (Ingredient)AllergiesComboBox.SelectedItem);
             WriteAllergies(selected);
         }
 
@@ -141,11 +140,11 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
         }
 
-        private void WriteAllergies(Patient patient)               //dodati ingredients kontroler i izmestiti
+        private void WriteAllergies(Patient patient)
         {
             AllergiesList.Items.Clear();
             List<Ingredient> ingredients = new List<Ingredient>();
-            foreach (Ingredient ingredient in IngredientFileRepository.GetAll())
+            foreach (Ingredient ingredient in _medicineController.GetAllIngredients())
             {
                 if (patient.MedicalRecord.Allergens.Contains(ingredient))
                 {
@@ -168,23 +167,10 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
         private void UpdateComponents()
         {
-            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null)              //room controler
+            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null)
             {
-                List<Room> rooms = RoomFileRepository.GetAll();
-                List<Room> available = new List<Room>();
-                DateTime begin = (DateTime) RoomBeginDatePicker.SelectedDate;
-                DateTime end = (DateTime) RoomEndDatePicker.SelectedDate;
-                foreach (Room room in rooms)
-                {
-                    if (room.RoomType.Equals(RoomType.recoveryRoom) && room.IsAvailable(begin, end))
-                    {
-                        available.Add(room);
-                    }
-                }
                 RoomComboBox.IsEnabled = true;
-                RoomComboBox.ItemsSource = available;
-
-
+                RoomComboBox.ItemsSource = _roomController.GetRoomsForHospitalisation((DateTime)RoomBeginDatePicker.SelectedDate, (DateTime)RoomEndDatePicker.SelectedDate);
             }
         }
 

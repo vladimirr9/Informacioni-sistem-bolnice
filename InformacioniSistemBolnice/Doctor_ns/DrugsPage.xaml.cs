@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Doctor_ns
@@ -20,6 +21,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
     {
         public DoctorWindow parent;
         private static DrugsPage instance;
+        private MedicineController _medicineController = new MedicineController();
 
         public DrugsPage(DoctorWindow parent)
         {
@@ -43,17 +45,16 @@ namespace InformacioniSistemBolnice.Doctor_ns
             drugsWindow.Show();
         }
 
-        private void Add_Ingredient_Click(object sender, RoutedEventArgs e)      //ubaciti kontroler za lekove
+        private void Add_Ingredient_Click(object sender, RoutedEventArgs e)
         {
             if (IngredientsComboBox.SelectedIndex != -1)
             {
-                List<Medicine> drugs = MedicineFileRepository.GetAll();
-                foreach (Medicine drug in drugs)
+                foreach (Medicine drug in _medicineController.GetAllMedicines())
                 {
                     if (drug.Name == DrugsList.SelectedItem.ToString())
                     {
                         drug.IngredientsList.Add((Ingredient)IngredientsComboBox.SelectedItem);
-                        MedicineFileRepository.UpdateMedicine(drug.MedicineId, drug);
+                        _medicineController.UpdateMedicine(drug);
                         WriteIngredients(drug);
                     }
                 }
@@ -63,18 +64,16 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private void UpdateList()
         {
             DrugsList.Items.Clear();
-            List<Medicine> drugs = MedicineFileRepository.GetAll();                    //kontroler
-            foreach (Medicine drug in drugs)
+            foreach (Medicine drug in _medicineController.GetValidatedMedicines())
             {
-                if (!drug.IsDeleted && drug.MedicineStatus.Equals(MedicineStatus.validated))
-                    DrugsList.Items.Add(drug.Name);
+                DrugsList.Items.Add(drug.Name);
             }
         }
 
         public void SelectionChange(object sender, SelectionChangedEventArgs e)
         {
             IngredientsList.Items.Clear();
-            foreach (Medicine drug in MedicineFileRepository.GetAll())                        //kontroler
+            foreach (Medicine drug in _medicineController.GetValidatedMedicines())
             {
                 if (drug.Name == DrugsList.SelectedItem.ToString())
                 {
@@ -87,7 +86,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             IngredientsList.Items.Clear();
             List<Ingredient> ingredients = new List<Ingredient>();
-            foreach (Ingredient ingredient in IngredientFileRepository.GetAll())
+            foreach (Ingredient ingredient in _medicineController.GetAllIngredients())
             {
                 if (drug.IngredientsList.Contains(ingredient))
                 {

@@ -22,6 +22,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private AppointmentController _appointmentController = new AppointmentController();
         private DoctorControler _doctorControler = new DoctorControler();
         private PatientController _patientController = new PatientController();
+        private RoomController _roomController = new RoomController();
 
         public DoctorEditAppointmentWindow(Appointment selected, DoctorWindow parent)
         {
@@ -56,12 +57,11 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
         }
 
-        private void InitializeComboBoxes()                         //ubaciti kontrolere
+        private void InitializeComboBoxes()
         {
             DoctorComboBox.ItemsSource = _doctorControler.GetAll();
             PatientComboBox.ItemsSource = _patientController.GetAll();
-            List<Room> rooms = RoomFileRepository.GetAll();
-            RoomComboBox.ItemsSource = rooms;
+            RoomComboBox.ItemsSource = _roomController.GetAllRooms();
 
             date.SelectedDate = selected.AppointmentDate;
             time.SelectedValue = selected.AppointmentDate.ToString("HH:mm");
