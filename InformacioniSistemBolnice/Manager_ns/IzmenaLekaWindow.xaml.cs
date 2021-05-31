@@ -32,46 +32,22 @@ namespace InformacioniSistemBolnice.Upravnik
             this._parent = parent;
             _medForUpdate = med;
 
-            List<Ingredient> sastojci = _medicineController.GetAllIngredients();
-            Sastojci.ItemsSource = sastojci;
+            List<Ingredient> ingredients = _medicineController.GetAllIngredients();
+            Sastojci.ItemsSource = ingredients;
             CollectSelectedMedicineData();
         }
 
         private void RemoveIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)SastojciList.SelectedItem;
-            /*List<Ingredient> medIngredients = _medForUpdate.IngredientsList;
-            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
-            foreach (Ingredient i in IngredientFileStorage.GetAll())
-            {
-                if (i.Name.Equals(selected.Name) && SastojciList.SelectedItem != null)
-                {
-                    ingredients.Remove(selected);
-                }
-            }*/
-            ObservableCollection<Ingredient> ingredients = _medicineController.RemoveIngredient(selected);
+            ObservableCollection<Ingredient> ingredients = _medicineController.RemoveIngredient(_medForUpdate ,selected);
             SastojciList.ItemsSource = ingredients;
         }
 
         private void AddIngredient(object sender, RoutedEventArgs e)
         {
-            Ingredient selected = (Ingredient)Sastojci.SelectedItem;
-            //List<Ingredient> medIngredients = _medForUpdate.IngredientsList;
-            /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
-            var ingredients = new ObservableCollection<Ingredient>();
-            var medIngredients = medForUpdate.ListaSastojaka;
-            foreach(var ingredient in medIngredients)
-            {
-                ingredients.Add(ingredient);
-            }*/
-            /*foreach (Ingredient i in IngredientFileStorage.GetAll())
-            {
-                if (!SastojciList.Items.Contains(selected) && i.Name.Equals(selected.Name))
-                {
-                    ingredients.Add(i);
-                }
-            }*/
-            ObservableCollection<Ingredient> ingredients = _medicineController.AddIngredientsToNewMedicine(selected);
+            Ingredient selected = (Ingredient)Sastojci.SelectedItem;           
+            ObservableCollection<Ingredient> ingredients = _medicineController.AddIngredients(_medForUpdate, selected);
             SastojciList.ItemsSource = ingredients;
         }
 
@@ -111,4 +87,28 @@ namespace InformacioniSistemBolnice.Upravnik
             return medicine;
         }
     }
+    //List<Ingredient> medIngredients = _medForUpdate.IngredientsList;
+    /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
+    var ingredients = new ObservableCollection<Ingredient>();
+    var medIngredients = medForUpdate.ListaSastojaka;
+    foreach(var ingredient in medIngredients)
+    {
+        ingredients.Add(ingredient);
+    }*/
+    /*foreach (Ingredient i in IngredientFileStorage.GetAll())
+    {
+        if (!SastojciList.Items.Contains(selected) && i.Name.Equals(selected.Name))
+        {
+            ingredients.Add(i);
+        }
+    }*/
+    /*List<Ingredient> medIngredients = _medForUpdate.IngredientsList;
+    ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medIngredients);
+    foreach (Ingredient i in IngredientFileStorage.GetAll())
+    {
+        if (i.Name.Equals(selected.Name) && SastojciList.SelectedItem != null)
+        {
+            ingredients.Remove(selected);
+        }
+    }*/
 }

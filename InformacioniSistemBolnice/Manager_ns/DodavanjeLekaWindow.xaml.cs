@@ -29,7 +29,6 @@ namespace InformacioniSistemBolnice.Upravnik
             InitializeComponent();
             this._parent = parent;
 
-            //List<Ingredient> ingredients = IngredientFileStorage.GetAll();
             Sastojci.ItemsSource = _medicineController.GetAllIngredients();
             SastojciList.Items.Clear();
         }
@@ -37,7 +36,6 @@ namespace InformacioniSistemBolnice.Upravnik
         private void DodajLek(object sender, RoutedEventArgs e)
         {
             Medicine newMedicine = GenerateMedicineObjectFromCollectedData();
-            //MedicineFileRepository.AddMedicine(medicine);
             _medicineController.AddMedicine(newMedicine);
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
             _parent.UpdateTable();
@@ -52,14 +50,6 @@ namespace InformacioniSistemBolnice.Upravnik
         private void AddIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)Sastojci.SelectedItem;
-            /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
-            foreach (Ingredient i in IngredientFileStorage.GetAll())
-            {
-                if (!SastojciList.Items.Contains(selected) && i.Name.Equals(selected.Name))
-                {
-                    ingredients.Add(i);
-                }
-            }*/
             ObservableCollection<Ingredient> ingredients =_medicineController.AddIngredientsToNewMedicine(selected);
             SastojciList.ItemsSource = ingredients;
         }
@@ -68,15 +58,7 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             // SastojciList.Items.Clear();
             Ingredient selected = (Ingredient)SastojciList.SelectedItem;
-            /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
-            foreach (Ingredient i in IngredientFileStorage.GetAll())
-            {
-                if (i.Name.Equals(selected.Name) && SastojciList.SelectedItem != null)
-                {
-                    ingredients.Remove(selected);
-                }
-            }*/
-            ObservableCollection<Ingredient> ingredients = _medicineController.RemoveIngredient(selected);
+            ObservableCollection<Ingredient> ingredients = _medicineController.RemoveIngredientFromNewMedicine(selected);
             SastojciList.ItemsSource = ingredients;
         }
 
@@ -93,4 +75,20 @@ namespace InformacioniSistemBolnice.Upravnik
             return medicine;
         }
     }
+    /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
+    foreach (Ingredient i in IngredientFileStorage.GetAll())
+    {
+        if (!SastojciList.Items.Contains(selected) && i.Name.Equals(selected.Name))
+        {
+            ingredients.Add(i);
+        }
+    }*/
+    /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
+    foreach (Ingredient i in IngredientFileStorage.GetAll())
+    {
+        if (i.Name.Equals(selected.Name) && SastojciList.SelectedItem != null)
+        {
+            ingredients.Remove(selected);
+        }
+    }*/
 }

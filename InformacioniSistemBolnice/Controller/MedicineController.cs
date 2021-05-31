@@ -35,14 +35,19 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _medicineService.GetMedicineIngredients(medicine);
         }
-        public List<Ingredient> AddIngredients(Medicine medicine, Ingredient ingredient)
+        public ObservableCollection<Ingredient> AddIngredients(Medicine medicine, Ingredient ingredient)
         {
             return _medicineService.AddIngredients(medicine, ingredient);
         }
-        public ObservableCollection<Ingredient> RemoveIngredient(Ingredient ingredient)
+        public ObservableCollection<Ingredient> RemoveIngredient(Medicine medicine, Ingredient ingredient)
         {
-            return _medicineService.RemoveIngredient(ingredient);
+            return _medicineService.RemoveIngredient(medicine, ingredient);
         }
+        public ObservableCollection<Ingredient> RemoveIngredientFromNewMedicine(Ingredient ingredient)
+        {
+            return _medicineService.RemoveIngredientFromNewMedicine(ingredient);
+        }
+
         public ObservableCollection<Ingredient> AddIngredientsToNewMedicine(Ingredient ingredient)
         {
             return _medicineService.AddIngredientsToNewMedicine(ingredient);

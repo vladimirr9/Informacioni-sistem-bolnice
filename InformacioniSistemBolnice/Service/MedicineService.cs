@@ -87,17 +87,27 @@ namespace InformacioniSistemBolnice.Service
             return ingredientsList;
         }
 
-        public List<Ingredient> AddIngredients(Medicine medicine, Ingredient ingredient)
+        public ObservableCollection<Ingredient> AddIngredients(Medicine medicine, Ingredient ingredient)
         {
-            foreach(Ingredient ing in IngredientFileStorage.GetAll())
+            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medicine.IngredientsList);
+            foreach(Ingredient ing in GetAllIngredients())
             {
-                if (!medicine.IngredientsList.Contains(ingredient) && ingredient.Name.Equals(ing.Name))
+                if (!ingredients.Contains(ingredient) && ingredient.Name.Equals(ing.Name))
                 {
-                    medicine.IngredientsList.Add(ingredient);
+                    ingredients.Add(ingredient);
                 }
             }
-            return medicine.IngredientsList;
-            
+            return ingredients;
+            /*var ingredients = new ObservableCollection<Ingredient>();
+            var medIngredients = medicine.IngredientsList;
+            foreach (var ing in medIngredients)
+            {
+                if (ing.Name.Equals(ingredient.Name))
+                {
+                    ingredients.Add(ing);
+                }
+            }
+            return ingredients;*/
         }
 
         public ObservableCollection<Ingredient> AddIngredientsToNewMedicine(Ingredient ingredient)
@@ -113,7 +123,19 @@ namespace InformacioniSistemBolnice.Service
             return ingredients;
         }
 
-        public ObservableCollection<Ingredient> RemoveIngredient(Ingredient ingredient)
+        public ObservableCollection<Ingredient> RemoveIngredient(Medicine medicine, Ingredient ingredient)
+        {
+            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medicine.IngredientsList);
+            foreach (Ingredient ing in IngredientFileStorage.GetAll())
+            {
+                if (ing.Name.Equals(ingredient.Name))
+                {
+                    ingredients.Remove(ing);
+                }
+            }
+            return ingredients;
+        }
+        public ObservableCollection<Ingredient> RemoveIngredientFromNewMedicine(Ingredient ingredient)
         {
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
             foreach (Ingredient ing in IngredientFileStorage.GetAll())
