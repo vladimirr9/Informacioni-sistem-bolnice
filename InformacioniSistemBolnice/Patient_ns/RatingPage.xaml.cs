@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
+using InformacioniSistemBolnice.Service;
 
 namespace InformacioniSistemBolnice.Patient_ns
 {
@@ -22,11 +24,15 @@ namespace InformacioniSistemBolnice.Patient_ns
     public partial class RatingPage : Page
     {
         private StartPatientWindow parent;
-        private Appointment selektovan;
-        public Button kojiJePritisnut;
+        private Appointment _selektovan;
+        public Button _kojiJePritisnut;
+        private RatingController _ratingController = new RatingController();
+        private Patient _patient;
+        private AppointmentController _appointmentController = new AppointmentController();
         public RatingPage(StartPatientWindow pp)
         {
             parent = pp;
+            _patient = pp.Patient;
             InitializeComponent();
             PretraziTermine();
             DataContext = this;
@@ -37,35 +43,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void Provjera()
         {
-            List<Rating> ocjenjivanjeBolnice = new List<Rating>();
-
-            foreach (Rating a in RatingFileRepository.GetAll())
-            {
-                if (a.UsernameOfDoctor == null && a.IdOfAppointment == 0)
-                {
-                    if (a.UsernameOfPatient.Equals(parent.Patient.Username))
-                    {
-                        ocjenjivanjeBolnice.Add(a);
-                    }
-                }
-            }
-
-            DateTime posljednjaNapisana = DateTime.Parse("1970-01-01" + " " + "00:00:00");
-            if (ocjenjivanjeBolnice.Count != 0)
-            {
-                posljednjaNapisana = ocjenjivanjeBolnice.ElementAt(0).DateOfWritingRating;
-            }
-
-            foreach (Rating a in ocjenjivanjeBolnice)
-            {
-                if (posljednjaNapisana < a.DateOfWritingRating)
-                {
-                    posljednjaNapisana = a.DateOfWritingRating;
-
-                }
-            }
-
-            if (ocjenjivanjeBolnice.Count == 0 || posljednjaNapisana.AddSeconds(15) < DateTime.Now)
+            if (_ratingController.IsCheckedCondition(_patient))
             {
                 rateHospital.Visibility = Visibility.Visible;
             }
@@ -78,28 +56,18 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void PretraziTermine()
         {
-
-
-            foreach (Appointment t in AppointmentFileRepository.GetAll())
+            foreach (Appointment t in _appointmentController.GetPatientsAppointmentsInLastTenDays(_patient))
             {
-                if (t.AppointmentStatus == AppointmentStatus.scheduled && !RatingFileRepository.Contains(t.AppointmentID) && t.PatientUsername.Equals(parent.Patient.Username))
-                {
-                    if (DateTime.Now.AddDays(-10) < t.AppointmentDate && t.AppointmentDate.Date < DateTime.Now)
-                    {
-                        PrikazPregleda.Items.Add(t);
-                    }
-                }
-
+                PrikazPregleda.Items.Add(t);
             }
-
         }
 
         private void rate_Click(object sender, RoutedEventArgs e)
         {
-            kojiJePritisnut = rate;
-            selektovan = (Appointment)PrikazPregleda.SelectedItem;
+            _kojiJePritisnut = rate;
+            _selektovan = (Appointment)PrikazPregleda.SelectedItem;
             parent.imeLjekara.Visibility = Visibility.Visible;
-            PatientRatesPage pa = new PatientRatesPage(this, parent, selektovan);
+            PatientRatesPage pa = new PatientRatesPage(this, parent, _selektovan);
             parent.startWindow.Content = pa;
             return;
 
@@ -108,8 +76,8 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void rateHospital_Click(object sender, RoutedEventArgs e)
         {
-            kojiJePritisnut = rateHospital;
-            PatientRatesPage pa = new PatientRatesPage(this, parent, selektovan);
+            _kojiJePritisnut = rateHospital;
+            PatientRatesPage pa = new PatientRatesPage(this, parent, _selektovan);
             parent.startWindow.Content = pa;
             return;
         }
@@ -117,7 +85,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         public void UpdateTable()
         {
 
-            PrikazPregleda.Items.Remove(selektovan);
+            PrikazPregleda.Items.Remove(_selektovan);
         }
 
         private void PrikazPregleda_SelectionChanged(object sender, SelectionChangedEventArgs e)

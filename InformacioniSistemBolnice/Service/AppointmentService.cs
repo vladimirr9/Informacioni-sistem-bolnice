@@ -8,6 +8,7 @@ namespace InformacioniSistemBolnice.Service
 {
     public class AppointmentService
     {
+        private RatingService _ratingService = new RatingService();
         public void Add(Appointment appointment)
         {
             //odraditi provere!
@@ -111,6 +112,34 @@ namespace InformacioniSistemBolnice.Service
             appointment.AppointmentStatus = AppointmentStatus.finished;
             AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
 
+        }
+
+        public Boolean IsScheduled(Appointment appointment)
+        {
+            if (appointment.AppointmentStatus.Equals(AppointmentStatus.scheduled))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public List<Appointment> GetPatientsAppointmentsInLastTenDays(Patient patient)
+        {
+            List<Appointment> appointments = new List<Appointment>();
+            foreach (Appointment t in GetAll())
+            {
+                if (IsScheduled(t) && !_ratingService.Contains(t.AppointmentID) &&
+                    t.PatientUsername.Equals(patient.Username))
+                {
+                    if (DateTime.Now.AddDays(-10) < t.AppointmentDate && t.AppointmentDate.Date < DateTime.Now)
+                    {
+                        appointments.Add(t);
+                    }
+                }
+            }
+
+            return appointments;
         }
     }
 }
