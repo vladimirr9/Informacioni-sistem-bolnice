@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Closing="EditAppointmentWindow_Closing"
         Title="EditAppointmentWindow" Height="427.955" Width="550">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#FF085394"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="66,76,0,0" TextWrapping="Wrap" Text="Lekar:" VerticalAlignment="Top" Width="118" FontSize="18" TextAlignment="Right" FontFamily="Verdana"/>
         <ComboBox x:Name="DoctorComboBox" ItemsSource="{Binding Path=Doctor}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262"  Margin="213,75,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="Doctor_SelectionChanged">
@@ -66,7 +77,7 @@
         </ComboBox>
 
         <Button x:Name="ConfirmButton" Content="Potvrdi" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Top" Width="110" FontSize="20" FontFamily="Verdana" Margin="141,318,291,0" Click="ConfirmButton_Click"/>
-        <Button x:Name="CancelButton" Content="Odustani" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Top" Width="110" FontSize="20" FontFamily="Verdana" Margin="306,318,126,0" Click="CancelButton_Click"/>
+        <Button x:Name="CancelButton" Content="Odustani" HorizontalAlignment="Center" Height="50"  VerticalAlignment="Top" Width="110" FontSize="20" FontFamily="Verdana" Background="#FFCF2A28" Margin="306,318,126,0" Click="CancelButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Height="39" Margin="66,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" FontSize="18" TextAlignment="Right" FontFamily="Verdana"><Run Text="Trajanje:"/><LineBreak/><Run/></TextBlock>
         <TextBox x:Name="DurationTextBox" HorizontalAlignment="Left" Height="23" Margin="213,171,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="119" FontFamily="Verdana" TextChanged="Duration_TextChanged"/>
         <CheckBox x:Name="UrgentCheckBox" Content="Hitni slučaj" HorizontalAlignment="Left" Margin="355,171,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana"/>

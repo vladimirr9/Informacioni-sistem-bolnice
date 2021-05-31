@@ -45,5 +45,27 @@ namespace InformacioniSistemBolnice.Service
             }
             return doctors;
         }
+        public List<Doctor> GetAvailableDoctorList(DateTime start, DateTime end)
+        {
+            List<Doctor> doctors = new List<global::Doctor>();
+            foreach (global::Doctor doctor in DoctorFileRepository.GetAll())
+            {
+                if (doctor.IsAvailable(start, end) && !doctor.IsDeleted)
+                {
+                    doctors.Add(doctor);
+                }
+            }
+            return doctors;
+        }
+        public List<Doctor> GetFilteredDoctors(List<global::Doctor> doctors, DoctorType doctorType)
+        {
+            List<Doctor> filteredDoctors = new List<global::Doctor>();
+            foreach (Doctor doctor in doctors)
+            {
+                if (doctor.doctorType == doctorType)
+                    filteredDoctors.Add(doctor);
+            }
+            return filteredDoctors;
+        }
     }
 }

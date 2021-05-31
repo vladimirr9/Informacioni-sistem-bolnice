@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private List<Appointment> _appointments;
         private List<Appointment> _appointmentsForPostponing;
+
+        private AppointmentController _appointmentController = new AppointmentController();
         public PostponeAppointmentWIndow(NewUrgentAppointment parent, Patient patient, int duration, DoctorType doctorType, RoomType roomType, AppointmentType appointmentType, DateTime earliestAppointmentTime)
         {
             _parent = parent;
@@ -52,13 +55,13 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 return;
 
             Appointment selectedAppointment = (Appointment)AppointmentData.SelectedItem;
-            int id = AppointmentFileRepository.GetAll().Count + 1;
+            int id = _appointmentController.GetAll().Count + 1;
             Appointment newAppointment = new Appointment(id, selectedAppointment.AppointmentDate, _appointmentDuration, _appointmentType, AppointmentStatus.scheduled, _patient, selectedAppointment.Doctor, selectedAppointment.Room);
             
             foreach (Appointment appointment in _appointmentsForPostponing)
                 Postpone(appointment);
            
-            AppointmentFileRepository.AddAppointment(newAppointment);
+            _appointmentController.Add(newAppointment);
 
             _parent._parent.UpdateTable();
             _parent.Close();
@@ -80,47 +83,27 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             int postPostponementDuration = GetPostponementDuration(appointment);
             appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(postPostponementDuration);
-            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+            _appointmentController.Update(appointment);
         }
 
         private int GetPostponementDuration(Appointment appointment)
         {
             appointment.AppointmentStatus = AppointmentStatus.cancelled;
-            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+            _appointmentController.Update(appointment);
             DateTime originalStart = appointment.AppointmentDate;
             appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(_appointmentDuration + 1);
-            appointment.AppointmentDate = GetNextEarliestAppointmentTime(appointment.AppointmentDate);
-            while (!(GetPossibleAppointmentTimes().Contains(appointment.AppointmentDate.ToString("HH:mm")) && appointment.AreAllEntitiesAvailable(_appointmentsInTheUpcomingWeek)))
+            appointment.AppointmentDate = _appointmentController.GetNextEarliestAppointmentTime(appointment.AppointmentDate);
+            while (!(_appointmentController.GetPossibleAppointmentTimes().Contains(appointment.AppointmentDate.ToString("HH:mm")) && appointment.AreAllEntitiesAvailable(_appointmentsInTheUpcomingWeek)))
             {
                 appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(15);
             }
             DateTime potentialNewStart = appointment.AppointmentDate;
             appointment.AppointmentDate = originalStart;
             appointment.AppointmentStatus = AppointmentStatus.scheduled;
-            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+            _appointmentController.Update(appointment);
             return Convert.ToInt32((potentialNewStart - originalStart).TotalMinutes);
 
         }
-        private List<string> GetPossibleAppointmentTimes()
-        {
-            List<string> times = new List<string>();
-            DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
-            for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
-            {
-                times.Add(potentialTime.ToString("HH:mm"));
-            }
-            return times;
-        }
-        private DateTime GetNextEarliestAppointmentTime(DateTime datetime)
-        {
-            List<string> times = GetPossibleAppointmentTimes();
-            while (!times.Contains(datetime.ToString("HH:mm")))
-            {
-                datetime = datetime.AddMinutes(1);
-            }
-            return datetime;
-        }
-
         private void InitializeAppointments(List<Appointment> appointmentsInTheUpcomingWeek)
         {
             AppointmentData.Items.Clear();
@@ -140,8 +123,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
             }
 
         }
-
-
 
         private void AppointmentData_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -171,7 +152,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private List<Appointment> GetAppointmentsForUpcomingWeek()
         {
             List<Appointment> appointments = new List<Appointment>();
-            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            foreach (Appointment appointment in _appointmentController.GetAll())
             {
                 if (appointment.AppointmentStatus != AppointmentStatus.cancelled && appointment.AppointmentDate >= DateTime.Today && appointment.AppointmentDate <= DateTime.Today.AddDays(7))
                     appointments.Add(appointment);

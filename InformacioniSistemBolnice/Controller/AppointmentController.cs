@@ -76,5 +76,23 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _appointmentService.GetPatientsAppointmentsInLastTenDays(patient);
         }
+        public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments)
+        {
+            return _appointmentService.GetAvailableAppointmentTimes(appointments);
+        }
+
+        public bool CreateNewUrgentAppointment(Patient patient, int duration, DoctorType doctorType, RoomType roomType, AppointmentType appointmentType, DateTime appointmentStart, DateTime appointmentEnd)
+        {
+            return _appointmentService.CreateNewUrgentAppointment(patient, duration, doctorType, roomType, appointmentType, appointmentStart, appointmentEnd);
+        }
+
+        public List<string> GetPossibleAppointmentTimes()
+        {
+            return _appointmentService.GetPossibleAppointmentTimes();
+        }
+        public DateTime GetNextEarliestAppointmentTime(DateTime datetime)
+        {
+            return _appointmentService.GetNextEarliestAppointmentTime(datetime);
+        }
     }
 }
