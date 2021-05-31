@@ -40,7 +40,16 @@
     "Username": "PPetrovic",
     "Password": "petrovic123",
     "IsDeleted": false,
-    "ResidentialAddress": null
+    "ResidentialAddress": {
+      "StreetAndNumber": "Dunavska 1",
+      "City": {
+        "Country": {
+          "Name": "Republika Srbija"
+        },
+        "Name": "Novi Sad",
+        "PostalCode": "21000"
+      }
+    }
   },
   {
     "Vacations": [],
