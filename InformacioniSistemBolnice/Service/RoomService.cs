@@ -101,7 +101,7 @@ namespace InformacioniSistemBolnice.Service
         public void DinamicInventoryRelocation(Room destinationRoom, Inventory inventoryForRelocating, int quantity)
         {
             IsEnoughInventory(inventoryForRelocating, quantity);
-            foreach(Inventory inventory in destinationRoom.InventoryList)
+            foreach (Inventory inventory in destinationRoom.InventoryList)
             {
                 if (inventory.InventoryId.Equals(inventoryForRelocating.InventoryId))
                 {

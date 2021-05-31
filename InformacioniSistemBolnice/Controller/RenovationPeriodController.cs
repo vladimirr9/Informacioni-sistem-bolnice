@@ -1,4 +1,5 @@
-﻿using InformacioniSistemBolnice.Service;
+﻿using InformacioniSistemBolnice.Manager_ns;
+using InformacioniSistemBolnice.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,5 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _renovationPeriodPeriodService.IsAvailable(room, start, end);
         }
-
     }
 }

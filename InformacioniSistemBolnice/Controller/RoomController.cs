@@ -9,7 +9,7 @@ namespace InformacioniSistemBolnice.Controller
 {
     public class RoomController
     {
-        private RoomService _roomService = new RoomService(); 
+        private RoomService _roomService = new RoomService();
 
         public void AddRoom(Room room)
         {
@@ -63,7 +63,7 @@ namespace InformacioniSistemBolnice.Controller
 
         public List<Inventory> FilteredInventory(String search)
         {
-           return _roomService.FilteredInventory(search);
+            return _roomService.FilteredInventory(search);
         }
     }
 }

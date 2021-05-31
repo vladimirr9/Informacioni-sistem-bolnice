@@ -1056,3 +1056,5 @@ D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBoln
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\MedicalRecordWindow.baml
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Doctor_ns\ProfilePage.baml
 D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorsPage.baml
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.g.cs
+D:\SIMS vezbe\kontrolnatacka5\Informacioni-sistem-bolnice\InformacioniSistemBolnice\obj\Debug\Secretary_ns\DoctorWorktimeWindow.baml

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-public class RenovationPeriod
+namespace InformacioniSistemBolnice.Manager_ns
 {
+    public class RenovationPeriod
+    {
         private DateTime _startDate;
         private DateTime _endDate;
         private Boolean _isDeleted;
@@ -45,5 +46,5 @@ public class RenovationPeriod
             IsDeleted = isDeleted;
             Room = room;
         }
+    }
 }
-

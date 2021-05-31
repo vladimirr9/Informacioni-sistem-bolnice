@@ -1,4 +1,6 @@
 ﻿using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.FileStorage;
+using InformacioniSistemBolnice.Manager_ns;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,24 +15,24 @@ namespace InformacioniSistemBolnice.Service
         private RoomController _roomController = new RoomController();
         public void AddRenovatoinPeriod(RenovationPeriod newRenovationPeriod)
         {
-            RenovationperiodFileRepository.AddRenovationPeriod(newRenovationPeriod);
+            RenovationPeriodFileRepository.AddRenovationPeriod(newRenovationPeriod);
         }
 
         public void UpdateRenovationPeriod(RenovationPeriod renovationPeriod)
         {
-            RenovationperiodFileRepository.UpdateRenovationPeriod(renovationPeriod.Room.RoomId, renovationPeriod);
+            RenovationPeriodFileRepository.UpdateRenovationPeriod(renovationPeriod.Room.RoomId, renovationPeriod);
         }
 
         public void RemoveRenovationPeriod(RenovationPeriod renovationPeriod)
         {
-            RenovationperiodFileRepository.RemoveRenovationPeriod(renovationPeriod.Room.RoomId);
+            RenovationPeriodFileRepository.RemoveRenovationPeriod(renovationPeriod.Room.RoomId);
         }
 
         public void ScheduleRenovation(Room room, DateTime startDate, DateTime endDate)
         {
-            foreach(DateTime day in RenovationDays(startDate, endDate))
+            foreach (DateTime day in RenovationDays(startDate, endDate))
             {
-                if(IsAvailable(room, startDate, endDate))
+                if (IsAvailable(room, startDate, endDate))
                 {
                     if (DateTime.Today == day.Date)
                     {
@@ -39,11 +41,12 @@ namespace InformacioniSistemBolnice.Service
                         AddRenovatoinPeriod(renPer);
                         _roomController.UpdateRoom(room);
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Ima zakazanih termina u tom periodu!", "Upozorenje", MessageBoxButton.OK);
                     return;
-                }                
+                }
             }
         }
 
@@ -79,7 +82,7 @@ namespace InformacioniSistemBolnice.Service
                     }
                 }
             }
-        return retVal;
+            return retVal;
         }
     }
 }
