@@ -7,7 +7,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         mc:Ignorable="d" 
-        Title="NewAppointmentWindow" Height="427.955" Width="550">
+        Title="Novi termin" Height="427.955" Width="550">
 
     <Window.Resources>
         <Style TargetType="Button">

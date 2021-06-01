@@ -118,6 +118,9 @@
     <Compile Include="Secretary_ns\DoctorWorktimeWindow.xaml.cs">
       <DependentUpon>DoctorWorktimeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary_ns\EditProfileWindow.xaml.cs">
+      <DependentUpon>EditProfileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary_ns\ReportsPage.xaml.cs">
       <DependentUpon>ReportsPage.xaml</DependentUpon>
     </Compile>
@@ -464,6 +467,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary_ns\EditProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary_ns\NewPatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -615,6 +622,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Secretary_ns\secretary_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Secretary_ns\pfpdummy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Secretary_ns\addimage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

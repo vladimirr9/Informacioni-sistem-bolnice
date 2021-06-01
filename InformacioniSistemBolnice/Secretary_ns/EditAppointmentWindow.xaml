@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         mc:Ignorable="d"
         Closing="EditAppointmentWindow_Closing"
-        Title="EditAppointmentWindow" Height="427.955" Width="550">
+        Title="Izmena termina" Height="427.955" Width="550">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Verdana" />

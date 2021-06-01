@@ -84,7 +84,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void Account_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            Main.Content = AccountPage.GetPage(this);
+            Main.Content = AccountPage.GetPage(this, _currentSecretary);
         }
     }
 }

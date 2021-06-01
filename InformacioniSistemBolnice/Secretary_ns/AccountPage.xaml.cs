@@ -20,17 +20,27 @@ namespace InformacioniSistemBolnice.Secretary_ns
     /// </summary>
     public partial class AccountPage : Page
     {
+        private static Secretary _currentSecretary;
         private static AccountPage _instance;
-        public static AccountPage GetPage(SecretaryMain parent)
+        public static AccountPage GetPage(SecretaryMain parent, Secretary secretary)
         {
             if (_instance == null)
-                _instance = new AccountPage();
+                _instance = new AccountPage(secretary);
             parent.Title.Content = "Nalog";
             return _instance;
         }
-        private AccountPage()
+        private AccountPage(Secretary secretary)
         {
+            _currentSecretary = secretary;
             InitializeComponent();
+            this.DataContext = _currentSecretary;
+
+        }
+
+        private void EditAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditProfileWindow editProfileWindow = new EditProfileWindow();
+            editProfileWindow.Show();
         }
     }
 }
