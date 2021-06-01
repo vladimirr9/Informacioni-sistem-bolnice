@@ -29,6 +29,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             this._parent = parent;
             InitializeComponent();
+            // PreviewKeyDown += (s, e) => { if (e.Key == Key.Escape) Close(); };
             InitializeRecipients();
             this.DataContext = this;
         }
@@ -66,6 +67,5 @@ namespace InformacioniSistemBolnice.Secretary_ns
             RecipientsListBox.SelectedIndex = 0;
         }
 
-        
     }
 }

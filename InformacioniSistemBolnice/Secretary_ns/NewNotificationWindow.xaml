@@ -31,8 +31,8 @@
                 <TextBox x:Name="ContentsTextBox" HorizontalAlignment="Left" Margin="15,0,0,0" Height="109"  TextWrapping="Wrap" Text="{Binding NotificationContent}" VerticalAlignment="Top" Width="301" FontSize="14" FontFamily="Verdana" Grid.Row="1"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,30,0,0" HorizontalAlignment="Center">
-                <Button x:Name="Potvrdi" Content="Potvrdi" Margin="0,0,20,0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="ConfirmButton_Click" Grid.Row="1"/>
-                <Button x:Name="Otkazi" Content="Otkaži" Margin="20,0,0,0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="CancelButton_Click" Background="#FFCF2A28" Grid.Row="1"/>
+                <Button x:Name="_Potvrdi" Content="Potvrdi" Margin="0,0,20,0" HorizontalAlignment="Left"   VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="ConfirmButton_Click" Grid.Row="1"/>
+                <Button x:Name="_Otkazi" Content="Otkaži" Margin="20,0,0,0" HorizontalAlignment="Left"  IsCancel="True" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="CancelButton_Click" Background="#FFCF2A28" Grid.Row="1"/>
             </StackPanel>
         </StackPanel>
         

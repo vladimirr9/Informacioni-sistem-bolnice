@@ -193,8 +193,8 @@
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,35,0,0" HorizontalAlignment="Center">
-                <Button Margin="0,0,20,0" x:Name="ConfirmButton" Content="Potvrdi" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Confirm_Click" Background="#FF085394" Foreground="White"/>
-                <Button Margin="20,0,0,0" x:Name="CancelButton" Content="Otkaži" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Cancel_Click" Background="#FFCF2A28" Foreground="White"/>
+                <Button Margin="0,0,20,0" x:Name="ConfirmButton" Content="_Potvrdi" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Confirm_Click" Background="#FF085394" Foreground="White"/>
+                <Button Margin="20,0,0,0" x:Name="CancelButton" Content="_Otkaži" HorizontalAlignment="Left" IsCancel="True"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Cancel_Click" Background="#FFCF2A28" Foreground="White"/>
             </StackPanel>
         </StackPanel>
     </Grid>

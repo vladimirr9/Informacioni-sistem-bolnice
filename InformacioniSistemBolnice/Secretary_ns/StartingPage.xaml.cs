@@ -24,8 +24,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private Secretary _currentSecretary;
         private static StartingPage _instance;
         private NotificationController _notificationController = new NotificationController();
-        private StartingPage(Secretary currentSecretary)
+        private SecretaryMain _parent;
+        private StartingPage(Secretary currentSecretary, SecretaryMain parent)
         {
+            this._parent = parent;
             this._currentSecretary = currentSecretary;
             
             InitializeComponent();
@@ -33,10 +35,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
             UpdateTable();
         }
 
-        public static StartingPage GetPage(Secretary currentSecretary)
+        public static StartingPage GetPage(Secretary currentSecretary, SecretaryMain parent)
         {
             if (_instance == null)
-                _instance = new StartingPage(currentSecretary);
+                _instance = new StartingPage(currentSecretary, parent);
             else
                 _instance.UpdateTable();
             return _instance;
@@ -45,6 +47,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
         
 
         private void NewNotification_Click(object sender, RoutedEventArgs e)
+        {
+            NewNotification();
+        }
+        private void NewNotification()
         {
             NewNotificationWindow window = new NewNotificationWindow(this);
             window.Show();
@@ -104,6 +110,15 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 return (value as string).Split(' ');
             }
         }
-        
+
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _parent.Main.Content == this;
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            NewNotification();
+        }
     }
 }

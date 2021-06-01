@@ -76,7 +76,7 @@ namespace InformacioniSistemBolnice
                 {
                     SecretaryMain sw = new SecretaryMain(s);
                     Application.Current.MainWindow = sw;
-                    sw.Main.Content = StartingPage.GetPage(s);
+                    sw.Main.Content = StartingPage.GetPage(s, sw);
                     sw.Show();
                     this.Close();
                     return;

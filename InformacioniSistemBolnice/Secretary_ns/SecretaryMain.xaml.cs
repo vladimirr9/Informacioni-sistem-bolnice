@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             this._currentSecretary = currentSecretary;
             InitializeComponent();
+            this.DataContext = this;
         }
 
         private void PatientsButton_Click(object sender, RoutedEventArgs e)
@@ -33,7 +34,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void StartingButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = StartingPage.GetPage(_currentSecretary);
+            Main.Content = StartingPage.GetPage(_currentSecretary, this);
         }
 
         private void AppointmentsButton_Click(object sender, RoutedEventArgs e)
@@ -44,6 +45,33 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void DoctorsButton_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = DoctorsPage.GetPage();
+        }
+
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void StartingPage_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Main.Content = StartingPage.GetPage(_currentSecretary, this);
+        }
+        private void Patients_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Main.Content = PatientsPage.GetPage();
+        }
+        private void Doctors_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Main.Content = DoctorsPage.GetPage();
+        }
+        private void Appointments_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Main.Content = AppointmentsPage.GetPage();
+        }
+
+        private void Reports_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
         }
     }
 }

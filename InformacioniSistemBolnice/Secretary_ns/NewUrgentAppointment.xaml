@@ -12,10 +12,10 @@
         <TextBox x:Name="DurationInMinutes" HorizontalAlignment="Left" Height="26" Margin="168,501,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana"/>
         <TextBlock  HorizontalAlignment="Left" Margin="48,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Patient:"/><LineBreak/><Run/></TextBlock>
         <ListBox x:Name="PatientsList" HorizontalAlignment="Left" Height="226" Margin="166,35,0,0" VerticalAlignment="Top" Width="301" FontFamily="Verdana" FontSize="14" SelectionMode="Single" />
-        <Button x:Name="NewGuestButton" Content="Novi Gostujući" HorizontalAlignment="Left" Margin="231,289,0,0" VerticalAlignment="Top" Width="176" FontSize="20" FontFamily="Verdana" Height="42" Click="NewGuestClick"/>
+        <Button x:Name="NewGuestButton" Content="_Novi Gostujući" HorizontalAlignment="Left" Margin="231,289,0,0" VerticalAlignment="Top" Width="176" FontSize="20" FontFamily="Verdana" Height="42" Click="NewGuestClick"/>
         <ComboBox x:Name="DoctorTypeCombo" HorizontalAlignment="Left" Margin="168,447,0,0" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana"/>
-        <Button x:Name="ConfirmButton" Content="Potvrdi" HorizontalAlignment="Left" Margin="123,573,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Confirm_Click"/>
-        <Button x:Name="CancelButton" Content="Otkaži" HorizontalAlignment="Left" Margin="321,573,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Cancel_Click"/>
+        <Button x:Name="ConfirmButton" Content="_Potvrdi" HorizontalAlignment="Left" Margin="123,573,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Confirm_Click"/>
+        <Button x:Name="CancelButton" Content="_Otkaži" HorizontalAlignment="Left" IsCancel="True" Margin="321,573,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Cancel_Click"/>
         <ComboBox x:Name="AppointmentTypeCombo" HorizontalAlignment="Left" Margin="168,386,0,0" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana">
             <ComboBoxItem>Pregled</ComboBoxItem>
             <ComboBoxItem>Operacija</ComboBoxItem>
