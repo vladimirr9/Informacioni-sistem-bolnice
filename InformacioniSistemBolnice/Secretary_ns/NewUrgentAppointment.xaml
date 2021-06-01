@@ -8,21 +8,47 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Title="Novi hitni termin" Height="700" Width="550">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#FF085394"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <TextBlock  HorizontalAlignment="Left" Margin="25,447,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Tip Lekara:"/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="48,501,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Trajanje:"/><LineBreak/><Run/></TextBlock>
-        <TextBox x:Name="DurationInMinutes" HorizontalAlignment="Left" Height="26" Margin="168,501,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana"/>
-        <TextBlock  HorizontalAlignment="Left" Margin="48,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Patient:"/><LineBreak/><Run/></TextBlock>
-        <ListBox x:Name="PatientsList" HorizontalAlignment="Left" Height="226" Margin="166,35,0,0" VerticalAlignment="Top" Width="301" FontFamily="Verdana" FontSize="14" SelectionMode="Single" />
-        <Button x:Name="NewGuestButton" Content="_Novi Gostujući" HorizontalAlignment="Left" Margin="231,289,0,0" VerticalAlignment="Top" Width="176" FontSize="20" FontFamily="Verdana" Height="42" Click="NewGuestClick"/>
-        <ComboBox x:Name="DoctorTypeCombo" HorizontalAlignment="Left" Margin="168,447,0,0" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana"/>
-        <Button x:Name="ConfirmButton" Content="_Potvrdi" HorizontalAlignment="Left" Margin="123,573,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Confirm_Click"/>
-        <Button x:Name="CancelButton" Content="_Otkaži" HorizontalAlignment="Left" IsCancel="True" Margin="321,573,0,0" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Cancel_Click"/>
-        <ComboBox x:Name="AppointmentTypeCombo" HorizontalAlignment="Left" Margin="168,386,0,0" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana">
-            <ComboBoxItem>Pregled</ComboBoxItem>
-            <ComboBoxItem>Operacija</ComboBoxItem>
-        </ComboBox>
-        <TextBlock  HorizontalAlignment="Left" Margin="25,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Tip Termina:"/><LineBreak/><Run/></TextBlock>
-
+        <StackPanel Orientation="Vertical" Margin="20,40,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock  HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Patient:"/><LineBreak/><Run/></TextBlock>
+                <ListBox x:Name="PatientsList" HorizontalAlignment="Left" Height="226" Margin="20,0,0,0"  VerticalAlignment="Top" Width="301" FontFamily="Verdana" FontSize="14" SelectionMode="Single" />
+            </StackPanel>
+            <Button x:Name="NewGuestButton" Content="_Novi Gostujući" Margin="0,20,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="176" FontSize="20" FontFamily="Verdana" Height="42" Click="NewGuestClick"/>
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                <TextBlock  HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" Width="150" TextAlignment="Right"><Run Text="Tip Termina:"/></TextBlock>
+                <ComboBox x:Name="AppointmentTypeCombo" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana">
+                    <ComboBoxItem>Pregled</ComboBoxItem>
+                    <ComboBoxItem>Operacija</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <TextBlock  HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Width="150" FontFamily="Verdana" TextAlignment="Right"><Run Text="Tip Lekara:"/><LineBreak/><Run/></TextBlock>
+                <ComboBox x:Name="DoctorTypeCombo" Margin="15,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" Width="150" TextAlignment="Right"><Run Text="Trajanje:"/><LineBreak/><Run/></TextBlock>
+                <TextBox x:Name="DurationInMinutes" HorizontalAlignment="Left" Height="26" Margin="15,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" FontSize="20" FontFamily="Verdana"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,45,0,0" HorizontalAlignment="Center">
+                <Button x:Name="ConfirmButton" Margin="0,0,20,0" Content="_Potvrdi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Confirm_Click"/>
+                <Button x:Name="CancelButton" Margin="20,0,0,0" Content="_Otkaži" HorizontalAlignment="Left" Background="#FFCF2A28" IsCancel="True" VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Cancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+        
+        
+        
+        
     </Grid>
 </Window>
