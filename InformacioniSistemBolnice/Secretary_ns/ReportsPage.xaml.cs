@@ -54,7 +54,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 MessageBox.Show("Druga uneta vrednost ne sme biti prazna", "Neodgovarajuća vrednost", MessageBoxButton.OK);
                 return;
             }
-            if (To > From)
+            if (To < From)
             {
                 MessageBox.Show("Unete vrednosti za datume su neodgovarajuće", "Neodgovarajuće vrednosti", MessageBoxButton.OK);
                 return;
