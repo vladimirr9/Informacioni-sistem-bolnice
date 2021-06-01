@@ -44,11 +44,11 @@
             </DataGrid>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
-                <Button x:Name="Dodaj"  Content="Dodaj" HorizontalAlignment="Left" Margin="0,0,20,0" VerticalAlignment="Top" Width="100" Height="40"  Grid.Row="3" Click="AddButton_Click" />
-                <Button x:Name="Izmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="100" Height="40"  Grid.Row="3" Click="EditButton_Click" />
-                <Button x:Name="Obrisi" Content="Obriši" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="100" Height="40" Grid.Row="3" Click="DeleteButton_Click" Background="#FFCF2A28"/>
-                <Button x:Name="Detaljnije" Content="Detaljnije" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="120" Height="40" Grid.Row="3"   Click="Detailed_Click"/>
-                <Button x:Name="Unban" Content="Odblokiraj" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="120" Height="40" Grid.Row="3" Click="Unban_Click" />
+                <Button x:Name="Dodaj"  Content="_Dodaj" HorizontalAlignment="Left" Margin="0,0,20,0" VerticalAlignment="Top" Width="100" Height="40"  Grid.Row="3" Click="AddButton_Click" />
+                <Button x:Name="Izmeni" Content="_Izmeni" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="100" Height="40"  Grid.Row="3" Click="EditButton_Click" />
+                <Button x:Name="Obrisi" Content="_Obriši" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="100" Height="40" Grid.Row="3" Click="DeleteButton_Click" Background="#FFCF2A28"/>
+                <Button x:Name="Detaljnije" Content="_Karton" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="120" Height="40" Grid.Row="3"   Click="Detailed_Click"/>
+                <Button x:Name="Unban" Content="_Odblokiraj" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="120" Height="40" Grid.Row="3" Click="Unban_Click" />
             </StackPanel>
         </StackPanel>
         

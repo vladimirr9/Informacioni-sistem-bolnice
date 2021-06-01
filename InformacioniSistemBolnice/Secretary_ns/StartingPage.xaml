@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Secretary_ns"
+      xmlns:cmd="clr-namespace:InformacioniSistemBolnice.Commands"
       xmlns:converters="clr-namespace:InformacioniSistemBolnice.Secretary_ns;assembly=InformacioniSistemBolnice"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="950"
@@ -18,7 +19,8 @@
             <Setter Property="BorderBrush" Value="Black"/>
         </Style>
     </Page.Resources>
-
+    
+    
 
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
@@ -32,9 +34,9 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0">
-                <Button x:Name="Novo"  Content="Novo obaveštenje" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="200" Height="40" Margin="10,0,30,0"  Click="NewNotification_Click" FontSize="20" FontFamily="Verdana"/>
-                <Button x:Name="Izmeni"  Content="Izmeni" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="148" Height="40" Margin="30,0,30,0"   FontSize="20" FontFamily="Verdana" Click="EditNotification_Click"/>
-                <Button x:Name="Obrisi"  Content="Obriši" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="40" Margin="30,0,10,0"   FontSize="20" FontFamily="Verdana" Background="#FFCF2A28" Click="DeleteNotification_Click"/>
+                <Button x:Name="Novo"  Content="_Novo obaveštenje" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="200" Height="40" Margin="10,0,30,0"  Click="NewNotification_Click" FontSize="20" FontFamily="Verdana"/>
+                <Button x:Name="Izmeni"  Content="_Izmeni" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="148" Height="40" Margin="30,0,30,0"   FontSize="20" FontFamily="Verdana" Click="EditNotification_Click"/>
+                <Button x:Name="Obrisi"  Content="_Obriši" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="40" Margin="30,0,10,0"   FontSize="20" FontFamily="Verdana" Background="#FFCF2A28" Click="DeleteNotification_Click"/>
 
 
             </StackPanel>

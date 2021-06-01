@@ -53,7 +53,7 @@
                             </DatePicker.SelectedDate>
                         </DatePicker>
                     </StackPanel>
-                    <Button Width="90" x:Name="Add" Height="35" Content="Dodaj" Margin="0,33,0,0" Click="Add_Click" />
+                    <Button Width="90" x:Name="Add" Height="35" Content="_Dodaj" Margin="0,33,0,0" Click="Add_Click" />
 
                 </StackPanel>
                 <StackPanel Orientation="Vertical"  Margin="40,0,0,0">
@@ -66,13 +66,13 @@
                             </GridView>
                         </ListView.View>
                     </ListView>
-                    <Button Width="90" x:Name="Delete" Height="35" Content="Obriši" Margin="0,15,0,0" Click="Delete_Click" />
+                    <Button Width="90" x:Name="Delete" Height="35" Content="_Obriši" Margin="0,15,0,0" Click="Delete_Click" />
                 </StackPanel>
 
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,170,0,0">
-                <Button Width="90" x:Name="Confirm" Height="35" Content="Potvrdi" Margin="0,0,30,0" Click="Confirm_Click" />
-                <Button Width="90" x:Name="Cancel" Height="35" Content="Otkaži" Margin="30,0,0,0" Click="Cancel_Click" />
+                <Button Width="90" x:Name="Confirm" Height="35" Content="_Potvrdi" Margin="0,0,30,0" Click="Confirm_Click" />
+                <Button Width="90" x:Name="Cancel" Height="35" IsCancel="True" Content="Otkaži" Margin="30,0,0,0" Click="Cancel_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

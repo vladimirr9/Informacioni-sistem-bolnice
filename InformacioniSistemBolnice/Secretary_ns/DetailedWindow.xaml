@@ -72,7 +72,7 @@
                     <Label  Content=" Broj zdravstevne  &#xA;:kartice" HorizontalAlignment="Right" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Right" Height="51" FlowDirection="RightToLeft"/>
                     <Label  Content="{Binding SocialSecurityNumber}"  Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"  Width="180" HorizontalContentAlignment="Left" />
                 </StackPanel>
-                <Button x:Name="Zatvori" Content="Zatvori" HorizontalAlignment="Center" Margin="0,46,0,0"   VerticalAlignment="Center" Click="CloseButton_Click"/>
+                <Button x:Name="Zatvori" Content="_Zatvori" IsCancel="True" HorizontalAlignment="Center" Margin="0,46,0,0"   VerticalAlignment="Center" Click="CloseButton_Click"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="100,0,0,0">
                 <ListView x:Name="AllergenListView" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="340" FontSize="20" FontFamily="Verdana" Margin="0,50,0,0" Foreground="Black" ItemContainerStyle="{DynamicResource CustomListViewItemStyle}"
@@ -86,8 +86,8 @@
                 <ComboBox x:Name="AllergensCombo" HorizontalAlignment="Center" VerticalAlignment="Top" Width="260" Margin="0,30,0,0"  FontFamily="Verdana" FontSize="20"   
         DisplayMemberPath="Name" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,70">
-                    <Button x:Name="Dodaj" Content="Dodaj" HorizontalAlignment="Center" Margin="0,0,30,0"  VerticalAlignment="Top"  Click="AddButton_Click"/>
-                    <Button x:Name="Obrisi" Content="Obriši" HorizontalAlignment="Center" Margin="30,0,0,0" VerticalAlignment="Top" Background="#FFCF2A28" Click="DeleteButton_Click"/>
+                    <Button x:Name="Dodaj" Content="_Dodaj" HorizontalAlignment="Center" Margin="0,0,30,0"  VerticalAlignment="Top"  Click="AddButton_Click"/>
+                    <Button x:Name="Obrisi" Content="_Obriši" HorizontalAlignment="Center" Margin="30,0,0,0" VerticalAlignment="Top" Background="#FFCF2A28" Click="DeleteButton_Click"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

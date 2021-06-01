@@ -36,7 +36,7 @@
             </DataGrid>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
-                <Button x:Name="Worktime" Content="Radno Vreme" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="155" Height="40" Grid.Row="3" Click="Worktime_Click"/>
+                <Button x:Name="Worktime" Content="_Radno Vreme" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="155" Height="40" Grid.Row="3" Click="Worktime_Click"/>
             </StackPanel>
         </StackPanel>
         
