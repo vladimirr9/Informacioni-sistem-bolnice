@@ -71,7 +71,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void Reports_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
+            Main.Content = ReportsPage.GetPage();
         }
     }
 }

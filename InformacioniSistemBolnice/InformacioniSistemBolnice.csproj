@@ -109,6 +109,9 @@
     <Compile Include="Secretary_ns\DoctorWorktimeWindow.xaml.cs">
       <DependentUpon>DoctorWorktimeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary_ns\ReportsPage.xaml.cs">
+      <DependentUpon>ReportsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Service\AllergyCheck.cs" />
     <Compile Include="Service\DoctorService.cs" />
     <Compile Include="Service\MedicineService.cs" />
@@ -480,6 +483,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary_ns\ReportsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary_ns\StartingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -574,6 +581,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Appointment.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -587,6 +595,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Doctor_ns\doctor_medical_avatar_people_icon_131305.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

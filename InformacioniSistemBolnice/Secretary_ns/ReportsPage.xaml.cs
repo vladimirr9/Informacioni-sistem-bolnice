@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace InformacioniSistemBolnice.Secretary_ns
 {
-    /// <summary>
-    /// Interaction logic for ReportsPage.xaml
-    /// </summary>
     public partial class ReportsPage : Page
     {
         private static ReportsPage _instance;
@@ -31,6 +28,11 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             InitializeComponent();
             this.DataContext = this;
+        }
+
+        private void Generate1_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

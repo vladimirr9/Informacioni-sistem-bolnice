@@ -28,7 +28,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Width="120" Height="40" Content="Generiši" >
+            <Button Width="120" x:Name="Generate1" Height="40" Content="Generiši" Click="Generate1_Click" >
             </Button>
         </StackPanel>
     </Grid>
