@@ -81,6 +81,9 @@
     <Compile Include="Controller\RatingController.cs" />
     <Compile Include="Controller\RenovationPeriodController.cs" />
     <Compile Include="Controller\RoomController.cs" />
+    <Compile Include="Converter\AppointmentDurationConverter.cs" />
+    <Compile Include="Converter\AppointmentStatusConverter.cs" />
+    <Compile Include="Converter\AppointmentTypeConverter.cs" />
     <Compile Include="Doctor_ns\Vacation.cs" />
     <Compile Include="Doctor_ns\WorkShift.cs" />
     <Compile Include="Controller\DoctorControler.cs" />
@@ -106,6 +109,9 @@
     <Compile Include="FileStorage\IngredientFileRepository.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
+    <Compile Include="Reports\SecretaryReport1.xaml.cs">
+      <DependentUpon>SecretaryReport1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary_ns\DoctorWorktimeWindow.xaml.cs">
       <DependentUpon>DoctorWorktimeWindow.xaml</DependentUpon>
     </Compile>
@@ -435,6 +441,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reports\SecretaryReport1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary_ns\DetailedWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -596,8 +606,6 @@
   <ItemGroup>
     <Resource Include="Doctor_ns\doctor_medical_avatar_people_icon_131305.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

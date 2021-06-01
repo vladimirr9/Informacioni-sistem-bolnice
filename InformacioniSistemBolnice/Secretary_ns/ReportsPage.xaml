@@ -20,15 +20,33 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Width="120" x:Name="Generate1" Height="40" Content="Generiši" Click="Generate1_Click" >
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,0,150" HorizontalAlignment="Center" VerticalAlignment="Center">
+            
+            <Label FontFamily="Verdana" FontSize="20">Generisanje izveštaja o zakazanim terminima u vremensom periodu</Label>
+            <StackPanel Orientation="Horizontal" Margin="0,30,0,0" HorizontalAlignment="Center">
+                <Label Content="Od:" Width="50" FontFamily="Verdana" FontSize="16" HorizontalContentAlignment="Right" ></Label>
+                <DatePicker x:Name="Report1DatePicker" Width="200" Margin="10,0,0,0" FontFamily="Verdana" FontSize="16" >
+                    <DatePicker.SelectedDate>
+                        <Binding Path="From" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged"/>
+                    </DatePicker.SelectedDate>
+                </DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Center">
+                <Label Content="Do:" Width="50" FontFamily="Verdana" FontSize="16" HorizontalContentAlignment="Right" ></Label>
+                <DatePicker x:Name="Report1DatePickerTo" Width="200" Margin="10,0,0,0"  FontFamily="Verdana" FontSize="16" >
+                    <DatePicker.SelectedDate>
+                        <Binding Path="To" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged"/>
+                    </DatePicker.SelectedDate>
+                </DatePicker>
+            </StackPanel>
+            <Button Width="120" Margin="0,30,0,0" x:Name="Generate1" Height="40" Content="Generiši" Click="Generate1_Click" >
             </Button>
         </StackPanel>
     </Grid>
