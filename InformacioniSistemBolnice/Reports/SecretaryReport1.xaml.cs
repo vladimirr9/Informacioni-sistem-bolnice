@@ -20,8 +20,6 @@ namespace InformacioniSistemBolnice.Reports
     /// </summary>
     public partial class SecretaryReport1 : Window
     {
-        private LocalReport _Report;
-        private ReportViewer _reportviewer;
         public SecretaryReport1()
         {
             InitializeComponent();
