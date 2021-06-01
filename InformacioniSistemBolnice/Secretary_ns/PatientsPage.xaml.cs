@@ -25,12 +25,13 @@ namespace InformacioniSistemBolnice.Secretary_ns
             InitializeComponent();
             UpdateTable();
         }
-        public static PatientsPage GetPage()
+        public static PatientsPage GetPage(SecretaryMain parent)
         {
             if (_instance == null)
                 _instance = new PatientsPage();
             else
                 _instance.UpdateTable();
+            parent.Title.Content = "Pacijenti";
             return _instance;
         }
 

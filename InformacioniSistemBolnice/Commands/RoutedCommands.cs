@@ -55,6 +55,15 @@ namespace InformacioniSistemBolnice.Commands
                 new KeyGesture(Key.F5, ModifierKeys.None),
             }
             );
+        public static RoutedUICommand Account = new RoutedUICommand(
+            "Account",
+            "Account",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F6, ModifierKeys.None),
+            }
+            );
 
 
     }

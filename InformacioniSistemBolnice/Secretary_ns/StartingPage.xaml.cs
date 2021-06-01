@@ -41,6 +41,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 _instance = new StartingPage(currentSecretary, parent);
             else
                 _instance.UpdateTable();
+            parent.Title.Content = "Početna";
             return _instance;
         }
 

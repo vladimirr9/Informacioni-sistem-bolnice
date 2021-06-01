@@ -112,6 +112,9 @@
     <Compile Include="Reports\SecretaryReport1.xaml.cs">
       <DependentUpon>SecretaryReport1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary_ns\AccountPage.xaml.cs">
+      <DependentUpon>AccountPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary_ns\DoctorWorktimeWindow.xaml.cs">
       <DependentUpon>DoctorWorktimeWindow.xaml</DependentUpon>
     </Compile>
@@ -445,6 +448,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary_ns\AccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary_ns\DetailedWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -606,6 +613,8 @@
   <ItemGroup>
     <Resource Include="Doctor_ns\doctor_medical_avatar_people_icon_131305.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Secretary_ns\secretary_logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

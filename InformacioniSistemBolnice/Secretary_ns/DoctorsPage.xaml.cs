@@ -17,13 +17,15 @@ namespace InformacioniSistemBolnice.Secretary_ns
 {
     public partial class DoctorsPage : Page
     {
+
         public static DoctorsPage _instance;
-        public static DoctorsPage GetPage()
+        public static DoctorsPage GetPage(SecretaryMain parent)
         {
             if (_instance == null)
                 _instance = new DoctorsPage();
             else
                 _instance.UpdateTable();
+            parent.Title.Content = "Doktori";
             return _instance;
         }
         public DoctorsPage()

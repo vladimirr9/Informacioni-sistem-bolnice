@@ -7,18 +7,21 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
     public partial class AppointmentsPage : Page
     {
+
         private static AppointmentsPage _instance;
-        public AppointmentsPage()
+        public AppointmentsPage(SecretaryMain parent)
         {
+
             InitializeComponent();
             UpdateTable();
         }
-        public static AppointmentsPage GetPage()
+        public static AppointmentsPage GetPage(SecretaryMain parent)
         {
             if (_instance == null)
-                _instance = new AppointmentsPage();
+                _instance = new AppointmentsPage(parent);
             else
                 _instance.UpdateTable();
+            parent.Title.Content = "Termini";
             return _instance;
         }
 

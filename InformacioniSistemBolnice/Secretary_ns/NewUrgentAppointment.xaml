@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Secretary_ns"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         Title="NewUrgentAppointment" Height="700" Width="550">
     <Grid>
         <TextBlock  HorizontalAlignment="Left" Margin="25,447,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Verdana" TextAlignment="Right"><Run Text="Tip Lekara:"/><LineBreak/><Run/></TextBlock>

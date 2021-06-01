@@ -23,10 +23,11 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public DateTime From { get; set; }
         public DateTime To { get; set; }
 
-        public static ReportsPage GetPage()
+        public static ReportsPage GetPage(SecretaryMain parent)
         {
             if (_instance == null)
                 _instance = new ReportsPage();
+            parent.Title.Content = "Izveštaj";
             return _instance;
         }
         private ReportsPage()

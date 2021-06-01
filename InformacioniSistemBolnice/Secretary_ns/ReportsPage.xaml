@@ -29,7 +29,7 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,0,150" HorizontalAlignment="Center" VerticalAlignment="Center">
             
-            <Label FontFamily="Verdana" FontSize="20">Generisanje izveštaja o zakazanim terminima u vremensom periodu</Label>
+            <Label FontFamily="Verdana" FontSize="20">Generisanje izveštaja o zakazanim terminima u vremenskom periodu</Label>
             <StackPanel Orientation="Horizontal" Margin="0,30,0,0" HorizontalAlignment="Center">
                 <Label Content="Od:" Width="50" FontFamily="Verdana" FontSize="16" HorizontalContentAlignment="Right" ></Label>
                 <DatePicker x:Name="Report1DatePicker" Width="200" Margin="10,0,0,0" FontFamily="Verdana" FontSize="16" >

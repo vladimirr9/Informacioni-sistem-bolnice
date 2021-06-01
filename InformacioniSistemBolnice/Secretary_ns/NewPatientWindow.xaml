@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Secretary_ns" 
         xmlns:val="clr-namespace:InformacioniSistemBolnice.Validation"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"  ResizeMode="NoResize" FontSize="14"
         Title="Dodavanje Pacijenta" Height="750" Width="540" 
         >
