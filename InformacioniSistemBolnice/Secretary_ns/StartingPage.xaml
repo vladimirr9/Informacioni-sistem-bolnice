@@ -24,7 +24,7 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-            <ListView x:Name="NotificationListView" ItemsSource="{Binding Path=Notifications}" Margin="0,0,0,0" Width="870" Height="310" FontSize="18">
+            <ListView x:Name="NotificationListView" ItemsSource="{Binding Path=Notifications}" Margin="0,40,0,0" Width="870" Height="310" FontSize="18">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Expander Header="{Binding Header}">

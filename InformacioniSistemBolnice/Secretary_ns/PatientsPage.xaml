@@ -27,7 +27,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Vertical">
-            <DataGrid x:Name="PatientsDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Center" Height="310" Margin="0,0,0,0"  VerticalAlignment="Top" Width="870" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True"
+            <DataGrid x:Name="PatientsDataGrid" AutoGenerateColumns="True" HorizontalAlignment="Center" Height="310" Margin="0,40,0,0"  VerticalAlignment="Top" Width="870" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True"
                   >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Korisničko ime" Binding="{Binding Path=Username}"  Width="120"/>

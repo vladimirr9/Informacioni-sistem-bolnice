@@ -86,5 +86,11 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             Main.Content = AccountPage.GetPage(this, _currentSecretary);
         }
+
+        private void Help_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            HelpWindow helpWindow = new HelpWindow();
+            helpWindow.Show();
+        }
     }
 }

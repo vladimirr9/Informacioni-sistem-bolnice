@@ -1,0 +1,46 @@
+﻿<Window x:Class="InformacioniSistemBolnice.Secretary_ns.HelpWizard.HelpWizardMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Secretary_ns.HelpWizard"
+        xmlns:cmd="clr-namespace:InformacioniSistemBolnice.Commands"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Pomoćni vodič" Height="1000" Width="1500">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#FF085394"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.Back" CanExecute="Back_CanExecute" Executed="Back_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Next" CanExecute="Next_CanExecute" Executed="Next_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Cancel" CanExecute="Cancel_CanExecute" Executed="Cancel_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Finish" CanExecute="Finish_CanExecute" Executed="Finish_Executed"></CommandBinding>
+       
+    </Window.CommandBindings>
+    <Grid>
+
+        <Rectangle Fill="#CCCCCB" HorizontalAlignment="Left" Height="130" Stroke="Black" VerticalAlignment="Bottom" Width="1500"/>
+        <StackPanel Orientation="Vertical">
+            <Frame x:Name="Main" Width="1500" Height="850" NavigationUIVisibility="Hidden">
+                
+            </Frame>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,35,0,0">
+                <Button x:Name="Back"  Content="_Nazad" HorizontalAlignment="Left" Margin="0,0,20,0" VerticalAlignment="Top" Width="100" Height="40" Command="cmd:RoutedCommands.Back"  />
+                <Button x:Name="Next" Content="_Dalje" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="100" Height="40" Command="cmd:RoutedCommands.Next" />
+                <Button x:Name="Cancel" Content="_Zaustavi" IsCancel="True" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="100"  Height="40" Command="cmd:RoutedCommands.Cancel"   />
+                <Button x:Name="Finish"  Content="_Gotov" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Top" Width="100" Height="40"  Command="cmd:RoutedCommands.Finish" />
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

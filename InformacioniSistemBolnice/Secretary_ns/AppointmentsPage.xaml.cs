@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,12 +9,15 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
     public partial class AppointmentsPage : Page
     {
+        private AppointmentController _appointmentController = new AppointmentController();
 
         private static AppointmentsPage _instance;
-        public AppointmentsPage(SecretaryMain parent)
+        public DateTime? Filter { get; set; }
+        private AppointmentsPage(SecretaryMain parent)
         {
-
+            Filter = null;
             InitializeComponent();
+            this.DataContext = this;
             UpdateTable();
         }
         public static AppointmentsPage GetPage(SecretaryMain parent)
@@ -35,8 +40,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             if (AppointmentPreview.SelectedItem == null)
                 return;
-            Appointment initialAppointment = AppointmentFileRepository.GetOne(((Appointment)(AppointmentPreview.SelectedItem)).AppointmentID);
-            AppointmentFileRepository.RemoveAppointment(initialAppointment.AppointmentID);
+            Appointment initialAppointment = _appointmentController.GetOne((Appointment)AppointmentPreview.SelectedItem);
+            _appointmentController.Remove(initialAppointment);
             EditAppointmentWindow window = new EditAppointmentWindow(this, initialAppointment);
             window.ShowDialog();
 
@@ -51,7 +56,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (result != MessageBoxResult.Yes)
                 return;
 
-            AppointmentFileRepository.RemoveAppointment(((Appointment)AppointmentPreview.SelectedItem).AppointmentID);
+            _appointmentController.Remove((Appointment)AppointmentPreview.SelectedItem);
             UpdateTable();
 
 
@@ -62,15 +67,26 @@ namespace InformacioniSistemBolnice.Secretary_ns
             NewUrgentAppointment window = new NewUrgentAppointment(this);
             window.ShowDialog();
         }
+        private void Date_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateTable();
+        }
         public void UpdateTable()
         {
-            AppointmentPreview.Items.Clear();
-            List<Appointment> appointments = AppointmentFileRepository.GetAll();
-            foreach (Appointment appointment in appointments)
+            List<Appointment> appointments = new List<Appointment>();
+            foreach (Appointment appointment in _appointmentController.GetAll())
             {
                 if (appointment.AppointmentStatus == AppointmentStatus.scheduled)
-                    AppointmentPreview.Items.Add(appointment);
+                    if (Filter == null)
+                        appointments.Add(appointment);
+                    else
+                    {
+                        if (appointment.AppointmentDate.Date == ((DateTime)Filter).Date)
+                            appointments.Add(appointment);
+                    }
             }
+            appointments.Sort((x, y) => DateTime.Compare(x.AppointmentDate, y.AppointmentDate));
+            AppointmentPreview.ItemsSource = appointments;
         }
 
 

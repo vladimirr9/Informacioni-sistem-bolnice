@@ -24,6 +24,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using InformacioniSistemBolnice.Patient_ns;
+using InformacioniSistemBolnice.Secretary_ns.HelpWizard;
 
 namespace InformacioniSistemBolnice
 {
@@ -74,6 +75,8 @@ namespace InformacioniSistemBolnice
             {
                 if (ime.Text.Equals(s.Username) && lozinka.Password.Equals(s.Password))
                 {
+                    HelpWizardMain hwm = new HelpWizardMain();
+                    hwm.Show();
                     SecretaryMain sw = new SecretaryMain(s);
                     Application.Current.MainWindow = sw;
                     sw.Main.Content = StartingPage.GetPage(s, sw);

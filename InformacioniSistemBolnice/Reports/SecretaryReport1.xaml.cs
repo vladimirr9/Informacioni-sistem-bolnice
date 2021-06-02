@@ -31,7 +31,6 @@ namespace InformacioniSistemBolnice.Reports
         }
         public void UpdateTable()
         {
-            AppointmentPreview.Items.Clear();
             List<Appointment> appointments = new List<Appointment>();
             foreach (Appointment appointment in _appointmentController.GetAll())
             {
