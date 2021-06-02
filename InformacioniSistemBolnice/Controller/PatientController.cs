@@ -58,6 +58,11 @@ namespace InformacioniSistemBolnice.Controller
             return _patientService.GetAll();
         }
 
+        public List<Patient> GetAvailablePatientList(DateTime start, DateTime end)
+        {
+            return _patientService.GetAvailablePatientList(start, end);
+        }
+
         public Patient GetOneByJMBG(string jmbg)
         {
             return _patientService.GetOneByJMBG(jmbg);

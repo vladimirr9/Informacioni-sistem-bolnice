@@ -9,7 +9,7 @@
         Title="Dodaj termin" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,40,0,0" TextWrapping="Wrap" Text="Lekar" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox x:Name="DoctorComboBox" ItemsSource="{Binding Path=Doctor}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,40,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <ComboBox x:Name="DoctorComboBox" ItemsSource="{Binding Path=Doctor}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,40,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="Selection_Changed">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -24,7 +24,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,88,0,0" TextWrapping="Wrap" Text="Patient" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox x:Name="PatientComboBox" ItemsSource="{Binding Path=Patient}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,88,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <ComboBox x:Name="PatientComboBox" ItemsSource="{Binding Path=Patient}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,88,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="Selection_Changed">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -40,8 +40,8 @@
         </ComboBox>
 
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,138,0,0" TextWrapping="Wrap" Text="Datum" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <DatePicker Name="date" HorizontalAlignment="Left" Height="32" Margin="333,138,0,0" VerticalAlignment="Top" Width="163"/>
-        <ComboBox Name="time" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="517,138,0,0" Height="32">
+        <DatePicker Name="date" HorizontalAlignment="Left" Height="32" Margin="333,138,0,0" VerticalAlignment="Top" Width="163" SelectedDateChanged="Date_Changed"/>
+        <ComboBox Name="time" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="517,138,0,0" Height="32" SelectionChanged="Date_Changed">
             <ComboBoxItem>08:00</ComboBoxItem>
             <ComboBoxItem>08:30</ComboBoxItem>
             <ComboBoxItem>09:00</ComboBoxItem>
@@ -69,14 +69,14 @@
         </ComboBox>
 
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,191,0,0" TextWrapping="Wrap" Text="Tip termina" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox Name="TypeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Margin="333,191,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <ComboBox Name="TypeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Margin="333,191,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="Selection_Changed">
             <ComboBoxItem>Opsta praksa</ComboBoxItem>
             <ComboBoxItem>Specijalista</ComboBoxItem>
             <ComboBoxItem>Operacija</ComboBoxItem>
         </ComboBox>
 
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="166,242,0,0" TextWrapping="Wrap" Text="Prostorija" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <ComboBox x:Name="RoomComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,242,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14">
+        <ComboBox x:Name="RoomComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" Margin="333,242,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="Selection_Changed">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -88,7 +88,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="166,331,0,0" VerticalAlignment="Top" Width="126" Click="Confirm_Click" Background="#FF2B78E4" Foreground="White"/>
+        <Button x:Name="ConfirmButton" Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="166,331,0,0" VerticalAlignment="Top" Width="126" Click="Confirm_Click" Background="#FF2B78E4" Foreground="White"/>
         <Button Content="Odustani" HorizontalAlignment="Left" Height="37" Margin="469,331,0,0" VerticalAlignment="Top" Width="126" Click="Abandon_Click" Background="#FF2B78E4" Foreground="White"/>
         <CheckBox Content="Hitno" HorizontalAlignment="Left"  Margin="517,192,0,0"  VerticalAlignment="Top" FontSize="22" Width="78"/>
 

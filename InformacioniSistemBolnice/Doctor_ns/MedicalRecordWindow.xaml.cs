@@ -111,6 +111,35 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
         }
 
+        private void Finished_Click(object sender, RoutedEventArgs e)
+        {
+            AppointmentsDataGrid.Items.Clear();
+            foreach (Appointment appointment in _appointmentController.PatientsAppointments(selected))
+            {
+                if (appointment.AppointmentStatus == AppointmentStatus.finished)
+                {
+                    AppointmentsDataGrid.Items.Add(appointment);
+                }
+            }
+        }
+
+        private void Scheduled_Click(object sender, RoutedEventArgs e)
+        {
+            AppointmentsDataGrid.Items.Clear();
+            foreach (Appointment appointment in _appointmentController.PatientsAppointments(selected))
+            {
+                if (appointment.AppointmentStatus == AppointmentStatus.scheduled)
+                {
+                    AppointmentsDataGrid.Items.Add(appointment);
+                }
+            }
+        }
+
+        private void Report_Click(object sender, RoutedEventArgs e)
+        {
+            //dodati izvestaje
+        }
+
         private void Referral_Click(object sender, RoutedEventArgs e)
         {
             DoctorAddAppointmentWindow addWindow = new DoctorAddAppointmentWindow(parent);

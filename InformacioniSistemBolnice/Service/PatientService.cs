@@ -96,7 +96,18 @@ namespace InformacioniSistemBolnice.Service
             return patients;
         }
 
-
+        public List<Patient> GetAvailablePatientList(DateTime start, DateTime end)
+        {
+            List<Patient> patients = new List<Patient>();
+            foreach (Patient patient in PatientFileRepository.GetAll())
+            {
+                if (patient.IsAvailable(start, end) && !patient.IsDeleted)
+                {
+                    patients.Add(patient);
+                }
+            }
+            return patients;
+        }
 
 
 

@@ -73,6 +73,9 @@
                         </DataGrid.Columns>
 
                     </DataGrid>
+                    <Button Content="Obavljeni" HorizontalAlignment="Left" Margin="46,165,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Finished_Click" Background="#FF2B78E4" Foreground="White"/>
+                    <Button Content="Zakazani" HorizontalAlignment="Left" Margin="187,165,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Scheduled_Click" Background="#FF2B78E4" Foreground="White"/>
+                    <Button Content="Izveštaj" HorizontalAlignment="Left" Margin="454,165,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Report_Click" Background="#FF2B78E4" Foreground="White"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Terapija">
