@@ -41,10 +41,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             borderWindow.Content = new TherapyPatientPage();
         }
 
-        private void istorijaBolesti_Click(object sender, RoutedEventArgs e)
-        {
-            borderWindow.Content = new MedicalHistoryPage();
-        }
+       
 
         private void pregledAnamneza_Click(object sender, RoutedEventArgs e)
         {

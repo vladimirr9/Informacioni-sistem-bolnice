@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PatientExaminesAppointmentPage">
+      Title="PatientExaminesAppointmentPage" Height="450">
 
     <Grid>
         <DataGrid x:Name="PrikazPregleda" BorderThickness="2" BorderBrush="Black" Background="White" Height="277" Margin="0,10,55,0" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Right" Width="708" >
@@ -40,7 +40,12 @@
         <Button x:Name="zakazi" Content="Zakaži" FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="35" Margin="80,312,0,0" VerticalAlignment="Top" Width="116" Click="zakazi_Click"  />
         <Button x:Name="pomjeri" Content="Pomeri" FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="35" Margin="330,312,0,0" VerticalAlignment="Top" Width="116" Click="pomjeri_Click" />
         <Button x:Name="cancelTermin" Content="Otkaži" FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="35" Margin="580,312,0,0" VerticalAlignment="Top" Width="116" Click="cancelTermin_Click" />
-        <Button x:Name="back" Content="Nazad" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,400,0,0" Click="back_Click"/>
+        <Button x:Name="back" Margin="0,390,705,10" Height="40" Background="#FFFDFCFC" BorderThickness="0" Click="back_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="back.png" Stretch="UniformToFill" Height="20"/>
+                <TextBlock Text="Nazad" FontSize="19" RenderTransformOrigin="0.400,0.300" Height="33" Width="58"/>
+            </StackPanel>
+        </Button>
     </Grid>
    
 </Page>

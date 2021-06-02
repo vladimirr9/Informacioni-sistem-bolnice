@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PatientMakesAppointmentPage">
+      Title="PatientMakesAppointmentPage" Height="450">
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="230,35,0,0" TextWrapping="Wrap" Text="Lekar:" VerticalAlignment="Top" Width="118" FontSize="22" RenderTransformOrigin="1.254,0.469"/>
@@ -36,7 +36,12 @@
         <TextBlock x:Name="vrijeme" HorizontalAlignment="Left" Margin="230,155,0,0" TextWrapping="Wrap" Text="Vreme:" VerticalAlignment="Top" FontSize="22" RenderTransformOrigin="0.299,-0.207"/>
         <Label x:Name="label1" Content="Pretraga na osnovu prioriteta" HorizontalAlignment="Left" Margin="230,326,0,0" VerticalAlignment="Top" FontSize="20" />
         <Button x:Name="search" BorderBrush="Black" BorderThickness="2" Background="White" Content="Traži" HorizontalAlignment="Left" Margin="503,326,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="search_Click_1"  />
-        <Button x:Name="back" Content="Nazad" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,378,0,0" Click="back_Click" />
+        <Button x:Name="back" Margin="0,390,705,10" Height="40" Background="#FFFDFCFC" BorderThickness="0" Click="back_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="back.png" Stretch="UniformToFill" Height="20"/>
+                <TextBlock Text="Nazad" FontSize="19" RenderTransformOrigin="0.400,0.300" Height="33" Width="58"/>
+            </StackPanel>
+        </Button>
 
     </Grid>
 </Page>

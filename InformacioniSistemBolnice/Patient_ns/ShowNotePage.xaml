@@ -9,7 +9,7 @@
       Title="ShowNotePage">
 
     <Grid>
-        <GroupBox x:Name="showNotesForAnamnesisGroupBox" Header="Beleške za odabranu anamnezu" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,2"/>
+        <GroupBox x:Name="showNotesForAnamnesisGroupBox" Header="Beleške za odabranu anamnezu" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,25"/>
         <ListView x:Name="showNotesListView" Margin="78,60,78,90" FontSize="18" BorderThickness="0" >
         </ListView>
     </Grid>
