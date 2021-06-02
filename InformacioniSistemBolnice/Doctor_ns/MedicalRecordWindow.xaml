@@ -41,6 +41,7 @@
             </TabItem>
             <TabItem Header="Pregledi">
                 <Grid Background="#FFDBE4EE">
+                    <Rectangle Fill="#FFDBE4EE" HorizontalAlignment="Left" Height="138" Margin="23,223,0,0" Stroke="#004E89" VerticalAlignment="Top" Width="705"/>
                     <RichTextBox x:Name="AnamnesisTextBox" HorizontalAlignment="Left" Height="111" Margin="187,237,0,0" VerticalAlignment="Top" Width="518" FontSize="16">
                         <FlowDocument>
                             <Paragraph>

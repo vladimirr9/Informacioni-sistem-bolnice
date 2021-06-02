@@ -11,11 +11,9 @@ namespace InformacioniSistemBolnice.Service
     {
         private RoomController _roomController = new RoomController();
         private DoctorControler _doctorController = new DoctorControler();
-
         private RatingService _ratingService = new RatingService();
         public void Add(Appointment appointment)
         {
-            //odraditi provere!
             AppointmentFileRepository.AddAppointment(appointment);
         }
 
@@ -26,7 +24,6 @@ namespace InformacioniSistemBolnice.Service
 
         public void Update(Appointment appointment)
         {
-            //odraditi provere!
             AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
         }
 

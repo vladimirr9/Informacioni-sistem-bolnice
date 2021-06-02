@@ -114,6 +114,8 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 Anamnesis newAnamnesis = new Anamnesis(anamnesis, null, selected.Username, _anamnesisController.GenerateId(), DateTime.Now, appointment.AppointmentID);
                 _anamnesisController.Update(newAnamnesis, appointment);
                 _appointmentController.FinishAppointment(appointment);
+                Scheduled_Click(null, null);
+                AppointmentsPage.GetPage(parent).UpdateTable();
             }
         }
 
