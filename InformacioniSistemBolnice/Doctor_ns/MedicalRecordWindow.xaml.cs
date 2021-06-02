@@ -26,22 +26,23 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private MedicineController _medicineController = new MedicineController();
         private RoomController _roomController = new RoomController();
 
-        public MedicalRecordWindow(Patient patient , DoctorWindow parent)
+        public MedicalRecordWindow(Patient patient , DoctorWindow parent, Appointment selectedAppointment = null)
         {
             this.selected = patient;
             this.parent = parent;
             InitializeComponent();
-            FillMedicalRecord();
+            FillMedicalRecord(selectedAppointment);
             WriteAllergies(selected);
             BlackOutDates();
         }
 
-        private void FillMedicalRecord()
+        private void FillMedicalRecord(Appointment selectedAppointment = null)
         {
             NameTextBox.Text = selected.Name + " " + selected.Surname;
             BirthdayTextBox.Text = selected.DateOfBirth.ToString("dd/MM/yyyy");
             JmbgTextBox.Text = selected.JMBG;
             MedicalCardTextBox.Text = selected.SocialSecurityNumber;
+
             if (selected.Gender == 'M')
             {
                 GenderComboBox.SelectedIndex = 0;
@@ -54,9 +55,14 @@ namespace InformacioniSistemBolnice.Doctor_ns
             foreach (Appointment appointment in _appointmentController.PatientsAppointments(selected))
             {
                 AppointmentsDataGrid.Items.Add(appointment);
+                if (selectedAppointment != null && appointment.AppointmentID == selectedAppointment.AppointmentID)
+                {
+                    TabControl.SelectedIndex = 2;
+                    AppointmentsDataGrid.SelectedItem = appointment;
+                }
             }
 
-            AnamnesisTextBox.Document.Blocks.Clear();
+            Selection_Changed(null, null);
             DrugsComboBox.ItemsSource = _medicineController.GetAllMedicines();
         }
 
@@ -66,7 +72,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             {
                 if (_patientController.IsAllergic((Medicine)DrugsComboBox.SelectedItem, selected))
                 {
-                    MessageBox.Show("Patient je alergican na izabrani lek.", "Alergican");
+                    MessageBox.Show("Pacijent je alergičan na izabrani lek.", "Alergičan");
                     return;
                 }
                 
@@ -91,7 +97,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             Appointment appointment = (Appointment) AppointmentsDataGrid.SelectedItem;
             AnamnesisTextBox.Document.Blocks.Clear();
-            if(_anamnesisController.AppointmentAnamnesis(appointment) != null)
+            if(AppointmentsDataGrid.SelectedIndex != -1 && _anamnesisController.AppointmentAnamnesis(appointment) != null)
             {
                 AnamnesisTextBox.Document.Blocks.Add(new Paragraph(new Run(_anamnesisController.AppointmentAnamnesis(appointment).DescriptionOfAnamnesis)));
             }

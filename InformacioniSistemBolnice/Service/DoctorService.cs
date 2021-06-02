@@ -48,8 +48,8 @@ namespace InformacioniSistemBolnice.Service
         }
         public List<Doctor> GetAvailableDoctorList(DateTime start, DateTime end)
         {
-            List<Doctor> doctors = new List<global::Doctor>();
-            foreach (global::Doctor doctor in DoctorFileRepository.GetAll())
+            List<Doctor> doctors = new List<Doctor>();
+            foreach (Doctor doctor in DoctorFileRepository.GetAll())
             {
                 if (doctor.IsAvailable(start, end) && !doctor.IsDeleted)
                 {
@@ -71,15 +71,40 @@ namespace InformacioniSistemBolnice.Service
             doctor.Vacations.Add(newVacation);
         }
 
-        public List<Doctor> GetFilteredDoctors(List<global::Doctor> doctors, DoctorType doctorType)
+        public List<Doctor> GetFilteredDoctors(List<Doctor> doctors, DoctorType doctorType)
         {
-            List<Doctor> filteredDoctors = new List<global::Doctor>();
+            List<Doctor> filteredDoctors = new List<Doctor>();
             foreach (Doctor doctor in doctors)
             {
                 if (doctor.doctorType == doctorType)
                     filteredDoctors.Add(doctor);
             }
             return filteredDoctors;
+        }
+
+        public String GetType(Doctor doctor)
+        {
+            string type = "";
+            switch (doctor.doctorType)
+            {
+                case DoctorType.generalPractitioner:
+                    type = "Opšta praksa";
+                    break;
+                case DoctorType.cardiologist:
+                    type = "Kardiolog";
+                    break;
+                case DoctorType.neurologist:
+                    type = "Neurolog";
+                    break;
+                case DoctorType.pediatrician:
+                    type = "Pedijatar";
+                    break;
+                case DoctorType.surgeon:
+                    type = "Hirurg";
+                    break;
+            }
+
+            return type;
         }
     }
 }

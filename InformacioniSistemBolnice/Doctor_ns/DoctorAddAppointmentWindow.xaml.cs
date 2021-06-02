@@ -78,6 +78,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             DoctorComboBox.ItemsSource = _doctorControler.GetAll();
             PatientComboBox.ItemsSource = _patientController.GetAll();
+            date.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1)));
             ConfirmButton.IsEnabled = false;
         }
 

@@ -63,6 +63,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             PatientComboBox.ItemsSource = _patientController.GetAll();
             RoomComboBox.ItemsSource = _roomController.GetAllRooms();
 
+            date.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1)));
             date.SelectedDate = selected.AppointmentDate;
             time.SelectedValue = selected.AppointmentDate.ToString("HH:mm");
             TypeComboBox.SelectedIndex = (int)selected.Type;

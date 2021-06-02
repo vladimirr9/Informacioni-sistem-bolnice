@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="Prikaz Kartona" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Margin="10,5,-10,-5">
-        <TabControl HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="758">
+        <TabControl x:Name="TabControl" HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="758">
             <TabItem Header="Karton">
-                <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
+                <Grid Background="#FFDBE4EE" Margin="0,-1,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="79*"/>
                         <ColumnDefinition Width="673*"/>
@@ -30,7 +30,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Alergije">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFDBE4EE">
                     <Label Content="Alergije:" HorizontalAlignment="Left" Margin="150,53,0,0" VerticalAlignment="Top" FontSize="20"/>
                     <Label Content="Dodaj alergiju:" HorizontalAlignment="Left" Margin="93,277,0,0" VerticalAlignment="Top" FontSize="20"/>
                     <Button Content="Dodaj" HorizontalAlignment="Left" Margin="499,279,0,0" VerticalAlignment="Top" Width="106" Height="35" Background="#FF2B78E4" Foreground="White" Click="Add_Allergy_Click"/>
@@ -40,7 +40,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Pregledi">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFDBE4EE">
                     <RichTextBox x:Name="AnamnesisTextBox" HorizontalAlignment="Left" Height="111" Margin="187,237,0,0" VerticalAlignment="Top" Width="518" FontSize="16">
                         <FlowDocument>
                             <Paragraph>
@@ -79,7 +79,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Terapija">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFDBE4EE">
                     <RichTextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="100" Margin="192,122,0,0" VerticalAlignment="Top" Width="276">
                         <FlowDocument>
                             <Paragraph>
@@ -107,7 +107,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Lečenje">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFDBE4EE">
                     <DatePicker x:Name="RoomBeginDatePicker" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" Margin="234,65,0,0" VerticalAlignment="Top"/>
                     <DatePicker x:Name="RoomEndDatePicker" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" Margin="484,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.44,0.535"/>
                     <TextBlock HorizontalAlignment="Left" Height="32" Margin="111,60,0,0" TextWrapping="Wrap" Text="Pocetak:" VerticalAlignment="Top" Width="118" FontSize="20"/>

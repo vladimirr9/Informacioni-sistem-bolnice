@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
@@ -21,6 +22,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         public DoctorWindow parent;
         public Doctor doctor;
         private static ProfilePage instance;
+        private DoctorControler _doctorControler = new DoctorControler();
         public ProfilePage(DoctorWindow parent)
         {
             this.parent = parent;
@@ -39,7 +41,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private void FillLabels()
         {
             NameLabel.Content = doctor.Name + " " + doctor.Surname;
-            TitleLabel.Content = doctor.doctorType.ToString();
+            TitleLabel.Content = _doctorControler.GetType(doctor);
             DateLabel.Content = doctor.DateOfBirth.Date;
             JmbgLabel.Content = doctor.JMBG;
             AddressLabel.Content = doctor.ResidentialAddress.ToString();

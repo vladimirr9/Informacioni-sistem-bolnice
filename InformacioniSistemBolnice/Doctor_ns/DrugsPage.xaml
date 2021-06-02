@@ -8,7 +8,7 @@
       d:DesignHeight="718" d:DesignWidth="1140"
       Title="LekoviPage">
 
-    <Grid Background="White">
+    <Grid Background="#FFDBE4EE">
         <Button Content="Lekovi za potvrdu" Margin="281,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="For_Confirmation_Click"/>
         <ListBox x:Name="DrugsList" HorizontalAlignment="Left" Height="454" VerticalAlignment="Top" Width="225" Margin="184,72,0,0" SelectionChanged="SelectionChange" FontSize="20"/>
         <Label Content="Lekovi:" HorizontalAlignment="Left" Margin="71,72,0,0" VerticalAlignment="Top" FontSize="20"/>

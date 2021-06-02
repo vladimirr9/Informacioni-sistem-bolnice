@@ -9,7 +9,7 @@
       Title="PreglediPage">
 
     <Grid>
-        <DataGrid x:Name="AppointmentsDataGrid" Margin="35,75,34,137" IsReadOnly="True">
+        <DataGrid x:Name="AppointmentsDataGrid" Margin="35,75,34,137" IsReadOnly="True" MouseDoubleClick="Double_Click">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.Resources>

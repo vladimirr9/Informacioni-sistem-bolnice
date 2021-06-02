@@ -59,5 +59,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             _doctorService.RemoveVacation(doctor, selectedVacation);
         }
+
+        public String GetType(Doctor doctor)
+        {
+            return _doctorService.GetType(doctor);
+        }
     }
 }

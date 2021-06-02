@@ -15,7 +15,7 @@
         <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="221,263,0,0" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.539,-0.065"/>
         <TextBox Name="ime" HorizontalAlignment="Left" FontSize="17" Margin="390,186,0,0" Text="{Binding Value}" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Height="27"/>
         <PasswordBox Name="lozinka" HorizontalAlignment="Left" FontSize="17" Margin="390,263,0,0" VerticalAlignment="Top" Width="142" Height="27" />
-        <Button Content="Login" HorizontalAlignment="Left" Margin="310,355,0,0" VerticalAlignment="Top" Width="100" Height="27" Click="Button_Click"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="310,355,0,0" VerticalAlignment="Top" Width="100" Height="27" Click="Button_Click" IsDefault="True"/>
 
     </Grid>
 </Window>

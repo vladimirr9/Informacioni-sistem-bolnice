@@ -9,7 +9,7 @@
       Title="PatientsPage">
 
     <Grid>
-        <DataGrid x:Name="PatientsDataGrid" AutoGenerateColumns="True" Margin="35,75,34,137" IsReadOnly="True">
+        <DataGrid x:Name="PatientsDataGrid" AutoGenerateColumns="True" Margin="35,75,34,137" IsReadOnly="True" MouseDoubleClick="Medical_Record_Click">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Korisničko Name" Binding="{Binding Username}"  Width="120"/>
                 <DataGridTextColumn Header="Ime" Binding="{Binding Name}" Width="120"/>

@@ -63,6 +63,14 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
         }
 
+        private void Double_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment = (Appointment) AppointmentsDataGrid.SelectedItem;
+            MedicalRecordWindow recordWindow = new MedicalRecordWindow(appointment.Patient, parent, appointment);
+            Application.Current.MainWindow = recordWindow;
+            recordWindow.Show();
+        }
+
         public void UpdateTable()
         {
             AppointmentsDataGrid.Items.Clear();
