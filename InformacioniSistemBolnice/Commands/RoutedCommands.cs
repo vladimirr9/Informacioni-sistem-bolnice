@@ -64,6 +64,47 @@ namespace InformacioniSistemBolnice.Commands
                 new KeyGesture(Key.F6, ModifierKeys.None),
             }
             );
+        public static RoutedUICommand Help = new RoutedUICommand(
+            "Help",
+            "Help",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F9, ModifierKeys.None),
+            }
+            );
+        public static RoutedUICommand Back = new RoutedUICommand(
+            "Back",
+            "Back",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+            }
+            );
+        public static RoutedUICommand Next = new RoutedUICommand(
+            "Next",
+            "Next",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+            }
+            );
+        public static RoutedUICommand Cancel = new RoutedUICommand(
+            "Cancel",
+            "Cancel",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+            }
+            );
+        public static RoutedUICommand Finish = new RoutedUICommand(
+            "Finish",
+            "Finish",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+            }
+            );
 
 
     }

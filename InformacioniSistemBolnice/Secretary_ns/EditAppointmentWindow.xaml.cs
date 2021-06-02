@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             String selectedDate = DatePicker.Text;
             DateTime selectedDateTime = DateTime.Parse(selectedDate + " " + selectedTime);
             AppointmentType appointmentType = (AppointmentType)AppointmentTypeComboBox.SelectedIndex;
-            int duration = int.Parse(DurationTextBox.Text);
+            int duration = int.Parse(AppointmentDuration.Text);
 
             if (patient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))
             {
@@ -135,18 +135,18 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void ColorDurationField(DateTime start, DateTime end)
         {
             if (((Patient)(PatientComboBox.SelectedItem)).IsAvailable(start, end))
-                DurationTextBox.Background = Brushes.White;
+                AppointmentDuration.Background = Brushes.White;
             else
-                DurationTextBox.Background = Brushes.Red;
+                AppointmentDuration.Background = Brushes.Red;
         }
 
         private void CalculateStartAndEnd(out DateTime start, out DateTime end)
         {
-            if (AppointmentTime.SelectedItem != null && DatePicker.SelectedDate != null && DurationTextBox.Text != "")
+            if (AppointmentTime.SelectedItem != null && DatePicker.SelectedDate != null && AppointmentDuration.Text != "")
             {
                 String selectedTime = AppointmentTime.SelectedItem.ToString();
                 String selectedDate = DatePicker.Text;
-                int duration = int.Parse(DurationTextBox.Text);
+                int duration = int.Parse(AppointmentDuration.Text);
 
                 start = DateTime.Parse(selectedDate + " " + selectedTime);
                 end = start.AddMinutes(duration);
@@ -163,10 +163,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
             DoctorComboBox.IsEnabled = (PatientComboBox.SelectedItem != null);
             DatePicker.IsEnabled = (PatientComboBox.SelectedItem != null);
             AppointmentTime.IsEnabled = (PatientComboBox.SelectedItem != null);
-            DurationTextBox.IsEnabled = (PatientComboBox.SelectedItem != null);
-            AppointmentTypeComboBox.IsEnabled = (PatientComboBox.SelectedItem != null && DoctorComboBox.SelectedItem != null && AppointmentTime.SelectedItem != null && DatePicker.SelectedDate != null && DurationTextBox.Text != "");
-            RoomComboBox.IsEnabled = (PatientComboBox.SelectedItem != null && DoctorComboBox.SelectedItem != null && AppointmentTime.SelectedItem != null && DatePicker.SelectedDate != null && DurationTextBox.Text != "");
-            ConfirmButton.IsEnabled = (PatientComboBox.SelectedItem != null && DoctorComboBox.SelectedItem != null && AppointmentTime.SelectedItem != null && DatePicker.SelectedDate != null && DurationTextBox.Text != "" && AppointmentTypeComboBox.SelectedItem != null && RoomComboBox.SelectedItem != null);
+            AppointmentDuration.IsEnabled = (PatientComboBox.SelectedItem != null);
+            AppointmentTypeComboBox.IsEnabled = (PatientComboBox.SelectedItem != null && DoctorComboBox.SelectedItem != null && AppointmentTime.SelectedItem != null && DatePicker.SelectedDate != null && AppointmentDuration.Text != "");
+            RoomComboBox.IsEnabled = (PatientComboBox.SelectedItem != null && DoctorComboBox.SelectedItem != null && AppointmentTime.SelectedItem != null && DatePicker.SelectedDate != null && AppointmentDuration.Text != "");
+            ConfirmButton.IsEnabled = (PatientComboBox.SelectedItem != null && DoctorComboBox.SelectedItem != null && AppointmentTime.SelectedItem != null && DatePicker.SelectedDate != null && AppointmentDuration.Text != "" && AppointmentTypeComboBox.SelectedItem != null && RoomComboBox.SelectedItem != null);
         }
         private void UpdateAvailableTimes()
         {
@@ -195,7 +195,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             DoctorComboBox.SelectedIndex = -1;
             DatePicker.SelectedDate = null;
             AppointmentTime.SelectedIndex = -1;
-            DurationTextBox.Clear();
+            AppointmentDuration.Clear();
             AppointmentTypeComboBox.SelectedItem = null;
             RoomComboBox.SelectedIndex = -1;
         }
@@ -230,7 +230,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             UpdateAvailableTimes();
             DatePicker.SelectedDate = _selectedAppointment.AppointmentDate;
             AppointmentTime.SelectedValue = _selectedAppointment.AppointmentDate.ToString("HH:mm");
-            DurationTextBox.Text = _selectedAppointment.DurationInMinutes.ToString();
+            AppointmentDuration.Text = _selectedAppointment.DurationInMinutes.ToString();
             AppointmentTypeComboBox.SelectedIndex = (int)_selectedAppointment.Type;
 
             foreach (Room room in _rooms)
