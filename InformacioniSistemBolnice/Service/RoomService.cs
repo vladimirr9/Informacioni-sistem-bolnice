@@ -140,7 +140,7 @@ namespace InformacioniSistemBolnice.Service
             List<Room> rooms = new List<Room>();
             foreach (Room room in RoomFileRepository.GetAll())
             {
-                if (room.IsAvailable(start, end) && !room.IsDeleted)
+                if (room.IsAvailable(start, end) && !room.IsDeleted && room.RoomType != RoomType.stockroom)
                 {
                     rooms.Add(room);
                 }
