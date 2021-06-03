@@ -659,5 +659,8 @@
   <ItemGroup>
     <Resource Include="Patient_ns\back.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\logoUpravnik.png.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

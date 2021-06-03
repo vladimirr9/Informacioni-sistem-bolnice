@@ -7,11 +7,15 @@
         mc:Ignorable="d"
         Title="UpravnikWindow" Height="768" Width="1024">
     <Grid>
-        <Rectangle Fill="GhostWhite"  HorizontalAlignment="Left" Width="400" Stroke="CornflowerBlue"/>
-        <Button x:Name="button" Content="Prostorije" Background="CornflowerBlue" Height="40" Margin="31,0,0,218" FontSize="20" HorizontalAlignment="Left" Width="125" Click="WindowProstorije" VerticalAlignment="Bottom"/>
-        <Button x:Name="button3" Content="Obaveštenja" Background="CornflowerBlue" FontSize="20" Margin="234,0,657,98" Height="40" VerticalAlignment="Bottom" />
-        <Button x:Name="button4" Content="Odjava" HorizontalAlignment="Left" Margin="140,673,0,0" VerticalAlignment="Top" Width="125" Height="40" Background="IndianRed" FontSize="20" Click="Pocetna"/>
-        <Button x:Name="button5" Content="Lekovi" Background="CornflowerBlue" Height="40" Margin="234,0,0,218" FontSize="20" HorizontalAlignment="Left" Width="125" Click="LekoviWindow" VerticalAlignment="Bottom"/>
-        <Button x:Name="button6" Content="Zaposleni" Background="CornflowerBlue" Height="40" Margin="31,0,0,98" FontSize="20" HorizontalAlignment="Left" Width="125" VerticalAlignment="Bottom"/>
+        <Rectangle Fill="#f2e8d7"  HorizontalAlignment="Left" Width="400" Stroke="CornflowerBlue"/>
+        <Button x:Name="button" Content="Prostorije" Background="CornflowerBlue" Height="40" Margin="51,0,0,246" FontSize="20" HorizontalAlignment="Left" Width="125" Click="WindowProstorije" VerticalAlignment="Bottom"/>
+        <Button x:Name="button3" Content="Obaveštenja" Background="CornflowerBlue" FontSize="20" Margin="226,0,665,126" Height="40" VerticalAlignment="Bottom" />
+        <Button x:Name="button4" Content="Odjava" HorizontalAlignment="Left" Margin="137,670,0,0" VerticalAlignment="Top" Width="125" Height="40" Background="IndianRed" FontSize="20" Click="Pocetna"/>
+        <Button x:Name="button5" Content="Lekovi" Background="CornflowerBlue" Height="40" Margin="226,0,0,246" FontSize="20" HorizontalAlignment="Left" Width="125" Click="LekoviWindow" VerticalAlignment="Bottom"/>
+        <Button x:Name="button6" Content="Zaposleni" Background="CornflowerBlue" Height="40" Margin="51,0,0,126" FontSize="20" HorizontalAlignment="Left" Width="125" VerticalAlignment="Bottom"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="300" Margin="51,80,0,0" VerticalAlignment="Top" Width="300" Source="logoUpravnik.png.png"/>
+        <Rectangle Fill="GhostWhite" HorizontalAlignment="Left" Height="738" Margin="400,0,0,0" Stroke="CornflowerBlue" VerticalAlignment="Top" Width="616">
+        </Rectangle>
+        <Label x:Name="label" Content="Dobrodošli urpavniče" HorizontalAlignment="Left" Margin="491,80,0,0" VerticalAlignment="Top" FontSize="45" FontWeight="Bold" FontStyle="Italic" Foreground="DarkBlue"/>
     </Grid>
 </Window>
