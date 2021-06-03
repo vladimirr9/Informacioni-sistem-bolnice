@@ -671,5 +671,17 @@
   <ItemGroup>
     <Resource Include="Manager_ns\7174186.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\iconfinder_Hospital-Health_Clinic-Building-Medical-Health_5958919.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\16435998701606252957-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\logout-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\clipart2640924.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
