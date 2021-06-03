@@ -662,5 +662,14 @@
   <ItemGroup>
     <Resource Include="Manager_ns\logoUpravnik.png.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\managerlogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\manager.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\7174186.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -103,7 +103,7 @@ namespace InformacioniSistemBolnice
             {
                 if (ime.Text.Equals(u.Username) && lozinka.Password.Equals(u.Password))
                 {
-                    UpravnikWindow uw = new UpravnikWindow();
+                    UpravnikWindow uw = new UpravnikWindow(u);
                     Application.Current.MainWindow = uw;
                     uw.Show();
                     this.Close();

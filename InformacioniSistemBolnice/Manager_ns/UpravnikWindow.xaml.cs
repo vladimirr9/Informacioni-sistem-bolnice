@@ -19,9 +19,12 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class UpravnikWindow : Window
     {
-        public UpravnikWindow()
+        private Manager _loggedManager;
+        public UpravnikWindow(Manager manager)
         {
             InitializeComponent();
+            _loggedManager = manager;
+            FillLabels();
         }
 
         private void WindowProstorije(object sender, RoutedEventArgs e)
@@ -42,6 +45,16 @@ namespace InformacioniSistemBolnice.Upravnik
             Application.Current.MainWindow = mainWindow;
             mainWindow.Show();
             this.Close();
+        }
+
+        private void FillLabels()
+        {
+            NameLabel.Content = _loggedManager.Name + " " + _loggedManager.Surname;
+            DateLabel.Content = _loggedManager.DateOfBirth.Date;
+            AddressLabel.Content = _loggedManager.ResidentialAddress.StreetAndNumber + " " + _loggedManager.ResidentialAddress.City;
+            JMBGLabel.Content = _loggedManager.JMBG;
+            EmailLabel.Content = _loggedManager.Email;
+            NumberLabel.Content = _loggedManager.PhoneNumber;
         }
     }
 }
