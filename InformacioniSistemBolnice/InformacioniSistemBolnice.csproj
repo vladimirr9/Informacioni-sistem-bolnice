@@ -695,5 +695,23 @@
   <ItemGroup>
     <Resource Include="Manager_ns\bin-delete-garbage-recycle-remove-trash-icon-695067.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\kisspng-inventory-management-software-point-of-sale-e-comm-warehouse-5acac06dd92aa8.3404738015232369738895.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\pngegg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\—Pngtree—cartoon medical supplies_3412697.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\—Pngtree—vector tools repair icon_3991936.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\kisspng-first-aid-supplies-first-aid-kits-health-care-medi-hover-5b2aa361ad2839.4975777015295209937093.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\arrow-58-512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -202,7 +202,7 @@ namespace InformacioniSistemBolnice.Service
             UpdateRoom(GetOneRoom(inventoryForRelocating.RoomId));
         }
 
-        public int ParseTodayDate()
+        /*public int ParseTodayDate()
         {
             DateTime _today = DateTime.Now;
             string[] todayDate = _today.ToString().Split(' ');
@@ -211,13 +211,23 @@ namespace InformacioniSistemBolnice.Service
             int today = int.Parse(day);
 
             return today;
+        }*/
+        public int ParseTodayDate()
+        {
+            DateTime _today = DateTime.Now;
+            string[] todayDate = _today.ToString().Split(' ');
+            string[] todayDay = todayDate[0].Split('/');
+            string day = todayDay[1];
+            int today = int.Parse(day);
+
+            return today;
         }
 
         public int ParsePickedDate(DateTime date)
         {
             string[] dateParse = date.ToString().Split(' ');
-            string[] dateDayParse = dateParse[0].Split('-');
-            string parsedDay = dateDayParse[0];
+            string[] dateDayParse = dateParse[0].Split('/');
+            string parsedDay = dateDayParse[1];
             int pickedDay = int.Parse(parsedDay);
 
             return pickedDay;

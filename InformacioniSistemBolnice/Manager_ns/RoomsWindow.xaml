@@ -49,18 +49,16 @@
             </DataGrid.RowStyle>
 
         </DataGrid>
-        <Button Background="CornflowerBlue" x:Name="button3" Content="Oprema" FontSize="20" HorizontalAlignment="Left" Margin="572,588,0,0" VerticalAlignment="Top" Width="120" Click="RoomInventory" Grid.Row="3"/>
         <Label x:Name="label" Content="Prostorije" HorizontalAlignment="Left" Margin="10,33,0,0" Grid.Row="3" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
-        <Button Background="CornflowerBlue" x:Name="button5" Content="Zakaži renoviranje" FontSize="20" HorizontalAlignment="Left" Margin="361,588,0,0" VerticalAlignment="Top" Width="176" Click="Renovation" Grid.Row="3"/>
         <Rectangle Fill="#f2e8d7" HorizontalAlignment="Left" Height="738" Margin="724,0,0,0" Grid.RowSpan="4" Stroke="Black" VerticalAlignment="Top" Width="292"/>
         <Button Background="IndianRed" x:Name="button4" Content="Zatvori" Margin="924,692,16,0" Grid.Row="3" VerticalAlignment="Top" Click="Close" FontSize="17"/>
         <TextBox x:Name="Pretraga" HorizontalAlignment="Left" Height="35" Margin="740,162,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Pretraga opreme..." VerticalAlignment="Top" Width="200" FontSize="20" Foreground="LightGray"/>
-        <Button x:Name="button6" Margin="942,156,16,0" Grid.Row="3" VerticalAlignment="Top" Height="45" Width="45" Background="#f2e8d7" Click="InventorySearch" BorderBrush="{x:Null}" ToolTip="Pretraga opreme">
-            <StackPanel Height="40" Width="35">
-                <Image x:Name="image" Height="36" Source="32x32.png"/>
+        <Button x:Name="button6" Margin="944,162,37,0" Grid.Row="3" VerticalAlignment="Top" Height="35" Width="35" Background="#f2e8d7" Click="InventorySearch" BorderBrush="{x:Null}" ToolTip="Pretraga opreme">
+            <StackPanel Height="30" Width="25">
+                <Image x:Name="image" Height="30" Source="32x32.png"/>
             </StackPanel>
         </Button>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="100" Margin="906,10,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="100" Source="logoUpravnik.png.png"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="100" Margin="900,33,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="100" Source="logoUpravnik.png.png"/>
         <Button Background="#f2e8d7" x:Name="button1" FontSize="20" HorizontalAlignment="Left" Margin="837,225,0,0" VerticalAlignment="Top" Width="65" Click="UpdateRoom" Grid.Row="3" Height="65" BorderBrush="{x:Null}">
             <StackPanel Height="60" Width="55">
                 <Image x:Name="image3" Height="56" Source="kisspng-computer-icons-editing-button-clip-art-edit-cliparts-5ab59f396f9168.796371701521852217457.png"/>
@@ -71,9 +69,19 @@
                 <Image x:Name="image2" Height="60" Source="add-plus-icon-163225.png"/>
             </StackPanel>
         </Button>
-        <Button Background="#f2e8d7" x:Name="button2" FontSize="20" HorizontalAlignment="Left" Margin="935,225,0,0" VerticalAlignment="Top" Width="65" Click="RemoveRoom" Grid.Row="3" Height="65" BorderBrush="{x:Null}">
+        <Button Background="#f2e8d7" x:Name="button2" FontSize="20" HorizontalAlignment="Left" Margin="935,225,0,0" VerticalAlignment="Top" Width="65" Click="RemoveRoom" Grid.Row="3" Height="65" BorderBrush="{x:Null}" ToolTip="Brisanje prostorije">
             <StackPanel Height="60" Width="55">
                 <Image x:Name="image4" Height="60" Source="bin-delete-garbage-recycle-remove-trash-icon-695067.png"/>
+            </StackPanel>
+        </Button>
+        <Button Background="#f2e8d7" x:Name="button3" FontSize="20" HorizontalAlignment="Left" Margin="789,320,0,0" VerticalAlignment="Top" Width="65" Click="RoomInventory" Grid.Row="3" Height="65" BorderBrush="{x:Null}" ToolTip="Oprema prostorije">
+            <StackPanel Height="60" Width="55">
+                <Image x:Name="image6" Height="60" Source="kisspng-first-aid-supplies-first-aid-kits-health-care-medi-hover-5b2aa361ad2839.4975777015295209937093.png"/>
+            </StackPanel>
+        </Button>
+        <Button Background="#f2e8d7" x:Name="button5" FontSize="20" HorizontalAlignment="Left" Margin="890,320,0,0" VerticalAlignment="Top" Width="64" Click="Renovation" Grid.Row="3" Height="65" BorderBrush="{x:Null}" ToolTip="Zakazi renoviranje">
+            <StackPanel Height="60" Width="55">
+                <Image x:Name="image7" Height="60" Source="—Pngtree—vector tools repair icon_3991936.png"/>
             </StackPanel>
         </Button>
     </Grid>
