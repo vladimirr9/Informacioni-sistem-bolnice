@@ -18,12 +18,12 @@ namespace InformacioniSistemBolnice.Upravnik
     /// <summary>
     /// Interaction logic for IzmenaProstorije.xaml
     /// </summary>
-    public partial class IzmenaProstorije : Window
+    public partial class EditRoom : Window
     {
         private Room _roomForUpdate;
         private WindowProstorije _parent;
         private RoomController _roomController = new RoomController();
-        public IzmenaProstorije(Room room, WindowProstorije parent)
+        public EditRoom(Room room, WindowProstorije parent)
         {
             _roomForUpdate = room;
             InitializeComponent();

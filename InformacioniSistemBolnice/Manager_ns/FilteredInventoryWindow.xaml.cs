@@ -18,12 +18,12 @@ namespace InformacioniSistemBolnice.Upravnik
     /// <summary>
     /// Interaction logic for FiltriranaOprema.xaml
     /// </summary>
-    public partial class FiltriranaOprema : Window
+    public partial class FilteredInventory : Window
     {
         private WindowProstorije _parent;
         private String _search;
         private RoomController _roomController = new RoomController();
-        public FiltriranaOprema(WindowProstorije parent, String search)
+        public FilteredInventory(WindowProstorije parent, String search)
         {
             InitializeComponent();
             this._parent = parent;

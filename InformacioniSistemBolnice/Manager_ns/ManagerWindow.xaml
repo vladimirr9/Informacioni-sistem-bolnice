@@ -1,11 +1,11 @@
-﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.UpravnikWindow"
+﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.ManagerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="UpravnikWindow" Height="768" Width="1024">
+        Title="UpravnikWindow" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
         <Rectangle Fill="#f2e8d7" Stroke="CornflowerBlue" HorizontalAlignment="Stretch" Width="400" Margin="0,0,616,0" Height="738" VerticalAlignment="Stretch"/>
         <Button x:Name="button" Background="#f2e8d7" Margin="0,429,860,0" FontSize="20" Click="WindowProstorije" Height="105" VerticalAlignment="Top" HorizontalAlignment="Right" Width="105" Padding="3,1,1,1" BorderThickness="0" BorderBrush="{x:Null}" ToolTip="Prostorije">

@@ -18,13 +18,13 @@ namespace InformacioniSistemBolnice.Upravnik
     /// <summary>
     /// Interaction logic for IzmenaOpreme.xaml
     /// </summary>
-    public partial class IzmenaOpreme : Window
+    public partial class EditInventory : Window
     {
-        private OpremaWindow _parent;
+        private InventoryWindow _parent;
         private Inventory _inventoryForUpdate;
         private Room _selectedRoom;
         private RoomController _roomController = new RoomController();
-        public IzmenaOpreme(Room room, Inventory inventory, OpremaWindow parent)
+        public EditInventory(Room room, Inventory inventory, InventoryWindow parent)
         {
             InitializeComponent();
             this._parent = parent;

@@ -1,4 +1,4 @@
-﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.RasporedjivanjeStatickeWindow"
+﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.RelocateStaticInventoryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,10 +10,10 @@
         <Label x:Name="label" Content="Rasporedi opremu" HorizontalAlignment="Left" Margin="38,46,0,0" VerticalAlignment="Top" FontSize="24" Foreground="DarkBlue" FontWeight="SemiBold" FontStyle="Italic"/>
         <Label x:Name="label1" Content="Količina:" HorizontalAlignment="Left" Margin="38,151,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
         <Label x:Name="label2" Content="Premesti u:" HorizontalAlignment="Left" Margin="38,240,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
-        <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" FontSize="15" Background="CornflowerBlue" Click="RasporediOpremu" Margin="100,408,0,0"/>
-        <Button x:Name="button1" Content="Otkaži" VerticalAlignment="Top" FontSize="15" Background="IndianRed" Click="Otkazi" Margin="342,408,100,0"/>
+        <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" FontSize="15" Background="CornflowerBlue" Click="RelocateInventory" Margin="100,408,0,0"/>
+        <Button x:Name="button1" Content="Otkaži" VerticalAlignment="Top" FontSize="15" Background="IndianRed" Click="Cancel" Margin="342,408,100,0"/>
         <TextBox x:Name="Kolicina" HorizontalAlignment="Left" Height="37" Margin="224,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="20"/>
-        <ComboBox x:Name="Prostorija" HorizontalAlignment="Left" Margin="224,244,0,0" VerticalAlignment="Top" Width="200" FontSize="20">
+        <ComboBox x:Name="RoomsComboBox" HorizontalAlignment="Left" Margin="224,244,0,0" VerticalAlignment="Top" Width="200" FontSize="20">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -24,7 +24,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <DatePicker Name="DatumDo" HorizontalAlignment="Left" Margin="224,325,0,0" VerticalAlignment="Top" FontSize="20" IsTodayHighlighted="True" Width="200"/>
+        <DatePicker Name="DateTo" HorizontalAlignment="Left" Margin="224,325,0,0" VerticalAlignment="Top" FontSize="20" IsTodayHighlighted="True" Width="200"/>
         <Label x:Name="label3" Content="Datum do:" HorizontalAlignment="Left" Margin="38,323,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
     </Grid>
 </Window>

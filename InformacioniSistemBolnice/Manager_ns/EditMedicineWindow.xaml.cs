@@ -20,13 +20,13 @@ namespace InformacioniSistemBolnice.Upravnik
     /// <summary>
     /// Interaction logic for IzmenaLekaWindow.xaml
     /// </summary>
-    public partial class IzmenaLekaWindow : Window
+    public partial class EditMedicine : Window
     {
-        private LekoviWindow _parent;
+        private MedicinesWindow _parent;
         private Medicine _medForUpdate;
         private MedicineController _medicineController = new MedicineController();
 
-        public IzmenaLekaWindow(Medicine med, LekoviWindow parent)
+        public EditMedicine(Medicine med, MedicinesWindow parent)
         {
             InitializeComponent();
             this._parent = parent;

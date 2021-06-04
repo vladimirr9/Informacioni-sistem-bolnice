@@ -1,11 +1,11 @@
-﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.IzmenaOpreme"
+﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.EditInventory"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="IzmenaOpreme" Height="700" Width="550">
+        Title="Izmena opreme" Height="700" Width="550">
     <Grid>
         <Label x:Name="label" Content="Izmena opreme" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" Foreground="DarkBlue" FontStyle="Italic"/>
         <Label x:Name="label1" Content="Šifra:" HorizontalAlignment="Left" Margin="112,199,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>

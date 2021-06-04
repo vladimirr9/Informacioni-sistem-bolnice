@@ -20,9 +20,9 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class WindowProstorije : Window
     {
-        private UpravnikWindow _parent;
+        private ManagerWindow _parent;
         private RoomController _roomController = new RoomController();
-        public WindowProstorije(UpravnikWindow parent)
+        public WindowProstorije(ManagerWindow parent)
         {
             InitializeComponent();
             this._parent = parent;
@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             if (datagridProstorije.SelectedItem != null)
             {
-                OpremaWindow inventoryWindow = new OpremaWindow((Room)datagridProstorije.SelectedItem, this);
+                InventoryWindow inventoryWindow = new InventoryWindow((Room)datagridProstorije.SelectedItem, this);
                 inventoryWindow.Show();
             }
         }
@@ -50,14 +50,14 @@ namespace InformacioniSistemBolnice.Upravnik
             if (datagridProstorije.SelectedItem != null)
             {
                 Room roomForUpdate = (Room)datagridProstorije.SelectedItem;
-                IzmenaProstorije updateRoomWindow = new IzmenaProstorije(roomForUpdate, this);
+                EditRoom updateRoomWindow = new EditRoom(roomForUpdate, this);
                 updateRoomWindow.Show();
             }
         }
 
         private void AddRoom(object sender, RoutedEventArgs e)
         {
-            DodavanjeProstorije addRoomWindow = new DodavanjeProstorije(this);
+            AddNewRoom addRoomWindow = new AddNewRoom(this);
             addRoomWindow.Show();
         }
 
@@ -102,7 +102,7 @@ namespace InformacioniSistemBolnice.Upravnik
             String search = Pretraga.Text;
             if (search != null)
             {
-                FiltriranaOprema filteredInventoryWindow = new FiltriranaOprema(this, search);
+                FilteredInventory filteredInventoryWindow = new FilteredInventory(this, search);
                 filteredInventoryWindow.Show();
             }
         }

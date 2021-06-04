@@ -18,11 +18,11 @@ namespace InformacioniSistemBolnice.Upravnik
     /// <summary>
     /// Interaction logic for LekoviWindow.xaml
     /// </summary>
-    public partial class LekoviWindow : Window
+    public partial class MedicinesWindow : Window
     {
-        private UpravnikWindow _parent;
+        private ManagerWindow _parent;
         private MedicineController _medicineController = new MedicineController();
-        public LekoviWindow(UpravnikWindow parent)
+        public MedicinesWindow(ManagerWindow parent)
         {
             InitializeComponent();
             this._parent = parent;
@@ -58,7 +58,7 @@ namespace InformacioniSistemBolnice.Upravnik
                 Medicine selectedMedicine = (Medicine)dataGridLekovi.SelectedItem;
                 if (selectedMedicine.MedicineStatus == MedicineStatus.validated || selectedMedicine.MedicineStatus == MedicineStatus.rejected)
                 {
-                    IzmenaLekaWindow updateMedicineWindow = new IzmenaLekaWindow(selectedMedicine, this);
+                    EditMedicine updateMedicineWindow = new EditMedicine(selectedMedicine, this);
                     updateMedicineWindow.Show();
                 }
                 else
@@ -71,7 +71,7 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void DodajNoviLek(object sender, RoutedEventArgs e)
         {
-            DodavanjeLekaWindow addMedicineWindow = new DodavanjeLekaWindow(this);
+            AddNewMedicine addMedicineWindow = new AddNewMedicine(this);
             addMedicineWindow.Show();
         }
 

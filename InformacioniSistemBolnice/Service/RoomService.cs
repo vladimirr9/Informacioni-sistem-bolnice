@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -110,7 +111,7 @@ namespace InformacioniSistemBolnice.Service
                 }
             }
             UpdateRoom(destinationRoom);
-            UpdateRoom(RoomFileRepository.GetOne(inventoryForRelocating.RoomId));
+            UpdateRoom(GetOneRoom(inventoryForRelocating.RoomId));
         }
 
         private static void IsEnoughInventory(Inventory inventoryForRelocating, int quantity)
@@ -123,11 +124,12 @@ namespace InformacioniSistemBolnice.Service
         public List<Inventory> FilteredInventory(String search)
         {
             List<Inventory> inventoryList = new List<Inventory>();
+            search = search.ToUpper();
             foreach (Room room in GetAllRooms())
             {
                 foreach (Inventory inventory in room.InventoryList)
                 {
-                    if (inventory.Name.Contains(search))
+                    if (inventory.Name.ToUpper().Contains(search))
                     {
                         inventoryList.Add(inventory);
                     }
@@ -135,6 +137,7 @@ namespace InformacioniSistemBolnice.Service
             }
             return inventoryList;
         }
+
         public List<Room> GetAvailableRoomList(DateTime start, DateTime end)
         {
             List<Room> rooms = new List<Room>();
@@ -168,6 +171,69 @@ namespace InformacioniSistemBolnice.Service
                 }
             }
             return filteredRooms;
+        }
+
+        public List<Room> DisplayRoomsForRelocating(Room room)
+        {
+            List<Room> rooms = new List<Room>();
+            foreach (Room r in GetAllRooms())
+            {
+                if (!room.Name.Equals(r.Name))
+                {
+                    rooms.Add(r);
+                }
+            }
+            return rooms;
+        }
+
+        public void StaticInventoryRelocation(Room destinationRoom, Inventory inventoryForRelocating, int quantity, DateTime relocationDate)
+        {
+            IsEnoughInventory(inventoryForRelocating, quantity);
+            foreach (Inventory inventory in destinationRoom.InventoryList)
+            {
+                if (inventory.InventoryId.Equals(inventoryForRelocating.InventoryId))
+                {
+                    inventory.Quantity += quantity;
+                    StopwatchDuration(ParsePickedDate(relocationDate) - ParseTodayDate());
+                    inventoryForRelocating.Quantity -= quantity;
+                }
+            }
+            UpdateRoom(destinationRoom);
+            UpdateRoom(GetOneRoom(inventoryForRelocating.RoomId));
+        }
+
+        public int ParseTodayDate()
+        {
+            DateTime _today = DateTime.Now;
+            string[] todayDate = _today.ToString().Split(' ');
+            string[] todayDay = todayDate[0].Split('-');
+            string day = todayDay[0];
+            int today = int.Parse(day);
+
+            return today;
+        }
+
+        public int ParsePickedDate(DateTime date)
+        {
+            string[] dateParse = date.ToString().Split(' ');
+            string[] dateDayParse = dateParse[0].Split('-');
+            string parsedDay = dateDayParse[0];
+            int pickedDay = int.Parse(parsedDay);
+
+            return pickedDay;
+        }
+
+        public void StopwatchDuration(int duration)
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            MessageBox.Show("Oprema ce biti premestena za " + duration + "dana");
+            while (true)
+            {
+                if(stopwatch.ElapsedMilliseconds >= duration * 10000)
+                {
+                    break;
+                }
+            }
         }
     }
 }

@@ -18,12 +18,12 @@ namespace InformacioniSistemBolnice.Upravnik
     /// <summary>
     /// Interaction logic for OpremaWindow.xaml
     /// </summary>
-    public partial class OpremaWindow : Window
+    public partial class InventoryWindow : Window
     {
         private WindowProstorije _parent;
         private Room _selectedRoom;
         private RoomController _roomController = new RoomController();
-        public OpremaWindow(Room room, WindowProstorije parent)
+        public InventoryWindow(Room room, WindowProstorije parent)
         {
             this._parent = parent;
             this._selectedRoom = room;
@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void AddInventory(object sender, RoutedEventArgs e)
         {
-            DodavanjeOpreme newInventoryWindow = new DodavanjeOpreme(_selectedRoom, this);
+            AddNewInventory newInventoryWindow = new AddNewInventory(_selectedRoom, this);
             newInventoryWindow.Show();
         }
 
@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice.Upravnik
             if (dataGridInventory.SelectedItem != null)
             {
                 Inventory inventoryForUpdate = (Inventory)dataGridInventory.SelectedItem;
-                IzmenaOpreme prozor = new IzmenaOpreme(_selectedRoom, inventoryForUpdate, this);
+                EditInventory prozor = new EditInventory(_selectedRoom, inventoryForUpdate, this);
                 prozor.Show();
             }
         }
@@ -77,16 +77,16 @@ namespace InformacioniSistemBolnice.Upravnik
             if (dataGridInventory.SelectedItem != null)
             {
                 Inventory inventoryForRelocation = (Inventory)dataGridInventory.SelectedItem;
-                /*if (o.InventoryType == InventoryType.dinamicInv)
-                {*/
+                if (inventoryForRelocation.InventoryType == InventoryType.dinamicInv)
+                {
                     RasporedjivanjeOpreme relocateInventoryWindow = new RasporedjivanjeOpreme(_selectedRoom, inventoryForRelocation, this);
                     relocateInventoryWindow.Show();
-                /*}
+                }
                 else
                 {
-                    RasporedjivanjeStatickeWindow prozor = new RasporedjivanjeStatickeWindow(_selectedRoom, opremaZaPremestanje, this);
-                    prozor.Show();
-                }*/
+                    RelocateStaticInventoryWindow window = new RelocateStaticInventoryWindow(_selectedRoom, inventoryForRelocation, this);
+                    window.Show();
+                }
             }
         }
 
@@ -99,14 +99,52 @@ namespace InformacioniSistemBolnice.Upravnik
                     dataGridInventory.Items.Add(i);
             }
         }
+        public void Search()
+        {
+            String searchText = searchBox.Text;
+            if(searchText == "")
+            {
+                ResetTable();
+            }
+            else
+            {
+                FilterTable(searchText);
+            }
+        }
+
+        private void FilterTable(String filter)
+        {
+            dataGridInventory.Items.Clear();
+            filter = filter.ToUpper();
+
+            foreach(Inventory inventory in _selectedRoom.InventoryList)
+            {
+                if (inventory.Name.ToUpper().Contains(filter))
+                {
+                    dataGridInventory.Items.Add(inventory);
+                }
+            }
+        }
+
+        private void ResetTable()
+        {
+            dataGridInventory.Items.Clear();
+            foreach(Inventory inventory in _selectedRoom.InventoryList)
+            {
+                dataGridInventory.Items.Add(inventory);
+            }
+        }
 
         private void Pretraga_TextChanged(object sender, KeyEventArgs e)
         {
-            dataGridInventory.Items.Clear();
-            List<Inventory> opremaLista = _selectedRoom.InventoryList;
-            var filtered = opremaLista.Where(oprema => oprema.Name.StartsWith(Pretraga.Text) || oprema.Name.Contains(Pretraga.Text));
-
-            dataGridInventory.ItemsSource = filtered;
+            Search();
         }
+
+
+        /*dataGridInventory.Items.Clear();
+        List<Inventory> opremaLista = _selectedRoom.InventoryList;
+        var filtered = opremaLista.Where(oprema => oprema.Name.StartsWith(Pretraga.Text) || oprema.Name.Contains(Pretraga.Text));
+
+        dataGridInventory.ItemsSource = filtered;*/
     }
 }

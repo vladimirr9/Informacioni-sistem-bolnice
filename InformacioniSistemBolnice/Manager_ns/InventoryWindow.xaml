@@ -1,11 +1,11 @@
-﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.OpremaWindow"
+﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.InventoryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="OpremaWindow" Height="768" Width="1024">
+        Title="Oprema" Height="768" Width="1024">
     <Grid>
         <DataGrid x:Name="dataGridInventory" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="800"
                   AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4">
@@ -35,6 +35,6 @@
         <Button x:Name="button2" Content="Obriši" HorizontalAlignment="Left" Margin="529,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="RemoveInventory"/>
         <Button x:Name="button3" Content="Rasporedi" HorizontalAlignment="Left" Margin="424,602,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="RelocateInventory"/>
         <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="908,684,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Close" />
-        <TextBox x:Name="Pretraga" HorizontalAlignment="Left" Height="33" Margin="39,602,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20" Foreground="Gray" KeyUp="Pretraga_TextChanged"/>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="33" Margin="39,602,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20" Foreground="Gray" KeyUp="Pretraga_TextChanged"/>
     </Grid>
 </Window>

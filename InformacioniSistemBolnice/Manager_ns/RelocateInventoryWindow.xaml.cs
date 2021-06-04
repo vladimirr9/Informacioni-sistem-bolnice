@@ -20,23 +20,23 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class RasporedjivanjeOpreme : Window
     {
-        private OpremaWindow _parent;
+        private InventoryWindow _parent;
         private Inventory _selectedInventory;
         private Room _selectedRoom;
         private RoomController _roomController = new RoomController();
-        public RasporedjivanjeOpreme(Room room, Inventory inventory, OpremaWindow parent)
+        public RasporedjivanjeOpreme(Room room, Inventory inventory, InventoryWindow parent)
         {
             InitializeComponent();
             this._parent = parent;
             _selectedInventory = inventory;
             _selectedRoom = room;
-            DisplayRooms();
+            RoomsComboBox.ItemsSource = _roomController.DisplayRoomsForRelocating(_selectedRoom);
         }
 
         private void RelocateInventory(object sender, RoutedEventArgs e)
         {
-            Room destinationRoom = (Room)Prostorija.SelectedItem;
-            int quantity = Convert.ToInt32(Kolicina.Text);           
+            Room destinationRoom = (Room)RoomsComboBox.SelectedItem;
+            int quantity = Convert.ToInt32(QuantityBox.Text);           
             _roomController.DinamicInventoryRelocation(destinationRoom, _selectedInventory, quantity);
             _parent.UpdateTable();
             this.Close();
@@ -48,7 +48,7 @@ namespace InformacioniSistemBolnice.Upravnik
 
         }
 
-        public void DisplayRooms()
+        /*public void DisplayRooms()
         {
             List<Room> rooms = new List<Room>();
             foreach (Room room in _roomController.GetAllRooms())
@@ -59,7 +59,7 @@ namespace InformacioniSistemBolnice.Upravnik
                 }
             }
             Prostorija.ItemsSource = rooms;
-        }
+        }*/
 
         /*int kolicina = Convert.ToInt32(Kolicina.Text);
 

@@ -17,10 +17,10 @@ namespace InformacioniSistemBolnice.Upravnik
     /// <summary>
     /// Interaction logic for UpravnikWindow.xaml
     /// </summary>
-    public partial class UpravnikWindow : Window
+    public partial class ManagerWindow : Window
     {
         private Manager _loggedManager;
-        public UpravnikWindow(Manager manager)
+        public ManagerWindow(Manager manager)
         {
             InitializeComponent();
             _loggedManager = manager;
@@ -35,7 +35,7 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void LekoviWindow(object sender, RoutedEventArgs e)
         {
-            LekoviWindow lw = new LekoviWindow(this);
+            MedicinesWindow lw = new MedicinesWindow(this);
             lw.Show();
         }
 
@@ -51,7 +51,7 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             NameLabel.Content = _loggedManager.Name + " " + _loggedManager.Surname;
             DateLabel.Content = _loggedManager.DateOfBirth.Date;
-            AddressLabel.Content = _loggedManager.ResidentialAddress.StreetAndNumber + " " + _loggedManager.ResidentialAddress.City;
+            AddressLabel.Content = _loggedManager.ResidentialAddress.StreetAndNumber;
             JMBGLabel.Content = _loggedManager.JMBG;
             EmailLabel.Content = _loggedManager.Email;
             NumberLabel.Content = _loggedManager.PhoneNumber;

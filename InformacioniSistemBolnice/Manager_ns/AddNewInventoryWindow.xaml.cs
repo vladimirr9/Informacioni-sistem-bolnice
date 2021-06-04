@@ -18,12 +18,12 @@ namespace InformacioniSistemBolnice.Upravnik
     /// <summary>
     /// Interaction logic for DodavanjeOpreme.xaml
     /// </summary>
-    public partial class DodavanjeOpreme : Window
+    public partial class AddNewInventory : Window
     {
-        private OpremaWindow _parent;
+        private InventoryWindow _parent;
         private Room _selectedRoom;
         private RoomController _roomController = new RoomController();
-        public DodavanjeOpreme(Room room, OpremaWindow parent)
+        public AddNewInventory(Room room, InventoryWindow parent)
         {
             InitializeComponent();
             this._parent = parent;

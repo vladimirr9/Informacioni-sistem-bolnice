@@ -18,11 +18,11 @@ namespace InformacioniSistemBolnice.Upravnik
     /// <summary>
     /// Interaction logic for DodavanjeProstorije.xaml
     /// </summary>
-    public partial class DodavanjeProstorije : Window
+    public partial class AddNewRoom : Window
     {
         private WindowProstorije _parent;
         private RoomController _roomController = new RoomController(); 
-        public DodavanjeProstorije(WindowProstorije parent)
+        public AddNewRoom(WindowProstorije parent)
         {
             InitializeComponent();
             this._parent = parent;
