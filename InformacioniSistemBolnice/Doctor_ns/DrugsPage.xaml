@@ -9,13 +9,16 @@
       Title="LekoviPage">
 
     <Grid Background="#FFDBE4EE">
-        <Button Content="Lekovi za potvrdu" Margin="281,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="For_Confirmation_Click"/>
-        <ListBox x:Name="DrugsList" HorizontalAlignment="Left" Height="454" VerticalAlignment="Top" Width="225" Margin="184,72,0,0" SelectionChanged="SelectionChange" FontSize="20"/>
+        <Rectangle Fill="#FFDBE4EE" HorizontalAlignment="Left" Height="580" Margin="41,46,0,0" Stroke="#FF004E89" VerticalAlignment="Top" Width="478" StrokeThickness="2"/>
+        <Rectangle Fill="#FFDBE4EE" HorizontalAlignment="Left" Height="580" Margin="598,46,0,0" Stroke="#FF004E89" VerticalAlignment="Top" Width="478" StrokeThickness="2"/>
+        <Button Content="Lekovi za potvrdu" Margin="345,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="For_Confirmation_Click"/>
+        <ListBox x:Name="DrugsList" HorizontalAlignment="Left" Height="454" VerticalAlignment="Top" Width="289" Margin="184,72,0,0" SelectionChanged="SelectionChange" FontSize="20"/>
         <Label Content="Lekovi:" HorizontalAlignment="Left" Margin="71,72,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="Sastav:" HorizontalAlignment="Left" Margin="568,72,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <ListBox x:Name="IngredientsList" HorizontalAlignment="Left" Height="380" Margin="682,72,0,0" VerticalAlignment="Top" Width="250" FontSize="20"/>
-        <ComboBox x:Name="IngredientsComboBox" HorizontalAlignment="Left" Margin="682,490,0,0" VerticalAlignment="Top" Width="250" Height="36" FontSize="20" DisplayMemberPath="Name"/>
-        <Button Content="Dodaj sastojak" Margin="804,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="Add_Ingredient_Click"/>
+        <Label Content="Sastav:" HorizontalAlignment="Left" Margin="626,72,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ListBox x:Name="IngredientsList" HorizontalAlignment="Left" Height="380" Margin="736,72,0,0" SelectedValuePath=".Name" VerticalAlignment="Top" Width="296" FontSize="20"/>
+        <ComboBox x:Name="IngredientsComboBox" HorizontalAlignment="Left" Margin="736,490,0,0" VerticalAlignment="Top" Width="296" Height="36" FontSize="20" DisplayMemberPath="Name"/>
+        <Button Content="Dodaj sastojak" Margin="736,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="Add_Ingredient_Click"/>
+        <Button Content="Ukloni sastojak" Margin="904,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="Remove_Ingredient_Click"/>
 
     </Grid>
 </Page>

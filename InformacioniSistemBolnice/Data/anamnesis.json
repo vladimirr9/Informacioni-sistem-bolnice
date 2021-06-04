@@ -1,5 +1,4 @@
 [
-  
   {
     "DescriptionOfAnamnesis": "Pacijent kašlje i osjeća bolove u predjelu grudi.\r\n",
     "NotesForAnamnesis": [
@@ -40,5 +39,21 @@
     "IdOfAnamnesis": 1,
     "DateOfWritingAnamnesis": "2021-05-28T16:36:01.4631087+02:00",
     "IdOfAppointment": 2
+  },
+  {
+    "DescriptionOfAnamnesis": "Pacijent upucen na dalje provere.\r\n",
+    "NotesForAnamnesis": null,
+    "UsernameOfPatient": "pera",
+    "IdOfAnamnesis": 2,
+    "DateOfWritingAnamnesis": "2021-06-04T22:21:19.2942728+02:00",
+    "IdOfAppointment": 1
+  },
+  {
+    "DescriptionOfAnamnesis": "Pacijent polomio kljucnu kost.\r\n",
+    "NotesForAnamnesis": null,
+    "UsernameOfPatient": "mara",
+    "IdOfAnamnesis": 3,
+    "DateOfWritingAnamnesis": "2021-06-04T22:37:47.1326031+02:00",
+    "IdOfAppointment": 7
   }
 ]

@@ -21,7 +21,6 @@
         <Label x:Name="JmbgLabel" HorizontalAlignment="Left" Margin="653,274,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label x:Name="AddressLabel" HorizontalAlignment="Left" Margin="653,323,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label x:Name="EmailLabel" HorizontalAlignment="Left" Margin="653,373,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Image HorizontalAlignment="Left" Height="169" Margin="98,142,0,0" VerticalAlignment="Top" Width="163" Source="doctor_medical_avatar_people_icon_131305.png"/>
-
+        <Image HorizontalAlignment="Left" Height="169" Margin="100,164,0,0" VerticalAlignment="Top" Width="163" Source="doctor_medical_avatar_people_icon_131305.png"/>
     </Grid>
 </Page>

@@ -11,12 +11,12 @@
     <Grid>
         <DataGrid x:Name="PatientsDataGrid" AutoGenerateColumns="True" Margin="35,75,34,137" IsReadOnly="True" MouseDoubleClick="Medical_Record_Click">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Korisničko Name" Binding="{Binding Username}"  Width="120"/>
-                <DataGridTextColumn Header="Ime" Binding="{Binding Name}" Width="120"/>
-                <DataGridTextColumn Header="Prezime" Binding="{Binding Surname}" Width="120" />
-                <DataGridTextColumn Header="JMBG" Binding="{Binding JMBG}" Width="100"/>
-                <DataGridTextColumn Header="Adresa" Binding="{Binding ResidentialAddress}" Width="200"/>
-                <DataGridTextColumn Header="Pol" Binding="{Binding Gender}" Width="100"/>
+                <DataGridTextColumn Header="Korisničko Name" Binding="{Binding Username}"  Width="140"/>
+                <DataGridTextColumn Header="Ime" Binding="{Binding Name}" Width="140"/>
+                <DataGridTextColumn Header="Prezime" Binding="{Binding Surname}" Width="140" />
+                <DataGridTextColumn Header="JMBG" Binding="{Binding JMBG}" Width="140"/>
+                <DataGridTextColumn Header="Adresa" Binding="{Binding ResidentialAddress}" Width="250"/>
+                <DataGridTextColumn Header="Pol" Binding="{Binding Gender}" Width="80"/>
                 <DataGridTextColumn Header="Guest" Binding="{Binding IsGuest}" Width="*" />
 
 
