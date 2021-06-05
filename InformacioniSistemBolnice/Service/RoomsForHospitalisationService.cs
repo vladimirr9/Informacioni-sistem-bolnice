@@ -15,7 +15,7 @@ namespace InformacioniSistemBolnice.Service
             List<Room> rooms = new List<Room>();
             foreach (Room room in RoomFileRepository.GetAll())
             {
-                if (room.RoomType == RoomType.recoveryRoom && GetAvailableBed(room, begin, end) <= GetBedsNumber(room))
+                if (room.RoomType == RoomType.recoveryRoom && GetAvailableBed(room, begin, end) != 0)
                 {
                     rooms.Add(room);
                 }
@@ -25,16 +25,15 @@ namespace InformacioniSistemBolnice.Service
 
         public int GetAvailableBed(Room room, DateTime begin, DateTime end)
         {
-            int bed = 0;
-            foreach (Hospitalisation hospitalisation in HospitalisationFileRepository.GetAll())
+            List<int> beds = GetOccupiedBeds(room, begin, end);
+            for (int i = 1; i <= GetBedsNumber(room); i++)
             {
-                if (hospitalisation.RoomId.Equals(room.RoomId) && hospitalisation.EndDate > begin && hospitalisation.BeginDate < end)
+                if (!beds.Contains(i))
                 {
-                    bed += 1;
+                    return i;
                 }
             }
-
-            return bed + 1;
+            return 0;
         }
 
         private int GetBedsNumber(Room room)
@@ -48,6 +47,20 @@ namespace InformacioniSistemBolnice.Service
             }
 
             return 0;
+        }
+
+        private List<int> GetOccupiedBeds(Room room, DateTime begin, DateTime end)
+        {
+            List<int> beds = new List<int>();
+            foreach (Hospitalisation hospitalisation in HospitalisationFileRepository.GetAll())
+            {
+                if (hospitalisation.RoomId.Equals(room.RoomId) && hospitalisation.EndDate > begin && hospitalisation.BeginDate < end)
+                {
+                    beds.Add(hospitalisation.Bed);
+                }
+            }
+
+            return beds;
         }
     }
 }

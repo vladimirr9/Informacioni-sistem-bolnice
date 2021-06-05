@@ -230,12 +230,14 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             UpdateRooms();
             BlackOutDates();
+            Room_SelectionChanged(null, null);
         }
 
         private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (RoomComboBox.SelectedIndex != -1 && hospitalisation == null)
             {
+                BedComboBox.Items.Clear();
                 BedComboBox.Items.Add(_roomController.GetAvailableBed((Room)RoomComboBox.SelectedItem, (DateTime)RoomBeginDatePicker.SelectedDate, (DateTime)RoomEndDatePicker.SelectedDate));
                 BedComboBox.SelectedIndex = 0;
             }
