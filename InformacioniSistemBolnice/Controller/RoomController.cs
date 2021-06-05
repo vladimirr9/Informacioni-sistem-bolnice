@@ -81,5 +81,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _forHospitalisationService.GetRoomsForHospitalisation(begin, end);
         }
+
+        public int GetAvailableBed(Room room, DateTime begin, DateTime end)
+        {
+            return _forHospitalisationService.GetAvailableBed(room, begin, end);
+        }
     }
 }

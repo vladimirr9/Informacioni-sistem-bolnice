@@ -20,11 +20,13 @@ namespace InformacioniSistemBolnice.Doctor_ns
     {
         private DoctorWindow parent;
         private Patient selected;
+        private Hospitalisation hospitalisation;
         private PatientController _patientController = new PatientController();
         private AnamnesisController _anamnesisController = new AnamnesisController();
         private AppointmentController _appointmentController = new AppointmentController();
         private MedicineController _medicineController = new MedicineController();
         private RoomController _roomController = new RoomController();
+        private HospitalisationControler _hospitalisationControler = new HospitalisationControler();
 
         public MedicalRecordWindow(Patient patient , DoctorWindow parent, Appointment selectedAppointment = null)
         {
@@ -33,7 +35,9 @@ namespace InformacioniSistemBolnice.Doctor_ns
             InitializeComponent();
             FillMedicalRecord(selectedAppointment);
             WriteAllergies(selected);
+            WriteHospitalisation();
             BlackOutDates();
+
         }
 
         private void FillMedicalRecord(Appointment selectedAppointment = null)
@@ -161,15 +165,6 @@ namespace InformacioniSistemBolnice.Doctor_ns
             WriteAllergies(selected);
         }
 
-        private void Hospitalisation_Click(object sender, RoutedEventArgs e)
-        {
-            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null &&
-                RoomComboBox.SelectedIndex != -1 && BedComboBox.SelectedIndex != -1)
-            {
-
-            }
-        }
-
         private void WriteAllergies(Patient patient)
         {
             AllergiesList.Items.Clear();
@@ -189,30 +184,79 @@ namespace InformacioniSistemBolnice.Doctor_ns
             AllergiesComboBox.ItemsSource = ingredients;
         }
 
+        private void Hospitalisation_Click(object sender, RoutedEventArgs e)
+        {
+            if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null && RoomComboBox.SelectedIndex != -1 && BedComboBox.SelectedIndex != -1)
+            {
+                Room room = (Room)RoomComboBox.SelectedItem;
+                int hospitalisationId = GetHospitalisationId();
+                Hospitalisation newHospitalisation = new Hospitalisation(hospitalisationId, selected.Username, room.RoomId, (DateTime)RoomBeginDatePicker.SelectedDate, (DateTime)RoomEndDatePicker.SelectedDate, (int)BedComboBox.SelectedItem);
+                _hospitalisationControler.Save(newHospitalisation);
+                hospitalisation = newHospitalisation;
+            }
+        }
+
+        public int GetHospitalisationId()
+        {
+            if (hospitalisation == null)
+            {
+                return _hospitalisationControler.GenerateNewId();
+            }
+            else
+            {
+                return hospitalisation.HospitalisationId;
+            }
+        }
+
+        private void WriteHospitalisation()
+        {
+            hospitalisation = _hospitalisationControler.GetHospitalisationForPatient(selected);
+            if (hospitalisation != null)
+            {
+                Room room = _roomController.GetOneRoom(hospitalisation.RoomId);
+                int bed = _roomController.GetAvailableBed(room, hospitalisation.BeginDate, hospitalisation.EndDate);
+                RoomBeginDatePicker.SelectedDate = hospitalisation.BeginDate;
+                RoomEndDatePicker.SelectedDate = hospitalisation.EndDate;
+                List<Room> rooms = new List<Room>();
+                rooms.Add(room);
+                RoomComboBox.ItemsSource = rooms;
+                RoomComboBox.SelectedIndex = 0;
+                BedComboBox.Items.Add(bed - 1);
+                BedComboBox.SelectedIndex = 0;
+            }
+        }
+
         private void date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            UpdateComponents();
+            UpdateRooms();
             BlackOutDates();
         }
 
-        private void UpdateComponents()
+        private void Room_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (RoomComboBox.SelectedIndex != -1 && hospitalisation == null)
+            {
+                BedComboBox.Items.Add(_roomController.GetAvailableBed((Room)RoomComboBox.SelectedItem, (DateTime)RoomBeginDatePicker.SelectedDate, (DateTime)RoomEndDatePicker.SelectedDate));
+                BedComboBox.SelectedIndex = 0;
+            }
+        }
+
+        private void UpdateRooms()
         {
             if (RoomBeginDatePicker.SelectedDate != null && RoomEndDatePicker.SelectedDate != null)
             {
-                RoomComboBox.IsEnabled = true;
                 RoomComboBox.ItemsSource = _roomController.GetRoomsForHospitalisation((DateTime)RoomBeginDatePicker.SelectedDate, (DateTime)RoomEndDatePicker.SelectedDate);
+                RoomComboBox.SelectedIndex = 0;
             }
         }
 
         private void BlackOutDates()
         {
-            RoomBeginDatePicker.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1)));
             RoomEndDatePicker.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1)));
             if (RoomBeginDatePicker.SelectedDate != null)
             {
                 RoomEndDatePicker.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, (DateTime)RoomBeginDatePicker.SelectedDate));
             }
-
         }
     }
 }

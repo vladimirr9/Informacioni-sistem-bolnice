@@ -77,6 +77,7 @@
     <Compile Include="Controller\ActivityLogController.cs" />
     <Compile Include="Controller\AnamnesisController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="Controller\HospitalisationControler.cs" />
     <Compile Include="Controller\LoginControler.cs" />
     <Compile Include="Controller\MedicineController.cs" />
     <Compile Include="Controller\RatingController.cs" />
@@ -85,12 +86,14 @@
     <Compile Include="Converter\AppointmentDurationConverter.cs" />
     <Compile Include="Converter\AppointmentStatusConverter.cs" />
     <Compile Include="Converter\AppointmentTypeConverter.cs" />
+    <Compile Include="Doctor_ns\Hospitalisation.cs" />
     <Compile Include="Doctor_ns\Vacation.cs" />
     <Compile Include="Doctor_ns\WorkShift.cs" />
     <Compile Include="Controller\DoctorControler.cs" />
     <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
     <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />
     <Compile Include="Manager_ns\RenovationPeriod.cs" />
     <Compile Include="Patient_ns\AddingNotesPage.xaml.cs">
@@ -139,6 +142,7 @@
     </Compile>
     <Compile Include="Service\AllergyCheck.cs" />
     <Compile Include="Service\DoctorService.cs" />
+    <Compile Include="Service\HospitalisationService.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\PatientService.cs" />
