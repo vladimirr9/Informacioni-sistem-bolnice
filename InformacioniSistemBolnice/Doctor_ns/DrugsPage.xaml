@@ -19,6 +19,5 @@
         <ComboBox x:Name="IngredientsComboBox" HorizontalAlignment="Left" Margin="736,490,0,0" VerticalAlignment="Top" Width="296" Height="36" FontSize="20" DisplayMemberPath="Name"/>
         <Button Content="Dodaj sastojak" Margin="736,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="Add_Ingredient_Click"/>
         <Button Content="Ukloni sastojak" Margin="904,566,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="Remove_Ingredient_Click"/>
-
     </Grid>
 </Page>

@@ -15,7 +15,5 @@
         <Button Content="Lekovi" HorizontalAlignment="Left" Height="35" Margin="10,129,0,0" VerticalAlignment="Top" Width="116" Background="#004E89" Foreground="White" Click="Medicine_Click"/>
         <Button Content="Odjava" HorizontalAlignment="Left" Margin="10,0,0,25" Width="116" Background="#F17300" Foreground="White" Height="35" VerticalAlignment="Bottom" Click="Logout_Click"/>
         <Button Content="Profil" HorizontalAlignment="Left" Margin="10,0,0,78" Width="116" Background="#004E89" Foreground="White" Click="Profile_Click" Height="35" VerticalAlignment="Bottom"/>
-
-
     </Grid>
 </Window>
