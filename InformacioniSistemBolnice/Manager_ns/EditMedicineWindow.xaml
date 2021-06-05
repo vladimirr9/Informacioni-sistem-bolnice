@@ -13,8 +13,8 @@
         <Label x:Name="label4" Content="Sastojci:" Margin="92,220,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue" HorizontalAlignment="Left" Width="70"/>
         <TextBox x:Name="Sifra" HorizontalAlignment="Left" Height="33" Margin="241,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" FontSize="17"/>
         <TextBox x:Name="Naziv" HorizontalAlignment="Left" Height="33" Margin="241,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" FontSize="17"/>
-        <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" Margin="121,605,0,0" VerticalAlignment="Top" Width="100" FontSize="17" Background="CornflowerBlue" Click="UpdateMedicine"/>
-        <Button x:Name="button1" Content="Otkaži" HorizontalAlignment="Left" Margin="323,605,0,0" VerticalAlignment="Top" Width="100" FontSize="17" Background="IndianRed" Click="Cancel"/>
+        <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" Margin="115,613,0,0" VerticalAlignment="Top" Width="100" FontSize="17" Background="CornflowerBlue" Click="UpdateMedicine"/>
+        <Button x:Name="button1" Content="Otkaži" HorizontalAlignment="Left" Margin="341,613,0,0" VerticalAlignment="Top" Width="100" FontSize="17" Background="IndianRed" Click="Cancel"/>
         <ListBox x:Name="SastojciList" HorizontalAlignment="Left" Height="196" Margin="241,220,0,0" VerticalAlignment="Top" Width="200" FontSize="17"/>
         <ComboBox x:Name="Sastojci" HorizontalAlignment="Left" Margin="241,485,0,0" VerticalAlignment="Top" Width="150" FontSize="17" Height="33">
             <ComboBox.ItemTemplate>
@@ -35,5 +35,7 @@
         </Button>
         <Button x:Name="button3" Content="Ukloni" HorizontalAlignment="Left" Margin="366,430,0,0" VerticalAlignment="Top" Width="75" FontSize="15" Background="IndianRed" Height="26" Click="RemoveIngredient" ToolTip="Ukloni sastojak"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="75" Margin="403,20,0,0" VerticalAlignment="Top" Width="75" Source="logoUpravnik.png.png"/>
+        <Label x:Name="label7" Content="Količina:" Margin="90,548,0,0" VerticalAlignment="Top" FontSize="17" Foreground="DarkBlue" HorizontalAlignment="Left"/>
+        <TextBox x:Name="Kolicina" HorizontalAlignment="Left" Height="33" Margin="241,548,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="17"/>
     </Grid>
 </Window>

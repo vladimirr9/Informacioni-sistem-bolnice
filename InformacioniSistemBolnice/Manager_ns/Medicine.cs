@@ -10,6 +10,7 @@ public class Medicine
     private String _name;
     private bool _isDeleted = false;
     private MedicineStatus _medicineStatus;
+    private int _quantity;
     private List<Ingredient> _ingredientsList;
 
     #region Properties
@@ -36,6 +37,12 @@ public class Medicine
         get { return _medicineStatus; }
         set { _medicineStatus = value; }
     }
+    
+    public int Quantity
+    {
+        get { return _quantity; }
+        set { _quantity = value; }
+    }
 
     public List<Ingredient> IngredientsList
     {
@@ -46,12 +53,13 @@ public class Medicine
 
     public Medicine() { }
 
-    public Medicine(String medicineId, String name, bool isDeleted, MedicineStatus medicineStatus, List<Ingredient> ingredientsList)
+    public Medicine(String medicineId, String name, bool isDeleted, MedicineStatus medicineStatus, int quantity, List<Ingredient> ingredientsList)
     {
         MedicineId = medicineId;
         Name = name;
         IsDeleted = isDeleted;
         MedicineStatus = medicineStatus;
+        Quantity = quantity;
         IngredientsList = ingredientsList;
     }
 }

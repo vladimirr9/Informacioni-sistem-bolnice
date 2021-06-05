@@ -93,6 +93,16 @@ namespace InformacioniSistemBolnice.Service
             UpdateRoom(room);
         }
 
+        public List<Inventory> UpdateInventory2(Room room, Inventory inventory)
+        {
+            if(room.RoomId == inventory.RoomId)
+            {
+                room.InventoryList[room.InventoryList.IndexOf(inventory)] = inventory;
+            }
+            UpdateRoom(room);
+            return room.InventoryList;
+        }
+
         public void RemoveInventory(Room room, Inventory inventoryForRemove)
         {
             room.InventoryList.Remove(inventoryForRemove);
@@ -193,8 +203,8 @@ namespace InformacioniSistemBolnice.Service
             {
                 if (inventory.InventoryId.Equals(inventoryForRelocating.InventoryId))
                 {
-                    inventory.Quantity += quantity;
                     StopwatchDuration(ParsePickedDate(relocationDate) - ParseTodayDate());
+                    inventory.Quantity += quantity;
                     inventoryForRelocating.Quantity -= quantity;
                 }
             }
@@ -244,6 +254,57 @@ namespace InformacioniSistemBolnice.Service
                     break;
                 }
             }
+        }
+
+        public void MergingRooms(Room room1, Room room2)
+        {
+            if (room1.RoomType.Equals(room2.RoomType) && room1.Floor == room2.Floor)
+            {
+                double newRoomArea = room1.Area + room2.Area;
+                List<Inventory> newInventoryList = MergedRoomsInventory(room1, room2);
+                Room newRoom = new Room(room1.Name, room1.RoomId, room1.RoomType, false, true, newRoomArea, room1.Floor, room1.RoomNumber, newInventoryList);
+                RemoveRoom(room1);
+                RemoveRoom(room2);
+                AddRoom(newRoom);
+            }
+        }
+
+        public List<Inventory> MergedRoomsInventory(Room room1, Room room2)
+        {
+            foreach(Inventory inventory in room2.InventoryList)
+            {
+                if (room1.InventoryList.Contains(inventory))
+                {
+                    return MergeInventoryFromRoms(room1, room2, inventory);
+                }
+                else
+                {
+                    AddNewInventory(room1, inventory);
+                    return room1.InventoryList;
+                }
+            }
+            return null;
+        }
+
+        private List<Inventory> MergeInventoryFromRoms(Room room1, Room room2, Inventory inventory)
+        {
+            List<Inventory> newInventoryList = new List<Inventory>();
+            Inventory room1Inventory = room1.InventoryList[room1.InventoryList.IndexOf(inventory)];
+            Inventory room2Inventory = room2.InventoryList[room2.InventoryList.IndexOf(inventory)];
+            room1Inventory.Quantity += room2Inventory.Quantity;
+            newInventoryList.Add(room1Inventory);
+            return UpdateInventory2(room1, room1Inventory);
+        }
+
+        public void DivideRoom(Room room, double newRoomArea)
+        {
+            string[] splitName = room.Name.Split(' ');
+            int parseNumber = Convert.ToInt32(splitName[1]);
+            String newRoomName = splitName[0] + " " + (parseNumber+10).ToString();
+            room.Area -= newRoomArea;
+            Room room2 = new Room(newRoomName, room.RoomId + 10, room.RoomType, false, true, newRoomArea, room.Floor, room.RoomNumber, new List<Inventory>());
+            AddRoom(room2);
+            UpdateRoom(room);
         }
     }
 }

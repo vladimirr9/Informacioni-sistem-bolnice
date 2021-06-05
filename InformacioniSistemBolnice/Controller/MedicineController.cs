@@ -49,9 +49,9 @@ namespace InformacioniSistemBolnice.Controller
             return _medicineService.RemoveIngredientFromNewMedicine(ingredient);
         }
 
-        public ObservableCollection<Ingredient> AddIngredientsToNewMedicine(Ingredient ingredient)
+        public ObservableCollection<Ingredient> AddIngredientsToNewMedicine(ObservableCollection<Ingredient> ingredientsList, Ingredient ingredient)
         {
-            return _medicineService.AddIngredientsToNewMedicine(ingredient);
+            return _medicineService.AddIngredientsToNewMedicine(ingredientsList, ingredient);
         }
         public List<Ingredient> GetAllIngredients()
         {

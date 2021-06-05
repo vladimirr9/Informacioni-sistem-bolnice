@@ -90,6 +90,15 @@ namespace InformacioniSistemBolnice.Controller
         {
             _roomService.StaticInventoryRelocation(destinationRoom, inventoryForRelocating, quantity, relocationDate);
         }
+        public void MergingRooms(Room room1, Room room2)
+        {
+            _roomService.MergingRooms(room1, room2);
+        }
+        public void DivideRoom(Room room, double newRoomArea)
+        {
+            _roomService.DivideRoom(room, newRoomArea);
+        }
+
 
     }
 }

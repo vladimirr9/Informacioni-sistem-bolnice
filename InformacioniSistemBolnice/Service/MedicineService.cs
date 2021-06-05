@@ -77,7 +77,7 @@ namespace InformacioniSistemBolnice.Service
         public List<Ingredient> GetMedicineIngredients(Medicine medicine)
         {
             List<Ingredient> ingredientsList = new List<Ingredient>();
-            foreach (Ingredient ingredient in IngredientFileRepository.GetAll())
+            foreach (Ingredient ingredient in GetAllIngredients())
             {
                 if (medicine.IngredientsList.Contains(ingredient))
                 {
@@ -92,9 +92,9 @@ namespace InformacioniSistemBolnice.Service
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medicine.IngredientsList);
             foreach (Ingredient ing in GetAllIngredients())
             {
-                if (!ingredients.Contains(ingredient) && ingredient.Name.Equals(ing.Name))
+                if (!ingredients.Contains(ing) && ingredient.Name.Equals(ing.Name))
                 {
-                    ingredients.Add(ingredient);
+                    ingredients.Add(ing);
                 }
             }
             return ingredients;
@@ -110,23 +110,24 @@ namespace InformacioniSistemBolnice.Service
             return ingredients;*/
         }
 
-        public ObservableCollection<Ingredient> AddIngredientsToNewMedicine(Ingredient ingredient)
+        public ObservableCollection<Ingredient> AddIngredientsToNewMedicine(ObservableCollection<Ingredient> ingredientsList, Ingredient ingredient)
         {
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
-            foreach (Ingredient ing in IngredientFileRepository.GetAll())
+            ingredientsList = ingredients;
+            foreach (Ingredient ing in GetAllIngredients())
             {
-                if (ing.Name.Equals(ingredient.Name))
+                if (!ingredientsList.Contains(ingredient) && ing.Name.Equals(ingredient.Name))
                 {
-                    ingredients.Add(ing);
+                    ingredientsList.Add(ing);
                 }
             }
-            return ingredients;
+            return ingredientsList;
         }
 
         public ObservableCollection<Ingredient> RemoveIngredient(Medicine medicine, Ingredient ingredient)
         {
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(medicine.IngredientsList);
-            foreach (Ingredient ing in IngredientFileRepository.GetAll())
+            foreach (Ingredient ing in GetAllIngredients())
             {
                 if (ing.Name.Equals(ingredient.Name))
                 {
@@ -138,7 +139,7 @@ namespace InformacioniSistemBolnice.Service
         public ObservableCollection<Ingredient> RemoveIngredientFromNewMedicine(Ingredient ingredient)
         {
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
-            foreach (Ingredient ing in IngredientFileRepository.GetAll())
+            foreach (Ingredient ing in GetAllIngredients())
             {
                 if (ing.Name.Equals(ingredient.Name))
                 {

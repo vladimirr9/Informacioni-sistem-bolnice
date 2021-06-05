@@ -36,10 +36,10 @@ namespace InformacioniSistemBolnice.Service
                 {
                     if (DateTime.Today == day.Date)
                     {
-                        room.IsActive = false;
-                        RenovationPeriod renPer = new RenovationPeriod(startDate, endDate, false, room);
-                        AddRenovatoinPeriod(renPer);
-                        _roomController.UpdateRoom(room);
+                        CreateRenovationPeriod(room, startDate, endDate);
+                    } else if(DateTime.Today != day.Date)
+                    {
+                        CancelRenovation(CreateRenovationPeriod(room, startDate, endDate));
                     }
                 }
                 else
@@ -48,6 +48,24 @@ namespace InformacioniSistemBolnice.Service
                     return;
                 }
             }
+        }
+
+        public void CancelRenovation(RenovationPeriod renovationPeriod)
+        {
+            renovationPeriod.Room.IsActive = true;
+            renovationPeriod.IsDeleted = true;
+            UpdateRenovationPeriod(renovationPeriod);
+            _roomController.UpdateRoom(renovationPeriod.Room);
+        }
+
+        private RenovationPeriod CreateRenovationPeriod(Room room, DateTime startDate, DateTime endDate)
+        {
+            room.IsActive = false;
+            RenovationPeriod renPer = new RenovationPeriod(startDate, endDate, false, room);
+            AddRenovatoinPeriod(renPer);
+            _roomController.UpdateRoom(room);
+
+            return renPer;
         }
 
         public IEnumerable<DateTime> RenovationDays(DateTime from, DateTime to)

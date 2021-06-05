@@ -106,5 +106,50 @@ namespace InformacioniSistemBolnice.Upravnik
                 filteredInventoryWindow.Show();
             }
         }
+
+        private void MergeRooms(object sender, RoutedEventArgs e)
+        {
+            if(datagridProstorije.SelectedItems.Count == 2)
+            {
+                Room room1 = (Room)datagridProstorije.SelectedItems[0];
+                Room room2 = (Room)datagridProstorije.SelectedItems[1];                
+                _roomController.MergingRooms(room1, room2);
+                UpdateTableAfterMerging(room1, room2);
+            }
+        }
+
+        public void UpdateTableAfterMerging(Room room1, Room room2)
+        {
+            datagridProstorije.Items.Clear();
+            foreach (Room r in _roomController.GetAllRooms())
+            {
+                if (!r.IsDeleted)
+                    datagridProstorije.Items.Add(r);
+                datagridProstorije.Items.Remove(room1);
+                datagridProstorije.Items.Remove(room2);
+            }
+        }
+
+        private void SplitRoom(object sender, RoutedEventArgs e)
+        {
+            if(datagridProstorije.SelectedItem != null && AreaBox.Text != null)
+            {
+                double newRoomArea = Convert.ToDouble(AreaBox.Text);
+                Room selected = (Room)datagridProstorije.SelectedItem;
+                _roomController.DivideRoom(selected, newRoomArea);
+                UpdateTableAfterSpliting(selected);
+            }
+        }
+
+        public void UpdateTableAfterSpliting(Room room)
+        {
+            datagridProstorije.Items.Clear();
+            foreach (Room r in _roomController.GetAllRooms())
+            {
+                if (!r.IsDeleted)
+                    datagridProstorije.Items.Add(r);
+                datagridProstorije.Items.Remove(room);
+            }
+        }
     }
 }

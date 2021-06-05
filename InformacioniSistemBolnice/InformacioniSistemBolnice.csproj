@@ -713,5 +713,11 @@
   <ItemGroup>
     <Resource Include="Manager_ns\arrow-58-512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\merge-icon-61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\split-icon-62.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
