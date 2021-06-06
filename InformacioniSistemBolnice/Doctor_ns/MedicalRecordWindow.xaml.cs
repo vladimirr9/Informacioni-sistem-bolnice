@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.Reports;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
@@ -20,6 +21,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
     {
         private DoctorWindow parent;
         private Patient selected;
+        private Prescription prescription = null;
         private Hospitalisation hospitalisation;
         private PatientController _patientController = new PatientController();
         private AnamnesisController _anamnesisController = new AnamnesisController();
@@ -27,6 +29,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private MedicineController _medicineController = new MedicineController();
         private RoomController _roomController = new RoomController();
         private HospitalisationControler _hospitalisationControler = new HospitalisationControler();
+        private PrintDialog _printDialog = new PrintDialog();
 
         public MedicalRecordWindow(Patient patient , DoctorWindow parent, Appointment selectedAppointment = null)
         {
@@ -80,11 +83,10 @@ namespace InformacioniSistemBolnice.Doctor_ns
                     return;
                 }
                 
-                Prescription prescription = new Prescription((Medicine)DrugsComboBox.SelectedItem, DateTime.Parse(BeginDatePicker.Text), parent.Doctor);
+                prescription = new Prescription((Medicine)DrugsComboBox.SelectedItem, DateTime.Parse(BeginDatePicker.Text), parent.Doctor);
                 selected.MedicalRecord.AddRecept(prescription);
 
                 _patientController.Update(selected.Username, selected);
-                ClearTherapy();
             }
         }
 
@@ -147,9 +149,13 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
         }
 
-        private void Report_Click(object sender, RoutedEventArgs e)
+        private void Prescription_Report_Click(object sender, RoutedEventArgs e)
         {
-            //dodati izvestaje
+            if (prescription != null)
+            {
+                _printDialog.PrintVisual(new PrescriptionReport(prescription), "Izveštaj recepta");
+                ClearTherapy();
+            }
         }
 
         private void Referral_Click(object sender, RoutedEventArgs e)

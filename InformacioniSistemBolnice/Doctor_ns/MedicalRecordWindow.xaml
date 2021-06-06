@@ -76,7 +76,7 @@
                     </DataGrid>
                     <Button Content="Obavljeni" HorizontalAlignment="Left" Margin="46,165,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Finished_Click" Background="#FF2B78E4" Foreground="White"/>
                     <Button Content="Zakazani" HorizontalAlignment="Left" Margin="187,165,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Scheduled_Click" Background="#FF2B78E4" Foreground="White"/>
-                    <Button Content="Izveštaj" HorizontalAlignment="Left" Margin="454,165,0,0" VerticalAlignment="Top" Width="106" Height="35" Click="Report_Click" Background="#FF2B78E4" Foreground="White"/>
+                    <Button Content="Izveštaj" HorizontalAlignment="Left" Margin="454,165,0,0" VerticalAlignment="Top" Width="106" Height="35" Background="#FF2B78E4" Foreground="White"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Terapija">
@@ -105,7 +105,7 @@
                     <TextBlock HorizontalAlignment="Left" Height="32" Margin="317,246,0,0" TextWrapping="Wrap" Text="Do:" VerticalAlignment="Top" Width="60" FontSize="20"/>
                     <TextBlock HorizontalAlignment="Left" Height="32" Margin="192,308,0,0" TextWrapping="Wrap" Text="Na svaka" VerticalAlignment="Top" Width="118" FontSize="20"/>
                     <TextBlock HorizontalAlignment="Left" Height="32" Margin="414,308,0,0" TextWrapping="Wrap" Text="dana." VerticalAlignment="Top" Width="54" FontSize="20"/>
-                    <Button Content="Izveštaj" HorizontalAlignment="Left" Margin="527,119,0,0" VerticalAlignment="Top"  Width="106" Height="32" Background="#FF2B78E4" Foreground="White"/>
+                    <Button Content="Izveštaj" HorizontalAlignment="Left" Margin="527,119,0,0" VerticalAlignment="Top"  Width="106" Height="32" Background="#FF2B78E4" Foreground="White" Click="Prescription_Report_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Lečenje">
