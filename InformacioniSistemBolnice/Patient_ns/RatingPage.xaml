@@ -9,10 +9,8 @@
       Title="RatingPage" Height="450">
 
     <Grid>
-        <DataGrid x:Name="PrikazPregleda" Background="White" BorderBrush="Black" BorderThickness="2" Height="277" Margin="60,40,290,0" VerticalAlignment="Top" IsReadOnly="True" SelectionChanged="PrikazPregleda_SelectionChanged"  >
-            <DataGrid.Resources>
-                <Style TargetType="{x:Type DataGridColumnHeader}"/>
-            </DataGrid.Resources>
+        <DataGrid x:Name="PrikazPregleda" CanUserResizeColumns="False"  CanUserResizeRows="False" CanUserReorderColumns="False"  Background="White" BorderBrush="Black" BorderThickness="2" Height="277" Margin="60,40,290,0" VerticalAlignment="Top" IsReadOnly="True" SelectionChanged="PrikazPregleda_SelectionChanged" ColumnHeaderHeight="40" GridLinesVisibility="None" RowHeight="40"  >
+            
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}" Width="25"/>
@@ -26,6 +24,11 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding AppointmentDate}" Width="*" />
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="White" />
+                </Style>
+            </DataGrid.Resources>
         </DataGrid>
         <Button x:Name="rate" Background="White" BorderBrush="Black" BorderThickness="2" Content="Oceni lekara" HorizontalAlignment="Left" Margin="605,40,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="rate_Click" />
         <Button x:Name="rateHospital" Background="White" BorderBrush="Black" BorderThickness="2" Content="Oceni ustanovu" HorizontalAlignment="Left" Margin="605,120,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="rateHospital_Click" />

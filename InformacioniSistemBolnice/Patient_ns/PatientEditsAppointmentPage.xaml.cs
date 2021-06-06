@@ -296,7 +296,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             parent.titleLabel.Visibility = Visibility.Hidden;
             parent.titlePriorityLabel.Visibility = Visibility.Hidden;
             parent.odjava.Visibility = Visibility.Visible;
-            parent.imePacijenta.Visibility = Visibility.Visible;
+            parent.iconAndName.Visibility = Visibility.Visible;
         }
 
         private void submitButton_Click(object sender, RoutedEventArgs e)

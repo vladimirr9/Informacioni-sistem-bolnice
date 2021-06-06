@@ -88,7 +88,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 RatingPage ap = new RatingPage(parent);
                 parentp.UpdateTable();
                 parent.startWindow.Content = new RatingPage(parent);
-                parent.imePacijenta.Visibility = Visibility.Visible;
+                parent.iconAndName.Visibility = Visibility.Visible;
                 parent.odjava.Visibility = Visibility.Visible;
                 imeLjekara.Visibility = Visibility.Hidden;
             }
@@ -101,7 +101,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 RatingPage ap = new RatingPage(parent);
                 parentp.rateHospital.Visibility = Visibility.Hidden;
                 parent.startWindow.Content = new RatingPage(parent);
-                parent.imePacijenta.Visibility = Visibility.Visible;
+                parent.iconAndName.Visibility = Visibility.Visible;
                 parent.odjava.Visibility = Visibility.Visible;
                 imeLjekara.Visibility = Visibility.Hidden;
 
@@ -114,7 +114,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             parent.titleLabel.Visibility = Visibility.Hidden;
             parent.titlePriorityLabel.Visibility = Visibility.Hidden;
             parent.odjava.Visibility = Visibility.Visible;
-            parent.imePacijenta.Visibility = Visibility.Visible;
+            parent.iconAndName.Visibility = Visibility.Visible;
         }
     }
 }

@@ -689,5 +689,32 @@
   <ItemGroup>
     <Resource Include="Manager_ns\clipart2640924.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\rate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\notifications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\ring.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\cancel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
