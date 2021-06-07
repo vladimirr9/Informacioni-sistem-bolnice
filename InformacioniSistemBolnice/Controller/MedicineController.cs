@@ -66,19 +66,5 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _validatedMedicineService.GetValidatedMedicines();
         }
-        public int ValidatedMedicinesCount()
-        {
-            return _medicineService.ValidatedMedicinesCount();
-        }
-        public int RejectedMedicinesCount()
-        {
-            return _medicineService.RejectedMedicinesCount();
-        }
-        public int WaitingMedicinesCount()
-        {
-            return _medicineService.WaitingMedicinesCount();
-        }
-
-
     }
 }

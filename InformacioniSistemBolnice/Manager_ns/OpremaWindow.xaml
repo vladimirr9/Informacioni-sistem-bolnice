@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         xmlns:conv="clr-namespace:InformacioniSistemBolnice.Converter"
         mc:Ignorable="d"
-        Title="Oprema" Height="768" Width="1024" ResizeMode="NoResize">
+        Title="OpremaWindow" Height="768" Width="1024">
   <Window.Resources>
         <conv:InventoryTypeConverter x:Key="InventoryTypeConverter"/>
   </Window.Resources>

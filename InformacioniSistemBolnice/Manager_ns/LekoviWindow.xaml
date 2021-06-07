@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         xmlns:conv="clr-namespace:InformacioniSistemBolnice.Converter"
         mc:Ignorable="d"
-        Title="Lekovi" Height="768" Width="1024" ResizeMode="NoResize">
+        Title="LekoviWindow" Height="768" Width="1024">
     <Window.Resources>
       <conv:MedicineStatusConverter x:Key="MedicineStatusConverter"/>
     </Window.Resources>

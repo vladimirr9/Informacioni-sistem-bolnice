@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="Zakazivanje renoviranja" Height="450" Width="550" ResizeMode="NoResize">
+        Title="ZakazivanjeRenoviranjaWindow" Height="450" Width="550">
     <Grid>
       <Label x:Name="label" Content="Zakazivanje renoviranja" HorizontalAlignment="Left" Margin="38,20,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold" FontStyle="Italic"/>
       <Label x:Name="label1" Content="Datum od:" HorizontalAlignment="Left" Margin="38,162,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="Filtrirana oprema" Height="700" Width="700" ResizeMode="NoResize">
+        Title="FiltriranaOprema" Height="700" Width="700">
     <Grid>
       <DataGrid x:Name="dataGridInventory" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="450"
                 AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4">
