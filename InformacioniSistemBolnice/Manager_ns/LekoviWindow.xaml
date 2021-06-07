@@ -4,12 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
+        xmlns:conv="clr-namespace:InformacioniSistemBolnice.Converter"
         mc:Ignorable="d"
         Title="LekoviWindow" Height="768" Width="1024">
-    <Grid>
+    <Window.Resources>
+      <conv:MedicineStatusConverter x:Key="MedicineStatusConverter"/>
+    </Window.Resources>
+  <Grid>
         <Label x:Name="label" HorizontalAlignment="Left" Margin="24,25,0,0" VerticalAlignment="Top" FontSize="50" Content="Lekovi" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold">
         </Label>
-        <DataGrid x:Name="dataGridLekovi" HorizontalAlignment="Left" Height="400" Margin="70,144,0,0" VerticalAlignment="Top" Width="500"
+        <DataGrid x:Name="dataGridLekovi" HorizontalAlignment="Left" Height="400" Margin="24,144,0,0" VerticalAlignment="Top" Width="557"
                   AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" SelectionChanged="dataGridLekovi_SelectionChanged" SelectedIndex="0">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -26,7 +30,7 @@
                 <DataGridTextColumn Header="Šifra" Binding="{Binding Path=MedicineId}" Width="100"/>
                 <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="150"/>
                 <DataGridTextColumn Header="Količina" Binding="{Binding Path=Quantity}" Width="150"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Path=MedicineStatus}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=MedicineStatus, Converter = {StaticResource MedicineStatusConverter}}" Width="*"/>
             </DataGrid.Columns>
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">

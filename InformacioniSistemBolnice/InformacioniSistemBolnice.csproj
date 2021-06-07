@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -86,7 +101,13 @@
     <Compile Include="Converter\AppointmentDurationConverter.cs" />
     <Compile Include="Converter\AppointmentStatusConverter.cs" />
     <Compile Include="Converter\AppointmentTypeConverter.cs" />
+    <Compile Include="Converter\InventoryTypeConverte.cs" />
+    <Compile Include="Converter\MedicineStatusConverter.cs" />
+    <Compile Include="Converter\RoomStatusConverter.cs" />
     <Compile Include="Doctor_ns\Hospitalisation.cs" />
+    <Compile Include="Doctor_ns\TutorialPage.xaml.cs">
+      <DependentUpon>TutorialPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Doctor_ns\Vacation.cs" />
     <Compile Include="Doctor_ns\WorkShift.cs" />
     <Compile Include="Controller\DoctorControler.cs" />
@@ -118,6 +139,9 @@
     <Compile Include="Patient_ns\ActivityLog.cs" />
     <Compile Include="Reports\AnamnesisReport.xaml.cs">
       <DependentUpon>AnamnesisReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MedicinesReport.xaml.cs">
+      <DependentUpon>MedicinesReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports\PrescriptionReport.xaml.cs">
       <DependentUpon>PrescriptionReport.xaml</DependentUpon>
@@ -350,6 +374,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Doctor_ns\TutorialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Patient_ns\AddingNotesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -472,6 +500,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reports\AnamnesisReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\MedicinesReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -766,6 +798,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Manager_ns\arrow-58-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Reports\logoUpravnik.png.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

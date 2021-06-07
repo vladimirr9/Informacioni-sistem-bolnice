@@ -38,8 +38,14 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            EditBox.Clear();
-            UpdateList();
+            if (DrugsList.SelectedItem != null)
+            {
+                Medicine medicine = _medicineController.GetOneByname(DrugsList.SelectedItem.ToString());
+                medicine.MedicineStatus = MedicineStatus.rejected;
+                _medicineController.UpdateMedicine(medicine);
+                EditBox.Clear();
+                UpdateList();
+            }
         }
 
         private void UpdateList()
@@ -55,12 +61,14 @@ namespace InformacioniSistemBolnice.Doctor_ns
         public void SelectionChange(object sender, SelectionChangedEventArgs e)
         {
             IngredientsList.Items.Clear();
-            Medicine drug = _medicineController.GetOneByname(DrugsList.SelectedItem.ToString());
-            foreach (Ingredient ingredient in _medicineController.GetMedicineIngredients(drug))
+            if (DrugsList.SelectedItem != null)
             {
-                IngredientsList.Items.Add(ingredient.Name);
+                Medicine drug = _medicineController.GetOneByname(DrugsList.SelectedItem.ToString());
+                foreach (Ingredient ingredient in _medicineController.GetMedicineIngredients(drug))
+                {
+                    IngredientsList.Items.Add(ingredient.Name);
+                }
             }
-
         }
     }
 }
