@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,27 @@ namespace InformacioniSistemBolnice.Reports
     /// </summary>
     public partial class MedicinesReport : Page
     {
+        private MedicineController _medicineController = new MedicineController();
         public MedicinesReport()
         {
             InitializeComponent();
+            UpdateTable();
+            this.DataContext = this;
+
+            label1.Content = _medicineController.ValidatedMedicinesCount();
+            label2.Content = _medicineController.RejectedMedicinesCount();
+            label3.Content = _medicineController.WaitingMedicinesCount();
+            label4.Content = DateTime.Now.Date.ToString("dd/MM/yyyy");
+        }
+
+        public void UpdateTable()
+        {
+            dataGridMedicines.Items.Clear();
+            foreach (Medicine med in _medicineController.GetAllMedicines())
+            {
+                if (!med.IsDeleted)
+                    dataGridMedicines.Items.Add(med);
+            }
         }
     }
 }

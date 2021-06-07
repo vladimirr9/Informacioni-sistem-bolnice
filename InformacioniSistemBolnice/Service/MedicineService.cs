@@ -153,5 +153,42 @@ namespace InformacioniSistemBolnice.Service
         {
             return IngredientFileRepository.GetAll();
         }
+
+        public int ValidatedMedicinesCount()
+        {
+            int sum = 0;
+            foreach(Medicine medicine in GetAllMedicines())
+            {
+                if(medicine.MedicineStatus == MedicineStatus.validated)
+                {
+                    sum++;
+                }
+            }
+            return sum;
+        }
+        public int RejectedMedicinesCount()
+        {
+            int sum = 0;
+            foreach (Medicine medicine in GetAllMedicines())
+            {
+                if (medicine.MedicineStatus == MedicineStatus.rejected)
+                {
+                    sum++;
+                }
+            }
+            return sum;
+        }
+        public int WaitingMedicinesCount()
+        {
+            int sum = 0;
+            foreach (Medicine medicine in GetAllMedicines())
+            {
+                if (medicine.MedicineStatus == MedicineStatus.waitingForValidation)
+                {
+                    sum++;
+                }
+            }
+            return sum;
+        }
     }
 }

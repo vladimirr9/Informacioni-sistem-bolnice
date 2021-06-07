@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Manager_ns;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,10 +52,16 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             NameLabel.Content = _loggedManager.Name + " " + _loggedManager.Surname;
             DateLabel.Content = _loggedManager.DateOfBirth.Date;
-            AddressLabel.Content = _loggedManager.ResidentialAddress.StreetAndNumber + " " + _loggedManager.ResidentialAddress.City;
+            AddressLabel.Content = _loggedManager.ResidentialAddress.StreetAndNumber;
             JMBGLabel.Content = _loggedManager.JMBG;
             EmailLabel.Content = _loggedManager.Email;
             NumberLabel.Content = _loggedManager.PhoneNumber;
+        }
+
+        private void EditProfile(object sender, RoutedEventArgs e)
+        {
+            EditProfileWindow window = new EditProfileWindow();
+            window.Show();
         }
     }
 }
