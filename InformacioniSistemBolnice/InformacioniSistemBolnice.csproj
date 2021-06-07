@@ -77,8 +77,6 @@
     <Compile Include="Controller\ActivityLogController.cs" />
     <Compile Include="Controller\AnamnesisController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
-    <Compile Include="Controller\HospitalisationControler.cs" />
-    <Compile Include="Controller\LoginControler.cs" />
     <Compile Include="Controller\MedicineController.cs" />
     <Compile Include="Controller\RatingController.cs" />
     <Compile Include="Controller\RenovationPeriodController.cs" />
@@ -86,14 +84,12 @@
     <Compile Include="Converter\AppointmentDurationConverter.cs" />
     <Compile Include="Converter\AppointmentStatusConverter.cs" />
     <Compile Include="Converter\AppointmentTypeConverter.cs" />
-    <Compile Include="Doctor_ns\Hospitalisation.cs" />
     <Compile Include="Doctor_ns\Vacation.cs" />
     <Compile Include="Doctor_ns\WorkShift.cs" />
     <Compile Include="Controller\DoctorControler.cs" />
     <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
     <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />
     <Compile Include="Manager_ns\RenovationPeriod.cs" />
     <Compile Include="Patient_ns\AddingNotesPage.xaml.cs">
@@ -113,12 +109,6 @@
     <Compile Include="FileStorage\IngredientFileRepository.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
-    <Compile Include="Reports\AnamnesisReport.xaml.cs">
-      <DependentUpon>AnamnesisReport.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\PrescriptionReport.xaml.cs">
-      <DependentUpon>PrescriptionReport.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Reports\SecretaryReport1.xaml.cs">
       <DependentUpon>SecretaryReport1.xaml</DependentUpon>
     </Compile>
@@ -148,8 +138,6 @@
     </Compile>
     <Compile Include="Service\AllergyCheck.cs" />
     <Compile Include="Service\DoctorService.cs" />
-    <Compile Include="Service\HospitalisationService.cs" />
-    <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Service\RatingService.cs" />
@@ -281,34 +269,34 @@
     <Compile Include="Service\AnamnesisService.cs" />
     <Compile Include="Service\AppointmentService.cs" />
     <Compile Include="Service\NotificationService.cs" />
-    <Compile Include="Manager_ns\DodavanjeLekaWindow.xaml.cs">
-      <DependentUpon>DodavanjeLekaWindow.xaml</DependentUpon>
+    <Compile Include="Manager_ns\AddNewMedicineWindow.xaml.cs">
+      <DependentUpon>AddNewMedicineWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager_ns\DodavanjeOpreme.xaml.cs">
-      <DependentUpon>DodavanjeOpreme.xaml</DependentUpon>
+    <Compile Include="Manager_ns\AddNewInventoryWindow.xaml.cs">
+      <DependentUpon>AddNewInventoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager_ns\DodavanjeProstorije.xaml.cs">
-      <DependentUpon>DodavanjeProstorije.xaml</DependentUpon>
+    <Compile Include="Manager_ns\AddNewRoomWindow.xaml.cs">
+      <DependentUpon>AddNewRoomWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager_ns\FiltriranaOprema.xaml.cs">
-      <DependentUpon>FiltriranaOprema.xaml</DependentUpon>
+    <Compile Include="Manager_ns\FilteredInventoryWindow.xaml.cs">
+      <DependentUpon>FilteredInventoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager_ns\IzmenaLekaWindow.xaml.cs">
-      <DependentUpon>IzmenaLekaWindow.xaml</DependentUpon>
+    <Compile Include="Manager_ns\EditMedicineWindow.xaml.cs">
+      <DependentUpon>EditMedicineWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager_ns\IzmenaOpreme.xaml.cs">
-      <DependentUpon>IzmenaOpreme.xaml</DependentUpon>
+    <Compile Include="Manager_ns\EditInventoryWindow.xaml.cs">
+      <DependentUpon>EditInventoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager_ns\IzmenaProstorije.xaml.cs">
-      <DependentUpon>IzmenaProstorije.xaml</DependentUpon>
+    <Compile Include="Manager_ns\EditRoomWindow.xaml.cs">
+      <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manager_ns\Medicine.cs" />
-    <Compile Include="Manager_ns\LekoviWindow.xaml.cs">
-      <DependentUpon>LekoviWindow.xaml</DependentUpon>
+    <Compile Include="Manager_ns\MedicinesWindow.xaml.cs">
+      <DependentUpon>MedicinesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manager_ns\Inventory.cs" />
-    <Compile Include="Manager_ns\OpremaWindow.xaml.cs">
-      <DependentUpon>OpremaWindow.xaml</DependentUpon>
+    <Compile Include="Manager_ns\InventoryWindow.xaml.cs">
+      <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manager_ns\Room.cs" />
     <Compile Include="FileStorage\RoomFileRepository.cs" />
@@ -318,11 +306,11 @@
     <Compile Include="Termin\Appointment.cs" />
     <Compile Include="FileStorage\AppointmentFileRepository.cs" />
     <Compile Include="Doctor_ns\DoctorType.cs" />
-    <Compile Include="Manager_ns\RasporedjivanjeOpreme.xaml.cs">
-      <DependentUpon>RasporedjivanjeOpreme.xaml</DependentUpon>
+    <Compile Include="Manager_ns\RelocateInventoryWindow.xaml.cs">
+      <DependentUpon>RelocateInventoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager_ns\RasporedjivanjeStatickeWindow.xaml.cs">
-      <DependentUpon>RasporedjivanjeStatickeWindow.xaml</DependentUpon>
+    <Compile Include="Manager_ns\RelocateStaticInventoryWindow.xaml.cs">
+      <DependentUpon>RelocateStaticInventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manager_ns\MedicineStatus.cs" />
     <Compile Include="Manager_ns\InventoryType.cs" />
@@ -330,15 +318,15 @@
     <Compile Include="Termin\AppointmentType.cs" />
     <Compile Include="Manager_ns\Manager.cs" />
     <Compile Include="FileStorage\ManagerFileRepository.cs" />
-    <Compile Include="Manager_ns\UpravnikWindow.xaml.cs">
-      <DependentUpon>UpravnikWindow.xaml</DependentUpon>
+    <Compile Include="Manager_ns\ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\MedicalRecord.cs" />
-    <Compile Include="Manager_ns\WindowProstorije.xaml.cs">
-      <DependentUpon>WindowProstorije.xaml</DependentUpon>
+    <Compile Include="Manager_ns\RoomsWindow.xaml.cs">
+      <DependentUpon>RoomsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Manager_ns\ZakazivanjeRenoviranjaWindow.xaml.cs">
-      <DependentUpon>ZakazivanjeRenoviranjaWindow.xaml</DependentUpon>
+    <Compile Include="Manager_ns\NewRenovationPeriodWindow.xaml.cs">
+      <DependentUpon>NewRenovationPeriodWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation\JMBGValidationRule.cs" />
     <Compile Include="Validation\NonEmptyValidationRule.cs" />
@@ -464,14 +452,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Reports\AnamnesisReport.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Reports\PrescriptionReport.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Reports\SecretaryReport1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -568,59 +548,59 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\DodavanjeLekaWindow.xaml">
+    <Page Include="Manager_ns\AddNewMedicineWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\DodavanjeOpreme.xaml">
+    <Page Include="Manager_ns\AddNewInventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\DodavanjeProstorije.xaml">
+    <Page Include="Manager_ns\AddNewRoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\FiltriranaOprema.xaml">
+    <Page Include="Manager_ns\FilteredInventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\IzmenaLekaWindow.xaml">
+    <Page Include="Manager_ns\EditMedicineWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\IzmenaOpreme.xaml">
+    <Page Include="Manager_ns\EditInventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\IzmenaProstorije.xaml">
+    <Page Include="Manager_ns\EditRoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\LekoviWindow.xaml">
+    <Page Include="Manager_ns\MedicinesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\OpremaWindow.xaml">
+    <Page Include="Manager_ns\InventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\RasporedjivanjeOpreme.xaml">
+    <Page Include="Manager_ns\RelocateInventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\RasporedjivanjeStatickeWindow.xaml">
+    <Page Include="Manager_ns\RelocateStaticInventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\UpravnikWindow.xaml">
+    <Page Include="Manager_ns\ManagerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\WindowProstorije.xaml">
+    <Page Include="Manager_ns\RoomsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Manager_ns\ZakazivanjeRenoviranjaWindow.xaml">
+    <Page Include="Manager_ns\NewRenovationPeriodWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -704,31 +684,43 @@
     <Resource Include="Manager_ns\clipart2640924.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\table.png" />
+    <Resource Include="Manager_ns\32x32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\rate.png" />
+    <Resource Include="Manager_ns\add-plus-icon-163225.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\card.png" />
+    <Resource Include="Manager_ns\kisspng-computer-icons-editing-button-clip-art-edit-cliparts-5ab59f396f9168.796371701521852217457.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\notifications.png" />
+    <Resource Include="Manager_ns\bin-delete-garbage-recycle-remove-trash-icon-695067.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\ring.png" />
+    <Resource Include="Manager_ns\kisspng-inventory-management-software-point-of-sale-e-comm-warehouse-5acac06dd92aa8.3404738015232369738895.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\user.png" />
+    <Resource Include="Manager_ns\pngegg.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\add.png" />
+    <Resource Include="Manager_ns\—Pngtree—cartoon medical supplies_3412697.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\edit.png" />
+    <Resource Include="Manager_ns\—Pngtree—vector tools repair icon_3991936.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\cancel.png" />
+    <Resource Include="Manager_ns\kisspng-first-aid-supplies-first-aid-kits-health-care-medi-hover-5b2aa361ad2839.4975777015295209937093.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\arrow-58-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\merge-icon-61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\split-icon-62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\15519179861536080156-128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

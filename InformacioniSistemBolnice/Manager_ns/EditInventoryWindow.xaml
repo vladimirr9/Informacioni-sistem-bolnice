@@ -1,0 +1,30 @@
+﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.EditInventory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
+        mc:Ignorable="d"
+        Title="Izmena opreme" Height="700" Width="550" ResizeMode="NoResize">
+    <Grid>
+        <Label x:Name="label" Content="Izmena opreme" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" Foreground="DarkBlue" FontStyle="Italic"/>
+        <Label x:Name="label1" Content="Šifra:" HorizontalAlignment="Left" Margin="112,199,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
+        <Label x:Name="label2" Content="Naziv:" HorizontalAlignment="Left" Margin="102,287,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
+        <Label x:Name="label3" Content="Tip opreme:" HorizontalAlignment="Left" Margin="50,374,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
+        <Label x:Name="label4" Content="Količina:" HorizontalAlignment="Left" Margin="82,473,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
+        <Label x:Name="label5" Content="Obrisana:" HorizontalAlignment="Left" Margin="72,536,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
+        <ComboBox x:Name="TipOpreme" HorizontalAlignment="Left" Margin="204,378,0,0" VerticalAlignment="Top" Width="200" FontSize="20">
+            <ComboBoxItem>staticka</ComboBoxItem>
+            <ComboBoxItem>dinamicka</ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="Sifra" HorizontalAlignment="Left" Height="30" Margin="204,206,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="20"/>
+        <TextBox x:Name="Naziv" HorizontalAlignment="Left" Height="30" Margin="204,294,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20"/>
+        <TextBox x:Name="Kolicina" HorizontalAlignment="Left" Height="30" Margin="204,480,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="20"/>
+        <CheckBox x:Name="IsDeleted" Content="" HorizontalAlignment="Left" Margin="204,546,0,0" VerticalAlignment="Top" IsChecked="False" IsEnabled="False" FontSize="20" RenderTransformOrigin="0.837,-0.276"/>
+        <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" Margin="112,605,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="CornflowerBlue" Click="UpdateInventory"/>
+        <Button x:Name="button1" Content="Otkaži" HorizontalAlignment="Left" Margin="304,605,0,0" VerticalAlignment="Top" Width="100" FontSize="20" Background="IndianRed" Click="Cancel"/>
+        <Label x:Name="label6" Content="ID prostorije:" HorizontalAlignment="Left" Margin="41,125,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue" IsEnabled="False"/>
+        <TextBox x:Name="IdProstorije" HorizontalAlignment="Left" Height="30" Margin="204,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" FontSize="20" IsEnabled="False"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="75" Margin="443,21,0,0" VerticalAlignment="Top" Width="75" Source="logoUpravnik.png.png"/>
+    </Grid>
+</Window>

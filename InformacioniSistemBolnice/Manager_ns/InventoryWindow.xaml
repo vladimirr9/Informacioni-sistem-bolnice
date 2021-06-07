@@ -1,0 +1,67 @@
+﻿<Window x:Class="InformacioniSistemBolnice.Upravnik.InventoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
+        mc:Ignorable="d"
+        Title="Oprema" Height="768" Width="1024" ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="dataGridInventory" HorizontalAlignment="Left" Height="400" Margin="82,144,0,0" VerticalAlignment="Top" Width="520"
+                  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" SelectedIndex="0">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#f2e8d7"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Foreground" Value="DarkBlue"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <!--DataGridTextColumn Header="ID prostorije" Binding="{Binding Path=RoomId}" Width="125"/-->
+                <DataGridTextColumn Header="Šifra" Binding="{Binding Path=InventoryId}" Width="125"/>
+                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="125"/>
+                <DataGridTextColumn Header="Tip" Binding="{Binding Path=InventoryType}" Width="125"/>
+                <!--DataGridTextColumn Header="Obrisana" Binding="{Binding Path=IsDeleted}" Width="100"/-->
+                <DataGridTextColumn Header="Količina" Binding="{Binding Path=Quantity}" Width="*"/>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="GhostWhite"/>
+                    <Setter Property="FontSize" Value="17"/>
+                    <Setter Property="Foreground" Value="DarkBlue"/>
+                    <Setter Property="BorderThickness" Value="0, 0, 1, 2"/>
+                </Style>
+            </DataGrid.RowStyle>
+
+        </DataGrid>
+        <Label x:Name="label" Content="Oprema" HorizontalAlignment="Left" Margin="39,23,0,0" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
+        <Rectangle Fill="#f2e8d7" HorizontalAlignment="Left" Height="738" Margin="717,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="300"/>
+        <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="926,691,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Close" />
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="901,23,0,0" VerticalAlignment="Top" Width="100" Source="logoUpravnik.png.png"/>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="33" Margin="742,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="20" Foreground="Gray" KeyUp="Pretraga_TextChanged" ToolTip="Filtriranje opreme"/>
+        <Button x:Name="button" HorizontalAlignment="Left" Margin="742,202,0,0" VerticalAlignment="Top" Width="65" FontSize="20" Background="#f2e8d7" Click="AddInventory" Height="65" BorderBrush="{x:Null}" ToolTip="Dodaj opremu">
+            <StackPanel Height="60" Width="55">
+                <Image x:Name="image1" Height="60" Source="add-plus-icon-163225.png"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="button1" HorizontalAlignment="Left" Margin="834,202,0,0" VerticalAlignment="Top" Width="65" FontSize="20" Background="#f2e8d7" Click="UpdateInventory" Height="65" BorderBrush="{x:Null}" ToolTip="Izmeni opremu">
+            <StackPanel Height="60" Width="55">
+                <Image x:Name="image2" Height="60" Source="kisspng-computer-icons-editing-button-clip-art-edit-cliparts-5ab59f396f9168.796371701521852217457.png"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="button2" HorizontalAlignment="Left" Margin="936,202,0,0" VerticalAlignment="Top" Width="65" FontSize="20" Background="#f2e8d7" Click="RemoveInventory" Height="65" BorderBrush="{x:Null}" ToolTip="Obrisi opremu">
+            <StackPanel Height="60" Width="55">
+                <Image x:Name="image3" Height="60" Source="bin-delete-garbage-recycle-remove-trash-icon-695067.png"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="button3" HorizontalAlignment="Left" Margin="834,301,0,0" VerticalAlignment="Top" Width="65" FontSize="20" Background="#f2e8d7" Click="RelocateInventory" Height="65" BorderBrush="{x:Null}" ToolTip="Premesti opremu">
+            <StackPanel Height="60" Width="55">
+                <Image x:Name="image4" Height="60" Source="arrow-58-512.png"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>
