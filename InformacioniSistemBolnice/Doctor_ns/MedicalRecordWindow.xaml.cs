@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.Reports;
+using InformacioniSistemBolnice.View.ViewModel;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
@@ -121,7 +122,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 _anamnesisController.Update(newAnamnesis, appointment);
                 _appointmentController.FinishAppointment(appointment);
                 Scheduled_Click(null, null);
-                AppointmentsPage.GetPage(parent).UpdateTable();
+                AppointmentsViewModel.GetPage(parent).UpdateTable();
             }
         }
 

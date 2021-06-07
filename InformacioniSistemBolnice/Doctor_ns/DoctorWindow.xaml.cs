@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Doctor_ns;
+using InformacioniSistemBolnice.View.ViewModel;
 
 namespace InformacioniSistemBolnice
 {
@@ -23,41 +24,7 @@ namespace InformacioniSistemBolnice
         {
             this.Doctor = doctor;
             InitializeComponent();
-            this.Title = doctor.Name + " " + doctor.Surname;
-            Main.Content = ProfilePage.GetPage(this);
-        }
-
-        private void Patients_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = DoctorPatientsPage.GetPage(this);
-        }
-
-        private void Appointments_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = AppointmentsPage.GetPage(this);
-        }
-
-        private void Medicine_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = DrugsPage.GetPage(this);
-        }
-
-        private void Tutorial_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = TutorialPage.GetPage(this);
-        }
-
-        private void Profile_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = ProfilePage.GetPage(this);
-        }
-
-        private void Logout_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            Application.Current.MainWindow = mainWindow;
-            mainWindow.Show();
-            this.Close();
+            this.DataContext = new DoctorWindowViewModel(doctor, this);
         }
     }
 }

@@ -9,7 +9,10 @@
       Title="PreglediPage">
 
     <Grid>
-        <DataGrid x:Name="AppointmentsDataGrid" Margin="35,75,34,137" IsReadOnly="True" MouseDoubleClick="Double_Click">
+        <DataGrid x:Name="AppointmentsDataGrid" Margin="35,75,34,137" IsReadOnly="True" ItemsSource="{Binding Appointments}" SelectedItem="{Binding Path=SelectedAppointment}" AutoGenerateColumns="False">
+            <DataGrid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding DoubleClickComand}" />
+            </DataGrid.InputBindings>
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}"/>
             </DataGrid.Resources>
@@ -44,9 +47,9 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Dodaj termin" Margin="287,0,0,63" Click="Add_Click" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
-        <Button Content="Izmeni termin" Margin="498,0,0,63" Click="Edit_Click" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
-        <Button Content="Ukloni termin" Margin="714,0,0,63" Click="Delete_Click" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+        <Button Content="Dodaj termin" Margin="287,0,0,63" Command="{Binding NewAppointmentCommand}" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+        <Button Content="Izmeni termin" Margin="498,0,0,63" Command="{Binding EditAppointmentCommand}" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+        <Button Content="Ukloni termin" Margin="714,0,0,63" Command="{Binding DeleteAppointmentCommand}" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
 
     </Grid>
 </Page>

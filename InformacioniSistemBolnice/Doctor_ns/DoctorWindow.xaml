@@ -10,11 +10,11 @@
         <Rectangle Fill="#81A4CD" HorizontalAlignment="Left" Stroke="#81A4CD" Width="140"/>
         <Frame x:Name="Main" Margin="140,0,0,0" NavigationUIVisibility="Hidden" Background="#DBE4EE"/>
 
-        <Button Content="Pacijenti" HorizontalAlignment="Left" Height="35" Margin="10,75,0,0" VerticalAlignment="Top" Width="116" Click="Patients_Click" Background="#004E89" Foreground="White"/>
-        <Button Content="Pregledi" HorizontalAlignment="Left" Height="35" Margin="10,21,0,0" VerticalAlignment="Top" Width="116" Click="Appointments_Click" Background="#004E89" Foreground="White"/>
-        <Button Content="Lekovi" HorizontalAlignment="Left" Height="35" Margin="10,129,0,0" VerticalAlignment="Top" Width="116" Background="#004E89" Foreground="White" Click="Medicine_Click"/>
-        <Button Content="Odjava" HorizontalAlignment="Left" Margin="10,0,0,25" Width="116" Background="#F17300" Foreground="White" Height="35" VerticalAlignment="Bottom" Click="Logout_Click"/>
-        <Button Content="Profil" HorizontalAlignment="Left" Margin="10,0,0,78" Width="116" Background="#004E89" Foreground="White" Click="Profile_Click" Height="35" VerticalAlignment="Bottom"/>
-        <Button Content="Tutorial" HorizontalAlignment="Left" Margin="10,0,0,134" Width="116" Background="#004E89" Foreground="White" Click="Tutorial_Click" Height="35" VerticalAlignment="Bottom"/>
+        <Button Content="Pacijenti" HorizontalAlignment="Left" Height="35" Margin="10,75,0,0" VerticalAlignment="Top" Width="116" Command="{Binding PatientsCommand}" Background="#004E89" Foreground="White"/>
+        <Button Content="Pregledi" HorizontalAlignment="Left" Height="35" Margin="10,21,0,0" VerticalAlignment="Top" Width="116" Command="{Binding AppointmentsCommand}" Background="#004E89" Foreground="White"/>
+        <Button Content="Lekovi" HorizontalAlignment="Left" Height="35" Margin="10,129,0,0" VerticalAlignment="Top" Width="116" Background="#004E89" Foreground="White" Command="{Binding MedicineCommand}"/>
+        <Button Content="Odjava" HorizontalAlignment="Left" Margin="10,0,0,25" Width="116" Background="#F17300" Foreground="White" Height="35" VerticalAlignment="Bottom" Command="{Binding LogoutCommand}"/>
+        <Button Content="Profil" HorizontalAlignment="Left" Margin="10,0,0,78" Width="116" Background="#004E89" Foreground="White" Command="{Binding ProfileCommand}" Height="35" VerticalAlignment="Bottom"/>
+        <Button Content="Tutorial" HorizontalAlignment="Left" Margin="10,0,0,134" Width="116" Background="#004E89" Foreground="White" Command="{Binding TutorialCommand}" Height="35" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

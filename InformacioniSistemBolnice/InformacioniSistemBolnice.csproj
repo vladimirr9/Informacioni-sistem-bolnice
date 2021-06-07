@@ -382,6 +382,10 @@
     <Compile Include="Validation\JMBGValidationRule.cs" />
     <Compile Include="Validation\NonEmptyValidationRule.cs" />
     <Compile Include="Patient_ns\TypeOfActivity.cs" />
+    <Compile Include="View\ViewModel\AppointmentsViewModel.cs" />
+    <Compile Include="View\ViewModel\BindableBase.cs" />
+    <Compile Include="View\ViewModel\DoctorWindowViewModel.cs" />
+    <Compile Include="View\ViewModel\MyIComand.cs" />
     <Page Include="Doctor_ns\DoctorPatientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

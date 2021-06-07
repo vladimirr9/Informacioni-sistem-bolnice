@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.View.ViewModel;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
@@ -50,7 +51,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 Appointment appointment = new Appointment(_appointmentController.GenerateNewId(), dateTime, 15, type, AppointmentStatus.scheduled, patient, doctor, room);
                 _appointmentController.Add(appointment);
 
-                AppointmentsPage.GetPage(parent).UpdateTable();
+                AppointmentsViewModel.GetPage(parent).UpdateTable();
                 this.Close();
             }
         }

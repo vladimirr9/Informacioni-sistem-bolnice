@@ -13,22 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.View.ViewModel;
 using Microsoft.Win32;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
     public partial class AppointmentsPage : Page
     {
-        public DoctorWindow parent;
         private static AppointmentsPage instance;
         private AppointmentController _appointmentController = new AppointmentController();
 
         public AppointmentsPage(DoctorWindow parent)
         {
-            this.parent = parent;
             InitializeComponent();
+            this.DataContext = new AppointmentsViewModel(parent);
             _appointmentController.CheckMissedAppointments();
-            UpdateTable();
         }
 
         public static AppointmentsPage GetPage(DoctorWindow parent)
@@ -36,49 +35,6 @@ namespace InformacioniSistemBolnice.Doctor_ns
             if (instance == null)
                 instance = new AppointmentsPage(parent);
             return instance;
-        }
-
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            DoctorAddAppointmentWindow addWindow = new DoctorAddAppointmentWindow(parent);
-            Application.Current.MainWindow = addWindow;
-            addWindow.Show();
-        }
-
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            if (AppointmentsDataGrid.SelectedItem != null)
-            {
-                DoctorEditAppointmentWindow editWindow = new DoctorEditAppointmentWindow(_appointmentController.GetOne((Appointment)AppointmentsDataGrid.SelectedItem), parent);
-                Application.Current.MainWindow = editWindow;
-                editWindow.Show();
-            }
-        }
-
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            if (AppointmentsDataGrid.SelectedItem != null)
-            {
-                _appointmentController.Remove(((Appointment)AppointmentsDataGrid.SelectedItem));
-                UpdateTable();
-            }
-        }
-
-        private void Double_Click(object sender, RoutedEventArgs e)
-        {
-            Appointment appointment = (Appointment) AppointmentsDataGrid.SelectedItem;
-            MedicalRecordWindow recordWindow = new MedicalRecordWindow(appointment.Patient, parent, appointment);
-            Application.Current.MainWindow = recordWindow;
-            recordWindow.Show();
-        }
-
-        public void UpdateTable()
-        {
-            AppointmentsDataGrid.Items.Clear();
-            foreach (Appointment appointment  in _appointmentController.GetScheduled())
-            {
-                AppointmentsDataGrid.Items.Add(appointment);
-            }
         }
     }
 }
