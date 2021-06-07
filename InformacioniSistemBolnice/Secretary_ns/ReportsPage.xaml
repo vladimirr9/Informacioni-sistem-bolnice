@@ -46,7 +46,7 @@
                     </DatePicker.SelectedDate>
                 </DatePicker>
             </StackPanel>
-            <Button Width="120" Margin="0,30,0,0" x:Name="Generate1" Height="40" Content="Generiši" Click="Generate1_Click" >
+            <Button Width="120" Margin="0,30,0,0" x:Name="Generate1" Height="40" Content="_Generiši" Click="Generate1_Click" >
             </Button>
         </StackPanel>
     </Grid>
