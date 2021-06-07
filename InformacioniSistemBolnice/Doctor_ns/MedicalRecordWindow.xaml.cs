@@ -149,6 +149,15 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
         }
 
+        private void Anamnesis_Report_Click(object sender, RoutedEventArgs e)
+        {
+            Appointment appointment = (Appointment) AppointmentsDataGrid.SelectedItem;
+            if (appointment != null && appointment.AppointmentStatus == AppointmentStatus.finished)
+            {
+                _printDialog.PrintVisual(new AnamnesisReport(_anamnesisController.AppointmentAnamnesis(appointment), parent.Doctor), "Izveštaj recepta");
+            }
+        }
+
         private void Prescription_Report_Click(object sender, RoutedEventArgs e)
         {
             if (prescription != null)

@@ -113,6 +113,9 @@
     <Compile Include="FileStorage\IngredientFileRepository.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
+    <Compile Include="Reports\AnamnesisReport.xaml.cs">
+      <DependentUpon>AnamnesisReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\PrescriptionReport.xaml.cs">
       <DependentUpon>PrescriptionReport.xaml</DependentUpon>
     </Compile>
@@ -458,6 +461,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Patient_ns\TherapyPatientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\AnamnesisReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

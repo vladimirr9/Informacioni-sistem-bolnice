@@ -10,12 +10,12 @@
 
     <Grid Background="White">
         <Rectangle Fill="#FF004E89" Height="146" Stroke="Black" VerticalAlignment="Top"/>
-        <Label Content="Recep za lek" Margin="226,32,283,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Foreground="White"/>
+        <Label Content="Recept za lek" Margin="226,32,261,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Foreground="White"/>
         <Label Content="Naziv leka:" HorizontalAlignment="Left" Margin="68,214,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
         <Label Content="Datum izdavanja:" HorizontalAlignment="Left" Margin="68,309,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
         <Label Content="Izdato od lekara:" HorizontalAlignment="Left" Margin="68,412,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Zdravo Bolnica" Margin="540,0,81,70" FontSize="24" FontWeight="Bold" Foreground="#FF004E89" Height="42" VerticalAlignment="Bottom"/>
-        <Rectangle Fill="#FF004E89" Margin="543,0,84,70" Stroke="#FF004E89" RenderTransformOrigin="0.5,0.5" Height="2" VerticalAlignment="Bottom">
+        <Label Content="Zdravo Bolnica" Margin="0,0,81,70" FontSize="24" FontWeight="Bold" Foreground="#FF004E89" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="179"/>
+        <Rectangle Fill="#FF004E89" Margin="0,0,84,70" Stroke="#FF004E89" RenderTransformOrigin="0.5,0.5" Height="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="173">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -28,6 +28,26 @@
         <Label x:Name="MedicineLabel" HorizontalAlignment="Left" Margin="383,214,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="DateLabel" HorizontalAlignment="Left" Margin="383,309,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="DoctorLabel" HorizontalAlignment="Left" Margin="383,412,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Rectangle Fill="#FFF17300" Margin="0,136,0,0" Stroke="#FFF17300" RenderTransformOrigin="0.5,0.5" Height="10" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FFF17300" Stroke="#FFF17300" RenderTransformOrigin="0.5,0.5" Height="10" VerticalAlignment="Top">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
 
 
     </Grid>
