@@ -61,6 +61,22 @@ namespace InformacioniSistemBolnice.Doctor_ns
             }
         }
 
+        private void Remove_Ingredient_Click(object sender, RoutedEventArgs e)
+        {
+            if (IngredientsList.SelectedIndex != -1)
+            {
+                foreach (Medicine drug in _medicineController.GetAllMedicines())
+                {
+                    if (drug.Name == DrugsList.SelectedItem.ToString())
+                    {
+                        drug.IngredientsList.Remove((Ingredient)IngredientsList.SelectedItem);
+                        _medicineController.UpdateMedicine(drug);
+                        WriteIngredients(drug);
+                    }
+                }
+            }
+        }
+
         private void UpdateList()
         {
             DrugsList.Items.Clear();
@@ -90,7 +106,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             {
                 if (drug.IngredientsList.Contains(ingredient))
                 {
-                    IngredientsList.Items.Add(ingredient.Name);
+                    IngredientsList.Items.Add(ingredient);
                 }
                 else
                 {

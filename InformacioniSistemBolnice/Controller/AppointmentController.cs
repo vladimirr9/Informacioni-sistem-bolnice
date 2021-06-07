@@ -94,5 +94,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _appointmentService.GetNextEarliestAppointmentTime(datetime);
         }
+
+        public void CheckMissedAppointments()
+        {
+            _appointmentService.CheckMissedAppointments();
+        }
     }
 }

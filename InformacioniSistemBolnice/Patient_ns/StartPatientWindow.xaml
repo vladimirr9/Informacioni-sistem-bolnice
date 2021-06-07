@@ -5,10 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
         mc:Ignorable="d"
-        Title="StartPatientWindow" Height="550" Width="800" WindowStartupLocation="CenterScreen" Background="#FFC7C0C0">
+        Title="StartPatientWindow" Height="550" Width="800" WindowStartupLocation="CenterScreen" Background="White">
     <Grid>
-        <Button x:Name="odjava"  FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" Content="Odjava" HorizontalAlignment="Left" Margin="697,23,0,0" VerticalAlignment="Top" Width="75" Click="odjava_Click" />
-        <TextBlock x:Name="imePacijenta" FontStyle="Italic" HorizontalAlignment="Left" Margin="22,23,0,0" TextWrapping="Wrap" Text="" FontSize="25" VerticalAlignment="Top"/>
+        <Button x:Name="odjava" Margin="697,0,10,434" Background="#FFFDFCFC" BorderThickness="0" Click="odjava_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="settings1.png" Stretch="UniformToFill" Height="40" Width="40"/>
+            </StackPanel>
+        </Button>
+        <StackPanel x:Name="iconAndName" Orientation="Horizontal">
+
+            <Image Source="user.png" Stretch="UniformToFill" Width="70" Height ="70" Margin="10,0,0,430"/>
+            <TextBlock FontWeight="Bold" x:Name="imePacijenta" FontStyle="Italic" HorizontalAlignment="Left" Margin="22,22,0,430" TextWrapping="Wrap" Text="" FontSize="28" VerticalAlignment="Top"/>
+        </StackPanel>
         <Label x:Name="imeLjekara" FontStyle="Italic" HorizontalAlignment="Left" Margin="22,23,0,0"  FontSize="25" VerticalAlignment="Top"/>
 
         <Frame x:Name="startWindow" NavigationUIVisibility="Hidden" Margin="0,85,0,0" />

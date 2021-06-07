@@ -9,6 +9,6 @@
       Title="TherapyPatientPage">
 
     <Grid>
-        <GroupBox x:Name="terapijaGroupBox" Header="Raspored uzimanja terapije" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,2"/>
+        <GroupBox x:Name="terapijaGroupBox" Header="Raspored uzimanja terapije" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,25"/>
     </Grid>
 </Page>

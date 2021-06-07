@@ -25,16 +25,23 @@ namespace InformacioniSistemBolnice.Service
         private List<Note> NotesWithReminder(Patient patient)
         {
             List<Note> notes = new List<Note>();
-            foreach (Anamnesis a in PatientsAnamneses(patient))
+            if (PatientsAnamneses(patient).Count() > 0)
             {
-                foreach (Note n in a.NotesForAnamnesis)
+                foreach (Anamnesis a in PatientsAnamneses(patient))
                 {
-                    if (n.IsSetReminder == true)
-                    {
-                        notes.Add(n);
-                    }
+                    
+                    
+                        foreach (Note n in a.NotesForAnamnesis)
+                        {
+                            if (n.IsSetReminder == true)
+                            {
+                                notes.Add(n);
+                            }
+                        }
+                    
                 }
             }
+
             return notes;
         }
 

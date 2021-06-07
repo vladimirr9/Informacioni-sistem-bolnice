@@ -4,22 +4,38 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
+      xmlns:conv="clr-namespace:InformacioniSistemBolnice.Converter"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PatientExaminesAppointmentPage">
-
+      Title="PatientExaminesAppointmentPage" Height="450" Width="800">
+    <Page.Resources>
+        <conv:AppointmentTypeConverter x:Key="AppointmentTypeConverter"/>
+        <conv:AppointmentStatusConverter x:Key="AppointmentStatusConverter"/>
+        <conv:AppointmentDurationConverter x:Key="AppointmentDurationConverter"/>
+    </Page.Resources>
     <Grid>
-        <DataGrid x:Name="PrikazPregleda" BorderThickness="2" BorderBrush="Black" Background="White" Height="277" Margin="0,10,55,0" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Right" Width="708" >
-            <DataGrid.Resources>
-                <Style TargetType="{x:Type DataGridColumnHeader}"/>
-            </DataGrid.Resources>
+        <DataGrid x:Name="PrikazPregleda" CanUserResizeColumns="False"  CanUserResizeRows="False" CanUserReorderColumns="False" BorderThickness="2" BorderBrush="Black" Background="White" Height="277" Margin="0,20,55,0" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Right" Width="708" ColumnHeaderHeight="40" RowHeight="40" GridLinesVisibility="None" >
+
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}" Width="35"/>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding AppointmentDate}" Width="150" />
-                <DataGridTextColumn Header="Trajanje u minutima" Binding="{Binding DurationInMinutes}" Width="60"/>
-                <DataGridTextColumn Header="Tip pregleda" Binding ="{Binding Type}" Width="150"/>
-                <DataGridTextColumn Header="Status pregleda" Binding ="{Binding AppointmentStatus}" Width="80"/>
+                <DataGridTextColumn Header="Trajanje" Binding="{Binding DurationInMinutes,Converter={StaticResource AppointmentDurationConverter}}" Width="60" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.EditingElementStyle>
+                        <Style TargetType="TextBox">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                            <Setter Property="AcceptsReturn" Value="true" />
+                        </Style>
+                    </DataGridTextColumn.EditingElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Tip " Binding ="{Binding Type,Converter={StaticResource AppointmentTypeConverter}}" Width="150"/>
+                <DataGridTextColumn Header="Status " Binding ="{Binding AppointmentStatus,Converter={StaticResource AppointmentStatusConverter}}" Width="80"/>
                 <DataGridTextColumn Header="Lekar" Width="*">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1}">
@@ -36,11 +52,41 @@
                     </DataGridTextColumn.Binding>
                 </DataGridTextColumn>
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="White" />
+                </Style>
+            </DataGrid.Resources>
+
+
         </DataGrid>
-        <Button x:Name="zakazi" Content="Zakaži" FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="35" Margin="80,312,0,0" VerticalAlignment="Top" Width="116" Click="zakazi_Click"  />
-        <Button x:Name="pomjeri" Content="Pomeri" FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="35" Margin="330,312,0,0" VerticalAlignment="Top" Width="116" Click="pomjeri_Click" />
-        <Button x:Name="cancelTermin" Content="Otkaži" FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="35" Margin="580,312,0,0" VerticalAlignment="Top" Width="116" Click="cancelTermin_Click" />
-        <Button x:Name="back" Content="Nazad" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,400,0,0" Click="back_Click"/>
+        <Button x:Name="zakazi"  FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="40" Margin="38,312,0,0" VerticalAlignment="Top" Width="110" Click="zakazi_Click"  >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="add.png" Stretch="UniformToFill" Height="30" Width="30" RenderTransformOrigin="0.419,0.2"/>
+                <TextBlock Text="Zakaži" FontSize="22" RenderTransformOrigin="0.400,0.300" Height="32" Width="89"/>
+
+            </StackPanel>
+        </Button>
+        <Button x:Name="pomjeri"  FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="40" Margin="340,312,0,0" VerticalAlignment="Top" Width="110" Click="pomjeri_Click" >
+            <StackPanel Orientation="Horizontal" Width="125">
+                <Image Source="edit.png" Stretch="UniformToFill" Height="30" Width="30" RenderTransformOrigin="0.419,0.2"/>
+                <TextBlock Text="Pomeri" FontSize="22" RenderTransformOrigin="0.400,0.300" Height="32" Width="77"/>
+
+            </StackPanel>
+        </Button>
+        <Button x:Name="cancelTermin"  FontSize="18" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="40" Margin="635,312,0,0" VerticalAlignment="Top" Width="110" Click="cancelTermin_Click" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="cancel.png" Stretch="UniformToFill" Height="30" Width="30" RenderTransformOrigin="0.419,0.2"/>
+                <TextBlock Text="Otkaži" FontSize="22" RenderTransformOrigin="0.400,0.300" Height="32" Width="82"/>
+
+            </StackPanel>
+        </Button>
+        <Button x:Name="back" Margin="0,390,705,10" Height="40" Background="#FFFDFCFC" BorderThickness="0" Click="back_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="back.png" Stretch="UniformToFill" Height="20"/>
+                <TextBlock Text="Nazad" FontSize="19" RenderTransformOrigin="0.400,0.300" Height="33" Width="58"/>
+            </StackPanel>
+        </Button>
     </Grid>
-   
+
 </Page>

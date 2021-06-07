@@ -212,5 +212,17 @@ namespace InformacioniSistemBolnice.Service
             return datetime;
         }
 
+        public void CheckMissedAppointments()
+        {
+            List<Appointment> appointments = GetScheduled();
+            foreach (Appointment appointment in appointments)
+            {
+                if (appointment.AppointmentDate < DateTime.Now)
+                {
+                    appointment.AppointmentStatus = AppointmentStatus.missed;
+                    AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+                }
+            }
+        }
     }
 }

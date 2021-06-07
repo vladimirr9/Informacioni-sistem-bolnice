@@ -5,13 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="UpravnikWindow" Height="768" Width="1024">
+        Title="UpravnikWindow" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
-        <Rectangle Fill="GhostWhite"  HorizontalAlignment="Left" Width="400" Stroke="CornflowerBlue"/>
-        <Button x:Name="button" Content="Prostorije" Background="CornflowerBlue" Height="40" Margin="31,0,0,218" FontSize="20" HorizontalAlignment="Left" Width="125" Click="WindowProstorije" VerticalAlignment="Bottom"/>
-        <Button x:Name="button3" Content="Obaveštenja" Background="CornflowerBlue" FontSize="20" Margin="234,0,657,98" Height="40" VerticalAlignment="Bottom" />
-        <Button x:Name="button4" Content="Odjava" HorizontalAlignment="Left" Margin="140,673,0,0" VerticalAlignment="Top" Width="125" Height="40" Background="IndianRed" FontSize="20" Click="Pocetna"/>
-        <Button x:Name="button5" Content="Lekovi" Background="CornflowerBlue" Height="40" Margin="234,0,0,218" FontSize="20" HorizontalAlignment="Left" Width="125" Click="LekoviWindow" VerticalAlignment="Bottom"/>
-        <Button x:Name="button6" Content="Zaposleni" Background="CornflowerBlue" Height="40" Margin="31,0,0,98" FontSize="20" HorizontalAlignment="Left" Width="125" VerticalAlignment="Bottom"/>
+        <Rectangle Fill="#f2e8d7" Stroke="CornflowerBlue" HorizontalAlignment="Stretch" Width="400" Margin="0,0,616,0" Height="738" VerticalAlignment="Stretch"/>
+        <Button x:Name="button" Background="#f2e8d7" Margin="0,429,860,0" FontSize="20" Click="WindowProstorije" Height="105" VerticalAlignment="Top" HorizontalAlignment="Right" Width="105" Padding="3,1,1,1" BorderThickness="0" BorderBrush="{x:Null}" ToolTip="Prostorije">
+            <StackPanel Height="100" Width="95">
+                <Image x:Name="image3" Height="100" Source="iconfinder_Hospital-Health_Clinic-Building-Medical-Health_5958919.png"/>
+
+            </StackPanel>
+        </Button>
+        <Button x:Name="button4" Margin="0,0,788,28" Background="#f2e8d7" FontSize="20" Click="Pocetna" Height="55" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="50" BorderBrush="{x:Null}" ToolTip="Odjava">
+            <StackPanel Height="50" Width="50">
+                <Image x:Name="image2" Height="50" Source="logout-128.png"/>
+            </StackPanel>
+
+        </Button>
+        <Button x:Name="button5" Background="#f2e8d7" Margin="246,429,0,0" FontSize="20" Click="LekoviWindow" Height="105" Width="105" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="{x:Null}" ToolTip="Lekovi">
+            <StackPanel Height="100" Width="95">
+                <Image x:Name="image4" Height="100" Source="16435998701606252957-128.png"/>
+
+            </StackPanel>
+        </Button>
+        <Button x:Name="button6" Content="Zaposleni" Background="#f2e8d7" Margin="31,591,0,0" FontSize="20" Width="125" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="300" Margin="51,80,0,0" VerticalAlignment="Top" Width="300" Source="logoUpravnik.png.png"/>
+        <Rectangle Fill="GhostWhite" Stroke="CornflowerBlue" HorizontalAlignment="Right" Width="616" Height="738" VerticalAlignment="Bottom"/>
+        <Label x:Name="label1" Content="Ime i prezime:" HorizontalAlignment="Left" Margin="443,270,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label2" Content="Datum rođenja:" HorizontalAlignment="Left" Margin="423,349,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label3" Content="Adresa:" HorizontalAlignment="Left" Margin="531,429,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label4" Content="JMBG:" HorizontalAlignment="Left" Margin="547,510,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label5" Content="E-mail:" HorizontalAlignment="Left" Margin="546,591,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label6" Content="Kontakt telefon:" HorizontalAlignment="Left" Margin="414,660,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="NameLabel" HorizontalAlignment="Left" Margin="677,270,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
+        <Label x:Name="DateLabel" HorizontalAlignment="Left" Margin="677,349,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
+        <Label x:Name="AddressLabel" HorizontalAlignment="Left" Margin="677,429,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
+        <Label x:Name="JMBGLabel" HorizontalAlignment="Left" Margin="677,510,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
+        <Label x:Name="EmailLabel" HorizontalAlignment="Left" Margin="677,591,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
+        <Label x:Name="NumberLabel" HorizontalAlignment="Left" Margin="677,660,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="185" Margin="628,34,0,0" VerticalAlignment="Top" Width="185" Source="7174186.png"/>
     </Grid>
 </Window>

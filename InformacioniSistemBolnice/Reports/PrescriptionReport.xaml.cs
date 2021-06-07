@@ -13,16 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace InformacioniSistemBolnice.Patient_ns
+namespace InformacioniSistemBolnice.Reports
 {
     /// <summary>
-    /// Interaction logic for MedicalHistoryPage.xaml
+    /// Interaction logic for PrescriptionReport.xaml
     /// </summary>
-    public partial class MedicalHistoryPage : Page
+    public partial class PrescriptionReport : Page
     {
-        public MedicalHistoryPage()
+        public PrescriptionReport(Prescription prescription)
         {
             InitializeComponent();
+            MedicineLabel.Content = prescription.Drug.Name;
+            DateLabel.Content = prescription.Date.Date;
+            DoctorLabel.Content = prescription.Doctor.Name + " " + prescription.Doctor.Surname;
         }
     }
 }

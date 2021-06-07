@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Doctor_ns"
         mc:Ignorable="d"
         Title="Lekovi za potvrdu" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Background="#FFDBE4EE">
         <Button Content="Validiraj" Margin="549,236,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="Validate_Click"/>
         <Button Content="Vrati" Margin="549,339,0,0" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128" Height="34" VerticalAlignment="Top" Click="Return_Click"/>
-        <TextBox x:Name="EditBox" HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" Margin="214,336,0,0" FontSize="20"/>
-        <Label Content="Izmena:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,334,0,0" Width="85" FontSize="20"/>
+        <TextBox x:Name="EditBox" HorizontalAlignment="Left" Height="34" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299" Margin="214,339,0,0" FontSize="20"/>
+        <Label Content="Izmena:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,339,0,0" Width="85" FontSize="20" Height="32"/>
         <ListBox x:Name="DrugsList" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="225" Margin="113,25,0,0" SelectionChanged="SelectionChange" FontSize="20"/>
         <ListBox x:Name="IngredientsList" HorizontalAlignment="Left" Height="186" Margin="452,25,0,0" VerticalAlignment="Top" Width="225" FontSize="20"/>
         <Label Content="Sastav:" HorizontalAlignment="Left" Margin="377,25,0,0" VerticalAlignment="Top" FontSize="20"/>

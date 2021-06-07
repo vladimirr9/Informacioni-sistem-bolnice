@@ -9,7 +9,7 @@
       Title="PatientExamineAnamnesesPage">
 
     <Grid>
-        <GroupBox x:Name="pregledAnamnezaGroupBox" Header="Pregled anamneza" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,2">
+        <GroupBox x:Name="pregledAnamnezaGroupBox" Header="Pregled anamneza" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,25">
             <Button x:Name="addNoteButton" Content="Dodaj belešku" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="13,302,0,0" VerticalAlignment="Top" Width="135" Click="addNoteButton_Click"/>
         </GroupBox>
         <DataGrid x:Name="DataGridAnamneses" BorderThickness="2" BorderBrush="Black" Background="White" Height="245" Margin="0,65,17,0" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Right" Width="551" SelectionChanged="DataGridAnamneses_SelectionChanged" >

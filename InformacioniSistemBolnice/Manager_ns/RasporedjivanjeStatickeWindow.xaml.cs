@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,46 +20,38 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class RasporedjivanjeStatickeWindow : Window
     {
-        private OpremaWindow parent;
-        private Inventory selektovana;
-        private Room izabrana;
-        public RasporedjivanjeStatickeWindow(Room p, Inventory o, OpremaWindow parent)
+        private OpremaWindow _parent;
+        private Inventory _selectedinventory;
+        private Room _selectedRoom;
+        private RoomController _roomController = new RoomController();
+        public RasporedjivanjeStatickeWindow(Room room, Inventory inventory, OpremaWindow parent)
         {
             InitializeComponent();
-            this.parent = parent;
-            selektovana = o;
-            izabrana = p;
-            List<Room> prostorijeSve = RoomFileRepository.GetAll();
-            List<Room> prostorije = new List<Room>();
-            foreach (Room pr in prostorijeSve)
-            {
-                if (!izabrana.Name.Equals(pr.Name))
-                {
-                    prostorije.Add(pr);
-                }
-            }
-            Prostorija.ItemsSource = prostorije;
+            this._parent = parent;
+            _selectedinventory = inventory;
+            _selectedRoom = room;
+            RoomsComboBox.ItemsSource = _roomController.DisplayRoomsForRelocating(_selectedRoom);
 
-            CalendarDateRange kalendar = new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1));
-            DatumDo.BlackoutDates.Add(kalendar);
+            CalendarDateRange calendar = new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1));
+            DateTo.BlackoutDates.Add(calendar);
         }
 
-        private void RasporediOpremu(object sender, RoutedEventArgs e)
+        private void RelocateInventory(object sender, RoutedEventArgs e)
         {
-            Room prostorija = (Room)Prostorija.SelectedItem;
-            int kolicina = Convert.ToInt32(Kolicina.Text);
+            Room destinationRoom = (Room)RoomsComboBox.SelectedItem;
+            int quantity = Convert.ToInt32(Kolicina.Text);
+            DateTime pickedDate = (DateTime)DateTo.SelectedDate;
+            _roomController.StaticInventoryRelocation(destinationRoom, _selectedinventory, quantity, pickedDate);
+            _parent.UpdateTable();
+            this.Close();          
+        }
 
-            int idProstorije = prostorija.RoomId;
-            String naziv = prostorija.Name;
-            RoomType tipProstorije = prostorija.RoomType;
-            Boolean isDeleted = prostorija.IsDeleted;
-            Boolean isActive = prostorija.IsActive;
-            Double kvadratura = prostorija.Area;
-            int brSprata = prostorija.Floor;
-            int brSobe = prostorija.RoomNumber;
-            List<Inventory> opremaLista1 = prostorija.InventoryList;
-
-            /*foreach (Oprema o in opremaLista1)
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+    }
+} /*foreach (Oprema o in opremaLista1)
             {
                 if (o.Sifra.Equals(selektovana.Sifra) && selektovana.Kolicina > kolicina)
                 {
@@ -66,58 +59,50 @@ namespace InformacioniSistemBolnice.Upravnik
                 }
             }*/
 
-            int idProstorije2 = izabrana.RoomId;
-            String naziv2 = izabrana.Name;
-            RoomType tipProstorije2 = izabrana.RoomType;
-            Boolean isDeleted2 = izabrana.IsDeleted;
-            Boolean isActive2 = izabrana.IsActive;
-            Double kvadratura2 = izabrana.Area;
-            int brSprata2 = izabrana.Floor;
-            int brSobe2 = izabrana.RoomNumber;
-            List<Inventory> opremaLista2 = izabrana.InventoryList;
+/*int idProstorije2 = izabrana.RoomId;
+String naziv2 = izabrana.Name;
+RoomType tipProstorije2 = izabrana.RoomType;
+Boolean isDeleted2 = izabrana.IsDeleted;
+Boolean isActive2 = izabrana.IsActive;
+Double kvadratura2 = izabrana.Area;
+int brSprata2 = izabrana.Floor;
+int brSobe2 = izabrana.RoomNumber;
+List<Inventory> opremaLista2 = izabrana.InventoryList;
 
-            //DateTime start = DateTime.Today;
-            DateTime datumDo = (DateTime)DatumDo.SelectedDate;
+//DateTime start = DateTime.Today;
+DateTime datumDo = (DateTime)DatumDo.SelectedDate;
 
-            if (DateTime.Today > datumDo)
-            {
-                foreach (Inventory o in opremaLista2)
-                {
-                    if (o.InventoryId.Equals(selektovana.InventoryId) && selektovana.Quantity > kolicina)
-                    {
-                        opremaLista2[opremaLista2.IndexOf(o)].Quantity -= kolicina;
-                        opremaLista1[opremaLista1.IndexOf(o)].Quantity += kolicina;
-                    }
-                }
-            }
-
-            Room p1 = new Room(naziv, idProstorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista1);
-            //int novaKolicina = RoomComboBox.GetOne(selektovana.Sifra).Kolicina + kolicina;
-            //izabrana.GetOne(selektovana.Sifra).Kolicina -= kolicina;
-            RoomFileRepository.UpdateRoom(prostorija.RoomId, p1);
-            //_parent.UpdateTable();
-
-            Room p2 = new Room(naziv2, idProstorije2, tipProstorije2, isDeleted2, isActive2, kvadratura2, brSprata2, brSobe2, opremaLista2);
-
-            RoomFileRepository.UpdateRoom(prostorija.RoomId, p1);
-            RoomFileRepository.UpdateRoom(izabrana.RoomId, p2);
-
-            parent.UpdateTable();
-
-            if (selektovana.Quantity < kolicina)
-            {
-                MessageBoxResult odgovor = MessageBox.Show("Nema dovoljno opreme", "Greška", MessageBoxButton.OK);
-                if (odgovor == MessageBoxResult.OK)
-                {
-                    this.Close();
-                }
-            }
-            this.Close();
-        }
-
-        private void Otkazi(object sender, RoutedEventArgs e)
+if (DateTime.Today > datumDo)
+{
+    foreach (Inventory o in opremaLista2)
+    {
+        if (o.InventoryId.Equals(selektovana.InventoryId) && selektovana.Quantity > kolicina)
         {
-            this.Close();
+            opremaLista2[opremaLista2.IndexOf(o)].Quantity -= kolicina;
+            opremaLista1[opremaLista1.IndexOf(o)].Quantity += kolicina;
         }
     }
 }
+
+Room p1 = new Room(naziv, idProstorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista1);
+//int novaKolicina = RoomComboBox.GetOne(selektovana.Sifra).Kolicina + kolicina;
+//izabrana.GetOne(selektovana.Sifra).Kolicina -= kolicina;
+RoomFileRepository.UpdateRoom(prostorija.RoomId, p1);
+//_parent.UpdateTable();
+
+Room p2 = new Room(naziv2, idProstorije2, tipProstorije2, isDeleted2, isActive2, kvadratura2, brSprata2, brSobe2, opremaLista2);
+
+RoomFileRepository.UpdateRoom(prostorija.RoomId, p1);
+RoomFileRepository.UpdateRoom(izabrana.RoomId, p2);
+
+parent.UpdateTable();
+
+if (selektovana.Quantity < kolicina)
+{
+    MessageBoxResult odgovor = MessageBox.Show("Nema dovoljno opreme", "Greška", MessageBoxButton.OK);
+    if (odgovor == MessageBoxResult.OK)
+    {
+        this.Close();
+    }
+}
+this.Close();*/

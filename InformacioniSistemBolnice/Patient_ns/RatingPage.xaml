@@ -6,13 +6,11 @@
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="RatingPage">
+      Title="RatingPage" Height="450">
 
     <Grid>
-        <DataGrid x:Name="PrikazPregleda" Background="White" BorderBrush="Black" BorderThickness="2" Height="277" Margin="60,40,290,0" VerticalAlignment="Top" IsReadOnly="True" SelectionChanged="PrikazPregleda_SelectionChanged"  >
-            <DataGrid.Resources>
-                <Style TargetType="{x:Type DataGridColumnHeader}"/>
-            </DataGrid.Resources>
+        <DataGrid x:Name="PrikazPregleda" CanUserResizeColumns="False"  CanUserResizeRows="False" CanUserReorderColumns="False"  Background="White" BorderBrush="Black" BorderThickness="2" Height="277" Margin="60,40,290,0" VerticalAlignment="Top" IsReadOnly="True" SelectionChanged="PrikazPregleda_SelectionChanged" ColumnHeaderHeight="40" GridLinesVisibility="None" RowHeight="40"  >
+            
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}" Width="25"/>
@@ -26,9 +24,19 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding AppointmentDate}" Width="*" />
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="White" />
+                </Style>
+            </DataGrid.Resources>
         </DataGrid>
         <Button x:Name="rate" Background="White" BorderBrush="Black" BorderThickness="2" Content="Oceni lekara" HorizontalAlignment="Left" Margin="605,40,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="rate_Click" />
         <Button x:Name="rateHospital" Background="White" BorderBrush="Black" BorderThickness="2" Content="Oceni ustanovu" HorizontalAlignment="Left" Margin="605,120,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="rateHospital_Click" />
-        <Button x:Name="back" Content="Nazad" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="10,400,0,0" Width="75" Click="back_Click" />
+        <Button x:Name="back" Margin="0,390,705,10" Height="40" Background="#FFFDFCFC" BorderThickness="0" Click="back_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="back.png" Stretch="UniformToFill" Height="20"/>
+                <TextBlock Text="Nazad" FontSize="19" RenderTransformOrigin="0.400,0.300" Height="33" Width="58"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>

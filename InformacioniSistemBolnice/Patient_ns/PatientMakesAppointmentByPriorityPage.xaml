@@ -6,12 +6,17 @@
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PatientMakesAppointmentByPriorityPage" Height="400" Width="800">
+      Title="PatientMakesAppointmentByPriorityPage" Height="450" >
 
     <Grid>
         <RadioButton x:Name="doctorRadioButton" Content="Lekar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="300,0,0,0" FontSize="22" RenderTransformOrigin="0.312,-2.333" Checked="doctorRadioButton_Checked" />
         <RadioButton x:Name="timeRadioButton" Content="Vremenski interval" HorizontalAlignment="Left" Margin="300,40,0,0" VerticalAlignment="Top" FontSize="22" Checked="timeRadioButton_Checked" />
-        <Button x:Name="back" Content="Nazad" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,378,0,0" Click="back_Click" />
+        <Button x:Name="back" Margin="0,390,705,10" Height="40" Background="#FFFDFCFC" BorderThickness="0" Click="back_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="back.png" Stretch="UniformToFill" Height="20"/>
+                <TextBlock Text="Nazad" FontSize="19" RenderTransformOrigin="0.400,0.300" Height="33" Width="58"/>
+            </StackPanel>
+        </Button>
         <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="10,95,10,40" ></Frame>
     </Grid>
 </Page>

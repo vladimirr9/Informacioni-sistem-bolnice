@@ -27,6 +27,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             this.parent = parent;
             InitializeComponent();
+            _appointmentController.CheckMissedAppointments();
             UpdateTable();
         }
 

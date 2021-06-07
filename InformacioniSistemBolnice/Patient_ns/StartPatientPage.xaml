@@ -9,10 +9,40 @@
       Title="StartPatientPage">
 
     <Grid>
-        <Button x:Name="pregledTermina" Background="White" FontSize="22" BorderThickness="2" BorderBrush="Black"  Content="Pregled termina" HorizontalAlignment="Left" Margin="50,80,0,0" VerticalAlignment="Top" Height="50" Width="675" Click="pregledTermina_Click" />
-        <Button x:Name="ocjenjivanje" FontSize="22" Background="White" BorderThickness="2" BorderBrush="Black" Content="Ocenjivanje usluga" HorizontalAlignment="Left" Margin="50,200,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="ocjenjivanje_Click" />
-        <Button x:Name="obavjestenja" FontSize="22" Background="White" Content="Obaveštenja" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,260,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="obavjestenja_Click" />
-        <Button x:Name="karton" FontSize="22" Content="Zdravstveni karton" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="50,140,0,0" VerticalAlignment="Top" Width="675" Height="50" Click="karton_Click" />
-        <Image Source="logo.png" Width="200" Margin="570,320,30,10"/>
+        <Button x:Name="pregledTermina" Background="White" FontSize="22" BorderThickness="2" BorderBrush="Black"   HorizontalAlignment="Left" Margin="50,45,0,0" VerticalAlignment="Top" Height="60" Width="675" Click="pregledTermina_Click" >
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="table.png" Stretch="UniformToFill" Height="51" Width="53" RenderTransformOrigin="0.419,0.2"/>
+                <TextBlock Text="Pregled termina" FontSize="25" RenderTransformOrigin="0.400,0.300" Height="32" Width="204"/>
+
+            </StackPanel>
+
+        </Button>
+        <Button x:Name="ocjenjivanje" FontSize="22" Background="White" BorderThickness="2" BorderBrush="Black"  HorizontalAlignment="Left" Margin="50,195,0,0" VerticalAlignment="Top" Width="675" Height="60" Click="ocjenjivanje_Click" >
+
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="rate.png" Stretch="UniformToFill" Height="60" Width="56"/>
+                <TextBlock Text="Ocenjivanje" FontSize="25" RenderTransformOrigin="0.400,0.300" Height="34" Width="203"/>
+
+            </StackPanel>
+        </Button>
+        <Button x:Name="obavjestenja" FontSize="22" Background="White"  BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,270,0,0" VerticalAlignment="Top" Width="675" Height="60" Click="obavjestenja_Click" >
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="ring.png" Stretch="UniformToFill" Height="52" Width="52"/>
+                <TextBlock Text="Obaveštenja" FontSize="25" RenderTransformOrigin="0.400,0.300" Height="32" Width="204"/>
+
+            </StackPanel>
+        </Button>
+        <Button x:Name="karton" FontSize="22"  Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="50,120,0,0" VerticalAlignment="Top" Width="675" Height="60" Click="karton_Click" >
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="card.png" Stretch="UniformToFill" Height="60" Width="60"/>
+                <TextBlock Text="Zdravstveni karton" FontSize="25" RenderTransformOrigin="0.400,0.300" Height="33" Width="204"/>
+
+            </StackPanel>
+        </Button>
+        <Image Source="logo.png" Margin="595,335,30,10"/>
     </Grid>
 </Page>

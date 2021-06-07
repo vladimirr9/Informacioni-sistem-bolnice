@@ -81,5 +81,26 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _forHospitalisationService.GetRoomsForHospitalisation(begin, end);
         }
+
+        public int GetAvailableBed(Room room, DateTime begin, DateTime end)
+        {
+            return _forHospitalisationService.GetAvailableBed(room, begin, end);
+        }
+        public List<Room> DisplayRoomsForRelocating(Room room)
+        {
+            return _roomService.DisplayRoomsForRelocating(room);
+        }
+        public void StaticInventoryRelocation(Room destinationRoom, Inventory inventoryForRelocating, int quantity, DateTime relocationDate)
+        {
+            _roomService.StaticInventoryRelocation(destinationRoom, inventoryForRelocating, quantity, relocationDate);
+        }
+        public void MergingRooms(Room room1, Room room2)
+        {
+            _roomService.MergingRooms(room1, room2);
+        }
+        public void DivideRoom(Room room, double newRoomArea)
+        {
+            _roomService.DivideRoom(room, newRoomArea);
+        }
     }
 }

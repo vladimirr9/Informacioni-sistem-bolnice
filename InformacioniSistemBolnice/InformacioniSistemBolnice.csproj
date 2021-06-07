@@ -77,6 +77,8 @@
     <Compile Include="Controller\ActivityLogController.cs" />
     <Compile Include="Controller\AnamnesisController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="Controller\HospitalisationControler.cs" />
+    <Compile Include="Controller\LoginControler.cs" />
     <Compile Include="Controller\MedicineController.cs" />
     <Compile Include="Controller\RatingController.cs" />
     <Compile Include="Controller\RenovationPeriodController.cs" />
@@ -84,12 +86,14 @@
     <Compile Include="Converter\AppointmentDurationConverter.cs" />
     <Compile Include="Converter\AppointmentStatusConverter.cs" />
     <Compile Include="Converter\AppointmentTypeConverter.cs" />
+    <Compile Include="Doctor_ns\Hospitalisation.cs" />
     <Compile Include="Doctor_ns\Vacation.cs" />
     <Compile Include="Doctor_ns\WorkShift.cs" />
     <Compile Include="Controller\DoctorControler.cs" />
     <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
     <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />
     <Compile Include="Manager_ns\RenovationPeriod.cs" />
     <Compile Include="Patient_ns\AddingNotesPage.xaml.cs">
@@ -109,6 +113,12 @@
     <Compile Include="FileStorage\IngredientFileRepository.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
+    <Compile Include="Reports\AnamnesisReport.xaml.cs">
+      <DependentUpon>AnamnesisReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PrescriptionReport.xaml.cs">
+      <DependentUpon>PrescriptionReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SecretaryReport1.xaml.cs">
       <DependentUpon>SecretaryReport1.xaml</DependentUpon>
     </Compile>
@@ -138,6 +148,8 @@
     </Compile>
     <Compile Include="Service\AllergyCheck.cs" />
     <Compile Include="Service\DoctorService.cs" />
+    <Compile Include="Service\HospitalisationService.cs" />
+    <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Service\RatingService.cs" />
@@ -154,9 +166,6 @@
     </Compile>
     <Compile Include="Doctor_ns\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Patient_ns\MedicalHistoryPage.xaml.cs">
-      <DependentUpon>MedicalHistoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\MedicalRecordPage.xaml.cs">
       <DependentUpon>MedicalRecordPage.xaml</DependentUpon>
@@ -391,10 +400,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Patient_ns\MedicalHistoryPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Patient_ns\MedicalRecordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -456,6 +461,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Patient_ns\TherapyPatientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\AnamnesisReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\PrescriptionReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -659,6 +672,93 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Secretary_ns\questionmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\settings1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\logoUpravnik.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\managerlogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\manager.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\7174186.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\iconfinder_Hospital-Health_Clinic-Building-Medical-Health_5958919.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\16435998701606252957-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\logout-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\clipart2640924.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\rate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\notifications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\ring.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\add-plus-icon-163225.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\kisspng-computer-icons-editing-button-clip-art-edit-cliparts-5ab59f396f9168.796371701521852217457.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\bin-delete-garbage-recycle-remove-trash-icon-695067.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\kisspng-first-aid-supplies-first-aid-kits-health-care-medi-hover-5b2aa361ad2839.4975777015295209937093.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\—Pngtree—vector tools repair icon_3991936.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\merge-icon-61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\split-icon-62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\15519179861536080156-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\arrow-58-512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

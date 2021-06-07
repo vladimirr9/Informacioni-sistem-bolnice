@@ -42,7 +42,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         public void UpdateVisibilityOfComponents()
         {
-            imePacijenta.Visibility = Visibility.Hidden;
+            iconAndName.Visibility = Visibility.Hidden;
             odjava.Visibility = Visibility.Hidden;
         }
     }
