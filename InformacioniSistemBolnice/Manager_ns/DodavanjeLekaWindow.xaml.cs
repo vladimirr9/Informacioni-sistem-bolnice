@@ -50,7 +50,8 @@ namespace InformacioniSistemBolnice.Upravnik
         private void AddIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)Sastojci.SelectedItem;
-            ObservableCollection<Ingredient> ingredients =_medicineController.AddIngredientsToNewMedicine(selected);
+            ObservableCollection<Ingredient> ingredientsList = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
+            ObservableCollection<Ingredient> ingredients = _medicineController.AddIngredientsToNewMedicine(ingredientsList, selected);
             SastojciList.ItemsSource = ingredients;
         }
 
@@ -68,10 +69,11 @@ namespace InformacioniSistemBolnice.Upravnik
             String name = Naziv.Text;
             MedicineStatus medicineStatus = MedicineStatus.waitingForValidation;
             bool isDeleted = false;
+            int quantity = Convert.ToInt32(Kolicina.Text);
             ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
             List<Ingredient> medicineIngredients = ingredients.ToList();
 
-            Medicine medicine = new Medicine(medicineId, name, isDeleted, medicineStatus, medicineIngredients);
+            Medicine medicine = new Medicine(medicineId, name, isDeleted, medicineStatus, quantity, medicineIngredients);
             return medicine;
         }
     }

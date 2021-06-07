@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="UpravnikWindow" Height="768" Width="1024">
+        Title="UpravnikWindow" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
         <Rectangle Fill="#f2e8d7" Stroke="CornflowerBlue" HorizontalAlignment="Stretch" Width="400" Margin="0,0,616,0" Height="738" VerticalAlignment="Stretch"/>
         <Button x:Name="button" Background="#f2e8d7" Margin="0,429,860,0" FontSize="20" Click="WindowProstorije" Height="105" VerticalAlignment="Top" HorizontalAlignment="Right" Width="105" Padding="3,1,1,1" BorderThickness="0" BorderBrush="{x:Null}" ToolTip="Prostorije">
-            <StackPanel Height="100" Width="100">
+            <StackPanel Height="100" Width="95">
                 <Image x:Name="image3" Height="100" Source="iconfinder_Hospital-Health_Clinic-Building-Medical-Health_5958919.png"/>
 
             </StackPanel>
@@ -21,7 +21,7 @@
 
         </Button>
         <Button x:Name="button5" Background="#f2e8d7" Margin="246,429,0,0" FontSize="20" Click="LekoviWindow" Height="105" Width="105" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="{x:Null}" ToolTip="Lekovi">
-            <StackPanel Height="100" Width="100">
+            <StackPanel Height="100" Width="95">
                 <Image x:Name="image4" Height="100" Source="16435998701606252957-128.png"/>
 
             </StackPanel>

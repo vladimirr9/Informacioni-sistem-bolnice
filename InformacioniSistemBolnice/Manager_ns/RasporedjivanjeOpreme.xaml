@@ -7,22 +7,23 @@
         mc:Ignorable="d"
         Title="RasporedjivanjeOpreme" Height="500" Width="550">
     <Grid>
-        <Label x:Name="label" Content="Rasporedi opremu" HorizontalAlignment="Left" Margin="38,46,0,0" VerticalAlignment="Top" FontSize="24" Foreground="DarkBlue" FontWeight="SemiBold" FontStyle="Italic"/>
-        <Label x:Name="label1" Content="Količina:" HorizontalAlignment="Left" Margin="38,151,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
-        <Label x:Name="label2" Content="Premesti u:" HorizontalAlignment="Left" Margin="38,240,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
-        <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" FontSize="15" Background="CornflowerBlue" Click="RelocateInventory" Margin="100,408,0,0"/>
-        <Button x:Name="button1" Content="Otkaži" VerticalAlignment="Top" FontSize="15" Background="IndianRed" Click="Cancel" Margin="342,408,100,0"/>
-        <TextBox x:Name="Kolicina" HorizontalAlignment="Left" Height="37" Margin="224,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="20"/>
-        <ComboBox x:Name="Prostorija" HorizontalAlignment="Left" Margin="224,244,0,0" VerticalAlignment="Top" Width="200" FontSize="20">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock>
-                        <TextBlock.Text>
-                            <Binding Path="Name"/>
-                        </TextBlock.Text>
-                    </TextBlock>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+      <Label x:Name="label" Content="Rasporedi opremu" HorizontalAlignment="Left" Margin="38,22,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold" FontStyle="Italic"/>
+      <Label x:Name="label1" Content="Količina:" HorizontalAlignment="Left" Margin="38,151,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
+      <Label x:Name="label2" Content="Premesti u:" HorizontalAlignment="Left" Margin="38,240,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>
+      <Button x:Name="button" Content="Potvrdi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" FontSize="17" Background="CornflowerBlue" Click="RelocateInventory" Margin="100,408,0,0"/>
+      <Button x:Name="button1" Content="Otkaži" VerticalAlignment="Top" FontSize="17" Background="IndianRed" Click="Cancel" Margin="324,408,118,0"/>
+      <TextBox x:Name="QuantityBox" HorizontalAlignment="Left" Height="37" Margin="224,153,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" FontSize="20"/>
+      <ComboBox x:Name="RoomsComboBox" HorizontalAlignment="Left" Margin="224,244,0,0" VerticalAlignment="Top" Width="200" FontSize="20">
+        <ComboBox.ItemTemplate>
+          <DataTemplate>
+            <TextBlock>
+              <TextBlock.Text>
+                <Binding Path="Name"/>
+              </TextBlock.Text>
+            </TextBlock>
+          </DataTemplate>
+        </ComboBox.ItemTemplate>
+      </ComboBox>
+      <Image x:Name="image" HorizontalAlignment="Left" Height="75" Margin="443,22,0,0" VerticalAlignment="Top" Width="75" Source="logoUpravnik.png.png"/>
     </Grid>
 </Window>

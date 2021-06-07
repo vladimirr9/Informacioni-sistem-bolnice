@@ -94,12 +94,26 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             SastojciLeka.Items.Clear();
             Medicine selectedMedicine = (Medicine)dataGridLekovi.SelectedItem;
+            if (selectedMedicine != null)
+            {
+                foreach (Ingredient ingredient in selectedMedicine.IngredientsList)
+                {
+                    SastojciLeka.Items.Add(ingredient);
+                }
+            }
+            /*SastojciLeka.Items.Clear();
+            Medicine selectedMedicine = (Medicine)dataGridLekovi.SelectedItem;
             foreach(Ingredient ingredient in selectedMedicine.IngredientsList)
             {
                 SastojciLeka.Items.Add(ingredient);
             }
             /*List<Ingredient> ingredients = _medicineController.GetMedicineIngredients(selectedMedicine);
             SastojciLeka.ItemsSource = ingredients;*/
+        }
+
+        private void GenerateReport(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -730,5 +730,35 @@
   <ItemGroup>
     <Resource Include="Patient_ns\cancel.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\add-plus-icon-163225.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\kisspng-computer-icons-editing-button-clip-art-edit-cliparts-5ab59f396f9168.796371701521852217457.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\bin-delete-garbage-recycle-remove-trash-icon-695067.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\kisspng-first-aid-supplies-first-aid-kits-health-care-medi-hover-5b2aa361ad2839.4975777015295209937093.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\—Pngtree—vector tools repair icon_3991936.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\merge-icon-61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\split-icon-62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\15519179861536080156-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\arrow-58-512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
