@@ -719,5 +719,8 @@
   <ItemGroup>
     <Resource Include="Manager_ns\split-icon-62.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\15519179861536080156-128.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

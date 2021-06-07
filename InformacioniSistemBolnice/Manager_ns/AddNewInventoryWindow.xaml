@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="Dodavanje opreme" Height="700" Width="500">
+        Title="Dodavanje opreme" Height="700" Width="500" ResizeMode="NoResize">
     <Grid>
         <Label x:Name="label" Content="Dodavanje opreme" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" Foreground="DarkBlue" FontStyle="Italic"/>
         <Label x:Name="label1" Content="Šifra:" HorizontalAlignment="Left" Margin="112,199,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue"/>

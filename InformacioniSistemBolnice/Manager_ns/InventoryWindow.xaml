@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="Oprema" Height="768" Width="1024">
+        Title="Oprema" Height="768" Width="1024" ResizeMode="NoResize">
     <Grid>
         <DataGrid x:Name="dataGridInventory" HorizontalAlignment="Left" Height="400" Margin="82,144,0,0" VerticalAlignment="Top" Width="520"
                   AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" SelectedIndex="0">

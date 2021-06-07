@@ -104,5 +104,10 @@ namespace InformacioniSistemBolnice.Upravnik
             /*List<Ingredient> ingredients = _medicineController.GetMedicineIngredients(selectedMedicine);
             SastojciLeka.ItemsSource = ingredients;*/
         }
+
+        private void GenerateReport(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
