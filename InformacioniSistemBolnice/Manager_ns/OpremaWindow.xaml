@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
+        xmlns:conv="clr-namespace:InformacioniSistemBolnice.Converter"
         mc:Ignorable="d"
         Title="OpremaWindow" Height="768" Width="1024">
+  <Window.Resources>
+        <conv:InventoryTypeConverter x:Key="InventoryTypeConverter"/>
+  </Window.Resources>
     <Grid>
         <DataGrid x:Name="dataGridInventory" HorizontalAlignment="Left" Height="400" Margin="82,144,0,0" VerticalAlignment="Top" Width="520"
                   AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" SelectedIndex="0">
@@ -24,7 +28,7 @@
                 <!--DataGridTextColumn Header="ID prostorije" Binding="{Binding Path=RoomId}" Width="125"/-->
                 <DataGridTextColumn Header="Šifra" Binding="{Binding Path=InventoryId}" Width="125"/>
                 <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="125"/>
-                <DataGridTextColumn Header="Tip" Binding="{Binding Path=InventoryType}" Width="125"/>
+                <DataGridTextColumn Header="Tip" Binding="{Binding Path=InventoryType, Converter={StaticResource InventoryTypeConverter}}" Width="125"/>
                 <!--DataGridTextColumn Header="Obrisana" Binding="{Binding Path=IsDeleted}" Width="100"/-->
                 <DataGridTextColumn Header="Količina" Binding="{Binding Path=Quantity}" Width="*"/>
             </DataGrid.Columns>
