@@ -21,12 +21,18 @@ namespace InformacioniSistemBolnice.Secretary_ns.HelpWizard
     {
         private int _currentPageIndex = 0;
         private List<Page> _pages;
-        public HelpWizardMain()
+        private Secretary _secretary;
+        public HelpWizardMain(Secretary secretary)
         {
+            _secretary = secretary;
             _pages = new List<Page>();
             InitializeComponent();
             _pages.Add(new Page1());
             _pages.Add(new Page2());
+            _pages.Add(new Page3());
+            _pages.Add(new Page4());
+            _pages.Add(new Page5());
+            _pages.Add(new Page6());
             Main.Content = _pages[0];
         }
 
@@ -61,6 +67,8 @@ namespace InformacioniSistemBolnice.Secretary_ns.HelpWizard
         }
         private void Finish_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            _secretary.FirstLogin = false;
+            SecretaryFileRepository.UpdateSecretary(_secretary.Username, _secretary);
             Close();
         }
 

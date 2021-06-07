@@ -26,7 +26,7 @@ namespace InformacioniSistemBolnice.Service
                 MessageBox.Show("Uneti JMBG već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return false;
             }
-
+            
             PatientFileRepository.AddPatient(patient);
             return true;
         }

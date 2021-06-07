@@ -59,11 +59,14 @@ namespace InformacioniSistemBolnice
 
             if (_loginControler.FindSecretary(Username.Text, Password.Password) != null)
             {
-                HelpWizardMain helpWizardMain = new HelpWizardMain();
-                helpWizardMain.Show();
-                SecretaryMain secretaryMain = new SecretaryMain(_loginControler.FindSecretary(Username.Text, Password.Password));
+                Secretary secretary = _loginControler.FindSecretary(Username.Text, Password.Password);
+                if (secretary.FirstLogin) {
+                    HelpWizardMain helpWizardMain = new HelpWizardMain(secretary);
+                    helpWizardMain.ShowDialog();
+                }
+                SecretaryMain secretaryMain = new SecretaryMain(secretary);
                 Application.Current.MainWindow = secretaryMain;
-                secretaryMain.Main.Content = StartingPage.GetPage(_loginControler.FindSecretary(Username.Text, Password.Password), secretaryMain);
+                secretaryMain.Main.Content = StartingPage.GetPage(secretary, secretaryMain);
                 secretaryMain.Show();
                 this.Close();
                 return;

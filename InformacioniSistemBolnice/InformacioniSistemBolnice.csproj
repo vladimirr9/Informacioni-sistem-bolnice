@@ -170,6 +170,18 @@
     <Compile Include="Secretary_ns\HelpWizard\Page2.xaml.cs">
       <DependentUpon>Page2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary_ns\HelpWizard\Page3.xaml.cs">
+      <DependentUpon>Page3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary_ns\HelpWizard\Page4.xaml.cs">
+      <DependentUpon>Page4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary_ns\HelpWizard\Page5.xaml.cs">
+      <DependentUpon>Page5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary_ns\HelpWizard\Page6.xaml.cs">
+      <DependentUpon>Page6.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary_ns\ReportsPage.xaml.cs">
       <DependentUpon>ReportsPage.xaml</DependentUpon>
     </Compile>
@@ -551,6 +563,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary_ns\HelpWizard\Page3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary_ns\HelpWizard\Page4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary_ns\HelpWizard\Page5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary_ns\HelpWizard\Page6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary_ns\NewPatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -800,12 +828,7 @@
     <Resource Include="Manager_ns\arrow-58-512.png" />
   </ItemGroup>
   <ItemGroup>
-
-    <Resource Include="Secretary_ns\HelpWizard\pocetna.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Secretary_ns\HelpWizard\page1.png" />
-
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
@@ -831,7 +854,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Patient_ns\doctor.png" />
-
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Secretary_ns\HelpWizard\page3.png" />
+    <Resource Include="Secretary_ns\HelpWizard\page4.png" />
+    <Resource Include="Secretary_ns\HelpWizard\page5.png" />
+    <Resource Include="Secretary_ns\HelpWizard\page6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Secretary_ns\HelpWizard\page2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
