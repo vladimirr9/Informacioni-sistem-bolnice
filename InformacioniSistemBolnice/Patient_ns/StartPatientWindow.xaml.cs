@@ -26,6 +26,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             this.Patient = patient;
             InitializeComponent();
             imePacijenta.Text = patient.Name + " " + patient.Surname;
+            iconAndNameDoctor.Visibility = Visibility.Hidden;
 
 
 

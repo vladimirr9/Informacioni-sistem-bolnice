@@ -1,4 +1,4 @@
-﻿<Page x:Class="InformacioniSistemBolnice.Patient_ns.TherapyPatientPage"
+﻿<Page x:Class="InformacioniSistemBolnice.Patient_ns.PatientAllergensPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,11 @@
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="583"
-      Title="TherapyPatientPage" >
+      Title="PatientAllergensPage" >
 
     <Grid>
-        <GroupBox x:Name="terapijaGroupBox" Header="Raspored uzimanja terapije" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,25"/>
+        <Grid>
+            <GroupBox x:Name="allergenGroupBox" Header="Alergeni" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,25"/>
+        </Grid>
     </Grid>
 </Page>

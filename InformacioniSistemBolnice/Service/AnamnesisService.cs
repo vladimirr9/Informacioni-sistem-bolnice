@@ -29,8 +29,9 @@ namespace InformacioniSistemBolnice.Service
             {
                 foreach (Anamnesis a in PatientsAnamneses(patient))
                 {
-                    
-                    
+                    if (a.NotesForAnamnesis != null)
+                    {
+
                         foreach (Note n in a.NotesForAnamnesis)
                         {
                             if (n.IsSetReminder == true)
@@ -38,7 +39,8 @@ namespace InformacioniSistemBolnice.Service
                                 notes.Add(n);
                             }
                         }
-                    
+                    }
+
                 }
             }
 
@@ -65,9 +67,12 @@ namespace InformacioniSistemBolnice.Service
             {
                 if (a.IdOfAnamnesis.Equals(anamnesis.IdOfAnamnesis))
                 {
-                    foreach (Note n in a.NotesForAnamnesis)
+                    if (a.NotesForAnamnesis != null)
                     {
-                        notes.Add(n);
+                        foreach (Note n in a.NotesForAnamnesis)
+                        {
+                            notes.Add(n);
+                        }
                     }
                 }
             }

@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
+        xmlns:conv="clr-namespace:InformacioniSistemBolnice.Converter"
         mc:Ignorable="d"
         Title="WindowProstorije" Height="768" Width="1024">
+  <Window.Resources>
+    <conv:RoomStatusConverter x:Key="RoomStatusConverter"/>
+  </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -34,7 +38,7 @@
                 <!-- DataGridTextColumn Header="Tip" Binding="{Binding Path=RoomType}" Width="125"/>
                 <DataGridTextColumn Header="Obrisana" Binding="{Binding Path=IsDeleted}" Width="100"/-->
                 <DataGridTextColumn Header="Kvadratura" Binding="{Binding Path=Area}" Width="115"/>
-                <DataGridTextColumn Header="Aktivna" Binding="{Binding Path=IsActive}" Width="100"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=IsActive, Converter={StaticResource RoomStatusConverter}}" Width="100"/>
                 <DataGridTextColumn Header="Broj sprata" Binding="{Binding Path=Floor}" Width="110"/>
                 <DataGridTextColumn Header="Broj sobe" Binding="{Binding Path=RoomNumber}" Width="*"/>
             </DataGrid.Columns>

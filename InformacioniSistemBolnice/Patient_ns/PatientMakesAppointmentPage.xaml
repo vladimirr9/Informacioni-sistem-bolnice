@@ -10,7 +10,7 @@
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="230,35,0,0" TextWrapping="Wrap" Text="Lekar:" VerticalAlignment="Top" Width="118" FontSize="22" RenderTransformOrigin="1.254,0.469"/>
-        <ComboBox x:Name="lekar" BorderBrush="Black" BorderThickness="2" Background="White" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Margin="407,35,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="14" SelectionChanged="lekar_SelectionChanged" >
+        <ComboBox x:Name="lekar" BorderBrush="Black" BorderThickness="2" Background="White" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Margin="407,35,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="18" SelectionChanged="lekar_SelectionChanged" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -27,21 +27,34 @@
 
 
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="230,96,0,0" TextWrapping="Wrap" Text="Datum:" VerticalAlignment="Top" Width="118" FontSize="22"/>
-        <DatePicker Name="date" BorderBrush="Black" BorderThickness="2" Background="White" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" Height="32" Margin="407,96,0,0" VerticalAlignment="Top" Width="163"/>
-        <ComboBox Name="time" BorderBrush="Black" BorderThickness="2" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="407,155,0,0" Height="32" RenderTransformOrigin="0.449,-0.469" SelectionChanged="time_SelectionChanged" >
+        <DatePicker Name="date" FontSize="18"  BorderBrush="Black" BorderThickness="2" Background="White" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" Height="32" Margin="407,96,0,0" VerticalAlignment="Top" Width="163"/>
+        <ComboBox Name="time" FontSize="18"  BorderBrush="Black" BorderThickness="2" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="407,155,0,0" Height="32" RenderTransformOrigin="0.449,-0.469" SelectionChanged="time_SelectionChanged" >
 
         </ComboBox>
 
-        <Button x:Name="dugmePotvrdi" BorderBrush="Black" BorderThickness="2" Background="White" Content="Potvrdi" HorizontalAlignment="Left" Height="37" Margin="304,238,0,0" VerticalAlignment="Top" Width="126" Click="dugmePotvrdi_Click" RenderTransformOrigin="0.405,0.946" />
+        <Button x:Name="dugmePotvrdi" BorderBrush="Black" BorderThickness="2" Background="White"  HorizontalAlignment="Left" Height="40" Margin="304,238,0,0" VerticalAlignment="Top" Width="120" Click="dugmePotvrdi_Click" RenderTransformOrigin="0.405,0.946" >
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="check.png" Stretch="UniformToFill" Height="35" Width="35" RenderTransformOrigin="0.419,0.2"/>
+                <TextBlock Text="Potvrda" FontSize="20"  RenderTransformOrigin="0.400,0.300" Height="28" Width="88"/>
+
+            </StackPanel>
+        </Button>
         <TextBlock x:Name="vrijeme" HorizontalAlignment="Left" Margin="230,155,0,0" TextWrapping="Wrap" Text="Vreme:" VerticalAlignment="Top" FontSize="22" RenderTransformOrigin="0.299,-0.207"/>
         <Label x:Name="label1" Content="Pretraga na osnovu prioriteta" HorizontalAlignment="Left" Margin="230,326,0,0" VerticalAlignment="Top" FontSize="20" />
-        <Button x:Name="search" BorderBrush="Black" BorderThickness="2" Background="White" Content="Traži" HorizontalAlignment="Left" Margin="503,326,0,0" VerticalAlignment="Top" Width="75" Height="37" Click="search_Click_1"  />
-        <Button x:Name="back" Margin="0,390,705,10" Height="40" Background="#FFFDFCFC" BorderThickness="0" Click="back_Click">
+        <Button x:Name="search" BorderBrush="Black" BorderThickness="2" Background="White"  HorizontalAlignment="Left" Margin="503,326,0,0" VerticalAlignment="Top"  Height="40" Width="85"  Click="search_Click_1"  >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="search.png" Stretch="UniformToFill" Height="30" Width="30" RenderTransformOrigin="0.419,0.2"/>
+                <TextBlock Text="Traži" FontSize="20"  RenderTransformOrigin="0.400,0.300" Height="28" Width="88"/>
+
+            </StackPanel>
+        </Button>
+                <Button x:Name="back" Margin="0,390,705,10" Height="40" Background="#FFFDFCFC" BorderThickness="0" Click="back_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="back.png" Stretch="UniformToFill" Height="20"/>
                 <TextBlock Text="Nazad" FontSize="19" RenderTransformOrigin="0.400,0.300" Height="33" Width="58"/>
             </StackPanel>
         </Button>
-
+        <Image Source="logo.png" Margin="600,310,20,35"/>
     </Grid>
 </Page>

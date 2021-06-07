@@ -10,7 +10,16 @@
 
     <Grid>
         <GroupBox x:Name="showNotesForAnamnesisGroupBox" Header="Beleške za odabranu anamnezu" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,25"/>
-        <ListView x:Name="showNotesListView" Margin="78,60,78,90" FontSize="18" BorderThickness="0" >
+        <ListView x:Name="showNotesListView" 
+                  FontSize="16"
+                  SelectionMode="Single"
+                  HorizontalContentAlignment="Stretch"  Margin="78,60,78,90"  BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap"></TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
         </ListView>
     </Grid>
 </Page>

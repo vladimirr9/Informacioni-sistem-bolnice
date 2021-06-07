@@ -48,9 +48,15 @@ namespace InformacioniSistemBolnice.Patient_ns
             borderWindow.Content = new PatientExamineAnamnesesPage(parent, this);
         }
 
+        private void alergeni_Click(object sender, RoutedEventArgs e)
+        {
+            borderWindow.Content = new PatientAllergensPage();
+        }
         private void back_Click(object sender, RoutedEventArgs e)
         {
             parent.startWindow.Content = new StartPatientPage(parent);
         }
+
+       
     }
 }

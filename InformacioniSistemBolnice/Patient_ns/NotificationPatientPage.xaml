@@ -15,7 +15,14 @@
                 <TextBlock Text="Nazad" FontSize="19" RenderTransformOrigin="0.400,0.300" Height="33" Width="58"/>
             </StackPanel>
         </Button>
-        <ListView x:Name="PrikazObavjestenja" Margin="145,60,175,155" FontSize="18">
+        <ListView x:Name="PrikazObavjestenja" Margin="95,60,88,75" FontSize="20" 
+                  SelectionMode="Single"
+                  HorizontalContentAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap"></TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>

@@ -29,7 +29,13 @@
 
         <TextBlock x:Name="timeLabel" Text="Slobodni termini" Margin="148,110,388,122" FontSize="22"/>
         <ListBox x:Name="times" Background="White" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Width="200" Margin="400,110,0,70" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="times_SelectionChanged"/>
-        <Button x:Name="submit" Background="White" BorderBrush="Black" BorderThickness="2" Content="Potvrdi"  Height="37"  Width="126" Margin="280,218,0,10"  HorizontalAlignment="Left" Click="submit_Click"  />
-        <DatePicker x:Name="date" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,55,0,0"  Height="32" Width="200" />
+        <Button x:Name="submit" Background="White" BorderBrush="Black" BorderThickness="2"  Height="40"  Width="120" Margin="280,215,0,10"  HorizontalAlignment="Left" Click="submit_Click"  >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="check.png" Stretch="UniformToFill" Height="35" Width="35" RenderTransformOrigin="0.419,0.2"/>
+                <TextBlock Text="Potvrda" FontSize="20"  RenderTransformOrigin="0.400,0.300" Height="28" Width="88"/>
+
+            </StackPanel>
+        </Button>
+                <DatePicker x:Name="date" SelectedDateChanged="date_SelectedDateChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,55,0,0"  Height="32" Width="200" />
     </Grid>
 </Page>

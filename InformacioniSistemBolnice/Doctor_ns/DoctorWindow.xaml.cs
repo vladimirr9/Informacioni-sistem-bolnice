@@ -42,6 +42,11 @@ namespace InformacioniSistemBolnice
             Main.Content = DrugsPage.GetPage(this);
         }
 
+        private void Tutorial_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = TutorialPage.GetPage(this);
+        }
+
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = ProfilePage.GetPage(this);
