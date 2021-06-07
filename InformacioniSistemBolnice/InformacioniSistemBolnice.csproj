@@ -87,6 +87,9 @@
     <Compile Include="Converter\AppointmentStatusConverter.cs" />
     <Compile Include="Converter\AppointmentTypeConverter.cs" />
     <Compile Include="Doctor_ns\Hospitalisation.cs" />
+    <Compile Include="Doctor_ns\TutorialPage.xaml.cs">
+      <DependentUpon>TutorialPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Doctor_ns\Vacation.cs" />
     <Compile Include="Doctor_ns\WorkShift.cs" />
     <Compile Include="Controller\DoctorControler.cs" />
@@ -344,6 +347,10 @@
     <Compile Include="Validation\NonEmptyValidationRule.cs" />
     <Compile Include="Patient_ns\TypeOfActivity.cs" />
     <Page Include="Doctor_ns\DoctorPatientsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Doctor_ns\TutorialPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
