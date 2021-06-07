@@ -730,17 +730,5 @@
   <ItemGroup>
     <Resource Include="Patient_ns\cancel.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Patient_ns\calendar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Patient_ns\check.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Patient_ns\search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Patient_ns\doctor.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
