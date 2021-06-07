@@ -20,21 +20,9 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}" Width="35"/>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding AppointmentDate}" Width="150" />
-                <DataGridTextColumn Header="Trajanje" Binding="{Binding DurationInMinutes,Converter={StaticResource AppointmentDurationConverter}}" Width="60" >
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="TextWrapping" Value="Wrap" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                    <DataGridTextColumn.EditingElementStyle>
-                        <Style TargetType="TextBox">
-                            <Setter Property="TextWrapping" Value="Wrap" />
-                            <Setter Property="AcceptsReturn" Value="true" />
-                        </Style>
-                    </DataGridTextColumn.EditingElementStyle>
-                </DataGridTextColumn>
+                <DataGridTextColumn Header="Trajanje" Binding="{Binding DurationInMinutes,Converter={StaticResource AppointmentDurationConverter}}" Width="60" />
 
-                <DataGridTextColumn Header="Tip " Binding ="{Binding Type,Converter={StaticResource AppointmentTypeConverter}}" Width="150"/>
+                    <DataGridTextColumn Header="Tip " Binding ="{Binding Type,Converter={StaticResource AppointmentTypeConverter}}" Width="150"/>
                 <DataGridTextColumn Header="Status " Binding ="{Binding AppointmentStatus,Converter={StaticResource AppointmentStatusConverter}}" Width="80"/>
                 <DataGridTextColumn Header="Lekar" Width="*">
                     <DataGridTextColumn.Binding>

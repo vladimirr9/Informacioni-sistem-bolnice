@@ -103,6 +103,9 @@
     <Compile Include="Patient_ns\NotificationPatientPage.xaml.cs">
       <DependentUpon>NotificationPatientPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Patient_ns\PatientAllergensPage.xaml.cs">
+      <DependentUpon>PatientAllergensPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Patient_ns\Rating.cs" />
     <Compile Include="Controller\NotificationController.cs" />
     <Compile Include="Controller\PatientController.cs" />
@@ -404,6 +407,10 @@
     <Page Include="Patient_ns\NotificationPatientPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Patient_ns\PatientAllergensPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Patient_ns\PatientEditsAppointmentPage.xaml">
       <SubType>Designer</SubType>
@@ -722,6 +729,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Patient_ns\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\doctor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

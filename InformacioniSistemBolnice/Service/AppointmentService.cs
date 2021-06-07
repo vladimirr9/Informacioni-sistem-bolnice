@@ -158,7 +158,7 @@ namespace InformacioniSistemBolnice.Service
             List<Appointment> appointments = new List<Appointment>();
             foreach (Appointment t in GetAll())
             {
-                if (IsScheduled(t) && !_ratingService.Contains(t.AppointmentID) &&
+                if (!_ratingService.Contains(t.AppointmentID) &&
                     t.PatientUsername.Equals(patient.Username))
                 {
                     if (DateTime.Now.AddDays(-10) < t.AppointmentDate && t.AppointmentDate.Date < DateTime.Now)

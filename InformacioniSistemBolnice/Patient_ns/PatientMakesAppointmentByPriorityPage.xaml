@@ -18,5 +18,6 @@
             </StackPanel>
         </Button>
         <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="10,95,10,40" ></Frame>
+        <Image Source="logo.png" Margin="600,310,20,35"/>
     </Grid>
 </Page>

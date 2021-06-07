@@ -36,7 +36,6 @@ namespace InformacioniSistemBolnice.Patient_ns
             InitializeComponent();
             PretraziTermine();
             DataContext = this;
-            rate.IsEnabled = false;
             rateHospital.Visibility = Visibility.Hidden;
             Provjera();
         }
@@ -65,10 +64,19 @@ namespace InformacioniSistemBolnice.Patient_ns
         private void rate_Click(object sender, RoutedEventArgs e)
         {
             _kojiJePritisnut = rate;
-            _selektovan = (Appointment)PrikazPregleda.SelectedItem;
-            parent.imeLjekara.Visibility = Visibility.Visible;
-            PatientRatesPage pa = new PatientRatesPage(this, parent, _selektovan);
-            parent.startWindow.Content = pa;
+            if (PrikazPregleda.SelectedItem == null)
+            {
+               
+                    MessageBox.Show("Morate selektovati termin kod lekara!", "Greška");
+            }
+            else
+            {
+                _selektovan = (Appointment) PrikazPregleda.SelectedItem;
+                parent.iconAndNameDoctor.Visibility = Visibility.Visible;
+                PatientRatesPage pa = new PatientRatesPage(this, parent, _selektovan);
+                parent.startWindow.Content = pa;
+            }
+
             return;
 
 

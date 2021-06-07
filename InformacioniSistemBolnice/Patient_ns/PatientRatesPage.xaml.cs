@@ -33,11 +33,11 @@ namespace InformacioniSistemBolnice.Patient_ns
             submit.IsEnabled = false;
             if (parentp._kojiJePritisnut == parentp.rate)
             {
-                parent.imeLjekara.Content = "dr. " + t.Doctor.Name + " " + t.Doctor.Surname;
+                parent.imeLjekara.Text = "dr. " + t.Doctor.Name + " " + t.Doctor.Surname;
             }
             else
             {
-                parent.imeLjekara.Content = null;
+                parent.imeLjekara.Text = null;
             }
             InitializeComboBox();
             parent.UpdateVisibilityOfComponents();
@@ -90,7 +90,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 parent.startWindow.Content = new RatingPage(parent);
                 parent.iconAndName.Visibility = Visibility.Visible;
                 parent.odjava.Visibility = Visibility.Visible;
-                imeLjekara.Visibility = Visibility.Hidden;
+                parent.iconAndNameDoctor.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -103,14 +103,14 @@ namespace InformacioniSistemBolnice.Patient_ns
                 parent.startWindow.Content = new RatingPage(parent);
                 parent.iconAndName.Visibility = Visibility.Visible;
                 parent.odjava.Visibility = Visibility.Visible;
-                imeLjekara.Visibility = Visibility.Hidden;
+                parent.iconAndNameDoctor.Visibility = Visibility.Hidden;
 
             }
         }
 
         private void updateVisibility()
         {
-            parent.imeLjekara.Visibility = Visibility.Hidden;
+            parent.iconAndNameDoctor.Visibility = Visibility.Hidden;
             parent.titleLabel.Visibility = Visibility.Hidden;
             parent.titlePriorityLabel.Visibility = Visibility.Hidden;
             parent.odjava.Visibility = Visibility.Visible;
