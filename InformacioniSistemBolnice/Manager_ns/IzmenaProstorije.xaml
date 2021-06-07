@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="IzmenaProstorije" Height="700" Width="500">
     <Grid>
-        <Grid.ColumnDefinitions>
+        <!--Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
 
@@ -15,13 +15,13 @@
         <Grid.RowDefinitions>
             <RowDefinition  Height="auto"/>
 
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions-->
         <!--TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="31,135,0,0" TextWrapping="Wrap" Text="Obrisana:" VerticalAlignment="Top"/-->
         <TextBox x:Name="Naziv" HorizontalAlignment="Left" Height="37" Margin="242,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" FontSize="20"/>
-        <TextBox x:Name="IDprostorije" HorizontalAlignment="Left" Height="35" Margin="243,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" FontSize="20"/>
-        <TextBox x:Name="Kvadratura" HorizontalAlignment="Left" Height="37" Margin="243,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" FontSize="20"/>
-        <TextBox x:Name="BrSprata" HorizontalAlignment="Left" Height="37" Margin="243,446,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" FontSize="20"/>
-        <TextBox x:Name="BrSobe" HorizontalAlignment="Left" Height="36" Margin="242,511,0,-46" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" FontSize="20"/>
+        <TextBox x:Name="IDprostorije" HorizontalAlignment="Left" Height="35" Margin="243,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" FontSize="20"/>
+        <TextBox x:Name="Kvadratura" HorizontalAlignment="Left" Height="37" Margin="243,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" FontSize="20"/>
+        <TextBox x:Name="BrSprata" HorizontalAlignment="Left" Height="37" Margin="243,446,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" FontSize="20"/>
+        <TextBox x:Name="BrSobe" HorizontalAlignment="Left" Height="36" Margin="242,511,0,-46" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" FontSize="20"/>
         <ComboBox x:Name="TipProstorije" HorizontalAlignment="Left" Margin="243,255,0,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2"  FontSize="20" Height="37">
             <ComboBoxItem>operacionaSala</ComboBoxItem>
             <ComboBoxItem>bolnickaSoba</ComboBoxItem>
@@ -29,8 +29,8 @@
         </ComboBox>
         <!--<CheckBox x:Name="IsDeleted" Content="IsDeleted" HorizontalAlignment="Left" Margin="128,138,0,0" VerticalAlignment="Top" Checked="isDeleted_Checked"/> -->
         <CheckBox x:Name="IsActive" Content="" HorizontalAlignment="Left" Margin="242,332,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Button x:Name="Potvrda" Content="Potvrda" HorizontalAlignment="Left" Margin="105,613,0,-141" VerticalAlignment="Top" Width="100" Click="UpdateRoom" FontSize="15" Background="CornflowerBlue"/>
-        <Button x:Name="Odustanak" Content="Odustanak" Grid.Column="1" HorizontalAlignment="Left" Margin="10,613,0,-140" VerticalAlignment="Top" Width="100" Click="Cancel" FontSize="15" Background="IndianRed"/>
+        <Button x:Name="Potvrda" Content="Potvrda" HorizontalAlignment="Left" Margin="83,604,0,0" VerticalAlignment="Top" Width="125" Click="UpdateRoom" FontSize="20" Background="CornflowerBlue" Height="35"/>
+        <Button x:Name="Odustanak" Content="Odustanak" HorizontalAlignment="Left" Margin="318,604,0,0" VerticalAlignment="Top" Width="125" Click="Cancel" FontSize="20" Background="IndianRed" Height="35"/>
         <Label x:Name="label1" Content="Naziv:" HorizontalAlignment="Left" Margin="83,123,0,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>
         <Label x:Name="label2" Content="ID:" Margin="112,197,139,0" Foreground="DarkBlue" FontSize="20" Height="35" VerticalAlignment="Top"/>
         <Label x:Name="label3" Content="Tip:" Margin="105,255,139,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>
@@ -39,6 +39,7 @@
         <Label x:Name="label6" Content="Broj sprata:" HorizontalAlignment="Left" Margin="37,446,0,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>
         <Label x:Name="label7" Content="Broj sobe:" HorizontalAlignment="Left" Margin="49,510,0,-54" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>
         <Label x:Name="label" Content="Izmena prostorije" HorizontalAlignment="Left" Margin="36,21,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" Foreground="DarkBlue" FontStyle="Italic"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="75" Margin="407,21,0,0" VerticalAlignment="Top" Width="75" Source="logoUpravnik.png.png"/>
 
     </Grid>
 </Window>

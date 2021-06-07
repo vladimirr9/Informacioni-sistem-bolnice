@@ -109,7 +109,10 @@ namespace InformacioniSistemBolnice.Service
             return patients;
         }
 
-
+        public Patient GetOne(String username)
+        {
+            return PatientFileRepository.GetOne(username);
+        }
 
 
         public bool IsUsernameUnique(String username)

@@ -71,6 +71,7 @@ namespace InformacioniSistemBolnice.Upravnik
             Sifra.Text = _medForUpdate.MedicineId;
             Naziv.Text = _medForUpdate.Name;
             List<Ingredient> ingredientList = _medForUpdate.IngredientsList;
+            Kolicina.Text = _medForUpdate.Quantity.ToString();
             ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>(ingredientList);
             SastojciList.ItemsSource = ingredients;
         }
@@ -80,10 +81,11 @@ namespace InformacioniSistemBolnice.Upravnik
             String name = Naziv.Text;
             MedicineStatus medicineStatus = MedicineStatus.waitingForValidation;
             bool isDeleted = false;
+            int quantity = Convert.ToInt32(Kolicina.Text);
             ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
             List<Ingredient> medicineIngredients = ingredients.ToList();
 
-            Medicine medicine = new Medicine(medicineId, name, isDeleted, medicineStatus, medicineIngredients);
+            Medicine medicine = new Medicine(medicineId, name, isDeleted, medicineStatus, quantity, medicineIngredients);
             return medicine;
         }
     }

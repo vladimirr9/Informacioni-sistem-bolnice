@@ -77,16 +77,16 @@ namespace InformacioniSistemBolnice.Upravnik
             if (dataGridInventory.SelectedItem != null)
             {
                 Inventory inventoryForRelocation = (Inventory)dataGridInventory.SelectedItem;
-                /*if (o.InventoryType == InventoryType.dinamicInv)
-                {*/
+                if (inventoryForRelocation.InventoryType == InventoryType.dinamicInv)
+                {
                     RasporedjivanjeOpreme relocateInventoryWindow = new RasporedjivanjeOpreme(_selectedRoom, inventoryForRelocation, this);
                     relocateInventoryWindow.Show();
-                /*}
+                }
                 else
                 {
-                    RasporedjivanjeStatickeWindow prozor = new RasporedjivanjeStatickeWindow(_selectedRoom, opremaZaPremestanje, this);
-                    prozor.Show();
-                }*/
+                    RasporedjivanjeStatickeWindow window = new RasporedjivanjeStatickeWindow(_selectedRoom, inventoryForRelocation, this);
+                    window.Show();
+                }
             }
         }
 
@@ -102,11 +102,47 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void Pretraga_TextChanged(object sender, KeyEventArgs e)
         {
-            dataGridInventory.Items.Clear();
+            Search();
+            /*dataGridInventory.Items.Clear();
             List<Inventory> opremaLista = _selectedRoom.InventoryList;
             var filtered = opremaLista.Where(oprema => oprema.Name.StartsWith(Pretraga.Text) || oprema.Name.Contains(Pretraga.Text));
 
-            dataGridInventory.ItemsSource = filtered;
+            dataGridInventory.ItemsSource = filtered;*/
+        }
+        public void Search()
+        {
+            String searchText = searchBox.Text;
+            if (searchText == "")
+            {
+                ResetTable();
+            }
+            else
+            {
+                FilterTable(searchText);
+            }
+        }
+
+        private void FilterTable(String filter)
+        {
+            dataGridInventory.Items.Clear();
+            filter = filter.ToUpper();
+
+            foreach (Inventory inventory in _selectedRoom.InventoryList)
+            {
+                if (inventory.Name.ToUpper().Contains(filter))
+                {
+                    dataGridInventory.Items.Add(inventory);
+                }
+            }
+        }
+
+        private void ResetTable()
+        {
+            dataGridInventory.Items.Clear();
+            foreach (Inventory inventory in _selectedRoom.InventoryList)
+            {
+                dataGridInventory.Items.Add(inventory);
+            }
         }
     }
 }
