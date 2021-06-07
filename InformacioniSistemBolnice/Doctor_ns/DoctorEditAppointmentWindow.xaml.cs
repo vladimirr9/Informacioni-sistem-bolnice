@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +54,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
                 _appointmentController.Update(appointment);
 
-                AppointmentsViewModel.GetPage(parent).UpdateTable();
+                parent.Main.Content = new AppointmentsPage(parent);
                 this.Close();
             }
         }

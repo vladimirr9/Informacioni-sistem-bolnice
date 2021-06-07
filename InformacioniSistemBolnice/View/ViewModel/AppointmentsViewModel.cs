@@ -16,7 +16,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
         private static AppointmentsViewModel instance;
         private Appointment selectedAppointment;
         private AppointmentController _appointmentController = new AppointmentController();
-        public ObservableCollection<Appointment> Appointments { get; set; }
+        private ObservableCollection<Appointment> appointments;
         public MyICommand NewAppointmentCommand { get; set; }
         public MyICommand EditAppointmentCommand { get; set; }
         public  MyICommand DeleteAppointmentCommand { get; set; }
@@ -30,6 +30,16 @@ namespace InformacioniSistemBolnice.View.ViewModel
             {
                 selectedAppointment = value;
                 OnPropertyChanged("SelectedAppointment");
+            }
+        }
+
+        public ObservableCollection<Appointment> Appointments
+        {
+            get { return appointments; }
+            set
+            {
+                appointments = value;
+                OnPropertyChanged("Appointments");
             }
         }
 
@@ -91,7 +101,8 @@ namespace InformacioniSistemBolnice.View.ViewModel
             {
                 appointments.Add(appointment);
             }
-            this.Appointments = new ObservableCollection<Appointment>(appointments);
+
+            Appointments = new ObservableCollection<Appointment>(appointments);
             OnPropertyChanged("Appointments");
         }
     }

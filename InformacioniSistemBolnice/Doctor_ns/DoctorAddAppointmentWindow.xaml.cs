@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -51,7 +52,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 Appointment appointment = new Appointment(_appointmentController.GenerateNewId(), dateTime, 15, type, AppointmentStatus.scheduled, patient, doctor, room);
                 _appointmentController.Add(appointment);
 
-                AppointmentsViewModel.GetPage(parent).UpdateTable();
+                parent.Main.Content = new AppointmentsPage(parent);
                 this.Close();
             }
         }

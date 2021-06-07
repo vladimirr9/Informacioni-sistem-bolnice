@@ -29,12 +29,5 @@ namespace InformacioniSistemBolnice.Doctor_ns
             this.DataContext = new AppointmentsViewModel(parent);
             _appointmentController.CheckMissedAppointments();
         }
-
-        public static AppointmentsPage GetPage(DoctorWindow parent)
-        {
-            if (instance == null)
-                instance = new AppointmentsPage(parent);
-            return instance;
-        }
     }
 }

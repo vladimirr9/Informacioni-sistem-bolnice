@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
 
         private void Appointments_Click()
         {
-            parent.Main.Content = AppointmentsPage.GetPage(parent);
+            parent.Main.Content = new AppointmentsPage(parent);
         }
 
         private void Medicine_Click()
