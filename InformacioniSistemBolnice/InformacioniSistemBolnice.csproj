@@ -760,5 +760,11 @@
   <ItemGroup>
     <Resource Include="Manager_ns\arrow-58-512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Secretary_ns\HelpWizard\pocetna.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Secretary_ns\HelpWizard\page1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

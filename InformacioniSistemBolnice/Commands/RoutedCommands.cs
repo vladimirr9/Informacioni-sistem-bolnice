@@ -79,6 +79,7 @@ namespace InformacioniSistemBolnice.Commands
             typeof(RoutedCommands),
             new InputGestureCollection()
             {
+                new KeyGesture(Key.Left, ModifierKeys.None),
             }
             );
         public static RoutedUICommand Next = new RoutedUICommand(
@@ -87,6 +88,7 @@ namespace InformacioniSistemBolnice.Commands
             typeof(RoutedCommands),
             new InputGestureCollection()
             {
+                new KeyGesture(Key.Right, ModifierKeys.None),
             }
             );
         public static RoutedUICommand Cancel = new RoutedUICommand(
