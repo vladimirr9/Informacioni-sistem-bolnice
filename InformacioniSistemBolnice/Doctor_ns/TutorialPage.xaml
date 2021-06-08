@@ -9,9 +9,11 @@
       Title="TutorialPage">
 
     <Grid Background="#FFDBE4EE">
-        <MediaElement x:Name="MediaElement" Margin="129,104,129,0" Height="466" VerticalAlignment="Top"/>
         <Label Content="Tutorial za obavljanje pregleda:" Margin="427,44,0,0" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="285"/>
-        <Button x:Name="StartStopButton" Margin="505,0,0,51" Click="Start_Stop_Click" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" HorizontalAlignment="Left" Width="128"/>
+        <Button x:Name="StartStopButton" Margin="505,0,0,51" Command="{Binding StartStopCommand}" Height="35" VerticalAlignment="Bottom" Background="#FF2B78E4" Foreground="White" Content="{Binding ButtonText}" HorizontalAlignment="Left" Width="128"/>
+        <Grid Height="466" Margin="129,104,129,0" VerticalAlignment="Top">
+            <ContentControl Content="{Binding MediaElementObject}"/>
+        </Grid>
 
     </Grid>
 </Page>

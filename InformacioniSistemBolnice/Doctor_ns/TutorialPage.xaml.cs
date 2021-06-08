@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using InformacioniSistemBolnice.View.ViewModel;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
@@ -26,11 +27,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             this.parent = parent;
             InitializeComponent();
-            string projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-            MediaElement.Source = new Uri(projectPath + "\\Images\\tutorial.mp4", UriKind.Absolute);
-            MediaElement.LoadedBehavior = MediaState.Manual;
-            MediaElement.Play();
-            StartStopButton.Content = "Pauziraj";
+            this.DataContext = new TutorialPageViewModel(parent);
         }
 
         public static TutorialPage GetPage(DoctorWindow parent)
@@ -38,20 +35,6 @@ namespace InformacioniSistemBolnice.Doctor_ns
             if (instance == null)
                 instance = new TutorialPage(parent);
             return instance;
-        }
-
-        private void Start_Stop_Click(object sender, RoutedEventArgs e)
-        {
-            if (StartStopButton.Content == "Pauziraj")
-            {
-                MediaElement.Pause();
-                StartStopButton.Content = "Nastavi";
-            }
-            else
-            {
-                MediaElement.Play();
-                StartStopButton.Content = "Pauziraj";
-            }
         }
     }
 }
