@@ -17,13 +17,13 @@ namespace InformacioniSistemBolnice.View.ViewModel
         public String JMBG { get; set; }
         public String Address { get; set; }
         public String Email { get; set; }
-        private DoctorControler _doctorControler = new DoctorControler();
+        private DoctorControler _doctorController = new DoctorControler();
 
         public ProfilePageViewModel(DoctorWindow parent)
         {
             this.parent = parent;
             Name= parent.Doctor.Name + " " + parent.Doctor.Surname;
-            Title = _doctorControler.GetType(parent.Doctor);
+            Title = _doctorController.GetType(parent.Doctor);
             Date = parent.Doctor.DateOfBirth.Date.ToString();
             JMBG = parent.Doctor.JMBG;
             Address = parent.Doctor.ResidentialAddress.ToString();

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.View.ViewModel;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
@@ -20,13 +21,12 @@ namespace InformacioniSistemBolnice.Doctor_ns
     {
         public DoctorWindow parent;
         private static DoctorPatientsPage instance;
-        private PatientController _patientController = new PatientController();
 
         public DoctorPatientsPage(DoctorWindow parent)
         {
             this.parent = parent;
             InitializeComponent();
-            UpdateTable();
+            this.DataContext = new DoctorPatientsViewModel(parent);
         }
 
         public static DoctorPatientsPage GetPage(DoctorWindow parent)
@@ -35,25 +35,5 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 instance = new DoctorPatientsPage(parent);
             return instance;
         }
-
-        private void Medical_Record_Click(object sender, RoutedEventArgs e)
-        {
-            if (PatientsDataGrid.SelectedItem != null)
-            {
-                MedicalRecordWindow recordWindow = new MedicalRecordWindow((Patient)PatientsDataGrid.SelectedItem, parent);
-                Application.Current.MainWindow = recordWindow;
-                recordWindow.Show();
-            }
-        }
-
-        public void UpdateTable()
-        {
-            PatientsDataGrid.Items.Clear();
-            foreach (Patient patient in _patientController.GetAll())
-            {
-                PatientsDataGrid.Items.Add(patient);
-            }
-        }
-
     }
 }
