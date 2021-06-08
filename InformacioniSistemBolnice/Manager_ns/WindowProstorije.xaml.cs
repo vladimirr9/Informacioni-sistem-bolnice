@@ -91,7 +91,7 @@ namespace InformacioniSistemBolnice.Upravnik
             if (datagridProstorije.SelectedItem != null)
             {
                 Room selektovana = (Room)datagridProstorije.SelectedItem;
-                Room p = RoomFileRepository.GetOne(selektovana.RoomId);
+                Room p = _roomController.GetOneRoom(selektovana.RoomId);
                 ZakazivanjeRenoviranjaWindow prozor = new ZakazivanjeRenoviranjaWindow(p, this);
                 prozor.Show();
             }

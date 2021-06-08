@@ -59,8 +59,8 @@
         <Button Background="IndianRed" x:Name="button4" Content="Zatvori" Margin="924,692,16,0" Grid.Row="3" VerticalAlignment="Top" Click="Close" FontSize="17"/>
         <TextBox x:Name="Pretraga" HorizontalAlignment="Left" Height="35" Margin="740,162,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Pretraga opreme..." VerticalAlignment="Top" Width="200" FontSize="20" Foreground="LightGray"/>
         <Button x:Name="button6" Margin="944,162,32,0" Grid.Row="3" VerticalAlignment="Top" Height="42" Width="42" Background="#f2e8d7" Click="InventorySearch" BorderBrush="{x:Null}" ToolTip="Pretraga opreme">
-            <StackPanel Height="37" Width="32">
-                <Image x:Name="image" Height="35" Source="32x32.png"/>
+            <StackPanel Height="32" Width="32">
+                <Image x:Name="image" Height="32" Source="32x32.png"/>
             </StackPanel>
         </Button>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="100" Margin="900,33,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="100" Source="logoUpravnik.png.png"/>
