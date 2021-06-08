@@ -119,6 +119,9 @@
     <Compile Include="Manager_ns\EditProfileWindow.xaml.cs">
       <DependentUpon>EditProfileWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Manager_ns\EmployeesWindow.xaml.cs">
+      <DependentUpon>EmployeesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Manager_ns\RenovationPeriod.cs" />
     <Compile Include="Manager_ns\ViewModel\FilteredInventoryViewModel.cs" />
     <Compile Include="Manager_ns\ViewModel\HomePageViewModel.cs" />
@@ -408,6 +411,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Manager_ns\EditProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager_ns\EmployeesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
