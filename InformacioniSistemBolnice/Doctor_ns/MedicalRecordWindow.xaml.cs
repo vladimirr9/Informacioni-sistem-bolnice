@@ -84,7 +84,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
                     return;
                 }
                 
-                prescription = new Prescription((Medicine)DrugsComboBox.SelectedItem, DateTime.Parse(BeginDatePicker.Text), parent.Doctor);
+                prescription = new Prescription((Medicine)DrugsComboBox.SelectedItem, DateTime.Parse(BeginDatePicker.Text).AddHours(8), parent.Doctor);
                 selected.MedicalRecord.AddRecept(prescription);
 
                 _patientController.Update(selected.Username, selected);

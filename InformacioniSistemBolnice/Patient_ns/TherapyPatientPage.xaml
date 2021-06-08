@@ -4,11 +4,24 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
+      xmlns:calendar="clr-namespace:MyCalendar.Calendar;assembly=MyCalendar.Calendar"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="583"
-      Title="TherapyPatientPage" >
+      Title="TherapyPatientPage"  Height="450">
 
     <Grid>
+        <calendar:Calendar x:Name="Calendar" Width="530" Height="330"  Margin="0,-40,0,10" />
         <GroupBox x:Name="terapijaGroupBox" Header="Raspored uzimanja terapije" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,25"/>
+        <Button x:Name="generateReport"  Height="40" Background="White" FontSize="14" Margin="340,365,31,45" BorderThickness="2" BorderBrush="Black" Click="Button_Click" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Izgenerisati izveštaj" FontSize="18"  RenderTransformOrigin="0.400,0.300" Height="28" Width="158"/>
+                <Image Source="pdf.png" Stretch="UniformToFill" Height="32" Width="30.5" RenderTransformOrigin="0.419,0.2"/>
+                
+
+            </StackPanel>
+        </Button>
+                <ComboBox x:Name="mjeseci" VerticalAlignment="Top"  FontSize="10" Background="White"  Height="20" Margin="195,35,308,0"/>
+        <ComboBox x:Name="godine" VerticalAlignment="Top"  FontSize="10" Background="White"  Width="70" Height="20" Margin="310,35,203,395"/>
+
     </Grid>
 </Page>

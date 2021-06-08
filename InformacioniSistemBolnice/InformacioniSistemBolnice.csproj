@@ -881,5 +881,14 @@
   <ItemGroup>
     <Resource Include="Secretary_ns\HelpWizard\page2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\treća godina\HCI\vježbe\CalendarExample2\MojKalendar\Jarloo.Calendar\MyCalendar.Calendar.csproj">
+      <Project>{31c3b4a7-504b-4eff-bacc-c8f2ffe5af6f}</Project>
+      <Name>MyCalendar.Calendar</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\pdf.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
