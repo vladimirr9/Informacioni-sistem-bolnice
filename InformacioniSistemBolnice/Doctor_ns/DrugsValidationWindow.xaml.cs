@@ -12,63 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.View.ViewModel;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
     public partial class DrugsValidationWindow : Window
     {
-        private MedicineController _medicineController = new MedicineController();
-        public DrugsValidationWindow()
+        public DrugsValidationWindow(DoctorWindow parent)
         {
             InitializeComponent();
-            UpdateList();
-            IngredientsList.Items.Clear();
-        }
-
-        private void Validate_Click(object sender, RoutedEventArgs e)
-        {
-            if (DrugsList.SelectedItem != null)
-            {
-                Medicine drug = _medicineController.GetOneByname(DrugsList.SelectedItem.ToString());
-                drug.MedicineStatus = MedicineStatus.validated;
-                _medicineController.UpdateMedicine(drug);
-                UpdateList();
-            }
-        }
-
-        private void Return_Click(object sender, RoutedEventArgs e)
-        {
-            if (DrugsList.SelectedItem != null)
-            {
-                Medicine medicine = _medicineController.GetOneByname(DrugsList.SelectedItem.ToString());
-                medicine.MedicineStatus = MedicineStatus.rejected;
-                _medicineController.UpdateMedicine(medicine);
-                EditBox.Clear();
-                UpdateList();
-            }
-        }
-
-        private void UpdateList()
-        {
-            DrugsList.Items.Clear();
-            foreach (Medicine drug in _medicineController.GetAllMedicines())
-            {
-                if (!drug.IsDeleted && drug.MedicineStatus.Equals(MedicineStatus.waitingForValidation))
-                    DrugsList.Items.Add(drug.Name);
-            }
-        }
-
-        public void SelectionChange(object sender, SelectionChangedEventArgs e)
-        {
-            IngredientsList.Items.Clear();
-            if (DrugsList.SelectedItem != null)
-            {
-                Medicine drug = _medicineController.GetOneByname(DrugsList.SelectedItem.ToString());
-                foreach (Ingredient ingredient in _medicineController.GetMedicineIngredients(drug))
-                {
-                    IngredientsList.Items.Add(ingredient.Name);
-                }
-            }
+            this.DataContext = new DrugsValidationViewModel(parent);
         }
     }
 }

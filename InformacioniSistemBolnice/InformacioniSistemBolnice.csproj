@@ -389,6 +389,7 @@
     <Compile Include="View\ViewModel\BindableBase.cs" />
     <Compile Include="View\ViewModel\DoctorPatientsViewModel.cs" />
     <Compile Include="View\ViewModel\DoctorWindowViewModel.cs" />
+    <Compile Include="View\ViewModel\DrugsValidationViewModel.cs" />
     <Compile Include="View\ViewModel\MyIComand.cs" />
     <Compile Include="View\ViewModel\ProfilePageViewModel.cs" />
     <Page Include="Doctor_ns\DoctorPatientsPage.xaml">
