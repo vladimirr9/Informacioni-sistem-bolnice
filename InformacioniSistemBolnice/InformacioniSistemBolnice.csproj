@@ -386,6 +386,7 @@
     <Compile Include="View\ViewModel\BindableBase.cs" />
     <Compile Include="View\ViewModel\DoctorWindowViewModel.cs" />
     <Compile Include="View\ViewModel\MyIComand.cs" />
+    <Compile Include="View\ViewModel\ProfilePageViewModel.cs" />
     <Page Include="Doctor_ns\DoctorPatientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

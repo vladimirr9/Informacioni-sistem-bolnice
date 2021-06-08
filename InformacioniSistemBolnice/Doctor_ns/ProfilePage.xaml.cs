@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.View.ViewModel;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
@@ -20,15 +21,12 @@ namespace InformacioniSistemBolnice.Doctor_ns
     {
 
         public DoctorWindow parent;
-        public Doctor doctor;
         private static ProfilePage instance;
-        private DoctorControler _doctorControler = new DoctorControler();
         public ProfilePage(DoctorWindow parent)
         {
             this.parent = parent;
-            this.doctor = parent.Doctor;
             InitializeComponent();
-            FillLabels();
+            this.DataContext = new ProfilePageViewModel(parent);
         }
 
         public static ProfilePage GetPage(DoctorWindow parent)
@@ -36,16 +34,6 @@ namespace InformacioniSistemBolnice.Doctor_ns
             if (instance == null)
                 instance = new ProfilePage(parent);
             return instance;
-        }
-
-        private void FillLabels()
-        {
-            NameLabel.Content = doctor.Name + " " + doctor.Surname;
-            TitleLabel.Content = _doctorControler.GetType(doctor);
-            DateLabel.Content = doctor.DateOfBirth.Date;
-            JmbgLabel.Content = doctor.JMBG;
-            AddressLabel.Content = doctor.ResidentialAddress.ToString();
-            EmailLabel.Content = doctor.Email;
         }
     }
 }
