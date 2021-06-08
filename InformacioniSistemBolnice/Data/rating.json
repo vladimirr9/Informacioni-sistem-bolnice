@@ -1,1 +1,13 @@
-[{"IdOfRating":1,"Comment":"Sve naj.","Evaluation":4,"UsernameOfDoctor":"PPetrovic","UsernameOfPatient":"pera","IdOfAppointment":2,"IsRatingDeleted":false,"DateOfWritingRating":"2021-06-07T16:54:17.0944911+02:00"}]
+[
+  
+  {
+    "IdOfRating": 4,
+    "Comment": "Mogao bi biti susretljiviji.",
+    "Evaluation": 4,
+    "UsernameOfDoctor": "marko",
+    "UsernameOfPatient": "pera",
+    "IdOfAppointment": 9,
+    "IsRatingDeleted": false,
+    "DateOfWritingRating": "2021-06-08T08:07:23.8545528+02:00"
+  }
+]

@@ -28,5 +28,6 @@
         <Frame x:Name="startWindow" NavigationUIVisibility="Hidden" Margin="0,85,0,0" />
         <Label x:Name="titleLabel"  Visibility="Hidden"  VerticalAlignment="Top" Margin="270,21,100,0" Height="45" FontSize="25" />
         <Label x:Name="titlePriorityLabel"  Visibility="Hidden"  VerticalAlignment="Top" Margin="230,21,100,0" Height="45" FontSize="25" />
+        <Label x:Name="ratingSuccessful" Content="Ocenjivanje izvršeno!"  Visibility="Hidden"  VerticalAlignment="Top" Margin="260,21,100,0" Height="45" FontSize="25" />
     </Grid>
 </Window>

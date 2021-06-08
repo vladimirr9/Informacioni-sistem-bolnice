@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private StartPatientWindow parent;
         private Appointment selektovan;
         private RatingPage parentp;
+        
         public PatientRatesPage(RatingPage ap, StartPatientWindow pp, Appointment t)
         {
             parentp = ap;
@@ -85,12 +86,16 @@ namespace InformacioniSistemBolnice.Patient_ns
                 string komentar = commentText.Text;
                 Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, selektovan.Doctor.Username, selektovan.Patient.Username, selektovan.AppointmentID, false, DateTime.Now);
                 RatingFileRepository.AddRating(novaRating);
-                RatingPage ap = new RatingPage(parent);
-                parentp.UpdateTable();
+                //RatingPage ap = new RatingPage(parent);
+
+                /*parentp.UpdateTable();
                 parent.startWindow.Content = new RatingPage(parent);
                 parent.iconAndName.Visibility = Visibility.Visible;
-                parent.odjava.Visibility = Visibility.Visible;
+                parent.odjava.Visibility = Visibility.Visible;*/
                 parent.iconAndNameDoctor.Visibility = Visibility.Hidden;
+                StatisticsForDoctorPage statisticPage = new StatisticsForDoctorPage(parent,selektovan);
+                parent.startWindow.Content = statisticPage;
+
             }
             else
             {

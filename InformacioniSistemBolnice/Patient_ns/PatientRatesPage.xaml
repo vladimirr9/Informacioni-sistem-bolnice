@@ -11,7 +11,7 @@
     <Grid>
         <TextBlock x:Name="imeLjekara" FontStyle="Italic" HorizontalAlignment="Left" Margin="22,23,0,0" TextWrapping="Wrap" Text="" FontSize="20" VerticalAlignment="Top"/>
         <Label x:Name="label" Content="Ocena:" FontSize="22" HorizontalAlignment="Left" Margin="165,23,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="rateComboBox" HorizontalAlignment="Left" Margin="360,32,0,0" VerticalAlignment="Top" Width="60" Height="30" SelectionChanged="rateComboBox_SelectionChanged" RenderTransformOrigin="0.3,-0.333" >
+        <ComboBox x:Name="rateComboBox" FontSize="18" HorizontalAlignment="Left" Margin="360,32,0,0" VerticalAlignment="Top" Width="60" Height="30" SelectionChanged="rateComboBox_SelectionChanged" RenderTransformOrigin="0.3,-0.333" >
 
         </ComboBox>
         <TextBox x:Name="commentText" HorizontalAlignment="Left" Height="143" FontSize="18" Margin="360,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" BorderThickness="2" BorderBrush="Black" TextChanged="commentText_TextChanged"   />

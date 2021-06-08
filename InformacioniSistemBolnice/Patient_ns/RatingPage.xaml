@@ -31,7 +31,7 @@
             </DataGrid.Resources>
         </DataGrid>
         <Button x:Name="rate" Background="White" BorderBrush="Black" BorderThickness="2" Content="Oceni lekara" HorizontalAlignment="Left" Margin="605,40,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="rate_Click" />
-        <Button x:Name="rateHospital" Background="White" BorderBrush="Black" BorderThickness="2" Content="Oceni ustanovu" HorizontalAlignment="Left" Margin="605,120,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="rateHospital_Click" />
+        <Button x:Name="rateHospital" Visibility="Hidden" Background="White" BorderBrush="Black" BorderThickness="2" Content="Oceni ustanovu" HorizontalAlignment="Left" Margin="605,120,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="rateHospital_Click" />
         <Button x:Name="back" Margin="0,390,705,10" Height="40" Background="#FFFDFCFC" BorderThickness="0" Click="back_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Source="back.png" Stretch="UniformToFill" Height="20"/>

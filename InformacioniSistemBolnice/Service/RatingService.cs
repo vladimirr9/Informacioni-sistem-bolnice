@@ -100,5 +100,18 @@ namespace InformacioniSistemBolnice.Service
             return GetLastWrittenRatingByPatient(patient).DateOfWritingRating;
         }
 
+        public int GetNumberOfRating(int number, Doctor doctor)
+        {
+            int counter = 0;
+            foreach (Rating r in GetAll())
+            {
+                if (r.UsernameOfDoctor.Equals(doctor.Username) && r.Evaluation == number)
+                {
+                    counter += 1;
+                }
+            }
+
+            return counter;
+        }
     }
 }
