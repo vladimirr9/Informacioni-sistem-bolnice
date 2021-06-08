@@ -1,4 +1,5 @@
 ﻿using InformacioniSistemBolnice.Manager_ns;
+using InformacioniSistemBolnice.Manager_ns.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,11 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             InitializeComponent();
             _loggedManager = manager;
-            FillLabels();
+            this.DataContext = new HomePageViewModel(_loggedManager, this);
+            //FillLabels();
         }
 
-        private void WindowProstorije(object sender, RoutedEventArgs e)
+        /*private void WindowProstorije(object sender, RoutedEventArgs e)
         {
             WindowProstorije wp = new WindowProstorije(this);
             wp.Show();
@@ -60,8 +62,8 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void EditProfile(object sender, RoutedEventArgs e)
         {
-            EditProfileWindow window = new EditProfileWindow();
+            EditProfileWindow window = new EditProfileWindow(this);
             window.Show();
-        }
+        }*/
     }
 }

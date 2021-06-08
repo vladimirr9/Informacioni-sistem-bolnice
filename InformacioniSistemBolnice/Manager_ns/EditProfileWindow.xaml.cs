@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Upravnik;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace InformacioniSistemBolnice.Manager_ns
     /// </summary>
     public partial class EditProfileWindow : Window
     {
-        public EditProfileWindow()
+        private UpravnikWindow parent;
+        public EditProfileWindow(UpravnikWindow upravnikWindow)
         {
             InitializeComponent();
+            parent = upravnikWindow;
         }
 
         private void UpdateProfile(object sender, RoutedEventArgs e)
