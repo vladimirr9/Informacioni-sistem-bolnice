@@ -45,6 +45,7 @@
                         <Binding Path="JMBG" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
                                 <val:JMBGValidationRule ValidationStep="RawProposedValue"/>
+                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>

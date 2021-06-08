@@ -193,6 +193,7 @@
       <DependentUpon>ReportsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary_ns\ViewModel\AppointmentsPageViewModel.cs" />
+    <Compile Include="Secretary_ns\ViewModel\DetailedViewModel.cs" />
     <Compile Include="Secretary_ns\ViewModel\NewPatientViewModel.cs" />
     <Compile Include="Service\AllergyCheck.cs" />
     <Compile Include="Service\DoctorService.cs" />

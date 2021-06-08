@@ -45,9 +45,6 @@
                 <TextBox x:Name="PasswordText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="PasswordText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="Password" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -71,9 +68,6 @@
                 <TextBox x:Name="NameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="NameText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="LegalName" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -88,9 +82,6 @@
                 <TextBox x:Name="SurnameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="SurnameText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="Surname" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -100,9 +91,6 @@
                 <TextBox x:Name="PhoneText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="PhoneText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="TelephoneNumber" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -112,9 +100,6 @@
                 <TextBox x:Name="EmailText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="EmailText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="EmailAddress" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -124,9 +109,6 @@
                 <TextBox x:Name="AddressText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="AddressText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="ResidentialAddress" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -136,9 +118,6 @@
                 <TextBox x:Name="PostalCodeText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="PostalCodeText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="PostalCode" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -148,9 +127,6 @@
                 <TextBox x:Name="CityText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="CityText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="City" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -160,9 +136,6 @@
                 <TextBox x:Name="CountryText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="CountryText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="Country" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -172,9 +145,7 @@
                 <DatePicker x:Name="BirthDate" Margin="10,0,0,0" Width="200" SelectedDateChanged="BirthDate_OnSelectedDateChanged">
                     <DatePicker.SelectedDate>
                         <Binding Path="DateOfBirth" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule/>
-                            </Binding.ValidationRules>
+
                         </Binding>
                     </DatePicker.SelectedDate>
                 </DatePicker>
@@ -184,9 +155,6 @@
                 <TextBox x:Name="SocialSecurityText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center"  Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="SocialSecurityText_TextChanged">
                     <TextBox.Text>
                         <Binding Path="SocialSecurityNumber" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>

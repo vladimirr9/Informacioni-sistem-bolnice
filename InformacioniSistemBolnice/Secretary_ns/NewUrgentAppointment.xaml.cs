@@ -38,6 +38,29 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+
+            if (PatientsList.SelectedItem == null)
+            {
+                MessageBox.Show("Morate izabrati pacijenta", "Nevalidan unos", MessageBoxButton.OK);
+                return;
+            }
+            
+            if (AppointmentTypeCombo.SelectedItem == null)
+            {
+                MessageBox.Show("Morate izabrati tip termina", "Nevalidan unos", MessageBoxButton.OK);
+                return;
+            }
+            if (DoctorTypeCombo.SelectedItem == null)
+            {
+                MessageBox.Show("Morate izabrati tip lekara", "Nevalidan unos", MessageBoxButton.OK);
+                return;
+            }
+            if (!UInt64.TryParse(DurationInMinutes.Text, out var res))
+            {
+                MessageBox.Show("Trajanje mora biti pozitivna celobrojna vrednost", "Nevalidan unos", MessageBoxButton.OK);
+                return;
+            }
+
             DoctorType doctorType = Doctor.DoctorTypeFromString(DoctorTypeCombo.SelectedItem.ToString());
             int duration = int.Parse(DurationInMinutes.Text);
             string jmbg = PatientsList.SelectedItem.ToString().Split('-')[1].Trim();

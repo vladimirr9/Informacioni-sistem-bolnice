@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Secretary_ns"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         mc:Ignorable="d" 
@@ -54,7 +55,7 @@
         </ComboBox>
 
         <TextBlock HorizontalAlignment="Left" Height="39" Margin="40,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" FontSize="18" TextAlignment="Right" FontFamily="Verdana"><Run Text="Datum"/><Run Text=" i vreme"/><Run Text=":"/></TextBlock>
-        <DatePicker Name="DatePicker" HorizontalAlignment="Left" Height="32" Margin="213,125,0,0" VerticalAlignment="Top" Width="163" SelectedDateChanged="Time_SelectionChanged"/>
+        <DatePicker Name="DatePicker" HorizontalAlignment="Left" DisplayDateStart="{x:Static sys:DateTime.Today}" Height="32" Margin="213,125,0,0" VerticalAlignment="Top" Width="163" SelectedDateChanged="Time_SelectionChanged"/>
 
         <ComboBox Name="AppointmentTime" HorizontalAlignment="Left" VerticalAlignment="Top" Width="78" Margin="397,125,0,0" Height="32"  SelectionChanged="Time_SelectionChanged"></ComboBox>
 

@@ -52,7 +52,19 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-           
+            UInt64 JMBGRes;
+            char genderRes;
+
+            if (!UInt64.TryParse(JMBG, out JMBGRes) || JMBG.Length != 13)
+            {
+                MessageBox.Show("JMBG se mora sastojati iz 13 cifara", "Nedostatak informacija", MessageBoxButton.OK);
+                return;
+            }
+            if (Username == null || Username.Length == 0)
+            {
+                MessageBox.Show("Korisničko ime ne sme biti prazno", "Nevalidan unos", MessageBoxButton.OK);
+                return;
+            }
             ResidentialAddress residentialAddress = new ResidentialAddress(ResidentialAddress, new City(City, PostalCode, new Country(Country)));
             Patient patient = new Patient(LegalName, Surname, JMBG, char.Parse(Gender), TelephoneNumber, EmailAddress, DateOfBirth, Username, Password, residentialAddress, Guest, SocialSecurityNumber, new MedicalRecord(PatientFileRepository.GetAll().Count.ToString()), false);
             patient.MedicalRecord = _initialPatient.MedicalRecord;

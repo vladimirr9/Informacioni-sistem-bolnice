@@ -37,6 +37,11 @@ namespace InformacioniSistemBolnice.Secretary_ns
             string name = NameText.Text;
             string surname = SurnameText.Text;
             string username = "Guest" + _patientController.GetAll().Count.ToString();
+            if (!Int64.TryParse(JMBG, out var JMBGRes) || JMBG.Length != 13)
+            {
+                MessageBox.Show("JMBG se mora sastojati iz 13 cifara", "Nedostatak informacija", MessageBoxButton.OK);
+                return;
+            }
 
 
             Patient = new Patient(name, surname, JMBG, ' ', "", "", new DateTime(), username, "", new ResidentialAddress("", new City("", "", new Country(""))), true, "", new MedicalRecord(""));

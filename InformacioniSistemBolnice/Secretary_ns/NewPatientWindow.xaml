@@ -32,7 +32,7 @@
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Korisničko Name:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="UsernameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="UsernameText_TextChanged">
+                <TextBox x:Name="UsernameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" >
                     <TextBox.Text>
                         <Binding Path="Username" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
@@ -44,21 +44,18 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Lozinka:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="PasswordText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="PasswordText_TextChanged">
+                <TextBox x:Name="PasswordText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
                     <TextBox.Text>
                         <Binding Path="Password" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="JMBG:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="JMBGText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="13" TextChanged="JMBGText_TextChanged">
+                <TextBox x:Name="JMBGText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" MaxLength="13" >
                     <TextBox.Text>
-                        <Binding Path="JMBG" UpdateSourceTrigger="PropertyChanged">
+                        <Binding Path="JMBG" Mode="TwoWay">
                             <Binding.ValidationRules>
                                 <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
                                 <val:JMBGValidationRule ValidationStep="RawProposedValue"/>
@@ -70,12 +67,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Ime:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="NameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="NameText_TextChanged">
+                <TextBox x:Name="NameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" >
                     <TextBox.Text>
                         <Binding Path="LegalName" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -87,115 +81,88 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Prezime:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="SurnameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="SurnameText_TextChanged">
+                <TextBox x:Name="SurnameText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" >
                     <TextBox.Text>
                         <Binding Path="Surname" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Broj Telefona:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="PhoneText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="PhoneText_TextChanged">
+                <TextBox x:Name="PhoneText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" >
                     <TextBox.Text>
                         <Binding Path="TelephoneNumber" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="E-mail adresa:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="EmailText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="EmailText_TextChanged">
+                <TextBox x:Name="EmailText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" >
                     <TextBox.Text>
                         <Binding Path="EmailAddress" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Ulica i broj:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="AddressText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="AddressText_TextChanged">
+                <TextBox x:Name="AddressText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
                     <TextBox.Text>
                         <Binding Path="ResidentialAddress" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Poštanski broj:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="PostalCodeText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="PostalCodeText_TextChanged">
+                <TextBox x:Name="PostalCodeText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" >
                     <TextBox.Text>
                         <Binding Path="PostalCode" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Mesto:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="CityText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="CityText_TextChanged">
+                <TextBox x:Name="CityText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center">
                     <TextBox.Text>
                         <Binding Path="City" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Država:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="CountryText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="CountryText_TextChanged">
+                <TextBox x:Name="CountryText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" >
                     <TextBox.Text>
                         <Binding Path="Country" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Datum rođenja:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Width="170" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                <DatePicker x:Name="BirthDate" Margin="10,0,0,0" Width="200" SelectedDateChanged="BirthDate_OnSelectedDateChanged">
+                <DatePicker x:Name="BirthDate" Margin="10,0,0,0" Width="200" >
                     <DatePicker.SelectedDate>
                         <Binding Path="DateOfBirth" NotifyOnValidationError="True" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </DatePicker.SelectedDate>
                 </DatePicker>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <Label  Content="Broj zdravstvene &#xD;&#xA;kartice:" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="18" FontFamily="Verdana" Height="53" Width="170" HorizontalContentAlignment="Right"/>
-                <TextBox x:Name="SocialSecurityText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center"  Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" TextChanged="SocialSecurityText_TextChanged">
+                <TextBox x:Name="SocialSecurityText" Margin="10,0,0,0" HorizontalAlignment="Left" Height="25"  TextWrapping="Wrap" VerticalAlignment="Center"  Width="200" FontSize="14" FontFamily="Verdana" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" >
                     <TextBox.Text>
                         <Binding Path="SocialSecurityNumber" UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <val:NonEmptyValidationRule ValidationStep="RawProposedValue"/>
-                            </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,35,0,0" HorizontalAlignment="Center">
-                <Button Margin="0,0,20,0" x:Name="ConfirmButton" Content="_Potvrdi" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Confirm_Click" Background="#FF085394" Foreground="White"/>
-                <Button Margin="20,0,0,0" x:Name="CancelButton" Content="_Otkaži" HorizontalAlignment="Left" IsCancel="True"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Click="Cancel_Click" Background="#FFCF2A28" Foreground="White"/>
+                <Button Margin="0,0,20,0" x:Name="ConfirmButton" Content="_Potvrdi" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Command="{Binding ConfirmCommand}" Background="#FF085394" Foreground="White"/>
+                <Button Margin="20,0,0,0" x:Name="CancelButton" Content="_Otkaži" HorizontalAlignment="Left" IsCancel="True"  VerticalAlignment="Top" Width="117" FontSize="20" FontFamily="Verdana" Height="42" Command="{Binding CancelCommand}" Background="#FFCF2A28" Foreground="White"/>
             </StackPanel>
         </StackPanel>
     </Grid>

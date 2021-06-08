@@ -38,8 +38,13 @@ namespace InformacioniSistemBolnice.Secretary_ns
             SetComponentIsEnabled();
         }
 
-        private void ConfirmButton_Click(object sender, RoutedEventArgs e)
-        {
+        private void ConfirmButton_Click(object sender, RoutedEventArgs e) { 
+            if (!UInt64.TryParse(AppointmentDuration.Text, out var res))
+            {
+                MessageBox.Show("Trajanje mora biti pozitivna celobrojna vrednost", "Nevalidan unos", MessageBoxButton.OK);
+                return;
+            }
+
             Patient selectedPatient = (Patient) PatientComboBox.SelectedItem;
             global::Doctor selectedDoctor = (global::Doctor)DoctorComboBox.SelectedItem;
             Room selectedRoom = (Room)RoomComboBox.SelectedItem;
@@ -53,6 +58,12 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (selectedPatient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))
             {
                 Appointment newAppointment = new Appointment(id, selectedDateTime, duration, appointmentType, AppointmentStatus.scheduled, selectedPatient, selectedDoctor, selectedRoom);
+                if (selectedDateTime < DateTime.Now)
+                {
+                    MessageBox.Show("Nije moguće zakazati pregled u prošlosti", "Greška u zakazivanju", MessageBoxButton.OK);
+                    return;
+                }
+
                 _appointmentController.Add(newAppointment);
                 this.Close();
             }
@@ -95,6 +106,14 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void Duration_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (AppointmentDuration.Text.Length == 0)
+                return;
+            if (!int.TryParse(AppointmentDuration.Text, out var res))
+            {
+                MessageBox.Show("Trajanje mora biti broj", "Nevalidan unos", MessageBoxButton.OK);
+                AppointmentDuration.Text = "";
+                return;
+            }
             UpdateComponents();
         }
         private void Type_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -106,6 +125,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             SetComponentIsEnabled();
             if (PatientComboBox.SelectedItem == null)
                 return;
+
 
             DateTime start;
             DateTime end;

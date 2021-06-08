@@ -43,6 +43,12 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!UInt64.TryParse(AppointmentDuration.Text, out var res))
+            {
+                MessageBox.Show("Trajanje mora biti pozitivna celobrojna vrednost", "Nevalidan unos", MessageBoxButton.OK);
+                return;
+            }
+
             Patient patient = (Patient)PatientComboBox.SelectedItem;
             global::Doctor doctor = (global::Doctor)DoctorComboBox.SelectedItem;
             Room room = (Room)RoomComboBox.SelectedItem;
@@ -55,6 +61,11 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (patient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))
             {
                 Appointment appointment = new Appointment(_selectedAppointment.AppointmentID, selectedDateTime, duration, appointmentType, AppointmentStatus.scheduled, patient, doctor, room);
+                if (selectedDateTime < DateTime.Now)
+                {
+                    MessageBox.Show("Nije moguće zakazati pregled u prošlosti", "Greška u zakazivanju", MessageBoxButton.OK);
+                    return;
+                }
                 _appointmentController.Update(appointment);
                 _confirmed = true;
                 this.Close();

@@ -38,7 +38,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             NewPatientWindow window = new NewPatientWindow(this);
-            window.Show();
+            window.ShowDialog();
+            UpdateTable();
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
