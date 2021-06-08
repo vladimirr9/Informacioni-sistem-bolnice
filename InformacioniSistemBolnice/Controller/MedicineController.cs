@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace InformacioniSistemBolnice.Controller
 {
@@ -49,9 +50,9 @@ namespace InformacioniSistemBolnice.Controller
             return _medicineService.RemoveIngredientFromNewMedicine(ingredient);
         }
 
-        public ObservableCollection<Ingredient> AddIngredientsToNewMedicine(ObservableCollection<Ingredient> ingredientsList, Ingredient ingredient)
+        public void AddIngredientsToNewMedicine(ItemCollection items, Ingredient ingredient)
         {
-            return _medicineService.AddIngredientsToNewMedicine(ingredientsList, ingredient);
+            _medicineService.AddIngredientsToNewMedicine(items, ingredient);
         }
         public List<Ingredient> GetAllIngredients()
         {

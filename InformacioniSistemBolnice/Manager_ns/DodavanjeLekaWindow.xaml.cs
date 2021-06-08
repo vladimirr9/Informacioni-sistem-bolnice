@@ -50,9 +50,10 @@ namespace InformacioniSistemBolnice.Upravnik
         private void AddIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)Sastojci.SelectedItem;
-            ObservableCollection<Ingredient> ingredientsList = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
-            ObservableCollection<Ingredient> ingredients = _medicineController.AddIngredientsToNewMedicine(ingredientsList, selected);
-            SastojciList.ItemsSource = ingredients;
+            /*ObservableCollection<Ingredient> ingredientsList = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
+            ObservableCollection<Ingredient> ingredients = _medicineController.AddIngredientsToNewMedicine(ingredieSastojciListntsList, selected);
+            SastojciList.ItemsSource = ingredients;*/
+            _medicineController.AddIngredientsToNewMedicine(SastojciList.Items, selected);
         }
 
         private void RemoveIngredient(object sender, RoutedEventArgs e)

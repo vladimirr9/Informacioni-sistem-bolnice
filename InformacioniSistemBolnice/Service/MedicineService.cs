@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace InformacioniSistemBolnice.Service
 {
@@ -110,18 +111,18 @@ namespace InformacioniSistemBolnice.Service
             return ingredients;*/
         }
 
-        public ObservableCollection<Ingredient> AddIngredientsToNewMedicine(ObservableCollection<Ingredient> ingredientsList, Ingredient ingredient)
+        public void AddIngredientsToNewMedicine(ItemCollection items, Ingredient ingredient)
         {
-            ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
-            ingredientsList = ingredients;
+            /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
+            ingredientsList = ingredients;*/
+            //items.Clear();
             foreach (Ingredient ing in GetAllIngredients())
             {
-                if (!ingredientsList.Contains(ingredient) && ing.Name.Equals(ingredient.Name))
+                if (!items.Contains(ingredient) && ing.Name.Equals(ingredient.Name))
                 {
-                    ingredientsList.Add(ing);
+                    items.Add(ing);
                 }
             }
-            return ingredientsList;
         }
 
         public ObservableCollection<Ingredient> RemoveIngredient(Medicine medicine, Ingredient ingredient)
