@@ -14,7 +14,6 @@ public class Doctor : User
     public WorkShift Shift { get; set; }
     public List<Vacation> Vacations;
     public int DaysOfVacation { get; set;}
-    //private int iDLekara;
 
     public Doctor(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime birthday, string username, string password, ResidentialAddress address, DoctorType doctorType, WorkShift shift, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, birthday, username, password, address, isDeleted)
     {

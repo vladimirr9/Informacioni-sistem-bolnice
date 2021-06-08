@@ -27,7 +27,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             this.parent = parent;
             InitializeComponent();
             string projectPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-            //MediaElement.Source = new Uri(projectPath + "\\Images\\7174186.png", UriKind.Absolute);
+            MediaElement.Source = new Uri(projectPath + "\\Images\\tutorial.mp4", UriKind.Absolute);
             MediaElement.LoadedBehavior = MediaState.Manual;
             MediaElement.Play();
             StartStopButton.Content = "Pauziraj";
@@ -44,7 +44,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             if (StartStopButton.Content == "Pauziraj")
             {
-                MediaElement.Stop();
+                MediaElement.Pause();
                 StartStopButton.Content = "Nastavi";
             }
             else
