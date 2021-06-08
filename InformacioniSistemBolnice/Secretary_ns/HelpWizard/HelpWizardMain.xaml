@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Title="Pomoćni vodič" Height="1000" Width="1500">
+        Title="Pomoćni vodič" Height="700" Width="1050">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="FontFamily" Value="Verdana" />
@@ -28,13 +28,13 @@
     </Window.CommandBindings>
     <Grid>
 
-        <Rectangle Fill="#CCCCCB" HorizontalAlignment="Left" Height="130" Stroke="Black" VerticalAlignment="Bottom" Width="1500"/>
+        <Rectangle Fill="#CCCCCB" HorizontalAlignment="Left" Height="130" Stroke="Black" VerticalAlignment="Bottom" Width="1050"/>
         <StackPanel Orientation="Vertical">
-            <Frame x:Name="Main" Width="1310" Height="720" Margin="0,50,0,0" NavigationUIVisibility="Hidden">
+            <Frame x:Name="Main" Width="920" Height="504" Margin="0,20,0,0" NavigationUIVisibility="Hidden">
                 
             </Frame>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,110,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,60,0,0">
                 <Button x:Name="Back"  Content="_Nazad" HorizontalAlignment="Left" Margin="0,0,20,0" VerticalAlignment="Top" Width="100" Height="40" Command="cmd:RoutedCommands.Back"  />
                 <Button x:Name="Next" Content="_Dalje" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="100" Height="40" Command="cmd:RoutedCommands.Next" />
                 <Button x:Name="Cancel" Content="_Zaustavi" IsCancel="True" HorizontalAlignment="Left" Margin="20,0,20,0" VerticalAlignment="Top" Width="100"  Height="40" Command="cmd:RoutedCommands.Cancel"   />
