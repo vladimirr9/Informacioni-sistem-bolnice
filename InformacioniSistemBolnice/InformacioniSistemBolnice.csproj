@@ -120,7 +120,9 @@
       <DependentUpon>EditProfileWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manager_ns\RenovationPeriod.cs" />
+    <Compile Include="Manager_ns\ViewModel\FilteredInventoryViewModel.cs" />
     <Compile Include="Manager_ns\ViewModel\HomePageViewModel.cs" />
+    <Compile Include="Manager_ns\ViewModel\MedicinesViewModel.cs" />
     <Compile Include="Manager_ns\ViewModel\RoomsViewModel.cs" />
     <Compile Include="Patient_ns\AddingNotesPage.xaml.cs">
       <DependentUpon>AddingNotesPage.xaml</DependentUpon>
@@ -393,10 +395,10 @@
     <Compile Include="View\ViewModel\BindableBase.cs" />
     <Compile Include="View\ViewModel\DoctorPatientsViewModel.cs" />
     <Compile Include="View\ViewModel\DoctorWindowViewModel.cs" />
-	<Compile Include="View\ViewModel\DrugsValidationViewModel.cs" />
+    <Compile Include="View\ViewModel\DrugsValidationViewModel.cs" />
     <Compile Include="View\ViewModel\MyIComand.cs" />
     <Compile Include="View\ViewModel\ProfilePageViewModel.cs" />
-	<Compile Include="View\ViewModel\TutorialPageViewModel.cs" />
+    <Compile Include="View\ViewModel\TutorialPageViewModel.cs" />
     <Page Include="Doctor_ns\DoctorPatientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

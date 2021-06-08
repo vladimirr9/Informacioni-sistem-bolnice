@@ -36,7 +36,7 @@
 
         </DataGrid>
       <Label x:Name="label" Content="Filtrirana oprema" HorizontalAlignment="Left" Margin="39,23,0,0" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
-      <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="585,611,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Close" />
+        <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="585,611,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Close"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="75" Margin="585,23,0,0" VerticalAlignment="Top" Width="75" Source="logoUpravnik.png.png"/>
     </Grid>
 </Window>
