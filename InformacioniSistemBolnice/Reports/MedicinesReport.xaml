@@ -6,17 +6,18 @@
       xmlns:local="clr-namespace:InformacioniSistemBolnice.Reports"
       xmlns:conv="clr-namespace:InformacioniSistemBolnice.Converter"
       mc:Ignorable="d" 
-      d:DesignHeight="768" d:DesignWidth="600"
+      d:DesignHeight="1000" d:DesignWidth="800"
       Title="MedicinesReport">
     <Page.Resources>
         <conv:MedicineStatusConverter x:Key="MedicineStatusConverter"/>
     </Page.Resources>
     <Grid Background="GhostWhite">
-        <Rectangle Fill="#f2e8d7" HorizontalAlignment="Left" Height="110" Stroke="Black" VerticalAlignment="Top" Width="600"/>
-        <Label x:Name="label" Content="Izveštaj o količini lekova" Margin="85,33,85,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="30" FontFamily="verdana" FontWeight="Heavy" FontStyle="Italic"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="23,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue" FontWeight="SemiBold" Width="297"><Run Text="Spisak svih evidentiranih lekova "/><LineBreak/><Run Text="u sistemu Zdravo korporacije"/></TextBlock>
-        <Rectangle Fill="#FFF17300" HorizontalAlignment="Left" Height="11" Margin="0,99,0,0" Stroke="#FFF17300" VerticalAlignment="Top" Width="600"/>
-        <DataGrid x:Name="dataGridMedicines" HorizontalAlignment="Left" Height="240" Margin="23,220,0,0" VerticalAlignment="Top" Width="450" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True">
+      <Rectangle Fill="#f2e8d7" Height="110" Stroke="#f2e8d7" VerticalAlignment="Top" Width="800"/>
+      <Label x:Name="label" Content="Izveštaj o količini lekova" Margin="174,32,174,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="30" FontFamily="verdana" FontWeight="Heavy" FontStyle="Italic"/>
+      <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="23,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold" Width="383"><Run Text="Spisak svih evidentiranih lekova "/><LineBreak/><Run Text="u sistemu Zdravo korporacije"/></TextBlock>
+      <Rectangle Fill="#FFF17300" Height="11" Margin="0,99,0,0" Stroke="#FFF17300" VerticalAlignment="Top"/>
+      <DataGrid x:Name="dataGridMedicines" HorizontalAlignment="Left" Height="400" Margin="23,240,0,0" VerticalAlignment="Top" Width="553"
+                AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#f2e8d7"/>
@@ -28,23 +29,25 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Šifra" Binding="{Binding Path=MedicineId}" Width="100"/>
-                <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="100"/>
-                <DataGridTextColumn Header="Količina" Binding="{Binding Path=Quantity}" Width="100"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Path=MedicineStatus, Converter={StaticResource MedicineStatusConverter}}" Width="*"/>
+              <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="150"/>
+              <DataGridTextColumn Header="Količina" Binding="{Binding Path=Quantity}" Width="150"/>
+              <DataGridTextColumn Header="Status" Binding="{Binding Path=MedicineStatus, Converter = {StaticResource MedicineStatusConverter}}" Width="150"/>
             </DataGrid.Columns>
 
         </DataGrid>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="23,491,0,0" TextWrapping="Wrap" Text="Ukupan broj validiranih lekova:" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue" FontWeight="SemiBold"/>
-        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="23,552,0,0" TextWrapping="Wrap" Text="Ukupan broj odbijenih lekova:" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue" FontWeight="SemiBold"/>
-        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="23,612,0,0" TextWrapping="Wrap" Text="Ukupan broj lekova koji čekaju na validaciju:" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue" FontWeight="SemiBold"/>
-        <Label x:Name="label1" HorizontalAlignment="Left" Margin="323,491,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue" FontWeight="SemiBold"/>
-        <Label x:Name="label2" HorizontalAlignment="Left" Margin="323,552,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue" FontWeight="SemiBold"/>
-        <Label x:Name="label3" HorizontalAlignment="Left" Margin="437,612,0,0" VerticalAlignment="Top" FontSize="20" Foreground="DarkBlue" FontWeight="SemiBold"/>
-        <Rectangle HorizontalAlignment="Left" Height="3" Margin="323,515,0,0" VerticalAlignment="Top" Width="100" Fill="#FFF17300" Stroke="#FFF17300"/>
-        <Rectangle HorizontalAlignment="Left" Height="3" Margin="323,576,0,0" VerticalAlignment="Top" Width="100" Fill="#FFF17300" Stroke="#FFF17300"/>
-        <Rectangle HorizontalAlignment="Left" Height="3" Margin="437,636,0,0" VerticalAlignment="Top" Width="100" Fill="#FFF17300" Stroke="#FFF17300"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="75" Margin="515,683,0,0" VerticalAlignment="Top" Width="75" Source="logoUpravnik.png.png"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="23,665,0,0" TextWrapping="Wrap" Text="Ukupan broj validiranih lekova:" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="23,728,0,0" TextWrapping="Wrap" Text="Ukupan broj odbijenih lekova:" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="23,785,0,0" TextWrapping="Wrap" Text="Ukupan broj lekova koji čekaju na validaciju:" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold"/>
+        <Label x:Name="label1" HorizontalAlignment="Left" Margin="396,665,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold"/>
+        <Label x:Name="label2" HorizontalAlignment="Left" Margin="384,728,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold"/>
+        <Label x:Name="label3" HorizontalAlignment="Left" Margin="544,785,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold"/>
+        <Rectangle HorizontalAlignment="Left" Height="3" Margin="396,699,0,0" VerticalAlignment="Top" Width="100" Fill="#FFF17300" Stroke="#FFF17300"/>
+        <Rectangle HorizontalAlignment="Left" Height="3" Margin="384,762,0,0" VerticalAlignment="Top" Width="100" Fill="#FFF17300" Stroke="#FFF17300"/>
+        <Rectangle HorizontalAlignment="Left" Height="3" Margin="544,821,0,0" VerticalAlignment="Top" Width="100" Fill="#FFF17300" Stroke="#FFF17300"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="150" Margin="650,850,0,0" VerticalAlignment="Top" Width="150" Source="logoUpravnik.png.png"/>
+        <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="23,868,0,0" TextWrapping="Wrap" Text="Današnji datum:" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold"/>
+        <Label x:Name="label4" HorizontalAlignment="Left" Margin="238,868,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="SemiBold"/>
+        <Rectangle HorizontalAlignment="Left" Height="3" Margin="238,902,0,0" VerticalAlignment="Top" Width="200" Fill="#FFF17300" Stroke="#FFF17300"/>
 
     </Grid>
 </Page>

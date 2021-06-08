@@ -1,4 +1,5 @@
 ﻿using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace InformacioniSistemBolnice.Upravnik
     {
         private UpravnikWindow _parent;
         private MedicineController _medicineController = new MedicineController();
+        private PrintDialog _printDialog = new PrintDialog();
         public LekoviWindow(UpravnikWindow parent)
         {
             InitializeComponent();
@@ -113,7 +115,7 @@ namespace InformacioniSistemBolnice.Upravnik
 
         private void GenerateReport(object sender, RoutedEventArgs e)
         {
-
+            _printDialog.PrintVisual(new MedicinesReport(), "Izveštaj 1");
         }
     }
 }
