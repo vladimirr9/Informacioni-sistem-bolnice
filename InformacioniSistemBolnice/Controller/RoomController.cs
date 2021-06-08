@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace InformacioniSistemBolnice.Controller
 {
@@ -62,9 +63,9 @@ namespace InformacioniSistemBolnice.Controller
             _roomService.DinamicInventoryRelocation(room, inventoryForRelocating, quantity);
         }
 
-        public List<Inventory> FilteredInventory(String search)
+        public void FilteredInventory(ItemCollection items, String search)
         {
-            return _roomService.FilteredInventory(search);
+            _roomService.FilteredInventory(items, search);
         }
 
         public List<Room> GetAvailableRoomList(DateTime start, DateTime end)

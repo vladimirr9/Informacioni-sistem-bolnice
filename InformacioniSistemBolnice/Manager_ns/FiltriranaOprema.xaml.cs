@@ -28,10 +28,15 @@ namespace InformacioniSistemBolnice.Upravnik
             InitializeComponent();
             this._parent = parent;
             this._search = search;
-            //UpdateTable();
-            List<Inventory> filteredInventory = _roomController.FilteredInventory(_search);
-            dataGridInventory.ItemsSource = filteredInventory;
+            UpdateTable();
+            /*List<Inventory> filteredInventory = _roomController.FilteredInventory(_search);
+            dataGridInventory.ItemsSource = filteredInventory;*/
             this.DataContext = this;
+        }
+
+        private void UpdateTable()
+        {
+            _roomController.FilteredInventory(dataGridInventory.Items, _search);
         }
 
         private void Close(object sender, RoutedEventArgs e)

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace InformacioniSistemBolnice.Service
 {
@@ -121,9 +122,9 @@ namespace InformacioniSistemBolnice.Service
             return;
         }
 
-        public List<Inventory> FilteredInventory(String search)
+        public void FilteredInventory(ItemCollection items, String search)
         {
-            List<Inventory> inventoryList = new List<Inventory>();
+            items.Clear();
             search = search.ToUpper();
             foreach (Room room in GetAllRooms())
             {
@@ -131,11 +132,10 @@ namespace InformacioniSistemBolnice.Service
                 {
                     if (inventory.Name.ToUpper().Contains(search))
                     {
-                        inventoryList.Add(inventory);
+                        items.Add(inventory);
                     }
                 }
             }
-            return inventoryList;
         }
         public List<Room> GetAvailableRoomList(DateTime start, DateTime end)
         {
