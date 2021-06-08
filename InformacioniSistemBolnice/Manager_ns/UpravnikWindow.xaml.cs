@@ -30,6 +30,12 @@ namespace InformacioniSistemBolnice.Upravnik
             //FillLabels();
         }
 
+        /*private void Employees(object sender, RoutedEventArgs e)
+        {
+            EmployeesWindow ew = new EmployeesWindow(this);
+            ew.Show();
+        }*/
+
         /*private void WindowProstorije(object sender, RoutedEventArgs e)
         {
             WindowProstorije wp = new WindowProstorije(this);

@@ -15,8 +15,8 @@
 
             </StackPanel>
         </Button>
-        <Button x:Name="button4" Margin="0,0,788,28" Background="#f2e8d7" FontSize="20" Command="{Binding LogOutCommand}" Height="55" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="50" BorderBrush="{x:Null}" ToolTip="Odjava">
-            <StackPanel Height="50" Width="50">
+        <Button x:Name="button4" Margin="0,0,790,18" Background="#f2e8d7" FontSize="20" Command="{Binding LogOutCommand}" Height="55" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="55" BorderBrush="{x:Null}" ToolTip="Odjava">
+            <StackPanel Height="50" Width="45">
                 <Image x:Name="image2" Height="50" Source="logout-128.png"/>
             </StackPanel>
 
@@ -27,12 +27,12 @@
 
             </StackPanel>
         </Button>
-        <Button x:Name="button6" Background="#f2e8d7" Margin="53,522,0,0" FontSize="20" Width="105" HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" ToolTip="Zaposleni" BorderBrush="{x:Null}">
+        <Button x:Name="button6" Background="#f2e8d7" Margin="150,522,0,0" FontSize="20" Width="105" HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" ToolTip="Zaposleni" BorderBrush="{x:Null}" Command="{Binding EmployeesCommand}">
           <StackPanel Height="100" Width="95">
             <Image x:Name="image5" Height="100" Source="pngegg.png"/>
           </StackPanel>
         </Button>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="300" Margin="51,80,0,0" VerticalAlignment="Top" Width="300" Source="logoUpravnik.png.png"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="300" Margin="53,34,0,0" VerticalAlignment="Top" Width="300" Source="logoUpravnik.png.png"/>
         <Rectangle Fill="GhostWhite" Stroke="CornflowerBlue" HorizontalAlignment="Right" Width="616" Height="738" VerticalAlignment="Bottom"/>
         <Label x:Name="label1" Content="Ime i prezime:" HorizontalAlignment="Left" Margin="452,337,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="Heavy"/>
         <Label x:Name="label2" Content="Datum rođenja:" HorizontalAlignment="Left" Margin="435,401,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="Heavy"/>
@@ -48,8 +48,5 @@
         <Label x:Name="NumberLabel" HorizontalAlignment="Left" Margin="662,642,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" Content="{Binding Number}"/>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="185" Margin="628,34,0,0" VerticalAlignment="Top" Width="185" Source="7174186.png"/>
         <Button x:Name="button1" Content="Uredi profil" HorizontalAlignment="Left" Margin="641,258,0,0" VerticalAlignment="Top" Width="170" FontSize="20" Background="#FF00559C" BorderBrush="Black" Foreground="White" FontFamily="Verdana" Command="{Binding EditProfileCommand}"/>
-        <Button x:Name="button2" HorizontalAlignment="Left" Margin="248,522,0,0" VerticalAlignment="Top" Width="105" Height="105" Background="#f2e8d7" ToolTip="Rezultati anketa" BorderBrush="{x:Null}">
-          <Image x:Name="image6" Height="100" Width="100" Source="kisspng-computer-icons-quality-control-outsourcing-busines-rating-free-signs-icons-5b68ebc02f6e16.2434190515336027521943.png"/>
-        </Button>
     </Grid>
 </Window>

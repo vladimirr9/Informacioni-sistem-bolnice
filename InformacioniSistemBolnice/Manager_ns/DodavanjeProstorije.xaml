@@ -29,8 +29,8 @@
         <Button x:Name="Potvrda" Content="Potvrda" HorizontalAlignment="Left" Margin="83,607,0,0" VerticalAlignment="Top" Width="125" Click="Ok_Click" FontSize="20" Background="CornflowerBlue" Height="35"/>
         <Button x:Name="Odustanak" Content="Otkaži" HorizontalAlignment="Left" Margin="294,607,0,0" VerticalAlignment="Top" Width="125" Click="Cancel" FontSize="20" Background="IndianRed" Height="35"/>
         <Label x:Name="label1" Content="Naziv:" HorizontalAlignment="Left" Margin="83,123,0,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>
-        <Label x:Name="label2" Content="ID:" Margin="112,197,139,0" Foreground="DarkBlue" FontSize="20" Height="35" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Tip:" Margin="105,255,139,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>
+        <Label x:Name="label2" Content="ID:" Margin="112,197,348,0" Foreground="DarkBlue" FontSize="20" Height="35" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Tip:" Margin="105,255,348,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>
         <Label x:Name="label4" Content="Aktivna:" HorizontalAlignment="Left" Margin="66,318,0,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>
         <Label x:Name="label5" Content="Kvadratura:" HorizontalAlignment="Left" Margin="36,372,0,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>
         <Label x:Name="label6" Content="Broj sprata:" HorizontalAlignment="Left" Margin="37,446,0,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="20"/>

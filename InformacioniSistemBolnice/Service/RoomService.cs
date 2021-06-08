@@ -204,7 +204,7 @@ namespace InformacioniSistemBolnice.Service
         {
             DateTime _today = DateTime.Now;
             string[] todayDate = _today.ToString().Split(' ');
-            string[] todayDay = todayDate[0].Split('-');
+            string[] todayDay = todayDate[0].Split('.');
             string day = todayDay[0];
             int today = int.Parse(day);
 

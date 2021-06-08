@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
         public MyICommand MedicinesCommand { get; set; }
         public MyICommand LogOutCommand { get; set; }
         public MyICommand EditProfileCommand { get; set; }
+        public MyICommand EmployeesCommand { get; set; }
 
         public HomePageViewModel(Manager manager, UpravnikWindow parent)
         {
@@ -40,6 +41,7 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
             MedicinesCommand = new MyICommand(LekoviWindow);
             LogOutCommand = new MyICommand(Pocetna);
             EditProfileCommand = new MyICommand(EditProfile);
+            EmployeesCommand = new MyICommand(Employees);
         }
         private void WindowProstorije()
         {
@@ -64,6 +66,11 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
         {
             EditProfileWindow window = new EditProfileWindow(parent);
             window.Show();
+        }
+        private void Employees()
+        {
+            EmployeesWindow ew = new EmployeesWindow(parent);
+            ew.Show();
         }
     }
 }
