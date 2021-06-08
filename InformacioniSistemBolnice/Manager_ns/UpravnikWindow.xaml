@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="UpravnikWindow" Height="768" Width="1024" ResizeMode="NoResize">
-    <Grid>
+        WindowStartupLocation="CenterScreen"
+        Title="Početna" Height="768" Width="1024" ResizeMode="NoResize">
+      <Grid>
         <Rectangle Fill="#f2e8d7" Stroke="CornflowerBlue" HorizontalAlignment="Stretch" Width="400" Margin="0,0,616,0" Height="738" VerticalAlignment="Stretch"/>
-        <Button x:Name="button" Background="#f2e8d7" Margin="0,429,860,0" FontSize="20" Click="WindowProstorije" Height="105" VerticalAlignment="Top" HorizontalAlignment="Right" Width="105" Padding="3,1,1,1" BorderThickness="0" BorderBrush="{x:Null}" ToolTip="Prostorije">
-            <StackPanel Height="100" Width="95">
+        <Button x:Name="button" Background="#f2e8d7" Margin="0,382,860,0" FontSize="20" Click="WindowProstorije" Height="105" VerticalAlignment="Top" HorizontalAlignment="Right" Width="105" Padding="3,1,1,1" BorderThickness="0" BorderBrush="{x:Null}" ToolTip="Prostorije">
+          <StackPanel Height="100" Width="95">
                 <Image x:Name="image3" Height="100" Source="iconfinder_Hospital-Health_Clinic-Building-Medical-Health_5958919.png"/>
 
             </StackPanel>
@@ -20,27 +21,35 @@
             </StackPanel>
 
         </Button>
-        <Button x:Name="button5" Background="#f2e8d7" Margin="246,429,0,0" FontSize="20" Click="LekoviWindow" Height="105" Width="105" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="{x:Null}" ToolTip="Lekovi">
-            <StackPanel Height="100" Width="95">
+        <Button x:Name="button5" Background="#f2e8d7" Margin="248,382,0,0" FontSize="20" Click="LekoviWindow" Height="105" Width="105" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="{x:Null}" ToolTip="Lekovi" >
+          <StackPanel Height="100" Width="95">
                 <Image x:Name="image4" Height="100" Source="16435998701606252957-128.png"/>
 
             </StackPanel>
         </Button>
-        <Button x:Name="button6" Content="Zaposleni" Background="#f2e8d7" Margin="31,591,0,0" FontSize="20" Width="125" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top"/>
+        <Button x:Name="button6" Background="#f2e8d7" Margin="53,522,0,0" FontSize="20" Width="105" HorizontalAlignment="Left" Height="105" VerticalAlignment="Top" ToolTip="Zaposleni" BorderBrush="{x:Null}">
+          <StackPanel Height="100" Width="95">
+            <Image x:Name="image5" Height="100" Source="pngegg.png"/>
+          </StackPanel>
+        </Button>
         <Image x:Name="image" HorizontalAlignment="Left" Height="300" Margin="51,80,0,0" VerticalAlignment="Top" Width="300" Source="logoUpravnik.png.png"/>
         <Rectangle Fill="GhostWhite" Stroke="CornflowerBlue" HorizontalAlignment="Right" Width="616" Height="738" VerticalAlignment="Bottom"/>
-        <Label x:Name="label1" Content="Ime i prezime:" HorizontalAlignment="Left" Margin="443,270,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
-        <Label x:Name="label2" Content="Datum rođenja:" HorizontalAlignment="Left" Margin="423,349,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
-        <Label x:Name="label3" Content="Adresa:" HorizontalAlignment="Left" Margin="531,429,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
-        <Label x:Name="label4" Content="JMBG:" HorizontalAlignment="Left" Margin="547,510,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
-        <Label x:Name="label5" Content="E-mail:" HorizontalAlignment="Left" Margin="546,591,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
-        <Label x:Name="label6" Content="Kontakt telefon:" HorizontalAlignment="Left" Margin="414,660,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue" FontWeight="Heavy"/>
-        <Label x:Name="NameLabel" HorizontalAlignment="Left" Margin="677,270,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
-        <Label x:Name="DateLabel" HorizontalAlignment="Left" Margin="677,349,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
-        <Label x:Name="AddressLabel" HorizontalAlignment="Left" Margin="677,429,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
-        <Label x:Name="JMBGLabel" HorizontalAlignment="Left" Margin="677,510,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
-        <Label x:Name="EmailLabel" HorizontalAlignment="Left" Margin="677,591,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
-        <Label x:Name="NumberLabel" HorizontalAlignment="Left" Margin="677,660,0,0" VerticalAlignment="Top" FontSize="30" Foreground="DarkBlue"/>
+        <Label x:Name="label1" Content="Ime i prezime:" HorizontalAlignment="Left" Margin="452,337,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label2" Content="Datum rođenja:" HorizontalAlignment="Left" Margin="435,401,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label3" Content="Adresa:" HorizontalAlignment="Left" Margin="531,463,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label4" Content="JMBG:" HorizontalAlignment="Left" Margin="543,522,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label5" Content="E-mail:" HorizontalAlignment="Left" Margin="538,583,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="label6" Content="Kontakt telefon:" HorizontalAlignment="Left" Margin="428,642,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue" FontWeight="Heavy"/>
+        <Label x:Name="NameLabel" HorizontalAlignment="Left" Margin="662,337,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue"/>
+        <Label x:Name="DateLabel" HorizontalAlignment="Left" Margin="662,401,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue"/>
+        <Label x:Name="AddressLabel" HorizontalAlignment="Left" Margin="662,463,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue"/>
+        <Label x:Name="JMBGLabel" HorizontalAlignment="Left" Margin="662,522,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue"/>
+        <Label x:Name="EmailLabel" HorizontalAlignment="Left" Margin="662,583,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue"/>
+        <Label x:Name="NumberLabel" HorizontalAlignment="Left" Margin="662,642,0,0" VerticalAlignment="Top" FontSize="25" Foreground="DarkBlue"/>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="185" Margin="628,34,0,0" VerticalAlignment="Top" Width="185" Source="7174186.png"/>
+        <Button x:Name="button1" Content="Uredi profil" HorizontalAlignment="Left" Margin="641,258,0,0" VerticalAlignment="Top" Width="170" FontSize="20" Background="#FF00559C" BorderBrush="Black" Foreground="White" FontFamily="Verdana" Click="EditProfile"/>
+        <Button x:Name="button2" HorizontalAlignment="Left" Margin="248,522,0,0" VerticalAlignment="Top" Width="105" Height="105" Background="#f2e8d7" ToolTip="Rezultati anketa" BorderBrush="{x:Null}">
+          <Image x:Name="image6" Height="100" Width="100" Source="kisspng-computer-icons-quality-control-outsourcing-busines-rating-free-signs-icons-5b68ebc02f6e16.2434190515336027521943.png"/>
+        </Button>
     </Grid>
 </Window>

@@ -116,6 +116,9 @@
     </Compile>
     <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
     <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />
+    <Compile Include="Manager_ns\EditProfileWindow.xaml.cs">
+      <DependentUpon>EditProfileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Manager_ns\RenovationPeriod.cs" />
     <Compile Include="Patient_ns\AddingNotesPage.xaml.cs">
       <DependentUpon>AddingNotesPage.xaml</DependentUpon>
@@ -393,6 +396,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Doctor_ns\TutorialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager_ns\EditProfileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -869,6 +876,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Secretary_ns\HelpWizard\page2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\pngegg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\kisspng-computer-icons-quality-control-outsourcing-busines-rating-free-signs-icons-5b68ebc02f6e16.2434190515336027521943.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\PikPng.com_profile-icon-png_2863438.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
