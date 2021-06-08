@@ -188,6 +188,7 @@
     <Compile Include="Secretary_ns\ReportsPage.xaml.cs">
       <DependentUpon>ReportsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary_ns\ViewModel\AppointmentsPageViewModel.cs" />
     <Compile Include="Service\AllergyCheck.cs" />
     <Compile Include="Service\DoctorService.cs" />
     <Compile Include="Service\HospitalisationService.cs" />

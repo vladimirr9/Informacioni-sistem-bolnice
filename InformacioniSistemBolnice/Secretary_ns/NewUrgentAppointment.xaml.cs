@@ -19,7 +19,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
     public partial class NewUrgentAppointment : Window
     {
-        public AppointmentsPage _parent;
         private List<string> _patients;
         private List<string> _doctorTypes;
 
@@ -27,9 +26,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private RoomController _roomController = new RoomController();
         private DoctorControler _doctorController = new DoctorControler();
         private PatientController _patientController = new PatientController();
-        public NewUrgentAppointment(AppointmentsPage parent)
+        public NewUrgentAppointment()
         {
-            this._parent = parent;
             InitializeComponent();
             InitializePatients();
             InitializeDoctorTypes();
@@ -62,7 +60,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
             bool retVal = _appointmentController.CreateNewUrgentAppointment(patient, duration, doctorType, roomType, appointmentType, appointmentStart, appointmentEnd);
             if (retVal)
             {
-                _parent.UpdateTable();
                 Close();
             }
             else

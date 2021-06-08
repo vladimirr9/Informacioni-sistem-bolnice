@@ -41,6 +41,7 @@ namespace InformacioniSistemBolnice.Reports
             AppointmentPreview.ItemsSource = appointments;
             FromLabel.Content = From.ToString("dd/MM/yyyy");
             ToLabel.Content = To.ToString("dd/MM/yyyy");
+            DateOfPrinting.Content = DateTime.Now.ToString("dd/MM/yyyy");
 
         }
     }

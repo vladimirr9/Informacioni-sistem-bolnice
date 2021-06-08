@@ -63,7 +63,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
            
             _appointmentController.Add(newAppointment);
 
-            _parent._parent.UpdateTable();
             _parent.Close();
             Close();
 

@@ -20,7 +20,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
     public partial class NewAppointmentWindow : Window
     {
-        private AppointmentsPage _parent;
         private List<global::Doctor> _doctors;
         private List<Patient> _patients;
         private List<Room> _rooms;
@@ -29,9 +28,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private RoomController _roomController = new RoomController();
         private DoctorControler _doctorController = new DoctorControler();
         private PatientController _patientController = new PatientController();
-        public NewAppointmentWindow(AppointmentsPage parent)
+        public NewAppointmentWindow()
         {
-            this._parent = parent;
 
 
             InitializeComponent();
@@ -56,7 +54,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
             {
                 Appointment newAppointment = new Appointment(id, selectedDateTime, duration, appointmentType, AppointmentStatus.scheduled, selectedPatient, selectedDoctor, selectedRoom);
                 _appointmentController.Add(newAppointment);
-                _parent.UpdateTable();
                 this.Close();
             }
             else
