@@ -26,9 +26,9 @@
         <Label Content="Lekar:" HorizontalAlignment="Left" Margin="68,292,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
         <Label Content="Datum:" HorizontalAlignment="Left" Margin="68,396,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
         <Label Content="Anamneza:" HorizontalAlignment="Left" Margin="68,496,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-        <Label x:Name="PatientLabel" HorizontalAlignment="Left" Margin="341,214,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="DoctorLabel" HorizontalAlignment="Left" Margin="341,298,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label x:Name="DateLabel" HorizontalAlignment="Left" Margin="341,384,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="PatientLabel" HorizontalAlignment="Left" Margin="341,188,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="DoctorLabel" HorizontalAlignment="Left" Margin="341,292,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="DateLabel" HorizontalAlignment="Left" Margin="341,396,0,0" VerticalAlignment="Top" FontSize="24"/>
         <TextBlock x:Name="AnamnesisLabel" HorizontalAlignment="Left" Margin="341,496,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24" Width="336"/>
         <Rectangle Fill="#FF004E89" Margin="0,468,0,0" Stroke="#FF004E89" RenderTransformOrigin="0.5,0.5" Height="2" VerticalAlignment="Top">
             <Rectangle.RenderTransform>

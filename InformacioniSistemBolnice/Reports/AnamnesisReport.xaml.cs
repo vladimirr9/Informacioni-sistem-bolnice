@@ -26,11 +26,14 @@ namespace InformacioniSistemBolnice.Reports
         public AnamnesisReport(Anamnesis anamnesis, Doctor doctor)
         {
             InitializeComponent();
-            patient = _patientController.GetOne(anamnesis.UsernameOfPatient);
-            PatientLabel.Content = patient.Name + " " + patient.Surname;
-            DoctorLabel.Content = doctor.Name + " " + doctor.Surname;
-            DateLabel.Content = anamnesis.DateOfWritingAnamnesis;
-            AnamnesisLabel.Text = anamnesis.DescriptionOfAnamnesis;
+            if (anamnesis != null)
+            {
+                patient = _patientController.GetOne(anamnesis.UsernameOfPatient);
+                PatientLabel.Content = patient.Name + " " + patient.Surname;
+                DoctorLabel.Content = doctor.Name + " " + doctor.Surname;
+                DateLabel.Content = anamnesis.DateOfWritingAnamnesis;
+                AnamnesisLabel.Text = anamnesis.DescriptionOfAnamnesis;
+            }
         }
     }
 }
