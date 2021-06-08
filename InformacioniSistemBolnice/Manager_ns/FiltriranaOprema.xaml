@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         mc:Ignorable="d"
-        Title="FiltriranaOprema" Height="700" Width="700">
+        Title="Filtrirana oprema" Height="700" Width="700" ResizeMode="NoResize">
     <Grid>
       <DataGrid x:Name="dataGridInventory" HorizontalAlignment="Left" Height="400" Margin="39,144,0,0" VerticalAlignment="Top" Width="450"
                 AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="True" IsReadOnly="True" Grid.RowSpan="4">
         <DataGrid.Resources>
           <Style TargetType="{x:Type DataGridColumnHeader}">
-            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Background" Value="#f2e8d7"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="BorderThickness" Value="0,0,1,2"/>
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Foreground" Value="DarkBlue"/>
           </Style>
         </DataGrid.Resources>
 
@@ -24,10 +25,18 @@
           <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Name}" Width="150"/>
           <DataGridTextColumn Header="Količina" Binding="{Binding Path=Quantity}" Width="*"/>
         </DataGrid.Columns>
+        <DataGrid.RowStyle>
+          <Style TargetType="DataGridRow">
+            <Setter Property="Background" Value="GhostWhite"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="BorderThickness" Value="0, 0, 1, 2"/>
+          </Style>
+        </DataGrid.RowStyle>
 
-      </DataGrid>
+        </DataGrid>
       <Label x:Name="label" Content="Filtrirana oprema" HorizontalAlignment="Left" Margin="39,23,0,0" VerticalAlignment="Top" FontSize="50" FontStyle="Italic" Foreground="DarkBlue" FontWeight="Bold"/>
-      <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="566,614,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Close" />
+      <Button x:Name="button4" Content="Zatvori" HorizontalAlignment="Left" Margin="585,611,0,0" VerticalAlignment="Top" Width="75" FontSize="17" Background="IndianRed" Click="Close" />
         <Image x:Name="image" HorizontalAlignment="Left" Height="75" Margin="585,23,0,0" VerticalAlignment="Top" Width="75" Source="logoUpravnik.png.png"/>
     </Grid>
 </Window>

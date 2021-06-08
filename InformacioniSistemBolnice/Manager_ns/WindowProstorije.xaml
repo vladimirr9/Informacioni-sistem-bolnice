@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Upravnik"
         xmlns:conv="clr-namespace:InformacioniSistemBolnice.Converter"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Prostorije" Height="768" Width="1024" ResizeMode="NoResize">
   <Window.Resources>
     <conv:RoomStatusConverter x:Key="RoomStatusConverter"/>

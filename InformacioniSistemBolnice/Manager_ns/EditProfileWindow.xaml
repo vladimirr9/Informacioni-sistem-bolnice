@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Manager_ns"
         mc:Ignorable="d"
-        Title="EditProfileWindow" Height="768" Width="500">
+        Title="Uredi profil" Height="768" Width="500" ResizeMode="NoResize">
     <Grid>
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="190,10,0,0" VerticalAlignment="Top" Width="100" Source="PikPng.com_profile-icon-png_2863438.png"/>
         <Label x:Name="label" Content="Ime:" HorizontalAlignment="Left" Margin="122,134,0,0" VerticalAlignment="Top" FontSize="17" FontWeight="SemiBold" Foreground="DarkBlue"/>
