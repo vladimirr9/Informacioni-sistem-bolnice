@@ -218,7 +218,7 @@ namespace InformacioniSistemBolnice.Service
             Boolean temp = false;
             foreach (Patient p in GetAll() )
             {
-                if (p.Username.Equals(patient.Username) && p.Password.Equals(patient.Password))
+                if (p.Username.Equals(patient.Username) && p.Password.Equals(password))
                 {
                     temp = true;
                     break;
