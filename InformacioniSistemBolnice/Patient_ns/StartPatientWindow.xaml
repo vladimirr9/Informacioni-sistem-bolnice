@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
         mc:Ignorable="d"
+
         ResizeMode="NoResize"
         Title="StartPatientWindow" Height="550" Width="800" WindowStartupLocation="CenterScreen" Background="White">
     <Grid>
         <Button x:Name="odjava" Margin="697,0,10,434" Background="#FFFDFCFC" BorderThickness="0" Click="odjava_Click">
             <StackPanel Orientation="Horizontal">
-                <Image Source="settings1.png" Stretch="UniformToFill" Height="40" Width="40"/>
+                <Image Source="logout.png" Stretch="UniformToFill" Height="40" Width="40"/>
             </StackPanel>
         </Button>
         <StackPanel x:Name="iconAndName" Orientation="Horizontal">

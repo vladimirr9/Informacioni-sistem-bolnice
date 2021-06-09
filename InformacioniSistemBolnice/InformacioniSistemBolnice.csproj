@@ -795,9 +795,6 @@
     <Resource Include="Secretary_ns\questionmark.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Patient_ns\settings1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Patient_ns\back.png" />
   </ItemGroup>
   <ItemGroup>
@@ -935,6 +932,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Patient_ns\pdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
