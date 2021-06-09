@@ -20,9 +20,11 @@ namespace InformacioniSistemBolnice.Secretary_ns
     {
         private PatientController _patientController = new PatientController();
         private static PatientsPage _instance;
+        public String Filter { get; set; }
         private PatientsPage()
         {
             InitializeComponent();
+            this.DataContext = this;
             UpdateTable();
         }
         public static PatientsPage GetPage(SecretaryMain parent)
@@ -100,12 +102,23 @@ namespace InformacioniSistemBolnice.Secretary_ns
             foreach (Patient patient in patients)
             {
                 if (!patient.IsDeleted)
-                    PatientsDataGrid.Items.Add(patient);
+                {
+                    if (Filter == null)
+                        PatientsDataGrid.Items.Add(patient);
+                    else
+                    {
+                        if (patient.Name.ToUpper().StartsWith(TableFilter.Text.ToUpper()))
+                        {
+                            PatientsDataGrid.Items.Add(patient);
+                        }
+                    }
+                }
             }
         }
 
-        
-
-        
+        private void TableFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateTable();
+        }
     }
 }
