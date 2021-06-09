@@ -54,7 +54,11 @@ namespace InformacioniSistemBolnice.Service
             {
                 if (n.StartDate < DateTime.Now && n.EndDate > DateTime.Now)
                 {
-                    notes.Add(n);
+                    if (n.StartPeriodOfTime.TimeOfDay < DateTime.Now.TimeOfDay &&
+                        n.EndPeriodOfTime.TimeOfDay > DateTime.Now.TimeOfDay)
+                    {
+                        notes.Add(n);
+                    }
                 }
             }
             return notes;

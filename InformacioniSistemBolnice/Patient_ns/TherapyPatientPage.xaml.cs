@@ -43,9 +43,8 @@ namespace InformacioniSistemBolnice.Patient_ns
             string str;
             foreach (Prescription p in _patient.MedicalRecord.recept)
             {
-                str = "Lek: " + p.Drug.Name + "@" + "Vreme: " + p.Date.ToShortTimeString();
-                str = str.Replace("@", " " + Environment.NewLine);
-                Debug.WriteLine(str);
+                str = "Lek: " + p.Drug.Name + Environment.NewLine + "Vreme: " + p.Date.ToShortTimeString();
+                
 
                 string boo = p.Date.ToUniversalTime().ToString("MMMM");
                 int th = DateTime.ParseExact(boo, "MMMM", System.Globalization.CultureInfo.CurrentCulture).Month;
@@ -53,7 +52,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
                 {
                     Calendar.Days[(int) p.Date.Day + 1].Notes = str;
-                    //kalendar.Days[(int)r.Pocetak.Day - 1].Enabled = false;
+                   
                 }
 
             }
