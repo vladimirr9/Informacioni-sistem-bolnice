@@ -16,5 +16,6 @@
         <Button Content="Odjava" HorizontalAlignment="Left" Margin="10,0,0,25" Width="116" Background="#F17300" Foreground="White" Height="35" VerticalAlignment="Bottom" Command="{Binding LogoutCommand}"/>
         <Button Content="Profil" HorizontalAlignment="Left" Margin="10,0,0,78" Width="116" Background="#004E89" Foreground="White" Command="{Binding ProfileCommand}" Height="35" VerticalAlignment="Bottom"/>
         <Button Content="Tutorial" HorizontalAlignment="Left" Margin="10,0,0,134" Width="116" Background="#004E89" Foreground="White" Command="{Binding TutorialCommand}" Height="35" VerticalAlignment="Bottom"/>
+        <Button Content="Feedback" HorizontalAlignment="Left" Margin="10,0,0,189" Width="116" Background="#004E89" Foreground="White" Command="{Binding FeedbackCommand}" Height="35" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

@@ -18,6 +18,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
         public MyICommand TutorialCommand { get; set; }
         public MyICommand ProfileCommand { get; set; }
         public MyICommand LogoutCommand { get; set; }
+        public MyICommand FeedbackCommand { get; set; }
 
         public DoctorWindowViewModel(Doctor doctor, DoctorWindow parent)
         {
@@ -31,6 +32,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
             TutorialCommand = new MyICommand(Tutorial_Click);
             ProfileCommand = new MyICommand(Profile_Click);
             LogoutCommand = new MyICommand(Logout_Click);
+            FeedbackCommand = new MyICommand(Feedback_Click);
         }
 
         private void Patients_Click()
@@ -46,6 +48,11 @@ namespace InformacioniSistemBolnice.View.ViewModel
         private void Medicine_Click()
         {
             parent.Main.Content = DrugsPage.GetPage(parent);
+        }
+
+        private void Feedback_Click()
+        {
+            parent.Main.Content = DoctorFeedbackPage.GetPage(parent);
         }
 
         private void Tutorial_Click()

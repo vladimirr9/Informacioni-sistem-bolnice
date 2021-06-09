@@ -92,6 +92,7 @@
     <Compile Include="Controller\ActivityLogController.cs" />
     <Compile Include="Controller\AnamnesisController.cs" />
     <Compile Include="Controller\AppointmentController.cs" />
+    <Compile Include="Controller\FeedbackController.cs" />
     <Compile Include="Controller\HospitalisationControler.cs" />
     <Compile Include="Controller\LoginControler.cs" />
     <Compile Include="Controller\MedicineController.cs" />
@@ -104,6 +105,9 @@
     <Compile Include="Converter\InventoryTypeConverte.cs" />
     <Compile Include="Converter\MedicineStatusConverter.cs" />
     <Compile Include="Converter\RoomStatusConverter.cs" />
+    <Compile Include="Doctor_ns\DoctorFeedbackPage.xaml.cs">
+      <DependentUpon>DoctorFeedbackPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Doctor_ns\Hospitalisation.cs" />
     <Compile Include="Doctor_ns\TutorialPage.xaml.cs">
       <DependentUpon>TutorialPage.xaml</DependentUpon>
@@ -114,6 +118,7 @@
     <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FileStorage\FeedbackRepository.cs" />
     <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
     <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />
     <Compile Include="Manager_ns\EditProfileWindow.xaml.cs">
@@ -200,6 +205,7 @@
     <Compile Include="Secretary_ns\ViewModel\NewPatientViewModel.cs" />
     <Compile Include="Service\AllergyCheck.cs" />
     <Compile Include="Service\DoctorService.cs" />
+    <Compile Include="Service\FeedbackService.cs" />
     <Compile Include="Service\HospitalisationService.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MedicineService.cs" />
@@ -209,6 +215,7 @@
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\RoomsForHospitalisationService.cs" />
     <Compile Include="Service\ValidatedMedicineService.cs" />
+    <Compile Include="User\Feedback.cs" />
     <Compile Include="User\Notification.cs" />
     <Compile Include="Doctor_ns\DrugsPage.xaml.cs">
       <DependentUpon>DrugsPage.xaml</DependentUpon>
@@ -400,9 +407,14 @@
     <Compile Include="View\ViewModel\DoctorPatientsViewModel.cs" />
     <Compile Include="View\ViewModel\DoctorWindowViewModel.cs" />
     <Compile Include="View\ViewModel\DrugsValidationViewModel.cs" />
+    <Compile Include="View\ViewModel\FeedbackViewModel.cs" />
     <Compile Include="View\ViewModel\MyIComand.cs" />
     <Compile Include="View\ViewModel\ProfilePageViewModel.cs" />
     <Compile Include="View\ViewModel\TutorialPageViewModel.cs" />
+    <Page Include="Doctor_ns\DoctorFeedbackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Doctor_ns\DoctorPatientsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
