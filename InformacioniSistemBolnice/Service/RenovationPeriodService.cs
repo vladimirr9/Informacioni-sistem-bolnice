@@ -38,10 +38,10 @@ namespace InformacioniSistemBolnice.Service
                     {
                         CreateRenovationPeriod(room, startDate, endDate);
                     }
-                    else if (DateTime.Today != day.Date)
+                    /*else if (DateTime.Today != day.Date)
                     {
                         CancelRenovation(CreateRenovationPeriod(room, startDate, endDate));
-                    }
+                    }*/
                 }
                 else
                 {
@@ -51,22 +51,22 @@ namespace InformacioniSistemBolnice.Service
             }
         }
 
-        public void CancelRenovation(RenovationPeriod renovationPeriod)
+        /*public void CancelRenovation(RenovationPeriod renovationPeriod)
         {
             renovationPeriod.Room.IsActive = true;
             renovationPeriod.IsDeleted = true;
             UpdateRenovationPeriod(renovationPeriod);
             _roomController.UpdateRoom(renovationPeriod.Room);
-        }
+        }*/
 
-        private RenovationPeriod CreateRenovationPeriod(Room room, DateTime startDate, DateTime endDate)
+        private void CreateRenovationPeriod(Room room, DateTime startDate, DateTime endDate)
         {
             room.IsActive = false;
             RenovationPeriod renPer = new RenovationPeriod(startDate, endDate, false, room);
             AddRenovatoinPeriod(renPer);
             _roomController.UpdateRoom(room);
 
-            return renPer;
+            //return renPer;
         }
 
         public IEnumerable<DateTime> RenovationDays(DateTime from, DateTime to)

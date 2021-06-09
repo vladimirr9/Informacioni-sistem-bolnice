@@ -39,7 +39,7 @@ namespace InformacioniSistemBolnice.Upravnik
             
             //if(_renovationPeriodController.IsAvailable(_selectedRoom, dateFrom, dateTo))
             //{
-                _renovationPeriodController.ScheduleRenovation(_selectedRoom, dateFrom, dateTo);
+            _renovationPeriodController.ScheduleRenovation(_selectedRoom, dateFrom, dateTo);
             /*} 
             else
             {

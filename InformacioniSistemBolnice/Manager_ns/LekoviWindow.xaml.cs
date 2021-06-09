@@ -42,12 +42,12 @@ namespace InformacioniSistemBolnice.Upravnik
                 if (answer == MessageBoxResult.Yes)
                 {
                     Medicine selectedMedicine = (Medicine)dataGridLekovi.SelectedItem;
-                    _medicineController.SendMedicineForRemovingValidation(selectedMedicine);
+                    _medicineController.RemoveMedicine(selectedMedicine);
                     //selectedMedicine.MedicineStatus = MedicineStatus.waitingForValidation;
                     //LekFileStorage.RemoveLek(selektovan.Naziv);
                     //dataGridLekovi.Items.Remove(dataGridLekovi.SelectedItem);
-                    MessageBox.Show("Lek poslat lekaru na validaciju brisanja!", "Čekanje na validaciju", MessageBoxButton.OK);
-                    this.Close();
+                    //MessageBox.Show("Lek poslat lekaru na validaciju brisanja!", "Čekanje na validaciju", MessageBoxButton.OK);
+                    //this.Close();
                 }
             }
             UpdateTable();

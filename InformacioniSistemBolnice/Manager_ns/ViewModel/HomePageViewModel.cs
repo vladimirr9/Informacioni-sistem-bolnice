@@ -25,7 +25,7 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
         public MyICommand LogOutCommand { get; set; }
         public MyICommand EditProfileCommand { get; set; }
         public MyICommand EmployeesCommand { get; set; }
-
+        public MyICommand DemoCommand { get; set; }
         public HomePageViewModel(Manager manager, UpravnikWindow parent)
         {
             _loggedManager = manager;
@@ -42,6 +42,7 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
             LogOutCommand = new MyICommand(Pocetna);
             EditProfileCommand = new MyICommand(EditProfile);
             EmployeesCommand = new MyICommand(Employees);
+            DemoCommand = new MyICommand(Demo);
         }
         private void WindowProstorije()
         {
@@ -71,6 +72,26 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
         {
             EmployeesWindow ew = new EmployeesWindow(parent);
             ew.Show();
+        }
+
+        private void Demo()
+        {
+            var t1 = Task.Delay(3000);
+            t1.Wait();
+            WindowProstorije wp = new WindowProstorije(parent);
+            wp.Show();
+            //parent.button.Command.CanExecute(RoomCommand);
+            var t2 = Task.Delay(3000);
+            t2.Wait();
+            Room room = (Room)wp.datagridProstorije.SelectedItem;
+            OpremaWindow ow = new OpremaWindow(room, wp);
+            ow.Show();
+            var t3 = Task.Delay(3000);
+            t3.Wait();
+            ow.Close();
+            var t5 = Task.Delay(3000);
+            t5.Wait();
+            wp.Close();
         }
     }
 }
