@@ -36,7 +36,6 @@ namespace InformacioniSistemBolnice.Patient_ns
             InitializeComponent();
             PretraziTermine();
             DataContext = this;
-            rateHospital.Visibility = Visibility.Hidden;
             Provjera();
         }
 

@@ -38,7 +38,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void terapijaKarton_Click(object sender, RoutedEventArgs e)
         {
-            borderWindow.Content = new TherapyPatientPage();
+            borderWindow.Content = new TherapyPatientPage(parent);
         }
 
        

@@ -45,5 +45,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _ratingService.IsCheckedCondition(patient);
         }
+
+        public int GetNumberOfRating(int number, Doctor doctor)
+        {
+            return _ratingService.GetNumberOfRating(number, doctor);
+        }
     }
 }
