@@ -52,7 +52,8 @@ namespace InformacioniSistemBolnice.Service
             List<Note> notes = new List<Note>();
             foreach (Note n in NotesWithReminder(patient))
             {
-                if (n.StartDate < DateTime.Now && n.EndDate > DateTime.Now)
+                if (n.StartPeriodOfTime.TimeOfDay < DateTime.Now.TimeOfDay &&
+                    n.EndPeriodOfTime.TimeOfDay > DateTime.Now.TimeOfDay)
                 {
                     notes.Add(n);
                 }

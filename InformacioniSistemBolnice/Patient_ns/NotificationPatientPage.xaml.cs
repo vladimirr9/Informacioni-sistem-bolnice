@@ -33,6 +33,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             parent = pp;
             loggedInPatient = pp.Patient;
             InitializeComponent();
+            PrikazObavjestenja.Items.Clear();
             updateVisibility();
             this.DataContext = this;
             LoadRemindersForAppointment();
@@ -42,6 +43,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void LoadRemindersForAppointment()
         {
+            _appointmentController.CheckMissedAppointments();
             foreach (Appointment a in _appointmentController.GetAll())
             {
                 if (_appointmentController.IsAppointmentTomorrow(a) &&
