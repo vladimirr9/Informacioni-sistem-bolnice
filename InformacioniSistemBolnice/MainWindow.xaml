@@ -16,7 +16,7 @@
         <TextBlock HorizontalAlignment="Left" FontSize="20" Margin="310,204,0,0" Text="Lozinka:" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.539,-0.065"/>
         <TextBox Name="Username" BorderThickness="2" BorderBrush="Black" Background="White" HorizontalAlignment="Left" FontSize="17" Margin="310,172,0,0" Text="{Binding Value}" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Height="27"/>
         <PasswordBox Name="Password" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" FontSize="17" Margin="310,236,0,0" VerticalAlignment="Top" Width="142" Height="27" />
-        <Button Content="Prijava" Background="White" BorderThickness="1" BorderBrush="Black" BorderThickness="2"  FontSize="20" Margin="50,288,90,0" VerticalAlignment="Top" Width="80" Height="37" Click="Button_Click" IsDefault="True"/>
+        <Button Content="Prijava" Background="White" BorderThickness="1" BorderBrush="Black"  FontSize="20" Margin="50,288,90,0" VerticalAlignment="Top" Width="80" Height="37" Click="Button_Click" IsDefault="True"/>
         <Image Source="Patient_ns/logo.png" Height="100" Margin="10,10,667,309" />
     </Grid>
 </Window>
