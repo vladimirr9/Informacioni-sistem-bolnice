@@ -128,7 +128,7 @@ namespace InformacioniSistemBolnice.Service
         public Boolean IsAppointmentTomorrow(Appointment appointment)
         {
             Boolean returnValue = false;
-            if (appointment.AppointmentDate.Date <= DateTime.Now.AddHours(24).Date)
+            if (appointment.AppointmentDate.Date <= DateTime.Now.AddHours(24).Date && IsScheduled(appointment))
             {
                 returnValue = true;
             }

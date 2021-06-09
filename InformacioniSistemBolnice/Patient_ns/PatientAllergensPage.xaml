@@ -11,6 +11,9 @@
     <Grid>
         <Grid>
             <GroupBox x:Name="allergenGroupBox" Header="Alergeni" FontSize="20" BorderBrush="Black" BorderThickness="2"  HorizontalAlignment="Left" Width="583" Margin="0,0,0,25"/>
+            <ListView FontWeight="Bold" x:Name="ListAllergens" Width="300" Margin="55,135,228,90" FontSize="20" BorderThickness="0" />
+            <Image Source="logo.png" Margin="435,300,25,40"/>
+            <Label Content="Sastojci na koje je otkrivena alergija:" Margin="55,65,98,315" FontSize="20"/>
         </Grid>
     </Grid>
 </Page>

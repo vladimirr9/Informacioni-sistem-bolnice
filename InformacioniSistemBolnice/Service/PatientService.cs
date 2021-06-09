@@ -201,5 +201,46 @@ namespace InformacioniSistemBolnice.Service
             }
             return medicalRecord;
         }
+
+        public List<Prescription> GetPrescriptionsForPatient(Patient patient)
+        {
+            List<Prescription> prescriptions = new List<Prescription>();
+            foreach (Prescription p in GetMedicalRecordForPatient(patient).recept)
+            {
+                prescriptions.Add(p);
+            }
+
+            return prescriptions;
+        }
+
+        public Boolean IsValidPassword(Patient patient, String password)
+        {
+            Boolean temp = false;
+            foreach (Patient p in GetAll())
+            {
+                if (p.Username.Equals(patient.Username) && p.Password.Equals(password))
+                {
+                    temp = true;
+                    break;
+                }
+            }
+
+            return temp;
+        }
+
+        public void SetNewPassword(Patient patient, String newPassword)
+        {
+            foreach (Patient p in GetAll())
+            {
+                if (p.Username.Equals(patient.Username))
+                {
+                    p.Password = newPassword;
+                    Update(p.Username, p);
+                    break;
+                }
+
+            }
+
+        }
     }
 }

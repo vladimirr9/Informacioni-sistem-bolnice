@@ -142,6 +142,9 @@
       <DependentUpon>AddingNotesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Patient_ns\Anamnesis.cs" />
+    <Compile Include="Patient_ns\ChangePasswordPage.xaml.cs">
+      <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Patient_ns\NotificationPatientPage.xaml.cs">
       <DependentUpon>NotificationPatientPage.xaml</DependentUpon>
     </Compile>
@@ -493,6 +496,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Patient_ns\ChangePasswordPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Patient_ns\MedicalRecordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -935,6 +942,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Patient_ns\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\padlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

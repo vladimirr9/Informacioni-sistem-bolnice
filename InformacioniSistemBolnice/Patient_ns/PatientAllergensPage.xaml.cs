@@ -20,9 +20,23 @@ namespace InformacioniSistemBolnice.Patient_ns
     /// </summary>
     public partial class PatientAllergensPage : Page
     {
-        public PatientAllergensPage()
+        private StartPatientWindow _parentp;
+        private Patient _patient;
+
+        public PatientAllergensPage(StartPatientWindow spw)
         {
+            _parentp = spw;
+            _patient = spw.Patient;
             InitializeComponent();
+            GetItemsForListView();
+        }
+
+        private void GetItemsForListView()
+        {
+            foreach (Ingredient i in _patient.MedicalRecord.Allergens)
+            {
+                ListAllergens.Items.Add(i.Name);
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Patient_ns
 {
@@ -22,9 +24,13 @@ namespace InformacioniSistemBolnice.Patient_ns
     {
         private static StartPatientWindow pp;
         private static Patient _patient;
-        public MedicalRecordPage(StartPatientWindow p)
+        private PatientMedicalRecordPage parentp;
+        private PatientController _patientController = new PatientController();
+
+        public MedicalRecordPage(StartPatientWindow p, PatientMedicalRecordPage pmrp)
         {
             pp = p;
+            parentp = pmrp;
             _patient = pp.Patient;
             InitializeComponent();
             LoadData();
@@ -85,5 +91,347 @@ namespace InformacioniSistemBolnice.Patient_ns
             adresaTextBox.IsEnabled = false;
 
         }
+
+
+        private void EditInformations_OnClick(object sender, RoutedEventArgs e)
+        {
+            prezimeTextBox.IsEnabled = true;
+            imeTextBox.IsEnabled = true;
+            emailTextBox.IsEnabled = true;
+            kontaktTextBox.IsEnabled = true;
+
+
+
+        }
+
+
+
+
+
+        private void ImeTextBox_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            if (prezimeTextBox.Text == "")
+            {
+                prezimeUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (prezimeTextBox.Text[0] != Char.ToUpper(prezimeTextBox.Text[0]))
+
+            {
+                prezimeUpozorenje.Text = "Prezime mora početi velikim slovom!";
+            }
+            else
+            {
+                prezimeUpozorenje.Text = "";
+            }
+
+            if (kontaktTextBox.Text == "")
+            {
+                kontaktUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (!IsValidPhone(kontaktTextBox.Text))
+            {
+                kontaktUpozorenje.Text = "Format nije ispravan!";
+            }
+            else
+            {
+                kontaktUpozorenje.Text = "";
+            }
+
+            if (emailTextBox.Text == "")
+            {
+                emailUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (!IsValidEmailAddress(emailTextBox.Text))
+            {
+                emailUpozorenje.Text = "Neispravan format!";
+            }
+
+            else
+            {
+                emailUpozorenje.Text = "";
+            }
+
+            /* if (adresaTextBox.Text == "")
+             {
+                 adresaUpozorenje.Text = "Polje ne sme biti prazno";
+             }
+             else
+             {
+                 adresaUpozorenje.Text = "";
+             }*/
+        }
+
+
+        private void PrezimeTextBox_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            if (imeTextBox.Text == "")
+            {
+                imeUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (imeTextBox.Text[0] != Char.ToUpper(imeTextBox.Text[0]))
+
+            {
+                imeUpozorenje.Text = "Ime mora početi velikim slovom!";
+            }
+            else
+            {
+                imeUpozorenje.Text = "";
+            }
+
+            if (kontaktTextBox.Text == "")
+            {
+                kontaktUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (!IsValidPhone(kontaktTextBox.Text))
+            {
+                kontaktUpozorenje.Text = "Format nije ispravan!";
+            }
+            else
+            {
+                kontaktUpozorenje.Text = "";
+            }
+
+            if (emailTextBox.Text == "")
+            {
+                emailUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (!IsValidEmailAddress(emailTextBox.Text))
+            {
+                emailUpozorenje.Text = "Neispravan format!";
+            }
+
+            else
+            {
+                emailUpozorenje.Text = "";
+            }
+            /*if (adresaTextBox.Text == "")
+            {
+                adresaUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else
+            {
+                adresaUpozorenje.Text = "";
+            }*/
+
+
+        }
+
+        private void KontaktTextBox_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            if (imeTextBox.Text == "")
+            {
+                imeUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (imeTextBox.Text[0] != Char.ToUpper(imeTextBox.Text[0]))
+
+            {
+                imeUpozorenje.Text = "Ime mora početi velikim slovom!";
+            }
+            else
+            {
+                imeUpozorenje.Text = "";
+            }
+
+            if (prezimeTextBox.Text == "")
+            {
+                prezimeUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (prezimeTextBox.Text[0] != Char.ToUpper(prezimeTextBox.Text[0]))
+
+            {
+                prezimeUpozorenje.Text = "Prezime mora početi velikim slovom!";
+            }
+            else
+            {
+                prezimeUpozorenje.Text = "";
+            }
+
+            if (emailTextBox.Text == "")
+            {
+                emailUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (!IsValidEmailAddress(emailTextBox.Text))
+            {
+                emailUpozorenje.Text = "Neispravan format!";
+            }
+
+            else
+            {
+                emailUpozorenje.Text = "";
+            }
+            /* if (adresaTextBox.Text == "")
+             {
+                 adresaUpozorenje.Text = "Polje ne sme biti prazno";
+             }
+             else
+             {
+                 adresaUpozorenje.Text = "";
+             }*/
+
+        }
+
+
+        private void EmailTextBox_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+
+            if (imeTextBox.Text == "")
+            {
+                imeUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (imeTextBox.Text[0] != Char.ToUpper(imeTextBox.Text[0]))
+
+            {
+                imeUpozorenje.Text = "Ime mora početi velikim slovom!";
+            }
+            else
+            {
+                imeUpozorenje.Text = "";
+            }
+
+            if (prezimeTextBox.Text == "")
+            {
+                prezimeUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (prezimeTextBox.Text[0] != Char.ToUpper(prezimeTextBox.Text[0]))
+
+            {
+                prezimeUpozorenje.Text = "Prezime mora početi velikim slovom!";
+            }
+            else
+            {
+                prezimeUpozorenje.Text = "";
+            }
+
+            if (kontaktTextBox.Text == "")
+            {
+                kontaktUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (!IsValidPhone(kontaktTextBox.Text))
+            {
+                kontaktUpozorenje.Text = "Format nije ispravan!";
+            }
+            else
+            {
+                kontaktUpozorenje.Text = "";
+            }
+            /*  if (adresaTextBox.Text == "")
+              {
+                  adresaUpozorenje.Text = "Polje ne sme biti prazno";
+              }
+              else
+              {
+                  adresaUpozorenje.Text = "";
+              }*/
+        }
+        public static bool IsValidEmailAddress(string s)
+        {
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(s);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Boolean temporary = checkCondition();
+            if (temporary)
+            {
+                _patient.Name = imeTextBox.Text;
+                _patient.Surname = prezimeTextBox.Text;
+                _patient.Email = emailTextBox.Text;
+                _patient.PhoneNumber = kontaktTextBox.Text;
+                _patientController.Update(_patient.Username, _patient);
+
+                MessageBoxResult result = MessageBox.Show(
+                    "Izmene su izvršene uspešno!", "Uspeh",
+                    MessageBoxButton.OK);
+                if (result == MessageBoxResult.OK)
+                {
+                    SetInformationsInComponents();
+                }
+
+            }
+
+
+        }
+
+        private Boolean checkCondition()
+        {
+            Boolean temp = true;
+            if (imeTextBox.Text == "" || prezimeTextBox.Text == "" || emailTextBox.Text == "" ||
+                kontaktTextBox.Text == "" || adresaTextBox.Text == "")
+            {
+                MessageBox.Show("Neko polje je ostalo nepopunjeno!", "Greška");
+                temp = false;
+                return temp;
+            }
+
+            if (!IsValidEmailAddress(emailTextBox.Text) || imeTextBox.Text[0] != Char.ToUpper(imeTextBox.Text[0]) ||
+                prezimeTextBox.Text[0] != Char.ToUpper(prezimeTextBox.Text[0]) || !IsValidPhone(kontaktTextBox.Text))
+            {
+                MessageBox.Show("Proverite da li su sva polja unesena u dobrom formatu!", "Greška");
+                temp = false;
+                return temp;
+            }
+
+            return temp;
+        }
+
+        public bool IsValidPhone(string Phone)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(Phone))
+                    return false;
+                var r = new Regex(@"\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|
+2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|
+4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$");
+                return r.IsMatch(Phone);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void changePassword_Click(object sender, RoutedEventArgs e)
+        {
+            pp.startWindow.Content = new ChangePasswordPage(pp, parentp);
+        }
+
+        /* private void AdresaTextBox_OnMouseEnter(object sender, MouseEventArgs e)
+         {
+             if (imeTextBox.Text == "")
+             {
+                 imeUpozorenje.Text = "Polje ne sme biti prazno";
+             }
+             else
+             {
+                 imeUpozorenje.Text = "";
+             }
+             if (prezimeTextBox.Text == "")
+             {
+                 prezimeUpozorenje.Text = "Polje ne sme biti prazno";
+             }
+             else
+             {
+                 prezimeUpozorenje.Text = "";
+             }
+             if (kontaktTextBox.Text == "")
+             {
+                 kontaktUpozorenje.Text = "Polje ne sme biti prazno";
+             }
+             else
+             {
+                 kontaktUpozorenje.Text = "";
+             }
+             if (emailTextBox.Text == "")
+             {
+                 emailUpozorenje.Text = "Polje ne sme biti prazno";
+             }
+             else
+             {
+                 emailUpozorenje.Text = "";
+             }
+         }*/
     }
 }
