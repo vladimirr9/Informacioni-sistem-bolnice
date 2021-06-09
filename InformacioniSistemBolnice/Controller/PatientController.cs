@@ -81,5 +81,20 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _patientService.IsJMBGUnique(JMBG);
         }
+
+        public List<Prescription> GetPrescriptionsForPatient(Patient patient)
+        {
+            return _patientService.GetPrescriptionsForPatient(patient);
+        }
+
+        public void SetNewPassword(Patient patient, String newPassword)
+        {
+            _patientService.SetNewPassword(patient,newPassword);
+        }
+
+        public Boolean IsValidPassword(Patient patient, String password)
+        {
+            return _patientService.IsValidPassword(patient, password);
+        }
     }
 }

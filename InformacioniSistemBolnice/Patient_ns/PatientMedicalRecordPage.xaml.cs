@@ -27,13 +27,13 @@ namespace InformacioniSistemBolnice.Patient_ns
             parent = pp;
             Patient = pp.Patient;
             InitializeComponent();
-            borderWindow.Content = new MedicalRecordPage(pp);
+            borderWindow.Content = new MedicalRecordPage(pp,this);
         }
 
 
         private void informacijeKarton_Click(object sender, RoutedEventArgs e)
         {
-            borderWindow.Content = new MedicalRecordPage(parent);
+            borderWindow.Content = new MedicalRecordPage(parent,this);
         }
 
         private void terapijaKarton_Click(object sender, RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void alergeni_Click(object sender, RoutedEventArgs e)
         {
-            borderWindow.Content = new PatientAllergensPage();
+            borderWindow.Content = new PatientAllergensPage(parent);
         }
         private void back_Click(object sender, RoutedEventArgs e)
         {

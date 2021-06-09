@@ -27,6 +27,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private Patient loggedInPatient;
         private PatientController _patientController = new PatientController();
         private AnamnesisController _anamnesisController = new AnamnesisController();
+        private AppointmentController _appointmentController = new AppointmentController();
         public NotificationPatientPage(StartPatientWindow pp)
         {
             parent = pp;
@@ -34,14 +35,30 @@ namespace InformacioniSistemBolnice.Patient_ns
             InitializeComponent();
             updateVisibility();
             this.DataContext = this;
+            LoadRemindersForAppointment();
             LoadNotifications();
             LoadReminders();
+            
         }
+
+        private void LoadRemindersForAppointment()
+        {
+            foreach (Appointment a in _appointmentController.GetAll())
+            {
+                if (_appointmentController.IsAppointmentTomorrow(a) &&
+                    a.PatientUsername.Equals(loggedInPatient.Username))
+                {
+                    PrikazObavjestenja.Items.Add("Imate zakazan termin u " +
+                                                 a.AppointmentDate.ToShortTimeString() + ".");
+                }
+            }
+        }
+
         private void LoadNotifications()
         {
-            foreach (Therapy therapy in _patientController.GetTherapiesFromMedicalRecord(loggedInPatient))
+            foreach (Therapy t in _patientController.GetTherapiesFromMedicalRecord(loggedInPatient))
             {
-                PrikazObavjestenja.Items.Add(therapy.Description);
+                PrikazObavjestenja.Items.Add(t.Description);
             }
         }
 

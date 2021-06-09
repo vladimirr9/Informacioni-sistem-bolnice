@@ -23,5 +23,6 @@ namespace InformacioniSistemBolnice.Service
         {
             NotificationFileStorage.RemoveNotification(notification.ID);
         }
+
     }
 }
