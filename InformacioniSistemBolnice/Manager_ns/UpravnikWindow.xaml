@@ -49,5 +49,10 @@
         <Image x:Name="image1" HorizontalAlignment="Left" Height="185" Margin="628,34,0,0" VerticalAlignment="Top" Width="185" Source="7174186.png"/>
         <Button x:Name="button1" Content="Uredi profil" HorizontalAlignment="Left" Margin="641,258,0,0" VerticalAlignment="Top" Width="170" FontSize="20" Background="#FF00559C" BorderBrush="Black" Foreground="White" FontFamily="Verdana" Command="{Binding EditProfileCommand}"/>
         <Button x:Name="button2" Content="Demo" HorizontalAlignment="Left" Margin="925,692,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Background="#FF00559C" Foreground="GhostWhite" FontFamily="verdana" Command="{Binding DemoCommand}" ToolTip="Demonstrativni mod"/>
+        <Button x:Name="button3" HorizontalAlignment="Left" Margin="925,34,0,0" VerticalAlignment="Top" Width="75" Height="75" ToolTip="Fedback" Background="GhostWhite" BorderBrush="{x:Null}" Command="{Binding FeedbackCommand}">
+            <StackPanel Height="60" Width="55">
+                <Image x:Name="image6" Height="60" Source="klipartz.com.png"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>
