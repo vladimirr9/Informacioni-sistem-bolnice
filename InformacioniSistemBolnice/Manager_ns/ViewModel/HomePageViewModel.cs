@@ -17,6 +17,7 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
         public String JMBG { get; set; }
         public String Email { get; set; }
         public String Number { get; set; }
+
         private Manager _loggedManager;
         private UpravnikWindow parent;
 
@@ -26,9 +27,10 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
         public MyICommand EditProfileCommand { get; set; }
         public MyICommand EmployeesCommand { get; set; }
         public MyICommand DemoCommand { get; set; }
+        public MyICommand FeedbackCommand { get; set; }
         public HomePageViewModel(Manager manager, UpravnikWindow parent)
         {
-            _loggedManager = manager;
+            this._loggedManager = manager;
             this.parent = parent;
             Name = _loggedManager.Name + " " + _loggedManager.Surname;
             Date = _loggedManager.DateOfBirth.Date.ToString();
@@ -43,6 +45,7 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
             EditProfileCommand = new MyICommand(EditProfile);
             EmployeesCommand = new MyICommand(Employees);
             DemoCommand = new MyICommand(Demo);
+            FeedbackCommand = new MyICommand(Feedback);
         }
         private void WindowProstorije()
         {
@@ -73,7 +76,11 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
             EmployeesWindow ew = new EmployeesWindow(parent);
             ew.Show();
         }
-
+        private void Feedback()
+        {
+            FeedbackWindow fw = new FeedbackWindow(parent);
+            fw.Show();
+        }
         private void Demo()
         {
             var t1 = Task.Delay(3000);

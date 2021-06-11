@@ -133,9 +133,13 @@
     <Compile Include="Manager_ns\EmployeesWindow.xaml.cs">
       <DependentUpon>EmployeesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Manager_ns\FeedbackWindow.xaml.cs">
+      <DependentUpon>FeedbackWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Manager_ns\RenovationPeriod.cs" />
     <Compile Include="Manager_ns\ViewModel\FilteredInventoryViewModel.cs" />
     <Compile Include="Manager_ns\ViewModel\HomePageViewModel.cs" />
+    <Compile Include="Manager_ns\ViewModel\ManagerFeedbackViewModel.cs" />
     <Compile Include="Manager_ns\ViewModel\MedicinesViewModel.cs" />
     <Compile Include="Manager_ns\ViewModel\RoomsViewModel.cs" />
     <Compile Include="Patient_ns\AddingNotesPage.xaml.cs">
@@ -443,6 +447,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Manager_ns\EmployeesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Manager_ns\FeedbackWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -952,6 +960,9 @@
       <Project>{31c3b4a7-504b-4eff-bacc-c8f2ffe5af6f}</Project>
       <Name>MyCalendar.Calendar</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Manager_ns\klipartz.com.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

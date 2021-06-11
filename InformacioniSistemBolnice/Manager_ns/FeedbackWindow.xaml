@@ -1,0 +1,18 @@
+﻿<Window x:Class="InformacioniSistemBolnice.Manager_ns.FeedbackWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformacioniSistemBolnice.Manager_ns"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Feedback" Height="500" Width="650">
+    <Grid Background="#f2e8d7">
+        <Label x:Name="label" Content="Ostavite feedback" HorizontalAlignment="Left" Margin="23,37,0,0" VerticalAlignment="Top" Foreground="DarkBlue" FontSize="25" FontWeight="SemiBold" FontStyle="Italic"/>
+        <Label x:Name="label1" Content="Tip:" HorizontalAlignment="Left" Margin="118,124,0,0" VerticalAlignment="Top"  Foreground="DarkBlue" FontSize="20" FontWeight="SemiBold"/>
+        <Label x:Name="label2" Content="Opis:" HorizontalAlignment="Left" Margin="105,222,0,0" VerticalAlignment="Top"  Foreground="DarkBlue" FontSize="20" FontWeight="SemiBold"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="242,128,0,0" VerticalAlignment="Top" Width="200" FontSize="20" ItemsSource="{Binding FeedbackTypes}" SelectedItem="{Binding SelectedType}"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="175" Margin="242,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" FontSize="18" Text="{Binding FeedbackDescription}"/>
+        <Button x:Name="button" Content="Pošalji" HorizontalAlignment="Left" Margin="517,424,0,0" VerticalAlignment="Top" Width="75" FontSize="18" Foreground="White" Background="#FF0F0F9E" BorderBrush="{x:Null}" Command="{Binding ConfirmCommand}"/>
+    </Grid>
+</Window>

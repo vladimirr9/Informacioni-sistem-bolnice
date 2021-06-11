@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Controller;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace InformacioniSistemBolnice.Service
 {
     public class RoomService
     {
+        private AppointmentController _appointmentController = new AppointmentController();
+
         public void AddRoom(Room room)
         {
             /*if (!IsIdunique(room.RoomId))
@@ -253,7 +256,13 @@ namespace InformacioniSistemBolnice.Service
                 Room newRoom = new Room(room1.Name, room1.RoomId + 10, room1.RoomType, false, true, newRoomArea, room1.Floor, room1.RoomNumber + 10, newInventoryList);
                 RemoveRoom(room1);
                 RemoveRoom(room2);
+                _appointmentController.CancelAllRoomAppointments(room1);
+                _appointmentController.CancelAllRoomAppointments(room2);
                 AddRoom(newRoom);
+            }
+            else
+            {
+                MessageBox.Show("Ne mozete spajati prostorije koje nisu istog tipa ili na istom spratu!");
             }
         }
 

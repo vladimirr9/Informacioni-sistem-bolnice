@@ -21,12 +21,12 @@ namespace InformacioniSistemBolnice.Upravnik
     /// </summary>
     public partial class UpravnikWindow : Window
     {
-        private Manager _loggedManager;
+        public Manager _loggedManager;
         public UpravnikWindow(Manager manager)
         {
             InitializeComponent();
-            _loggedManager = manager;
-            this.DataContext = new HomePageViewModel(_loggedManager, this);
+            this._loggedManager = manager;
+            this.DataContext = new HomePageViewModel(manager, this);
             //FillLabels();
         }
 

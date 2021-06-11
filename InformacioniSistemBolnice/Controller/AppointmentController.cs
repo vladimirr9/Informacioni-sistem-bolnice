@@ -99,5 +99,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             _appointmentService.CheckMissedAppointments();
         }
+        public void CancelAllRoomAppointments(Room room)
+        {
+            _appointmentService.CancelAllRoomAppointments(room);
+        }
+
     }
 }
