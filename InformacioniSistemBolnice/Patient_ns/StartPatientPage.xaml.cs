@@ -61,6 +61,11 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
             parent.startWindow.Content = new PatientMedicalRecordPage(parent);
         }
+
+        private void feedback_Click(object sender, RoutedEventArgs e)
+        {
+            parent.startWindow.Content = new PatientFeedbackPage(parent);
+        }
     }
 
 }

@@ -1,0 +1,25 @@
+﻿<Page x:Class="InformacioniSistemBolnice.Patient_ns.PatientFeedbackPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:InformacioniSistemBolnice.Patient_ns"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PatientFeedbackPage" Height="450">
+
+    <Grid>
+        <Button Content="Pošalji" Margin="335,0,0,42" FontSize="22" Height="40" VerticalAlignment="Bottom" Background="White"  Foreground="Black" HorizontalAlignment="Left" Width="128" Command="{Binding ConfirmCommand}"/>
+        <ComboBox x:Name="TypeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="444" Margin="260,70,0,0" Height="37" IsSynchronizedWithCurrentItem="False" FontSize="20" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType}">
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="158" Margin="260,168,0,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Width="444" AcceptsReturn="True" FontSize="20"/>
+        <Label Content="Tip:" HorizontalAlignment="Left" Margin="110,70,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Label Content="Opis:" HorizontalAlignment="Left" Margin="110,168,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Button x:Name="back" Margin="0,390,705,10" Height="40" Background="White" BorderThickness="0" Click="back_Click_1" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="back.png" Stretch="UniformToFill" Height="20"/>
+                <TextBlock Text="Nazad" FontSize="19" RenderTransformOrigin="0.400,0.300" Height="33" Width="58"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

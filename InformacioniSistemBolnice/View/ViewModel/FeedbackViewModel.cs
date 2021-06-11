@@ -74,5 +74,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
             Types = new ObservableCollection<string>(types);
             OnPropertyChanged("Types");
         }
+
+        
     }
 }

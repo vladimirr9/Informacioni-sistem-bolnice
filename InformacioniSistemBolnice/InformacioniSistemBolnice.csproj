@@ -151,6 +151,9 @@
     <Compile Include="Patient_ns\PatientAllergensPage.xaml.cs">
       <DependentUpon>PatientAllergensPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Patient_ns\PatientFeedbackPage.xaml.cs">
+      <DependentUpon>PatientFeedbackPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Patient_ns\Rating.cs" />
     <Compile Include="Controller\NotificationController.cs" />
     <Compile Include="Controller\PatientController.cs" />
@@ -521,6 +524,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Patient_ns\PatientExaminesAppointmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Patient_ns\PatientFeedbackPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -945,6 +952,9 @@
       <Project>{31c3b4a7-504b-4eff-bacc-c8f2ffe5af6f}</Project>
       <Name>MyCalendar.Calendar</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\opinion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
