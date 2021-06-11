@@ -964,5 +964,8 @@
   <ItemGroup>
     <Resource Include="Manager_ns\klipartz.com.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Patient_ns\opinion.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
