@@ -13,7 +13,7 @@ namespace InformacioniSistemBolnice.Service
     class LoginService
     {
 
-        public Patient FinPatient(String username, String password)
+        public Patient FindPatient(String username, String password)
         {
             List<Patient> patients = PatientFileRepository.GetAll();
             foreach (var patient in patients)

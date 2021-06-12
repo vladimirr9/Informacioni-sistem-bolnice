@@ -231,6 +231,7 @@
     <Compile Include="Service\PatientService.cs" />
     <Compile Include="Service\RatingService.cs" />
     <Compile Include="Service\RenovationPeriodService.cs" />
+    <Compile Include="Service\RoomMergeService.cs" />
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\RoomsForHospitalisationService.cs" />
     <Compile Include="Service\ValidatedMedicineService.cs" />

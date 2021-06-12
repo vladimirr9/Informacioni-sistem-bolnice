@@ -12,7 +12,7 @@ namespace InformacioniSistemBolnice.Service
 {
     public class RenovationPeriodService
     {
-        private RoomController _roomController = new RoomController();
+        private RoomService _roomService = new RoomService();
         public void AddRenovatoinPeriod(RenovationPeriod newRenovationPeriod)
         {
             RenovationPeriodFileRepository.AddRenovationPeriod(newRenovationPeriod);
@@ -64,7 +64,7 @@ namespace InformacioniSistemBolnice.Service
             room.IsActive = false;
             RenovationPeriod renPer = new RenovationPeriod(startDate, endDate, false, room);
             AddRenovatoinPeriod(renPer);
-            _roomController.UpdateRoom(room);
+            _roomService.UpdateRoom(room);
 
             //return renPer;
         }

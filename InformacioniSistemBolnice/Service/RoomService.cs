@@ -12,8 +12,6 @@ namespace InformacioniSistemBolnice.Service
 {
     public class RoomService
     {
-        private AppointmentController _appointmentController = new AppointmentController();
-
         public void AddRoom(Room room)
         {
             /*if (!IsIdunique(room.RoomId))
@@ -245,74 +243,6 @@ namespace InformacioniSistemBolnice.Service
                     break;
                 }
             }
-        }
-
-        public void MergingRooms(Room room1, Room room2)
-        {
-            if (room1.RoomType.Equals(room2.RoomType) && room1.Floor == room2.Floor)
-            {
-                double newRoomArea = room1.Area + room2.Area;
-                List<Inventory> newInventoryList = MergedRoomsInventory(room1, room2);
-                Room newRoom = new Room(room1.Name, room1.RoomId + 10, room1.RoomType, false, true, newRoomArea, room1.Floor, room1.RoomNumber + 10, newInventoryList);
-                RemoveRoom(room1);
-                RemoveRoom(room2);
-                _appointmentController.CancelAllRoomAppointments(room1);
-                _appointmentController.CancelAllRoomAppointments(room2);
-                AddRoom(newRoom);
-            }
-            else
-            {
-                MessageBox.Show("Ne mozete spajati prostorije koje nisu istog tipa ili na istom spratu!");
-            }
-        }
-
-        public List<Inventory> MergedRoomsInventory(Room room1, Room room2)
-        {
-            foreach (Inventory inventory in room2.InventoryList)
-            {
-                int index = room1.InventoryList.FindIndex(item => item.InventoryId == inventory.InventoryId);
-                if (index >= 0)
-                {
-                    //mergedInventoryList = MergeInventoryFromRoms(room1, room2, inventory);
-                    room1.InventoryList[index].Quantity += inventory.Quantity;
-                    UpdateRoom(room1);
-                }
-                else
-                {
-                    room1.InventoryList.Add(inventory);
-                    UpdateRoom(room1);
-                }
-
-            }
-            return room1.InventoryList;
-        }
-
-        public void DivideRoom(Room room, double newRoomArea)
-        {
-            String newRoomName = Parsing(room);
-            room.Area -= newRoomArea;
-            Room room2 = new Room(newRoomName, room.RoomId + 10, room.RoomType, false, true, newRoomArea, room.Floor, room.RoomNumber, new List<Inventory>());
-            AddRoom(room2);
-            UpdateRoom(room);
-        }
-
-        public String Parsing(Room room)
-        {
-            String newRoomName;
-            if (room.RoomType.Equals(RoomType.examinationRoom))
-            {
-                string[] splitName = room.Name.Split(' ');
-                int parseNumber = Convert.ToInt32(splitName[1]);
-                newRoomName = splitName[0] + " " + (parseNumber + 10).ToString();
-            }
-            else
-            {
-                string[] splitName = room.Name.Split(' ');
-                int parseNumber = Convert.ToInt32(splitName[2]);
-                newRoomName = splitName[0] + " " + splitName[1] + " " + (parseNumber + 10).ToString();
-            }
-
-            return newRoomName;
         }
     }
 }
