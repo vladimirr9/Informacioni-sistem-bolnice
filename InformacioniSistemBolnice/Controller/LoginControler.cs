@@ -13,7 +13,7 @@ namespace InformacioniSistemBolnice.Controller
         private LoginService _loginService = new LoginService();
         public Patient FindPatient(String username, String password)
         {
-            return _loginService.FinPatient(username, password);
+            return _loginService.FindPatient(username, password);
         }
 
         public Secretary FindSecretary(String username, String password)

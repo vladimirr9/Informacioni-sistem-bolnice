@@ -10,8 +10,8 @@ namespace InformacioniSistemBolnice.Service
 {
     public class AppointmentService
     {
-        private RoomController _roomController = new RoomController();
-        private DoctorControler _doctorController = new DoctorControler();
+        private RoomService _roomService = new RoomService();
+        private DoctorService _doctorService = new DoctorService();
         private RatingService _ratingService = new RatingService();
         public void Add(Appointment appointment)
         {
@@ -87,11 +87,11 @@ namespace InformacioniSistemBolnice.Service
 
         public bool CreateNewUrgentAppointment(Patient patient, int duration, DoctorType doctorType, RoomType roomType, AppointmentType appointmentType, DateTime appointmentStart, DateTime appointmentEnd)
         {
-            List<Room> availableRooms = _roomController.GetAvailableRoomList(appointmentStart, appointmentEnd);
-            List<Doctor> availableDoctors = _doctorController.GetAvailableDoctorList(appointmentStart, appointmentEnd);
+            List<Room> availableRooms = _roomService.GetAvailableRoomList(appointmentStart, appointmentEnd);
+            List<Doctor> availableDoctors = _doctorService.GetAvailableDoctorList(appointmentStart, appointmentEnd);
 
-            List<Room> filteredRooms = _roomController.GetFilteredRooms(availableRooms, appointmentType);
-            List<Doctor> filteredDoctors = _doctorController.GetFilteredDoctors(availableDoctors, doctorType);
+            List<Room> filteredRooms = _roomService.GetFilteredRooms(availableRooms, appointmentType);
+            List<Doctor> filteredDoctors = _doctorService.GetFilteredDoctors(availableDoctors, doctorType);
 
 
             if (filteredRooms.Count > 0 && filteredDoctors.Count > 0)

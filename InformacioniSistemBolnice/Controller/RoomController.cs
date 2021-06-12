@@ -11,6 +11,7 @@ namespace InformacioniSistemBolnice.Controller
     public class RoomController
     {
         private RoomService _roomService = new RoomService();
+        private RoomMergeService _roomMergeService = new RoomMergeService();
         private RoomsForHospitalisationService _forHospitalisationService = new RoomsForHospitalisationService();
 
         public void AddRoom(Room room)
@@ -97,11 +98,11 @@ namespace InformacioniSistemBolnice.Controller
         }
         public void MergingRooms(Room room1, Room room2)
         {
-            _roomService.MergingRooms(room1, room2);
+            _roomMergeService.MergingRooms(room1, room2);
         }
         public void DivideRoom(Room room, double newRoomArea)
         {
-            _roomService.DivideRoom(room, newRoomArea);
+            _roomMergeService.DivideRoom(room, newRoomArea);
         }
     }
 }

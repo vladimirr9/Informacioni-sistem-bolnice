@@ -14,6 +14,7 @@ namespace InformacioniSistemBolnice.Service
     {
         //private AppointmentController _appointmentController = new AppointmentController();
 
+
         public void AddRoom(Room room)
         {
             /*if (!IsIdunique(room.RoomId))
@@ -247,6 +248,7 @@ namespace InformacioniSistemBolnice.Service
             }
         }
 
+
         public void MergingRooms(Room room1, Room room2)
         {
             if (room1.RoomType.Equals(room2.RoomType) && room1.Floor == room2.Floor)
@@ -314,5 +316,6 @@ namespace InformacioniSistemBolnice.Service
 
             return newRoomName;
         }
+
     }
 }
