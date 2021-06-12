@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.Patient_ns.ViewModelPatient;
 
 namespace InformacioniSistemBolnice.Patient_ns
 {
@@ -21,51 +22,13 @@ namespace InformacioniSistemBolnice.Patient_ns
     /// </summary>
     public partial class StartPatientPage : Page
     {
-        private static StartPatientWindow parent;
-        private PatientController _patientController = new PatientController();
-
         public StartPatientPage(StartPatientWindow p)
         {
-            parent = p;
             InitializeComponent();
+            DataContext = new StartPatientPageViewModel(p);
         }
 
-
-
-
-
-
-        private void pregledTermina_Click(object sender, RoutedEventArgs e)
-        {
-            parent.startWindow.Content = new PatientExaminesAppointmentPage(parent);
-        }
-
-        private void obavjestenja_Click(object sender, RoutedEventArgs e)
-        {
-            parent.startWindow.Content = new NotificationPatientPage(parent);
-        }
-
-        private void ocjenjivanje_Click(object sender, RoutedEventArgs e)
-        {
-            if (_patientController.CheckStatusOfPatient(parent.Patient) == true)
-            {
-                MessageBox.Show("Ova funkcionalnost Vam je trenutno onemogućena,obratite se sekretaru!", "Greška");
-            }
-            else
-            {
-                parent.startWindow.Content = new RatingPage(parent);
-            }
-        }
-
-        private void karton_Click(object sender, RoutedEventArgs e)
-        {
-            parent.startWindow.Content = new PatientMedicalRecordPage(parent);
-        }
-
-        private void feedback_Click(object sender, RoutedEventArgs e)
-        {
-            parent.startWindow.Content = new PatientFeedbackPage(parent);
-        }
+        
     }
 
 }

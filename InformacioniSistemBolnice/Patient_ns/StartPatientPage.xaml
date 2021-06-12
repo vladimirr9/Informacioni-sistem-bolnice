@@ -9,7 +9,7 @@
       Title="StartPatientPage">
 
     <Grid>
-        <Button x:Name="pregledTermina" Background="White" FontSize="22" BorderThickness="2" BorderBrush="Black"   HorizontalAlignment="Left" Margin="50,25,0,0" VerticalAlignment="Top" Height="60" Width="675" Click="pregledTermina_Click" >
+        <Button x:Name="pregledTermina" Background="White" FontSize="22" BorderThickness="2" BorderBrush="Black"   HorizontalAlignment="Left" Margin="50,25,0,0" VerticalAlignment="Top" Height="60" Width="675" Command="{Binding ShowAppointments}" >
 
             <StackPanel Orientation="Horizontal">
                 <Image Source="table.png" Stretch="UniformToFill" Height="51" Width="53" RenderTransformOrigin="0.419,0.2"/>
@@ -18,7 +18,7 @@
             </StackPanel>
 
         </Button>
-        <Button x:Name="ocjenjivanje" FontSize="22" Background="White" BorderThickness="2" BorderBrush="Black"  HorizontalAlignment="Left" Margin="50,155,0,0" VerticalAlignment="Top" Width="675" Height="60" Click="ocjenjivanje_Click" >
+        <Button x:Name="ocjenjivanje" FontSize="22" Background="White" BorderThickness="2" BorderBrush="Black"  HorizontalAlignment="Left" Margin="50,155,0,0" VerticalAlignment="Top" Width="675" Height="60" Command="{Binding ShowRatingAppointments}" >
 
 
             <StackPanel Orientation="Horizontal">
@@ -27,7 +27,7 @@
 
             </StackPanel>
         </Button>
-        <Button x:Name="obavjestenja" FontSize="22" Background="White"  BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,220,0,0" VerticalAlignment="Top" Width="675" Height="60" Click="obavjestenja_Click" >
+        <Button x:Name="obavjestenja" FontSize="22" Background="White"  BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="50,220,0,0" VerticalAlignment="Top" Width="675" Height="60" Command="{Binding ShowNotifications}" >
 
             <StackPanel Orientation="Horizontal">
                 <Image Source="ring.png" Stretch="UniformToFill" Height="52" Width="52"/>
@@ -35,7 +35,7 @@
 
             </StackPanel>
         </Button>
-        <Button x:Name="karton" FontSize="22"  Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="50,90,0,0" VerticalAlignment="Top" Width="675" Height="60" Click="karton_Click" >
+        <Button x:Name="karton" FontSize="22"  Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="50,90,0,0" VerticalAlignment="Top" Width="675" Height="60" Command="{Binding ShowMedicalRecord}">
 
             <StackPanel Orientation="Horizontal">
                 <Image Source="card.png" Stretch="UniformToFill" Height="60" Width="60"/>
@@ -43,7 +43,7 @@
 
             </StackPanel>
         </Button>
-        <Button x:Name="feedback" FontSize="22"  Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="50,285,0,0" VerticalAlignment="Top" Width="675" Height="60" Click="feedback_Click"  >
+        <Button x:Name="feedback" FontSize="22"  Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="50,285,0,0" VerticalAlignment="Top" Width="675" Height="60" Command="{Binding ShowFeedback}"  >
 
             <StackPanel Orientation="Horizontal">
                 <Image Source="opinion.png" Stretch="UniformToFill" Height="60" Width="60"/>

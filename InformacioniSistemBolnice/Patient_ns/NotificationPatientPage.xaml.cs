@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
+using InformacioniSistemBolnice.Patient_ns.ViewModelPatient;
 
 namespace InformacioniSistemBolnice.Patient_ns
 {
@@ -23,64 +24,16 @@ namespace InformacioniSistemBolnice.Patient_ns
     /// </summary>
     public partial class NotificationPatientPage : Page
     {
-        private StartPatientWindow parent;
-        private Patient loggedInPatient;
-        private PatientController _patientController = new PatientController();
-        private AnamnesisController _anamnesisController = new AnamnesisController();
-        private AppointmentController _appointmentController = new AppointmentController();
+       
         public NotificationPatientPage(StartPatientWindow pp)
         {
-            parent = pp;
-            loggedInPatient = pp.Patient;
+            
             InitializeComponent();
-            PrikazObavjestenja.Items.Clear();
-            updateVisibility();
-            this.DataContext = this;
-            LoadRemindersForAppointment();
-            LoadNotifications();
-            LoadReminders();
+            DataContext = new NotificationPatientViewModel(pp);
+
+
         }
 
-        private void LoadRemindersForAppointment()
-        {
-            _appointmentController.CheckMissedAppointments();
-            foreach (Appointment a in _appointmentController.GetAll())
-            {
-                if (_appointmentController.IsAppointmentTomorrow(a) &&
-                    a.PatientUsername.Equals(loggedInPatient.Username))
-                {
-                    PrikazObavjestenja.Items.Add("Imate zakazan termin u " +
-                                                 a.AppointmentDate.ToShortTimeString() + ".");
-                }
-            }
-        }
-        private void LoadNotifications()
-        {
-            foreach (Therapy t in _patientController.GetTherapiesFromMedicalRecord(loggedInPatient))
-            {
-                PrikazObavjestenja.Items.Add(t.Description);
-            }
-        }
-
-        private void LoadReminders()
-        {
-            foreach (Note n in _anamnesisController.GetNotesWithReminder(loggedInPatient))
-            {
-                PrikazObavjestenja.Items.Add(n.DescriptionOfNote);
-            }
-        }
-
-        private void updateVisibility()
-        {
-            parent.titleLabel.Visibility = Visibility.Hidden;
-            parent.titlePriorityLabel.Visibility = Visibility.Hidden;
-            parent.odjava.Visibility = Visibility.Visible;
-            parent.iconAndName.Visibility = Visibility.Visible;
-        }
-
-        private void back_Click(object sender, RoutedEventArgs e)
-        {
-            parent.startWindow.Content = new StartPatientPage(parent);
-        }
+       
     }
 }
