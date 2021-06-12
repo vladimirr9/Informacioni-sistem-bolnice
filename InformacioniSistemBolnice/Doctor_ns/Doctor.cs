@@ -11,21 +11,46 @@ using System.Windows.Documents;
 public class Doctor : User
 {
     public DoctorType doctorType { get; set; }
-    public WorkShift Shift { get; set; }
     public List<Vacation> Vacations;
     public int DaysOfVacation { get; set;}
+    public WorkHours WorkHours { get; set; }
 
-    public Doctor(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime birthday, string username, string password, ResidentialAddress address, DoctorType doctorType, WorkShift shift, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, birthday, username, password, address, isDeleted)
+    public Doctor(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime birthday, string username, string password, ResidentialAddress address, DoctorType doctorType, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, birthday, username, password, address, isDeleted)
     {
         this.doctorType = doctorType;
-        Shift = shift;
         Vacations = new List<Vacation>();
         DaysOfVacation = 25;
+        WorkHours = new WorkHours();
     }
 
     public override bool Equals(object obj)
     {
         return base.Equals(obj);
+    }
+    public bool IsWithinWorkHours(DateTime date)
+    {
+        if (WorkHours.AberrationExists(date))
+        {
+            WorkHourAberration aberration = WorkHours.GetAberrationByDate(date);
+            if (date.TimeOfDay >= aberration.Start.TimeOfDay && date.TimeOfDay <= aberration.End.TimeOfDay)
+                return true;
+            else return false;
+        }
+        else
+        {
+            if (date.TimeOfDay >= WorkHours.Start.TimeOfDay && date.TimeOfDay <= WorkHours.End.TimeOfDay)
+                return true;
+            else return false;
+        }
+    }
+    public bool IsWithinVacations(DateTime date)
+    {
+        foreach (Vacation vacation in Vacations)
+        {
+            if (vacation.IsDateWithinVacation(date))
+                return true;
+        }
+        return false;
     }
 
     public bool IsAvailable(DateTime start, DateTime end) // proverava da li je DoctorComboBox slobodan izmedju neka dva trenutka u vremenu
@@ -33,17 +58,11 @@ public class Doctor : User
 
         if (start.Equals(end))
             return true;
-        if (Shift == WorkShift.firstShift)
-        {
-            if (start >= start.Date.AddHours(14))
-                return false;
-        }
-        else if (Shift == WorkShift.secondShift)
-        {
-            if (start <= start.Date.AddHours(14))
-                return false;
-        }
         bool retVal = true;
+        if (IsWithinVacations(start))
+            return false;
+        if (!IsWithinWorkHours(start))
+            return false;
         List<Appointment> appointments = AppointmentFileRepository.GetAll();
         foreach (Appointment appointment in appointments)
         {

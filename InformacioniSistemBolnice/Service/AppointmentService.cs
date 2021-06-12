@@ -1,6 +1,7 @@
 ﻿using InformacioniSistemBolnice.Controller;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,6 +114,22 @@ namespace InformacioniSistemBolnice.Service
             return false;
         }
 
+        public void UpdateAppointmentsForDoctor(Doctor doctor)
+        {
+            foreach (var appointment in AppointmentFileRepository.GetAll())
+            {
+                if (appointment.AppointmentStatus != AppointmentStatus.scheduled)
+                    continue;
+                if (!appointment.Doctor.Equals(doctor))
+                    continue;
+
+                if (doctor.IsWithinVacations(appointment.AppointmentDate))
+                    AppointmentFileRepository.RemoveAppointment(appointment.AppointmentID);
+                if (!doctor.IsWithinWorkHours(appointment.AppointmentDate))
+                    AppointmentFileRepository.RemoveAppointment(appointment.AppointmentID);
+            }
+        }
+
         private Boolean IsDateOfAppointmentPassed(Appointment appointment)
         {
             Boolean returnValue = false;
@@ -184,6 +201,7 @@ namespace InformacioniSistemBolnice.Service
                     if (potentialTime >= start && potentialTime <= end)
                     {
                         free = false;
+                        break;
                     }
                 }
                 if (free)
@@ -244,6 +262,16 @@ namespace InformacioniSistemBolnice.Service
             {
                 appointment.AppointmentStatus = AppointmentStatus.cancelled;
             }
+        }
+
+        public DateTime GetFirstPossibleAppointmentTime()
+        {
+            return DateTime.Now.Date.AddHours(8);
+        }
+        public DateTime GetlastPossibleAppointmentTime()
+        {
+            return DateTime.Now.Date.AddHours(19).AddMinutes(30);
+
         }
     }
 }

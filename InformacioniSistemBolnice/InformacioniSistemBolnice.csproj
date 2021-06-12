@@ -108,6 +108,8 @@
     <Compile Include="Converter\AppointmentDurationConverter.cs" />
     <Compile Include="Converter\AppointmentStatusConverter.cs" />
     <Compile Include="Converter\AppointmentTypeConverter.cs" />
+    <Compile Include="Converter\DateTimeToDateConverter.cs" />
+    <Compile Include="Converter\DateTimeToTimeConverter.cs" />
     <Compile Include="Converter\InventoryTypeConverte.cs" />
     <Compile Include="Converter\MedicineStatusConverter.cs" />
     <Compile Include="Converter\RoomStatusConverter.cs" />
@@ -119,6 +121,8 @@
       <DependentUpon>TutorialPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Doctor_ns\Vacation.cs" />
+    <Compile Include="Doctor_ns\WorkHourAberration.cs" />
+    <Compile Include="Doctor_ns\WorkHours.cs" />
     <Compile Include="Doctor_ns\WorkShift.cs" />
     <Compile Include="Controller\DoctorControler.cs" />
     <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">

@@ -103,6 +103,18 @@ namespace InformacioniSistemBolnice.Controller
         {
             _appointmentService.CancelAllRoomAppointments(room);
         }
+        public DateTime GetFirstPossibleAppointmentTime()
+        {
+            return _appointmentService.GetFirstPossibleAppointmentTime();
+        }
+        public DateTime GetLastPossibleAppointmentTime()
+        {
+            return _appointmentService.GetlastPossibleAppointmentTime();
+        }
 
+        public void UpdateAppointmentsForDoctor(Doctor doctor)
+        {
+            _appointmentService.UpdateAppointmentsForDoctor(doctor);
+        }
     }
 }

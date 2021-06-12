@@ -11,7 +11,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
     public partial class AppointmentsPage : Page
     {
 
-        private static AppointmentsPage _instance;
         private AppointmentsPage()
         {
             InitializeComponent();
@@ -20,10 +19,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         }
         public static AppointmentsPage GetPage(SecretaryMain parent)
         {
-            if (_instance == null)
-                _instance = new AppointmentsPage();
             parent.Title.Content = "Termini";
-            return _instance;
+            return new AppointmentsPage();
         }
     }
 }
