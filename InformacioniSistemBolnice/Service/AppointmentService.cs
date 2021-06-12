@@ -187,13 +187,20 @@ namespace InformacioniSistemBolnice.Service
 
             return appointments;
         }
-        public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments)
+        public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments, Doctor doctor)
         {
             List<String> times = new List<String>();
             DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
             for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
             {
                 bool free = true;
+                if (doctor != null)
+                {
+                    if (doctor.IsWithinVacations(potentialTime) || !doctor.IsWithinWorkHours(potentialTime))
+                    {
+                        free = false;
+                    }
+                }
                 foreach (Appointment appointment in appointments)
                 {
                     DateTime start = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.ToString("HH:mm"));
