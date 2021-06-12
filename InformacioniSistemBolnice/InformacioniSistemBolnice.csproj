@@ -187,7 +187,6 @@
     </Compile>
     <Compile Include="Patient_ns\ViewModelPatient\NotificationPatientViewModel.cs" />
     <Compile Include="Patient_ns\ViewModelPatient\StartPatientPageViewModel.cs" />
-    <Compile Include="Patient_ns\ViewModelPatient\StatisticForDoctorViewModel.cs" />
     <Compile Include="Reports\AnamnesisReport.xaml.cs">
       <DependentUpon>AnamnesisReport.xaml</DependentUpon>
     </Compile>
