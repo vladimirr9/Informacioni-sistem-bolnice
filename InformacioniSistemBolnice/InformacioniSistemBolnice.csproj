@@ -124,6 +124,16 @@
     <Compile Include="Doctor_ns\DoctorPatientsPage.xaml.cs">
       <DependentUpon>DoctorPatientsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Factory\DoctorLoginer.cs" />
+    <Compile Include="Factory\DoctorLoginFactory.cs" />
+    <Compile Include="Factory\Loginer.cs" />
+    <Compile Include="Factory\LoginFactory.cs" />
+    <Compile Include="Factory\ManagerLoginer.cs" />
+    <Compile Include="Factory\ManagerLoginFactory.cs" />
+    <Compile Include="Factory\PatientLoginer.cs" />
+    <Compile Include="Factory\PatientLoginFactory.cs" />
+    <Compile Include="Factory\SecretaryLoginer.cs" />
+    <Compile Include="Factory\SecretaryLoginFactory.cs" />
     <Compile Include="FileStorage\FeedbackRepository.cs" />
     <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
     <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />
@@ -968,5 +978,6 @@
   <ItemGroup>
     <Resource Include="Patient_ns\opinion.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

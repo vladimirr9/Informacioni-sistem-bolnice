@@ -24,6 +24,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.Factory;
 using InformacioniSistemBolnice.Patient_ns;
 using InformacioniSistemBolnice.Secretary_ns.HelpWizard;
 
@@ -47,112 +48,35 @@ namespace InformacioniSistemBolnice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            LoginFactory factory = null;
+
             if (_loginControler.FindPatient(Username.Text, Password.Password) != null)
             {
-                StartPatientWindow patientWindow = new StartPatientWindow(_loginControler.FindPatient(Username.Text, Password.Password));
-                Application.Current.MainWindow = patientWindow;
-                patientWindow.startWindow.Content = new StartPatientPage(patientWindow);
-                patientWindow.Show();
-                this.Close();
-                return;
+                factory = new PatientLoginFactory(_loginControler.FindPatient(Username.Text, Password.Password));
+            }
+            else if (_loginControler.FindSecretary(Username.Text, Password.Password) != null)
+            {
+                factory = new SecretaryLoginFactory(_loginControler.FindSecretary(Username.Text, Password.Password));
+            }
+            else if (_loginControler.FindDoctor(Username.Text, Password.Password) != null)
+            {
+                factory = new DoctorLoginFactory(_loginControler.FindDoctor(Username.Text, Password.Password));
+            }
+            else if (_loginControler.FindManager(Username.Text, Password.Password) != null)
+            {
+                factory = new ManagerLoginFactory(_loginControler.FindManager(Username.Text, Password.Password));
+
             }
 
-            if (_loginControler.FindSecretary(Username.Text, Password.Password) != null)
+            if (factory != null)
             {
-                Secretary secretary = _loginControler.FindSecretary(Username.Text, Password.Password);
-                if (secretary.FirstLogin) {
-                    HelpWizardMain helpWizardMain = new HelpWizardMain(secretary);
-                    helpWizardMain.ShowDialog();
-                }
-                SecretaryMain secretaryMain = new SecretaryMain(secretary);
-                Application.Current.MainWindow = secretaryMain;
-                secretaryMain.Main.Content = StartingPage.GetPage(secretary, secretaryMain);
-                secretaryMain.Show();
-                this.Close();
-                return;
-            }
-
-            if (_loginControler.FindDoctor(Username.Text, Password.Password) != null)
-            {
-                DoctorWindow doctorWindow = new DoctorWindow(_loginControler.FindDoctor(Username.Text, Password.Password));
-                Application.Current.MainWindow = doctorWindow;
-                doctorWindow.Show();
-                this.Close();
-                return;
-            }
-
-            if (_loginControler.FindManager(Username.Text, Password.Password) != null)
-            {
-                UpravnikWindow managerWindow = new UpravnikWindow(_loginControler.FindManager(Username.Text, Password.Password));
-                Application.Current.MainWindow = managerWindow;
-                managerWindow.Show();
+                Loginer loginer = factory.GetLoginer();
+                loginer.Login();
                 this.Close();
                 return;
             }
 
             MessageBox.Show("Neuspesno logovanje!");
-
-
-
-            /*
-            List<Patient> patients = PatientFileRepository.GetAll();
-            foreach (var patient in patients)
-            {
-                if (Username.Text.Equals(patient.Username)  && Password.Password.Equals(patient.Password))
-                {
-                    StartPatientWindow patientWindow = new StartPatientWindow(patient);
-                    Application.Current.MainWindow = patientWindow;
-                    patientWindow.startWindow.Content = new StartPatientPage(patientWindow);
-                    patientWindow.Show();
-                    this.Close();
-                    return;
-                }
-            }
-
-            List<Secretary> secretaries = SecretaryFileRepository.GetAll();
-            foreach (Secretary secretary in secretaries)
-            {
-                if (Username.Text.Equals(secretary.Username) && Password.Password.Equals(secretary.Password))
-                {
-                    HelpWizardMain helpWizardMain = new HelpWizardMain();
-                    helpWizardMain.Show();
-                    SecretaryMain secretaryMain = new SecretaryMain(secretary);
-                    Application.Current.MainWindow = secretaryMain;
-                    secretaryMain.Main.Content = StartingPage.GetPage(secretary, secretaryMain);
-                    secretaryMain.Show();
-                    this.Close();
-                    return;
-                }
-            }
-
-            List<Doctor> doctors = DoctorFileRepository.GetAll();
-            foreach (Doctor doctor in doctors)
-            {
-                if (Username.Text.Equals(doctor.Username) && Password.Password.Equals(doctor.Password))
-                {
-                    DoctorWindow doctorWindow = new DoctorWindow(doctor);
-                    Application.Current.MainWindow = doctorWindow;
-                    doctorWindow.Show();
-                    this.Close();
-                    return;
-                }
-            }
-
-            List<Manager> managers = ManagerFileRepository.GetAll();
-            foreach (Manager manager in managers)
-            {
-                if (Username.Text.Equals(manager.Username) && Password.Password.Equals(manager.Password))
-                {
-                    UpravnikWindow managerWindow = new UpravnikWindow(manager);
-                    Application.Current.MainWindow = managerWindow;
-                    managerWindow.Show();
-                    this.Close();
-                    return;
-                }
-            }
-            */
-
-
         }
     }
 }
