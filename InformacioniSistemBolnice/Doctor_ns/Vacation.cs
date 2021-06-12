@@ -11,25 +11,11 @@ namespace InformacioniSistemBolnice.Doctor_ns
     {
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
-        [JsonIgnore]
-        public string StartDisplay
-        {
-            get
-            {
-                return Start.ToString("dd/MM/yyyy");
-            }
-            set { }
-        }
+
+
         public int DurationInBusinessDays { get; set; }
-        [JsonIgnore]
-        public string EndDisplay
-        {
-            get
-            {
-                return End.ToString("dd/MM/yyyy");
-            }
-            set { }
-        }
+
+
 
         public Vacation(DateTime start, DateTime end)
         {
@@ -43,6 +29,12 @@ namespace InformacioniSistemBolnice.Doctor_ns
                     continue;
                 DurationInBusinessDays++;
             }
+        }
+        public bool IsDateWithinVacation(DateTime date)
+        {
+            if (date <= End && date >= Start)
+                return true;
+            else return false;
         }
         public bool Overlaps(List<Vacation> vacations)
         {

@@ -195,7 +195,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
                     appointments.Add(appointment);
                 }
             }
-            AppointmentTime.ItemsSource = _appointmentController.GetAvailableAppointmentTimes(appointments);
+            AppointmentTime.ItemsSource = _appointmentController.GetAvailableAppointmentTimes(appointments, (Doctor)DoctorComboBox.SelectedItem);
         }
 
         private void ResetComponentValues()

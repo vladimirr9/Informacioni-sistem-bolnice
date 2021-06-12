@@ -1,6 +1,7 @@
 ﻿using InformacioniSistemBolnice.Controller;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,6 +114,22 @@ namespace InformacioniSistemBolnice.Service
             return false;
         }
 
+        public void UpdateAppointmentsForDoctor(Doctor doctor)
+        {
+            foreach (var appointment in AppointmentFileRepository.GetAll())
+            {
+                if (appointment.AppointmentStatus != AppointmentStatus.scheduled)
+                    continue;
+                if (!appointment.Doctor.Equals(doctor))
+                    continue;
+
+                if (doctor.IsWithinVacations(appointment.AppointmentDate))
+                    AppointmentFileRepository.RemoveAppointment(appointment.AppointmentID);
+                if (!doctor.IsWithinWorkHours(appointment.AppointmentDate))
+                    AppointmentFileRepository.RemoveAppointment(appointment.AppointmentID);
+            }
+        }
+
         private Boolean IsDateOfAppointmentPassed(Appointment appointment)
         {
             Boolean returnValue = false;
@@ -170,13 +187,20 @@ namespace InformacioniSistemBolnice.Service
 
             return appointments;
         }
-        public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments)
+        public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments, Doctor doctor)
         {
             List<String> times = new List<String>();
             DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
             for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
             {
                 bool free = true;
+                if (doctor != null)
+                {
+                    if (doctor.IsWithinVacations(potentialTime) || !doctor.IsWithinWorkHours(potentialTime))
+                    {
+                        free = false;
+                    }
+                }
                 foreach (Appointment appointment in appointments)
                 {
                     DateTime start = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.ToString("HH:mm"));
@@ -184,6 +208,7 @@ namespace InformacioniSistemBolnice.Service
                     if (potentialTime >= start && potentialTime <= end)
                     {
                         free = false;
+                        break;
                     }
                 }
                 if (free)
@@ -244,6 +269,16 @@ namespace InformacioniSistemBolnice.Service
             {
                 appointment.AppointmentStatus = AppointmentStatus.cancelled;
             }
+        }
+
+        public DateTime GetFirstPossibleAppointmentTime()
+        {
+            return DateTime.Now.Date.AddHours(8);
+        }
+        public DateTime GetlastPossibleAppointmentTime()
+        {
+            return DateTime.Now.Date.AddHours(19).AddMinutes(30);
+
         }
     }
 }

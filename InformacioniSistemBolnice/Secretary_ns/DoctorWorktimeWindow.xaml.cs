@@ -29,7 +29,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public WorkShift Shift { get; set; }
         public int DaysOfVacation { get; set; }
         private DoctorControler _doctorController = new DoctorControler();
-        public DoctorWorktimeWindow(Doctor doctor)
+        private AppointmentController _appointmentController = new AppointmentController();
+        public DoctorWorktimeWindow(Doctor doctor) 
         {
             Doctor = doctor;
             InitializeComponent();
@@ -37,10 +38,14 @@ namespace InformacioniSistemBolnice.Secretary_ns
             End = DateTime.Today.Date;
             Vacations = Doctor.Vacations;
             this.DataContext = this;
-            if (Doctor.Shift == WorkShift.firstShift)
-                FirstShift.IsChecked = true;
-            else
-                SecondShift.IsChecked = true;
+            foreach (string val in _appointmentController.GetPossibleAppointmentTimes())
+            {
+                WorkTimeFromCombo.Items.Add(val);
+                WorkTimeToCombo.Items.Add(val);
+            }
+            WorkTimeFromCombo.SelectedItem = Doctor.WorkHours.Start.ToString("HH:mm");
+            WorkTimeToCombo.SelectedItem = Doctor.WorkHours.End.ToString("HH:mm");
+
             UpdateValues();
         }
 
@@ -71,14 +76,21 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         public void UpdateValues()
         {
-            Vacations = new List<Vacation>();
+            Vacations = new List<Vacation>();  
             foreach (Vacation vacation in Doctor.Vacations)
             {
                 Vacations.Add(vacation);
             }
+            AberrationData.Items.Clear();
+            foreach (WorkHourAberration aberration in Doctor.WorkHours.Aberrations)
+            {
+                AberrationData.Items.Add(aberration);
+            }
             VacationList.ItemsSource = Vacations;
             DaysOfVacation = Doctor.DaysOfVacation;
             FreeDays.Content = DaysOfVacation;
+            WorkTimeStart.Content = Doctor.WorkHours.Start.ToString("HH:mm");
+            WorkTimeEnd.Content = Doctor.WorkHours.End.ToString("HH:mm");
         }
         private int GetNumberOfBusinessDays(DateTime start, DateTime end)
         {
@@ -96,6 +108,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             _doctorController.Update(Doctor);
+            _appointmentController.UpdateAppointmentsForDoctor(Doctor);
             Close();
         }
 
@@ -104,20 +117,45 @@ namespace InformacioniSistemBolnice.Secretary_ns
             Close();
         }
 
-        private void FirstShift_Checked(object sender, RoutedEventArgs e)
+        private void ConfirmAbberation_Click(object sender, RoutedEventArgs e)
         {
-            if ((bool)FirstShift.IsChecked)
-                Doctor.Shift = WorkShift.firstShift;
+            DateTime start = DateTime.Parse(DateTime.Now.Date.ToString("dd/MM/yyyy") + " " + WorkTimeFromCombo.Text);
+            DateTime end = DateTime.Parse(DateTime.Now.Date.ToString("dd/MM/yyyy") + " " + WorkTimeToCombo.Text);
+            if (end <= start)
+                return;
+            if (AberrationDate.SelectedDate == null)
+            {
+                Doctor.WorkHours.Start = start;
+                Doctor.WorkHours.End = end;
+            }
             else
-                Doctor.Shift = WorkShift.secondShift;
+            {
+                DateTime date = AberrationDate.SelectedDate.Value.Date;
+                WorkHourAberration aberration;
+                if (Doctor.WorkHours.AberrationExists(date))
+                {
+                    aberration = Doctor.WorkHours.GetAberrationByDate(date);
+                    aberration.Start = start;
+                    aberration.End = end;
+                }
+                else
+                {
+                    aberration = new WorkHourAberration(date, start, end);
+                    Doctor.WorkHours.Aberrations.Add(aberration);
+                }
+            }
+
+
+            UpdateValues();
         }
 
-        private void SecondShift_Checked(object sender, RoutedEventArgs e)
+        private void DeleteAberration_Click(object sender, RoutedEventArgs e)
         {
-            if ((bool)FirstShift.IsChecked)
-                Doctor.Shift = WorkShift.firstShift;
-            else
-                Doctor.Shift = WorkShift.secondShift;
+            if (AberrationData.SelectedItem == null)
+                return;
+            WorkHourAberration aberration = (WorkHourAberration)AberrationData.SelectedItem;
+            Doctor.WorkHours.Aberrations.Remove(aberration);
+            UpdateValues();
         }
     }
 }

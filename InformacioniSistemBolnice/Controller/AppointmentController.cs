@@ -76,9 +76,9 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _appointmentService.GetPatientsAppointmentsInLastTenDays(patient);
         }
-        public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments)
+        public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments, Doctor doctor)
         {
-            return _appointmentService.GetAvailableAppointmentTimes(appointments);
+            return _appointmentService.GetAvailableAppointmentTimes(appointments, doctor);
         }
 
         public bool CreateNewUrgentAppointment(Patient patient, int duration, DoctorType doctorType, RoomType roomType, AppointmentType appointmentType, DateTime appointmentStart, DateTime appointmentEnd)
@@ -103,6 +103,18 @@ namespace InformacioniSistemBolnice.Controller
         {
             _appointmentService.CancelAllRoomAppointments(room);
         }
+        public DateTime GetFirstPossibleAppointmentTime()
+        {
+            return _appointmentService.GetFirstPossibleAppointmentTime();
+        }
+        public DateTime GetLastPossibleAppointmentTime()
+        {
+            return _appointmentService.GetlastPossibleAppointmentTime();
+        }
 
+        public void UpdateAppointmentsForDoctor(Doctor doctor)
+        {
+            _appointmentService.UpdateAppointmentsForDoctor(doctor);
+        }
     }
 }

@@ -197,16 +197,6 @@ public class Appointment
             }
             if (termin.Doctor.Equals(this.Doctor))
             {
-                if (Doctor.Shift == WorkShift.firstShift)
-                {
-                    if (termin.AppointmentDate >= termin.AppointmentDate.Date.AddHours(14))
-                        return retVal = false;
-                }
-                else if (Doctor.Shift == WorkShift.secondShift)
-                {
-                    if (termin.AppointmentDate <= termin.AppointmentDate.Date.AddHours(14))
-                        return retVal = false;
-                }
                 if (this.AppointmentDate >= termin.AppointmentDate && this.AppointmentDate <= termin.AppointmentEnd)
                 {
                     retVal = false;
