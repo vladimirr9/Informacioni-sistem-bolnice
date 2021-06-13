@@ -10,7 +10,7 @@
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Height="32" Margin="230,35,0,0" TextWrapping="Wrap" Text="Lekar:" VerticalAlignment="Top" Width="118" FontSize="22" RenderTransformOrigin="1.254,0.469"/>
-        <ComboBox x:Name="lekar" BorderBrush="Black" BorderThickness="2" Background="White" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Margin="407,35,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="18" SelectionChanged="lekar_SelectionChanged" >
+        <ComboBox x:Name="lekar"  BorderBrush="Black" BorderThickness="2" Background="White" ItemsSource="{Binding Path=Lekar}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="163" Margin="407,35,0,0" Height="32" IsSynchronizedWithCurrentItem="False" FontSize="18" SelectionChanged="lekar_SelectionChanged" >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>

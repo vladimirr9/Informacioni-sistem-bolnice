@@ -13,7 +13,7 @@
         <ListView x:Name="showNotesListView" 
                   FontSize="16"
                   SelectionMode="Single"
-                  HorizontalContentAlignment="Stretch"  Margin="78,60,78,90"  BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                  HorizontalContentAlignment="Stretch" ItemsSource="{Binding NotesListView}"  Margin="78,60,78,90"  BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap"></TextBlock>

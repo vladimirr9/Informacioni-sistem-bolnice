@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
+using InformacioniSistemBolnice.Patient_ns.ViewModelPatient;
 
 namespace InformacioniSistemBolnice.Patient_ns
 {
@@ -23,27 +24,14 @@ namespace InformacioniSistemBolnice.Patient_ns
     /// </summary>
     public partial class ShowNotePage : Page
     {
-        private PatientMedicalRecordPage karton;
-        private Anamnesis _selectedAnamnesis;
-        private AnamnesisController _anamnesisController = new AnamnesisController();
-        private Patient _loggedInPatient;
+
         public ShowNotePage(PatientMedicalRecordPage pkp, Anamnesis selected)
         {
-            _selectedAnamnesis = selected;
-            _loggedInPatient = pkp.Patient;
-            Debug.WriteLine(selected.IdOfAppointment.ToString());
-            karton = pkp;
-            InitializeComponent();
-            this.DataContext = this;
-            UpdateListView();
-        }
 
-        private void UpdateListView()
-        {
-            foreach (Note n in _anamnesisController.NotesForAnamnesis(_selectedAnamnesis, _loggedInPatient))
-            {
-                showNotesListView.Items.Add(n.DescriptionOfNote);
-            }
+            InitializeComponent();
+            DataContext = new ShowNoteViewModel(pkp, selected);
+
+
         }
     }
 }
