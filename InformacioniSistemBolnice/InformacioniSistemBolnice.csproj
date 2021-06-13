@@ -215,6 +215,7 @@
     <Compile Include="Reports\AnamnesisReport.xaml.cs">
       <DependentUpon>AnamnesisReport.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\MedicinesCountReport.cs" />
     <Compile Include="Reports\MedicinesReport.xaml.cs">
       <DependentUpon>MedicinesReport.xaml</DependentUpon>
     </Compile>
