@@ -42,7 +42,9 @@ public class Patient : User
         if (start.Equals(end))
             return true;
         bool retVal = true;
-        List<Appointment> appointments = AppointmentFileRepository.GetAll();
+
+        AppointmentFileRepository appointmentFileRepository = new AppointmentFileRepository();
+        List<Appointment> appointments = appointmentFileRepository.GetAll();
         foreach (Appointment appointment in appointments)
         {
             if (appointment.Patient.Equals(this) && appointment.AppointmentStatus == AppointmentStatus.scheduled)

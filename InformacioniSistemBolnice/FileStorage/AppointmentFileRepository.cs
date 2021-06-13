@@ -6,12 +6,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using InformacioniSistemBolnice.FileStorage;
 using Newtonsoft.Json;
 
-public class AppointmentFileRepository
+public class AppointmentFileRepository : IAppointmentRepository
 {
-    private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "appointments.json";
-    public static List<Appointment> GetAll()
+    private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "appointments.json";
+    public List<Appointment> GetAll()
     {
         if (!File.Exists(_startupPath))
         {
@@ -31,7 +32,7 @@ public class AppointmentFileRepository
         return appointments;
     }
 
-    public static Appointment GetOne(int appointmentID)
+    public Appointment GetOne(int appointmentID)
     {
         List<Appointment> appointments = GetAll();
         foreach (Appointment appointment in appointments)
@@ -42,7 +43,7 @@ public class AppointmentFileRepository
         return null;
     }
 
-    public static Boolean RemoveAppointment(int appointmentID)
+    public Boolean Remove(int appointmentID)
     {
         List<Appointment> appointments = GetAll();
         foreach (Appointment appointment in appointments)
@@ -57,7 +58,7 @@ public class AppointmentFileRepository
         return false;
     }
 
-    private static void Save(List<Appointment> appointments)
+    private void Save(List<Appointment> appointments)
     {
         string serializeObject = JsonConvert.SerializeObject(appointments, Formatting.None,
                         new JsonSerializerSettings()
@@ -67,16 +68,15 @@ public class AppointmentFileRepository
         File.WriteAllText(_startupPath, serializeObject);
     }
 
-    public static Boolean AddAppointment(Appointment newAppointment)
+    public Boolean Add(Appointment newAppointment)
     {
         List<Appointment> appointments = GetAll();
         appointments.Add(newAppointment);
         Save(appointments);
         return true;
-
     }
 
-    public static Boolean UpdateAppointment(int appointmentID, Appointment newAppointment)
+    public Boolean Update(int appointmentID, Appointment newAppointment)
     {
         List<Appointment> appointments = GetAll();
         foreach (Appointment appointment in appointments)
@@ -89,7 +89,5 @@ public class AppointmentFileRepository
             }
         }
         return false;
-
     }
-
 }

@@ -141,7 +141,13 @@
     <Compile Include="FileStorage\FeedbackRepository.cs" />
     <Compile Include="FileStorage\GenericUserFileRepository.cs" />
     <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
+    <Compile Include="FileStorage\IActivityLogRepository.cs" />
+    <Compile Include="FileStorage\IAnamnesisRepository.cs" />
+    <Compile Include="FileStorage\IAppointmentRepository.cs" />
     <Compile Include="FileStorage\IDoctorRepository.cs" />
+    <Compile Include="FileStorage\IFeedbackRepository.cs" />
+    <Compile Include="FileStorage\IHospitalisationRepository.cs" />
+    <Compile Include="FileStorage\IIngredientRepository.cs" />
     <Compile Include="FileStorage\IManagerRepository.cs" />
     <Compile Include="FileStorage\IMedicineRepository.cs" />
     <Compile Include="FileStorage\INotificationRepository.cs" />

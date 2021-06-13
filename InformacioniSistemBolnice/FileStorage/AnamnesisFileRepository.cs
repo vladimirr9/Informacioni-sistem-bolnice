@@ -8,11 +8,11 @@ using Newtonsoft.Json;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    public class AnamnesisFileRepository
+    public class AnamnesisFileRepository : IAnamnesisRepository
     {
-        private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "anamnesis.json";
+        private string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "anamnesis.json";
 
-        public static List<Anamnesis> GetAll()
+        public List<Anamnesis> GetAll()
         {
             if (!File.Exists(startupPath))
             {
@@ -32,9 +32,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return anamneses;
         }
 
-
-
-        public static Boolean AddAnamnesis(Anamnesis newAnamnesis)
+        public Boolean Add(Anamnesis newAnamnesis)
         {
             List<Anamnesis> anamneses = GetAll();
             anamneses.Add(newAnamnesis);
@@ -42,7 +40,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return true;
         }
 
-        public static Boolean UpdateAnamnesis(int idOfAnamnesis, Anamnesis newAnamnesis)
+        public Boolean Update(int idOfAnamnesis, Anamnesis newAnamnesis)
         {
             List<Anamnesis> anamneses = GetAll();
             foreach (Anamnesis a in anamneses)
@@ -57,12 +55,10 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        private static void Save(List<Anamnesis> lista)
+        private void Save(List<Anamnesis> lista)
         {
             string upis = JsonConvert.SerializeObject(lista);
             File.WriteAllText(startupPath, upis);
         }
-
-
     }
 }

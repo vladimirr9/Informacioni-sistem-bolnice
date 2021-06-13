@@ -9,11 +9,11 @@ using Newtonsoft.Json;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    class FeedbackRepository
+    class FeedbackRepository : IFeedbackRepository
     {
-        private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "feedback.json";
+        private string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "feedback.json";
 
-        public static List<Feedback> GetAll()
+        public List<Feedback> GetAll()
         {
             if (!File.Exists(startupPath))
             {
@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return feedbacks;
         }
 
-        public static Boolean Add(Feedback newfFeedback)
+        public Boolean Add(Feedback newfFeedback)
         {
             List<Feedback> feedbacks = GetAll();
             feedbacks.Add(newfFeedback);
@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return true;
         }
 
-        private static void Save(List<Feedback> feedbacks)
+        private void Save(List<Feedback> feedbacks)
         {
             string write = JsonConvert.SerializeObject(feedbacks);
             File.WriteAllText(startupPath, write);

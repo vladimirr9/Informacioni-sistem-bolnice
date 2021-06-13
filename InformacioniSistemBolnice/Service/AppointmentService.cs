@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Service
 {
@@ -13,40 +14,41 @@ namespace InformacioniSistemBolnice.Service
         private RoomService _roomService = new RoomService();
         private DoctorService _doctorService = new DoctorService();
         private RatingService _ratingService = new RatingService();
+        private IAppointmentRepository _appointmentFileRepository = new AppointmentFileRepository();
         public void Add(Appointment appointment)
         {
-            AppointmentFileRepository.AddAppointment(appointment);
+            _appointmentFileRepository.Add(appointment);
         }
 
         public void Remove(Appointment appointment)
         {
-            AppointmentFileRepository.RemoveAppointment(appointment.AppointmentID);
+            _appointmentFileRepository.Remove(appointment.AppointmentID);
         }
 
         public void Update(Appointment appointment)
         {
-            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+            _appointmentFileRepository.Update(appointment.AppointmentID, appointment);
         }
 
         public List<Appointment> GetAll()
         {
-            return AppointmentFileRepository.GetAll();
+            return _appointmentFileRepository.GetAll();
         }
 
         public int GenerateNewId()
         {
-            return AppointmentFileRepository.GetAll().Count + 1;
+            return _appointmentFileRepository.GetAll().Count + 1;
         }
 
         public Appointment GetOne(Appointment appointment)
         {
-            return AppointmentFileRepository.GetOne(appointment.AppointmentID);
+            return _appointmentFileRepository.GetOne(appointment.AppointmentID);
         }
 
         public List<Appointment> GetScheduled()
         {
             List<Appointment> scheduled = new List<Appointment>();
-            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            foreach (Appointment appointment in _appointmentFileRepository.GetAll())
             {
                 if (appointment.AppointmentStatus == AppointmentStatus.scheduled)
                 {
@@ -74,7 +76,7 @@ namespace InformacioniSistemBolnice.Service
         public List<Appointment> PatientsAppointments(Patient patient)
         {
             List<Appointment> appointments = new List<Appointment>();
-            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            foreach (Appointment appointment in _appointmentFileRepository.GetAll())
             {
                 if (appointment.Patient.Equals(patient) && appointment.AppointmentStatus != AppointmentStatus.cancelled && appointment.AppointmentStatus != AppointmentStatus.missed)
                 {
@@ -116,7 +118,7 @@ namespace InformacioniSistemBolnice.Service
 
         public void UpdateAppointmentsForDoctor(Doctor doctor)
         {
-            foreach (var appointment in AppointmentFileRepository.GetAll())
+            foreach (var appointment in _appointmentFileRepository.GetAll())
             {
                 if (appointment.AppointmentStatus != AppointmentStatus.scheduled)
                     continue;
@@ -124,9 +126,9 @@ namespace InformacioniSistemBolnice.Service
                     continue;
 
                 if (doctor.IsWithinVacations(appointment.AppointmentDate))
-                    AppointmentFileRepository.RemoveAppointment(appointment.AppointmentID);
+                    _appointmentFileRepository.Remove(appointment.AppointmentID);
                 if (!doctor.IsWithinWorkHours(appointment.AppointmentDate))
-                    AppointmentFileRepository.RemoveAppointment(appointment.AppointmentID);
+                    _appointmentFileRepository.Remove(appointment.AppointmentID);
             }
         }
 
@@ -156,7 +158,7 @@ namespace InformacioniSistemBolnice.Service
         public void FinishAppointment(Appointment appointment)
         {
             appointment.AppointmentStatus = AppointmentStatus.finished;
-            AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+            _appointmentFileRepository.Update(appointment.AppointmentID, appointment);
 
         }
 
@@ -245,7 +247,7 @@ namespace InformacioniSistemBolnice.Service
                 if (appointment.AppointmentDate < DateTime.Now)
                 {
                     appointment.AppointmentStatus = AppointmentStatus.missed;
-                    AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+                    _appointmentFileRepository.Update(appointment.AppointmentID, appointment);
                 }
             }
         }

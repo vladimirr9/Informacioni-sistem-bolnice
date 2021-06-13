@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InformacioniSistemBolnice.User
 {
-    class Feedback
+    public class Feedback
     {
         public int Id { get; set; }
         public String Username { get; set; }

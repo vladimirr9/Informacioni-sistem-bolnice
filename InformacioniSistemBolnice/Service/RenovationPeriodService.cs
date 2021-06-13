@@ -14,6 +14,7 @@ namespace InformacioniSistemBolnice.Service
     {
         private RoomService _roomService = new RoomService();
         private IRenovationPeriodRepository _renovationPeriodRepository = new RenovationPeriodFileRepository();
+
         public void AddRenovatoinPeriod(RenovationPeriod newRenovationPeriod)
         {
             _renovationPeriodRepository.Add(newRenovationPeriod);
@@ -81,7 +82,8 @@ namespace InformacioniSistemBolnice.Service
             if (start.Equals(end))
                 return true;
             bool retVal = true;
-            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            AppointmentFileRepository _appointmentFileRepository = new AppointmentFileRepository();
+            foreach (Appointment appointment in _appointmentFileRepository.GetAll())
             {
                 if (appointment.Room.Equals(room) && appointment.AppointmentStatus == AppointmentStatus.scheduled)
                 {

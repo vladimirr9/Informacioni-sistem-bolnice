@@ -8,11 +8,11 @@ using System.IO;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    public class IngredientFileRepository
+    public class IngredientFileRepository : IIngredientRepository
     {
-        private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "ingredients.json";
+        private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "ingredients.json";
 
-        public static List<Ingredient> GetAll()
+        public List<Ingredient> GetAll()
         {
             if (!File.Exists(_startupPath))
             {
@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return ingredients;
         }
 
-        public static Ingredient GetOne(int id)
+        public Ingredient GetOne(int id)
         {
             List<Ingredient> ingredients = GetAll();
             foreach (Ingredient ingredient in ingredients)
@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return null;
         }
 
-        public static Boolean RemoveIngredient(int id)
+        public Boolean Remove(int id)
         {
             List<Ingredient> ingredients = GetAll();
             foreach (Ingredient ingredient in ingredients)
@@ -58,7 +58,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        public static Boolean AddIngredient(Ingredient newIngredient)
+        public Boolean Add(Ingredient newIngredient)
         {
             List<Ingredient> ingredients = GetAll();
             ingredients.Add(newIngredient);
@@ -66,7 +66,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return true;
         }
 
-        public static Boolean UpdateIngredient(int id, Ingredient newIngredient)
+        public Boolean Update(int id, Ingredient newIngredient)
         {
             List<Ingredient> ingredients = GetAll();
             foreach (Ingredient ingredient in ingredients)
@@ -81,7 +81,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        private static void Save(List<Ingredient> ingredients)
+        private void Save(List<Ingredient> ingredients)
         {
             string contents = JsonConvert.SerializeObject(ingredients);
             File.WriteAllText(_startupPath, contents);

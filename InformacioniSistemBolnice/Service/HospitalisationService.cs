@@ -10,29 +10,30 @@ namespace InformacioniSistemBolnice.Service
 {
     class HospitalisationService
     {
+        private IHospitalisationRepository _hospitalisationFileRepository = new HospitalisationFileRepository();
         public void Add(Hospitalisation hospitalisation)
         {
-            HospitalisationFileRepository.AddHospitalisation(hospitalisation);
+            _hospitalisationFileRepository.Add(hospitalisation);
         }
 
         public void Remove(Hospitalisation hospitalisation)
         {
-            HospitalisationFileRepository.RemoveHospitalisation(hospitalisation.HospitalisationId);
+            _hospitalisationFileRepository.Remove(hospitalisation.HospitalisationId);
         }
 
         public void Update(Hospitalisation hospitalisation)
         {
-            HospitalisationFileRepository.UpdateHospitalisation(hospitalisation.HospitalisationId, hospitalisation);
+            _hospitalisationFileRepository.Update(hospitalisation.HospitalisationId, hospitalisation);
         }
 
         public List<Hospitalisation> GetAll()
         {
-            return HospitalisationFileRepository.GetAll();
+            return _hospitalisationFileRepository.GetAll();
         }
 
         public Hospitalisation GetHospitalisationForPatient(Patient patient)
         {
-            foreach (Hospitalisation hospitalisation in HospitalisationFileRepository.GetAll())
+            foreach (Hospitalisation hospitalisation in _hospitalisationFileRepository.GetAll())
             {
                 if (hospitalisation.PatientUsername.Equals(patient.Username) && hospitalisation.EndDate > DateTime.Now)
                 {
@@ -45,21 +46,21 @@ namespace InformacioniSistemBolnice.Service
 
         public int GenerateNewId()
         {
-            return HospitalisationFileRepository.GetAll().Count + 1;
+            return _hospitalisationFileRepository.GetAll().Count + 1;
         }
 
         public void Save(Hospitalisation hospitalisation)
         {
-            foreach (Hospitalisation hosp in HospitalisationFileRepository.GetAll())
+            foreach (Hospitalisation hosp in _hospitalisationFileRepository.GetAll())
             {
                 if (hosp.HospitalisationId.Equals(hospitalisation.HospitalisationId))
                 {
-                    HospitalisationFileRepository.UpdateHospitalisation(hospitalisation.HospitalisationId, hospitalisation);
+                    _hospitalisationFileRepository.Update(hospitalisation.HospitalisationId, hospitalisation);
                     return;
                 }
             }
 
-            HospitalisationFileRepository.AddHospitalisation(hospitalisation);
+            _hospitalisationFileRepository.Add(hospitalisation);
         }
     }
 }

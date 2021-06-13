@@ -26,6 +26,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private const int trajanjePregleda = 15;
         private ActivityLogController _activityLogController = new ActivityLogController();
         private DoctorControler _doctorControler = new DoctorControler();
+        private AppointmentController _appointmentController = new AppointmentController();
         private StartPatientWindow parent;
         private Appointment selektovan;
         private List<string> availableTimes;
@@ -43,7 +44,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             parent.titleLabel.Content = "Pomeranje termina";
             parent.titleLabel.Visibility = Visibility.Visible;
             availableTimes = new List<string>();
-            termini = AppointmentFileRepository.GetAll();
+            termini = _appointmentController.GetAll();
             time.ItemsSource = availableTimes;
             prostorije = _roomController.GetAllRooms();
             LoadTimes();
@@ -188,7 +189,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             List<Appointment> termini = new List<Appointment>();
             if (lekar.SelectedItem != null && date.SelectedDate != null)
             {
-                foreach (Appointment termin in AppointmentFileRepository.GetAll())
+                foreach (Appointment termin in _appointmentController.GetAll())
                 {
                     if (l.JMBG == termin.Doctor.JMBG)
                     {
@@ -320,7 +321,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
 
                 Appointment appointment = new Appointment(selektovan.AppointmentID, dt, trajanjePregleda, tt, AppointmentStatus.scheduled, p, l, prvaDostupnaProstorija);
-                AppointmentFileRepository.UpdateAppointment(selektovan.AppointmentID, appointment);
+                _appointmentController.Update(appointment);
                 PatientExaminesAppointmentPage ptp = new PatientExaminesAppointmentPage(parent);
                 updateVisibility();
                 parent.startWindow.Content = ptp;

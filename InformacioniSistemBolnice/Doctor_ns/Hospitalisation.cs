@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InformacioniSistemBolnice.Doctor_ns
 {
-    class Hospitalisation
+    public class Hospitalisation
     {
         public int HospitalisationId { get; set; }
         public String PatientUsername { get; set; }

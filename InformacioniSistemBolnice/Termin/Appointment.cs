@@ -173,8 +173,9 @@ public class Appointment
 
         bool retVal = true;
         List<Appointment> termini;
+        AppointmentFileRepository appointmentFileRepository = new AppointmentFileRepository();
         if (appointmentsToCheck == null)
-            termini = AppointmentFileRepository.GetAll();
+            termini = appointmentFileRepository.GetAll();
         else
             termini = appointmentsToCheck;
         foreach (Appointment termin in termini)

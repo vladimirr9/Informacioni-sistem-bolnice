@@ -9,10 +9,10 @@ using Newtonsoft.Json;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    class HospitalisationFileRepository
+    class HospitalisationFileRepository : IHospitalisationRepository
     {
-        private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "hospitalisations.json";
-        public static List<Hospitalisation> GetAll()
+        private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "hospitalisations.json";
+        public List<Hospitalisation> GetAll()
         {
             if (!File.Exists(_startupPath))
             {
@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return hospitalisations;
         }
 
-        public static Hospitalisation GetOne(int hospitalisationId)
+        public Hospitalisation GetOne(int hospitalisationId)
         {
             List<Hospitalisation> hospitalisations = GetAll();
             foreach (Hospitalisation hospitalisation in hospitalisations)
@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return null;
         }
 
-        public static Boolean RemoveHospitalisation(int hospitalisationId)
+        public Boolean Remove(int hospitalisationId)
         {
             List<Hospitalisation> hospitalisations = GetAll();
             foreach (Hospitalisation hospitalisation in hospitalisations)
@@ -58,7 +58,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        private static void Save(List<Hospitalisation> hospitalisations)
+        private void Save(List<Hospitalisation> hospitalisations)
         {
             string serializeObject = JsonConvert.SerializeObject(hospitalisations, Formatting.None,
                             new JsonSerializerSettings()
@@ -68,16 +68,15 @@ namespace InformacioniSistemBolnice.FileStorage
             File.WriteAllText(_startupPath, serializeObject);
         }
 
-        public static Boolean AddHospitalisation(Hospitalisation newHospitalisation)
+        public Boolean Add(Hospitalisation newHospitalisation)
         {
             List<Hospitalisation> hospitalisations = GetAll();
             hospitalisations.Add(newHospitalisation);
             Save(hospitalisations);
             return true;
-
         }
 
-        public static Boolean UpdateHospitalisation(int hospitalisationId, Hospitalisation newHospitalisation)
+        public Boolean Update(int hospitalisationId, Hospitalisation newHospitalisation)
         {
             List<Hospitalisation> hospitalisations = GetAll();
             foreach (Hospitalisation hospitalisation in hospitalisations)
@@ -90,7 +89,6 @@ namespace InformacioniSistemBolnice.FileStorage
                 }
             }
             return false;
-
         }
     }
 }

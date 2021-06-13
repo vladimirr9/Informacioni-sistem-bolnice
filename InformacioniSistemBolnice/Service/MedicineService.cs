@@ -13,6 +13,8 @@ namespace InformacioniSistemBolnice.Service
     public class MedicineService
     {
         private IMedicineRepository _medicineRepository = new MedicineFileRepository();
+        private IIngredientRepository _ingredientFileRepository = new IngredientFileRepository();
+
         public void AddMedicine(Medicine medicine)
         {
             if (!IsIdunique(medicine.MedicineId))
@@ -79,7 +81,7 @@ namespace InformacioniSistemBolnice.Service
         public List<Ingredient> GetMedicineIngredients(Medicine medicine)
         {
             List<Ingredient> ingredientsList = new List<Ingredient>();
-            foreach (Ingredient ingredient in IngredientFileRepository.GetAll())
+            foreach (Ingredient ingredient in _ingredientFileRepository.GetAll())
             {
                 if (medicine.IngredientsList.Contains(ingredient))
                 {
@@ -153,7 +155,7 @@ namespace InformacioniSistemBolnice.Service
 
         public List<Ingredient> GetAllIngredients()
         {
-            return IngredientFileRepository.GetAll();
+            return _ingredientFileRepository.GetAll();
         }
 
         public int ValidatedMedicinesCount()

@@ -9,10 +9,11 @@ namespace InformacioniSistemBolnice.Service
 {
     public class AnamnesisService
     {
+        private IAnamnesisRepository _anamnesisFileRepository = new AnamnesisFileRepository();
         public List<Anamnesis> PatientsAnamneses(Patient patient)
         {
             List<Anamnesis> anamneses = new List<Anamnesis>();
-            foreach (Anamnesis a in AnamnesisFileRepository.GetAll())
+            foreach (Anamnesis a in _anamnesisFileRepository.GetAll())
             {
                 if (a.UsernameOfPatient.Equals(patient.Username))
                 {
@@ -83,18 +84,18 @@ namespace InformacioniSistemBolnice.Service
         public void AddNoteForAnamnesis(Note note, Anamnesis anamnesis)
         {
             anamnesis.NotesForAnamnesis.Add(note);
-            AnamnesisFileRepository.UpdateAnamnesis(anamnesis.IdOfAnamnesis, anamnesis);
+            _anamnesisFileRepository.Update(anamnesis.IdOfAnamnesis, anamnesis);
         }
 
 
         public void UpdateAnamnesis(int AnamnesisID, Anamnesis anamnesis)
         {
-            AnamnesisFileRepository.UpdateAnamnesis(AnamnesisID, anamnesis);
+            _anamnesisFileRepository.Update(AnamnesisID, anamnesis);
         }
 
         public Anamnesis AppointmentAnamnesis(Appointment appointment)
         {
-            foreach (Anamnesis anamnesis in AnamnesisFileRepository.GetAll())
+            foreach (Anamnesis anamnesis in _anamnesisFileRepository.GetAll())
             {
                 if (anamnesis.IdOfAppointment.Equals(appointment.AppointmentID))
                 {
@@ -107,23 +108,23 @@ namespace InformacioniSistemBolnice.Service
 
         public int GenerateId()
         {
-            return AnamnesisFileRepository.GetAll().Count + 1;
+            return _anamnesisFileRepository.GetAll().Count + 1;
         }
 
         public void Add(Anamnesis anamnesis)
         {
-            AnamnesisFileRepository.AddAnamnesis(anamnesis);
+            _anamnesisFileRepository.Add(anamnesis);
         }
 
         public void Update(Anamnesis anamnesis, Appointment appointment)
         {
             if (AppointmentAnamnesis(appointment) != null)
             {
-                AnamnesisFileRepository.UpdateAnamnesis(anamnesis.IdOfAnamnesis, anamnesis);
+                _anamnesisFileRepository.Update(anamnesis.IdOfAnamnesis, anamnesis);
             }
             else
             {
-                AnamnesisFileRepository.AddAnamnesis(anamnesis);
+                _anamnesisFileRepository.Add(anamnesis);
             }
         }
 

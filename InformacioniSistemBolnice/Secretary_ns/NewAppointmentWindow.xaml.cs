@@ -52,7 +52,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             String selectedDate = DatePicker.Text;
             DateTime selectedDateTime = DateTime.Parse(selectedDate + " " + selectedTime);
             AppointmentType appointmentType = (AppointmentType)AppointmentTypeComboBox.SelectedIndex;
-            int id = AppointmentFileRepository.GetAll().Count + 1;
+            int id = _appointmentController.GetAll().Count + 1;
             int duration = Int32.Parse(AppointmentDuration.Text);
 
             if (selectedPatient.IsAvailable(selectedDateTime, selectedDateTime.AddMinutes(duration)))

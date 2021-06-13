@@ -10,10 +10,11 @@ namespace InformacioniSistemBolnice.Service
 {
     public class ActivityLogService
     {
+        private IActivityLogRepository _activityLogFileRepository = new ActivityLogFileRepository();
         public  int NumberOfActivity(string username, TypeOfActivity type)
         {
             int counterOfActivity = 0;
-            List<ActivityLog> activities = ActivityLogFileRepository.GetAll();
+            List<ActivityLog> activities = _activityLogFileRepository.GetAll();
             foreach (ActivityLog activity in activities)
             {
                 if (activity.UsernameOfPatient.Equals(username) && activity.Type.Equals(type))
@@ -33,7 +34,7 @@ namespace InformacioniSistemBolnice.Service
 
         public void AddActivity(ActivityLog newActivity)
         {
-            ActivityLogFileRepository.AddActivity(newActivity);
+            _activityLogFileRepository.Add(newActivity);
         }
     }
 }

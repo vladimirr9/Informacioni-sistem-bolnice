@@ -11,6 +11,7 @@ namespace InformacioniSistemBolnice.Service
     class RoomsForHospitalisationService : IHospitalisation
     {
         private IRoomRepository _roomRepository = new RoomFileRepository();
+        private IHospitalisationRepository _hospitalisationFileRepository = new HospitalisationFileRepository();
         public List<Room> GetRoomsForHospitalisation(DateTime begin, DateTime end)
         {
             List<Room> rooms = new List<Room>();
@@ -53,7 +54,7 @@ namespace InformacioniSistemBolnice.Service
         private List<int> GetOccupiedBeds(Room room, DateTime begin, DateTime end)
         {
             List<int> beds = new List<int>();
-            foreach (Hospitalisation hospitalisation in HospitalisationFileRepository.GetAll())
+            foreach (Hospitalisation hospitalisation in _hospitalisationFileRepository.GetAll())
             {
                 if (hospitalisation.RoomId.Equals(room.RoomId) && hospitalisation.EndDate > begin && hospitalisation.BeginDate < end)
                 {

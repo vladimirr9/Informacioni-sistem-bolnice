@@ -9,11 +9,11 @@ using InformacioniSistemBolnice.Patient_ns;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    public class ActivityLogFileRepository
+    public class ActivityLogFileRepository : IActivityLogRepository
     {
-        private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "activities.json";
+        private string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "activities.json";
 
-        public static List<ActivityLog> GetAll()
+        public List<ActivityLog> GetAll()
         {
 
             if (!File.Exists(startupPath))
@@ -32,12 +32,9 @@ namespace InformacioniSistemBolnice.FileStorage
                 activities = JsonConvert.DeserializeObject<List<ActivityLog>>(procitano);
             }
             return activities;
-
-
         }
 
-
-        public static Boolean AddActivity(ActivityLog newActivity)
+        public Boolean Add(ActivityLog newActivity)
         {
             List<ActivityLog> activities = GetAll();
             activities.Add(newActivity);
@@ -45,23 +42,10 @@ namespace InformacioniSistemBolnice.FileStorage
             return true;
         }
 
-        private static void Save(List<ActivityLog> activities)
+        private void Save(List<ActivityLog> activities)
         {
             string upis = JsonConvert.SerializeObject(activities);
             File.WriteAllText(startupPath, upis);
         }
-
-        
-        
-
-        
-
-        
-
-        
-
-
-
-
     }
 }

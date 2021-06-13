@@ -112,7 +112,8 @@ public class Room
         if (start.Equals(end))
             return true;
         bool retVal = true;
-        List<Appointment> termini = AppointmentFileRepository.GetAll();
+        AppointmentFileRepository appointmentFileRepository = new AppointmentFileRepository();
+        List<Appointment> termini = appointmentFileRepository.GetAll();
         foreach (Appointment termin in termini)
         {
             if (termin.Room.Equals(this) && termin.AppointmentStatus == AppointmentStatus.scheduled)

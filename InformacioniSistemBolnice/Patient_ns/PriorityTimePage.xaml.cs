@@ -26,6 +26,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private StartPatientWindow parent;
         private ActivityLogController _activityLogController = new ActivityLogController();
         private DoctorControler _doctorControler = new DoctorControler();
+        private AppointmentController _appointmentController = new AppointmentController();
         private PatientMakesAppointmentByPriorityPage parentp;
         private List<string> listStart;
         private List<string> listEnd;
@@ -188,12 +189,12 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 tipt = AppointmentType.specialistCheckup;
             }
-            int id = AppointmentFileRepository.GetAll().Count + 1;
+            int id = _appointmentController.GetAll().Count + 1;
             DateTime end = start.AddMinutes(trajanjePregleda);
 
             Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
             Appointment appointment = new Appointment(id, start, trajanjePregleda, tipt, AppointmentStatus.scheduled, parent.Patient, selektovanTermin.Ljekar, prvaDostupnaProstorija);
-            AppointmentFileRepository.AddAppointment(appointment);
+            _appointmentController.Add(appointment);
             PatientExaminesAppointmentPage ptp = new PatientExaminesAppointmentPage(parent);
             updateVisibility();
             parent.startWindow.Content = ptp;

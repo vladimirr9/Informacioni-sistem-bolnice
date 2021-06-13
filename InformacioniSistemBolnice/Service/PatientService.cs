@@ -13,6 +13,7 @@ namespace InformacioniSistemBolnice.Service
     public class PatientService
     {
         private ActivityLogService _activityLogService = new ActivityLogService();
+        private IAppointmentRepository _appointmentFileRepository = new AppointmentFileRepository();
         private IPatientRepository _patientRepository;
 
         public PatientService()
@@ -157,12 +158,12 @@ namespace InformacioniSistemBolnice.Service
 
         private void UpdateAppointmentsForUsernameChange(string username, string initialUsername)
         {
-            foreach (Appointment appointment in AppointmentFileRepository.GetAll())
+            foreach (Appointment appointment in _appointmentFileRepository.GetAll())
             {
                 if (appointment.PatientUsername.Equals(initialUsername))
                 {
                     appointment.PatientUsername = username;
-                    AppointmentFileRepository.UpdateAppointment(appointment.AppointmentID, appointment);
+                    _appointmentFileRepository.Update(appointment.AppointmentID, appointment);
                 }
             }
         }

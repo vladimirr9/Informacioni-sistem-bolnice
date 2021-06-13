@@ -25,6 +25,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private const int trajanjePregleda = 15;
         private ActivityLogController _activityLogController = new ActivityLogController();
         private DoctorControler _doctorController = new DoctorControler();
+        private AppointmentController _appointmentController = new AppointmentController();
         private StartPatientWindow parent;
         private List<string> availableTimes;
         private List<global::Doctor> lekari;
@@ -100,7 +101,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                     tipt = AppointmentType.specialistCheckup;
                 }
 
-                int id = AppointmentFileRepository.GetAll().Count + 1;
+                int id = _appointmentController.GetAll().Count + 1;
 
                 DateTime start;
                 DateTime end;
@@ -109,7 +110,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 Room prvaDostupnaProstorija = GetAvailableRoom(start, end);
                 Appointment appointment = new Appointment(id, dt, trajanjePregleda, tipt, AppointmentStatus.scheduled, p, l,
                     prvaDostupnaProstorija);
-                AppointmentFileRepository.AddAppointment(appointment);
+                _appointmentController.Add(appointment);
                 PatientExaminesAppointmentPage ptp = new PatientExaminesAppointmentPage(parent);
                 updateVisibility();
                 parent.startWindow.Content = ptp;
@@ -150,7 +151,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             List<Appointment> termini = new List<Appointment>();
             if (lekar.SelectedItem != null && date.SelectedDate != null)
             {
-                foreach (Appointment termin in AppointmentFileRepository.GetAll())
+                foreach (Appointment termin in _appointmentController.GetAll())
                 {
                     if (l.JMBG == termin.Doctor.JMBG)
                     {

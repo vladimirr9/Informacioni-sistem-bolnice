@@ -63,7 +63,9 @@ public class Doctor : User
             return false;
         if (!IsWithinWorkHours(start))
             return false;
-        List<Appointment> appointments = AppointmentFileRepository.GetAll();
+
+        AppointmentFileRepository appointmentFileRepository = new AppointmentFileRepository();
+        List<Appointment> appointments = appointmentFileRepository.GetAll();
         foreach (Appointment appointment in appointments)
         {
             if (appointment.Doctor.Equals(this) && appointment.AppointmentStatus == AppointmentStatus.scheduled)

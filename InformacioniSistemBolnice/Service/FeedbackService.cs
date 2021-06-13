@@ -10,14 +10,15 @@ namespace InformacioniSistemBolnice.Service
 {
     class FeedbackService
     {
+        private IFeedbackRepository _feedbackRepository = new FeedbackRepository();
         public void Add(Feedback feedback)
         {
-            FeedbackRepository.Add(feedback);
+            _feedbackRepository.Add(feedback);
         }
 
         public int GenerateId()
         {
-            return FeedbackRepository.GetAll().Count + 1;
+            return _feedbackRepository.GetAll().Count + 1;
         }
     }
 }
