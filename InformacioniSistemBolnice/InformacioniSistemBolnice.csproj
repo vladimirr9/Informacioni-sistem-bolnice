@@ -244,6 +244,7 @@
     <Compile Include="Service\DoctorService.cs" />
     <Compile Include="Service\FeedbackService.cs" />
     <Compile Include="Service\HospitalisationService.cs" />
+    <Compile Include="Service\IHospitalisation.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\PatientService.cs" />

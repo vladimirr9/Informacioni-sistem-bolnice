@@ -12,7 +12,17 @@ namespace InformacioniSistemBolnice.Controller
     {
         private RoomService _roomService = new RoomService();
         private RoomMergeService _roomMergeService = new RoomMergeService();
-        private RoomsForHospitalisationService _forHospitalisationService = new RoomsForHospitalisationService();
+        private IHospitalisation _forHospitalisationService;
+
+        public RoomController()
+        {
+            _forHospitalisationService = new RoomsForHospitalisationService();
+        }
+
+        public RoomController(IHospitalisation hospitalisation)
+        {
+            _forHospitalisationService = hospitalisation;
+        }
 
         public void AddRoom(Room room)
         {

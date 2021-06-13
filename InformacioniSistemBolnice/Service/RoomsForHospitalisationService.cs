@@ -8,7 +8,7 @@ using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Service
 {
-    class RoomsForHospitalisationService
+    class RoomsForHospitalisationService : IHospitalisation
     {
         public List<Room> GetRoomsForHospitalisation(DateTime begin, DateTime end)
         {
