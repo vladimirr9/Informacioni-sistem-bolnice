@@ -12,17 +12,17 @@ namespace InformacioniSistemBolnice.Service
         private DoctorFileRepository _doctorFileRepository = new DoctorFileRepository();
         public void Add(Doctor doctor)
         {
-            _doctorFileRepository.AddDoctor(doctor);
+            _doctorFileRepository.Add(doctor);
         }
 
         public void Remove(Doctor doctor)
         {
-            _doctorFileRepository.RemoveDoctor(doctor.Username);
+            _doctorFileRepository.Remove(doctor.Username);
         }
 
         public void Update(Doctor doctor)
         {
-            _doctorFileRepository.UpdateDoctor(doctor.Username, doctor);
+            _doctorFileRepository.Update(doctor.Username, doctor);
         }
 
         public List<Doctor> GetAll()

@@ -7,9 +7,17 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using InformacioniSistemBolnice.FileStorage;
 
-public class ManagerFileRepository
+public class ManagerFileRepository : GenericUserRepository<Manager>
 {
+    public ManagerFileRepository()
+    {
+        StartupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "managers.json";
+
+    }
+
+    /*
     private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "managers.json";
 
     public List<Manager> GetAll()
@@ -66,5 +74,6 @@ public class ManagerFileRepository
        string serializeObject = JsonConvert.SerializeObject(managers);
        File.WriteAllText(_startupPath, serializeObject);
    }
+   */
 
 }

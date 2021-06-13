@@ -7,10 +7,17 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using InformacioniSistemBolnice.FileStorage;
 using InformacioniSistemBolnice.Secretary_ns;
 
-public class SecretaryFileRepository
+public class SecretaryFileRepository : GenericUserRepository<Secretary>
 {
+    public SecretaryFileRepository()
+    {
+        StartupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "secretaries.json";
+    }
+
+    /*
     private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "secretaries.json";
     public List<Secretary> GetAll()
    {
@@ -43,7 +50,7 @@ public class SecretaryFileRepository
         return null;
     }
    
-   public Boolean RemoveSecretary(string username)
+   public Boolean Remove(string username)
    {
         List<Secretary> secretaries = GetAll();
         foreach (Secretary secretary in secretaries)
@@ -58,7 +65,7 @@ public class SecretaryFileRepository
         return false;
     }
    
-   public Boolean AddSecretary(Secretary newSecretary)
+   public Boolean Add(Secretary newSecretary)
    {
         List<Secretary> secretaries = GetAll();
         secretaries.Add(newSecretary);
@@ -66,7 +73,7 @@ public class SecretaryFileRepository
         return true;
     }
    
-   public Boolean UpdateSecretary(string username, Secretary newSecretary)
+   public Boolean Update(string username, Secretary newSecretary)
    {
         List<Secretary> secretaries = GetAll();
         foreach (Secretary secretary in secretaries)
@@ -85,5 +92,6 @@ public class SecretaryFileRepository
         string serializeObject = JsonConvert.SerializeObject(secretaries);
         File.WriteAllText(_startupPath, serializeObject);
     }
+    */
 
 }
