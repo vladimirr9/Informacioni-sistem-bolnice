@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        Title="Pomoć" Height="510" Width="800">
+        Title="Pomoć" Height="550" Width="800">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -32,20 +32,7 @@
                 Prečice za upravljanje aplikacijom su:
             </TextBlock>
             <StackPanel Orientation="Vertical" Margin="50,10,0,0">
-                <TextBlock FontFamily="Verdana" FontSize="16">
-                    F1 - Početna <LineBreak/>
-                    F2 - Pacijenti <LineBreak/>
-                    F3 - Doktori <LineBreak/>
-                    F4 - Termini <LineBreak/>
-                    F5 - Izveštaj <LineBreak/>
-                    F6 - Nalog <LineBreak/>
-                    F9 - Pomoć <LineBreak/>
-                    ALT + Početno slovo dugmeta - Aktivacija datog dugmeta <LineBreak/>
-                    ESC - Zatvaranje pomoćnih prozora <LineBreak/>
-                    TAB - Promena fokusa na naredni element <LineBreak/>
-                    ENTER - Aktivacija fokusiranog elementa
-                    
-                </TextBlock>
+                <TextBlock FontFamily="Verdana" FontSize="16" Height="253"><Run Text="F1 - Početna"/><LineBreak/><Run Text="F2 - Pacijenti"/><LineBreak/><Run Text="F3 - Doktori"/><LineBreak/><Run Text="F4 - Termini"/><LineBreak/><Run Text="F5 - Izveštaj"/><LineBreak/><Run Text="F6 - Feedback"/><LineBreak/><Run Text="F7 - Nalog"/><LineBreak/><Run Text="F9 - Pomoć"/><LineBreak/><Run Text="ALT + Početno slovo dugmeta - Aktivacija datog dugmeta"/><LineBreak/><Run Text="ESC - Zatvaranje pomoćnih prozora"/><LineBreak/><Run Text="TAB - Promena fokusa na naredni element"/><LineBreak/><Run Text="ENTER - Aktivacija fokusiranog elementa"/></TextBlock>
             </StackPanel>
             <Button x:Name="Zatvori" Content="_Zatvori" IsCancel="True" HorizontalAlignment="Center" Margin="0,30,0,0" Width="120" Height="40"    VerticalAlignment="Center" Click="Zatvori_Click" />
         </StackPanel>

@@ -92,5 +92,10 @@ namespace InformacioniSistemBolnice.Secretary_ns
             HelpWindow helpWindow = new HelpWindow();
             helpWindow.Show();
         }
+
+        private void Feedback_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Main.Content = FeedbackPage.GetPage(this, _currentSecretary);
+        }
     }
 }

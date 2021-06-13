@@ -61,9 +61,18 @@ namespace InformacioniSistemBolnice.Commands
             typeof(RoutedCommands),
             new InputGestureCollection()
             {
-                new KeyGesture(Key.F6, ModifierKeys.None),
+                new KeyGesture(Key.F7, ModifierKeys.None),
             }
             );
+        public static RoutedUICommand Feedback = new RoutedUICommand(
+            "Feedback",
+            "Feedback",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F6, ModifierKeys.None),
+            }
+        );
         public static RoutedUICommand Help = new RoutedUICommand(
             "Help",
             "Help",
