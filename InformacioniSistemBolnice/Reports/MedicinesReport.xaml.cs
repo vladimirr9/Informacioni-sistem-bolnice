@@ -22,9 +22,9 @@ namespace InformacioniSistemBolnice.Reports
     public partial class MedicinesReport : Page
     {
         private MedicineController _medicineController = new MedicineController();
-        private MedicinesCountReport _validatedMedicinesCount = new ValidatedMedicinesCount();
+        /*private MedicinesCountReport _validatedMedicinesCount = new ValidatedMedicinesCount();
         private MedicinesCountReport _rejectedMedicinesCount = new RejectedMedicinesCount();
-        private MedicinesCountReport _waitingMedicinesCount = new WaitingMedicinesCount();
+        private MedicinesCountReport _waitingMedicinesCount = new WaitingMedicinesCount();*/
         public MedicinesReport()
         {
             InitializeComponent();
