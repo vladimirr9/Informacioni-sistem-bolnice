@@ -139,6 +139,7 @@
     <Compile Include="Factory\SecretaryLoginer.cs" />
     <Compile Include="Factory\SecretaryLoginFactory.cs" />
     <Compile Include="FileStorage\FeedbackRepository.cs" />
+    <Compile Include="FileStorage\GenericUserRepository.cs" />
     <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
     <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />
     <Compile Include="Manager_ns\EditProfileWindow.xaml.cs">
@@ -246,6 +247,7 @@
     <Compile Include="Service\DoctorService.cs" />
     <Compile Include="Service\FeedbackService.cs" />
     <Compile Include="Service\HospitalisationService.cs" />
+    <Compile Include="Service\IHospitalisation.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\PatientService.cs" />

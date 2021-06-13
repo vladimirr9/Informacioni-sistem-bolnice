@@ -9,8 +9,25 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-public class PatientFileRepository
+public class PatientFileRepository : GenericUserRepository<Patient>
 {
+    public PatientFileRepository()
+    {
+        StartupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "patients.json";
+    }
+
+    public Patient GetOneByJMBG(string jmbg)
+    {
+        List<Patient> patients = GetAll();
+        foreach (Patient patient in patients)
+        {
+            if (patient.JMBG.Equals(jmbg))
+                return patients[patients.IndexOf(patient)];
+        }
+        return null;
+    }
+
+    /*
     private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "patients.json";
 
     public List<Patient> GetAll()
@@ -44,18 +61,8 @@ public class PatientFileRepository
         return null;
     }
 
-    public Patient GetOneByJMBG(string jmbg)
-    {
-        List<Patient> patients = GetAll();
-        foreach (Patient patient in patients)
-        {
-            if (patient.JMBG.Equals(jmbg))
-                return patients[patients.IndexOf(patient)];
-        }
-        return null;
-    }
 
-    public Boolean RemovePatient(string username)
+    public Boolean Remove(string username)
     {
         List<Patient> patients = GetAll();
         foreach (Patient patient in patients)
@@ -70,7 +77,7 @@ public class PatientFileRepository
         return false;
     }
 
-    public Boolean AddPatient(Patient newPatient)
+    public Boolean Add(Patient newPatient)
     {
         List<Patient> patients = GetAll();
         patients.Add(newPatient);
@@ -78,7 +85,7 @@ public class PatientFileRepository
         return true;
     }
 
-    public Boolean UpdatePatient(string username, Patient newPatient)
+    public Boolean Update(string username, Patient newPatient)
     {
         List<Patient> patients = GetAll();
         foreach (Patient patient in patients)
@@ -98,4 +105,6 @@ public class PatientFileRepository
         string serializeObject = JsonConvert.SerializeObject(patients);
         File.WriteAllText(_startupPath, serializeObject);
     }
+    */
+
 }

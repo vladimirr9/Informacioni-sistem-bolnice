@@ -29,31 +29,31 @@ namespace InformacioniSistemBolnice.Service
                 return false;
             }
 
-            _patientFileRepository.AddPatient(patient);
+            _patientFileRepository.Add(patient);
             return true;
         }
 
         public void Remove(Patient patient)
         {
-            _patientFileRepository.RemovePatient(patient.Username);
+            _patientFileRepository.Remove(patient.Username);
         }
 
         public void Unban(Patient patient)
         {
             patient.Banned = false;
-            _patientFileRepository.UpdatePatient(patient.Username, patient);
+            _patientFileRepository.Update(patient.Username, patient);
         }
 
         public void RemoveAllergen(Patient patient, Ingredient allergen)
         {
             patient.MedicalRecord.RemoveAlergen(allergen);
-            _patientFileRepository.UpdatePatient(patient.Username, patient);
+            _patientFileRepository.Update(patient.Username, patient);
         }
 
         public void AddAllergen(Patient patient, Ingredient allergen)
         {
             patient.MedicalRecord.AddAllergen(allergen);
-            _patientFileRepository.UpdatePatient(patient.Username, patient);
+            _patientFileRepository.Update(patient.Username, patient);
         }
 
         internal Patient GetOneByJMBG(string jmbg)
@@ -79,7 +79,7 @@ namespace InformacioniSistemBolnice.Service
 
             if (!initialUsername.Equals(patient.Username))
                 UpdateAppointmentsForUsernameChange(patient.Username, initialUsername);
-            _patientFileRepository.UpdatePatient(initialUsername, patient);
+            _patientFileRepository.Update(initialUsername, patient);
 
 
         }
@@ -188,7 +188,7 @@ namespace InformacioniSistemBolnice.Service
         {
             patient.Banned = true;
             patient.TimeOfBan = DateTime.Now;
-            _patientFileRepository.UpdatePatient(patient.Username, patient);
+            _patientFileRepository.Update(patient.Username, patient);
         }
 
         public List<Therapy> GetTherapiesFromRecord(Patient patient)

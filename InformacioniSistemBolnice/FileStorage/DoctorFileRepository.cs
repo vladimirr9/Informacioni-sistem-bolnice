@@ -6,11 +6,20 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using InformacioniSistemBolnice.FileStorage;
 using Newtonsoft.Json;
 
-public class DoctorFileRepository
+public class DoctorFileRepository : GenericUserRepository<Doctor>
 {
-    private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "doctors.json";
+    public DoctorFileRepository()
+    {
+        StartupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "doctors.json";
+    }
+
+
+    /*
+    public string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "doctors.json";
+    
     public List<Doctor> GetAll()
     {
         if (!File.Exists(_startupPath))
@@ -85,5 +94,6 @@ public class DoctorFileRepository
         string serializeObject = JsonConvert.SerializeObject(doctors);
         File.WriteAllText(_startupPath, serializeObject);
     }
+    */
 
 }

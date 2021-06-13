@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.Reports;
+using InformacioniSistemBolnice.Service;
 using InformacioniSistemBolnice.View.ViewModel;
 
 namespace InformacioniSistemBolnice.Doctor_ns
@@ -28,7 +29,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private AnamnesisController _anamnesisController = new AnamnesisController();
         private AppointmentController _appointmentController = new AppointmentController();
         private MedicineController _medicineController = new MedicineController();
-        private RoomController _roomController = new RoomController();
+        private RoomController _roomController = new RoomController(new RoomsForHospitalisationService());
         private HospitalisationControler _hospitalisationControler = new HospitalisationControler();
         private PrintDialog _printDialog = new PrintDialog();
 

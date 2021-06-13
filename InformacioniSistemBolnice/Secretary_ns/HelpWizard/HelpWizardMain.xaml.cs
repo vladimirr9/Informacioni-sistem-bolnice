@@ -69,7 +69,7 @@ namespace InformacioniSistemBolnice.Secretary_ns.HelpWizard
         {
             _secretary.FirstLogin = false;
             SecretaryFileRepository secretaryFileRepository = new SecretaryFileRepository();
-            secretaryFileRepository.UpdateSecretary(_secretary.Username, _secretary);
+            secretaryFileRepository.Update(_secretary.Username, _secretary);
             Close();
         }
 
