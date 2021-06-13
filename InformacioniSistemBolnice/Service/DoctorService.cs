@@ -4,41 +4,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Service
 {
     class DoctorService
     {
-        private DoctorFileRepository _doctorFileRepository = new DoctorFileRepository();
+        private IDoctorRepository _doctorRepository;
+
+        public DoctorService()
+        {
+            _doctorRepository = new DoctorFileRepository();
+        }
+
+        public DoctorService(IDoctorRepository doctorRepository)
+        {
+            _doctorRepository = doctorRepository;
+        }
+
         public void Add(Doctor doctor)
         {
-            _doctorFileRepository.Add(doctor);
+            _doctorRepository.Add(doctor);
         }
 
         public void Remove(Doctor doctor)
         {
-            _doctorFileRepository.Remove(doctor.Username);
+            _doctorRepository.Remove(doctor.Username);
         }
 
         public void Update(Doctor doctor)
         {
-            _doctorFileRepository.Update(doctor.Username, doctor);
+            _doctorRepository.Update(doctor.Username, doctor);
         }
 
         public List<Doctor> GetAll()
         {
-            return _doctorFileRepository.GetAll();
+            return _doctorRepository.GetAll();
         }
 
         public Doctor GetOne(Doctor doctor)
         {
-            return _doctorFileRepository.GetOne(doctor.Username);
+            return _doctorRepository.GetOne(doctor.Username);
         }
 
         public List<Doctor> GetDoctorsByType(DoctorType type)
         {
             List<Doctor> doctors = new List<Doctor>();
-            foreach (Doctor doctor in _doctorFileRepository.GetAll())
+            foreach (Doctor doctor in _doctorRepository.GetAll())
             {
                 if (doctor.doctorType.Equals(type))
                 {
@@ -50,7 +62,7 @@ namespace InformacioniSistemBolnice.Service
         public List<Doctor> GetAvailableDoctorList(DateTime start, DateTime end)
         {
             List<Doctor> doctors = new List<Doctor>();
-            foreach (Doctor doctor in _doctorFileRepository.GetAll())
+            foreach (Doctor doctor in _doctorRepository.GetAll())
             {
                 if (doctor.IsAvailable(start, end) && !doctor.IsDeleted)
                 {

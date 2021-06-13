@@ -6,13 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Service
 {
     public class PatientService
     {
         private ActivityLogService _activityLogService = new ActivityLogService();
-        private PatientFileRepository _patientFileRepository = new PatientFileRepository();
+        private IPatientRepository _patientRepository;
+
+        public PatientService()
+        {
+            _patientRepository = new PatientFileRepository();
+        }
+
+        public PatientService(IPatientRepository patientRepository)
+        {
+            _patientRepository = patientRepository;
+        }
 
         public bool Register(Patient patient)
         {
@@ -29,41 +40,41 @@ namespace InformacioniSistemBolnice.Service
                 return false;
             }
 
-            _patientFileRepository.Add(patient);
+            _patientRepository.Add(patient);
             return true;
         }
 
         public void Remove(Patient patient)
         {
-            _patientFileRepository.Remove(patient.Username);
+            _patientRepository.Remove(patient.Username);
         }
 
         public void Unban(Patient patient)
         {
             patient.Banned = false;
-            _patientFileRepository.Update(patient.Username, patient);
+            _patientRepository.Update(patient.Username, patient);
         }
 
         public void RemoveAllergen(Patient patient, Ingredient allergen)
         {
             patient.MedicalRecord.RemoveAlergen(allergen);
-            _patientFileRepository.Update(patient.Username, patient);
+            _patientRepository.Update(patient.Username, patient);
         }
 
         public void AddAllergen(Patient patient, Ingredient allergen)
         {
             patient.MedicalRecord.AddAllergen(allergen);
-            _patientFileRepository.Update(patient.Username, patient);
+            _patientRepository.Update(patient.Username, patient);
         }
 
         internal Patient GetOneByJMBG(string jmbg)
         {
-            return _patientFileRepository.GetOneByJMBG(jmbg);
+            return _patientRepository.GetOneByJMBG(jmbg);
         }
 
         public void Update(string initialUsername, Patient patient)
         {
-            Patient initialPatient = _patientFileRepository.GetOne(initialUsername);
+            Patient initialPatient = _patientRepository.GetOne(initialUsername);
             if (!(IsUsernameUnique(patient.Username) || patient.Username.Equals(initialUsername)))
             {
                 MessageBox.Show("Uneto korisničko ime već postoji u sistemu", "Podaci nisu unikatni",
@@ -79,7 +90,7 @@ namespace InformacioniSistemBolnice.Service
 
             if (!initialUsername.Equals(patient.Username))
                 UpdateAppointmentsForUsernameChange(patient.Username, initialUsername);
-            _patientFileRepository.Update(initialUsername, patient);
+            _patientRepository.Update(initialUsername, patient);
 
 
         }
@@ -87,7 +98,7 @@ namespace InformacioniSistemBolnice.Service
         public List<Patient> GetAll()
         {
             List<Patient> patients = new List<Patient>();
-            foreach (Patient patient in _patientFileRepository.GetAll())
+            foreach (Patient patient in _patientRepository.GetAll())
             {
                 if (!patient.IsDeleted)
                 {
@@ -114,7 +125,7 @@ namespace InformacioniSistemBolnice.Service
         public List<Patient> GetAvailablePatientList(DateTime start, DateTime end)
         {
             List<Patient> patients = new List<Patient>();
-            foreach (Patient patient in _patientFileRepository.GetAll())
+            foreach (Patient patient in _patientRepository.GetAll())
             {
                 if (patient.IsAvailable(start, end) && !patient.IsDeleted)
                 {
@@ -126,20 +137,20 @@ namespace InformacioniSistemBolnice.Service
 
         public Patient GetOne(String username)
         {
-            return _patientFileRepository.GetOne(username);
+            return _patientRepository.GetOne(username);
         }
 
 
         public bool IsUsernameUnique(String username)
         {
-            if (_patientFileRepository.GetOne(username) == null)
+            if (_patientRepository.GetOne(username) == null)
                 return true;
             return false;
         }
 
         public bool IsJMBGUnique(String jmbg)
         {
-            if (_patientFileRepository.GetOneByJMBG(jmbg) == null)
+            if (_patientRepository.GetOneByJMBG(jmbg) == null)
                 return true;
             return false;
         }
@@ -175,7 +186,7 @@ namespace InformacioniSistemBolnice.Service
 
         private void BanPatient(Patient patient)
         {
-            foreach (Patient p in _patientFileRepository.GetAll())
+            foreach (Patient p in _patientRepository.GetAll())
             {
                 if (p.Username.Equals(patient.Username))
                 {
@@ -188,7 +199,7 @@ namespace InformacioniSistemBolnice.Service
         {
             patient.Banned = true;
             patient.TimeOfBan = DateTime.Now;
-            _patientFileRepository.Update(patient.Username, patient);
+            _patientRepository.Update(patient.Username, patient);
         }
 
         public List<Therapy> GetTherapiesFromRecord(Patient patient)
@@ -207,7 +218,7 @@ namespace InformacioniSistemBolnice.Service
         private MedicalRecord GetMedicalRecordForPatient(Patient patient)
         {
             MedicalRecord medicalRecord = new MedicalRecord();
-            foreach (Patient p in _patientFileRepository.GetAll())
+            foreach (Patient p in _patientRepository.GetAll())
             {
                 if (p.Username.Equals(patient.Username))
                 {

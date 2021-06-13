@@ -139,8 +139,13 @@
     <Compile Include="Factory\SecretaryLoginer.cs" />
     <Compile Include="Factory\SecretaryLoginFactory.cs" />
     <Compile Include="FileStorage\FeedbackRepository.cs" />
-    <Compile Include="FileStorage\GenericUserRepository.cs" />
+    <Compile Include="FileStorage\GenericUserFileRepository.cs" />
     <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
+    <Compile Include="FileStorage\IDoctorRepository.cs" />
+    <Compile Include="FileStorage\IManagerRepository.cs" />
+    <Compile Include="FileStorage\IPatientRepository.cs" />
+    <Compile Include="FileStorage\ISecretaryRepository.cs" />
+    <Compile Include="FileStorage\IUserRepository.cs" />
     <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />
     <Compile Include="Manager_ns\EditProfileWindow.xaml.cs">
       <DependentUpon>EditProfileWindow.xaml</DependentUpon>

@@ -10,7 +10,7 @@ using System.IO;
 using InformacioniSistemBolnice.FileStorage;
 using InformacioniSistemBolnice.Secretary_ns;
 
-public class SecretaryFileRepository : GenericUserRepository<Secretary>
+public class SecretaryFileRepository : GenericUserFileRepository<Secretary> , ISecretaryRepository
 {
     public SecretaryFileRepository()
     {

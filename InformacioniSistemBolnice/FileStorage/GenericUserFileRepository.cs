@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    public class GenericUserRepository<Entity> where Entity: global::User
+    public class GenericUserFileRepository<Entity> : IUserRepository<Entity> where Entity: global::User
     {
         public string StartupPath { get; set; }
 

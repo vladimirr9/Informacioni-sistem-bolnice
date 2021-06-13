@@ -9,7 +9,7 @@ using System.IO;
 using InformacioniSistemBolnice.FileStorage;
 using Newtonsoft.Json;
 
-public class DoctorFileRepository : GenericUserRepository<Doctor>
+public class DoctorFileRepository : GenericUserFileRepository<Doctor> , IDoctorRepository
 {
     public DoctorFileRepository()
     {

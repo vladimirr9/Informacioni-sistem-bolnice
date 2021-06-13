@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InformacioniSistemBolnice.FileStorage;
 using InformacioniSistemBolnice.Patient_ns;
 using InformacioniSistemBolnice.Secretary_ns;
 using InformacioniSistemBolnice.Secretary_ns.HelpWizard;
@@ -12,10 +13,26 @@ namespace InformacioniSistemBolnice.Service
 {
     class LoginService
     {
-        private DoctorFileRepository _doctorFileRepository = new DoctorFileRepository();
-        private ManagerFileRepository _managerFileRepository = new ManagerFileRepository();
-        private PatientFileRepository _patientFileRepository = new PatientFileRepository();
-        private SecretaryFileRepository _secretaryFileRepository = new SecretaryFileRepository();
+        private IDoctorRepository _doctorFileRepository;
+        private IManagerRepository _managerFileRepository;
+        private IPatientRepository _patientFileRepository;
+        private ISecretaryRepository _secretaryFileRepository;
+
+        public LoginService()
+        {
+            _doctorFileRepository = new DoctorFileRepository();
+            _managerFileRepository = new ManagerFileRepository();
+            _patientFileRepository = new PatientFileRepository();
+            _secretaryFileRepository = new SecretaryFileRepository();
+        }
+
+        public LoginService(IDoctorRepository doctorRepository, IManagerRepository managerRepository, IPatientRepository patientRepository, ISecretaryRepository secretaryRepository)
+        {
+            _doctorFileRepository = doctorRepository;
+            _managerFileRepository = managerRepository;
+            _patientFileRepository = patientRepository;
+            _secretaryFileRepository = secretaryRepository;
+        }
 
         public Patient FindPatient(String username, String password)
         {

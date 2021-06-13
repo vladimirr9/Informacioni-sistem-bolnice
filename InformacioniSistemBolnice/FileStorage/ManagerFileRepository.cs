@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using InformacioniSistemBolnice.FileStorage;
 
-public class ManagerFileRepository : GenericUserRepository<Manager>
+public class ManagerFileRepository : GenericUserFileRepository<Manager> , IManagerRepository
 {
     public ManagerFileRepository()
     {

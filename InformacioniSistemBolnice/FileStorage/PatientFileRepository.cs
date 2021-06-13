@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-public class PatientFileRepository : GenericUserRepository<Patient>
+public class PatientFileRepository : GenericUserFileRepository<Patient> , IPatientRepository
 {
     public PatientFileRepository()
     {
