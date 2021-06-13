@@ -158,7 +158,7 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
             if (selectedRoom != null)
             {
                 Room selektovana = selectedRoom;
-                Room p = RoomFileRepository.GetOne(selektovana.RoomId);
+                Room p = _roomController.GetOneRoom(selektovana.RoomId);
                 ZakazivanjeRenoviranjaWindow prozor = new ZakazivanjeRenoviranjaWindow(p, _thisWindow);
                 prozor.Show();
             }

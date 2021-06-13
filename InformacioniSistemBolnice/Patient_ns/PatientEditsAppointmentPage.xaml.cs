@@ -32,6 +32,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private List<Appointment> termini;
         private List<global::Doctor> lekari;
         private List<Room> prostorije;
+        private RoomController _roomController = new RoomController();
         private int brojac;
         public PatientEditsAppointmentPage(Appointment selektovan, StartPatientWindow prozor)
         {
@@ -44,7 +45,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             availableTimes = new List<string>();
             termini = AppointmentFileRepository.GetAll();
             time.ItemsSource = availableTimes;
-            prostorije = RoomFileRepository.GetAll();
+            prostorije = _roomController.GetAllRooms();
             LoadTimes();
             BlackOutDates();
             date.SelectedDate = selektovan.AppointmentDate;
@@ -336,7 +337,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private Room GetAvailableRoom(DateTime pocetak, DateTime kraj)
         {
             prostorije = new List<Room>();
-            foreach (Room prostorija in RoomFileRepository.GetAll())
+            foreach (Room prostorija in _roomController.GetAllRooms())
             {
                 if (prostorija.IsAvailable(pocetak, kraj) && !prostorija.IsDeleted)
                 {

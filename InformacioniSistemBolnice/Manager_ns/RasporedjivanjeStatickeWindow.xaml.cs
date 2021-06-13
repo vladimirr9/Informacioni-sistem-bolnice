@@ -87,13 +87,13 @@ if (DateTime.Today > datumDo)
 Room p1 = new Room(naziv, idProstorije, tipProstorije, isDeleted, isActive, kvadratura, brSprata, brSobe, opremaLista1);
 //int novaKolicina = RoomComboBox.GetOne(selektovana.Sifra).Kolicina + kolicina;
 //izabrana.GetOne(selektovana.Sifra).Kolicina -= kolicina;
-RoomFileRepository.UpdateRoom(prostorija.RoomId, p1);
+RoomFileRepository.Update(prostorija.RoomId, p1);
 //_parent.UpdateTable();
 
 Room p2 = new Room(naziv2, idProstorije2, tipProstorije2, isDeleted2, isActive2, kvadratura2, brSprata2, brSobe2, opremaLista2);
 
-RoomFileRepository.UpdateRoom(prostorija.RoomId, p1);
-RoomFileRepository.UpdateRoom(izabrana.RoomId, p2);
+RoomFileRepository.Update(prostorija.RoomId, p1);
+RoomFileRepository.Update(izabrana.RoomId, p2);
 
 parent.UpdateTable();
 

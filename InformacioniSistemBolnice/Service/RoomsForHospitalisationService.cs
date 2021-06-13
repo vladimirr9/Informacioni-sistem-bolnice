@@ -10,10 +10,11 @@ namespace InformacioniSistemBolnice.Service
 {
     class RoomsForHospitalisationService : IHospitalisation
     {
+        private IRoomRepository _roomRepository = new RoomFileRepository();
         public List<Room> GetRoomsForHospitalisation(DateTime begin, DateTime end)
         {
             List<Room> rooms = new List<Room>();
-            foreach (Room room in RoomFileRepository.GetAll())
+            foreach (Room room in _roomRepository.GetAll())
             {
                 if (room.RoomType == RoomType.recoveryRoom && GetAvailableBed(room, begin, end) != 0)
                 {

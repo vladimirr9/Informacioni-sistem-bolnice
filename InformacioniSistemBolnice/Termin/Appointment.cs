@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.Secretary_ns;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -26,6 +27,7 @@ public class Appointment
     public int RoomID;
     public string DoctorUsername;
     public string PatientUsername;
+    private RoomController _roomController = new RoomController();
 
     [JsonIgnore]
     public Patient Patient
@@ -123,7 +125,7 @@ public class Appointment
     {
         get
         {
-            return RoomFileRepository.GetOne(RoomID);
+            return _roomController.GetOneRoom(RoomID);
         }
         set
         {

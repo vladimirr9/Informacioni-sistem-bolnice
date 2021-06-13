@@ -69,7 +69,7 @@ namespace InformacioniSistemBolnice.Upravnik
         }*/
 
         //Room p = new Room(naziv2, idProstorije2, tipProstorije, isDeleted2, isActive, kvadratura, brSprata, brSobe, opremaLista);
-        //RoomFileRepository.UpdateRoom(_selectedRoom.RoomId, p);//int interval = 1;
+        //RoomFileRepository.Update(_selectedRoom.RoomId, p);//int interval = 1;
         //CalendarDateRange periodRenoviranja = new CalendarDateRange(datumOd, datumDo);
 
         /*int idProstorije2 = _selectedRoom.RoomId;

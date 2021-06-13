@@ -30,6 +30,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private List<string> availableTimes;
         private List<Room> prostorije;
         private StartPatientWindow parent;
+        private RoomController _roomController = new RoomController();
         private PatientMakesAppointmentByPriorityPage parentp;
 
         public PriorityDoctorPage(StartPatientWindow pp, PatientMakesAppointmentByPriorityPage pzppp)
@@ -196,7 +197,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private Room GetAvailableRoom(DateTime pocetak, DateTime kraj)
         {
             prostorije = new List<Room>();
-            foreach (Room prostorija in RoomFileRepository.GetAll())
+            foreach (Room prostorija in _roomController.GetAllRooms())
             {
                 if (prostorija.IsAvailable(pocetak, kraj) && !prostorija.IsDeleted)
                 {

@@ -6,11 +6,11 @@ using System.IO;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    public class NotificationFileStorage
+    public class NotificationFileStorage : INotificationRepository
     {
         private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "notifications.json";
 
-        public static List<Notification> GetAll()
+        public List<Notification> GetAll()
         {
             if (!File.Exists(_startupPath))
             {
@@ -30,7 +30,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return notifications;
         }
 
-        public static Notification GetOne(int id)
+        public Notification GetOne(int id)
         {
             List<Notification> notifications = GetAll();
             foreach (Notification notification in notifications)
@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return null;
         }
 
-        public static Boolean RemoveNotification(int id)
+        public Boolean Remove(int id)
         {
             List<Notification> notifications = GetAll();
             foreach (Notification notification in notifications)
@@ -56,7 +56,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        public static Boolean AddNotification(Notification newNotification)
+        public Boolean Add(Notification newNotification)
         {
             List<Notification> notifications = GetAll();
             notifications.Add(newNotification);
@@ -64,7 +64,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return true;
         }
 
-        public static Boolean UpdateNotification(int id, Notification newNotification)
+        public Boolean Update(int id, Notification newNotification)
         {
             List<Notification> notifications = GetAll();
             foreach (Notification notification in notifications)
@@ -79,7 +79,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        private static void Save(List<Notification> notifications)
+        private void Save(List<Notification> notifications)
         {
             string contents = JsonConvert.SerializeObject(notifications);
             File.WriteAllText(_startupPath, contents);

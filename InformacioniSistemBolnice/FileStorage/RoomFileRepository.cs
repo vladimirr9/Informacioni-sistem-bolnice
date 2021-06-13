@@ -7,12 +7,13 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using InformacioniSistemBolnice.FileStorage;
 
-public class RoomFileRepository
+public class RoomFileRepository : IRoomRepository
 {
     private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "rooms.json";
 
-    public static List<Room> GetAll()
+    public List<Room> GetAll()
    {
         if (!File.Exists(startupPath))
         {
@@ -32,7 +33,7 @@ public class RoomFileRepository
         return rooms;
     }
    
-   public static Room GetOne(int roomId)
+   public Room GetOne(int roomId)
    {
         List<Room> rooms = GetAll();
         foreach (Room room in rooms)
@@ -45,7 +46,7 @@ public class RoomFileRepository
         return null;
     }
 
-    public static Boolean RemoveRoom(int roomId)
+    public Boolean Remove(int roomId)
    {
         List<Room> rooms = GetAll();
         foreach (Room room in rooms)
@@ -61,13 +62,13 @@ public class RoomFileRepository
         return false;
     }
 
-    private static void Save(List<Room> rooms)
+    private void Save(List<Room> rooms)
     {
         string write = JsonConvert.SerializeObject(rooms);
         File.WriteAllText(startupPath, write);
     }
 
-    public static Boolean AddRoom(Room newRoom)
+    public Boolean Add(Room newRoom)
    {
         List<Room> rooms = GetAll();
         rooms.Add(newRoom);
@@ -75,7 +76,7 @@ public class RoomFileRepository
         return true;
     }
    
-   public static Boolean UpdateRoom(int roomId, Room newRoom)
+   public Boolean Update(int roomId, Room newRoom)
    {
         List<Room> rooms = GetAll();
         foreach (Room room in rooms)
@@ -90,7 +91,7 @@ public class RoomFileRepository
         return false;
     }
 
-    public static Room GetOneByName(String name)
+    public Room GetOneByName(String name)
     {
         List<Room> rooms = GetAll();
         foreach (Room room in rooms)
@@ -102,34 +103,5 @@ public class RoomFileRepository
         }
         return null;
     }
-    /*public static bool IsAvailable(DateTime start, DateTime end) // proverava da li je RoomComboBox slobodna izmedju neka dva trenutka u vremenu
-    {
-        if (start.Equals(end))
-            return true;
-        bool retVal = true;
-        List<Appointment> appointments = AppointmentFileRepository.GetAll();
-        foreach (Appointment appointment in appointments)
-        {
-            if (appointment.Room.Equals(this) && appointment.AppointmentStatus == AppointmentStatus.scheduled)
-            {
-                if (start >= appointment.AppointmentDate && start <= appointment.AppointmentEnd)
-                {
-                    retVal = false;
-                    break;
-                }
-                if (end >= appointment.AppointmentDate && end <= appointment.AppointmentEnd)
-                {
-                    retVal = false;
-                    break;
-                }
-                if (start <= appointment.AppointmentDate && end >= appointment.AppointmentEnd)
-                {
-                    retVal = false;
-                    break;
-                }
-            }
-        }
-        return retVal;
-    }*/
 
 }

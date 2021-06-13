@@ -10,18 +10,29 @@ namespace InformacioniSistemBolnice.Service
 {
     public class NotificationService
     {
+        private INotificationRepository _notificationRepository = new NotificationFileStorage();
         public void Create(Notification notification)
         {
-            NotificationFileStorage.AddNotification(notification);
+            _notificationRepository.Add(notification);
         }
 
         public void Update(int iD, Notification initialNotification)
         {
-            NotificationFileStorage.UpdateNotification(iD, initialNotification);
+            _notificationRepository.Update(iD, initialNotification);
         }
         public void Delete(Notification notification)
         {
-            NotificationFileStorage.RemoveNotification(notification.ID);
+            _notificationRepository.Remove(notification.ID);
+        }
+
+        public List<Notification> GetAll()
+        {
+            return _notificationRepository.GetAll();
+        }
+
+        public Notification GetOne(int iD)
+        {
+            return _notificationRepository.GetOne(iD);
         }
     }
 }

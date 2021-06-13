@@ -25,5 +25,15 @@ namespace InformacioniSistemBolnice.Controller
         {
             _notificationService.Delete(notification);
         }
+
+        public List<Notification> GetAll()
+        {
+            return _notificationService.GetAll();
+        }
+
+        public Notification GetOne(int iD)
+        {
+            return _notificationService.GetOne(iD);
+        }
     }
 }

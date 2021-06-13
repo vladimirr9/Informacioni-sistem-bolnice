@@ -61,7 +61,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             if (NotificationListView.SelectedItem != null && ((Notification)NotificationListView.SelectedItem).Recipients.Contains("ALL_USERS"))
             {
-                Notification initialNotification = NotificationFileStorage.GetOne(((Notification)NotificationListView.SelectedItem).ID);
+                Notification initialNotification = _notificationController.GetOne(((Notification)NotificationListView.SelectedItem).ID);
                 EditNotificationWindow window = new EditNotificationWindow(this, initialNotification);
                 window.Show();
             }
@@ -86,7 +86,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public void UpdateTable()
         {
             Notifications = new List<Notification>();
-            foreach (Notification notification in NotificationFileStorage.GetAll())
+            foreach (Notification notification in _notificationController.GetAll())
             {
                 if (notification.IsDirectedTo(_currentSecretary.Username))
                 {

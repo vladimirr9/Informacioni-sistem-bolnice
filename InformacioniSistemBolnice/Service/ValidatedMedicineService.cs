@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Service
 {
     class ValidatedMedicineService
     {
+        private IMedicineRepository _medicineRepository = new MedicineFileRepository();
         public List<Medicine> GetValidatedMedicines()
         {
             List<Medicine> validated = new List<Medicine>();
-            foreach (Medicine medicine in MedicineFileRepository.GetAll())
+            foreach (Medicine medicine in _medicineRepository.GetAll())
             {
                 if (!medicine.IsDeleted && medicine.MedicineStatus.Equals(MedicineStatus.validated))
                 {
@@ -25,7 +27,7 @@ namespace InformacioniSistemBolnice.Service
         public List<Medicine> GetUnvalidatedMedicines()
         {
             List<Medicine> unvalidated = new List<Medicine>();
-            foreach (Medicine medicine in MedicineFileRepository.GetAll())
+            foreach (Medicine medicine in _medicineRepository.GetAll())
             {
                 if (!medicine.IsDeleted && medicine.MedicineStatus.Equals(MedicineStatus.waitingForValidation))
                 {

@@ -13,19 +13,20 @@ namespace InformacioniSistemBolnice.Service
     public class RenovationPeriodService
     {
         private RoomService _roomService = new RoomService();
+        private IRenovationPeriodRepository _renovationPeriodRepository = new RenovationPeriodFileRepository();
         public void AddRenovatoinPeriod(RenovationPeriod newRenovationPeriod)
         {
-            RenovationPeriodFileRepository.AddRenovationPeriod(newRenovationPeriod);
+            _renovationPeriodRepository.Add(newRenovationPeriod);
         }
 
         public void UpdateRenovationPeriod(RenovationPeriod renovationPeriod)
         {
-            RenovationPeriodFileRepository.UpdateRenovationPeriod(renovationPeriod.Room.RoomId, renovationPeriod);
+            _renovationPeriodRepository.Update(renovationPeriod.Room.RoomId, renovationPeriod);
         }
 
         public void RemoveRenovationPeriod(RenovationPeriod renovationPeriod)
         {
-            RenovationPeriodFileRepository.RemoveRenovationPeriod(renovationPeriod.Room.RoomId);
+            _renovationPeriodRepository.Remove(renovationPeriod.Room.RoomId);
         }
 
         public void ScheduleRenovation(Room room, DateTime startDate, DateTime endDate)
@@ -55,8 +56,8 @@ namespace InformacioniSistemBolnice.Service
         {
             renovationPeriod.Room.IsActive = true;
             renovationPeriod.IsDeleted = true;
-            UpdateRenovationPeriod(renovationPeriod);
-            _roomController.UpdateRoom(renovationPeriod.Room);
+            Update(renovationPeriod);
+            _roomController.Update(renovationPeriod.Room);
         }*/
 
         private void CreateRenovationPeriod(Room room, DateTime startDate, DateTime endDate)

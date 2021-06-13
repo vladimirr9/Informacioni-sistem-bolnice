@@ -12,6 +12,7 @@ namespace InformacioniSistemBolnice.Service
 {
     public class MedicineService
     {
+        private IMedicineRepository _medicineRepository = new MedicineFileRepository();
         public void AddMedicine(Medicine medicine)
         {
             if (!IsIdunique(medicine.MedicineId))
@@ -24,17 +25,17 @@ namespace InformacioniSistemBolnice.Service
                 MessageBox.Show("Uneto ime leka već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
                 return;
             }
-            MedicineFileRepository.AddMedicine(medicine);
+            _medicineRepository.Add(medicine);
         }
 
         public void UpdateMedicine(Medicine medicine)
         {
-            MedicineFileRepository.UpdateMedicine(medicine.MedicineId, medicine);
+            _medicineRepository.Update(medicine.MedicineId, medicine);
         }
 
         public void RemoveMedicine(Medicine medicine)
         {
-            MedicineFileRepository.RemoveMedicine(medicine.MedicineId);
+            _medicineRepository.Remove(medicine.MedicineId);
         }
 
         public void SendMedicineForRemovingValidation(Medicine medicine)
@@ -45,11 +46,11 @@ namespace InformacioniSistemBolnice.Service
 
         public Medicine GetOneByname(String name)
         {
-            return MedicineFileRepository.GetOneByName(name);
+            return _medicineRepository.GetOneByName(name);
         }
         public bool IsIdunique(String medicineId)
         {
-            if (MedicineFileRepository.GetOne(medicineId) == null)
+            if (_medicineRepository.GetOne(medicineId) == null)
             {
                 return true;
             }
@@ -60,7 +61,7 @@ namespace InformacioniSistemBolnice.Service
         }
         public bool IsNameUnique(String name)
         {
-            if (MedicineFileRepository.GetOne(name) == null)
+            if (_medicineRepository.GetOne(name) == null)
             {
                 return true;
             }
@@ -72,7 +73,7 @@ namespace InformacioniSistemBolnice.Service
 
         public List<Medicine> GetAllMedicines()
         {
-            return MedicineFileRepository.GetAll();
+            return _medicineRepository.GetAll();
         }
 
         public List<Ingredient> GetMedicineIngredients(Medicine medicine)

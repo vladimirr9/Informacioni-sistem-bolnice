@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Patient_ns
@@ -24,6 +25,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private StartPatientWindow parent;
         private Appointment selektovan;
         private RatingPage parentp;
+        private RatingController _ratingController = new RatingController();
         public PatientRatesPage(RatingPage ap, StartPatientWindow pp, Appointment t)
         {
             parentp = ap;
@@ -81,10 +83,10 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
             if (parentp._kojiJePritisnut == parentp.rate)
             {
-                int IdAnkete = RatingFileRepository.GetAll().Count + 1;
+                int IdAnkete = _ratingController.GetAll().Count + 1;
                 string komentar = commentText.Text;
                 Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, selektovan.Doctor.Username, selektovan.Patient.Username, selektovan.AppointmentID, false, DateTime.Now);
-                RatingFileRepository.AddRating(novaRating);
+                _ratingController.Add(novaRating);
                 //RatingPage ap = new RatingPage(parent);
 
                 /*parentp.UpdateTable();
@@ -97,10 +99,10 @@ namespace InformacioniSistemBolnice.Patient_ns
             }
             else
             {
-                int IdAnkete = RatingFileRepository.GetAll().Count + 1;
+                int IdAnkete = _ratingController.GetAll().Count + 1;
                 string komentar = commentText.Text;
                 Rating novaRating = new Rating(IdAnkete, komentar, (int)rateComboBox.SelectedItem, null, parent.Patient.Username, 0, false, DateTime.Now);
-                RatingFileRepository.AddRating(novaRating);
+                _ratingController.Add(novaRating);
                 RatingPage ap = new RatingPage(parent);
                 parentp.rateHospital.Visibility = Visibility.Hidden;
                 parent.startWindow.Content = new RatingPage(parent);

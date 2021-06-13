@@ -54,7 +54,7 @@ namespace InformacioniSistemBolnice.Upravnik
         private void UpdateMedicine(object sender, RoutedEventArgs e)
         {
             Medicine updatedMed = GenerateMedicineObjectFromCollectedData();
-            //MedicineFileRepository.UpdateMedicine(_medForUpdate.MedicineId, updatedMed);
+            //MedicineFileRepository.Update(_medForUpdate.MedicineId, updatedMed);
             _medicineController.UpdateMedicine(updatedMed);
             MessageBox.Show("Lek poslat lekaru na validaciju!", "Čekanje na validaciju", MessageBoxButton.OK);
             _parent.UpdateTable();

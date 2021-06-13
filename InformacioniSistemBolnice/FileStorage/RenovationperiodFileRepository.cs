@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    public class RenovationPeriodFileRepository
+    public class RenovationPeriodFileRepository : IRenovationPeriodRepository
     {
         private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "renovationPeriod.json";
 
-        public static List<RenovationPeriod> GetAll()
+        public List<RenovationPeriod> GetAll()
         {
             if (!File.Exists(startupPath))
             {
@@ -33,7 +33,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return renovationPeriods;
         }
 
-        public static RenovationPeriod GetOne(int roomId)
+        public RenovationPeriod GetOne(int roomId)
         {
             List<RenovationPeriod> renovationPeriods = GetAll();
             foreach (RenovationPeriod renPer in renovationPeriods)
@@ -46,7 +46,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return null;
         }
 
-        public static Boolean RemoveRenovationPeriod(int roomId)
+        public Boolean Remove(int roomId)
         {
             List<RenovationPeriod> renovationPeriods = GetAll();
             foreach (RenovationPeriod renPer in renovationPeriods)
@@ -61,13 +61,13 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        private static void Save(List<RenovationPeriod> renovationPeriods)
+        private void Save(List<RenovationPeriod> renovationPeriods)
         {
             string write = JsonConvert.SerializeObject(renovationPeriods);
             File.WriteAllText(startupPath, write);
         }
 
-        public static Boolean AddRenovationPeriod(RenovationPeriod newRenovationPeriod)
+        public Boolean Add(RenovationPeriod newRenovationPeriod)
         {
             List<RenovationPeriod> renovatonPeriods = GetAll();
             renovatonPeriods.Add(newRenovationPeriod);
@@ -75,7 +75,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return true;
         }
 
-        public static Boolean UpdateRenovationPeriod(int roomId, RenovationPeriod newRenovationPeriod)
+        public Boolean Update(int roomId, RenovationPeriod newRenovationPeriod)
         {
             List<RenovationPeriod> renovationPeriods = GetAll();
             foreach (RenovationPeriod renPer in renovationPeriods)

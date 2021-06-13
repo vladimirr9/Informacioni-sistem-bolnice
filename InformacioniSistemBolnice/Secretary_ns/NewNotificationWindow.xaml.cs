@@ -41,7 +41,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         {
             if (RecipientsListBox.SelectedItems.Count == 0)
                 return;
-            int id = NotificationFileStorage.GetAll().Count;
+            int id = _notificationController.GetAll().Count;
             Notification newNotification = new Notification(id, NotificationTitle, NotificationContent, DateTime.Now);
             List<string> selectedRecipients = RecipientsListBox.SelectedItems.Cast<string>().ToList();
             newNotification.FillRecipients(selectedRecipients);

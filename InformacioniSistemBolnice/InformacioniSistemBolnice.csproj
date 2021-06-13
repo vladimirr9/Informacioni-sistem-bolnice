@@ -143,7 +143,12 @@
     <Compile Include="FileStorage\HospitalisationFileRepository.cs" />
     <Compile Include="FileStorage\IDoctorRepository.cs" />
     <Compile Include="FileStorage\IManagerRepository.cs" />
+    <Compile Include="FileStorage\IMedicineRepository.cs" />
+    <Compile Include="FileStorage\INotificationRepository.cs" />
     <Compile Include="FileStorage\IPatientRepository.cs" />
+    <Compile Include="FileStorage\IRatingRepository.cs" />
+    <Compile Include="FileStorage\IRenovationPeriodRepository.cs" />
+    <Compile Include="FileStorage\IRoomRepository.cs" />
     <Compile Include="FileStorage\ISecretaryRepository.cs" />
     <Compile Include="FileStorage\IUserRepository.cs" />
     <Compile Include="FileStorage\RenovationperiodFileRepository.cs" />

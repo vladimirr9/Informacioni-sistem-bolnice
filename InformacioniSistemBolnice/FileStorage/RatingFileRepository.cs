@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace InformacioniSistemBolnice.FileStorage
 {
-    public class RatingFileRepository
+    public class RatingFileRepository : IRatingRepository
     {
 
         private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "rating.json";
-        public static List<Rating> GetAll()
+        public List<Rating> GetAll()
         {
             if (!File.Exists(startupPath))
             {
@@ -32,7 +32,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return ankete;
         }
 
-        public static Rating GetOne(int RatingID)
+        public Rating GetOne(int RatingID)
         {
             List<Rating> ankete = GetAll();
             foreach (Rating a in ankete)
@@ -43,7 +43,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return null;
         }
 
-        public static Boolean RemoveRating(int RatingID)
+        public Boolean Remove(int RatingID)
         {
             List<Rating> ankete = GetAll();
             foreach (Rating a in ankete)
@@ -58,13 +58,13 @@ namespace InformacioniSistemBolnice.FileStorage
             return false;
         }
 
-        private static void Save(List<Rating> ratings)
+        private void Save(List<Rating> ratings)
         {
             string upis = JsonConvert.SerializeObject(ratings);
             File.WriteAllText(startupPath, upis);
         }
 
-        public static Boolean AddRating(Rating novaRating)
+        public Boolean Add(Rating novaRating)
         {
             List<Rating> ankete = GetAll();
             ankete.Add(novaRating);
@@ -72,7 +72,7 @@ namespace InformacioniSistemBolnice.FileStorage
             return true;
         }
 
-        public static Boolean UpdateRating(int idOfRating, Rating newRating)
+        public Boolean Update(int idOfRating, Rating newRating)
         {
             List<Rating> ankete = GetAll();
             foreach (Rating a in ankete)

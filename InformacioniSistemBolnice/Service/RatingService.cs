@@ -9,34 +9,35 @@ namespace InformacioniSistemBolnice.Service
 {
     public class RatingService
     {
+        private IRatingRepository _ratingRepository = new RatingFileRepository();
         public List<Rating> GetAll()
         {
-            return RatingFileRepository.GetAll();
+            return _ratingRepository.GetAll();
         }
 
         public Rating GetOne(int idOfRating)
         {
-            return RatingFileRepository.GetOne(idOfRating);
+            return _ratingRepository.GetOne(idOfRating);
         }
 
         public Boolean Remove(int idOfRating)
         {
-            return RatingFileRepository.RemoveRating(idOfRating);
+            return _ratingRepository.Remove(idOfRating);
         }
 
         public Boolean Add(Rating newRating)
         {
-            return RatingFileRepository.AddRating(newRating);
+            return _ratingRepository.Add(newRating);
         }
 
         public Boolean Update(int idOfRating, Rating newRating)
         {
-            return RatingFileRepository.UpdateRating(idOfRating, newRating);
+            return _ratingRepository.Update(idOfRating, newRating);
         }
 
         public  Boolean Contains(int idOfAppointment)
         {
-            foreach (Rating a in RatingFileRepository.GetAll())
+            foreach (Rating a in _ratingRepository.GetAll())
             {
                 if (a.IdOfAppointment.Equals(idOfAppointment))
                 {

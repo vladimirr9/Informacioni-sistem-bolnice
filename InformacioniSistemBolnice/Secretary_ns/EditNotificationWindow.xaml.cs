@@ -49,7 +49,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
             initialNotification.CreationDate = DateTime.Now;
 
             _notificationController.Update(initialNotification.ID, initialNotification);
-            NotificationFileStorage.UpdateNotification(initialNotification.ID, initialNotification);
             _parent.UpdateTable();
             Close();
         }

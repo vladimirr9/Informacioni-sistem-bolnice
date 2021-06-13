@@ -7,11 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using InformacioniSistemBolnice.FileStorage;
 
 namespace InformacioniSistemBolnice.Service
 {
     public class RoomService
     {
+        private IRoomRepository _roomRepository = new RoomFileRepository();
         public void AddRoom(Room room)
         {
             /*if (!IsIdunique(room.RoomId))
@@ -26,7 +28,7 @@ namespace InformacioniSistemBolnice.Service
                 return;
             }*/
 
-            RoomFileRepository.AddRoom(room);
+            _roomRepository.Add(room);
         }
 
         /*public bool IsNameUnique(String name)
@@ -52,27 +54,27 @@ namespace InformacioniSistemBolnice.Service
 
         public void UpdateRoom(Room room)
         {
-            RoomFileRepository.UpdateRoom(room.RoomId, room);
+            _roomRepository.Update(room.RoomId, room);
         }
 
         public void RemoveRoom(Room room)
         {
-            RoomFileRepository.RemoveRoom(room.RoomId);
+            _roomRepository.Remove(room.RoomId);
         }
 
         public Room GetOneRoom(int roomId)
         {
-            return RoomFileRepository.GetOne(roomId);
+            return _roomRepository.GetOne(roomId);
         }
 
         public List<Room> GetAllRooms()
         {
-            return RoomFileRepository.GetAll();
+            return _roomRepository.GetAll();
         }
 
         public Inventory GetOneInventoryFromSpecifiedRoom(int roomId, String inventoryId)
         {
-            List<Inventory> _inventories = RoomFileRepository.GetOne(roomId).InventoryList;
+            List<Inventory> _inventories = _roomRepository.GetOne(roomId).InventoryList;
             foreach (Inventory inventory in _inventories)
             {
                 if (inventory.InventoryId.Equals(inventoryId))
@@ -113,7 +115,7 @@ namespace InformacioniSistemBolnice.Service
                 }
             }
             UpdateRoom(destinationRoom);
-            UpdateRoom(RoomFileRepository.GetOne(inventoryForRelocating.RoomId));
+            UpdateRoom(_roomRepository.GetOne(inventoryForRelocating.RoomId));
         }
 
         private static void IsEnoughInventory(Inventory inventoryForRelocating, int quantity)
@@ -141,7 +143,7 @@ namespace InformacioniSistemBolnice.Service
         public List<Room> GetAvailableRoomList(DateTime start, DateTime end)
         {
             List<Room> rooms = new List<Room>();
-            foreach (Room room in RoomFileRepository.GetAll())
+            foreach (Room room in _roomRepository.GetAll())
             {
                 if (room.IsAvailable(start, end) && !room.IsDeleted && room.RoomType != RoomType.stockroom)
                 {

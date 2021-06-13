@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using InformacioniSistemBolnice.FileStorage;
 
-public class MedicineFileRepository
+public class MedicineFileRepository : IMedicineRepository
 {
     private static string startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "medicines.json";
 
-    public static List<Medicine> GetAll()
+    public List<Medicine> GetAll()
     {
         if (!File.Exists(startupPath))
         {
@@ -27,7 +28,7 @@ public class MedicineFileRepository
         return medicines;
     }
 
-    public static Medicine GetOne(String medicineId)
+    public Medicine GetOne(String medicineId)
     {
         List<Medicine> medicines = GetAll();
         foreach (Medicine med in medicines)
@@ -40,7 +41,7 @@ public class MedicineFileRepository
         return null;
     }
 
-    public static Boolean RemoveMedicine(String medicineId)
+    public Boolean Remove(String medicineId)
     {
         List<Medicine> medicines = GetAll();
         foreach (Medicine med in medicines)
@@ -55,13 +56,13 @@ public class MedicineFileRepository
         return false;
     }
 
-    private static void Save(List<Medicine> medicines)
+    private void Save(List<Medicine> medicines)
     {
         string write = JsonConvert.SerializeObject(medicines);
         File.WriteAllText(startupPath, write);
     }
 
-    public static Boolean AddMedicine(Medicine newMedicine)
+    public Boolean Add(Medicine newMedicine)
     {
         List<Medicine> medicines = GetAll();
         medicines.Add(newMedicine);
@@ -69,7 +70,7 @@ public class MedicineFileRepository
         return true;
     }
 
-    public static Boolean UpdateMedicine(String medicineId, Medicine newMedicine)
+    public Boolean Update(String medicineId, Medicine newMedicine)
     {
         List<Medicine> medicines = GetAll();
         foreach (Medicine med in medicines)
@@ -84,7 +85,7 @@ public class MedicineFileRepository
         return false;
     }
 
-    public static Medicine GetOneByName(String name)
+    public Medicine GetOneByName(String name)
     {
         List<Medicine> medicines = GetAll();
         foreach (Medicine med in medicines)
