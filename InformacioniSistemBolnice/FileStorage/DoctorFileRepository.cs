@@ -10,8 +10,8 @@ using Newtonsoft.Json;
 
 public class DoctorFileRepository
 {
-    private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "doctors.json";
-    public static List<Doctor> GetAll()
+    private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "doctors.json";
+    public List<Doctor> GetAll()
     {
         if (!File.Exists(_startupPath))
         {
@@ -31,7 +31,7 @@ public class DoctorFileRepository
         return doctors;
     }
 
-    public static Doctor GetOne(string username)
+    public Doctor GetOne(string username)
     {
         List<Doctor> doctors = GetAll();
         foreach (Doctor doctor in doctors)
@@ -42,7 +42,7 @@ public class DoctorFileRepository
         return null;
     }
 
-    public static Boolean RemoveDoctor(string username)
+    public Boolean RemoveDoctor(string username)
     {
         List<Doctor> doctors = GetAll();
         foreach (Doctor doctor in doctors)
@@ -57,7 +57,7 @@ public class DoctorFileRepository
         return false;
     }
 
-    public static Boolean AddDoctor(Doctor newDoctor)
+    public Boolean AddDoctor(Doctor newDoctor)
     {
         List<Doctor> doctors = GetAll();
         doctors.Add(newDoctor);
@@ -65,7 +65,7 @@ public class DoctorFileRepository
         return true;
     }
 
-    public static Boolean UpdateDoctor(string username, Doctor newDoctor)
+    public Boolean UpdateDoctor(string username, Doctor newDoctor)
     {
         List<Doctor> doctors = GetAll();
         foreach (Doctor doctor in doctors)
@@ -80,7 +80,7 @@ public class DoctorFileRepository
         return false;
     }
 
-    private static void Save(List<Doctor> doctors)
+    private void Save(List<Doctor> doctors)
     {
         string serializeObject = JsonConvert.SerializeObject(doctors);
         File.WriteAllText(_startupPath, serializeObject);

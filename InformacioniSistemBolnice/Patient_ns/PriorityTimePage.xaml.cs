@@ -25,6 +25,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private const int trajanjePregleda = 15;
         private StartPatientWindow parent;
         private ActivityLogController _activityLogController = new ActivityLogController();
+        private DoctorControler _doctorControler = new DoctorControler();
         private PatientMakesAppointmentByPriorityPage parentp;
         private List<string> listStart;
         private List<string> listEnd;
@@ -97,8 +98,8 @@ namespace InformacioniSistemBolnice.Patient_ns
             DateTime pocetniDatum = DateTime.Parse(datum + " " + pocetak);
             DateTime krajnjiDatum = DateTime.Parse(datum + " " + kraj);
 
-            List<global::Doctor> ljekari = DoctorFileRepository.GetAll();
-            foreach (global::Doctor lekar in ljekari)
+            List<Doctor> ljekari = _doctorControler.GetAll();
+            foreach (Doctor lekar in ljekari)
             {
                 for (DateTime tm = pocetniDatum; tm < krajnjiDatum; tm = tm.AddMinutes(15))
                 {

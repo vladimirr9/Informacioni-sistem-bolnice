@@ -12,10 +12,14 @@ namespace InformacioniSistemBolnice.Service
 {
     class LoginService
     {
+        private DoctorFileRepository _doctorFileRepository = new DoctorFileRepository();
+        private ManagerFileRepository _managerFileRepository = new ManagerFileRepository();
+        private PatientFileRepository _patientFileRepository = new PatientFileRepository();
+        private SecretaryFileRepository _secretaryFileRepository = new SecretaryFileRepository();
 
         public Patient FindPatient(String username, String password)
         {
-            List<Patient> patients = PatientFileRepository.GetAll();
+            List<Patient> patients = _patientFileRepository.GetAll();
             foreach (var patient in patients)
             {
                 if (username.Equals(patient.Username) && password.Equals(patient.Password))
@@ -29,7 +33,7 @@ namespace InformacioniSistemBolnice.Service
 
         public Secretary FindSecretary(String username, String password)
         {
-            List<Secretary> secretaries = SecretaryFileRepository.GetAll();
+            List<Secretary> secretaries = _secretaryFileRepository.GetAll();
             foreach (Secretary secretary in secretaries)
             {
                 if (username.Equals(secretary.Username) && password.Equals(secretary.Password))
@@ -43,7 +47,7 @@ namespace InformacioniSistemBolnice.Service
 
         public Doctor FindDoctor(String username, String password)
         {
-            List<Doctor> doctors = DoctorFileRepository.GetAll();
+            List<Doctor> doctors = _doctorFileRepository.GetAll();
             foreach (Doctor doctor in doctors)
             {
                 if (username.Equals(doctor.Username) && password.Equals(doctor.Password))
@@ -56,12 +60,12 @@ namespace InformacioniSistemBolnice.Service
         }
         public Manager FindManager(String username, String password)
         {
-            List<Manager> upravnikLista = ManagerFileRepository.GetAll();
-            foreach (Manager u in upravnikLista)
+            List<Manager> managers = _managerFileRepository.GetAll();
+            foreach (Manager manager in managers)
             {
-                if (username.Equals(u.Username) && password.Equals(u.Password))
+                if (username.Equals(manager.Username) && password.Equals(manager.Password))
                 {
-                    return u;
+                    return manager;
                 }
             }
 

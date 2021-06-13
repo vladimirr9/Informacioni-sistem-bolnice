@@ -12,9 +12,6 @@ namespace InformacioniSistemBolnice.Service
 {
     public class RoomService
     {
-        //private AppointmentController _appointmentController = new AppointmentController();
-
-
         public void AddRoom(Room room)
         {
             /*if (!IsIdunique(room.RoomId))

@@ -32,7 +32,8 @@ public class Appointment
     {
         get
         {
-            return PatientFileRepository.GetOne(PatientUsername);
+            PatientFileRepository patientFileRepository = new PatientFileRepository();
+            return patientFileRepository.GetOne(PatientUsername);
         }
         set
         {
@@ -97,7 +98,8 @@ public class Appointment
     {
         get
         {
-            return DoctorFileRepository.GetOne(DoctorUsername);
+            DoctorFileRepository doctorFileRepository = new DoctorFileRepository();
+            return doctorFileRepository.GetOne(DoctorUsername);
         }
         set
         {

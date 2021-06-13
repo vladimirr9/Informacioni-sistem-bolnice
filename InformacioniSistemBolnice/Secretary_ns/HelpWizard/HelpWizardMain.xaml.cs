@@ -68,7 +68,8 @@ namespace InformacioniSistemBolnice.Secretary_ns.HelpWizard
         private void Finish_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             _secretary.FirstLogin = false;
-            SecretaryFileRepository.UpdateSecretary(_secretary.Username, _secretary);
+            SecretaryFileRepository secretaryFileRepository = new SecretaryFileRepository();
+            secretaryFileRepository.UpdateSecretary(_secretary.Username, _secretary);
             Close();
         }
 

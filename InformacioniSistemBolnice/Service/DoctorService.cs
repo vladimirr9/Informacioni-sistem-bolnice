@@ -9,35 +9,36 @@ namespace InformacioniSistemBolnice.Service
 {
     class DoctorService
     {
+        private DoctorFileRepository _doctorFileRepository = new DoctorFileRepository();
         public void Add(Doctor doctor)
         {
-            DoctorFileRepository.AddDoctor(doctor);
+            _doctorFileRepository.AddDoctor(doctor);
         }
 
         public void Remove(Doctor doctor)
         {
-            DoctorFileRepository.RemoveDoctor(doctor.Username);
+            _doctorFileRepository.RemoveDoctor(doctor.Username);
         }
 
         public void Update(Doctor doctor)
         {
-            DoctorFileRepository.UpdateDoctor(doctor.Username, doctor);
+            _doctorFileRepository.UpdateDoctor(doctor.Username, doctor);
         }
 
         public List<Doctor> GetAll()
         {
-            return DoctorFileRepository.GetAll();
+            return _doctorFileRepository.GetAll();
         }
 
         public Doctor GetOne(Doctor doctor)
         {
-            return DoctorFileRepository.GetOne(doctor.Username);
+            return _doctorFileRepository.GetOne(doctor.Username);
         }
 
         public List<Doctor> GetDoctorsByType(DoctorType type)
         {
             List<Doctor> doctors = new List<Doctor>();
-            foreach (Doctor doctor in DoctorFileRepository.GetAll())
+            foreach (Doctor doctor in _doctorFileRepository.GetAll())
             {
                 if (doctor.doctorType.Equals(type))
                 {
@@ -49,7 +50,7 @@ namespace InformacioniSistemBolnice.Service
         public List<Doctor> GetAvailableDoctorList(DateTime start, DateTime end)
         {
             List<Doctor> doctors = new List<Doctor>();
-            foreach (Doctor doctor in DoctorFileRepository.GetAll())
+            foreach (Doctor doctor in _doctorFileRepository.GetAll())
             {
                 if (doctor.IsAvailable(start, end) && !doctor.IsDeleted)
                 {

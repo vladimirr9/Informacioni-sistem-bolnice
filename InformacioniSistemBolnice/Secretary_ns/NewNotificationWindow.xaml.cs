@@ -22,6 +22,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
     {
         private StartingPage _parent;
         private NotificationController _notificationController = new NotificationController();
+        private PatientController _patientController = new PatientController();
         public List<String> Recipients { get; set; }
         public string NotificationTitle { get; set; }
         public string NotificationContent { get; set; }
@@ -59,7 +60,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             Recipients.Add("Svi korisnici");
             Recipients.Add("Zaposleni");
             Recipients.Add("Svi pacijenti");
-            foreach (Patient patient in PatientFileRepository.GetAll())
+            foreach (Patient patient in _patientController.GetAll())
             {
                 if (!patient.IsDeleted)
                     Recipients.Add(patient.Name + " " + patient.Surname + " - " + patient.Username);

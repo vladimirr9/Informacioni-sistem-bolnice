@@ -10,9 +10,9 @@ using System.IO;
 
 public class ManagerFileRepository
 {
-    private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "managers.json";
+    private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "managers.json";
 
-    public static List<Manager> GetAll()
+    public List<Manager> GetAll()
    {
         if (!File.Exists(_startupPath))
         {
@@ -33,7 +33,7 @@ public class ManagerFileRepository
         return managers;
     }
    
-   public static Manager GetOne(String username)
+   public Manager GetOne(String username)
    {
         List<Manager> managers = GetAll();
         foreach (Manager u in managers)
@@ -44,12 +44,12 @@ public class ManagerFileRepository
         return null;
     }
    
-   public static Boolean RemoveManager(int managerId)
+   public Boolean RemoveManager(int managerId)
    {
       throw new NotImplementedException();
    }
    
-   public static Boolean AddManager(Manager newManager)
+   public Boolean AddManager(Manager newManager)
    {
        List<Manager> managers = GetAll();
        managers.Add(newManager);
@@ -57,11 +57,11 @@ public class ManagerFileRepository
        return true;
     }
    
-   public static Boolean UpdateManager(int managerId, Manager newManager)
+   public Boolean UpdateManager(int managerId, Manager newManager)
    {
       throw new NotImplementedException();
    }
-   private static void Save(List<Manager> managers)
+   private void Save(List<Manager> managers)
    {
        string serializeObject = JsonConvert.SerializeObject(managers);
        File.WriteAllText(_startupPath, serializeObject);

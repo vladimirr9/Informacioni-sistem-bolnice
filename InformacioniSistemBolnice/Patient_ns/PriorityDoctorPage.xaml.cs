@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice.Patient_ns
     {
         private const int trajanjePregleda = 15;
         private ActivityLogController _activityLogController = new ActivityLogController();
+        private DoctorControler _doctorControler = new DoctorControler();
         private List<global::Doctor> ljekariLista;
         private List<Appointment> termini;
         private List<string> availableTimes;
@@ -38,7 +39,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             termini = new List<Appointment>();
             InitializeComponent();
             ljekariLista = new List<global::Doctor>();
-            foreach (global::Doctor l in DoctorFileRepository.GetAll())
+            foreach (Doctor l in _doctorControler.GetAll())
             {
                 if (l.doctorType == DoctorType.generalPractitioner)
                 {

@@ -49,7 +49,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             if (PatientsDataGrid.SelectedItem == null)
                 return;
             
-            Patient initialPatient = PatientFileRepository.GetOne(((Patient)(PatientsDataGrid.SelectedItem)).Username);
+            Patient initialPatient = _patientController.GetOne(((Patient)(PatientsDataGrid.SelectedItem)).Username);
             EditPatientWindow window = new EditPatientWindow(initialPatient, this);
             window.Show();
             
@@ -98,7 +98,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public void UpdateTable()
         {
             PatientsDataGrid.Items.Clear();
-            List<Patient> patients = PatientFileRepository.GetAll();
+            List<Patient> patients = _patientController.GetAll();
             foreach (Patient patient in patients)
             {
                 if (!patient.IsDeleted)

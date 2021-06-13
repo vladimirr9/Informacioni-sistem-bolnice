@@ -11,8 +11,8 @@ using InformacioniSistemBolnice.Secretary_ns;
 
 public class SecretaryFileRepository
 {
-    private static string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "secretaries.json";
-    public static List<Secretary> GetAll()
+    private string _startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "secretaries.json";
+    public List<Secretary> GetAll()
    {
         if (!File.Exists(_startupPath))
         {
@@ -32,7 +32,7 @@ public class SecretaryFileRepository
         return secretaries;
     }
    
-   public static Secretary GetOne(string username)
+   public Secretary GetOne(string username)
    {
         List<Secretary> secretaries = GetAll();
         foreach (Secretary secretary in secretaries)
@@ -43,7 +43,7 @@ public class SecretaryFileRepository
         return null;
     }
    
-   public static Boolean RemoveSecretary(string username)
+   public Boolean RemoveSecretary(string username)
    {
         List<Secretary> secretaries = GetAll();
         foreach (Secretary secretary in secretaries)
@@ -58,7 +58,7 @@ public class SecretaryFileRepository
         return false;
     }
    
-   public static Boolean AddSecretary(Secretary newSecretary)
+   public Boolean AddSecretary(Secretary newSecretary)
    {
         List<Secretary> secretaries = GetAll();
         secretaries.Add(newSecretary);
@@ -66,7 +66,7 @@ public class SecretaryFileRepository
         return true;
     }
    
-   public static Boolean UpdateSecretary(string username, Secretary newSecretary)
+   public Boolean UpdateSecretary(string username, Secretary newSecretary)
    {
         List<Secretary> secretaries = GetAll();
         foreach (Secretary secretary in secretaries)
@@ -80,7 +80,7 @@ public class SecretaryFileRepository
         }
         return false;
     }
-    private static void Save(List<Secretary> secretaries)
+    private void Save(List<Secretary> secretaries)
     {
         string serializeObject = JsonConvert.SerializeObject(secretaries);
         File.WriteAllText(_startupPath, serializeObject);

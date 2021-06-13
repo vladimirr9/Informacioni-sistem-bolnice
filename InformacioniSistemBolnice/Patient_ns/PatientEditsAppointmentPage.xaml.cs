@@ -145,7 +145,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             }
 
             lekari = new List<global::Doctor>();
-            foreach (global::Doctor l in DoctorFileRepository.GetAll())
+            foreach (Doctor l in _doctorControler.GetAll())
             {
                 if (l.IsAvailable(start, end) && !l.IsDeleted)
                 {

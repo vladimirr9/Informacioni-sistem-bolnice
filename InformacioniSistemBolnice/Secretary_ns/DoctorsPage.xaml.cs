@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InformacioniSistemBolnice.Controller;
 
 namespace InformacioniSistemBolnice.Secretary_ns
 {
@@ -19,6 +20,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
     {
 
         public static DoctorsPage _instance;
+        private DoctorControler _doctorControler = new DoctorControler();
         public static DoctorsPage GetPage(SecretaryMain parent)
         {
             if (_instance == null)
@@ -46,7 +48,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public void UpdateTable()
         {
             DoctorsDataGrid.Items.Clear();
-            List<Doctor> doctors = DoctorFileRepository.GetAll();
+            List<Doctor> doctors = _doctorControler.GetAll();
             foreach (Doctor doctor in doctors)
             {
                 if (!doctor.IsDeleted)

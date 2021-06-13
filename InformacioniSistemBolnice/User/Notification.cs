@@ -43,14 +43,18 @@ namespace InformacioniSistemBolnice.User
 
         public bool IsDirectedTo(string username)
         {
+            DoctorFileRepository doctorFileRepository = new DoctorFileRepository();
+            ManagerFileRepository managerFileRepository = new ManagerFileRepository();
+            PatientFileRepository patientFileRepository = new PatientFileRepository();
+            SecretaryFileRepository secretaryFileRepository = new SecretaryFileRepository();
             if (Recipients.Contains("ALL_USERS"))
                 return true;
-            if (PatientFileRepository.GetOne(username) != null)
+            if (patientFileRepository.GetOne(username) != null)
             {
                 if (Recipients.Contains("PATIENT_USERS") || Recipients.Contains(username))
                     return true;
             }
-            else if (SecretaryFileRepository.GetOne(username) != null || DoctorFileRepository.GetOne(username) != null || ManagerFileRepository.GetOne(username) != null)
+            else if (secretaryFileRepository.GetOne(username) != null || doctorFileRepository.GetOne(username) != null || managerFileRepository.GetOne(username) != null)
             {
                 if (Recipients.Contains("EMPLOYED_USERS") || Recipients.Contains(username))
                     return true;
