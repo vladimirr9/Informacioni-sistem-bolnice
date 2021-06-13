@@ -65,12 +65,11 @@ namespace InformacioniSistemBolnice
             else if (_loginControler.FindManager(Username.Text, Password.Password) != null)
             {
                 factory = new ManagerLoginFactory(_loginControler.FindManager(Username.Text, Password.Password));
-
             }
 
             if (factory != null)
             {
-                Loginer loginer = factory.GetLoginer();
+                ILoginer loginer = factory.GetLoginer();
                 loginer.Login();
                 this.Close();
                 return;

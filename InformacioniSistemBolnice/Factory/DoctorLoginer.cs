@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace InformacioniSistemBolnice.Factory
 {
-    class DoctorLoginer : Loginer
+    class DoctorLoginer : ILoginer
     {
         private Doctor _doctor;
         public DoctorLoginer(Doctor doctor)
@@ -15,7 +15,7 @@ namespace InformacioniSistemBolnice.Factory
             this._doctor = doctor;
         }
 
-        public override void Login()
+        public void Login()
         {
             DoctorWindow doctorWindow = new DoctorWindow(_doctor);
             Application.Current.MainWindow = doctorWindow;

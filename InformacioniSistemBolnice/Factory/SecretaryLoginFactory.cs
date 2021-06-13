@@ -15,7 +15,7 @@ namespace InformacioniSistemBolnice.Factory
         {
             this._secretary = secretary;
         }
-        public override Loginer GetLoginer()
+        public override ILoginer GetLoginer()
         {
             return new SecretaryLoginer(this._secretary);
         }

@@ -8,6 +8,6 @@ namespace InformacioniSistemBolnice.Factory
 {
     abstract class LoginFactory
     {
-        public abstract Loginer GetLoginer();
+        public abstract ILoginer GetLoginer();
     }
 }

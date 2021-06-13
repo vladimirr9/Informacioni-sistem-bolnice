@@ -14,7 +14,7 @@ namespace InformacioniSistemBolnice.Factory
         {
             this._doctor = doctor;
         }
-        public override Loginer GetLoginer()
+        public override ILoginer GetLoginer()
         {
             return new DoctorLoginer(this._doctor);
         }

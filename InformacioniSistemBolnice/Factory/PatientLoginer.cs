@@ -8,7 +8,7 @@ using InformacioniSistemBolnice.Patient_ns;
 
 namespace InformacioniSistemBolnice.Factory
 {
-    class PatientLoginer : Loginer
+    class PatientLoginer : ILoginer
     {
         private Patient _patient;
         public PatientLoginer(Patient patient)
@@ -16,7 +16,7 @@ namespace InformacioniSistemBolnice.Factory
             this._patient = patient;
         }
 
-        public override void Login()
+        public void Login()
         {
             StartPatientWindow patientWindow = new StartPatientWindow(_patient);
             Application.Current.MainWindow = patientWindow;

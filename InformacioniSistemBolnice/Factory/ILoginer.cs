@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace InformacioniSistemBolnice.Factory
 {
-    abstract class Loginer
+    public interface ILoginer
     {
-        public abstract void Login();
+        void Login();
     }
 }

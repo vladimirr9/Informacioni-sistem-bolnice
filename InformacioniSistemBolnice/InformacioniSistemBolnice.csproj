@@ -130,7 +130,7 @@
     </Compile>
     <Compile Include="Factory\DoctorLoginer.cs" />
     <Compile Include="Factory\DoctorLoginFactory.cs" />
-    <Compile Include="Factory\Loginer.cs" />
+    <Compile Include="Factory\ILoginer.cs" />
     <Compile Include="Factory\LoginFactory.cs" />
     <Compile Include="Factory\ManagerLoginer.cs" />
     <Compile Include="Factory\ManagerLoginFactory.cs" />

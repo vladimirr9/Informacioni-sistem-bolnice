@@ -8,7 +8,7 @@ using InformacioniSistemBolnice.Upravnik;
 
 namespace InformacioniSistemBolnice.Factory
 {
-    class ManagerLoginer : Loginer
+    class ManagerLoginer : ILoginer
     {
         private Manager _manager;
         public ManagerLoginer(Manager manager)
@@ -16,7 +16,7 @@ namespace InformacioniSistemBolnice.Factory
             this._manager = manager;
         }
 
-        public override void Login()
+        public void Login()
         {
             UpravnikWindow managerWindow = new UpravnikWindow(_manager);
             Application.Current.MainWindow = managerWindow;

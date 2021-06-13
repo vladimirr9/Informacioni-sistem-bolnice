@@ -9,7 +9,7 @@ using InformacioniSistemBolnice.Secretary_ns.HelpWizard;
 
 namespace InformacioniSistemBolnice.Factory
 {
-    class SecretaryLoginer : Loginer
+    class SecretaryLoginer : ILoginer
     {
         private Secretary _secretary;
         public SecretaryLoginer(Secretary secretary)
@@ -17,7 +17,7 @@ namespace InformacioniSistemBolnice.Factory
             this._secretary = secretary;
         }
 
-        public override void Login()
+        public void Login()
         {
             if (_secretary.FirstLogin)
             {
