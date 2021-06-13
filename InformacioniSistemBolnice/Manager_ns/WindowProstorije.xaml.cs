@@ -1,4 +1,5 @@
 ﻿using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.Manager_ns.Strategy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace InformacioniSistemBolnice.Upravnik
     {
         private UpravnikWindow _parent;
         private RoomController _roomController = new RoomController();
+        //private ContextClass _renovationStrategy = new ContextClass();
         public WindowProstorije(UpravnikWindow parent)
         {
             InitializeComponent();
@@ -113,7 +115,8 @@ namespace InformacioniSistemBolnice.Upravnik
             {
                 Room room1 = (Room)datagridProstorije.SelectedItems[0];
                 Room room2 = (Room)datagridProstorije.SelectedItems[1];
-                _roomController.MergingRooms(room1, room2);
+                //_roomController.MergingRooms(room1, room2);
+                new ContextClass(new MergingStrategy()).DoRenovation(room1, room2);
                 UpdateTable();
             }
         }
@@ -124,7 +127,8 @@ namespace InformacioniSistemBolnice.Upravnik
             {
                 double newRoomArea = Convert.ToDouble(AreaBox.Text);
                 Room selected = (Room)datagridProstorije.SelectedItem;
-                _roomController.DivideRoom(selected, newRoomArea);
+                //_roomController.DivideRoom(selected, newRoomArea);
+                new ContextClass(new DividingStrategy()).DoRenovation(selected, newRoomArea);
                 UpdateTable();
             }
         }

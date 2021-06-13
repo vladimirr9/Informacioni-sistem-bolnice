@@ -168,6 +168,10 @@
       <DependentUpon>FeedbackWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Manager_ns\RenovationPeriod.cs" />
+    <Compile Include="Manager_ns\Strategy\ContextClass.cs" />
+    <Compile Include="Manager_ns\Strategy\DividingStrategy.cs" />
+    <Compile Include="Manager_ns\Strategy\IStrategy.cs" />
+    <Compile Include="Manager_ns\Strategy\MergingStrategy.cs" />
     <Compile Include="Manager_ns\ViewModel\FilteredInventoryViewModel.cs" />
     <Compile Include="Manager_ns\ViewModel\HomePageViewModel.cs" />
     <Compile Include="Manager_ns\ViewModel\ManagerFeedbackViewModel.cs" />

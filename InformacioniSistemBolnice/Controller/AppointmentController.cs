@@ -7,7 +7,7 @@ using InformacioniSistemBolnice.Service;
 
 namespace InformacioniSistemBolnice.Controller
 {
-    class AppointmentController
+    public class AppointmentController
     {
         private AppointmentService _appointmentService = new AppointmentService();
 
