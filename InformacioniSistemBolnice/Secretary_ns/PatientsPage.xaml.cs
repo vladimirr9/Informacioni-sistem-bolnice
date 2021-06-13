@@ -1,4 +1,5 @@
 ﻿using InformacioniSistemBolnice.Controller;
+using InformacioniSistemBolnice.Patient_ns.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
     {
         private PatientController _patientController = new PatientController();
         private static PatientsPage _instance;
-        public String Filter { get; set; }
+        PatientFilter PatientFilter = new PatientFilterByName();
         private PatientsPage()
         {
             InitializeComponent();
@@ -98,27 +99,37 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public void UpdateTable()
         {
             PatientsDataGrid.Items.Clear();
-            List<Patient> patients = _patientController.GetAll();
-            foreach (Patient patient in patients)
+            List<Patient> patients = new List<Patient>();
+            foreach (Patient patient in _patientController.GetAll())
             {
                 if (!patient.IsDeleted)
                 {
-                    if (Filter == null)
-                        PatientsDataGrid.Items.Add(patient);
-                    else
-                    {
-                        if (patient.Name.ToUpper().StartsWith(TableFilter.Text.ToUpper()))
-                        {
-                            PatientsDataGrid.Items.Add(patient);
-                        }
-                    }
+                    patients.Add(patient);
                 }
             }
+            patients = _patientController.FilterPatients(patients, TableFilter.Text, PatientFilter);
+            FillDataGrid(patients);
         }
+
+        
+
+
+
+
+
+
+
+
 
         private void TableFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
             UpdateTable();
+        }
+
+        private void FillDataGrid(List<Patient> patients)
+        {
+            foreach (Patient patient in patients)
+                PatientsDataGrid.Items.Add(patient);
         }
     }
 }

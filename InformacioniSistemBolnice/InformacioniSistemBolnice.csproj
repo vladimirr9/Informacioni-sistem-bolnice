@@ -163,6 +163,9 @@
     <Compile Include="Patient_ns\ChangePasswordPage.xaml.cs">
       <DependentUpon>ChangePasswordPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Patient_ns\Filters\PatientFilter.cs" />
+    <Compile Include="Patient_ns\Filters\PatientFilterByJMBG.cs" />
+    <Compile Include="Patient_ns\Filters\PatientFilterByName.cs" />
     <Compile Include="Patient_ns\NotificationPatientPage.xaml.cs">
       <DependentUpon>NotificationPatientPage.xaml</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InformacioniSistemBolnice.Patient_ns.Filters;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -95,6 +96,19 @@ namespace InformacioniSistemBolnice.Service
                     
             }
             return patients;
+        }
+
+        public List<Patient> FilterPatients(List<Patient> patients, string filterVal, PatientFilter filter)
+        {
+            List<Patient> filteredPatients = new List<Patient>();
+            foreach (Patient patient in patients)
+            {
+                if (filter.FitsFilter(patient, filterVal))
+                {
+                    filteredPatients.Add(patient);
+                }
+            }
+            return filteredPatients;
         }
 
         public List<Patient> GetAvailablePatientList(DateTime start, DateTime end)

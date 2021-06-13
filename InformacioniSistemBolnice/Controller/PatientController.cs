@@ -1,4 +1,5 @@
-﻿using InformacioniSistemBolnice.Service;
+﻿using InformacioniSistemBolnice.Patient_ns.Filters;
+using InformacioniSistemBolnice.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -95,6 +96,10 @@ namespace InformacioniSistemBolnice.Controller
         public Boolean IsValidPassword(Patient patient, String password)
         {
             return _patientService.IsValidPassword(patient, password);
+        }
+        public List<Patient> FilterPatients(List<Patient> patients, string filterVal, PatientFilter filter)
+        {
+            return _patientService.FilterPatients(patients, filterVal, filter);
         }
     }
 }
