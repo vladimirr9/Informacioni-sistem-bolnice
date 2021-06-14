@@ -146,12 +146,12 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            ZakaziTermin();
+            MakeAppointment();
             ActivityLog activity = new ActivityLog(DateTime.Now, parent.Patient.Username, TypeOfActivity.makingAppointment);
             _activityLogController.AddActivity(activity);
         }
 
-        private void ZakaziTermin()
+        private void MakeAppointment()
         {
             global::Doctor l = (global::Doctor)ljekari.SelectedItem;
             Patient p = parent.Patient;

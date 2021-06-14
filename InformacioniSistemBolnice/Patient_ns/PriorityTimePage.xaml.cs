@@ -96,10 +96,13 @@ namespace InformacioniSistemBolnice.Patient_ns
             String pocetak = startTime.SelectedItem.ToString();
             String kraj = endTime.SelectedItem.ToString();
             String datum = date.Text;
-
             DateTime pocetniDatum = DateTime.Parse(datum + " " + pocetak);
             DateTime krajnjiDatum = DateTime.Parse(datum + " " + kraj);
+            SetAvailableDoctors(pocetniDatum,krajnjiDatum);
+        }
 
+        private void SetAvailableDoctors(DateTime pocetniDatum, DateTime krajnjiDatum)
+        {
             List<Doctor> ljekari = _doctorControler.GetAll();
             foreach (Doctor lekar in ljekari)
             {
@@ -117,9 +120,9 @@ namespace InformacioniSistemBolnice.Patient_ns
                 }
             }
 
-
-
+            
         }
+
         public class SlobodniTermini
         {
             public global::Doctor Ljekar { get; set; }
@@ -152,7 +155,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void submit_Click(object sender, RoutedEventArgs e)
         {
-            ZakaziTermin();
+            MakeAppointment();
             ActivityLog activity = new ActivityLog(DateTime.Now, parent.Patient.Username, TypeOfActivity.makingAppointment);
             _activityLogController.AddActivity(activity);
         }
@@ -169,7 +172,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             date.IsEnabled = true;
         }
 
-        private void ZakaziTermin()
+        private void MakeAppointment()
         {
 
             SlobodniTermini selektovanTermin = (SlobodniTermini)PrikazSlobodnihTermina.SelectedItem;
