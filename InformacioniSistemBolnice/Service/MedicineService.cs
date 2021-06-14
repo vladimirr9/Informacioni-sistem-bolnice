@@ -14,7 +14,6 @@ namespace InformacioniSistemBolnice.Service
     {
         private IMedicineRepository _medicineRepository = new MedicineFileRepository();
         
-
         public void AddMedicine(Medicine medicine)
         {
             if (!IsIdunique(medicine.MedicineId))
@@ -77,11 +76,5 @@ namespace InformacioniSistemBolnice.Service
         {
             return _medicineRepository.GetAll();
         }
-
-        
-        
-
-        
-       
     }
 }

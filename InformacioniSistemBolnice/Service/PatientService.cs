@@ -163,10 +163,6 @@ namespace InformacioniSistemBolnice.Service
             }
         }
 
-       
-
-        
-
         public List<Therapy> GetTherapiesFromRecord(Patient patient)
         {
             List<Therapy> therapies = new List<Therapy>();

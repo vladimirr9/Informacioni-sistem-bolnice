@@ -29,7 +29,6 @@ namespace InformacioniSistemBolnice.Service
             }
 
             return counterOfActivity;
-
         }
 
         public void AddActivity(ActivityLog newActivity)
