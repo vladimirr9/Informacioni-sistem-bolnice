@@ -148,6 +148,8 @@
     <Compile Include="Factory\ManagerLoginFactory.cs" />
     <Compile Include="Factory\PatientLoginer.cs" />
     <Compile Include="Factory\PatientLoginFactory.cs" />
+    <Compile Include="Factory\RepoFactory\FileRepositoryFactory.cs" />
+    <Compile Include="Factory\RepoFactory\RepositoryFactory.cs" />
     <Compile Include="Factory\SecretaryLoginer.cs" />
     <Compile Include="Factory\SecretaryLoginFactory.cs" />
     <Compile Include="FileStorage\FeedbackRepository.cs" />
