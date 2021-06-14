@@ -27,7 +27,6 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private Hospitalisation hospitalisation;
         private PatientController _patientController = new PatientController();
         private AnamnesisController _anamnesisController = new AnamnesisController();
-        private AppointmentController _appointmentController = new AppointmentController();
         private MedicineController _medicineController = new MedicineController();
         private RoomController _roomController = new RoomController(new RoomsForHospitalisationService());
         private HospitalisationControler _hospitalisationControler = new HospitalisationControler();

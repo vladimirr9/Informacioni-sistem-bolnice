@@ -13,7 +13,7 @@ namespace InformacioniSistemBolnice.Service
     public class MedicineService
     {
         private IMedicineRepository _medicineRepository = new MedicineFileRepository();
-        private IIngredientRepository _ingredientFileRepository = new IngredientFileRepository();
+        
 
         public void AddMedicine(Medicine medicine)
         {
