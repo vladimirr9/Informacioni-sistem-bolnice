@@ -38,8 +38,6 @@ namespace InformacioniSistemBolnice.Doctor_ns
         }
         public bool Overlaps(List<Vacation> vacations)
         {
-            if (Start.Equals(End))
-                return false;
             bool retVal = false;
             foreach (Vacation vacation in vacations)
             {
