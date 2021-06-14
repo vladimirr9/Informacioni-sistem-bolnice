@@ -104,126 +104,37 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         }
 
-
-
-
-
         private void ImeTextBox_OnMouseEnter(object sender, MouseEventArgs e)
         {
-            if (prezimeTextBox.Text == "")
-            {
-                prezimeUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else if (prezimeTextBox.Text[0] != Char.ToUpper(prezimeTextBox.Text[0]))
-
-            {
-                prezimeUpozorenje.Text = "Prezime mora početi velikim slovom!";
-            }
-            else
-            {
-                prezimeUpozorenje.Text = "";
-            }
-
-            if (kontaktTextBox.Text == "")
-            {
-                kontaktUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else if (!IsValidPhone(kontaktTextBox.Text))
-            {
-                kontaktUpozorenje.Text = "Format nije ispravan!";
-            }
-            else
-            {
-                kontaktUpozorenje.Text = "";
-            }
-
-            if (emailTextBox.Text == "")
-            {
-                emailUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else if (!IsValidEmailAddress(emailTextBox.Text))
-            {
-                emailUpozorenje.Text = "Neispravan format!";
-            }
-
-            else
-            {
-                emailUpozorenje.Text = "";
-            }
-
-            /* if (adresaTextBox.Text == "")
-             {
-                 adresaUpozorenje.Text = "Polje ne sme biti prazno";
-             }
-             else
-             {
-                 adresaUpozorenje.Text = "";
-             }*/
+           SetValueToPrezimeUpozorenje();
+           SetValueToKontaktUpozorenje();
+           SetValueToEmailUpozorenje();
         }
 
 
         private void PrezimeTextBox_OnMouseEnter(object sender, MouseEventArgs e)
         {
-            if (imeTextBox.Text == "")
-            {
-                imeUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else if (imeTextBox.Text[0] != Char.ToUpper(imeTextBox.Text[0]))
-
-            {
-                imeUpozorenje.Text = "Ime mora početi velikim slovom!";
-            }
-            else
-            {
-                imeUpozorenje.Text = "";
-            }
-
-            if (kontaktTextBox.Text == "")
-            {
-                kontaktUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else if (!IsValidPhone(kontaktTextBox.Text))
-            {
-                kontaktUpozorenje.Text = "Format nije ispravan!";
-            }
-            else
-            {
-                kontaktUpozorenje.Text = "";
-            }
-
-            if (emailTextBox.Text == "")
-            {
-                emailUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else if (!IsValidEmailAddress(emailTextBox.Text))
-            {
-                emailUpozorenje.Text = "Neispravan format!";
-            }
-
-            else
-            {
-                emailUpozorenje.Text = "";
-            }
-            /*if (adresaTextBox.Text == "")
-            {
-                adresaUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else
-            {
-                adresaUpozorenje.Text = "";
-            }*/
-
-
+            SetValueToImeUpozorenje();
+            SetValueToKontaktUpozorenje();
+            SetValueToEmailUpozorenje();
         }
 
         private void KontaktTextBox_OnMouseEnter(object sender, MouseEventArgs e)
         {
+           SetValueToImeUpozorenje();
+           SetValueToPrezimeUpozorenje();
+           SetValueToEmailUpozorenje();
+            
+
+        }
+
+        private void SetValueToImeUpozorenje()
+        {
             if (imeTextBox.Text == "")
             {
                 imeUpozorenje.Text = "Polje ne sme biti prazno";
             }
             else if (imeTextBox.Text[0] != Char.ToUpper(imeTextBox.Text[0]))
-
             {
                 imeUpozorenje.Text = "Ime mora početi velikim slovom!";
             }
@@ -231,13 +142,15 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 imeUpozorenje.Text = "";
             }
+        }
 
+        private void SetValueToPrezimeUpozorenje()
+        {
             if (prezimeTextBox.Text == "")
             {
                 prezimeUpozorenje.Text = "Polje ne sme biti prazno";
             }
             else if (prezimeTextBox.Text[0] != Char.ToUpper(prezimeTextBox.Text[0]))
-
             {
                 prezimeUpozorenje.Text = "Prezime mora početi velikim slovom!";
             }
@@ -246,6 +159,26 @@ namespace InformacioniSistemBolnice.Patient_ns
                 prezimeUpozorenje.Text = "";
             }
 
+        }
+
+        private void SetValueToKontaktUpozorenje()
+        {
+            if (kontaktTextBox.Text == "")
+            {
+                kontaktUpozorenje.Text = "Polje ne sme biti prazno";
+            }
+            else if (!IsValidPhone(kontaktTextBox.Text))
+            {
+                kontaktUpozorenje.Text = "Format nije ispravan!";
+            }
+            else
+            {
+                kontaktUpozorenje.Text = "";
+            }
+        }
+
+        private void SetValueToEmailUpozorenje()
+        {
             if (emailTextBox.Text == "")
             {
                 emailUpozorenje.Text = "Polje ne sme biti prazno";
@@ -259,69 +192,13 @@ namespace InformacioniSistemBolnice.Patient_ns
             {
                 emailUpozorenje.Text = "";
             }
-            /* if (adresaTextBox.Text == "")
-             {
-                 adresaUpozorenje.Text = "Polje ne sme biti prazno";
-             }
-             else
-             {
-                 adresaUpozorenje.Text = "";
-             }*/
-
         }
-
 
         private void EmailTextBox_OnMouseEnter(object sender, MouseEventArgs e)
         {
-
-            if (imeTextBox.Text == "")
-            {
-                imeUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else if (imeTextBox.Text[0] != Char.ToUpper(imeTextBox.Text[0]))
-
-            {
-                imeUpozorenje.Text = "Ime mora početi velikim slovom!";
-            }
-            else
-            {
-                imeUpozorenje.Text = "";
-            }
-
-            if (prezimeTextBox.Text == "")
-            {
-                prezimeUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else if (prezimeTextBox.Text[0] != Char.ToUpper(prezimeTextBox.Text[0]))
-
-            {
-                prezimeUpozorenje.Text = "Prezime mora početi velikim slovom!";
-            }
-            else
-            {
-                prezimeUpozorenje.Text = "";
-            }
-
-            if (kontaktTextBox.Text == "")
-            {
-                kontaktUpozorenje.Text = "Polje ne sme biti prazno";
-            }
-            else if (!IsValidPhone(kontaktTextBox.Text))
-            {
-                kontaktUpozorenje.Text = "Format nije ispravan!";
-            }
-            else
-            {
-                kontaktUpozorenje.Text = "";
-            }
-            /*  if (adresaTextBox.Text == "")
-              {
-                  adresaUpozorenje.Text = "Polje ne sme biti prazno";
-              }
-              else
-              {
-                  adresaUpozorenje.Text = "";
-              }*/
+            SetValueToImeUpozorenje();
+            SetValueToPrezimeUpozorenje();
+            SetValueToKontaktUpozorenje();
         }
         public static bool IsValidEmailAddress(string s)
         {
@@ -347,12 +224,8 @@ namespace InformacioniSistemBolnice.Patient_ns
                 {
                     SetInformationsInComponents();
                 }
-
             }
-
-
         }
-
         private Boolean checkCondition()
         {
             Boolean temp = true;
@@ -375,6 +248,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             return temp;
         }
 
+        
         public bool IsValidPhone(string Phone)
         {
             try
@@ -398,40 +272,6 @@ namespace InformacioniSistemBolnice.Patient_ns
             pp.startWindow.Content = new ChangePasswordPage(pp, parentp);
         }
 
-        /* private void AdresaTextBox_OnMouseEnter(object sender, MouseEventArgs e)
-         {
-             if (imeTextBox.Text == "")
-             {
-                 imeUpozorenje.Text = "Polje ne sme biti prazno";
-             }
-             else
-             {
-                 imeUpozorenje.Text = "";
-             }
-             if (prezimeTextBox.Text == "")
-             {
-                 prezimeUpozorenje.Text = "Polje ne sme biti prazno";
-             }
-             else
-             {
-                 prezimeUpozorenje.Text = "";
-             }
-             if (kontaktTextBox.Text == "")
-             {
-                 kontaktUpozorenje.Text = "Polje ne sme biti prazno";
-             }
-             else
-             {
-                 kontaktUpozorenje.Text = "";
-             }
-             if (emailTextBox.Text == "")
-             {
-                 emailUpozorenje.Text = "Polje ne sme biti prazno";
-             }
-             else
-             {
-                 emailUpozorenje.Text = "";
-             }
-         }*/
+       
     }
 }

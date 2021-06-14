@@ -335,6 +335,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         }
 
+       
         private Room GetAvailableRoom(DateTime pocetak, DateTime kraj)
         {
             prostorije = new List<Room>();

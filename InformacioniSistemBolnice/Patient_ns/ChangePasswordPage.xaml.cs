@@ -42,25 +42,34 @@ namespace InformacioniSistemBolnice.Patient_ns
         {
             if (_patientController.IsValidPassword(_patient, currentPass.Password))
             {
-                _patientController.SetNewPassword(_patient, newPass.Password);
-                MessageBoxResult result = MessageBox.Show(
-                    "Lozinka je uspešno promenjena.Bićete izlogovani.Prijavite se sa novom lozinkom!", "Uspeh",
-                    MessageBoxButton.OK);
-                if (result == MessageBoxResult.OK)
-                {
-                    MainWindow m = new MainWindow();
-                    Application.Current.MainWindow = m;
-                    parentp.Close();
-                    m.Show();
-
-                }
-
+                SuccessfulChangingPassword();
             }
             else
             {
                 MessageBox.Show("Trenutna lozinka nije validno unesena!", "Greška");
             }
 
+        }
+
+        private void SuccessfulChangingPassword()
+        {
+            _patientController.SetNewPassword(_patient, newPass.Password);
+            MessageBoxResult result = MessageBox.Show(
+                "Lozinka je uspešno promenjena.Bićete izlogovani.Prijavite se sa novom lozinkom!", "Uspeh",
+                MessageBoxButton.OK);
+            if (result == MessageBoxResult.OK)
+            {
+                ShowStartWindow();
+
+            }
+        }
+
+        private void ShowStartWindow()
+        {
+            MainWindow m = new MainWindow();
+            Application.Current.MainWindow = m;
+            parentp.Close();
+            m.Show();
         }
     }
 }

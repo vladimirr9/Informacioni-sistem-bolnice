@@ -9,8 +9,8 @@ namespace InformacioniSistemBolnice.Manager_ns.Strategy
 {
     public interface IStrategy
     {
-        AppointmentController AppointmentController { get; }
+        AppointmentRoomController AppointmentRoomController { get; }
         RoomController RoomController { get; }
-        void DoRenovate(object firstObject, object scondObject);
+        void DoRenovation(object firstObject, object scondObject);
     }
 }

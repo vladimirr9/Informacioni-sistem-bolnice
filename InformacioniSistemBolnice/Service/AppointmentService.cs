@@ -41,13 +41,5 @@ namespace InformacioniSistemBolnice.Service
         {
             return _appointmentFileRepository.GetOne(appointment.AppointmentID);
         }
-
-        
-
-        
-
-        
-        
-       
     }
 }

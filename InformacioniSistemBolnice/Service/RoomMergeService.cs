@@ -38,7 +38,6 @@ namespace InformacioniSistemBolnice.Service
                 int index = room1.InventoryList.FindIndex(item => item.InventoryId == inventory.InventoryId);
                 if (index >= 0)
                 {
-                    //mergedInventoryList = MergeInventoryFromRoms(room1, room2, inventory);
                     room1.InventoryList[index].Quantity += inventory.Quantity;
                     _roomService.UpdateRoom(room1);
                 }

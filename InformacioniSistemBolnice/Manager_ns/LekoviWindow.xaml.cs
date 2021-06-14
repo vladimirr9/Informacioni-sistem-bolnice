@@ -96,7 +96,7 @@ namespace InformacioniSistemBolnice.Upravnik
         {
             SastojciLeka.Items.Clear();
             Medicine selectedMedicine = (Medicine)dataGridLekovi.SelectedItem;
-            if (selectedMedicine != null)
+            if (selectedMedicine.IngredientsList != null)
             {
                 foreach (Ingredient ingredient in selectedMedicine.IngredientsList)
                 {

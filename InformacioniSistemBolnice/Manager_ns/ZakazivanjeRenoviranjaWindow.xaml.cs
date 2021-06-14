@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice.Upravnik
             InitializeComponent();
             this._parent = parent;
             _selectedRoom = room;
-            parent.UpdateTable();
+            _parent.UpdateTable();
             CalendarSettings();
         }
 
