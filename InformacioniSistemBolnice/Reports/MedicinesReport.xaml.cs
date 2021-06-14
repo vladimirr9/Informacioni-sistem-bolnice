@@ -22,12 +22,19 @@ namespace InformacioniSistemBolnice.Reports
     public partial class MedicinesReport : Page
     {
         private MedicineController _medicineController = new MedicineController();
+
         private MedicineCountController _medicineCountController = new MedicineCountController();
+
+        /*private MedicinesCountReport _validatedMedicinesCount = new ValidatedMedicinesCount();
+        private MedicinesCountReport _rejectedMedicinesCount = new RejectedMedicinesCount();
+        private MedicinesCountReport _waitingMedicinesCount = new WaitingMedicinesCount();*/
+
         public MedicinesReport()
         {
             InitializeComponent();
             UpdateTable();
             this.DataContext = this;
+
 
             label1.Content = _medicineCountController.ValidatedMedicinesCount();
             label2.Content = _medicineCountController.RejectedMedicinesCount();
