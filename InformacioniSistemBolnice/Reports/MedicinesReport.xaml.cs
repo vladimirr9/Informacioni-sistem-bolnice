@@ -23,11 +23,11 @@ namespace InformacioniSistemBolnice.Reports
     {
         private MedicineController _medicineController = new MedicineController();
 
-        private MedicineCountController _medicineCountController = new MedicineCountController();
+        //private MedicineCountController _medicineCountController = new MedicineCountController();
 
-        /*private MedicinesCountReport _validatedMedicinesCount = new ValidatedMedicinesCount();
+        private MedicinesCountReport _validatedMedicinesCount = new ValidatedMedicinesCount();
         private MedicinesCountReport _rejectedMedicinesCount = new RejectedMedicinesCount();
-        private MedicinesCountReport _waitingMedicinesCount = new WaitingMedicinesCount();*/
+        private MedicinesCountReport _waitingMedicinesCount = new WaitingMedicinesCount();
 
         public MedicinesReport()
         {
@@ -36,9 +36,9 @@ namespace InformacioniSistemBolnice.Reports
             this.DataContext = this;
 
 
-            label1.Content = _medicineCountController.ValidatedMedicinesCount();
-            label2.Content = _medicineCountController.RejectedMedicinesCount();
-            label3.Content = _medicineCountController.WaitingMedicinesCount();
+            label1.Content = _validatedMedicinesCount.Calculate();
+            label2.Content = _rejectedMedicinesCount.Calculate();
+            label3.Content = _waitingMedicinesCount.Calculate();
             label4.Content = DateTime.Now.Date.ToString("dd/MM/yyyy");
         }
 
