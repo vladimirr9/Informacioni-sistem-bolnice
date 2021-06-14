@@ -22,7 +22,7 @@ namespace InformacioniSistemBolnice.Manager_ns.Strategy
 
         public void DoRenovation(object firstObject, object secondObjct)
         {
-            this._strategy.DoRenovate(firstObject, secondObjct);
+            this._strategy.DoRenovation(firstObject, secondObjct);
         }
     }
 }

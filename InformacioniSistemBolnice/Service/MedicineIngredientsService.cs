@@ -37,23 +37,10 @@ namespace InformacioniSistemBolnice.Service
                 }
             }
             return ingredients;
-            /*var ingredients = new ObservableCollection<Ingredient>();
-            var medIngredients = medicine.IngredientsList;
-            foreach (var ing in medIngredients)
-            {
-                if (ing.Name.Equals(ingredient.Name))
-                {
-                    ingredients.Add(ing);
-                }
-            }
-            return ingredients;*/
         }
 
         public void AddIngredientsToNewMedicine(ItemCollection items, Ingredient ingredient)
         {
-            /*ObservableCollection<Ingredient> ingredients = new ObservableCollection<Ingredient>();
-            ingredientsList = ingredients;*/
-            //items.Clear();
             foreach (Ingredient ing in GetAllIngredients())
             {
                 if (!items.Contains(ingredient) && ing.Name.Equals(ingredient.Name))

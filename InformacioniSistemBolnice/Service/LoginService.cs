@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InformacioniSistemBolnice.Factory.RepoFactory;
 using InformacioniSistemBolnice.FileStorage;
 using InformacioniSistemBolnice.Patient_ns;
 using InformacioniSistemBolnice.Secretary_ns;
@@ -13,6 +14,7 @@ namespace InformacioniSistemBolnice.Service
 {
     class LoginService
     {
+        private RepositoryFactory _repositoryFactory = new FileRepositoryFactory();
         private IDoctorRepository _doctorFileRepository;
         private IManagerRepository _managerFileRepository;
         private IPatientRepository _patientFileRepository;
@@ -20,18 +22,18 @@ namespace InformacioniSistemBolnice.Service
 
         public LoginService()
         {
-            _doctorFileRepository = new DoctorFileRepository();
-            _managerFileRepository = new ManagerFileRepository();
-            _patientFileRepository = new PatientFileRepository();
-            _secretaryFileRepository = new SecretaryFileRepository();
+            _doctorFileRepository = _repositoryFactory.GetDoctorRepository();
+            _managerFileRepository = _repositoryFactory.GetManagerRepository();
+            _patientFileRepository = _repositoryFactory.GetPatientRepository();
+            _secretaryFileRepository = _repositoryFactory.GetSecretaryRepository();
         }
 
-        public LoginService(IDoctorRepository doctorRepository, IManagerRepository managerRepository, IPatientRepository patientRepository, ISecretaryRepository secretaryRepository)
+        public LoginService(RepositoryFactory repositoryFactory)
         {
-            _doctorFileRepository = doctorRepository;
-            _managerFileRepository = managerRepository;
-            _patientFileRepository = patientRepository;
-            _secretaryFileRepository = secretaryRepository;
+            _doctorFileRepository = repositoryFactory.GetDoctorRepository();
+            _managerFileRepository = repositoryFactory.GetManagerRepository();
+            _patientFileRepository = repositoryFactory.GetPatientRepository();
+            _secretaryFileRepository = repositoryFactory.GetSecretaryRepository();
         }
 
         public Patient FindPatient(String username, String password)
