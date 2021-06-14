@@ -11,21 +11,16 @@ namespace InformacioniSistemBolnice.Service
         public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments, Doctor doctor)
         {
             List<String> times = new List<String>();
-            DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
-            for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
+            DateTime lastPossibleTime = GetLastPossibleTime();
+            for (DateTime potentialTime = GetFirstPossibleTime(); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
             {
+                if (!IsDoctorWorkingAtPotentialTime(doctor, potentialTime))
+                    continue;
                 bool free = true;
-                if (doctor != null)
-                {
-                    if (doctor.IsWithinVacations(potentialTime) || !doctor.IsWithinWorkHours(potentialTime))
-                    {
-                        free = false;
-                    }
-                }
                 foreach (Appointment appointment in appointments)
                 {
-                    DateTime start = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.ToString("HH:mm"));
-                    DateTime end = DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.AddMinutes(appointment.DurationInMinutes).ToString("HH:mm"));
+                    DateTime start = GetStartTime(appointment);
+                    DateTime end = GetEndTime(appointment);
                     if (potentialTime >= start && potentialTime <= end)
                     {
                         free = false;
@@ -38,16 +33,49 @@ namespace InformacioniSistemBolnice.Service
             return times;
         }
 
+       
+
+        private bool IsDoctorWorkingAtPotentialTime(Doctor doctor, DateTime potentialTime)
+        {
+            if (doctor == null)
+                return true;
+            if (doctor.IsWithinVacations(potentialTime) || !doctor.IsWithinWorkHours(potentialTime))
+            {
+                return false;
+            }
+            return true;
+        }
+
         public List<string> GetPossibleAppointmentTimes()
         {
             List<string> times = new List<string>();
-            DateTime lastPossibleTime = DateTime.Parse("01-Jan-1970" + " " + "19:30");
-            for (DateTime potentialTime = DateTime.Parse("01-Jan-1970" + " " + "08:00"); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
+            DateTime lastPossibleTime = GetLastPossibleTime();
+            for (DateTime potentialTime = GetFirstPossibleTime(); potentialTime <= lastPossibleTime; potentialTime = potentialTime.AddMinutes(15))
             {
                 times.Add(potentialTime.ToString("HH:mm"));
             }
             return times;
         }
+
+        private DateTime GetFirstPossibleTime()
+        {
+            return DateTime.Parse("01-Jan-1970" + " " + "08:00");
+        }
+        private DateTime GetLastPossibleTime()
+        {
+            return DateTime.Parse("01-Jan-1970" + " " + "19:30");
+        }
+
+        private DateTime GetStartTime(Appointment appointment)
+        {
+            return DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.ToString("HH:mm"));
+        }
+        private DateTime GetEndTime(Appointment appointment)
+        {
+            return DateTime.Parse("01-Jan-1970" + " " + appointment.AppointmentDate.AddMinutes(appointment.DurationInMinutes).ToString("HH:mm"));
+        }
+
+
         public DateTime GetNextEarliestAppointmentTime(DateTime datetime)
         {
             List<string> times = GetPossibleAppointmentTimes();
