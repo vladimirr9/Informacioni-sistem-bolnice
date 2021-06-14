@@ -10,14 +10,12 @@ namespace InformacioniSistemBolnice.Manager_ns.Strategy
 {
     public class MergingStrategy : IStrategy
     {
-        public AppointmentController AppointmentController => new AppointmentController();
-
         public RoomController RoomController => new RoomController();
 
-        public AppointmentRoomController AppointmentRoomController = new AppointmentRoomController();
+        public AppointmentRoomController AppointmentRoomController => new AppointmentRoomController();
         
 
-        public void DoRenovate(object firstObject, object scondObject)
+        public void DoRenovation(object firstObject, object scondObject)
         {
             Room room1 = (Room)firstObject;
             Room room2 = (Room)scondObject;
