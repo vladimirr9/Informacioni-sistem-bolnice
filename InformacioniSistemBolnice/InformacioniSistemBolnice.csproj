@@ -218,10 +218,6 @@
     <Compile Include="FileStorage\IngredientFileRepository.cs" />
     <Compile Include="FileStorage\NotificationFileStorage.cs" />
     <Compile Include="Patient_ns\ActivityLog.cs" />
-    <Compile Include="Patient_ns\State\Banned.cs" />
-    <Compile Include="Patient_ns\State\ContextClassForStates.cs" />
-    <Compile Include="Patient_ns\State\IStatusOfPatient.cs" />
-    <Compile Include="Patient_ns\State\Unbanned.cs" />
     <Compile Include="Patient_ns\StatisticsForDoctorPage.xaml.cs">
       <DependentUpon>StatisticsForDoctorPage.xaml</DependentUpon>
     </Compile>
