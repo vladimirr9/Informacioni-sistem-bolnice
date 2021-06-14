@@ -16,7 +16,7 @@ namespace InformacioniSistemBolnice.Service
             {
                 if (medicine.MedicineStatus == MedicineStatus.validated)
                 {
-                    sum++;
+                    sum += medicine.Quantity;
                 }
             }
             return sum;
@@ -28,7 +28,7 @@ namespace InformacioniSistemBolnice.Service
             {
                 if (medicine.MedicineStatus == MedicineStatus.rejected)
                 {
-                    sum++;
+                    sum += medicine.Quantity;
                 }
             }
             return sum;
@@ -40,7 +40,7 @@ namespace InformacioniSistemBolnice.Service
             {
                 if (medicine.MedicineStatus == MedicineStatus.waitingForValidation)
                 {
-                    sum++;
+                    sum += medicine.Quantity;
                 }
             }
             return sum;
