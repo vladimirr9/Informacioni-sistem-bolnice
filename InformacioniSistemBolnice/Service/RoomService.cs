@@ -16,41 +16,8 @@ namespace InformacioniSistemBolnice.Service
         private IRoomRepository _roomRepository = new RoomFileRepository();
         public void AddRoom(Room room)
         {
-            /*if (!IsIdunique(room.RoomId))
-            {
-                MessageBox.Show("Uneti ID prostorije već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
-                return;
-            }
-
-            if (!IsNameUnique(room.Name))
-            {
-                MessageBox.Show("Uneto ime prostorije već postoji u sistemu", "Podaci nisu unikatni", MessageBoxButton.OK);
-                return;
-            }*/
-
             _roomRepository.Add(room);
         }
-
-        /*public bool IsNameUnique(String name)
-        {
-            if (RoomFileRepository.GetOneByName(name) == null)
-            {
-                return true;
-            }
-            else { return false; }
-        }
-
-        public bool IsIdunique(int roomId)
-        {
-            if (RoomFileRepository.GetOne(roomId) == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }*/
 
         public void UpdateRoom(Room room)
         {
