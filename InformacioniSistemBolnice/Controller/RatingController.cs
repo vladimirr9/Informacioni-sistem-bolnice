@@ -41,14 +41,6 @@ namespace InformacioniSistemBolnice.Controller
             return _ratingService.Contains(idOfAppointment);
         }
 
-        public Boolean IsCheckedCondition(Patient patient)
-        {
-            return _ratingService.IsCheckedCondition(patient);
-        }
-
-        public int GetNumberOfRating(int number, Doctor doctor)
-        {
-            return _ratingService.GetNumberOfRating(number, doctor);
-        }
+       
     }
 }

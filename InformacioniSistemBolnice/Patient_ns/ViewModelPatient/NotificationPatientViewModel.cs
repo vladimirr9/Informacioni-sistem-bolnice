@@ -17,6 +17,8 @@ namespace InformacioniSistemBolnice.Patient_ns.ViewModelPatient
         private PatientController _patientController = new PatientController();
         private AnamnesisController _anamnesisController = new AnamnesisController();
         private AppointmentController _appointmentController = new AppointmentController();
+        private NotesForAnamnesisController _notesForAnamnesisController = new NotesForAnamnesisController();
+        private StatusOfAppointmentController _statusOfAppointmentController = new StatusOfAppointmentController();
         private ObservableCollection<string> _notificationListView;
         private List<string> notifications = new List<string>();
 
@@ -52,10 +54,10 @@ namespace InformacioniSistemBolnice.Patient_ns.ViewModelPatient
         private void LoadRemindersForAppointment()
         {
             
-            _appointmentController.CheckMissedAppointments();
+            _statusOfAppointmentController.CheckMissedAppointments();
             foreach (Appointment a in _appointmentController.GetAll())
             {
-                if (_appointmentController.IsAppointmentTomorrow(a) &&
+                if (_statusOfAppointmentController.IsAppointmentTomorrow(a) &&
                     a.PatientUsername.Equals(loggedInPatient.Username))
                 {
                     notifications.Add("Imate zakazan termin u " +
@@ -78,7 +80,7 @@ namespace InformacioniSistemBolnice.Patient_ns.ViewModelPatient
 
         private void LoadReminders()
         {
-            foreach (Note n in _anamnesisController.GetNotesWithReminder(loggedInPatient))
+            foreach (Note n in _notesForAnamnesisController.GetNotesWithReminder(loggedInPatient))
             {
                 notifications.Add(n.DescriptionOfNote);
             }

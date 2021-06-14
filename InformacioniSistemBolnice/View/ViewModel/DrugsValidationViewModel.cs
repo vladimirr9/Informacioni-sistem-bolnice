@@ -18,6 +18,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
         public MyICommand ValidateCommand { get; set; }
         public MyICommand ReturnCommand { get; set; }
         private MedicineController _medicineController = new MedicineController();
+        private MedicineIngredientsController _medicineIngredientsController = new MedicineIngredientsController();
 
         public String SelectedMedicine
         {
@@ -101,7 +102,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
             List<String> ingredients = new List<String>();
             if (selectedMedicineName != null)
             {
-                foreach (Ingredient ingredient in _medicineController.GetMedicineIngredients(_medicineController.GetOneByname(selectedMedicineName)))
+                foreach (Ingredient ingredient in _medicineIngredientsController.GetMedicineIngredients(_medicineController.GetOneByname(selectedMedicineName)))
                 {
                     ingredients.Add(ingredient.Name);
                 }

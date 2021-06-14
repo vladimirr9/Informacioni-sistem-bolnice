@@ -27,8 +27,12 @@ namespace InformacioniSistemBolnice.Patient_ns
         private Appointment _selektovan;
         public Button _kojiJePritisnut;
         private RatingController _ratingController = new RatingController();
+
+        private RatingsWrittenByPatientController _ratingsWrittenByPatientController =
+            new RatingsWrittenByPatientController();
         private Patient _patient;
         private AppointmentController _appointmentController = new AppointmentController();
+        private PatientsAppointmentController _patientsAppointmentController = new PatientsAppointmentController();
         public RatingPage(StartPatientWindow pp)
         {
             parent = pp;
@@ -41,7 +45,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void Provjera()
         {
-            if (_ratingController.IsCheckedCondition(_patient))
+            if (_ratingsWrittenByPatientController.IsCheckedCondition(_patient))
             {
                 rateHospital.Visibility = Visibility.Visible;
             }
@@ -54,7 +58,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void PretraziTermine()
         {
-            foreach (Appointment t in _appointmentController.GetPatientsAppointmentsInLastTenDays(_patient))
+            foreach (Appointment t in _patientsAppointmentController.GetPatientsAppointmentsInLastTenDays(_patient))
             {
                 PrikazPregleda.Items.Add(t);
             }

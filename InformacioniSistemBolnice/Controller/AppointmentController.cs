@@ -41,80 +41,8 @@ namespace InformacioniSistemBolnice.Controller
             return _appointmentService.GetOne(appointment);
         }
 
-        public List<Appointment> GetScheduled()
-        {
-            return _appointmentService.GetScheduled();
-        }
+       
 
-
-        public List<Appointment> GetScheduledAppointmentForPatient(Patient patient)
-        {
-            return _appointmentService.GetScheduledAppointmentsForPatient(patient);
-        }
-
-        public Boolean IsAppointmentTomorrow(Appointment appointment)
-        {
-            return _appointmentService.IsAppointmentTomorrow(appointment);
-        }
-
-        public List<Appointment> PatientsAppointments(Patient patient)
-        {
-            return _appointmentService.PatientsAppointments(patient);
-        }
-
-        public void FinishAppointment(Appointment appointment)
-        {
-            _appointmentService.FinishAppointment(appointment);
-        }
-
-        public Boolean IsScheduled(Appointment appointment)
-        {
-            return _appointmentService.IsScheduled(appointment);
-        }
-
-        public List<Appointment> GetPatientsAppointmentsInLastTenDays(Patient patient)
-        {
-            return _appointmentService.GetPatientsAppointmentsInLastTenDays(patient);
-        }
-        public List<String> GetAvailableAppointmentTimes(List<Appointment> appointments, Doctor doctor)
-        {
-            return _appointmentService.GetAvailableAppointmentTimes(appointments, doctor);
-        }
-
-        public bool CreateNewUrgentAppointment(Patient patient, int duration, DoctorType doctorType, RoomType roomType, AppointmentType appointmentType, DateTime appointmentStart, DateTime appointmentEnd)
-        {
-            return _appointmentService.CreateNewUrgentAppointment(patient, duration, doctorType, roomType, appointmentType, appointmentStart, appointmentEnd);
-        }
-
-        public List<string> GetPossibleAppointmentTimes()
-        {
-            return _appointmentService.GetPossibleAppointmentTimes();
-        }
-        public DateTime GetNextEarliestAppointmentTime(DateTime datetime)
-        {
-            return _appointmentService.GetNextEarliestAppointmentTime(datetime);
-        }
-
-        public void CheckMissedAppointments()
-        {
-            _appointmentService.CheckMissedAppointments();
-        }
-        public void CancelAllRoomAppointments(Room room)
-        {
-            _appointmentService.CancelAllRoomAppointments(room);
-        }
-        public DateTime GetFirstPossibleAppointmentTime()
-        {
-            return _appointmentService.GetFirstPossibleAppointmentTime();
-        }
-        public DateTime GetLastPossibleAppointmentTime()
-        {
-            return _appointmentService.GetlastPossibleAppointmentTime();
-        }
-
-        public void UpdateAppointmentsForDoctor(Doctor doctor)
-        {
-            _appointmentService.UpdateAppointmentsForDoctor(doctor);
-        }
+       
     }
 }

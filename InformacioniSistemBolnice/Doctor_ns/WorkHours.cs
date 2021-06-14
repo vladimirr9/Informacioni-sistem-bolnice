@@ -10,7 +10,8 @@ namespace InformacioniSistemBolnice.Doctor_ns
 {
     public class WorkHours
     {
-        AppointmentController _appointmentController = new AppointmentController();
+        
+        private AppointmentTimesController _appointmentTimesController = new AppointmentTimesController();
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
 
@@ -18,8 +19,8 @@ namespace InformacioniSistemBolnice.Doctor_ns
 
         public WorkHours()
         {
-            Start = _appointmentController.GetFirstPossibleAppointmentTime();
-            End = _appointmentController.GetLastPossibleAppointmentTime();
+            Start = _appointmentTimesController.GetFirstPossibleAppointmentTime();
+            End = _appointmentTimesController.GetLastPossibleAppointmentTime();
             Aberrations = new List<WorkHourAberration>();
         }
         public bool AberrationExists(DateTime date)

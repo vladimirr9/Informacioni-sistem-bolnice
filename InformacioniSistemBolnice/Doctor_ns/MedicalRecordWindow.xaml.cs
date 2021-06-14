@@ -31,6 +31,9 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private MedicineController _medicineController = new MedicineController();
         private RoomController _roomController = new RoomController(new RoomsForHospitalisationService());
         private HospitalisationControler _hospitalisationControler = new HospitalisationControler();
+        private StatusOfAppointmentController _statusOfAppointmentController = new StatusOfAppointmentController();
+        private PatientsAppointmentController _patientsAppointmentController = new PatientsAppointmentController();
+        private MedicineIngredientsController _medicineIngredientsController = new MedicineIngredientsController();
         private PrintDialog _printDialog = new PrintDialog();
 
         public MedicalRecordWindow(Patient patient , DoctorWindow parent, Appointment selectedAppointment = null)
@@ -61,7 +64,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
                 GenderComboBox.SelectedIndex = 1;
             }
 
-            foreach (Appointment appointment in _appointmentController.PatientsAppointments(selected))
+            foreach (Appointment appointment in _patientsAppointmentController.PatientsAppointments(selected))
             {
                 AppointmentsDataGrid.Items.Add(appointment);
                 if (selectedAppointment != null && appointment.AppointmentID == selectedAppointment.AppointmentID)
@@ -121,7 +124,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
             {
                 Anamnesis newAnamnesis = new Anamnesis(anamnesis, null, selected.Username, _anamnesisController.GenerateId(), DateTime.Now, appointment.AppointmentID);
                 _anamnesisController.Update(newAnamnesis, appointment);
-                _appointmentController.FinishAppointment(appointment);
+                _statusOfAppointmentController.FinishAppointment(appointment);
                 Scheduled_Click(null, null);
                 AppointmentsViewModel.GetPage(parent).UpdateTable();
             }
@@ -130,7 +133,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private void Finished_Click(object sender, RoutedEventArgs e)
         {
             AppointmentsDataGrid.Items.Clear();
-            foreach (Appointment appointment in _appointmentController.PatientsAppointments(selected))
+            foreach (Appointment appointment in _patientsAppointmentController.PatientsAppointments(selected))
             {
                 if (appointment.AppointmentStatus == AppointmentStatus.finished)
                 {
@@ -142,7 +145,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         private void Scheduled_Click(object sender, RoutedEventArgs e)
         {
             AppointmentsDataGrid.Items.Clear();
-            foreach (Appointment appointment in _appointmentController.PatientsAppointments(selected))
+            foreach (Appointment appointment in _patientsAppointmentController.PatientsAppointments(selected))
             {
                 if (appointment.AppointmentStatus == AppointmentStatus.scheduled)
                 {
@@ -186,7 +189,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             AllergiesList.Items.Clear();
             List<Ingredient> ingredients = new List<Ingredient>();
-            foreach (Ingredient ingredient in _medicineController.GetAllIngredients())
+            foreach (Ingredient ingredient in _medicineIngredientsController.GetAllIngredients())
             {
                 if (patient.MedicalRecord.Allergens.Contains(ingredient))
                 {

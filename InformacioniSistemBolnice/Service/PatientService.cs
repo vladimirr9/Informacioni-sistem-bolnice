@@ -50,11 +50,6 @@ namespace InformacioniSistemBolnice.Service
             _patientRepository.Remove(patient.Username);
         }
 
-        public void Unban(Patient patient)
-        {
-            patient.Banned = false;
-            _patientRepository.Update(patient.Username, patient);
-        }
 
         public void RemoveAllergen(Patient patient, Ingredient allergen)
         {
@@ -168,40 +163,9 @@ namespace InformacioniSistemBolnice.Service
             }
         }
 
-        public Boolean CheckStatusOfPatient(Patient patient)
-        {
-            Boolean IsBanned = false;
-            int numberOfMakingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.makingAppointment);
-            int numberOfEditingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.editingAppointment);
-            int numberOfCancelingAppointment = _activityLogService.NumberOfActivity(patient.Username, TypeOfActivity.cancellingAppointment);
+       
 
-            if (numberOfMakingAppointment > 5 || numberOfCancelingAppointment > 5 || numberOfEditingAppointment > 5)
-            {
-                BanPatient(patient);
-                IsBanned = true;
-            }
-
-            return IsBanned;
-
-        }
-
-        private void BanPatient(Patient patient)
-        {
-            foreach (Patient p in _patientRepository.GetAll())
-            {
-                if (p.Username.Equals(patient.Username))
-                {
-                    SetInformationsAboutBanning(patient);
-                }
-            }
-        }
-
-        private void SetInformationsAboutBanning(Patient patient)
-        {
-            patient.Banned = true;
-            patient.TimeOfBan = DateTime.Now;
-            _patientRepository.Update(patient.Username, patient);
-        }
+        
 
         public List<Therapy> GetTherapiesFromRecord(Patient patient)
         {

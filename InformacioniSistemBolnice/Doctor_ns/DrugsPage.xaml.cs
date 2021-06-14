@@ -22,6 +22,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         public DoctorWindow parent;
         private static DrugsPage instance;
         private MedicineController _medicineController = new MedicineController();
+        private MedicineIngredientsController _medicineIngredientsController = new MedicineIngredientsController();
 
         public DrugsPage(DoctorWindow parent)
         {
@@ -91,7 +92,7 @@ namespace InformacioniSistemBolnice.Doctor_ns
         {
             IngredientsList.Items.Clear();
             List<Ingredient> ingredients = new List<Ingredient>();
-            foreach (Ingredient ingredient in _medicineController.GetAllIngredients())
+            foreach (Ingredient ingredient in _medicineIngredientsController.GetAllIngredients())
             {
                 if (drug.IngredientsList.Contains(ingredient))
                 {

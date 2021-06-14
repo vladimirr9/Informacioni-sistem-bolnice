@@ -29,7 +29,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
         public WorkShift Shift { get; set; }
         public int DaysOfVacation { get; set; }
         private DoctorControler _doctorController = new DoctorControler();
+        private DoctorsAppointmentController _doctorsAppointmentController = new DoctorsAppointmentController();
         private AppointmentController _appointmentController = new AppointmentController();
+        private AppointmentTimesController _appointmentTimesController = new AppointmentTimesController();
         public DoctorWorktimeWindow(Doctor doctor) 
         {
             Doctor = doctor;
@@ -38,7 +40,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             End = DateTime.Today.Date;
             Vacations = Doctor.Vacations;
             this.DataContext = this;
-            foreach (string val in _appointmentController.GetPossibleAppointmentTimes())
+            foreach (string val in _appointmentTimesController.GetPossibleAppointmentTimes())
             {
                 WorkTimeFromCombo.Items.Add(val);
                 WorkTimeToCombo.Items.Add(val);
@@ -108,7 +110,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             _doctorController.Update(Doctor);
-            _appointmentController.UpdateAppointmentsForDoctor(Doctor);
+            _doctorsAppointmentController.UpdateAppointmentsForDoctor(Doctor);
             Close();
         }
 

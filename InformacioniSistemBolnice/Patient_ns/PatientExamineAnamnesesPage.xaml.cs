@@ -24,6 +24,7 @@ namespace InformacioniSistemBolnice.Patient_ns
     {
         private  StartPatientWindow parent;
         private AnamnesisController _anamnesisController = new AnamnesisController();
+        private NotesForAnamnesisController _notesForAnamnesisController = new NotesForAnamnesisController();
         public  PatientMedicalRecordPage karton { get; set; }
         private  Patient _loggedInPatient;
         public  Anamnesis selectedAnamnesis { get; set; }
@@ -40,7 +41,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void FillTable()
         {
-            foreach (Anamnesis a in _anamnesisController.GetPatientsAnamneses(_loggedInPatient))
+            foreach (Anamnesis a in _notesForAnamnesisController.GetPatientsAnamneses(_loggedInPatient))
             {
                 DataGridAnamneses.Items.Add(a);
             }

@@ -25,6 +25,7 @@ namespace InformacioniSistemBolnice.Upravnik
         private LekoviWindow _parent;
         private Medicine _medForUpdate;
         private MedicineController _medicineController = new MedicineController();
+        private MedicineIngredientsController _medicineIngredientsController = new MedicineIngredientsController();
 
         public IzmenaLekaWindow(Medicine med, LekoviWindow parent)
         {
@@ -32,7 +33,7 @@ namespace InformacioniSistemBolnice.Upravnik
             this._parent = parent;
             _medForUpdate = med;
 
-            List<Ingredient> ingredients = _medicineController.GetAllIngredients();
+            List<Ingredient> ingredients = _medicineIngredientsController.GetAllIngredients();
             Sastojci.ItemsSource = ingredients;
             CollectSelectedMedicineData();
         }
@@ -40,14 +41,14 @@ namespace InformacioniSistemBolnice.Upravnik
         private void RemoveIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)SastojciList.SelectedItem;
-            ObservableCollection<Ingredient> ingredients = _medicineController.RemoveIngredient(_medForUpdate ,selected);
+            ObservableCollection<Ingredient> ingredients = _medicineIngredientsController.RemoveIngredient(_medForUpdate ,selected);
             SastojciList.ItemsSource = ingredients;
         }
 
         private void AddIngredient(object sender, RoutedEventArgs e)
         {
             Ingredient selected = (Ingredient)Sastojci.SelectedItem;           
-            ObservableCollection<Ingredient> ingredients = _medicineController.AddIngredients(_medForUpdate, selected);
+            ObservableCollection<Ingredient> ingredients = _medicineIngredientsController.AddIngredients(_medForUpdate, selected);
             SastojciList.ItemsSource = ingredients;
         }
 

@@ -14,6 +14,7 @@ namespace InformacioniSistemBolnice.Secretary_ns.ViewModel
     { 
         private Appointment selectedAppointment;
         private AppointmentController _appointmentController = new AppointmentController();
+        private StatusOfAppointmentController _statusOfAppointmentController = new StatusOfAppointmentController();
         private ObservableCollection<Appointment> appointments;
         private DateTime? _filter;
         public MyICommand NewAppointmentCommand { get; set; }
@@ -59,7 +60,7 @@ namespace InformacioniSistemBolnice.Secretary_ns.ViewModel
             EditAppointmentCommand = new MyICommand(Edit_Click);
             DeleteAppointmentCommand = new MyICommand(Delete_Click);
             UrgentAppointmentCommand = new MyICommand(UrgentAppointment_Click);
-            _appointmentController.CheckMissedAppointments();
+            _statusOfAppointmentController.CheckMissedAppointments();
             UpdateTable();
         }
 

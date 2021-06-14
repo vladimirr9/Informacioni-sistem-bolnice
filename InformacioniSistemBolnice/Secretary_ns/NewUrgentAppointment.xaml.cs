@@ -22,10 +22,9 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private List<string> _patients;
         private List<string> _doctorTypes;
 
-        private AppointmentController _appointmentController = new AppointmentController();
-        private RoomController _roomController = new RoomController();
-        private DoctorControler _doctorController = new DoctorControler();
         private PatientController _patientController = new PatientController();
+        private UrgentAppointmentController _urgentAppointmentController = new UrgentAppointmentController();
+        private AppointmentTimesController _appointmentTimesController = new AppointmentTimesController();
         public NewUrgentAppointment()
         {
             InitializeComponent();
@@ -65,7 +64,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             int duration = int.Parse(DurationInMinutes.Text);
             string jmbg = PatientsList.SelectedItem.ToString().Split('-')[1].Trim();
             Patient patient = _patientController.GetOneByJMBG(jmbg);
-            DateTime appointmentStart = _appointmentController.GetNextEarliestAppointmentTime(DateTime.Today.AddHours(DateTime.Now.TimeOfDay.Hours).AddMinutes(DateTime.Now.TimeOfDay.Minutes));
+            DateTime appointmentStart = _appointmentTimesController.GetNextEarliestAppointmentTime(DateTime.Today.AddHours(DateTime.Now.TimeOfDay.Hours).AddMinutes(DateTime.Now.TimeOfDay.Minutes));
             
             DateTime appointmentEnd = appointmentStart.AddMinutes(duration);
             AppointmentType appointmentType;
@@ -80,7 +79,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
                 appointmentType = AppointmentType.generalPractitionerCheckup;
                 roomType = RoomType.examinationRoom;
             }
-            bool retVal = _appointmentController.CreateNewUrgentAppointment(patient, duration, doctorType, roomType, appointmentType, appointmentStart, appointmentEnd);
+            bool retVal = _urgentAppointmentController.CreateNewUrgentAppointment(patient, duration, doctorType, roomType, appointmentType, appointmentStart, appointmentEnd);
             if (retVal)
             {
                 Close();

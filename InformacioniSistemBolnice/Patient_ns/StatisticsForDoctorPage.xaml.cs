@@ -27,6 +27,8 @@ namespace InformacioniSistemBolnice.Patient_ns
         private StartPatientWindow _parentp { get; set; }
         private Doctor _ratedDoctor;
         private RatingController _ratingController = new RatingController();
+
+        private RatingsWrittenByPatientController _ratingsWrittenByPatientController = new RatingsWrittenByPatientController();
         private Appointment _selectedAppointment;
 
 
@@ -53,7 +55,7 @@ namespace InformacioniSistemBolnice.Patient_ns
                 new LineSeries
                 {
                     Title="Broj ocena",
-                    Values = new ChartValues<double> { _ratingController.GetNumberOfRating(1,_ratedDoctor), _ratingController.GetNumberOfRating(2, _ratedDoctor) , _ratingController.GetNumberOfRating(3, _ratedDoctor) , _ratingController.GetNumberOfRating(4, _ratedDoctor) , _ratingController.GetNumberOfRating(5, _ratedDoctor) }
+                    Values = new ChartValues<double> { _ratingsWrittenByPatientController.GetNumberOfRating(1,_ratedDoctor), _ratingsWrittenByPatientController.GetNumberOfRating(2, _ratedDoctor) , _ratingsWrittenByPatientController.GetNumberOfRating(3, _ratedDoctor) , _ratingsWrittenByPatientController.GetNumberOfRating(4, _ratedDoctor) , _ratingsWrittenByPatientController.GetNumberOfRating(5, _ratedDoctor) }
                 }
 
             };

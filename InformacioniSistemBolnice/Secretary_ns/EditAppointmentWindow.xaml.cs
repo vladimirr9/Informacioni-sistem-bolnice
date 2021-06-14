@@ -29,6 +29,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private RoomController _roomController = new RoomController();
         private DoctorControler _doctorController = new DoctorControler();
         private PatientController _patientController = new PatientController();
+        private AppointmentTimesController _appointmentTimesController = new AppointmentTimesController();
         public EditAppointmentWindow(Appointment selectedAppointment)
         {
             _done = false;
@@ -193,7 +194,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
                     appointments.Add(appointment);
                 }
             }
-            AppointmentTime.ItemsSource = _appointmentController.GetAvailableAppointmentTimes(appointments, (Doctor)DoctorComboBox.SelectedItem);
+            AppointmentTime.ItemsSource = _appointmentTimesController.GetAvailableAppointmentTimes(appointments, (Doctor)DoctorComboBox.SelectedItem);
         }
 
         

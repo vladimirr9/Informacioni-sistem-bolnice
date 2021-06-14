@@ -24,12 +24,13 @@ namespace InformacioniSistemBolnice.Upravnik
     {
         private LekoviWindow _parent;
         private MedicineController _medicineController = new MedicineController();
+        private MedicineIngredientsController _medicineIngredientsController = new MedicineIngredientsController();
         public DodavanjeLekaWindow(LekoviWindow parent)
         {
             InitializeComponent();
             this._parent = parent;
 
-            Sastojci.ItemsSource = _medicineController.GetAllIngredients();
+            Sastojci.ItemsSource = _medicineIngredientsController.GetAllIngredients();
             SastojciList.Items.Clear();
         }
 
@@ -53,14 +54,14 @@ namespace InformacioniSistemBolnice.Upravnik
             /*ObservableCollection<Ingredient> ingredientsList = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
             ObservableCollection<Ingredient> ingredients = _medicineController.AddIngredientsToNewMedicine(ingredieSastojciListntsList, selected);
             SastojciList.ItemsSource = ingredients;*/
-            _medicineController.AddIngredientsToNewMedicine(SastojciList.Items, selected);
+            _medicineIngredientsController.AddIngredientsToNewMedicine(SastojciList.Items, selected);
         }
 
         private void RemoveIngredient(object sender, RoutedEventArgs e)
         {
             // SastojciList.Items.Clear();
             Ingredient selected = (Ingredient)SastojciList.SelectedItem;
-            ObservableCollection<Ingredient> ingredients = _medicineController.RemoveIngredientFromNewMedicine(selected);
+            ObservableCollection<Ingredient> ingredients = _medicineIngredientsController.RemoveIngredientFromNewMedicine(selected);
             SastojciList.ItemsSource = ingredients;
         }
 

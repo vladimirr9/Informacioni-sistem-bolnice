@@ -21,6 +21,7 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
         private UpravnikWindow _parent;
         private LekoviWindow _thisWindow;
         private MedicineController _medicineController = new MedicineController();
+        private MedicineIngredientsController _medicineIngredientsController = new MedicineIngredientsController();
         private PrintDialog _printDialog = new PrintDialog();
         private MyICommand DeleteMedicineCommand { get; set; }
         private MyICommand AddMedicineCommand { get; set; }
@@ -74,7 +75,7 @@ namespace InformacioniSistemBolnice.Manager_ns.ViewModel
             List<Ingredient> ingredients = new List<Ingredient>();
             if (selectedMedicine != null)
             {
-                foreach (Ingredient ingredient in _medicineController.GetMedicineIngredients(selectedMedicine))
+                foreach (Ingredient ingredient in _medicineIngredientsController.GetMedicineIngredients(selectedMedicine))
                 {
                     ingredients.Add(ingredient);
                 }

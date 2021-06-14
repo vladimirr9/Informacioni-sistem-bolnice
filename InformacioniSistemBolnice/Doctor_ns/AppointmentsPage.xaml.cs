@@ -21,13 +21,13 @@ namespace InformacioniSistemBolnice.Doctor_ns
     public partial class AppointmentsPage : Page
     {
         private static AppointmentsPage instance;
-        private AppointmentController _appointmentController = new AppointmentController();
+        private StatusOfAppointmentController _statusOfAppointmentController = new StatusOfAppointmentController();
 
         public AppointmentsPage(DoctorWindow parent)
         {
             InitializeComponent();
             this.DataContext = new AppointmentsViewModel(parent);
-            _appointmentController.CheckMissedAppointments();
+            _statusOfAppointmentController.CheckMissedAppointments();
         }
     }
 }

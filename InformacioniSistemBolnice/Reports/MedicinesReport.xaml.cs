@@ -22,15 +22,16 @@ namespace InformacioniSistemBolnice.Reports
     public partial class MedicinesReport : Page
     {
         private MedicineController _medicineController = new MedicineController();
+        private MedicineCountController _medicineCountController = new MedicineCountController();
         public MedicinesReport()
         {
             InitializeComponent();
             UpdateTable();
             this.DataContext = this;
 
-            label1.Content = _medicineController.ValidatedMedicinesCount();
-            label2.Content = _medicineController.RejectedMedicinesCount();
-            label3.Content = _medicineController.WaitingMedicinesCount();
+            label1.Content = _medicineCountController.ValidatedMedicinesCount();
+            label2.Content = _medicineCountController.RejectedMedicinesCount();
+            label3.Content = _medicineCountController.WaitingMedicinesCount();
             label4.Content = DateTime.Now.Date.ToString("dd/MM/yyyy");
         }
 

@@ -11,20 +11,7 @@ namespace InformacioniSistemBolnice.Controller
     {
         private AnamnesisService _anamnesisService = new AnamnesisService();
 
-        public List<Note> GetNotesWithReminder(Patient patient)
-        {
-            return _anamnesisService.NotesWithActiveReminder(patient);
-        }
-
-        public List<Note> NotesForAnamnesis(Anamnesis anamnesis, Patient patient)
-        {
-            return _anamnesisService.NotesForAnamnesis(anamnesis, patient);
-        }
-
-        public void AddNoteForAnamnesis(Note note, Anamnesis anamnesis)
-        {
-            _anamnesisService.AddNoteForAnamnesis(note, anamnesis);
-        }
+       
 
         public void UpdateAnamnesis(int idOfAnamnesis, Anamnesis anamnesis)
         {
@@ -34,12 +21,6 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _anamnesisService.AppointmentAnamnesis(appointment);
 
-        }
-
-
-        public List<Anamnesis> GetPatientsAnamneses(Patient patient)
-        {
-            return _anamnesisService.PatientsAnamneses(patient);
         }
 
         public int GenerateId()

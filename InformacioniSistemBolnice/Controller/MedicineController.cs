@@ -33,31 +33,7 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _medicineService.GetAllMedicines();
         }
-        public List<Ingredient> GetMedicineIngredients(Medicine medicine)
-        {
-            return _medicineService.GetMedicineIngredients(medicine);
-        }
-        public ObservableCollection<Ingredient> AddIngredients(Medicine medicine, Ingredient ingredient)
-        {
-            return _medicineService.AddIngredients(medicine, ingredient);
-        }
-        public ObservableCollection<Ingredient> RemoveIngredient(Medicine medicine, Ingredient ingredient)
-        {
-            return _medicineService.RemoveIngredient(medicine, ingredient);
-        }
-        public ObservableCollection<Ingredient> RemoveIngredientFromNewMedicine(Ingredient ingredient)
-        {
-            return _medicineService.RemoveIngredientFromNewMedicine(ingredient);
-        }
-
-        public void AddIngredientsToNewMedicine(ItemCollection items, Ingredient ingredient)
-        {
-            _medicineService.AddIngredientsToNewMedicine(items, ingredient);
-        }
-        public List<Ingredient> GetAllIngredients()
-        {
-            return _medicineService.GetAllIngredients();
-        }
+        
         public void SendMedicineForRemovingValidation(Medicine medicine)
         {
             _medicineService.SendMedicineForRemovingValidation(medicine);
@@ -68,17 +44,6 @@ namespace InformacioniSistemBolnice.Controller
             return _validatedMedicineService.GetValidatedMedicines();
         }
 
-        public int ValidatedMedicinesCount()
-        {
-            return _medicineService.ValidatedMedicinesCount();
-        }
-        public int RejectedMedicinesCount()
-        {
-            return _medicineService.RejectedMedicinesCount();
-        }
-        public int WaitingMedicinesCount()
-        {
-            return _medicineService.WaitingMedicinesCount();
-        }
+        
     }
 }

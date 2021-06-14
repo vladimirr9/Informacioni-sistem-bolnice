@@ -21,6 +21,7 @@ namespace InformacioniSistemBolnice.Secretary_ns.ViewModel
         private Ingredient _selectedAllergenListView;
         private PatientController _patientController = new PatientController();
         private MedicineController _medicineController = new MedicineController();
+        private MedicineIngredientsController _medicineIngredientsController = new MedicineIngredientsController();
         public MyICommand CloseCommand { get; set; }
         public MyICommand AddCommand { get; set; }
         public MyICommand DeleteCommand { get; set; }
@@ -116,7 +117,7 @@ namespace InformacioniSistemBolnice.Secretary_ns.ViewModel
         {
             var allergensComboList = new List<Ingredient>();
             var allergensListView = new List<Ingredient>();
-            foreach (var ingredient in _medicineController.GetAllIngredients())
+            foreach (var ingredient in _medicineIngredientsController.GetAllIngredients())
                 if (Patient.MedicalRecord.Allergens.Contains(ingredient))
                     allergensListView.Add(ingredient);
                 else

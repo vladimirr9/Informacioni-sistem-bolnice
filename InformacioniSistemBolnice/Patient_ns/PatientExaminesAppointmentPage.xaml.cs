@@ -28,7 +28,9 @@ namespace InformacioniSistemBolnice.Patient_ns
         private PatientController _patientController = new PatientController();
         private AppointmentController _appointmentController = new AppointmentController();
         private ActivityLogController _activityLogController = new ActivityLogController();
-
+        private BanningPatientController _banningPatientController = new BanningPatientController();
+        private StatusOfAppointmentController _statusOfAppointmentController = new StatusOfAppointmentController();
+        private PatientsAppointmentController _patientsAppointmentController = new PatientsAppointmentController();
         public PatientExaminesAppointmentPage(StartPatientWindow pp)
         {
             parent = pp;
@@ -42,7 +44,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         public void updateTable()
         {
             PrikazPregleda.Items.Clear();
-            foreach (Appointment termin in _appointmentController.GetScheduledAppointmentForPatient(_patient))
+            foreach (Appointment termin in _patientsAppointmentController.GetScheduledAppointmentForPatient(_patient))
             {
                 PrikazPregleda.Items.Add(termin);
             }
@@ -56,7 +58,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void cancelTermin_Click(object sender, RoutedEventArgs e)
         {
-            if (_patientController.CheckStatusOfPatient(parent.Patient) == true)
+            if (_banningPatientController.CheckStatusOfPatient(parent.Patient) == true)
             {
                 MessageBox.Show("Otkazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
             }
@@ -70,7 +72,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void zakazi_Click(object sender, RoutedEventArgs e)
         {
-            if (_patientController.CheckStatusOfPatient(parent.Patient) == true)
+            if (_banningPatientController.CheckStatusOfPatient(parent.Patient) == true)
             {
                 MessageBox.Show("Zakazivanje Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
             }
@@ -82,7 +84,7 @@ namespace InformacioniSistemBolnice.Patient_ns
 
         private void pomjeri_Click(object sender, RoutedEventArgs e)
         {
-            if (_patientController.CheckStatusOfPatient(parent.Patient) == true)
+            if (_banningPatientController.CheckStatusOfPatient(parent.Patient) == true)
             {
                 MessageBox.Show("Pomeranje termina Vam je trenutno onemogućeno,obratite se sekretaru!", "Greška");
             }
@@ -109,7 +111,7 @@ namespace InformacioniSistemBolnice.Patient_ns
             if (PrikazPregleda.SelectedItem != null)
             {
                 Appointment appointment = _appointmentController.GetOne((Appointment)PrikazPregleda.SelectedItem);
-                if (_appointmentController.IsAppointmentTomorrow(appointment))
+                if (_statusOfAppointmentController.IsAppointmentTomorrow(appointment))
                 {
                     MessageBox.Show("Nije moguće otkazati termin koji je zakazan u naredna 24 sata!", "Greška");
                 }
@@ -137,7 +139,7 @@ namespace InformacioniSistemBolnice.Patient_ns
         private void AppointmentForEditingIsSelected()
         {
             Appointment appointment = _appointmentController.GetOne((Appointment)PrikazPregleda.SelectedItem);
-            if (_appointmentController.IsAppointmentTomorrow(appointment))
+            if (_statusOfAppointmentController.IsAppointmentTomorrow(appointment))
             {
                 MessageBox.Show("Nije moguće menjati termin koji je zakazan u naredna 24 sata!", "Greška");
             }

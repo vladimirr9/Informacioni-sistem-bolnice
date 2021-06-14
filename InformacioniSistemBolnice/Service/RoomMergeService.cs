@@ -11,6 +11,7 @@ namespace InformacioniSistemBolnice.Service
     {
         private AppointmentService _appointmentService = new AppointmentService();
         private RoomService _roomService = new RoomService();
+        private AppointmentRoomService _appointmentRoomService = new AppointmentRoomService();
         public void MergingRooms(Room room1, Room room2)
         {
             if (room1.RoomType.Equals(room2.RoomType) && room1.Floor == room2.Floor)
@@ -20,8 +21,8 @@ namespace InformacioniSistemBolnice.Service
                 Room newRoom = new Room(room1.Name, room1.RoomId + 10, room1.RoomType, false, true, newRoomArea, room1.Floor, room1.RoomNumber + 10, newInventoryList);
                 _roomService.RemoveRoom(room1);
                 _roomService.RemoveRoom(room2);
-                _appointmentService.CancelAllRoomAppointments(room1);
-                _appointmentService.CancelAllRoomAppointments(room2);
+                _appointmentRoomService.CancelAllRoomAppointments(room1);
+                _appointmentRoomService.CancelAllRoomAppointments(room2);
                 _roomService.AddRoom(newRoom);
             }
             else

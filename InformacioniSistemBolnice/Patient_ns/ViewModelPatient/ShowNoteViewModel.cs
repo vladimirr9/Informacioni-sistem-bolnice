@@ -14,6 +14,7 @@ namespace InformacioniSistemBolnice.Patient_ns.ViewModelPatient
         private PatientMedicalRecordPage karton;
         private Anamnesis _selectedAnamnesis;
         private AnamnesisController _anamnesisController = new AnamnesisController();
+        private NotesForAnamnesisController _notesForAnamnesisController = new NotesForAnamnesisController();
         private Patient _loggedInPatient;
         private ObservableCollection<string> _notesListView;
         private List<string> notes = new List<string>();
@@ -39,7 +40,7 @@ namespace InformacioniSistemBolnice.Patient_ns.ViewModelPatient
 
         private void UpdateListView()
         {
-            foreach (Note n in _anamnesisController.NotesForAnamnesis(_selectedAnamnesis, _loggedInPatient))
+            foreach (Note n in _notesForAnamnesisController.NotesForAnamnesis(_selectedAnamnesis, _loggedInPatient))
             {
                 notes.Add(n.DescriptionOfNote);
             }

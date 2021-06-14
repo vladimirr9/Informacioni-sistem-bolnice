@@ -13,7 +13,7 @@ namespace InformacioniSistemBolnice.Patient_ns.ViewModelPatient
     class StartPatientPageViewModel : BindableBase
     {
         private static StartPatientWindow _parent;
-        private PatientController _patientController = new PatientController();
+        private BanningPatientController _banningPatientController = new BanningPatientController();
         public MyICommand ShowNotifications { get; set; }
         public MyICommand ShowRatingAppointments { get; set; }
         public MyICommand ShowMedicalRecord { get; set; }
@@ -42,7 +42,7 @@ namespace InformacioniSistemBolnice.Patient_ns.ViewModelPatient
 
         private void ShowRatingAppointments_Click()
         {
-            if (_patientController.CheckStatusOfPatient(_parent.Patient) == true)
+            if (_banningPatientController.CheckStatusOfPatient(_parent.Patient) == true)
             {
                 MessageBox.Show("Ova funkcionalnost Vam je trenutno onemogućena,obratite se sekretaru!", "Greška");
             }

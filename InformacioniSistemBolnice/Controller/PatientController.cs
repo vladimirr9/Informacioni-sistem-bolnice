@@ -29,10 +29,6 @@ namespace InformacioniSistemBolnice.Controller
             _patientService.Update(initialUsername, patient);
         }
 
-        public void Unban(Patient patient)
-        {
-            _patientService.Unban(patient);
-        }
 
         public void AddAllergen(Patient patient, Ingredient allergen)
         {
@@ -44,10 +40,7 @@ namespace InformacioniSistemBolnice.Controller
             _patientService.RemoveAllergen(patient, allergen);
         }
 
-        public Boolean CheckStatusOfPatient(Patient patient)
-        {
-            return _patientService.CheckStatusOfPatient(patient);
-        }
+      
 
         public List<Therapy> GetTherapiesFromMedicalRecord(Patient patient)
         {

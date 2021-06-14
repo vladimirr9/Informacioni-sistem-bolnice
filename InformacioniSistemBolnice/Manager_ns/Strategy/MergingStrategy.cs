@@ -14,6 +14,9 @@ namespace InformacioniSistemBolnice.Manager_ns.Strategy
 
         public RoomController RoomController => new RoomController();
 
+        public AppointmentRoomController AppointmentRoomController = new AppointmentRoomController();
+        
+
         public void DoRenovate(object firstObject, object scondObject)
         {
             Room room1 = (Room)firstObject;
@@ -42,8 +45,8 @@ namespace InformacioniSistemBolnice.Manager_ns.Strategy
         {
             RoomController.RemoveRoom(room1);
             RoomController.RemoveRoom(room2);
-            AppointmentController.CancelAllRoomAppointments(room1);
-            AppointmentController.CancelAllRoomAppointments(room2);
+            AppointmentRoomController.CancelAllRoomAppointments(room1);
+            AppointmentRoomController.CancelAllRoomAppointments(room2);
         }
 
         private List<Inventory> MergedRoomsInventory(Room room1, Room room2)

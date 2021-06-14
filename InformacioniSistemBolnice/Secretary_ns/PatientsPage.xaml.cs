@@ -20,6 +20,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
     public partial class PatientsPage : Page
     {
         private PatientController _patientController = new PatientController();
+        private UnbanningPatientController _unbanningPatientController = new UnbanningPatientController();
         private static PatientsPage _instance;
         PatientFilter PatientFilter = new PatientFilterByName();
         private PatientsPage()
@@ -83,7 +84,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
             var result = MessageBox.Show("Da li ste sigurni da želite da odblokirate ovog pacijenta?", "Potvrda odblokiranja", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.No)
                 return;
-            _patientController.Unban(patient);
+            _unbanningPatientController.Unban(patient);
             UpdateTable();
 
         }
@@ -110,16 +111,6 @@ namespace InformacioniSistemBolnice.Secretary_ns
             patients = _patientController.FilterPatients(patients, TableFilter.Text, PatientFilter);
             FillDataGrid(patients);
         }
-
-        
-
-
-
-
-
-
-
-
 
         private void TableFilter_TextChanged(object sender, TextChangedEventArgs e)
         {

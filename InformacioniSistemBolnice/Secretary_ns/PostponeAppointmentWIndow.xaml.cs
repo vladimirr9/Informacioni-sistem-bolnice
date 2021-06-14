@@ -33,6 +33,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
         private List<Appointment> _appointmentsForPostponing;
 
         private AppointmentController _appointmentController = new AppointmentController();
+        private AppointmentTimesController _appointmentTimesController = new AppointmentTimesController();
         public PostponeAppointmentWIndow(NewUrgentAppointment parent, Patient patient, int duration, DoctorType doctorType, RoomType roomType, AppointmentType appointmentType, DateTime earliestAppointmentTime)
         {
             _parent = parent;
@@ -91,8 +92,8 @@ namespace InformacioniSistemBolnice.Secretary_ns
             _appointmentController.Update(appointment);
             DateTime originalStart = appointment.AppointmentDate;
             appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(_appointmentDuration + 1);
-            appointment.AppointmentDate = _appointmentController.GetNextEarliestAppointmentTime(appointment.AppointmentDate);
-            while (!(_appointmentController.GetPossibleAppointmentTimes().Contains(appointment.AppointmentDate.ToString("HH:mm")) && appointment.AreAllEntitiesAvailable(_appointmentsInTheUpcomingWeek)))
+            appointment.AppointmentDate = _appointmentTimesController.GetNextEarliestAppointmentTime(appointment.AppointmentDate);
+            while (!(_appointmentTimesController.GetPossibleAppointmentTimes().Contains(appointment.AppointmentDate.ToString("HH:mm")) && appointment.AreAllEntitiesAvailable(_appointmentsInTheUpcomingWeek)))
             {
                 appointment.AppointmentDate = appointment.AppointmentDate.AddMinutes(15);
             }

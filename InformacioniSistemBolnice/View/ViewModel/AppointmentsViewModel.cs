@@ -16,6 +16,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
         private static AppointmentsViewModel instance;
         private Appointment selectedAppointment;
         private AppointmentController _appointmentController = new AppointmentController();
+        private StatusOfAppointmentController _statusOfAppointmentController = new StatusOfAppointmentController();
         private ObservableCollection<Appointment> appointments;
         public MyICommand NewAppointmentCommand { get; set; }
         public MyICommand EditAppointmentCommand { get; set; }
@@ -50,7 +51,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
             EditAppointmentCommand = new MyICommand(Edit_Click);
             DeleteAppointmentCommand = new MyICommand(Delete_Click);
             DoubleClickComand = new MyICommand(Double_Click);
-            _appointmentController.CheckMissedAppointments();
+            _statusOfAppointmentController.CheckMissedAppointments();
             UpdateTable();
         }
 
@@ -97,7 +98,7 @@ namespace InformacioniSistemBolnice.View.ViewModel
         public void UpdateTable()
         {
             List<Appointment> appointments = new List<Appointment>();
-            foreach (Appointment appointment in _appointmentController.GetScheduled())
+            foreach (Appointment appointment in _statusOfAppointmentController.GetScheduled())
             {
                 appointments.Add(appointment);
             }
