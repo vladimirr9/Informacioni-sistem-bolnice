@@ -72,10 +72,10 @@ namespace InformacioniSistemBolnice.Upravnik
             MedicineStatus medicineStatus = MedicineStatus.waitingForValidation;
             bool isDeleted = false;
             int quantity = Convert.ToInt32(Kolicina.Text);
-            ObservableCollection<Ingredient> ingredients = (ObservableCollection<Ingredient>)SastojciList.ItemsSource;
-            List<Ingredient> medicineIngredients = ingredients.ToList();
+            List<Ingredient> ingredients = (List<Ingredient>)SastojciList.ItemsSource;
+            //List<Ingredient> medicineIngredients = ingredients.ToList();
 
-            Medicine medicine = new Medicine(medicineId, name, isDeleted, medicineStatus, quantity, medicineIngredients);
+            Medicine medicine = new Medicine(medicineId, name, isDeleted, medicineStatus, quantity, ingredients);
             return medicine;
         }
     }
