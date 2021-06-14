@@ -64,5 +64,10 @@ namespace InformacioniSistemBolnice.Controller
         {
             return _doctorService.GetType(doctor);
         }
+
+        public void UpdateWorktime(Doctor doctor, string text1, string text2, DateTime? selectedDate)
+        {
+            _doctorService.UpdateWorkTime(doctor, text1, text2, selectedDate);
+        }
     }
 }

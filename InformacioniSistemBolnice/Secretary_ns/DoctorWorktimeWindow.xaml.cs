@@ -121,33 +121,7 @@ namespace InformacioniSistemBolnice.Secretary_ns
 
         private void ConfirmAbberation_Click(object sender, RoutedEventArgs e)
         {
-            DateTime start = DateTime.Parse(DateTime.Now.Date.ToString("dd/MM/yyyy") + " " + WorkTimeFromCombo.Text);
-            DateTime end = DateTime.Parse(DateTime.Now.Date.ToString("dd/MM/yyyy") + " " + WorkTimeToCombo.Text);
-            if (end <= start)
-                return;
-            if (AberrationDate.SelectedDate == null)
-            {
-                Doctor.WorkHours.Start = start;
-                Doctor.WorkHours.End = end;
-            }
-            else
-            {
-                DateTime date = AberrationDate.SelectedDate.Value.Date;
-                WorkHourAberration aberration;
-                if (Doctor.WorkHours.AberrationExists(date))
-                {
-                    aberration = Doctor.WorkHours.GetAberrationByDate(date);
-                    aberration.Start = start;
-                    aberration.End = end;
-                }
-                else
-                {
-                    aberration = new WorkHourAberration(date, start, end);
-                    Doctor.WorkHours.Aberrations.Add(aberration);
-                }
-            }
-
-
+            _doctorController.UpdateWorktime(Doctor, WorkTimeFromCombo.Text, WorkTimeToCombo.Text, AberrationDate.SelectedDate);
             UpdateValues();
         }
 

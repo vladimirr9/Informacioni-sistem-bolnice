@@ -3,7 +3,11 @@
 // Created: Monday, March 22, 2021 6:32:18 PM
 // Purpose: Definition of Class Lekar
 
+using InformacioniSistemBolnice;
+using InformacioniSistemBolnice.Controller;
 using InformacioniSistemBolnice.Doctor_ns;
+using InformacioniSistemBolnice.Secretary_ns;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Windows.Documents;
@@ -14,6 +18,8 @@ public class Doctor : User
     public List<Vacation> Vacations;
     public int DaysOfVacation { get; set;}
     public WorkHours WorkHours { get; set; }
+    [JsonIgnore]
+    private AppointmentController _appointmentController = new AppointmentController();
 
     public Doctor(string name, string surname, string jmbg, char gender, string phoneNumber, string email, DateTime birthday, string username, string password, ResidentialAddress address, DoctorType doctorType, bool isDeleted = false) : base(name, surname, jmbg, gender, phoneNumber, email, birthday, username, password, address, isDeleted)
     {
@@ -58,37 +64,37 @@ public class Doctor : User
 
         if (start.Equals(end))
             return true;
-        bool retVal = true;
         if (IsWithinVacations(start))
             return false;
         if (!IsWithinWorkHours(start))
             return false;
 
-        AppointmentFileRepository appointmentFileRepository = new AppointmentFileRepository();
-        List<Appointment> appointments = appointmentFileRepository.GetAll();
-        foreach (Appointment appointment in appointments)
+        foreach (Appointment appointment in _appointmentController.GetAll())
         {
             if (appointment.Doctor.Equals(this) && appointment.AppointmentStatus == AppointmentStatus.scheduled)
             {
-                if (start >= appointment.AppointmentDate && start <= appointment.AppointmentEnd)
-                {
-                    retVal = false;
-                    break;
-                }
-                if (end >= appointment.AppointmentDate && end <= appointment.AppointmentEnd)
-                {
-                    retVal = false;
-                    break;
-                }
-                if (start <= appointment.AppointmentDate && end >= appointment.AppointmentEnd)
-                {
-                    retVal = false;
-                    break;
-                }
+                if (IsStartWithinAppointmentDuration(start, appointment))
+                    return false;
+                if (IsEndWithinAppointmentDuration(end, appointment))
+                    return false;
+                if (IsPeriodWithinApppointmentDuration(start, end, appointment))
+                    return false;
             }
         }
-        return retVal;
+        return true;
 
+    }
+    private bool IsStartWithinAppointmentDuration(DateTime start, Appointment appointment)
+    {
+        return (start >= appointment.AppointmentDate && start <= appointment.AppointmentEnd); 
+    }
+    private bool IsEndWithinAppointmentDuration(DateTime end, Appointment appointment)
+    {
+        return (end >= appointment.AppointmentDate && end <= appointment.AppointmentEnd);
+    }
+    private bool IsPeriodWithinApppointmentDuration(DateTime start, DateTime end, Appointment appointment)
+    {
+        return (start <= appointment.AppointmentDate && end >= appointment.AppointmentEnd);
     }
     public static List<string> GetDoctorTypes()
     {

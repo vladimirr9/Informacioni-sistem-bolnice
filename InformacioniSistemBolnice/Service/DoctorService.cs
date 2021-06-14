@@ -72,6 +72,74 @@ namespace InformacioniSistemBolnice.Service
             return doctors;
         }
 
+        public void UpdateWorkTime(Doctor doctor, string from, string to, DateTime? selectedDate)
+        {
+            DateTime start = GetStartOfWorkTime(from);
+            DateTime end = GetEndOfWorkTime(to);
+            if (selectedDate == null)
+            {
+                if (end <= start) 
+                    return;
+                else
+                    UpdateRegularWorkHours(doctor, start, end);
+            }
+            else
+            {
+                if (end <= start)
+                {
+                    SetDateAsOffDay(doctor, selectedDate, start, end);
+                    return;
+                }
+                else
+                {
+                    DateTime date = selectedDate.Value.Date;
+                    if (doctor.WorkHours.AberrationExists(date))
+                        UpdateExistingAberration(doctor, start, end, date);
+                    else
+                        AddNewAberrationToDoctor(doctor, start, end, date);
+                }
+            }
+        }
+
+        private static DateTime GetEndOfWorkTime(string to)
+        {
+            return DateTime.Parse(DateTime.Now.Date.ToString("dd/MM/yyyy") + " " + to);
+        }
+
+        private static DateTime GetStartOfWorkTime(string from)
+        {
+            return DateTime.Parse(DateTime.Now.Date.ToString("dd/MM/yyyy") + " " + from);
+        }
+
+        private static void SetDateAsOffDay(Doctor doctor, DateTime? selectedDate, DateTime start, DateTime end)
+        {
+            DateTime date = selectedDate.Value.Date;
+            if (doctor.WorkHours.AberrationExists(date))
+                UpdateExistingAberration(doctor, start.Date, end.Date, date);
+            else
+                AddNewAberrationToDoctor(doctor, start.Date, end.Date, date);
+            return;
+        }
+
+        private static void UpdateRegularWorkHours(Doctor doctor, DateTime start, DateTime end)
+        {
+            doctor.WorkHours.Start = start;
+            doctor.WorkHours.End = end;
+        }
+
+        private static void AddNewAberrationToDoctor(Doctor doctor, DateTime start, DateTime end, DateTime date)
+        {
+            var aberration = new WorkHourAberration(date, start, end);
+            doctor.WorkHours.Aberrations.Add(aberration);
+        }
+
+        private static void UpdateExistingAberration(Doctor doctor, DateTime start, DateTime end, DateTime date)
+        {
+            var aberration = doctor.WorkHours.GetAberrationByDate(date);
+            aberration.Start = start;
+            aberration.End = end;
+        }
+
         internal void RemoveVacation(Doctor doctor, Vacation selectedVacation)
         {
             doctor.Vacations.Remove(selectedVacation);
